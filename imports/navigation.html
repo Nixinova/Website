@@ -7,6 +7,8 @@
         .navigation a:hover  {background: #383838; transition: 0.5s;}
 
         .navigation ul li {margin-right: -0.5ex;}
+
+        i {display: none;}
     </style>
     <script>
         function toggle(id) {
@@ -114,4 +116,10 @@
     </div>
 
     <hr style="margin-top: 0;"/>
+
+    <script>
+        $(document).ready(function(){
+            $("i").css("display","inline");
+        },1000)
+    </script>
 </body>
