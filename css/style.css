@@ -1,6 +1,6 @@
 /* Imports */
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Varela+Round|Quicksand:700|Noto+Sans');
-@import url('fonts/fonts.css');
+@import url('/css/fonts/fonts.css');
 
 /* Elements */
 * {box-sizing: border-box; transition: 0.5s;}
@@ -8,12 +8,12 @@ body {font: normal 14px 'Montserrat'; color: #eee; margin: 0; line-height: 1.8; 
 nav {background: #222;}
 main {padding: 0 5vw;}
 code {font-size: 1.3rem;}
-key {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace}
+key {border: 1px solid #fff; background: #fff4; padding: 2px 3px; font-family: monospace}
 p {text-align: center; margin-left: 10px;}
 abbr {cursor: help;}
 img {max-width: 100%; vertical-align: middle; border: 0;}
 h1#site_heading {display: none !important;}
-h1, h2, h3 {color: #eee; font-family: 'Noto Sans'; font-weight: bold; margin: 0; text-align: center; width: 100%; text-transform: uppercase;}
+h1, h2, h3 {color: #eee; font: bold 'Noto Sans'; margin: 0; text-align: center; width: 100%; text-transform: uppercase;}
 h1 {font-size: 2.50rem;}
 h2 {font-size: 2.25rem;}
 h3 {font-size: 1.75rem;}
@@ -28,12 +28,14 @@ footer a:hover {color: #859fc0; text-decoration: none;}
 footer a:visited {color: #accaef;}
 
 @media (min-height: 700px) {
-    footer.align-bottom {position: fixed; bottom: 0; width: 100%;}
+    footer.bottom, footer.sticky {position: fixed; bottom: 0; width: 100%;}
 }
 
-@media (max-width: 800px) { main {padding: 0 10px;} }
+@media (max-width: 800px) {
+    main {padding: 0 10px;}
+}
 
-/** Links **/
+/* Links */
 a {text-decoration: none; cursor: pointer;}
 a:link, a:visited {color: #acf;}
 a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
