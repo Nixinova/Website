@@ -7,7 +7,7 @@ http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 /fonts/*            /css/fonts/:splat
 
 # Home
-/home               /
+/home               /   200
 
 # Resource packs
 /rp                 /minecraft/resource-packs
@@ -15,7 +15,6 @@ http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 /resource-packs     /minecraft/resource-packs
 
 # Maps
-/map/*              /minecraft/maps/:splat
 /maps/*             /minecraft/maps/:splat
 /downloads/*        /minecraft/maps/:splat
 /skywars            /minecraft/maps/skywars
@@ -33,4 +32,4 @@ http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 
 # Search
 /search q=*         /search#gsc.q=:splat&gsc.tab=0 200!
-/search/*           /search#gsc.q=:splat&gsc.tab=0 200!
+/search/*           /search#gsc.q=:splat&gsc.page=1&gsc.tab=0 200!
