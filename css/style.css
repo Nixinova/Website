@@ -35,8 +35,7 @@ footer a:visited {color: #accaef;}
 
 /** Links **/
 a {text-decoration: none; cursor: pointer;}
-a:link {color: #acf;}
-a:visited {color: #69f;}
+a:link, a:visited {color: #acf;}
 a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
 
 /* Flexboxes */
@@ -55,6 +54,7 @@ a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
     [width="70"] {width: 70%;}
     [width="75"] {width: 75%;}
     [width="80"] {width: 80%;}
+    [width="90"] {width: 90%;}
 }
 
 /* Tooltips */
@@ -83,6 +83,6 @@ a:hover button {background: royalblue; font-size: 21px;}
 
 /* Icons */
 i.fa {color: white;}
-.material-icons {font-size: 18px !important; display: inline !important;}
+.material-icons {font-size: 18px; display: inline;}
 
-/* Copyright © Nixinova 2018 */
+/* Copyright © Nixinova 2019 */
