@@ -32,5 +32,5 @@ http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 /minecraft          /info/minecraft
 
 # Search
-/search q=*         /search#gsc.tab=0&gsc.q=:splat 200!
-/search/*           /search#gsc.tab=0&gsc.q=:splat 200!
+/search q=*         /search#gsc.q=:splat
+/search/*           /search#gsc.q=:splat
