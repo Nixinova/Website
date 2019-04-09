@@ -30,3 +30,6 @@ http://nixinova.netlify.com    https://nixinova.netlify.com
 # Info
 /computer           /info/pc-specs
 /minecraft          /info/minecraft
+
+# Testing
+/redirect?url=* /:splat
