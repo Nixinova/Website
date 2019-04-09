@@ -25,7 +25,6 @@ http://nixinova.netlify.com    https://nixinova.netlify.com
 /tools/*            /minecraft/tools/:splat
 /give               /minecraft/tools/give
 /replaceitem        /minecraft/tools/replaceitem
-/report-bug         /minecraft/tools/report-bug
 
 # Info
 /computer           /info/pc-specs
