@@ -1,0 +1,12 @@
+/* Valken */
+@font-face {
+    font-family: 'Valken';
+    font-weight: 600;
+    src: local('Valken'), url('Valken.svg#Valken') format('svg');
+}
+
+/* Minecraft */
+@font-face {
+	font-family: 'Minecraft';
+	src: local('Minecraft'), url('minecraft.ttf') format('truetype');
+}

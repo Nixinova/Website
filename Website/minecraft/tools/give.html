@@ -1,0 +1,446 @@
+<html>
+<head>
+    <title>/give generator &ndash; Nixinova</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    <meta name="description" content="A generator for Minecraft 1.13 which creates /give commands for you.">
+    <meta name="keywords" content="nixinova,nixi,nova,nixynova,nixinova website,nixinova bitballoon,give,minecraft,give generator">
+    <meta name="author" content="Nixinova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="show_more.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="site_heading"><a href="/home">NIXINOVA</a></h1>
+        <nav></nav>
+        <script>$(document).ready(function(){$("nav").load("/imports/navigation.html");});</script>
+        <script src="give.js"></script>
+    </header>
+
+    <main class="sticky-footer">
+        <h2>/give</h2>
+        <p>Generates /give commands for Minecraft 1.13+.</p>
+        <script>document.ready('javascript:submit()')</script>
+        <form action="javascript:submit()" id="input_form">
+            <!-- target -->
+            <p onchange="submit()">
+                <span class="form-item" onblur="submit()">Target:</span>
+                    <select id="input_selector_target">
+                        <option value="@s">Yourself</option>
+                        <option value="@p">Nearest player</option>
+                        <option value="@r">Random player</option>
+                        <option value="@a">All players</option>
+                        <option value="--">Specific player</option>
+                    </select>
+                <a id="expand-target" class="elipsis" onclick="show_more('expand-target','target-content',false)"></a>
+            </p>
+            <!-- target (expanded content) -->
+            <div id="target-content" class="hide indent">
+                <p onblur="submit()">
+                    <span class="form-item">Coordinates:</span>
+                    <input type="number" step="any" placeholder="x" size="3" id="input_selector_x"> &nbsp;
+                    <input type="number" step="any" placeholder="y" size="3" id="input_selector_y"> &nbsp;
+                    <input type="number" step="any" placeholder="z" size="3" id="input_selector_z"><br/>
+
+                    <span class="form-item">Selection Area:</span>
+                    <select id="input_selection_area" onchange="submit()">
+                        <option>Radius</option>
+                        <option>Volume</option>
+                    </select> &nbsp;
+
+                    <span id="radius" onblur="submit()">
+                        <span>Distance:</span> &nbsp;
+                        <input type="number" step="any" placeholder="min" size="3" id="input_selector_dist_min"> &nbsp;
+                        <input type="number" step="any" placeholder="max" size="3" id="input_selector_dist_max"><br/>
+                    </span>
+
+                    <span id="volume" onblur="submit()">
+                        <span>Size:</span> &nbsp;
+                        <input type="number" step="any" placeholder="x" size="3" id="input_selector_vol_x"> &nbsp;
+                        <input type="number" step="any" placeholder="y" size="3" id="input_selector_vol_y"> &nbsp;
+                        <input type="number" step="any" placeholder="z" size="3" id="input_selector_vol_z"><br/>
+                    </span>
+                    
+                    <span class="form-item">Vertical Rotation:</span>
+                    <input type="number" step="any" placeholder="min" min="-90" max="90" size="3" id="input_selector_xrot_min"> &nbsp;
+                    <input type="number" step="any" placeholder="max" min="-90" max="90" size="3" id="input_selector_xrot_max"><br/>
+                    
+                    <span class="form-item">Horiz. Rotation:</span>
+                    <input type="number" step="any" placeholder="min" min="-180" max="179.9" size="3" id="input_selector_yrot_min"> &nbsp;
+                    <input type="number" step="any" placeholder="max" min="-180" max="179.9" size="3" id="input_selector_yrot_max"><br/>
+                    
+                    <span class="form-item">Limit:</span>
+                    <input type="number" size="8" id="input_selector_limit"><br/>
+                    
+                    <span class="form-item">Team:</span>
+                    <input type="text" size="8" id="input_selector_team"> &nbsp;
+                    <button class="off" id="input_selector_team_i" onclick="$(this).toggleClass('on').toggleClass('off')">Invert</button><br/>
+                    
+                    <span class="form-item">Tag:</span>
+                    <input type="text" size="8" id="input_selector_tag"> &nbsp;
+                    <button class="off" id="input_selector_tag_i" onclick="$(this).toggleClass('on').toggleClass('off')">Invert</button><br/>
+
+                    <span class="player_only">
+                        <span class="form-item">Gamemode:</span>
+                        <select id="input_selector_gm">
+                            <option>&nbsp;</option>
+                            <option value="0">Survival</option>
+                            <option value="1">Creative</option>
+                            <option value="2">Adventure</option>
+                            <option value="3">Spectator</option>
+                        </select> &nbsp;
+                        <button class="off" id="input_selector_gm_i" onclick="$(this).toggleClass('on').toggleClass('off')">Invert</button><br/>
+                    </span>
+
+                    <span class="player_only">
+                        <span class="form-item">XP Level:</span>
+                        <input type="number" placeholder="min" min="0" max="24790" size="3" id="input_selector_xp_min"> &nbsp;
+                        <input type="number" placeholder="max" min="0" max="24791" size="3" id="input_selector_xp_max"><br/>
+                    </span>
+                </p>
+                <script>
+                    var scores = new Array(undefined)
+                    var scores_min = new Array(undefined)
+                    var scores_max = new Array(undefined)
+                </script>
+                <p class="negative">
+                    <span class="form-item">Score:</span>
+                    <input type="text" placeholder="objective" size="10" id="input_selector_score_objective"> &ensp;
+                    <input type="number" placeholder="min" size="3" id="input_selector_score_min"> &nbsp;
+                    <input type="number" placeholder="max" size="3" id="input_selector_score_max">
+                    <a onblur="submit()" id="add-score" class="plus"></a>
+                </p>
+            </div>
+            <!-- target (username) -->
+            <p class="negative hide" id="select-username">
+                <span class="form-item">Username:</span>
+                <input type="text" onfocus="this.value=''" size="13" maxlength="16" id="input_selector_player">
+            </p>
+            <!-- item -->
+            <p onblur="submit()">
+                <span class="form-item">Item:</span>
+                <input type="text" value="stone" onfocus="this.value=''" onblur="submit()" size="13" id="input_item"><br/>
+                
+                <span class="hide" id="potion">
+                    <span class="form-item">Potion:</span> <input type="text" size="13" id="input_item_potion"><br/>
+                </span>
+
+                <span class="hide" id="skull">
+                    <span class="form-item">Player name:</span> <input type="text" size="13" id="input_item_skull"><br/>
+                </span>
+
+                <span class="form-item">Custom name:</span>
+                <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_item_name">  
+                <a id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
+                
+                <span id="preview" class="hide">
+                    &nbsp; Preview: &nbsp;
+                    <span id="preview-text" style="padding: 5px 10px; font-family: Minecraft; background-color: #100110e9; border: 3px solid #205e; border-radius: 5px;">
+                    </span>
+                </span>
+
+                <span id="cname-content" class="hide indent" style="display: block; margin-top: 0;">
+                    <span class="form-item">Colour:</span>
+                    <select id="input_item_colour" onchange="submit()">
+                        <option value="">White</option>
+                        <option>Aqua</option>
+                        <option>Black</option>
+                        <option>Blue</option>
+                        <option>Dark Aqua</option>
+                        <option>Dark Blue</option>
+                        <option>Dark Gray</option>
+                        <option>Dark Green</option>
+                        <option>Dark Purple</option>
+                        <option>Dark Red</option>
+                        <option>Gold</option>
+                        <option>Gray</option>
+                        <option>Green</option>
+                        <option>Light Purple</option>
+                        <option>Red</option>
+                        <option>Yellow</option>
+                    </select><br/>
+                    <span class="form-item">Styles:</span>
+                    <button id="input_item_b" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Bold</button> &nbsp;
+                    <button id="input_item_i" class="on" onclick="$(this).toggleClass('on').toggleClass('off')">Italic</button> &nbsp;
+                    <button id="input_item_u" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Underlined</button> &nbsp;
+                    <button id="input_item_s" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Strikethrough</button> &nbsp;
+                    <button id="input_item_o" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Obfuscated</button> &nbsp;
+                </span>
+            </p>
+            <!-- desc and ench -->
+            <script>
+                var lore = new Array(undefined)
+                var e = new Array(undefined)
+                var elvl = new Array(undefined)
+                var loreAdded = 0
+                var enchAdded = 0
+            </script>
+            <p class="negative">
+                <span class="form-item">Description:</span> <input type="text" onfocus="this.value=''" size="13" id="input_item_lore">
+                <a onblur="submit()" id="add-lore" class="plus"></a><br/>
+
+                <span class="form-item">Enchantments:</span>
+                <select id="input_item_ench" onchange="submit()">
+                    <option></option>
+                    <option>Aqua Affinity</option>
+                    <option>Bane of Arthropods</option>
+                    <option>Blast Protection </option>
+                    <option>Channeling </option>
+                    <option>Curse of Binding </option>
+                    <option>Curse of Vanishing </option>
+                    <option>Depth Strider</option>
+                    <option>Efficiency</option>
+                    <option>Feather Falling</option>
+                    <option>Fire Aspect</option>
+                    <option>Fire Protection</option>
+                    <option>Flame</option>
+                    <option>Fortune</option>
+                    <option>Frost Walker</option>
+                    <option>Impaling</option>
+                    <option>Infinity</option>
+                    <option>Knockback</option>
+                    <option>Looting</option>
+                    <option>Loyalty</option>
+                    <option>Luck of the Sea</option>
+                    <option>Lure</option>
+                    <option>Mending</option>
+                    <option>Multishot</option>
+                    <option>Piercing</option>
+                    <option>Power</option>
+                    <option>Projectile Protection</option>
+                    <option>Protection</option>
+                    <option>Punch</option>
+                    <option>Quick Charge</option>
+                    <option>Respiration</option>
+                    <option>Riptide</option>
+                    <option>Sharpness</option>
+                    <option>Silk Touch</option>
+                    <option>Smite</option>
+                    <option>Sweeping Edge</option>
+                    <option>Thorns</option>
+                    <option>Unbreaking</option>
+                </select> &nbsp;
+                Level: <input class="lvl" type="number" value="1" min="1" max="32737" id="input_item_ench_lvl" onchange="submit()">
+            </p>
+            <!-- other -->
+            <script>
+                var CanDestroy = new Array(undefined)
+                var CanPlaceOn = new Array(undefined)
+            </script>
+            <p class="negative">
+                <span class="tool">
+                    <span class="form-item">Durability:</span>
+                    <input type="number" id="input_item_durability"> &nbsp;
+                    <button id="input_item_unbreakable" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Unbreakable</button><br/>
+                </span>
+
+                <span class="form-item">Can destroy:</span>
+                Block: <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_item_destroy"> &nbsp;
+                Group: <select id="input_item_destroy_tags" onblur="submit()">
+                    <option value=" "></option>
+                    <option>Acacia Logs</option>
+                    <option value="Anvil">Anvils</option>
+                    <option>Banners</option>
+                    <option>Beds</option>
+                    <option value="Bamboo Plantable On">Bamboo Plantable</option>
+                    <option>Birch Logs</option>
+                    <option>Buttons</option>
+                    <option>Carpets</option>
+                    <option>Coral Blocks</option>
+                    <option>Coral Planks</option>
+                    <option>Corals</option>
+                    <option>Dark Oak Logs</option>
+                    <option value="Dirt Like">Dirt-like</option>
+                    <option>Doors</option>
+                    <option value="Enderman Holdable">Enderman Holdable Blocks</option>
+                    <option>Fences</option>
+                    <option>Flower Pots</option>
+                    <option value="Impermeable">Glass</option>
+                    <option value="Valid Spawn">Grasses</option>
+                    <option>Ice</option>
+                    <option>Jungle Logs</option>
+                    <option>Leaves</option>
+                    <option>Logs</option>
+                    <option>Oak Logs</option>
+                    <option>Planks</option>
+                    <option>Rails</option>
+                    <option>Sand</option>
+                    <option>Saplings</option>
+                    <option>Slabs</option>
+                    <option>Small Flowers</option>
+                    <option>Spruce Logs</option>
+                    <option>Stairs</option>
+                    <option>Standing Signs</option>
+                    <option>Stone Bricks</option>
+                    <option>Wall Corals</option>
+                    <option>Wall Signs</option>
+                    <option>Walls</option>
+                    <option>Wooden Buttons</option>
+                    <option>Wooden Doors</option>
+                    <option>Wooden Fences</option>
+                    <option>Wooden Pressure Plates</option>
+                    <option>Wooden Slabs</option>
+                    <option>Wooden Stairs</option>
+                    <option>Wooden Trapdoors</option>
+                    <option value="wool">Wools</option>
+                </select>
+                <a id="add-can-break" class="plus" onclick="submit()"></a><br/>
+                
+                <span class="form-item">Can place on:</span>
+                Block: <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_item_place_on"> &nbsp;
+                Group: <select id="input_item_place_on_tags" onblur="submit()">
+                    <option value=" "></option>
+                    <option>Acacia Logs</option>
+                    <option value="Anvil">Anvils</option>
+                    <option>Banners</option>
+                    <option>Beds</option>
+                    <option value="Bamboo Plantable On">Bamboo Plantable</option>
+                    <option>Birch Logs</option>
+                    <option>Buttons</option>
+                    <option>Carpets</option>
+                    <option>Coral Blocks</option>
+                    <option>Coral Planks</option>
+                    <option>Corals</option>
+                    <option>Dark Oak Logs</option>
+                    <option value="Dirt Like">Dirt-like</option>
+                    <option>Doors</option>
+                    <option value="Enderman Holdable">Enderman Holdable Blocks</option>
+                    <option>Fences</option>
+                    <option>Flower Pots</option>
+                    <option value="Impermeable">Glass</option>
+                    <option value="Valid Spawn">Grasses</option>
+                    <option>Ice</option>
+                    <option>Jungle Logs</option>
+                    <option>Leaves</option>
+                    <option>Logs</option>
+                    <option>Oak Logs</option>
+                    <option>Planks</option>
+                    <option>Rails</option>
+                    <option>Sand</option>
+                    <option>Saplings</option>
+                    <option>Slabs</option>
+                    <option>Small Flowers</option>
+                    <option>Spruce Logs</option>
+                    <option>Stairs</option>
+                    <option>Standing Signs</option>
+                    <option>Stone Bricks</option>
+                    <option>Wall Corals</option>
+                    <option>Wall Signs</option>
+                    <option>Walls</option>
+                    <option>Wooden Buttons</option>
+                    <option>Wooden Doors</option>
+                    <option>Wooden Fences</option>
+                    <option>Wooden Pressure Plates</option>
+                    <option>Wooden Slabs</option>
+                    <option>Wooden Stairs</option>
+                    <option>Wooden Trapdoors</option>
+                    <option value="wool">Wools</option>
+                </select>
+                <a id="add-can-place-on" class="plus" onclick="submit()"></a><br/>
+
+                <script>
+                    function uuid() {
+                        return Math.floor(Math.random() * 99999)
+                    }
+                    var modifiers = []
+                    var uuids = {
+                        'attackDamage': [uuid(), uuid()],
+                        'armor': [uuid(), uuid()],
+                        'armorToughness': [uuid(), uuid()],
+                        'attackSpeed': [uuid(), uuid()],
+                        'followRange': [uuid(), uuid()],
+                        'knockbackResistance': [uuid(), uuid()],
+                        'luck': [uuid(), uuid()],
+                        'maxHealth': [uuid(), uuid()],
+                        'movementSpeed': [uuid(), uuid()]
+                    }
+                    var Attributes = {Names:[],Values:[]}
+                </script>
+
+                <span id="modifiers">
+                    <span class="form-item">Modifiers:</span> &nbsp;
+                    Attribute: 
+                    <select id="input_item_mod" onchange="submit()">
+                        <option></option>
+                        <option value="attackDamage">Attack Damage</option>
+                        <option value="armor">Armour Defense</option>
+                        <option value="armorToughness">Armour Toughness</option>
+                        <option value="attackSpeed">Attack Speed</option>
+                        <option value="followRange">Follow Range</option>
+                        <option value="knockbackResistance">Knockback Resistance</option>
+                        <option value="luck">Luck</option>
+                        <option value="maxHealth">Max Health</option>
+                        <option value="movementSpeed">Movement Speed</option>
+                    </select>
+                    Amount:
+                    <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
+                    <a id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a><br/>
+                </span>
+
+                <span id="mods-content" class="hide indent">
+                    Operation: 
+                    <select id="input_item_mod_operation" onchange="submit()">
+                        <option value="0">Add</option>
+                        <option value="1">Add Percent</option>
+                        <option value="2">Multiply</option>
+                    </select> &nbsp;
+                    Slot:
+                    <select id="input_item_mod_slot" onchange="submit()">
+                        <option value="">Any</option>
+                        <option>Main Hand</option>
+                        <option>Off Hand</option>
+                        <option>Head</option>
+                        <option>Chest</option>
+                        <option>Legs</option>
+                        <option>Feet</option>
+                    </select> &nbsp;
+                    Modifier IDs:
+                    <input type="number" id="input_item_mod_uuid_least" min="1" onchange="submit()">
+                    <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()">
+                </span>
+            </p>
+            <p>
+                <span class="form-item">Show attributes:</span>
+                <span id="hideflags" onchange="submit()">
+                    <button id="ench" class="on" onclick="$(this).toggleClass('on').toggleClass('off')">Enchantments</button> &nbsp;
+                    <button id="mods" class="on" onclick="$(this).toggleClass('on').toggleClass('off')">Modifiers   </button> &nbsp;
+                    <button id="unbr" class="on" onclick="$(this).toggleClass('on').toggleClass('off')">Unbreakable </button> &nbsp;
+                    <button id="dstr" class="on" onclick="$(this).toggleClass('on').toggleClass('off')">CanDestroy  </button> &nbsp;
+                    <button id="plon" class="on" onclick="$(this).toggleClass('on').toggleClass('off')">CanPlaceOn  </button> &nbsp;
+                    <button id="othr" class="on" onclick="$(this).toggleClass('on').toggleClass('off')">Other       </button> &nbsp;
+                </span>
+            </p>
+            <!-- count -->
+            <p>
+                Amount: <input type="number" value="1" min="1" id="input_count">
+            </p>
+        </form>
+        
+        <h3 class="section_heading" onmouseover="submit()">Output</h3>
+        <div id="cmd_note" class="hide">
+            <p style="margin-left: 2em">
+                <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
+                <span class="command">
+                    <span style="color: lightgray">/give</span>
+                    <span style="color: #5ff">@s</span>
+                    <span style="color: #ff5">minecraft:command_block</span>
+                    <span style="color: lightgreen">1</span>
+                </span>
+            </p>
+        </div>
+        <div id="output_text" class="command"></div>
+        <p style="text-align: center;">
+            <button onclick="submit()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
+        </p>
+        <script>$(document).ready(function(){submit()});</script>
+    </main>
+
+    <footer class="sticky">
+        <span id="copyright"></span>
+        •&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>
+        •&nbsp;<a href="/report-bug" title="Report a bug or issue with this generator" target="_blank">Report bug</a>
+    </footer>
+    <script>$("#copyright").load("/imports/footer")</script>
+</body>
+</html>
