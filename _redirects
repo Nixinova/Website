@@ -10,7 +10,6 @@ http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 /home               /   200
 
 # Resource packs
-/rp                 /minecraft/resource-packs
 /resourcepacks      /minecraft/resource-packs
 /resource-packs     /minecraft/resource-packs
 
@@ -31,5 +30,5 @@ http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 /minecraft          /info/minecraft
 
 # Search
-/search q=*         /search#gsc.q=:splat&gsc.tab=0 200!
+/search q=*         /search#gsc.q=:splat&gsc.tab=0
 /search/*           /search#gsc.q=:splat&gsc.page=1&gsc.tab=0
