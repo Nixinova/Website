@@ -23,7 +23,7 @@ main.sticky-footer {margin-bottom: 70px;}
 footer {text-align: center; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff;}
 footer.bottom, footer.sticky {position: fixed; bottom: 0; width: 100%;}
 footer a {text-decoration: underline;}
-footer a:link {color: #accaef;}
+footer a:link, footer a:visited {color: #accaef;}
 footer a:hover {color: #859fc0; text-decoration: none;}
 
 @media (min-height: 700px) {
@@ -34,7 +34,7 @@ footer a:hover {color: #859fc0; text-decoration: none;}
 
 /* Links */
 a {text-decoration: none; cursor: pointer;}
-a:link {color: #acf;}
+a:link, a:visited {color: #acf;}
 a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
 
 /* Flexboxes */
