@@ -1,4 +1,5 @@
-http://nixinova.netlify.com    https://nixinova.netlify.com
+http://nixinova.netlify.com    https://nixinova.netlify.com         301!
+http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 
 # Styles
 /style.css          /css/style.css
