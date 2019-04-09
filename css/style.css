@@ -4,19 +4,20 @@
 
 /* Elements */
 * {box-sizing: border-box; transition: 0.5s;}
-body {font: normal 14px 'Montserrat'; line-height: 1.8; color: #eee; margin: 0; background: linear-gradient(#222, #444);}
+body {font: normal 14px 'Montserrat'; color: #eee; margin: 0; line-height: 1.8; background: linear-gradient(#222, #444);}
 nav {background: #222;}
 main {padding: 0 5vw;}
 code {font-size: 1.3rem;}
-key {border: 1px solid #fff; background: #fff4; padding: 2px 3px; font-family: monospace}
+key {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace}
 p {text-align: center; margin-left: 10px;}
 abbr {cursor: help;}
 img {max-width: 100%; vertical-align: middle; border: 0;}
-h1, h2, h3 {color: #eee; font: bold 'Noto Sans'; margin: 0; text-align: center; width: 100%; text-transform: uppercase;}
+h1#site_heading {display: none !important;}
+h1, h2, h3 {color: #eee; font-family: 'Noto Sans'; font-weight: bold; margin: 0; text-align: center; width: 100%; text-transform: uppercase;}
 h1 {font-size: 2.50rem;}
 h2 {font-size: 2.25rem;}
 h3 {font-size: 1.75rem;}
-h4 {font: bold 14px; text-align: center; margin-top: 1em; margin-bottom: -1em;}
+h4 {font-size: 14px; font-weight: bold; text-align: center; margin-top: 1em; margin-bottom: -1em;}
 
 main.sticky-footer {margin-bottom: 70px;}
 footer {text-align: center; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff;}
@@ -26,16 +27,14 @@ footer a:link {color: #accaef;}
 footer a:hover {color: #859fc0; text-decoration: none;}
 
 @media (min-height: 700px) {
-    footer.bottom, footer.sticky {position: fixed; bottom: 0; width: 100%;}
+    footer.align-bottom {position: fixed; bottom: 0; width: 100%;}
 }
 
-@media (max-width: 800px) {
-    main {padding: 0 10px;}
-}
+@media (max-width: 800px) { main {padding: 0 10px;} }
 
 /* Links */
 a {text-decoration: none; cursor: pointer;}
-a:link, a:visited {color: #acf;}
+a:link {color: #acf;}
 a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
 
 /* Flexboxes */
@@ -66,7 +65,7 @@ a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
 }
 .tooltip .tooltiptext::after {
     content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px;
-    border: 5px solid #666 transparent transparent transparent;
+    border-width: 5px; border-style: solid; border-color: #666 transparent transparent transparent;
 }
 .tooltip:hover .tooltiptext {visibility: visible; opacity: 1;}
 
