@@ -32,4 +32,4 @@ http://nixinova.netlify.com    https://nixinova.netlify.com
 /minecraft          /info/minecraft
 
 # Testing
-/redirect?url=* /:splat
+/redirect url=* /:splat
