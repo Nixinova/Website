@@ -84,6 +84,6 @@ a:hover button {background: royalblue; font-size: 21px;}
 
 /* Icons */
 i.fa {color: white;}
-.material-icons {font-size: 18px; display: inline;}
+.material-icons {font-size: 18px !important; display: inline !important;}
 
 /* Copyright © Nixinova 2019 */
