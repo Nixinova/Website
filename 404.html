@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <title>Page Not Found – Nixinova</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="author" content="Nixinova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body>
+    <header>
+        <nav></nav>
+        <script>$('nav').load('/imports/navigation')</script>
+    </header>
+
+    <main onmouseover="hideNavs()">
+        <h2>Error 404: Page Not Found</h2>
+        <p>
+            The file you are looking for cannot be found.<br/>
+            Click <a href="/home" title="Home">here</a> to go back to the home page.
+        </p>
+        <div id="wb404"></div>
+        <script src="https://archive.org/web/wb404.js"></script>
+    </main>
+    
+    <footer class="bottom"></footer>
+    <script>$("footer").load("imports/footer")</script>
+</body>
+</html>

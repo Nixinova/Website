@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title>Minecraft Coordinate Tools &ndash; Nixinova</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/tools.css">
+    <meta name="description" content="A generator for Minecraft 1.13 which creates /coordinates commands for you.">
+    <meta name="keywords" content="nixinova,nixi,nova,nixynova,nixinova website,nixinova bitballoon,coordinates,minecraft,coordinates generator">
+    <meta name="author" content="Nixinova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="show_more.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="site_heading"><a href="/home">NIXINOVA</a></h1>
+        <nav></nav>
+        <script>$(document).ready(function(){$("nav").load("/imports/navigation.html");});</script>
+        <script src="coordinates.js"></script>
+    </header>
+
+    <main>
+        <h2 class="upper">Coordinate Tools</h2>
+        <p>Translates overworld coordinates into nether, chunk and region coordinates.</p>
+        <script>document.ready('javascript:submit()')</script>
+        <form action="javascript:submit()" id="input_form">
+            <div>
+                <p>
+                    <span class="form-item-L">Block coordinates</span>
+                    X <input type="number" id="block_x" value="0" onblur="submit()" onclick="this.value=''"> &nbsp;
+                    Y <input type="number" id="block_y" value="0" onblur="submit()" onclick="this.value=''" min="0" max="255"> &nbsp;
+                    Z <input type="number" id="block_z" value="0" onblur="submit()" onclick="this.value=''"> &nbsp;
+                    <button onclick="copyBlock()">Copy</button>
+                </p>
+            </div>
+            <hr/>
+            <div>
+                <p>
+                    <span class="form-item-L">Nether coordinates</span>
+                    X <input type="number" id="nether_x" value="0" readonly> &nbsp;
+                    Y <input type="number" id="nether_y" value="0" readonly> &nbsp;
+                    Z <input type="number" id="nether_z" value="0" readonly> &nbsp;
+                    <button onclick="copyNether()">Copy</button><br/>
+
+                    <span class="form-item-L">Chunk coordinates</span>
+                    X <input type="number" id="chunk_x" value="0" readonly> &nbsp;
+                    Y <input type="number" id="chunk_y" value="0" readonly> &nbsp;
+                    Z <input type="number" id="chunk_z" value="0" readonly> &nbsp;
+                    <button onclick="copyChunk()">Copy</button><br/>
+
+                    <span class="form-item-L">Region file name</span>
+                    <code>
+                        r.<span style='margin-left: -1ex'></span>
+                        <input type="number" id="region_x" value="0" readonly>.<span style='margin-left: -1ex'></span>
+                        <input type="number" id="region_z" value="0" readonly>.mca
+                    </code>
+                </p>
+            </div>
+        <!--<div>
+                <p onblur="submit()">
+                    <span class="form-item-L">Region file name</span>
+                    <code>
+                        r.<input type="number" id="region_x" value=0>.<input type="number" id="region_z" value=0>.mca
+                    </code>
+                    <br>
+                    This region contains chunks
+                    (<span id="region_x_min_chunk"></span>,<span id="region_y_min_chunk"></span>,<span id="region_z_min_chunk"></span>)
+                    to
+                    (<span id="region_x_max_chunk"></span>,<span id="region_y_max_chunk"></span>,<span id="region_z_max_chunk"></span>).
+                    <br>
+                    This region contains blocks
+                    (<span id="region_x_min_block"></span>,<span id="region_y_min_block"></span>,<span id="region_z_min_block"></span>)
+                    to
+                    (<span id="region_x_max_block"></span>,<span id="region_y_max_block"></span>,<span id="region_z_max_block"></span>).
+                </p>
+            </div>
+         -->
+        </form>
+        <script>$(document).ready(function(){submit()});</script>
+    </main>
+
+    <footer class="bottom">
+        <span id="copyright"></span>
+        •&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>
+        •&nbsp;<a href="/report-bug" title="Report a bug or issue with this generator" target="_blank">Report bug</a>
+    </footer>
+    <script>$("#copyright").load("/imports/footer")</script>
+</body>
+</html>

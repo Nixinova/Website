@@ -1,0 +1,117 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
+        .navigation li {display: inline-block; padding: 0;}
+        .navigation a {display: inline-block; padding: 15px 30px; margin-right: 0px; text-decoration: none; color: #FFF; border-radius: 5px;}
+        .navigation a:hover  {background: #383838; transition: 0.5s;}
+
+        .navigation ul li {margin-right: -0.5ex;}
+    </style>
+    <script>
+        function toggle(id) {
+            document.getElementById(id + '_nav').classList.toggle("hide");
+            if (document.getElementById(id + '-dropdown').innerHTML == "arrow_drop_down") {
+                document.getElementById(id + '-dropdown').innerHTML = "arrow_drop_up";
+            }
+            else {
+                document.getElementById(id + '-dropdown').innerHTML = "arrow_drop_down";
+            }
+        }
+
+        function hideElement(id) {
+            document.getElementById(id + '_nav').classList.add('hide')
+            document.getElementById(id + '-dropdown').innerHTML = "arrow_drop_down";
+        }
+        
+        function hide(id1, id2, id3, id4) {
+            hideElement(id1);
+            if (id2) {hideElement(id2);}
+            if (id3) {hideElement(id3);}
+            if (id4) {hideElement(id4);}
+        }
+    </script>
+</head>
+<body>
+    <!-- navigation -->
+    <div id="primary" class="navigation">
+        <ul class="nav-list">
+            <li id="nav-home"><a href="/">Home</a></li>
+            <li id="nav-mc">
+                <a onclick="hide('nixi'); toggle('mc');" onmouseover="">Minecraft
+                    <sub><i id="mc-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                </a>
+            </li><!--
+            <li id="nav-mineo">
+                <a onclick="hide('mc', 'nixi'); toggle('mineo');" onmouseover="">Mineo
+                    <sub><i id="mineo-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                </a>
+            </li>
+            <li id="nav-lifeless">
+                <a onclick="hide('mc', 'mineo', 'nixi'); toggle('lifeless');" onmouseover="">Lifeless
+                    <sub><i id="lifeless-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                </a>
+            </li>-->
+            <li id="nav-nixi">
+                <a onclick="hide('mc'); toggle('nixi');" onmouseover="">Nixinova
+                    <sub><i id="nixi-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                </a>
+            </li>
+            <li id="nav-search"><a href="/search#gsc.q="><sub><i class="material-icons">search</i></sub></a></li>
+        </ul>
+    </div>
+
+    <div id="mc_nav" class="navigation secondary hide">
+        <ul class="nav-list">
+            <li id="mcnav-maps">
+                <a onclick="hide('tool', 'nixi'); toggle('dl');" onmouseover="">Maps
+                    <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                </a>
+            </li>
+            <li id="mcnav-tools">
+                <a onclick="hide('dl', 'nixi'); toggle('tool');" onmouseover="">Tools
+                    <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                </a>
+            </li>
+            <li id="mcnav-rp"><a href="/minecraft/resource-packs">Resource Packs</a></li>
+        </ul>
+
+        <div id="mc_sub_nav">
+            <div id="dl_nav" class="navigation tertiary hide">
+                <ul class="nav-list">
+                    <li id="dlnav-sw"><a href="/minecraft/maps/skywars">SkyWars</a></li>
+                    <li id="dlnav-mb"><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
+                    <li id="dlnav-pvp"><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
+                </ul>
+            </div>
+            <div id="tool_nav" class="navigation tertiary hide">
+                <ul class="nav-list">
+                    <li id="toolnav-give"><a href="/minecraft/tools/give">/give</a></li>
+                    <li id="toolnav-summon"><a href="/minecraft/tools/summon">/summon</a></li>
+                    <li id="toolnav-coords"><a href="/minecraft/tools/coordinates">Coordinates</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="mineo_nav" class="navigation secondary hide">
+        <ul class="nav-list">
+            <li id="mineonav-play"><a href="/mineo/">About</a></li>
+            <li id="mineonav-vh"><a href="/mineo/versions">Version history</a></li>
+        </ul>
+    </div>
+    <div id="lifeless_nav" class="navigation secondary hide">
+        <ul class="nav-list">
+            <!--<li id="lifelessnav-play"><a href="/lifeless/">About</a></li>-->
+            <li id="lifelessnav-vh"><a href="/lifeless/versions">Version history</a></li>
+        </ul>
+    </div>
+    <div id="nixi_nav" class="navigation tertiary hide">
+        <ul class="nav-list">
+            <li id="nixinav-mc"><a href="/info/minecraft">Minecraft Info</a></li>
+            <li id="nixinav-pc"><a href="/info/pc-specs">Computer Specs</a></li>
+        </ul>
+    </div>
+
+    <hr style="margin-top: 0;"/>
+</body>

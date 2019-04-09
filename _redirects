@@ -1,0 +1,30 @@
+http://nixinova.netlify.com    https://nixinova.netlify.com
+
+/style.css          /css/style.css
+/*/style.css        /css/style.css
+/fonts/*            /css/fonts/:splat
+
+/home               /       200
+/tk                 /
+
+/rp                 /minecraft/resource-packs
+/resourcepacks      /minecraft/resource-packs
+/resource-packs     /minecraft/resource-packs
+
+/map/*              /minecraft/maps/:splat
+/maps/*             /minecraft/maps/:splat
+/downloads/*        /minecraft/maps/:splat
+
+/skywars            /minecraft/maps/skywars
+/musical-blocks     /minecraft/maps/musical-blocks
+/kitpvp             /minecraft/maps/kitpvp
+
+/tools/*            /minecraft/tools/:splat
+/give               /minecraft/tools/give
+/replaceitem        /minecraft/tools/replaceitem
+/report-bug         /minecraft/tools/report-bug
+
+/computer           /info/pc-specs
+/minecraft          /info/minecraft
+
+/imports            /imports/navigation
