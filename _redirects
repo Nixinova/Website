@@ -5,7 +5,6 @@ http://nixinova.netlify.com    https://nixinova.netlify.com
 /fonts/*            /css/fonts/:splat
 
 /home               /       200
-/tk                 /
 
 /rp                 /minecraft/resource-packs
 /resourcepacks      /minecraft/resource-packs
