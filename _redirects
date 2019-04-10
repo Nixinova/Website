@@ -8,6 +8,7 @@ http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 
 # Home
 /home               /   200
+/tk / #Depracated
 
 # Resource packs
 /resourcepacks      /minecraft/resource-packs
