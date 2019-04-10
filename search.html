@@ -14,6 +14,17 @@
         input#gsc-i-id1 {padding: 5px; margin: -2px 0 0 -5px;}
         .gscb_a {padding: 0; display: inline;}
         div.gsq_a td span b {color: black;}
+
+
+        #search-area {border-radius: 1em; border-color: #fff; background-color: #eee; font-family: arial, sans-serif; padding: 1em; width: auto;}
+        #search-form {margin-block-end: 0;}
+        #search-query {width: 100%; padding: 5px; border: none; margin: 0px; height: auto; outline: none; border: 1px solid #C9C9C9;    font-family: Arial,sans-serif;
+    font-size: 16px;}
+        #search-button { /*cleanup*/
+            background-image: none; filter: none; font-size: 0px; padding: 6px 27px; width: auto; vertical-align: middle; border: 1px solid #666666; border-color: #3079ed; background-color: #4d90fe;
+            background: dodgerblue; color: white; padding: 12px 30px; cursor: pointer; font-size: 20px; border: none; border-radius: 0.5em; transition: 0.25s;
+        }
+        svg#search-icon {fill: white;}
     </style>
 </head>
 <body>
@@ -24,8 +35,8 @@
     
     <script>
         function search() {
-            let query = document.getElementById('form--search_query').value
-            const url = 'https://nixinova.netlify.com/search_form#gsc.tab=0&amp;gsc.q=' + query + '&amp;gsc.page=1'
+            let query = document.getElementById('search-query').value
+            const url = 'https://nixinova.netlify.com/search-query#gsc.tab=0&amp;gsc.q=' + query + '&amp;gsc.page=1'
             const style = 'position:fixed; top:0px; left:0px; width:100%; height:100%; z-index: 99;'
             const iframe = '<iframe src="' + url + '" style="' + style + '"></iframe>'
             
@@ -34,14 +45,30 @@
     </script>
 
     <main class="sticky-footer" style="padding: 0 10vw;">
-        <form action="#">
-            <div>
-                Query:
-                <input id="form--search_query" type="text">
-                
-                <button onclick="search()">
-            </div>
-        </form>
+        <h2>Search this website</h2>
+
+        <div id="search-area">
+            <form action="#" id="search-form">
+                <table width="100%">
+                    <tbody>
+                        <tr width="100%">
+                            <td style="padding-right: 12px;" width="95%">
+                                <input id="search-query" type="text">
+                            </td>
+                            <td>
+                                <button onclick="search()" id="search-button">
+                                    <svg id="search-icon" width="13" height="13" viewBox="0 0 13 13">
+                                        <title>search</title>
+                                        <path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </form>
+        </div>
     </main>
 
     <footer class="bottom"></footer>
