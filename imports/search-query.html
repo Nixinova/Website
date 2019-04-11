@@ -1,19 +1,31 @@
-<link rel="stylesheet" href="/css/style.css">
-<div id="search">
-    <h2>Search this website</h2>
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <style name="Search bar modifications">
+        div.gsc-thumbnail-inside>div.gs-title {font-size: 18px !important;}
+        div.gsc-control-cse {border-radius: 1em;}
+        a.gs-title {font-family: 'Montserrat';}
+        input#gsc-i-id1 {padding: 5px; margin: -2px 0 0 -5px;}
+        .gscb_a {padding: 0; display: inline;}
+        div.gsq_a td span b {color: black;}
+    </style>
+</head>
+<body>
+    <div id="search">
+        <h2>Search this website</h2>
+        <script>
+            (function() {
+                var cx = '017611964381392802268:0-ums2t3emi';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </div>
     <script>
-        (function() {
-            var cx = '017611964381392802268:0-ums2t3emi';
-            var gcse = document.createElement('script');
-            gcse.type = 'text/javascript';
-            gcse.async = true;
-            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(gcse, s);
-        })();
+        document.ready(function(){$("#gsc-i-id1").attr("placeholder","Search...")})
     </script>
-    <gcse:search></gcse:search>
-</div>
-<script>
-    document.ready(function(){$("#gsc-i-id1").attr("placeholder","Search...")})
-</script>
+</body>
