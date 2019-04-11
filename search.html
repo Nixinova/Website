@@ -7,6 +7,14 @@
     <meta name="keywords" content="nixinova,nixi,nova,nixinova website,nixinova search">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style name="Search bar modifications">
+        div.gsc-thumbnail-inside>div.gs-title {font-size: 18px !important;}
+        div.gsc-control-cse {border-radius: 1em;}
+        a.gs-title {font-family: 'Montserrat';}
+        input#gsc-i-id1 {padding: 5px; margin: -2px 0 0 -5px;}
+        .gscb_a {padding: 0; display: inline;}
+        div.gsq_a td span b {color: black;}
+    </style>
 </head>
 <body>
     <header style="background-color: #333;">
@@ -15,7 +23,28 @@
     </header>
     
     <main class="sticky-footer" style="padding: 0;">
-        <iframe src="/imports/search-query" style="width:100%; height:100%; z-index: 99; border: none; margin-top: -5px;"></iframe>
+        <!--<iframe src="/imports/search-query" style="width:100%; height:100%; z-index: 99; border: none; margin-top: -5px;"></iframe>-->
+        <link rel="stylesheet" href="/css/style.css">
+
+        <div id="search" style="padding: 0 5em;">
+            <h2>Search this website</h2>
+            <script>
+                (function() {
+                    var cx = '017611964381392802268:0-ums2t3emi';
+                    var gcse = document.createElement('script');
+                    gcse.type = 'text/javascript';
+                    gcse.async = true;
+                    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(gcse, s);
+                })();
+            </script>
+            <gcse:search></gcse:search>
+        </div>
+        <script>
+            document.ready(function(){$("#gsc-i-id1").attr("placeholder","Search...")})
+        </script>
+
     </main>
 
     <footer class="sticky"></footer>
