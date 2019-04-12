@@ -1,36 +1,35 @@
 /* Imports */
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Varela+Round|Quicksand:700|Noto+Sans');
-@import url('/css/fonts/fonts.css');
+@import url('fonts/fonts.css');
 
 /* Elements */
 * {box-sizing: border-box; transition: 0.5s;}
+html {height: 100vh; width: 100vw;}
 body {font: normal 14px 'Montserrat'; color: #eee; margin: 0; line-height: 1.8; background: linear-gradient(#222, #444);}
 nav {background: #222;}
 main {padding: 0 5vw;}
+p {text-align: center; margin-left: 10px;}
 code {font-size: 1.3rem;}
 key {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace}
-p {text-align: center; margin-left: 10px;}
 abbr {cursor: help;}
 img {max-width: 100%; vertical-align: middle; border: 0;}
-h1#site_heading {display: none !important;}
 h1, h2, h3 {color: #eee; font-family: 'Noto Sans'; font-weight: bold; margin: 0; text-align: center; width: 100%; text-transform: uppercase;}
 h1 {font-size: 2.50rem;}
 h2 {font-size: 2.25rem;}
 h3 {font-size: 1.75rem;}
 h4 {font-size: 14px; font-weight: bold; text-align: center; margin-top: 1em; margin-bottom: -1em;}
 
+@media (max-width: 800px) {
+    main {padding: 0 10px;}
+}
+
+/* Footer */
 main.sticky-footer {margin-bottom: 70px;}
 footer {text-align: center; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff;}
 footer.bottom, footer.sticky {position: fixed; bottom: 0; width: 100%;}
 footer a {text-decoration: underline;}
 footer a:link, footer a:visited {color: #accaef;}
 footer a:hover {color: #859fc0; text-decoration: none;}
-
-@media (min-height: 700px) {
-    footer.align-bottom {position: fixed; bottom: 0; width: 100%;}
-}
-
-@media (max-width: 800px) { main {padding: 0 10px;} }
 
 /* Links */
 a {text-decoration: none; cursor: pointer;}
