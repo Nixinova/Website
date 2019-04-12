@@ -4,8 +4,7 @@
 
 /* Elements */
 * {box-sizing: border-box; transition: 0.5s;}
-html {height: 100%; width: 100%;} /*firefox*/
-body {font: normal 14px 'Montserrat'; color: #eee; margin: 0; line-height: 1.8; background: linear-gradient(#222, #444);}
+body {font: normal 14px 'Montserrat'; color: #eee; margin: 0; line-height: 1.8; background: linear-gradient(#222, #444); height: 100%; width: 100%;}
 nav {background: #222;}
 main {padding: 0 5vw;}
 p {text-align: center; margin-left: 10px;}
