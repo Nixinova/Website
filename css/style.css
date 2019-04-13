@@ -56,6 +56,9 @@ a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
     [width="90"] {width: 90%;}
 }
 
+/* Lists */
+ul.plain {list-style-type: none; text-align: center;}
+
 /* Tooltips */
 .tooltip {position: relative; display: inline-block;}
 .tooltip .tooltiptext {
