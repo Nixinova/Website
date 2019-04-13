@@ -4,6 +4,9 @@ http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 # Branches
 https://nixinova.netlify.com/snapshot/*  https://snapshot--nixinova.com/:splat
 
+# External links
+/github/issues      https://github.com/Nixinova/website/issues
+
 # Styles
 /style.css          /css/style.css
 /*/style.css        /css/style.css
