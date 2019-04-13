@@ -1,6 +1,9 @@
 http://nixinova.netlify.com    https://nixinova.netlify.com         301!
 http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 
+# Branches
+/snapshot/*         https://snapshot--nixinova.com/:splat           200!
+
 # Styles
 /style.css          /css/style.css
 /*/style.css        /css/style.css
