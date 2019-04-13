@@ -3,8 +3,8 @@
     <style>
         .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
         .navigation li {display: inline-block; padding: 0;}
-        .navigation a {display: inline-block; padding: 15px 30px; margin-right: 0px; text-decoration: none; color: #FFF; border-radius: 5px;}
-        .navigation a:hover  {background: #383838; transition: 0.5s;}
+        .navigation a, .nav-link {display: inline-block; padding: 15px 30px; margin-right: 0px; text-decoration: none; color: #FFF; border-radius: 5px; cursor: pointer;}
+        .navigation a:hover, .nav-link:hover  {background: #383838; transition: 0.5s;}
 
         .navigation ul li {margin-right: -0.5ex;}
 
@@ -81,7 +81,7 @@
             <li id="mcnav-rp">
                 <a href="/minecraft/resource-packs">Resource Packs</a>
                 <sub>
-                    <i id="rp-dropdown" class="material-icons" onclick="hide('tool', 'dl', 'nixi'); toggle('rp');" onmouseover="">
+                    <i id="rp-dropdown" class="nav-link material-icons" onclick="hide('tool', 'dl', 'nixi'); toggle('rp');" onmouseover="">
                         arrow_drop_down
                     </i>
                 </sub>
