@@ -35,6 +35,31 @@ a {text-decoration: none; cursor: pointer;}
 a:link, a:visited {color: #acf;}
 a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
 
+/* Images */
+img.screenshot {border: 5px transparent;}
+img.screenshot:hover {border: 5px solid #aaa;}
+#gallery {background: #333a; border: solid #111a;}
+.caption {position: relative; top: -178px; display: block; background: #666e; padding: 3em 1.6em; margin: 0 22px; font-size: 1.5em; border-top: 5px solid #444; border-bottom: 5px solid #444;}
+
+/* Lists */
+ul.plain {list-style-type: none; text-align: center;}
+
+/* Tooltips */
+.tooltip {position: relative; display: inline-block;}
+.tooltip .tooltiptext {
+    visibility: hidden; width: 120px; background: #666; color: #fff; font-size: 85%; text-align: center; padding: 5px 0; border-radius: 6px;
+    position: absolute; z-index: 1; bottom: 150%; left: 50%; margin-left: -60px;
+    opacity: 0; transition: opacity 0.5s;
+}
+.tooltip .tooltiptext::after {
+    content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px;
+    border-width: 5px; border-style: solid; border-color: #666 transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {visibility: visible; opacity: 1;}
+
+/* YouTube videos */
+iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
+
 /* Flexboxes */
 @media (min-width: 801px) {
     .row {display: flex;}
@@ -55,25 +80,6 @@ a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
     [width="80"] {width: 80%;}
     [width="90"] {width: 90%;}
 }
-
-/* Lists */
-ul.plain {list-style-type: none; text-align: center;}
-
-/* Tooltips */
-.tooltip {position: relative; display: inline-block;}
-.tooltip .tooltiptext {
-    visibility: hidden; width: 120px; background: #666; color: #fff; font-size: 85%; text-align: center; padding: 5px 0; border-radius: 6px;
-    position: absolute; z-index: 1; bottom: 150%; left: 50%; margin-left: -60px;
-    opacity: 0; transition: opacity 0.5s;
-}
-.tooltip .tooltiptext::after {
-    content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px;
-    border-width: 5px; border-style: solid; border-color: #666 transparent transparent transparent;
-}
-.tooltip:hover .tooltiptext {visibility: visible; opacity: 1;}
-
-/* YouTube videos */
-iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 
 /* Buttons */
 div.button, .button-div {text-align: center;}
