@@ -37,9 +37,10 @@ a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
 
 /* Images */
 img.screenshot {border: 5px transparent;}
-img.screenshot:hover {border: 5px solid #aaa;}
-#gallery {background: #333a; border: solid #111a;}
-.caption {position: relative; top: -178px; display: block; background: #666e; padding: 3em 1.6em; margin: 0 22px; font-size: 1.5em; border-top: 5px solid #444; border-bottom: 5px solid #444;}
+img.screenshot:hover {border: 5px solid #444;}
+#gallery {/*background: #333a; border: solid #111a;*/}
+#gallery p {margin-bottom: -178px;}
+.caption {position: relative; top: -178px; display: block; background: #666e; padding: 3em 1.6em; margin: 0 33px; font-size: 1.5em; border-top: 5px solid #aaa; border-bottom: 5px solid #444;}
 
 /* Lists */
 ul.plain {list-style-type: none; text-align: center;}
