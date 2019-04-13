@@ -38,7 +38,7 @@ a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
 /* Galleries */
 img.screenshot {border: 5px transparent;}
 img.screenshot:hover {border: 5px solid #444;}
-#gallery {/*background: #333a; border: solid #111a;*/}
+#gallery {width: 75%; margin-left: 75%; /*background: #333a; border: solid #111a;*/}
 #gallery p {margin-bottom: -173px;}
 .caption {position: relative; top: -173px; display: block; background: #666e; padding: 3em 1.6em; font-size: 1.5em; border: 5px solid #444;}
 
