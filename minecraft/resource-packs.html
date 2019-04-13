@@ -1,18 +1,15 @@
-<html height="100%">
+<html>
 <head>
     <title>Resource Packs – Nixinova</title>
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <meta name="description" content="Nixinova's resource pack downloads. Includes Nixinova v2 &amp; v1, HeroBrineNZK RP &amp; Endercreeper RP, as well as special-edition holiday-themed packs.">
     <meta name="keywords" content="nixinova,nixi,nova,nixynova,nixinova bitballoon,resource pack,resource packs,minecraft,texture pack,texture packs,nixinova v1,nixinova v2,herobrinenzk rp,endercreeper,endercreeper resource pack">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        @media screen and (min-width: 800px) { #mobile-notice {display: none;} }
-        abbr {text-decoration: none;}
         p a::before {content: '\2002'/* emsp */;}
-        p a[no-sp]::before {content: '';}
-        p:first-child::before {content: '';}
+        p a[no-sp]::before, p:first-child::before {content: '';}
     </style>
 </head>
 <body>
@@ -20,29 +17,35 @@
     <nav></nav>
     <script>$("nav").load("/imports/navigation")</script>
 </header>
-<main>
+<main style="background: linear-gradient(#222,#444);">
     <h1>Resource packs</h2>
     <p>
         I have made a few resource packs over the years I have played Minecraft.<br/>
         Here are the downloads for the packs I have available.<br/>
+        Hover over a version number to display more information about that version of the resource pack.<br/>
         <strong>
             These downloads are for the Java Edition of Minecraft only.
         </strong>
     </p>
-    <!-- nixinova v3 -- >
+    <!-- nixinova v3 -->
     <div>
         <h2>Nixinova Mash-Up v3</h2>
         <p>
             My current resource pack, updated for the 1.14 Texture Update, in use since 2019.<br/>
             Based on Faithful 1.14 with textures from Defscape, Default 32x, and more.
         </p>
+        <div>
+            <h3>1.14</h3>
+            <p>
+                <a href="https://mediafire.com/?wb1hhjt7i8wcs5i" target="_blank" class="tooltip">v3-alpha<span class="tooltiptext">v3-alpha for 1.14-pre1</span></a>
+            </p>
+        </div>
     </div>
-    < !-- nixinova v2 -->
+    <!-- nixinova v2 -->
     <div>
         <h2>Nixinova Mash-Up v2</h2>
         <p>
-            My current resource pack, in use since 2017.<br/>
-        <!--The second iteration of my mash-up resource pack, used from 2017 to 2019.-->
+            The second iteration of my mash-up resource pack, used from 2017 to 2019.
             Based on Faithful 1.12 with textures from Defscape, AciDicBliTzz, TapL, and more.<br/>
             Note that the resource pack versions for 1.8.9 are separate to the ones for 1.12 – 1.14.
         </p>
@@ -101,6 +104,7 @@
             <div width="40">
                 <h3>1.12</h3>
                 <p>
+                    <a href="https://mediafire.com/?x6a3gj2rauwgui6" target="_blank" class="tooltip">v2.0.6<span class="tooltiptext">v2.0.6 for 1.12</span></a>
                     <a href="https://mediafire.com/?xxb553oc8h2eced" target="_blank" class="tooltip">v2.0.5<span class="tooltiptext">v2.0.5 for 1.12</span></a>
                     <a href="https://mediafire.com/?8ve0yg0vyah7824" target="_blank" class="tooltip">v2.0.4<span class="tooltiptext">v2.0.4 for 1.12</span></a>
                     <a href="https://mediafire.com/?3nx2j85a9a6502e" target="_blank" class="tooltip">v2.0.2<span class="tooltiptext">v2.0.2 for 1.12-pre5</span></a>
@@ -143,17 +147,18 @@
             The first iteration of my mash-up resource pack, which I used from 2016 &ndash; 2017.<br/>
         </p>
         <div class="row">
-            <div width="25"></div>
+            <div width="10"></div>
             <!-- 1.11 -->
-            <div width="25">
+            <div width="40">
                 <h3>1.11</h3>
                 <p>
+                    <a href="https://mediafire.com/?mx1e97tzs7oex9o" target="_blank" class="tooltip">v1.8.0<span class="tooltiptext">1.11.2</span></a>
                     <a href="https://mediafire.com/?tavs7omuvtutuza" target="_blank" class="tooltip">v1.7.1<span class="tooltiptext">v1.7.1 for 1.11</span></a>
                     <a href="https://mediafire.com/?au86v2f555symrk" target="_blank" class="tooltip">v1.7.0<span class="tooltiptext">v1.7.0 for 1.11</span></a>
                 </p>
             </div>
             <!-- 1.10 -->
-            <div width="25">
+            <div width="40">
                 <h3>1.10</h3>
                 <p>
                     <a href="https://mediafire.com/?al6c42m2a92fnmq" target="_blank" class="tooltip">v1.6.6<span class="tooltiptext">v1.6.6 for 1.10.2</span></a>
@@ -162,12 +167,13 @@
                     <a href="https://mediafire.com/?l13ze36i3z9yby6" target="_blank" class="tooltip">v1.6.3<span class="tooltiptext">v1.6.3 for 1.10.2</span></a>
                 </p>
             </div>
-            <div width="25"></div>
+            <div width="10"></div>
         </div>
     </div>
     <div class="row">
+        <div width="10"></div>
         <!-- christmas -->
-        <div width="50" id="christmas">
+        <div width="40" id="christmas">
             <h2>Christmas Packs</h2>
             <p>Special-edition Christmas texture packs.</p>
             <p>
@@ -178,16 +184,19 @@
         </div>
         
         <!-- easter -->
-        <div width="50" id="easter">
-            <h2>Easter Packs <small>(1.8)</small></h2>
+        <div width="40" id="easter">
+            <h2>Easter Packs</h2>
             <p>Special-edition Easter texture packs.</p>
             <p>
+                <a href="https://mediafire.com/?5b5ob6zua09odsi" target="_blank" class="tooltip">v1.2.0<span class="tooltiptext">v1.2.0 for 1.14-pre2 (2019)</span></a>
+                <a href="https://mediafire.com/?bidnu8g8942stdw" target="_blank" class="tooltip">v1.1.2<span class="tooltiptext">v1.1.2 for 1.8.9 (2018)</span></a>
                 <a href="https://mediafire.com/?tir1jp52f9dtdn4" target="_blank" class="tooltip">v1.1.1<span class="tooltiptext">v1.1.1 for 1.8.9 (2018)</span></a>
                 <a href="https://mediafire.com/?s52b5ycklmplndu" target="_blank" class="tooltip">v1.1.0<span class="tooltiptext">v1.1.0 for 1.8.9 (2018)</span></a>
                 <a href="https://mediafire.com/?6z8ed43gju9okyc" target="_blank" class="tooltip">v1.0.2<span class="tooltiptext">v1.0.2 for 1.8.9 (2018)</span></a>
                 <a href="https://mediafire.com/?je6lak3g2ep0sbx" target="_blank" class="tooltip">v1.0.1<span class="tooltiptext">v1.0.1 for 1.8.9 (2018)</span></a>
             </p>
         </div>
+        <div width="10"></div>
     </div>
     <!-- nixinova custom -->
     <div>
@@ -211,8 +220,9 @@
         </p>
     </div>
     <div class="row">
+        <div width="10"></div>
         <!-- herobrinenzk -->
-        <div width="50" id="herobrinenzk">
+        <div width="40" id="herobrinenzk">
             <h2>HeroBrineNZK RP <small>(1.8)</small></h2>
             <p>A small resource pack I used from 2014 &ndash; 2015.</p>
             <p>
@@ -223,7 +233,7 @@
         </div>
         
         <!-- Endercreeper RP -->
-        <div width="50" id="endercreeper">
+        <div width="40">
             <h2>Endercreeper RP <small>(1.7)</small></h2>
             <p>A small resource pack I used in 2014 which retextures creepers and music discs.</p>
             <p>
@@ -231,6 +241,7 @@
                 <a href="https://mediafire.com/?dj5beckqr7yfvaf" target="_blank" class="tooltip">Endercreeper&nbsp;RP (Boxcraft)<span class="tooltiptext">Endercreeper RP (Boxcraft edit) for 1.7.9</span></a>
             </p>
         </div>
+        <div width="10"></div>
     </div>
 </main>
 
