@@ -27,7 +27,6 @@
     </div>
 
     <script name="Gallery cycler">
-        // Variable declarations //
         var $gallery = $('#gallery');
         var $galleryImg = $('#gallery .screenshot')
         var gallery = document.getElementById('gallery');
@@ -46,6 +45,22 @@
         ];
 
         function gallery() {
+            let $gallery = $('#gallery');
+            let $galleryImg = $('#gallery .screenshot')
+            let gallery = document.getElementById('gallery');
+            let $caption = $('#caption p');
+            let caption = document.getElementById('caption');
+            let pack = 'nixinova-mash-up';
+            let version = 'v3-alpha';
+            let src = '/images/resource-packs/' + pack;
+            let images = [
+                'overview.png',
+                'blocks.png'
+            ];
+            let captions = [
+                'An overview of the blocks in this resource pack.',
+                'Some of the blocks in this resource pack.'
+            ];
 
             let img = src + '/' + version + '/' + images[i]
 
