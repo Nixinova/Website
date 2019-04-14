@@ -28,6 +28,7 @@
     <script name="Gallery cycler">
         function gallery() {
             const $gallery = $('#gallery');
+            const $galleryImg = $('#gallery .screenshot')
             const gallery = document.getElementById('gallery');
             const $caption = $('#caption p');
             const caption = document.getElementById('caption');
@@ -43,10 +44,10 @@
                 'Some of the blocks in this resource pack.'
             ];
 
-            let img = '<img class="screenshot" src="' + src + '/' + version + '/' + images[i] + '" alt="' + captions[i] + '">';
+            let img = src + '/' + version + '/' + images[i]
 
             $gallery.css("opacity", 0.0)
-            gallery.innerHTML = img;
+            $galleryImg.css('background-image', img)
             $gallery.css("opacity", 1.0)
             
             $caption.css("opacity", 0.0)
