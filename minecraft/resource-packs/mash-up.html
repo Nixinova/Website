@@ -20,7 +20,6 @@
 <main>
     <div id="gallery">
         <a href target="_blank"><div class="screenshot" style></div></a>
-        <!--<img class="screenshot" src="/images/resource-packs/nixinova-mash-up/v3-alpha/overview.png">-->
     </div>
     <div id="caption">
         <p></p>
@@ -41,14 +40,12 @@
                 'blocks.png'
             ];
             const captions = [
-                'An overview of the blocks in this resource pack.',
+                'An overview of this resource pack.',
                 'Some of the blocks in this resource pack.'
             ];
 
-            //let img = src + images[i]
-
             $('#gallery a').attr('href', src + images[i]);
-            $galleryImg.css("background-image", "url('" + src + images[i] + "')").attr("alt",caption[i]);
+            $galleryImg.css("background-image", "url('" + src + images[i] + "')").attr("alt", caption[i]);
             caption.innerHTML = '<p>' + captions[i] + '</p>';
 
             i++;
@@ -63,12 +60,15 @@
 
     <h1>Nixinova Mash-Up Pack</h2>
     <p>
-        These packs are a mash-up of textures from different resource packs.
+        These packs are a mash-up of textures from different resource packs.<br/>
         Hover over a version number to display more information about that version of the resource pack.<br/>
         <strong>
             These downloads are for the Java Edition of Minecraft only.
         </strong>
     </p>
+
+    <hr>
+
     <!-- nixinova v3 -->
     <div>
         <h2>Version 3</h2>
@@ -90,7 +90,7 @@
     <div>
         <h2>Version 2</h2>
         <p>
-            The second iteration of my mash-up resource pack, used from 2017 to 2019.
+            The second iteration of my mash-up resource pack, used from 2017 to 2019.<br/>
             Based on Faithful 1.12 with textures from Defscape, AciDicBliTzz, TapL, and more.<br/>
             Note that the resource pack versions for 1.8.9 are separate to the ones for 1.12 – 1.14.
         </p>
