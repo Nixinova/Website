@@ -34,24 +34,29 @@
             const pack = 'nixinova-mash-up';
             const version = 'v3-alpha';
             const src = '/images/resource-packs/' + pack;
-            const images = ['overview.png', 'blocks.png'];
+            const images = [
+                'overview.png',
+                'blocks.png'
+            ];
             const captions = [
                 'An overview of the blocks in this resource pack.',
                 'Some of the blocks in this resource pack.'
-            ]
+            ];
 
             let img = '<img class="screenshot" src="' + src + '/' + version + '/' + images[i] + '" alt="' + captions[i] + '">';
 
-            $gallery.css("opacity", 1.0).animate({"opacity": 0.0}, 2000, "swing");
+            const opacity_time
+
+            $gallery.css("opacity", 0.0).animate({"opacity": 1.0}, opacity_time, "swing");
             gallery.innerHTML = img;
-            $gallery.css("opacity", 0.0).animate({"opacity": 1.0}, 2000, "swing");
+            $gallery.css("opacity", 1.0).animate({"opacity": 0.0}, opacity_time, "swing");
             
-            $caption.css("opacity", 1.0).animate({"opacity": 0.0}, 2000, "swing");
+            $caption.css("opacity", 0.0).animate({"opacity": 1.0}, opacity_time, "swing");
             caption.innerHTML = captions[i];
-            $caption.css("opacity", 0.0).animate({"opacity": 1.0}, 2000, "swing");
+            $caption.css("opacity", 1.0).animate({"opacity": 0.0}, opacity_time, "swing");
 
             i++;
-            if (i >= 2) {i = 0;}
+            if (i >= images.length) {i = 0;}
         };
 
         var i = 0;
