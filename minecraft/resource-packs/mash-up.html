@@ -26,7 +26,8 @@
     </div>
 
     <script name="Gallery cycler">
-        $(function(){
+        let i = 0;
+        function gallery() {
             const version = 'v3-alpha';
             const gallery = document.getElementById('gallery');
             const captions = [
@@ -34,12 +35,15 @@
                 'Some of the blocks in this resource pack.'
             ]
             const images = ['overview.png', 'blocks.png'];
-            for (i in images) {
-                img = '<img class="screenshot" src="/images/resource-packs/nixinova-mash-up/' + version + '/' + images[i] + '.png">';
-                gallery.innerHTML = img;
-                caption.innerHTML = captions[i];
-            }
-        });
+
+            img = '<img class="screenshot" src="/images/resource-packs/nixinova-mash-up/' + version + '/' + images[i] + '.png">';
+            gallery.innerHTML = img;
+            caption.innerHTML = captions[i];
+
+            i++;
+        };
+
+        setInterval(gallery, 1000);
     </script>
 
     <h1>Nixinova Mash-Up Pack</h2>
