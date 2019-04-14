@@ -67,6 +67,7 @@ iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
     .row>div {margin: 0 10px;}
 
     .flex {width: var(--width);}
+    .flex.centered {margin-left: calc(var(--width)/2);}
 
     /* Depracated */
     [width="10"] {width: 10%;}
