@@ -45,7 +45,7 @@
 
             let img = '<img class="screenshot" src="' + src + '/' + version + '/' + images[i] + '" alt="' + captions[i] + '">';
 
-            const opacity_time
+            const opacity_time = 500;
 
             $gallery.css("opacity", 0.0).animate({"opacity": 1.0}, opacity_time, "swing");
             gallery.innerHTML = img;
