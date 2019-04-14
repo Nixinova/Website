@@ -40,7 +40,7 @@ a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
     #gallery, #caption {width: 75%; margin-left: 12.5%;}
 }
 #gallery .screenshot {background-size: cover; border: 5px solid #444;}
-.caption {background: #666e; padding: 3em 1.6em;font-size: 1.5em; text-align: center; border: 5px solid #444;}
+#caption {background: #666e; padding: 3em 1.6em;font-size: 1.5em; text-align: center; border: 5px solid #444;}
 
 /* Lists */
 ul.plain {list-style-type: none; text-align: center;}
