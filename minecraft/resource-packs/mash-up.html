@@ -30,7 +30,7 @@
             const gallery = document.getElementById('gallery');
             const pack = 'nixinova-mash-up';
             const version = 'v3-alpha';
-            const src = '/images/resourcepacks/' + pack;
+            const src = '/images/resource-packs/' + pack;
             const images = ['overview.png', 'blocks.png'];
             const captions = [
                 'An overview of the blocks in this resource pack.',
@@ -42,12 +42,12 @@
             caption.innerHTML = captions[i];
 
             i++;
-            if (i > images.length) {i = 0;}
+            if (i >= 2) {i = 0;}
         };
 
         var i = 0;
         gallery();
-        
+
         setInterval(gallery, 5000);
     </script>
 
