@@ -19,7 +19,7 @@
 </header>
 <main>
     <div id="gallery">
-        <div class="screenshot"></div>
+        <a href><div class="screenshot"></div></a>
         <!--<img class="screenshot" src="/images/resource-packs/nixinova-mash-up/v3-alpha/overview.png">-->
     </div>
     <div id="caption">
@@ -49,6 +49,7 @@
 
             let img = src + '/' + version + '/' + images[i]
 
+            $('#gallery a').attr('href', img);
             $galleryImg.css("background-image", "url('" + img + "')");
             caption.innerHTML = '<p>' + captions[i];
 
