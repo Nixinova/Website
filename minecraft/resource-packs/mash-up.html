@@ -45,10 +45,10 @@
                 'Some of the blocks in this resource pack.'
             ];
 
-            let img = src + images[i]
+            //let img = src + images[i]
 
-            $('#gallery a').attr('href', img);
-            $galleryImg.css("background-image", "url('" + img + "')");
+            $('#gallery a').attr('href', src + images[i]);
+            $galleryImg.css("background-image", "url('" + src + images[i] + "')").attr("alt",caption[i]);
             caption.innerHTML = '<p>' + captions[i] + '</p>';
 
             i++;
