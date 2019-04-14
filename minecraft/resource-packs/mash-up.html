@@ -48,7 +48,7 @@
             let img = src + '/' + version + '/' + images[i]
 
             $gallery.css("opacity", 0.0)
-            $galleryImg.css('background-image', img)
+            $galleryImg.css('background-image', 'url("' + img+ '")')
             $gallery.css("opacity", 1.0)
             
             $caption.css("opacity", 0.0)
