@@ -13,7 +13,7 @@
     <nav></nav>
     <script>$("nav").load("/imports/navigation")</script>
 </header>
-<main><!--
+<main>
     <div id="gallery">
         <a href target="_blank"><div class="screenshot" style></div></a>
     </div>
@@ -28,9 +28,13 @@
             const gallery = document.getElementById('gallery');
             const $caption = $('#caption p');
             const caption = document.getElementById('caption');
-            const pack = 'nixinova-mash-up';
-            const version = 'v3-alpha';
-            const src = '/images/resource-packs/' + pack + '/' + version + '/';
+            const pack = [
+                'nixinova-mash-up'
+            ];
+            const version = [
+                'v3-alpha'
+            ];
+            const src = '/images/resource-packs/' + pack[i] + '/' + version[i] + '/';
             const images = [
                 'overview.png',
                 'blocks.png'
@@ -52,7 +56,7 @@
         gallery(0);
 
         setInterval(gallery, 5000);
-    </script>-->
+    </script>
 
     <h1>HeroBrineNZK Resource Pack</h2>
     <p>
@@ -70,7 +74,7 @@
         <h2>HeroBrineNZK RP <small>(1.8)</small></h2>
         <p>A small resource pack I used from 2014 &ndash; 2015.</p>
         <p>
-            <a href="https://mediafire.com/?j94dpml4zpj8j07" target="_blank" class="tooltip">HeroBrineNZK(2)<span class="tooltiptext">HeroBrineNZK v2 for 1.8.8</span></a><br/>
+            <a href="https://mediafire.com/?j94dpml4zpj8j07" target="_blank" class="tooltip">HeroBrineNZK (2)<span class="tooltiptext">HeroBrineNZK(2) for 1.8.8</span></a><br/>
             <a href="https://mediafire.com/?cbax8zmmkakru2i" target="_blank" class="tooltip">HeroBrineNZK<span class="tooltiptext">HeroBrineNZK for 1.8.7</span></a><br/>
             <a href="https://mediafire.com/?6688qcc88cf573u" target="_blank" class="tooltip">HeroBrineNZK RP<span class="tooltiptext">HeroBrineNZK RP for 1.8.1</span></a>
         </p>
