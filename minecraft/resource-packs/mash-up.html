@@ -22,7 +22,7 @@
         <img class="screenshot" src="/images/resource-packs/nixinova-mash-up/v3-alpha/overview.png">
     </div>
     <div id="caption">
-        {caption}
+        <p></p>
     </div>
 
     <script name="Gallery cycler">
@@ -52,7 +52,7 @@
             $gallery.css("opacity", 1.0).animate({"opacity": 0.0}, opacity_time, "swing");
             
             $caption.css("opacity", 0.0).animate({"opacity": 1.0}, opacity_time, "swing");
-            caption.innerHTML = captions[i];
+            caption.p.innerHTML = captions[i];
             $caption.css("opacity", 1.0).animate({"opacity": 0.0}, opacity_time, "swing");
 
             i++;
