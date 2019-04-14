@@ -41,6 +41,7 @@
             caption.innerHTML = captions[i];
 
             i++;
+            if (i > images.length) {i = 0;}
         };
 
         setInterval(gallery, 5000);
