@@ -26,7 +26,6 @@
     </div>
 
     <script name="Gallery cycler">
-        var i = 0;
         function gallery() {
             const gallery = document.getElementById('gallery');
             const pack = 'nixinova-mash-up';
@@ -46,6 +45,9 @@
             if (i > images.length) {i = 0;}
         };
 
+        var i = 0;
+        gallery();
+        
         setInterval(gallery, 5000);
     </script>
 
