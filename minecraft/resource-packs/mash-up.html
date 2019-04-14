@@ -27,7 +27,10 @@
 
     <script name="Gallery cycler">
         function gallery() {
+            const $gallery = $('#gallery');
             const gallery = document.getElementById('gallery');
+            const $caption = $('#caption');
+            const caption = document.getElementById('caption');
             const pack = 'nixinova-mash-up';
             const version = 'v3-alpha';
             const src = '/images/resource-packs/' + pack;
@@ -37,9 +40,15 @@
                 'Some of the blocks in this resource pack.'
             ]
 
-            img = '<img class="screenshot" src="' + src + '/' + version + '/' + images[i] + '" alt="' + captions[i] + '">';
+            let img = '<img class="screenshot" src="' + src + '/' + version + '/' + images[i] + '" alt="' + captions[i] + '">';
+
+            $gallery.css("opacity", 1.0).animate({"opacity": 0.0}, 2000, "swing");
             gallery.innerHTML = img;
+            $gallery.css("opacity", 0.0).animate({"opacity": 1.0}, 2000, "swing");
+            
+            $caption.css("opacity", 1.0).animate({"opacity": 0.0}, 2000, "swing");
             caption.innerHTML = captions[i];
+            $caption.css("opacity", 0.0).animate({"opacity": 1.0}, 2000, "swing");
 
             i++;
             if (i >= 2) {i = 0;}
