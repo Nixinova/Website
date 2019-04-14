@@ -27,7 +27,6 @@
     </div>
 
     <script name="Gallery cycler">
-
         function gallery() {
             const $gallery = $('#gallery');
             const $galleryImg = $('#gallery .screenshot')
@@ -48,11 +47,11 @@
 
             let img = src + '/' + version + '/' + images[i]
 
-            $galleryImg.css('background-image', 'url("' + img+ '")')
+            $galleryImg.css("background-image", "url('" + img + "')");
             caption.innerHTML = '<p>' + captions[i];
 
             i++;
-            if (i >= images.length) {i = 0; break;}
+            if (i >= images.length) {i = 0;}
         };
 
         var i = 0;
