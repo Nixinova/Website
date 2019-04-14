@@ -49,20 +49,6 @@
 
         setInterval(gallery, 5000);
     </script>
-
-    <script name="Flexbox widths">
-        function flex(id) {
-            var $flex = $('#' + id)
-            var data = {
-                width = flex.data('width'),
-                align = flex.data('align')
-            }
-            $flex.css('width', data.width + '%');
-            if (data.align == 'center') {
-                $flex.css('margin-left', data.width/2 + '%');
-            }
-        }
-    </script>
 </header>
 <main>
     <div id="gallery">
@@ -101,8 +87,7 @@
     <hr>
 
     <!-- nixinova v2 -->
-    <div id="nixinova-v2" data-width="50" data-align="center">
-        <script>flex('nixinova-v2')</script>
+    <div>
         <h2>Version 2</h2>
         <p>
             The second iteration of my mash-up resource pack, used from 2017 to 2019.<br/>
@@ -111,7 +96,7 @@
         </p>
         
          <h3>1.14</h3>
-         <p>
+         <p class="flex" data-width="50%">
              <a href="https://mediafire.com/?hnxsg2nd103fdns" target="_blank" class="tooltip">v2.8.1<span class="tooltiptext">v2.8.1 for 19w14b</span></a>
              <a href="https://mediafire.com/?cmljbvkxhd6amx5" target="_blank" class="tooltip">v2.8.0<span class="tooltiptext">v2.8.0 for 19w12b</span></a>
              <a href="https://mediafire.com/?9lhkfpc7i25ay1y" target="_blank" class="tooltip">v2.7.7<span class="tooltiptext">v2.7.7 for 19w11b</span></a>
