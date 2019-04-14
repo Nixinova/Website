@@ -21,9 +21,26 @@
     <div id="gallery">
         <img class="screenshot" src="/images/resource-packs/nixinova-mash-up/v3-alpha/overview.png">
     </div>
-    <div class="caption">
-        An overview of the blocks in this resource pack.
+    <div id="caption">
+        {caption}
     </div>
+
+    <script name="Gallery cycler">
+        document.ready(function(){
+            const version = 'v3-alpha';
+            const gallery = document.getElementById('gallery');
+            const captions = [
+                'An overview of the blocks in this resource pack.',
+                'Some of the blocks in this resource pack.'
+            ]
+            const images = ['overview.png', 'blocks.png'];
+            for (i in images) {
+                img = '<img class="screenshot" src="/images/resource-packs/nixinova-mash-up/' + version + '/' + images[i] + '.png">';
+                gallery.innerHTML = img;
+                caption.innerHTML = captions[i];
+            }
+        });
+    </script>
 
     <h1>Nixinova Mash-Up Pack</h2>
     <p>
