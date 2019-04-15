@@ -1,7 +1,7 @@
-//var play = true;
+var play = true;
 
 function gallery(_paths, _images, _captions) {
-    //if (!play) {} else {
+    if (!play) {} else {
         const $gallery = $('#gallery');
         const $galleryImg = $('#gallery .screenshot')
         const $caption = $('#caption p');
@@ -12,13 +12,13 @@ function gallery(_paths, _images, _captions) {
 
         $('#gallery a').attr('href', src);
         $galleryImg.css("background-image", "url('" + src + "')").attr("alt", caption[i]);
-        caption.html('<p>' + captions[i] + '</p>');
+        $caption.html('<p>' + captions[i] + '</p>');
 
         i++;
         if (i >= images.length) {i = 0;}
-    //}
+    }
 };
-/*
+
 function togglePlay() {
     if (play===undefined) {var play = true;}
     const $text = $('#pause-text')
@@ -29,4 +29,4 @@ function togglePlay() {
         play = true;
         $text.html('pause');
     }
-}//*/
+}
