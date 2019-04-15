@@ -32,18 +32,23 @@
             const gallery = document.getElementById('gallery');
             const $caption = $('#caption p');
             const caption = document.getElementById('caption');
-            const pack = 'easter-mash-up';
-            const version = 'v1.2.1';
-            const src = '/images/minecraft/resource-packs/' + pack + '/' + version + '/';
+            const easter = 'easter-mash-up/v1.2.1'
+            const christmas = 'christmas-mash-up/v2.1.1'
+            const paths = [easter, easter, christmas, christmas, christmas];
+            const src = '/images/minecraft/resource-packs/' + paths[i] + '/';
             const images = [
-                'blocks.png',
                 'changed-textures.png',
-                'title.png'
+                'title.png',
+                'blocks.png',
+                'items.png',
+                'ores.png'
             ];
             const captions = [
-                'Some of the blocks in the Easter pack',
                 'All of the changed textures in the Easter pack.',
-                'The main menu screen in the Easter pack.'
+                'The main menu screen in the Easter pack.',
+                'All of the changed blocks in the Christmas pack.',
+                'All of the changed items in the Christmas pack.',
+                'A collection of ores from the Christmas pack.'
             ];
 
             $('#gallery a').attr('href', src + images[i]);
@@ -63,7 +68,7 @@
     <h1>Themed Mash-Up Packs</h2>
     <p>
         These packs are themed holiday packs, which only change a few textures.<br/>
-        Use in addition to my <a href="mash-up">Mash-Up Pack</a> for the best experience!<br/>
+        Use in addition to my <a no-sp href="mash-up">Mash-Up Pack</a> for the best experience!<br/>
         Hover over a version number to display more information about that version of the resource pack.<br/>
         <strong>
             These downloads are for the Java Edition of Minecraft only.
