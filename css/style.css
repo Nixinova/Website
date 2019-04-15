@@ -55,7 +55,7 @@ ul.plain {list-style-type: none; text-align: center;}
 /* Tooltips */
 .tooltip {position: relative; display: inline-block;}
 .tooltip .tooltiptext {
-    visibility: hidden; background: #666; color: #fff; font-size: 85%; text-align: center; padding: 5px 0; border-radius: 6px;
+    visibility: hidden; background: #666; color: #fff; font-size: 85%; text-align: center; padding: 5px; border-radius: 6px;
     width: 120px; position: absolute; z-index: 1; bottom: 150%; left: 50%; margin-left: -60px;
     opacity: 0; transition: opacity 0.5s;
 }
