@@ -18,7 +18,7 @@ function gallery(_paths, _images, _captions) {
         if (i >= images.length) {i = 0;}
     //}
 };
-
+/*
 function togglePlay() {
     if (play===undefined) {var play = true;}
     const $text = $('#pause-text')
@@ -29,4 +29,4 @@ function togglePlay() {
         play = true;
         $text.html('pause');
     }
-}
+}//*/
