@@ -1,5 +1,5 @@
 var play = true;
-var $text = $('#pause-text')
+var $text = $('#pause-text');
 
 function gallery(_paths, _images, _captions) {
     if ($text == 'pause') {
@@ -21,6 +21,9 @@ function gallery(_paths, _images, _captions) {
 };
 
 function togglePlay() {
-    if ($text == 'pause') {$text.html('play_arrow');}
-    if ($text == 'play_arrow') {$text.html('pause');}
+    if ($text == 'pause') {
+        $text.html('play_arrow');
+    } else {
+        $text.html('pause');
+    }
 }
