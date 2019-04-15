@@ -1,5 +1,5 @@
 var play = true;
-const $text = $('#pause-text')
+var $text = $('#pause-text')
 
 function gallery(_paths, _images, _captions) {
     if ($text == 'pause') {
