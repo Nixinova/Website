@@ -2,7 +2,7 @@ var play = true;
 var $text = $('#pause-text');
 
 function gallery(_paths, _images, _captions) {
-    if ($text == 'pause') {
+    if ($text.html() == 'pause') {
         const $gallery = $('#gallery');
         const $galleryImg = $('#gallery .screenshot')
         const $caption = $('#caption p');
@@ -21,7 +21,7 @@ function gallery(_paths, _images, _captions) {
 };
 
 function togglePlay() {
-    if ($text == 'pause') {
+    if ($text.html() == 'pause') {
         $text.html('play_arrow');
     } else {
         $text.html('pause');
