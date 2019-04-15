@@ -7,6 +7,7 @@
     <meta name="keywords" content="nixinova,nixi,nova,nixynova,nixinova bitballoon,resource pack,resource packs,minecraft,texture pack,texture packs,nixinova v1,nixinova v2,herobrinenzk rp,endercreeper,endercreeper resource pack">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="functions.js"></script>
 </head>
 <body>
 <header>
@@ -15,6 +16,10 @@
 </header>
 <main>
     <div id="gallery">
+        <script>
+            var play=true;
+        </script>
+        <div class="pause" onclick="togglePly()">||</div>
         <a href target="_blank"><div class="screenshot" style></div></a>
     </div>
     <div id="caption">
@@ -22,36 +27,21 @@
     </div>
 
     <script name="Gallery cycler">
-        function gallery() {
-            const $gallery = $('#gallery');
-            const $galleryImg = $('#gallery .screenshot')
-            const gallery = document.getElementById('gallery');
-            const $caption = $('#caption p');
-            const caption = document.getElementById('caption');
-            const paths = [
+        gallery(
+            [
                 'endercreeper/rp',
                 'endercreeper/rp',
                 'herobrinenzk/(2)'
-            ];
-            const images = [
+            ], [
                 'creeper.png',
                 'discs.png',
                 'ores.png'
-            ];
-            const src = '/images/minecraft/resource-packs/' + paths[i] + '/' + images[i];
-            const captions = [
+            ], [
                 'A retextured creeper, with half of it being an enderman.',
                 'Retextured music discs: strad, cat, mall, 13, chirp, far, mellohi.',
                 'Ores have an outline to make them more visible.'
-            ];
-
-            $('#gallery a').attr('href', src);
-            $galleryImg.css("background-image", "url('" + src + "')").attr("alt", caption[i]);
-            caption.innerHTML = '<p>' + captions[i] + '</p>';
-
-            i++;
-            if (i >= images.length) {i = 0;}
-        };
+            ]
+        )
 
         var i = 0;
         gallery(0);
