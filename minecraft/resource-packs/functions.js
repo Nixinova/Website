@@ -2,7 +2,8 @@ var play = true;
 var $text = $('#pause-text');
 
 function gallery(_paths, _images, _captions) {
-    if ($text.html() == 'pause') {
+    alert($text.html);
+    if ($text.html() != 'pause') {} else {
         const $gallery = $('#gallery');
         const $galleryImg = $('#gallery .screenshot')
         const $caption = $('#caption p');
