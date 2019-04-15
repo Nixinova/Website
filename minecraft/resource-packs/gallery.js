@@ -20,7 +20,7 @@ function gallery(_paths, _images, _captions, duplicates) {
 
         $('#gallery a').attr('href', src);
         $galleryImg.css("background-image", "url('" + src + "')").attr("alt", caption[i]);
-        $caption.html('<p>' + captions[i] + '</p>');
+        $caption.html(captions[i]);
 
         i++;
         if (i >= images.length) {i = 0;}
