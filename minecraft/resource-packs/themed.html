@@ -1,0 +1,115 @@
+<html>
+<head>
+    <title>Themed Mash-Up Packs – Nixinova</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="description" content="Nixinova's resource pack downloads. Includes Nixinova v2 &amp; v1, HeroBrineNZK RP &amp; Endercreeper RP, as well as special-edition holiday-themed packs.">
+    <meta name="keywords" content="nixinova,nixi,nova,nixynova,nixinova bitballoon,resource pack,resource packs,minecraft,texture pack,texture packs,nixinova v1,nixinova v2,herobrinenzk rp,endercreeper,endercreeper resource pack">
+    <meta name="author" content="Nixinova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style name="Spacing">
+        p a::before {content: '\2002'/* emsp */;}
+        p a[no-sp]::before, p:first-child::before {content: '';}
+    </style>
+</head>
+<body>
+<header>
+    <nav></nav>
+    <script>$("nav").load("/imports/navigation")</script>
+</header>
+<main>
+    <div id="gallery">
+        <div id="pause" onclick="togglePlay()">
+            <i class="material-icons" id="pause-text">pause</i>
+        </div>
+        <a href target="_blank"><div class="screenshot" style></div></a>
+    </div>
+    <div id="caption">
+        <p></p>
+    </div>
+
+    <script src="functions.js"></script>
+    <script name="Gallery cycler">
+        function playGallery() {
+            gallery(
+                [
+                    'easter-mash-up/v1.2.1',
+                    'easter-mash-up/v1.2.1',
+                    'christmas-mash-up/v2.1.1',
+                    'christmas-mash-up/v2.1.1',
+                    'christmas-mash-up/v2.1.1'
+                ], [
+                    'changed-textures.png',
+                    'title.png',
+                    'blocks.png',
+                    'items.png',
+                    'ores.png'
+                ], [
+                    'All of the changed textures in the Easter pack.',
+                    'The main menu screen in the Easter pack.',
+                    'All of the changed blocks in the Christmas pack.',
+                    'All of the changed items in the Christmas pack.',
+                    'A collection of ores from the Christmas pack.'
+                ]
+            )
+        }
+
+        var i = 0;
+        playGallery();
+
+        setInterval(playGallery, 10000);
+    </script>
+
+    <h1>Themed Mash-Up Packs</h2>
+    <p>
+        These packs are themed holiday packs, which only change a few textures.<br/>
+        Use in addition to my <a no-sp href="mash-up">Mash-Up Pack</a> for the best experience!<br/>
+        Hover over a version number to display more information about that version of the resource pack.<br/>
+        <strong>
+            These downloads are for the Java Edition of Minecraft only.
+        </strong>
+    </p>
+
+    <hr>
+    
+    <div>
+        <h2>Christmas Packs</h2>
+        <p>Special-edition Christmas texture packs.</p>
+        <h3>2017 <small>(1.8.9)</small></h3>
+        <p>
+            <a href="https://mediafire.com/?eclwghi7at9198q" target="_blank" class="tooltip">v2.1.1<span class="tooltiptext">v2.1.1 for 1.8.9 (2017)</span></a>
+            <a href="https://mediafire.com/?ut5cob9naoqva14" target="_blank" class="tooltip">v2.1.0<span class="tooltiptext">v2.1.0 for 1.8.9 (2017)</span></a>
+        </p>
+        <h3>2016 <small>(1.11)</small></h3>
+        <p>
+            <a href="https://mediafire.com/?a1bcjguugldbi2m" target="_blank" class="tooltip">v1.0.0<span class="tooltiptext">v1.0.0 for 1.11 (2016)</span></a>
+        </p>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Easter Packs</h2>
+        <p>Special-edition Easter texture packs.</p>
+        <h3>2019 <small>(1.14)</small></h3>
+        <p>
+            <a href="https://mediafire.com/?ow8ptqqupwuspp0" target="_blank" class="tooltip">v1.2.1<span class="tooltiptext">v1.2.1 for 1.14-pre2 (2019)</span></a>
+            <a href="https://mediafire.com/?5b5ob6zua09odsi" target="_blank" class="tooltip">v1.2.0<span class="tooltiptext">v1.2.0 for 1.14-pre2 (2019)</span></a>
+        </p>
+        <h3>2018 <small>(1.8.9)</small></h3>
+        <p>
+            <a href="https://mediafire.com/?bidnu8g8942stdw" target="_blank" class="tooltip">v1.1.2<span class="tooltiptext">v1.1.2 for 1.8.9 (2018)</span></a>
+            <a href="https://mediafire.com/?tir1jp52f9dtdn4" target="_blank" class="tooltip">v1.1.1<span class="tooltiptext">v1.1.1 for 1.8.9 (2018)</span></a>
+            <a href="https://mediafire.com/?s52b5ycklmplndu" target="_blank" class="tooltip">v1.1.0<span class="tooltiptext">v1.1.0 for 1.8.9 (2018)</span></a>
+            <a href="https://mediafire.com/?6z8ed43gju9okyc" target="_blank" class="tooltip">v1.0.2<span class="tooltiptext">v1.0.2 for 1.8.9 (2018)</span></a>
+            <a href="https://mediafire.com/?je6lak3g2ep0sbx" target="_blank" class="tooltip">v1.0.1<span class="tooltiptext">v1.0.1 for 1.8.9 (2018)</span></a>
+        </p>
+    </div>
+
+</main>
+
+<footer></footer>
+<script>$("footer").load("/imports/footer")</script>
+
+</body>
+</html>

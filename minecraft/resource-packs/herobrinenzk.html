@@ -1,0 +1,90 @@
+<html>
+<head>
+    <title>HeroBrineNZK Resource Packs – Nixinova</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="description" content="Nixinova's resource pack downloads. Includes Nixinova v2 &amp; v1, HeroBrineNZK RP &amp; Endercreeper RP, as well as special-edition holiday-themed packs.">
+    <meta name="keywords" content="nixinova,nixi,nova,nixynova,nixinova bitballoon,resource pack,resource packs,minecraft,texture pack,texture packs,nixinova v1,nixinova v2,herobrinenzk rp,endercreeper,endercreeper resource pack">
+    <meta name="author" content="Nixinova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+    <nav></nav>
+    <script>$("nav").load("/imports/navigation")</script>
+</header>
+<main>
+    <div id="gallery">
+        <div id="pause" onclick="togglePlay()">
+            <i class="material-icons" id="pause-text">pause</i>
+        </div>
+        <a href target="_blank"><div class="screenshot" style></div></a>
+    </div>
+    <div id="caption">
+        <p></p>
+    </div>
+
+    <script src="functions.js"></script>
+    <script name="Gallery cycler">
+        function playGallery() {
+            gallery(
+                [
+                    'endercreeper/rp',
+                    'endercreeper/rp',
+                    'herobrinenzk/(2)'
+                ], [
+                    'creeper.png',
+                    'discs.png',
+                    'ores.png'
+                ], [
+                    'A retextured creeper, with half of it being an enderman.',
+                    'Retextured music discs: strad, cat, mall, 13, chirp, far, mellohi.',
+                    'Ores have an outline to make them more visible.'
+                ]
+            )
+        }
+
+        var i = 0;
+        playGallery();
+
+        setInterval(playGallery, 10000);
+    </script>
+
+    <h1>HeroBrineNZK Resource Pack</h2>
+    <p>
+        These are my oldest packs, which contain only a few, custom textures.<br/>
+        Hover over a version number to display more information about that version of the resource pack.<br/>
+        <strong>
+            These downloads are for the Java Edition of Minecraft only.
+        </strong>
+    </p>
+
+    <hr>
+
+    <!-- herobrinenzk -->
+    <div width="40" id="herobrinenzk">
+        <h2>HeroBrineNZK RP <small>(1.8)</small></h2>
+        <p>A small resource pack I used from 2014 &ndash; 2015.</p>
+        <p>
+            <a href="https://mediafire.com/?j94dpml4zpj8j07" target="_blank" class="tooltip">HeroBrineNZK (2)<span class="tooltiptext">HeroBrineNZK(2) for 1.8.8</span></a><br/>
+            <a href="https://mediafire.com/?cbax8zmmkakru2i" target="_blank" class="tooltip">HeroBrineNZK<span class="tooltiptext">HeroBrineNZK for 1.8.7</span></a><br/>
+            <a href="https://mediafire.com/?6688qcc88cf573u" target="_blank" class="tooltip">HeroBrineNZK RP<span class="tooltiptext">HeroBrineNZK RP for 1.8.1</span></a>
+        </p>
+    </div>
+    
+    <!-- Endercreeper RP -->
+    <div=>
+        <h2>Endercreeper RP <small>(1.7)</small></h2>
+        <p>A small resource pack I used in 2014, which retextures creepers and music discs.</p>
+        <p>
+            <a href="https://mediafire.com/?g64qrc47vgg80c0" target="_blank" class="tooltip">Endercreeper&nbsp;RP<span class="tooltiptext">Endercreeper RP for 1.7.9</span></a><br/>
+            <a href="https://mediafire.com/?dj5beckqr7yfvaf" target="_blank" class="tooltip">Endercreeper&nbsp;RP (Boxcraft)<span class="tooltiptext">Endercreeper RP (Boxcraft edit) for 1.7.9</span></a>
+        </p>
+    </div>
+</main>
+
+<footer></footer>
+<script>$("footer").load("/imports/footer")</script>
+
+</body>
+</html>
