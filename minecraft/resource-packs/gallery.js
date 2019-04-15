@@ -1,7 +1,6 @@
 var $text = $('#pause-text');
-var toggled = false;
 
-function gallery(_paths, _images, _captions, duplicates) {
+function scrollGallery(_paths, _images, _captions, duplicates) {
     if ($text.html() == 'pause' || !toggled) {
         const $gallery = $('#gallery');
         const $galleryImg = $('#gallery .screenshot')
@@ -27,11 +26,16 @@ function gallery(_paths, _images, _captions, duplicates) {
     }
 };
 
+function gallery(_paths, _images, _captions, duplicates) {
+    if ($text.html() == 'pause') {
+        scrollGallery(_paths, _images, _captions, duplicates)
+    }
+};
+
 function togglePlay() {
     if ($text.html() == 'pause') {
         $text.html('play_arrow');
     } else {
         $text.html('pause');
     }
-    toggled = true;
 }
