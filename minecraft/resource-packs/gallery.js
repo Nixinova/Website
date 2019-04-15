@@ -2,7 +2,7 @@ var $text = $('#pause-text');
 var toggled = false;
 
 function gallery(_paths, _images, _captions, duplicates) {
-    if ($text.html() == 'pause' && toggled) {
+    if ($text.html() == 'pause' || !toggled) {
         const $gallery = $('#gallery');
         const $galleryImg = $('#gallery .screenshot')
         const $caption = $('#caption p');
