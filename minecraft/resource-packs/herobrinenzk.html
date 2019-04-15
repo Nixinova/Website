@@ -32,18 +32,18 @@
                 'endercreeper/rp',
                 'endercreeper/rp',
             ];
-            const src = '/images/resource-packs/' + paths[i] + '/';
             const images = [
                 'creeper.png',
                 'disks.png'
             ];
+            const src = '/images/minecraft/resource-packs/' + paths[i] + '/' + images[i];
             const captions = [
                 'A retextured creeper, with half of it being an enderman.',
                 'Retextured music discs, clockwise from bottom-left: strad, cat, mall, 13, chirp, far, mellohi.'
             ];
 
-            $('#gallery a').attr('href', src + images[i]);
-            $galleryImg.css("background-image", "url('" + src + images[i] + "')").attr("alt", caption[i]);
+            $('#gallery a').attr('href', src);
+            $galleryImg.css("background-image", "url('" + src + "')").attr("alt", caption[i]);
             caption.innerHTML = '<p>' + captions[i] + '</p>';
 
             i++;
