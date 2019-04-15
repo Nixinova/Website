@@ -1,3 +1,5 @@
+var play = true;
+
 function gallery(_paths, _images, _captions) {
     if (play) {
         const $gallery = $('#gallery');

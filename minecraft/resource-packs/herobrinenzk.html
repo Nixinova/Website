@@ -16,9 +16,9 @@
 </header>
 <main>
     <div id="gallery">
-        <div id="pause" onclick="togglePlay()">
+        <a id="pause" onclick="togglePlay()">
             <i class="material-icons" id="pause-text">pause</i>
-        </div>
+        </a>
         <a href target="_blank"><div class="screenshot" style></div></a>
     </div>
     <div id="caption">
@@ -26,7 +26,6 @@
     </div>
 
     <script name="Gallery cycler">
-        var play = true;
         function playGallery() {
             gallery(
                 [
