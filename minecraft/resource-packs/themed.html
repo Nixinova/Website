@@ -26,49 +26,34 @@
     </div>
 
     <script name="Gallery cycler">
-        function gallery() {
-            const $gallery = $('#gallery');
-            const $galleryImg = $('#gallery .screenshot')
-            const gallery = document.getElementById('gallery');
-            const $caption = $('#caption p');
-            const caption = document.getElementById('caption');
-            const easter = 'easter-mash-up/v1.2.1'
-            const christmas = 'christmas-mash-up/v2.1.1'
-            const paths = [
-                easter,
-                easter,
-                christmas,
-                christmas,
-                christmas
-            ];
-            const src = '/images/minecraft/resource-packs/' + paths[i] + '/';
-            const images = [
-                'changed-textures.png',
-                'title.png',
-                'blocks.png',
-                'items.png',
-                'ores.png'
-            ];
-            const captions = [
-                'All of the changed textures in the Easter pack.',
-                'The main menu screen in the Easter pack.',
-                'All of the changed blocks in the Christmas pack.',
-                'All of the changed items in the Christmas pack.',
-                'A collection of ores from the Christmas pack.'
-            ];
-
-            $('#gallery a').attr('href', src + images[i]);
-            $galleryImg.css("background-image", "url('" + src + images[i] + "')").attr("alt", caption[i]);
-            caption.innerHTML = '<p>' + captions[i] + '</p>';
-
-            i++;
-            if (i >= images.length) {i = 0;}
-        };
+        function playGallery() {
+            gallery(
+                [
+                    'easter-mash-up/v1.2.1',
+                    'easter-mash-up/v1.2.1',
+                    'christmas-mash-up/v2.1.1',
+                    'christmas-mash-up/v2.1.1',
+                    'christmas-mash-up/v2.1.1'
+                ], [
+                    'changed-textures.png',
+                    'title.png',
+                    'blocks.png',
+                    'items.png',
+                    'ores.png'
+                ], [
+                    'All of the changed textures in the Easter pack.',
+                    'The main menu screen in the Easter pack.',
+                    'All of the changed blocks in the Christmas pack.',
+                    'All of the changed items in the Christmas pack.',
+                    'A collection of ores from the Christmas pack.'
+                ]
+            )
+        }
 
         var i = 0;
-        gallery(0);
+        playGallery();
 
-        setInterval(gallery, 10000);
+        setInterval(playGallery, 10000);
     </script>
 
     <h1>Themed Mash-Up Packs</h2>
