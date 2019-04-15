@@ -1,7 +1,7 @@
 var play = true;
 
 function gallery(_paths, _images, _captions) {
-    if (play) {
+    if (!play) {} else {
         const $gallery = $('#gallery');
         const $galleryImg = $('#gallery .screenshot')
         const $caption = $('#caption p');
