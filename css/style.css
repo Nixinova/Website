@@ -1,4 +1,4 @@
-/* Imports */
+/* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Varela+Round|Quicksand:700|Noto+Sans');
 @import url('fonts/fonts.css');
 
@@ -9,7 +9,7 @@ nav {background: #222;}
 main {padding: 0 5vw;}
 p {text-align: center; margin-left: 10px;}
 code {font-size: 1.3rem;}
-key {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace}
+key {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
 abbr {cursor: help;}
 img {max-width: 100%; vertical-align: middle; border: 0;}
 h1, h2, h3 {
@@ -28,9 +28,6 @@ h4 {font-size: 14px; font-weight: bold; text-align: center; margin-top: 1em; mar
 main.sticky-footer {margin-bottom: 70px;}
 footer {text-align: center; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff;}
 footer.bottom, footer.sticky {position: fixed; bottom: 0; width: 100%;}
-footer a {text-decoration: underline;}
-footer a:link, footer a:visited {color: #accaef;}
-footer a:hover {color: #859fc0; text-decoration: none;}
 
 /* Links */
 a {text-decoration: none; cursor: pointer;}
@@ -43,13 +40,14 @@ ul.plain {list-style-type: none; text-align: center;}
 /* Galleries */
 #gallery {margin-top: -2.65em;}
 #gallery .screenshot {
-    height: calc(75%/16*10); background-position: center; background-size: cover; border: 5px solid #444; transition: 3s;
+    height: calc(75%/16*10); background-position: center; background-size: cover;
+    border: 5px solid #444; border-bottom: none; transition: 3s;
 }
 #pause {
-    display: inline; position: relative; top: 2.4em; left: 5px; background: #222; padding: 1ex 1.5ex;
-    cursor: pointer; font-size: 1.5em; border: 3px solid #555;
+    display: inline; position: relative; top: 2.4em; left: 5px; background: #222; padding: 1ex 1.4ex;
+    cursor: pointer; font-size: 1.5em; border: 3px solid #333;
 }
-#caption {height: 10em; background: #666e; padding: 2em 1.6em; font-size: 1.5em; text-align: center; border: 5px solid #444;}
+#caption {height: 10em; background: #666e; padding: 3em 1.6em; font-size: 1.5em; text-align: center; border: 5px solid #444;}
 @media (min-width: 800px) {
     #gallery, #caption {width: 75%; margin-left: 12.5%;}
 }
