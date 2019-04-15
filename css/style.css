@@ -39,6 +39,7 @@ a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
 @media (min-width: 800px) {
     #gallery, #caption {width: 75%; margin-left: 12.5%;}
 }
+#gallery .pause {display: inline; position: relative; top: 2.4em; left: 5px; background: #222; padding: 1ex 1.5ex; font-size: 1.5em; border: 3px solid #555;}
 #gallery .screenshot {height: calc(75%/16*10); background-position: center; background-size: cover; border: 5px solid #444; transition: 3s;}
 #caption {background: #666e; padding: 3em 1.6em;font-size: 1.5em; text-align: center; border: 5px solid #444;}
 
