@@ -1,6 +1,9 @@
 http://nixinova.netlify.com    https://nixinova.netlify.com         301!
 http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 
+# Branches
+https://nixinova.netlify.com/snapshot/*  https://snapshot--nixinova.netlify.com/:splat
+
 # Styles
 /style.css          /css/style.css
 /*/style.css        /css/style.css
@@ -8,7 +11,6 @@ http://nixinova.netlify.com/*  https://nixinova.netlify.com/:splat  301!
 
 # Home
 /home               /   200
-/tk / #Depracated
 
 # Resource packs
 /resourcepacks      /minecraft/resource-packs
