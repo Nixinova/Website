@@ -12,7 +12,7 @@ function gallery(_paths, _images, _captions, duplicates) {
 
         if (duplicates == 'all') {
             for (ii in images) {
-                images[ii] = images[0]
+                paths[ii] = paths[0]
             }
         }
         
