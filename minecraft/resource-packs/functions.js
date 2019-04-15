@@ -21,7 +21,7 @@ function togglePlay() {
     const $text = $('#pause-text')
     if (play) {
         play = false;
-        $text.html('play');
+        $text.html('play_arrow');
     } else {
         play = true;
         $text.html('pause');
