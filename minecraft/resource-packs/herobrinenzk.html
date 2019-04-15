@@ -27,26 +27,28 @@
     </div>
 
     <script name="Gallery cycler">
-        gallery(
-            [
-                'endercreeper/rp',
-                'endercreeper/rp',
-                'herobrinenzk/(2)'
-            ], [
-                'creeper.png',
-                'discs.png',
-                'ores.png'
-            ], [
-                'A retextured creeper, with half of it being an enderman.',
-                'Retextured music discs: strad, cat, mall, 13, chirp, far, mellohi.',
-                'Ores have an outline to make them more visible.'
-            ]
-        )
+        function playGallery() {
+            gallery(
+                [
+                    'endercreeper/rp',
+                    'endercreeper/rp',
+                    'herobrinenzk/(2)'
+                ], [
+                    'creeper.png',
+                    'discs.png',
+                    'ores.png'
+                ], [
+                    'A retextured creeper, with half of it being an enderman.',
+                    'Retextured music discs: strad, cat, mall, 13, chirp, far, mellohi.',
+                    'Ores have an outline to make them more visible.'
+                ]
+            )
+        }
 
         var i = 0;
-        gallery(0);
+        playGallery();
 
-        setInterval(gallery, 10000);
+        setInterval(playGallery, 10000);
     </script>
 
     <h1>HeroBrineNZK Resource Pack</h2>
