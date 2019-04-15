@@ -1,7 +1,8 @@
 var play = true;
+const $text = $('#pause-text')
 
 function gallery(_paths, _images, _captions) {
-    if (!play) {} else {
+    if ($text == 'pause') {
         const $gallery = $('#gallery');
         const $galleryImg = $('#gallery .screenshot')
         const $caption = $('#caption p');
@@ -20,13 +21,6 @@ function gallery(_paths, _images, _captions) {
 };
 
 function togglePlay() {
-    if (play===undefined) {var play = true;}
-    const $text = $('#pause-text')
-    if (play) {
-        play = false;
-        $text.html('play_arrow');
-    } else {
-        play = true;
-        $text.html('pause');
-    }
+    if ($text == 'pause') {$text.html('play_arrow');}
+    if ($text == 'play_arrow') {$text.html('pause');}
 }
