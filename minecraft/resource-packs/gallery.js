@@ -1,7 +1,6 @@
 var $text = $('#pause-text');
 
 function scrollGallery(_paths, _images, _captions, duplicates) {
-    if ($text.html() == 'pause' || !toggled) {
         const $gallery = $('#gallery');
         const $galleryImg = $('#gallery .screenshot')
         const $caption = $('#caption p');
@@ -23,7 +22,6 @@ function scrollGallery(_paths, _images, _captions, duplicates) {
 
         i++;
         if (i >= images.length) {i = 0;}
-    }
 };
 
 function gallery(_paths, _images, _captions, duplicates) {
