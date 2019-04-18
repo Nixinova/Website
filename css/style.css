@@ -86,6 +86,12 @@ a:hover button {background: royalblue; font-size: 21px;}
 
 /* Hide */
 .hide {display: none !important;}
+@media (min-width: 801px) {
+    .mobileonly {display: none !important;}
+}
+@media (max-width: 800px) {
+    .desktoponly {display: none !important;}
+}
 
 /* Icons */
 i.fa {color: white;}
