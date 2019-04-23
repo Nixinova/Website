@@ -84,7 +84,7 @@ button {background: dodgerblue; color: white; padding: 12px 30px; cursor: pointe
 a button, a:visited button {color: white; text-decoration: none;}
 a:hover button {background: royalblue; font-size: 21px;}
 
-/* Hide */
+/* Hide *
 .hide {display: none !important;}
 @media (min-width: 801px) {
     .mobileonly {display: none !important;}
