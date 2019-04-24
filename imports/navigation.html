@@ -39,11 +39,13 @@
         }
     </script>
     <script name="Mobile nav script">
-        $('#mobile-nav').css("opacity", 0.0).animate({"opacity": 1.0}, 2000, "swing");
-
-        //$('#mobile-nav').toggleClass('hide');
-        $('main').toggleClass('hide');
-        $('footer').toggleClass('hide');
+        function toggleMobileNav() {
+            $('#mobile-nav').css("opacity", 0.0).animate({"opacity": 1.0}, 2000, "swing");
+    
+            //$('#mobile-nav').toggleClass('hide');
+            $('main').toggleClass('hide');
+            $('footer').toggleClass('hide');
+        }
     </script>
 </head>
 <body>
