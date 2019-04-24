@@ -1,21 +1,20 @@
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <style>
+    <style name="Navigation styles">
         .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
         .navigation ul li {margin-right: -0.5ex;}
         .navigation li {display: inline-block; padding: 0;}
         .navigation a, .nav-link {display: inline-block; padding: 15px 30px; margin-right: 0px; text-decoration: none; color: #FFF; border-radius: 5px; cursor: pointer;}
         .navigation a:hover, .nav-link:hover  {background: #383838; transition: 0.5s;}
 
-        #mobile-menu {position: fixed; top: 0; left: 0; height: 100%; width: 100%; background: #222; z-index: 9;}
         #mobile-menu-icon {padding: 1em; width: 3em;}
-        #mobile-menu ul li {display: block;}
-        #mobile-menu ul li a {color: white;}
+        #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; background: #222; z-index: 9;}
+        #mobile-nav ul li {display: block;}
+        #mobile-nav ul li a {color: white;}
 
         i {visibility: hidden;}
     </style>
-    <script>
-        // Desktop //
+    <script name="Navigation scripts">
         function toggle(id) {
             document.getElementById(id + '_nav').classList.toggle("hide");
             if (document.getElementById(id + '-dropdown').innerHTML == "arrow_drop_down") {
@@ -36,11 +35,6 @@
             if (id2) {hideElement(id2);}
             if (id3) {hideElement(id3);}
             if (id4) {hideElement(id4);}
-        }
-
-        // Mobile //
-        function toggleMobileNav() {
-            $('#mobile-nav').toggleClass('hide')
         }
     </script>
 </head>
@@ -122,12 +116,12 @@
         </div>
     </div>
 
-    <div id="mobile-menu" class="mobileonly" onclick="toggleMobileNav">
+    <div id="mobile-menu" class="mobileonly">
         <div id="mobile-menu-icon">
-            <i class="material-icons" onclick="toggleMobielMenu()">menu</i>
+            <i class="material-icons" onclick="$('#mobile-nav').toggleClass('hide')">menu</i>
         </div>
         
-        <ul id="mobile-nav">
+        <ul id="mobile-nav" class="hide">
             <li><a href="/">Home</a></li>
 
             <li>
