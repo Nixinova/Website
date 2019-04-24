@@ -39,9 +39,15 @@
         }
     </script>
     <script name="Mobile nav script">
+        var mobilenav_visible = false;
         function toggleMobileNav() {
-            $('#mobile-nav').css("opacity", 0.0).animate({"opacity": 1.0}, 2000, "swing");
-    
+            if (mobilenav_count) {
+                $('#mobile-nav').css("opacity", 1.0).animate({"opacity": 0.0}, 500, "swing");
+            }
+            else {
+                $('#mobile-nav').css("opacity", 0.0).animate({"opacity": 1.0}, 500, "swing");
+            } 
+
             //$('#mobile-nav').toggleClass('hide');
             $('main').toggleClass('hide');
             $('footer').toggleClass('hide');
