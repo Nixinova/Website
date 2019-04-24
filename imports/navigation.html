@@ -9,7 +9,7 @@
 
         #mobile-menu ul {display: block;}
         #mobile-menu-icon {position: fixed; width: 3em; padding: 1em; cursor: pointer; z-index: 10;}
-        #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; z-index: 7; padding-top: 3em; margin-top: 0; background: #222; font-size: 1.2em;}
+        #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; z-index: 7; padding-top: 3em; margin-top: 0; background: #111; font-size: 1.2em;}
         #mobile-nav li {font-style: italic;}
         #mobile-nav li a {color: white; font-style: normal;}
 
@@ -39,8 +39,7 @@
         }
     </script>
     <script name="Mobile nav script">
-        let nav = $('#mobile-nav');
-        nav.css('opacity','0');
+        $('#mobile-nav').css("opacity", 0.0).animate({"opacity": 1.0}, 2000, "swing");
 
         //$('#mobile-nav').toggleClass('hide');
         $('main').toggleClass('hide');
@@ -136,27 +135,23 @@
         <ul id="mobile-nav" style="opacity: 0;">
             <li><a href="/">Home</a></li>
 
-            <li>
-                Minecraft
+            <li>Minecraft
                 <ul>
-                    <li>
-                        Maps
+                    <li>Maps
                         <ul>
                             <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
                             <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
                             <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
                         </ul>
                     </li>
-                    <li>
-                        Tools
+                    <li>Tools
                         <ul>
                             <li><a href="/minecraft/tools/give">/give</a></li>
                             <li><a href="/minecraft/tools/summon">/summon</a></li>
                             <li><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
                         </ul>
                     </li>
-                    <li>
-                        Resource Packs
+                    <li>Resource Packs
                         <ul>
                             <li><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
                             <li><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
@@ -166,8 +161,7 @@
                 </ul>
             </li>
 
-            <li>
-                Nixinova
+            <li>Nixinova
                 <ul>
                     <li><a href="/info/minecraft">Minecraft Player Info</a></li>
                     <li><a href="/info/pc-specs">Computer Specs</a></li>
