@@ -9,8 +9,7 @@
 
         #mobile-menu-icon {padding: 1em; width: 3em;}
         #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; background: #222; z-index: 9;}
-        #mobile-nav ul li {display: block;}
-        #mobile-nav ul li a {color: white;}
+        #mobile-nav li a {color: white; text-decoration: underline; font-weight: bold;}
 
         i {visibility: hidden;}
     </style>
@@ -122,6 +121,10 @@
         </div>
         
         <ul id="mobile-nav" class="hide">
+            <div id="mobile-menu-icon">
+                <i class="material-icons" onclick="$('#mobile-nav').toggleClass('hide')">menu</i>
+            </div>
+
             <li><a href="/">Home</a></li>
 
             <li>
