@@ -4,7 +4,7 @@
 
 /* Elements */
 * {box-sizing: border-box; transition: 0.5s;}
-body {font: normal 14px 'Montserrat'; color: #eee; margin: 0; line-height: 1.8; background: linear-gradient(#222, #444);}
+body {font: normal 15spx 'Montserrat'; color: #eee; margin: 0; line-height: 1.8; background: linear-gradient(#222, #444);}
 nav {background: #222;}
 main {padding: 0 5vw;}
 p {text-align: center; margin-left: 10px;}
@@ -80,6 +80,6 @@ a:hover button {background: royalblue; font-size: 21px;}
 
 /* Icons */
 i.fa {color: white;}
-.material-icons {font-size: 1.25em !important; display: inline !important;}
+.material-icons {font-size: 1.5em !important; display: inline !important;}
 
 /* Copyright © Nixinova 2019 */
