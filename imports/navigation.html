@@ -7,6 +7,7 @@
         .navigation a, .nav-link {display: inline-block; padding: 15px 30px; margin-right: 0px; text-decoration: none; color: #FFF; border-radius: 5px; cursor: pointer;}
         .navigation a:hover, .nav-link:hover  {background: #383838; transition: 0.5s;}
 
+        #mobile-menu ul {display: block;}
         #mobile-menu-icon {position: fixed; width: 3em; padding: 1em; cursor: pointer; }
         #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; z-index: 8; margin-top: 3em; background: #222; font-size: 1.2em;}
         #mobile-nav li {font-style: italic;}
@@ -14,7 +15,7 @@
 
         i {visibility: hidden;}
     </style>
-    <script name="Navigation scripts">
+    <script name="Desktop nav script">
         function toggle(id) {
             document.getElementById(id + '_nav').classList.toggle("hide");
             if (document.getElementById(id + '-dropdown').innerHTML == "arrow_drop_down") {
@@ -36,6 +37,11 @@
             if (id3) {hideElement(id3);}
             if (id4) {hideElement(id4);}
         }
+    </script>
+    <script name="Mobile nav script">
+        $('#mobile-nav').toggleClass('hide');
+        $('main').toggleClass('hide');
+        $('footer').toggleClass('hide');
     </script>
 </head>
 <body>
@@ -118,7 +124,7 @@
 
     <div id="mobile-menu" class="mobileonly">
         <div id="mobile-menu-icon">
-            <i class="material-icons" onclick="$('#mobile-nav').toggleClass('hide')">menu</i>
+            <i class="material-icons" onclick="toggleMobileNav()">menu</i>
         </div>
         
         <ul id="mobile-nav" class="hide">
