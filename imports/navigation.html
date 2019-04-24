@@ -2,15 +2,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
+        .navigation ul li {margin-right: -0.5ex;}
         .navigation li {display: inline-block; padding: 0;}
         .navigation a, .nav-link {display: inline-block; padding: 15px 30px; margin-right: 0px; text-decoration: none; color: #FFF; border-radius: 5px; cursor: pointer;}
         .navigation a:hover, .nav-link:hover  {background: #383838; transition: 0.5s;}
 
-        .navigation ul li {margin-right: -0.5ex;}
+        #mobile-menu {position: fixed; top: 0; left: 0; height: 100%; width: 100%; background: #222; z-index: 9;}
+        #mobile-menu-icon {padding: 1em; width: 3em;}
+        #mobile-menu ul li {display: block;}
 
-        i {display: none;}
+        i {visibility: hidden;}
     </style>
     <script>
+        // Desktop //
         function toggle(id) {
             document.getElementById(id + '_nav').classList.toggle("hide");
             if (document.getElementById(id + '-dropdown').innerHTML == "arrow_drop_down") {
@@ -32,81 +36,137 @@
             if (id3) {hideElement(id3);}
             if (id4) {hideElement(id4);}
         }
+
+        // Mobile //
+        function toggleMobileNav() {
+
+        }
     </script>
 </head>
 <body>
-    <div id="primary" class="navigation">
-        <ul class="nav-list">
-            <li id="nav-home"><a href="/">Home</a></li>
-            <li id="nav-mc">
-                <a onclick="hide('nixi'); toggle('mc');" onmouseover="">Minecraft
-                    <sub><i id="mc-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                </a>
-            </li>
-            <li id="nav-nixi">
-                <a onclick="hide('mc'); toggle('nixi');" onmouseover="">Nixinova
-                    <sub><i id="nixi-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                </a>
-            </li>
-            <li id="nav-search">
-                <a href="/search#gsc.q=">
-                    &nbsp;<sub><i class="material-icons">search</i></sub>&nbsp;
-                </a>
-            </li>
-        </ul>
-    </div>
+    <div id="desktop-nav" class="desktoponly">
+        <div id="primary" class="navigation">
+            <ul class="nav-list">
+                <li id="nav-home"><a href="/">Home</a></li>
+                <li id="nav-mc">
+                    <a onclick="hide('nixi'); toggle('mc');" onmouseover="">Minecraft
+                        <sub><i id="mc-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                    </a>
+                </li>
+                <li id="nav-nixi">
+                    <a onclick="hide('mc'); toggle('nixi');" onmouseover="">Nixinova
+                        <sub><i id="nixi-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                    </a>
+                </li>
+                <li id="nav-search">
+                    <a href="/search#gsc.q=">
+                        &nbsp;<sub><i class="material-icons">search</i></sub>&nbsp;
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-    <div id="mc_nav" class="navigation secondary hide">
-        <hr class="mobileonly">
-        <ul class="nav-list">
-            <li id="mcnav-maps">
-                <a onclick="hide('tool', 'rp', 'nixi'); toggle('dl');" onmouseover="">Maps
-                    <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                </a>
-            </li>
-            <li id="mcnav-tools">
-                <a onclick="hide('dl', 'rp', 'nixi'); toggle('tool');" onmouseover="">Tools
-                    <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                </a>
-            </li>
-            <li id="mcnav-rp">
-                <a onclick="hide('tool', 'dl', 'nixi'); toggle('rp');" onmouseover="">Resource Packs
-                    <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                </a>
-            </li>
-        </ul>
-
-        <div id="mc_sub_nav">
+        <div id="mc_nav" class="navigation secondary hide">
             <hr class="mobileonly">
-            <div id="dl_nav" class="navigation tertiary hide">
-                <ul class="nav-list">
-                    <li id="dlnav-sw"><a href="/minecraft/maps/skywars">SkyWars</a></li>
-                    <li id="dlnav-mb"><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
-                    <li id="dlnav-pvp"><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
-                </ul>
-            </div>
-            <div id="tool_nav" class="navigation tertiary hide">
-                <ul class="nav-list">
-                    <li id="toolnav-give"><a href="/minecraft/tools/give">/give</a></li>
-                    <li id="toolnav-summon"><a href="/minecraft/tools/summon">/summon</a></li>
-                    <li id="toolnav-coords"><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
-                </ul>
-            </div>
-            <div id="rp_nav" class="navigation tertiary hide">
-                <ul class="nav-list">
-                    <li id="rpnav-mashup"><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
-                    <li id="rpnav-themed"><a href="/minecraft/resource-packs/themed">Themed Packs</a></li>
-                    <li id="rpnav-herobrinenzk"><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
-                </ul>
+            <ul class="nav-list">
+                <li id="mcnav-maps">
+                    <a onclick="hide('tool', 'rp', 'nixi'); toggle('dl');" onmouseover="">Maps
+                        <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                    </a>
+                </li>
+                <li id="mcnav-tools">
+                    <a onclick="hide('dl', 'rp', 'nixi'); toggle('tool');" onmouseover="">Tools
+                        <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                    </a>
+                </li>
+                <li id="mcnav-rp">
+                    <a onclick="hide('tool', 'dl', 'nixi'); toggle('rp');" onmouseover="">Resource Packs
+                        <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                    </a>
+                </li>
+            </ul>
+
+            <div id="mc_sub_nav">
+                <hr class="mobileonly">
+                <div id="dl_nav" class="navigation tertiary hide">
+                    <ul class="nav-list">
+                        <li id="dlnav-sw"><a href="/minecraft/maps/skywars">SkyWars</a></li>
+                        <li id="dlnav-mb"><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
+                        <li id="dlnav-pvp"><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
+                    </ul>
+                </div>
+                <div id="tool_nav" class="navigation tertiary hide">
+                    <ul class="nav-list">
+                        <li id="toolnav-give"><a href="/minecraft/tools/give">/give</a></li>
+                        <li id="toolnav-summon"><a href="/minecraft/tools/summon">/summon</a></li>
+                        <li id="toolnav-coords"><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
+                    </ul>
+                </div>
+                <div id="rp_nav" class="navigation tertiary hide">
+                    <ul class="nav-list">
+                        <li id="rpnav-mashup"><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
+                        <li id="rpnav-themed"><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
+                        <li id="rpnav-herobrinenzk"><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="nixi_nav" class="navigation tertiary hide">
-        <hr class="mobileonly">
-        <ul class="nav-list">
-            <li id="nixinav-mc"><a href="/info/minecraft">Minecraft Info</a></li>
-            <li id="nixinav-pc"><a href="/info/pc-specs">Computer Specs</a></li>
+        <div id="nixi_nav" class="navigation tertiary hide">
+            <hr class="mobileonly">
+            <ul class="nav-list">
+                <li id="nixinav-mc"><a href="/info/minecraft">Minecraft Info</a></li>
+                <li id="nixinav-pc"><a href="/info/pc-specs">Computer Specs</a></li>
+            </ul>
+        </div>
+    <div>
+
+    <div id="mobile-menu" class="mobileonly" onclick="toggleMobileNav">
+        <div id="mobile-menu-icon">
+            <i class="material-icons">menu</i>
+        </div>
+        
+        <ul id="mobile-nav">
+            <li><a href="/">Home</a></li>
+
+            <li>
+                Minecraft
+                <ul>
+                    <li>
+                        Maps
+                        <ul>
+                            <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
+                            <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
+                            <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        Tools
+                        <ul>
+                            <li><a href="/minecraft/tools/give">/give</a></li>
+                            <li><a href="/minecraft/tools/summon">/summon</a></li>
+                            <li><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        Resource Packs
+                        <ul>
+                            <li><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
+                            <li><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
+                            <li><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                Nixinova
+                <ul>
+                    <li><a href="/info/minecraft">Minecraft Player Info</a></li>
+                    <li><a href="/info/pc-specs">Computer Specs</a></li>
+                </ul>
+            </li>
+
         </ul>
     </div>
 
@@ -114,7 +174,7 @@
 
     <script>
         $(document).ready(function(){
-            $("i").css("display","inline");
+            $("i").css("visibility","visible");
         },1000)
     </script>
 </body>
