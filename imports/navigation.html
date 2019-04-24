@@ -10,6 +10,7 @@
         #mobile-menu {position: fixed; top: 0; left: 0; height: 100%; width: 100%; background: #222; z-index: 9;}
         #mobile-menu-icon {padding: 1em; width: 3em;}
         #mobile-menu ul li {display: block;}
+        #mobile-menu ul li a {color: white;}
 
         i {visibility: hidden;}
     </style>
@@ -39,7 +40,7 @@
 
         // Mobile //
         function toggleMobileNav() {
-
+            $('#mobile-nav').toggleClass('hide')
         }
     </script>
 </head>
@@ -119,11 +120,11 @@
                 <li id="nixinav-pc"><a href="/info/pc-specs">Computer Specs</a></li>
             </ul>
         </div>
-    <div>
+    </div>
 
     <div id="mobile-menu" class="mobileonly" onclick="toggleMobileNav">
         <div id="mobile-menu-icon">
-            <i class="material-icons">menu</i>
+            <i class="material-icons" onclick="toggleMobielMenu()">menu</i>
         </div>
         
         <ul id="mobile-nav">
