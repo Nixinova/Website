@@ -52,7 +52,7 @@ ul.plain {list-style-type: none; text-align: center;}
 
 /* YouTube videos */
 iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
-
+ 
 /* Flexboxes */
 @media (min-width: 801px) {
     .row {display: flex;}
