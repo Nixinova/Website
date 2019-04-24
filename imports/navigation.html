@@ -42,11 +42,11 @@
         var mobilenav_visible = false;
         function toggleMobileNav() {
             if (mobilenav_visible) {
-                $('#mobile-nav').css("opacity", 1.0).animate({"opacity": 0.0}, 500, "swing");
+                $('#mobile-nav').css("opacity", 1.0).animate({"opacity": 0.5}, 500, "swing");
                 mobilenav_visible = false;
             }
             else {
-                $('#mobile-nav').css("opacity", 0.0).animate({"opacity": 1.0}, 500, "swing");
+                $('#mobile-nav').css("opacity", 0.5).animate({"opacity": 1.0}, 500, "swing");
                 mobilenav_visible = true;
             } 
 
@@ -123,8 +123,6 @@
                     </ul>
                 </div>
             </div>
-            
-        <hr style="margin-top: 0">
 
         </div>
 
@@ -135,6 +133,8 @@
                 <li id="nixinav-pc"><a href="/info/pc-specs">Computer Specs</a></li>
             </ul>
         </div>
+            
+        <hr style="margin-top: 0;">
     </div>
 
     <div id="mobile-menu" class="mobileonly">
