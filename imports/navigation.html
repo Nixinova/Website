@@ -17,7 +17,7 @@
     </style>
     <script name="Desktop navigation script">
         function toggle(id) {
-            $('#' + id + '_nav').toggleClass('hide').css("opacity", 0.5).animate({"opacity": 1.0}, 200, "swing");
+            $('#' + id + '_nav').toggleClass('hide').css("opacity", 0.0).animate({"opacity": 1.0}, 200, "swing");
             if ($('#' + id + '-dropdown').html() == "arrow_drop_down") {
                 $('#' + id + '-dropdown').html("arrow_drop_up");
             }
@@ -27,7 +27,7 @@
         }
 
         function hideElement(id) {
-            $('#' + id + '_nav').css("opacity",0.0);
+            $('#' + id + '_nav').css("opacity",0.0).addClass('hide');
             $('#' + id + '-dropdown').html("arrow_drop_down");
         }
         
