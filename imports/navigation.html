@@ -15,9 +15,9 @@
 
         i {visibility: hidden;}
     </style>
-    <script name="Desktop nav script">
+    <script name="Desktop navigation script">
         function toggle(id) {
-            $('#' + id + '_nav').css("opacity", 0.5).animate({"opacity": 1.0}, 200, "swing");
+            $('#' + id + '_nav').toggleClass('hide').css("opacity", 0.5).animate({"opacity": 1.0}, 200, "swing");
             if ($('#' + id + '-dropdown').html() == "arrow_drop_down") {
                 $('#' + id + '-dropdown').html("arrow_drop_up");
             }
@@ -38,15 +38,15 @@
             if (id4) {hideElement(id4);}
         }
     </script>
-    <script name="Mobile nav script">
+    <script name="Mobile navigation script">
         var mobilenav_visible = false;
 
         function showElements(id1, id2) {
-            $(id1).css("opacity", 0.5).removeClass('hide').animate({"opacity": 0.0}, 500, "swing");
+            $(id1).css("opacity", 0.5).animate({"opacity": 0.0}, 500, "swing");
             if (id2) {$(id2).css("opacity", 0.5).animate({"opacity": 0.0}, 500, "swing"); }
         }
         function hideElements(id1, id2) {
-            $(id1).css("opacity", 0.5).animate({"opacity": 1.0}, 250, "swing").addClass('hide');
+            $(id1).css("opacity", 0.5).animate({"opacity": 1.0}, 250, "swing");
             if (id2) {$(id2).css("opacity", 0.5).animate({"opacity": 1.0}, 250, "swing"); }
         }
 
