@@ -17,18 +17,18 @@
     </style>
     <script name="Desktop nav script">
         function toggle(id) {
-            document.getElementById(id + '_nav').classList.toggle("hide");
-            if (document.getElementById(id + '-dropdown').innerHTML == "arrow_drop_down") {
-                document.getElementById(id + '-dropdown').innerHTML = "arrow_drop_up";
+            $('#' + id + '_nav').css("opacity", 0.5).animate({"opacity": 1.0}, 200, "swing");
+            if ($('#' + id + '-dropdown').html() == "arrow_drop_down") {
+                $('#' + id + '-dropdown').html("arrow_drop_up");
             }
             else {
-                document.getElementById(id + '-dropdown').innerHTML = "arrow_drop_down";
+                $('#' + id + '-dropdown').html("arrow_drop_down");
             }
         }
 
         function hideElement(id) {
-            document.getElementById(id + '_nav').classList.add('hide')
-            document.getElementById(id + '-dropdown').innerHTML = "arrow_drop_down";
+            $('#' + id + '_nav').css("opacity",0.0);
+            $('#' + id + '-dropdown').html("arrow_drop_down");
         }
         
         function hide(id1, id2, id3, id4) {
