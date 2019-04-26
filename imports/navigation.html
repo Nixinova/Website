@@ -70,11 +70,7 @@
     <div id="desktop-nav" class="desktoponly">
         <div id="primary" class="navigation">
             <ul class="nav-list">
-                <li id="nav-home">
-                    <ul style="padding: 0; list-style-type: square;"><
-                        li><a href="/">Home</a></li>
-                    </ul>
-                </li>
+                <li><a href="/">Home</a></li>
                 
                 <li id="nav-mc">
                     <a onclick="hide('nixi','dl','rp'); toggle('mc');" onmouseover="">Minecraft
@@ -158,7 +154,11 @@
         </div>
         
         <ul id="mobile-nav" style="opacity: 0; list-style-type: none;">
-            <li><a href="/">Home</a></li>
+                <li id="nav-home">
+                    <ul style="padding: 0; list-style-type: square;">
+                        <li><a href="/">Home</a></li>
+                    </ul>
+                </li>
 
             <li>Minecraft
                 <ul style="list-style-type: none;">
