@@ -18,7 +18,6 @@ function gallery(_paths, _images, _captions, duplicates) {
         
         const src = '/images/minecraft/resource-packs/' + paths[i] + '/' + images[i];
 
-        $('#gallery a').attr('href', src);
         $galleryImg.css("background-image", "url('" + src + "')").attr("alt", caption[i]);
         $caption.html(captions[i]);
 
