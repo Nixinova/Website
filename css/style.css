@@ -15,9 +15,9 @@ img {max-width: 100%; vertical-align: middle; border: 0;}
 h1, h2, h3 {
     color: #eee; font-family: 'Noto Sans'; font-weight: bold; margin: 0; text-align: center; width: 100%; text-transform: uppercase;
 }
-h1 {font-size: 2.50rem;}
-h2 {font-size: 2.25rem;}
-h3 {font-size: 1.75rem;}
+h1 {font-size: 2.5rem;}
+h2 {font-size: 2.2rem;}
+h3 {font-size: 1.7rem;}
 h4 {font-size: 14px; font-weight: bold; text-align: center; margin-top: 1em; margin-bottom: -1em;}
 
 @media (max-width: 800px) {
