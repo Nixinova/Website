@@ -89,7 +89,7 @@ function summon() {
     // SPECIFIC ENTITY NBT //
 
     // villager //
-    if (villager_type || villager_profession || villager_level) {nbt.VillagerData = {};}
+    if (entity === 'villager') {nbt.VillagerData = {};}
     if (villager_type) {nbt.VillagerData.type = villager_type;}
     if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
     if (villager_level) {nbt.VillagerData.level = villager_level;}
