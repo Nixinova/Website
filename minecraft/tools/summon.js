@@ -88,7 +88,6 @@ function summon() {
     $('#output_text').empty();
     $('#cmd_note').addClass('hide');
     $('.only').addClass('hide');
-    $('.not-only').removeClass('hide');
     $('.' + entity).removeClass('hide');
 
     // COORDS //
@@ -113,8 +112,8 @@ function summon() {
 
     // tropical fish //
     if (entity === 'tropical_fish') {
-        if (tropical_fish_size === 0) {$('.large-fish').addClass('hide').removeClass('hide');}
-        if (tropical_fish_size === 1) {$('.small-fish').addClass('hide').removeClass('hide');}
+        if (tropical_fish_size === 0) {$('.large-fish').addClass('hide'); $('.small-fish').removeClass('hide');}
+        if (tropical_fish_size === 1) {$('.small-fish').addClass('hide'); $('.large-fish').removeClass('hide');}
         let byte_1 = tropical_fish_size;
         let byte_2 = tropical_fish_pattern * Math.pow(2,8);
         let byte_3 = tropical_fish_base_color * Math.pow(2,16);
