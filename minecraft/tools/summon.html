@@ -23,7 +23,7 @@
         <script>document.ready('javascript:submit()')</script>
         <form action="javascript:submit()" id="input_form">
             <style>
-                .on::before {content: 'True'}
+                .on::before {content: 'True\a0'} /* nbsp; */
                 .off::after {content: 'False'}
             </style>
             <p>
@@ -97,7 +97,7 @@
                 <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_y"> &nbsp;
                 <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_z"><br/>
             </p>
-            <p id="nbt" id="nbt">
+            <p id="nbt" class="only">
                 <span class="form-item">NBT:</span><br/>
 
                 <span class="creeper only">
@@ -242,7 +242,7 @@
 
                 <span class="baby_mobs only">
                     <span class="form-item indent">Baby?</span>
-                    &emsp; <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                    <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             </p>
             <p name="Armour">
