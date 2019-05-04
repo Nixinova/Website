@@ -58,6 +58,7 @@ function summon() {
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
+    var fox_type = checked(value('input_fox_type'));
 
     var head = cleanup(value('input_armour_head' ));
     var chest= cleanup(value('input_armour_chest'));
@@ -76,22 +77,28 @@ function summon() {
     var nbt = {}
 
     /// GENERATOR ///
-    // output //
+    // OUTPUT //
     $('#output_text').empty();
     $('#cmd_note').addClass('hide');
     $('.only').addClass('hide');
     $('.' + entity).removeClass('hide');
 
-    // coords //
+    // COORDS //
     if (!X) {X = '~';}   if (!Y) {Y = '~';}   if (!Z) {Z = '~';}
 
-    // specific entity nbt //
+    // SPECIFIC ENTITY NBT //
+
+    // villager //
     if (villager_type || villager_profession || villager_level) {nbt.VillagerData = {};}
     if (villager_type) {nbt.VillagerData.type = villager_type;}
     if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
     if (villager_level) {nbt.VillagerData.level = villager_level;}
 
-    // held items //
+    // fox //
+    if (fox_type) {nbt.Type = fox_type}
+
+    // EQUIPMENT //
+    // armor //
     var armor_items = [];
     if (feet) {armor_items.push({id: feet, Count: feet_n + 'b'});} else {armor_items.push({});}
     if (legs) {armor_items.push({id: legs, Count: legs_n + 'b'});} else {armor_items.push({});}
@@ -99,12 +106,13 @@ function summon() {
     if (head) {armor_items.push({id: head, Count: head_n + 'b'});} else {armor_items.push({});}
     if (head || chest || legs || feet) {nbt.ArmorItems = armor_items;}
 
+    // held //
     var held_items = [];
     if (mainhand) {held_items.push({id: mainhand, Count: mainhand_n + 'b'});} else {held_items.push({});}
     if (offhand) {held_items.push({id: offhand, Count: offhand_n + 'b'});} else {held_items.push({});}
     if (mainhand || offhand) {nbt.HandItems = held_items;}
 
-    // nbt-ify //
+    // CONVERT TO NBT //
     if (!isEmpty(nbt)) {
         var NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g,'$1:');
     } else {NBT = '';}

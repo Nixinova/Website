@@ -58,7 +58,6 @@
                     <option>Phantom</option>
                     <option>Pig</option>
                     <option>Pillager</option>
-                    <option>Player</option>
                     <option>Polar Bear</option>
                     <option>Pufferfish</option>
                     <option>Rabbit</option>
@@ -99,7 +98,7 @@
 
                 <span class="villager only">
                     <span class="form-item indent">Type:</span>
-                    <select id="input_villager_type">
+                    <select id="input_villager_type" onblur="submit()">
                         <option></option>
                         <option>Desert</option>
                         <option>Jungle</option>
@@ -111,7 +110,7 @@
                     </select><br/>
 
                     <span class="form-item indent">Profession:</span>
-                    <select id="input_villager_profession">
+                    <select id="input_villager_profession" onblur="submit()">
                         <option>None</option>
                         <option>Armorer</option>
                         <option>Butcher</option>
@@ -130,7 +129,15 @@
                     </select><br/>
 
                     <span class="form-item indent">Level:</span>
-                    <input type="number" value="1" min="1" max="5" id="input_villager_level">
+                    <input type="number" value="1" min="1" max="5" onblur="submit()" id="input_villager_level">
+                </span>
+
+                <span class="fox only">
+                    <span class="form-item indent">Type:</span>
+                    <select id="input_fox_type" onblur="submit()">
+                        <option>Red</option>
+                        <option>Snow</option>
+                    </select>
                 </span>
             </p>
             <p name="Armour">
