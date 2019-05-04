@@ -112,7 +112,7 @@ function summon() {
     // ENTITY NBT //
 
     // all //
-    if (no_ai) {nbt.NoAI = true;}
+    if (!no_ai) {nbt.NoAI = true;}
 
     // babies //
     if (baby_mobs.indexOf(entity) > -1) {
