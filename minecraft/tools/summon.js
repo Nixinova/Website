@@ -128,11 +128,11 @@ function summon() {
     if (neg_age_mobs.indexOf(entity) > -1) {
         $('.baby_mobs').removeClass('hide');
         $('.baby_living_mobs').removeClass('hide');
-        if (input_baby_time_value) {
-            if (input_baby_time == 't') {nbt.Age = 1-input_baby_time_value}
-            if (input_baby_time == 's') {nbt.Age = 1-input_baby_time_value*20}
-            if (input_baby_time == 'm') {nbt.Age = 1-input_baby_time_value*1200}
-            if (input_baby_time == 'h') {nbt.Age = 1-input_baby_time_value*72000}
+        if (baby_time_value) {
+            if (baby_time == 't') {nbt.Age = 1-baby_time_value}
+            if (baby_time == 's') {nbt.Age = 1-baby_time_value*20}
+            if (baby_time == 'm') {nbt.Age = 1-baby_time_value*1200}
+            if (baby_time == 'h') {nbt.Age = 1-baby_time_value*72000}
         }
     }
 
