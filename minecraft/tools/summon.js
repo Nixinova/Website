@@ -66,6 +66,7 @@ function summon() {
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
     var no_ai = $('#input_no_ai').hasClass('on');
+    var despawnable = $('#input_despawnable').hasClass('on');
 
     var baby = $('#input_is_baby').hasClass('on');
     var cat_type = value('input_cat_type', 'int')
@@ -113,6 +114,7 @@ function summon() {
 
     // all //
     if (!no_ai) {nbt.NoAI = true;}
+    if (despawnable) {nbt.PersistenceRequired = true;}
 
     // babies //
     if (baby_mobs.indexOf(entity) > -1) {

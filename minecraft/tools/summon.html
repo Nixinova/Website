@@ -25,7 +25,7 @@
             <style>
                 .on::before {content: 'True'}
                 .off::after {content: 'False'}
-                .on {padding: 5px 12.5px;}
+                .on {padding: 5px 12.5px; animation: none;}
             </style>
             <p>
                 <span class="form-item">Mob:</span>
@@ -106,6 +106,9 @@
 
                 <span class="form-item indent">Movement?</span>
                 <button id="input_no_ai" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+
+                <span class="form-item indent">Despawnable?</span>
+                <button id="input_despawnable" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
                 <span class="cat only">
                     <span class="form-item indent">Type:</span>
