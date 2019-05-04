@@ -94,7 +94,15 @@
                 <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_z"><br/>
             </p>
             <p name="NBT">
-                <span class="form-item fox villager">NBT:</span><br/>
+                <span class="form-item only fox villager">NBT:</span><br/>
+
+                <span class="fox only">
+                    <span class="form-item indent">Type:</span>
+                    <select id="input_fox_type" onblur="submit()">
+                        <option>Red</option>
+                        <option>Snow</option>
+                    </select>
+                </span>
 
                 <span class="villager only">
                     <span class="form-item indent">Type:</span>
@@ -130,14 +138,6 @@
 
                     <span class="form-item indent">Level:</span>
                     <input type="number" value="1" min="1" max="5" onblur="submit()" id="input_villager_level">
-                </span>
-
-                <span class="fox only">
-                    <span class="form-item indent">Type:</span>
-                    <select id="input_fox_type" onblur="submit()">
-                        <option>Red</option>
-                        <option>Snow</option>
-                    </select>
                 </span>
             </p>
             <p name="Armour">
