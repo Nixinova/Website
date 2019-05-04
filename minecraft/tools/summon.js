@@ -7,7 +7,7 @@ function value(id, n) {
 }
 
 function cleanup(id) {
-    return id.toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
+    return id.toLowerCase().replace(/[ -]/g, '_').replace(/[^a-z_:]/g,'').replace(/_+/g, '_').replace(/:+/g, ':').replace(/:_/g, ':');
 }
 
 function checked(id) {
