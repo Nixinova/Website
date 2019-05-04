@@ -55,8 +55,8 @@ function summon() {
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
-    var villager_type = value('input_villager_type');
-    var villager_profession = value('input_villager_profession');
+    var villager_type = cleanup(value('input_villager_type'));
+    var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
 
     var head = cleanup(value('input_armour_head' ));
@@ -87,9 +87,9 @@ function summon() {
 
     // specific entity nbt //
     if (villager_type || villager_profession || villager_level) {nbt.VillagerData = {};}
-    if (villager_type) {nbt.VillagerData.Type = villager_type;}
-    if (villager_profession) {nbt.VillagerData.Profession = villager_profession;}
-    if (villager_type) {nbt.VillagerData.Type = villager_type;}
+    if (villager_type) {nbt.VillagerData.type = villager_type;}
+    if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
+    if (villager_level) {nbt.VillagerData.level = villager_level;}
 
     // held items //
     var armor_items = [];

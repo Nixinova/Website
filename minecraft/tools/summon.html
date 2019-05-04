@@ -94,7 +94,7 @@
                 <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_y"> &nbsp;
                 <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_z"><br/>
             </p>
-            <p>
+            <p name="NBT">
                 <span class="form-item">NBT:</span><br/>
 
                 <span class="villager only">
@@ -133,7 +133,7 @@
                     <input type="number" value="1" min="1" max="5" id="input_villager_level">
                 </span>
             </p>
-            <p>
+            <p name="Armour">
                 <span class="form-item">Armour:</span><br/>
                 
                 <span class="form-item indent">Head:</span>
@@ -152,7 +152,7 @@
                 <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_feet"> &nbsp;
                 <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_feet_num">
             </p>
-            <p>
+            <p name='Held items'>
                 <span class="form-item">Hand items:</span><br/>
                 
                 <span class="form-item indent">Main hand:</span>
@@ -184,7 +184,7 @@
         <script>$(document).ready(function(){submit()});</script>
     </main>
 
-    <footer>
+    <footer class="bottom">
         <span id="copyright"></span>
         &bull;&nbsp;<a href="summon.js" title="summon.js" target="_blank">View code</a>
     </footer>
