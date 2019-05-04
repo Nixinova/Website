@@ -51,7 +51,7 @@ function summon() {
     /// VARIABLES ///
     var baby_mobs = ['drowned', 'zombie', 'zombie_pigman', 'zombie_villager']
     var neg_age_mobs = [
-        'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot', 'panda',
+        'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot', 'panda',
         'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
     ]
