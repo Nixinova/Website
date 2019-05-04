@@ -49,7 +49,7 @@ function rvNestedDupes(array) {
 function summon() {
 
     /// VARIABLES ///
-    var baby_mobs = ['zombie', 'zombie_pigman', 'zombie_villager']
+    var baby_mobs = ['drowned', 'zombie', 'zombie_pigman', 'zombie_villager']
     var neg_age_mobs = [
         'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot', 'panda',
         'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
@@ -104,21 +104,25 @@ function summon() {
 
     // fox //
     if (entity === 'fox') {
+        $('#nbt').removeClass('hide');
         if (fox_type) {nbt.Type = fox_type;}
     }
 
     // horses //
     if (entity === 'donkey' || entity === 'horse' || entity === 'mule' || entity === 'skeleton_horse' || entity === 'zombie_horse') {
+        $('#nbt').removeClass('hide');
         if (horse_tame) {nbt.Tame = true;}
     }
 
     // coloured mobs //
     if (entity === 'sheep' || entity === 'shulker') {
+        $('#nbt').removeClass('hide');
         if (mob_color) {nbt.Color = mob_color;}
     }
 
     // tropical fish //
     if (entity === 'tropical_fish') {
+        $('#nbt').removeClass('hide');
         if (tropical_fish_size === 0) {$('.large-fish').addClass('hide'); $('.small-fish').removeClass('hide');}
         if (tropical_fish_size === 1) {$('.small-fish').addClass('hide'); $('.large-fish').removeClass('hide');}
         let byte_1 = tropical_fish_size;
@@ -130,6 +134,7 @@ function summon() {
 
     // villager //
     if (entity === 'villager') {
+        $('#nbt').removeClass('hide');
         nbt.VillagerData = {};
         if (villager_type) {nbt.VillagerData.type = villager_type;}
         if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
@@ -138,10 +143,12 @@ function summon() {
 
     // babies //
     if (baby_mobs.indexOf(entity) > -1) {
+        $('#nbt').removeClass('hide');
         $('.baby_mobs.only').removeClass('hide');
         if (baby) {nbt.IsBaby = true;}
     }
     if (neg_age_mobs.indexOf(entity) > -1) {
+        $('#nbt').removeClass('hide');
         $('.baby_mobs.only').removeClass('hide');
         if (baby) {nbt.Age = -100;}
     }
