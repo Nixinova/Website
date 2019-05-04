@@ -75,7 +75,7 @@ function summon() {
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
     var fox_type = cleanup(value('input_fox_type'));
-    var ghast_explosion_power = value('ghast_explosion_power');
+    var ghast_explosion_power = value('input_ghast_explosion_power');
     var llama_type = value('input_llama_type', 'int')
     var llama_temper = value('input_llama_temper', 'int')
     var horse_tame = $('#input_horse_tame').hasClass('on');
