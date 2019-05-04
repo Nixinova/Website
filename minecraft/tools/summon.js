@@ -55,10 +55,14 @@ function summon() {
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
+    var fox_type = cleanup(value('input_fox_type'));
+    var tropical_fish_type = value('input_tropical_fish_type', 'int');
+    var tropical_fish_size = value('input_tropical_fish_size', 'int');
+    var tropical_fish_body_color = value('input_tropical_fish_body_color', 'int');
+    var tropical_fish_pattern_color = value('input_tropical_fish_pattern_color', 'int');
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
-    var fox_type = cleanup(value('input_fox_type'));
 
     var head = cleanup(value('input_armour_head' ));
     var chest= cleanup(value('input_armour_chest'));
@@ -88,17 +92,26 @@ function summon() {
 
     // SPECIFIC ENTITY NBT //
 
+    // fox //
+    if (entity === 'fox') {
+        if (fox_type) {nbt.Type = fox_type;}
+    }
+
+    // tropical fish //
+    if (entity === 'tropical_fish') {
+        let byte_1 = tropical_fish_type;
+        let byte_2 = tropical_fish_pattern * Math.pow(2,8);
+        let byte_3 = tropical_fish_body_color * Math.pow(2,16);
+        let byte_4 = tropical_fish_pattern_color * Math.pow(2,24);
+        nbt.Variant = byte_1 + byte_2 + byte_3 + byte_4;
+    }
+
     // villager //
     if (entity === 'villager') {
         nbt.VillagerData = {};
         if (villager_type) {nbt.VillagerData.type = villager_type;}
         if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
         if (villager_level) {nbt.VillagerData.level = villager_level;}
-    }
-
-    // fox //
-    if (entity === 'fox') {
-        if (fox_type) {nbt.Type = fox_type;}
     }
 
     // EQUIPMENT //
