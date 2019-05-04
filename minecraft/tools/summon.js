@@ -63,7 +63,7 @@ function summon() {
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
-    var zombie_baby = checked('input_zombie_baby');
+    var zombie_baby = $('input_zombie_baby').hasClass('on');
 
     var head = cleanup(value('input_armour_head' ));
     var chest= cleanup(value('input_armour_chest'));
