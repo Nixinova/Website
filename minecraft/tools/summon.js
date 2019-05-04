@@ -62,6 +62,7 @@ function summon() {
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
+    var cat_type = value('input_cat_type', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
     var fox_type = cleanup(value('input_fox_type'));
     var horse_tame = $('#input_horse_tame').hasClass('on');
@@ -102,6 +103,12 @@ function summon() {
     if (!X) {X = '~';}   if (!Y) {Y = '~';}   if (!Z) {Z = '~';}
 
     // SPECIFIC ENTITY NBT //
+
+    // cat //
+    if (entity === 'cat') {
+        $('#nbt').removeClass('hide');
+        if (cat_type) {nbt.CatType = cat_type;}
+    }
 
     // creeper //
     if (entity === 'creeper') {
