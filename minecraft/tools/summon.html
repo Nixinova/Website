@@ -22,6 +22,10 @@
         <p>Generates /summon commands for Minecraft.</p>
         <script>document.ready('javascript:submit()')</script>
         <form action="javascript:submit()" id="input_form">
+            <style>
+                .on::before {content: 'True'}
+                .off::after {content: 'False'}
+            </style>
             <p>
                 <span class="form-item">Entity:</span>
                 <select id="input_entity" onchange="submit()">
@@ -97,7 +101,8 @@
                 <span class="form-item">NBT:</span><br/>
 
                 <span class="creeper only">
-                    <button id="input_creeper_powered" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Tame?</button>
+                    <span class="form-item indent">Powered?</span>
+                    <button id="input_creeper_powered" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
 
                 <span class="fox only">
@@ -105,11 +110,12 @@
                     <select id="input_fox_type" onblur="submit()">
                         <option>Red</option>
                         <option>Snow</option>
-                    </select>
+                    </select><br/>
                 </span>
 
                 <span class="donkey horse mule skeleton_horse zombie_horse only">
-                    <button id="input_horse_tame" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Tame?</button>
+                    <span class="form-item indent">Tame?</span>
+                    <button id="input_horse_tame" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
 
                 <span class="sheep shulker only">
@@ -132,7 +138,7 @@
                         <option value="13">Green</option>
                         <option value="14">Red</option>
                         <option value="15">Black</option>
-                    </select>
+                    </select><br/>
                 </span>
 
                 <span class="tropical_fish only">
@@ -235,7 +241,8 @@
                 </span>
 
                 <span class="baby_mobs only">
-                    &emsp; <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Baby?</button>
+                    <span class="form-item indent">Baby?</span>
+                    &emsp; <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             </p>
             <p name="Armour">
