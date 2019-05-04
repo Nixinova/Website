@@ -69,8 +69,8 @@ function summon() {
     var despawnable = $('#input_despawnable').hasClass('on');
 
     var baby = $('#input_is_baby').hasClass('on');
-    var baby_time = value('#input_baby_time');
-    var baby_time_value = value('#input_baby_time_value');
+    var baby_time = value('input_baby_time');
+    var baby_time_value = value('input_baby_time_value');
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
