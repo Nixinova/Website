@@ -93,7 +93,7 @@
                 <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_y"> &nbsp;
                 <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_z"><br/>
             </p>
-            <p name="NBT" class="only fox tropical_fish villager">
+            <p name="NBT" class="only fox tropical_fish villager zombie zombie_villager">
                 <span class="form-item">NBT:</span><br/>
 
                 <span class="fox only">
@@ -119,7 +119,7 @@
                         <option value="3" class="small-fish">Dasher</option>
                         <option value="4" class="small-fish">Brinely</option>
                         <option value="5" class="small-fish">Spotty</option>
-                        
+
                         <option value="0" class="large-fish">Flopper</option>
                         <option value="1" class="large-fish">Stripey</option>
                         <option value="2" class="large-fish">Glitter</option>
@@ -201,6 +201,10 @@
 
                     <span class="form-item indent">Level:</span>
                     <input type="number" value="1" min="1" max="5" onblur="submit()" id="input_villager_level">
+                </span>
+
+                <span class="zombie zombie_villager only">
+                    <button id="input_zombie_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Baby</button>
                 </span>
             </p>
             <p name="Armour">

@@ -63,6 +63,7 @@ function summon() {
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
+    var zombie_baby = checked('input_zombie_baby');
 
     var head = cleanup(value('input_armour_head' ));
     var chest= cleanup(value('input_armour_chest'));
@@ -114,6 +115,11 @@ function summon() {
         if (villager_type) {nbt.VillagerData.type = villager_type;}
         if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
         if (villager_level) {nbt.VillagerData.level = villager_level;}
+    }
+
+    // zombie //
+    if (entity === 'zombie' || entity === 'zombie_villager') {
+        if (zombie_baby) {nbt.IsBaby = true;}
     }
 
     // EQUIPMENT //
