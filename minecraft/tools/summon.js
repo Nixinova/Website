@@ -56,15 +56,16 @@ function summon() {
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
     var fox_type = cleanup(value('input_fox_type'));
+    var horse_tame = $('#input_horse_tame').hasClass('on');
     var tropical_fish_size = value('input_tropical_fish_size', 'int');
     var tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
     var tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
     var tropical_fish_pattern_color = value('input_tropical_fish_pattern_color', 'int');
+    var shulker_color = value('input_shulker_color', 'int')
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
     var zombie_baby = $('#input_zombie_baby').hasClass('on');
-    var horse_tame = $('#input_horse_tame').hasClass('on');
 
     var head = cleanup(value('input_armour_head' ));
     var chest= cleanup(value('input_armour_chest'));
@@ -100,9 +101,14 @@ function summon() {
         if (fox_type) {nbt.Type = fox_type;}
     }
 
-    // zombie //
+    // horses //
     if (entity === 'donkey' || entity === 'horse' || entity === 'mule' || entity === 'skeleton_horse' || entity === 'zombie_horse') {
         if (horse_tame) {nbt.Tame = true;}
+    }
+
+    // shulker //
+    if (entity === 'shulker') {
+        if (shulker_color) {nbt.Color = shulker_color;}
     }
 
     // tropical fish //
@@ -124,7 +130,7 @@ function summon() {
         if (villager_level) {nbt.VillagerData.level = villager_level;}
     }
 
-    // zombie //
+    // zombies //
     if (entity === 'zombie' || entity === 'zombie_pigman' || entity === 'zombie_villager') {
         if (zombie_baby) {nbt.IsBaby = true;}
     }

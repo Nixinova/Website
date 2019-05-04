@@ -95,7 +95,7 @@
             </p>
             <p name="NBT">
                 <span class="form-item">NBT:</span>
-                <span class="!only">(none)</span><br/>
+                <span class="!only">(none)<br/></span>
 
                 <span class="fox only">
                     <span class="form-item indent">Type:</span>
@@ -106,7 +106,30 @@
                 </span>
 
                 <span class="donkey horse mule skeleton_horse zombie_horse only">
-                    <button id="input_horse_tame" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Baby</button>
+                    <button id="input_horse_tame" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Tame?</button>
+                </span>
+
+                <span class="shulker only">
+                    <span class="form-item">Colour:</span>
+                    <select id="input_shulker_color" onblur="submit()">
+                        <option value="16">Default</option>
+                        <option value="0">White</option>
+                        <option value="1">Orange</option>
+                        <option value="2">Magenta</option>
+                        <option value="3">Light blue</option>
+                        <option value="4">Yellow</option>
+                        <option value="5">Lime</option>
+                        <option value="6">Pink</option>
+                        <option value="7">Gray</option>
+                        <option value="8">Light gray</option>
+                        <option value="9">Cyan</option>
+                        <option value="10">Purple</option>
+                        <option value="11">Blue</option>
+                        <option value="12">Brown</option>
+                        <option value="13">Green</option>
+                        <option value="14">Red</option>
+                        <option value="15">Black</option>
+                    </select>
                 </span>
 
                 <span class="tropical_fish only">
@@ -209,7 +232,7 @@
                 </span>
 
                 <span class="zombie zombie_pigman zombie_villager only">
-                    <button id="input_zombie_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Baby</button>
+                    <button id="input_zombie_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Baby?</button>
                 </span>
             </p>
             <p name="Armour">
