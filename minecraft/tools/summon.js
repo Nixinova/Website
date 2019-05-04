@@ -64,15 +64,15 @@ function summon() {
     var chest= cleanup(value('input_armour_chest'));
     var legs = cleanup(value('input_armour_legs' ));
     var feet = cleanup(value('input_armour_feet' ));
-    var head_n = value('input_armour_head_num');
-    var chest_n = value('input_armour_chest_num');
-    var legs_n = value('input_armour_legs_num');
-    var feet_n = value('input_armour_feet_num');
+    var head_n = value('input_armour_head_num', 'int');
+    var chest_n= value('input_armour_chest_num', 'int');
+    var legs_n = value('input_armour_legs_num', 'int');
+    var feet_n = value('input_armour_feet_num', 'int');
 
     var mainhand = cleanup(value('input_held_item'));
-    var mainhand_n = value('input_held_item_num');
+    var mainhand_n = value('input_held_item_num', 'int');
     var offhand = cleanup(value('input_offhand_item'));
-    var offhand_n = value('input_offhand_item_num');
+    var offhand_n = value('input_offhand_item_num', 'int');
 
     var nbt = {}
 
@@ -106,7 +106,7 @@ function summon() {
     var armor_items = [];
     if (feet) {armor_items.push({id: feet, Count: feet_n});} else {armor_items.push({});}
     if (legs) {armor_items.push({id: legs, Count: legs_n});} else {armor_items.push({});}
-    if (chest) {armor_items.push({id: chest, Count: chest_n});} else {armor_items.push({});}
+    if (chest){armor_items.push({id: chest, Count: chest_n});} else {armor_items.push({});}
     if (head) {armor_items.push({id: head, Count: head_n});} else {armor_items.push({});}
     if (head || chest || legs || feet) {nbt.ArmorItems = armor_items;}
 
