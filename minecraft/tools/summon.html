@@ -46,7 +46,6 @@
                     <option>Guardian</option>
                     <option>Horse</option>
                     <option>Husk</option>
-                    <option>Illager Beast</option>
                     <option>Illusioner</option>
                     <option>Iron Golem</option>
                     <option>Llama</option>
@@ -63,6 +62,7 @@
                     <option>Polar Bear</option>
                     <option>Pufferfish</option>
                     <option>Rabbit</option>
+                    <option>Ravager</option>
                     <option>Salmon</option>
                     <option>Sheep</option>
                     <option>Shulker</option>
@@ -93,6 +93,45 @@
                 <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_x"> &nbsp;
                 <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_y"> &nbsp;
                 <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_z"><br/>
+            </p>
+            <p>
+                <span class="form-item">NBT:</span><br/>
+
+                <span class="villager only">
+                    <span class="form-item indent">Type:</span>
+                    <select id="input_villager_type">
+                        <option></option>
+                        <option>Desert</option>
+                        <option>Jungle</option>
+                        <option>Plains</option>
+                        <option>Savanna</option>
+                        <option>Snow</option>
+                        <option>Swamp</option>
+                        <option>Taiga</option>
+                    </select><br/>
+
+                    <span class="form-item indent">Profession:</span>
+                    <select id="input_villager_profession">
+                        <option>None</option>
+                        <option>Armorer</option>
+                        <option>Butcher</option>
+                        <option>Cartographer</option>
+                        <option>Cleric</option>
+                        <option>Farmer</option>
+                        <option>Fisherman</option>
+                        <option>Fletcher</option>
+                        <option>Leatherworker</option>
+                        <option>Librarian</option>
+                        <option>Nitwit</option>
+                        <option>Mason</option>
+                        <option>Shepherd</option>
+                        <option>Toolsmith</option>
+                        <option>Weaponsmith</option>
+                    </select><br/>
+
+                    <span class="form-item indent">Level:</span>
+                    <input type="number" value="1" min="1" max="5" id="input_villager_level">
+                </span>
             </p>
             <p>
                 <span class="form-item">Armour:</span><br/>

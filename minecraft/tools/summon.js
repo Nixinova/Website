@@ -1,9 +1,13 @@
 /// FUNCTIONS ///
 
 function value(id, n) {
-    if (n == 'int') {return parseInt(document.getElementById(id).value, 10);}
-    if (n == 'num') {return parseFloat(document.getElementById(id).value, 10);}
+    if (n === 'int') {return parseInt(document.getElementById(id).value, 10);}
+    if (n === 'num') {return parseFloat(document.getElementById(id).value, 10);}
     else {return $.trim(document.getElementById(id).value);}
+}
+
+function cleanup(id) {
+    return id.toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
 }
 
 function checked(id) {
@@ -51,18 +55,22 @@ function summon() {
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
-    var head = value('input_armour_head' ).toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
-    var chest= value('input_armour_chest').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
-    var legs = value('input_armour_legs' ).toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
-    var feet = value('input_armour_feet' ).toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
+    var villager_type = value('input_villager_type');
+    var villager_profession = value('input_villager_profession');
+    var villager_level = value('input_villager_level', 'int');
+
+    var head = cleanup(value('input_armour_head' ));
+    var chest= cleanup(value('input_armour_chest'));
+    var legs = cleanup(value('input_armour_legs' ));
+    var feet = cleanup(value('input_armour_feet' ));
     var head_n = value('input_armour_head_num');
     var chest_n = value('input_armour_chest_num');
     var legs_n = value('input_armour_legs_num');
     var feet_n = value('input_armour_feet_num');
 
-    var mainhand = value('input_held_item' ).toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
+    var mainhand = cleanup(value('input_held_item'));
     var mainhand_n = value('input_held_item_num');
-    var offhand = value('input_offhand_item' ).toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
+    var offhand = cleanup(value('input_offhand_item'));
     var offhand_n = value('input_offhand_item_num');
 
     var nbt = {}
@@ -71,10 +79,19 @@ function summon() {
     // output //
     $('#output_text').empty();
     $('#cmd_note').addClass('hide');
+    $('.only').addClass('hide');
+    $('.' + entity).removeClass('hide');
 
-    // summon //
+    // coords //
     if (!X) {X = '~';}   if (!Y) {Y = '~';}   if (!Z) {Z = '~';}
 
+    // specific entity nbt //
+    if (villager_type || villager_profession || villager_level) {nbt.VillagerData = {};}
+    if (villager_type) {nbt.VillagerData.Type = villager_type;}
+    if (villager_profession) {nbt.VillagerData.Profession = villager_profession;}
+    if (villager_type) {nbt.VillagerData.Type = villager_type;}
+
+    // held items //
     var armor_items = [];
     if (feet) {armor_items.push({id: feet, Count: feet_n + 'b'});} else {armor_items.push({});}
     if (legs) {armor_items.push({id: legs, Count: legs_n + 'b'});} else {armor_items.push({});}
@@ -87,7 +104,7 @@ function summon() {
     if (offhand) {held_items.push({id: offhand, Count: offhand_n + 'b'});} else {held_items.push({});}
     if (mainhand || offhand) {nbt.HandItems = held_items;}
 
-    // nbt //
+    // nbt-ify //
     if (!isEmpty(nbt)) {
         var NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g,'$1:');
     } else {NBT = '';}
