@@ -58,7 +58,7 @@ function summon() {
     var fox_type = cleanup(value('input_fox_type'));
     var tropical_fish_size = value('input_tropical_fish_size', 'int');
     var tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
-    var tropical_fish_body_color = value('input_tropical_fish_body_color', 'int');
+    var tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
     var tropical_fish_pattern_color = value('input_tropical_fish_pattern_color', 'int');
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
@@ -101,7 +101,7 @@ function summon() {
     if (entity === 'tropical_fish') {
         let byte_1 = tropical_fish_size;
         let byte_2 = tropical_fish_pattern * Math.pow(2,8);
-        let byte_3 = tropical_fish_body_color * Math.pow(2,16);
+        let byte_3 = tropical_fish_base_color * Math.pow(2,16);
         let byte_4 = tropical_fish_pattern_color * Math.pow(2,24);
         nbt.Variant = byte_1 + byte_2 + byte_3 + byte_4;
     }
