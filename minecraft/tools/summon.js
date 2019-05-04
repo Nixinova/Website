@@ -49,6 +49,13 @@ function rvNestedDupes(array) {
 function summon() {
 
     /// VARIABLES ///
+    var baby_mobs = ['zombie', 'zombie_pigman', 'zombie_villager']
+    var neg_age_mobs = [
+        'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot', 'panda',
+        'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
+        'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
+    ]
+
     // call from input form //
     var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
     var X = value('input_x').replace(/[^0-9-~^]/g, '');
@@ -65,7 +72,7 @@ function summon() {
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
-    var zombie_baby = $('#input_zombie_baby').hasClass('on');
+    var baby = $('#input_is_baby').hasClass('on');
 
     var head = cleanup(value('input_armour_head' ));
     var chest= cleanup(value('input_armour_chest'));
@@ -129,9 +136,14 @@ function summon() {
         if (villager_level) {nbt.VillagerData.level = villager_level;}
     }
 
-    // zombies //
-    if (entity === 'zombie' || entity === 'zombie_pigman' || entity === 'zombie_villager') {
-        if (zombie_baby) {nbt.IsBaby = true;}
+    // babies //
+    if (baby_mobs.indexOf(entity) > -1) {
+        $('.baby_mobs.only').removeClass('hide');
+        if (baby) {nbt.IsBaby = true;}
+    }
+    if (neg_age_mobs.indexOf(entity) > -1) {
+        $('.baby_mobs.only').removeClass('hide');
+        if (baby) {nbt.Age = -100;}
     }
 
     // EQUIPMENT //
