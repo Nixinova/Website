@@ -129,7 +129,7 @@ function summon() {
     if (neg_age_mobs.indexOf(entity) > -1) {
         $('.baby_mobs').removeClass('hide');
         $('.baby_living_mobs').removeClass('hide');
-        if (baby_time_value) {
+        if (baby_time_value && baby) {
             if (baby_time == 't') {nbt.Age = 0-baby_time_value}
             if (baby_time == 's') {nbt.Age = 0-baby_time_value*20}
             if (baby_time == 'm') {nbt.Age = 0-baby_time_value*1200}
