@@ -62,6 +62,7 @@ function summon() {
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
+    var creeper_powered = $('#input_creeper_powered').hasClass('on');
     var fox_type = cleanup(value('input_fox_type'));
     var horse_tame = $('#input_horse_tame').hasClass('on');
     var tropical_fish_size = value('input_tropical_fish_size', 'int');
@@ -101,6 +102,12 @@ function summon() {
     if (!X) {X = '~';}   if (!Y) {Y = '~';}   if (!Z) {Z = '~';}
 
     // SPECIFIC ENTITY NBT //
+
+    // creeper //
+    if (entity === 'creeper') {
+        $('#nbt').removeClass('hide');
+        if (creeper_powered) {nbt.powered = true;}
+    }
 
     // fox //
     if (entity === 'fox') {

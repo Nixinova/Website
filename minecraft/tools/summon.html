@@ -96,6 +96,10 @@
             <p id="nbt" id="nbt">
                 <span class="form-item">NBT:</span><br/>
 
+                <span class="creeper only">
+                    <button id="input_creeper_powered" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Tame?</button>
+                </span>
+
                 <span class="fox only">
                     <span class="form-item indent">Type:</span>
                     <select id="input_fox_type" onblur="submit()">
