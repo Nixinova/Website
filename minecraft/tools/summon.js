@@ -97,7 +97,9 @@ function summon() {
     }
 
     // fox //
-    if (fox_type) {nbt.Type = fox_type}
+    if (entity === 'fox') {
+        if (fox_type) {nbt.Type = fox_type;}
+    }
 
     // EQUIPMENT //
     // armor //
