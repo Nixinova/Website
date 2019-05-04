@@ -104,16 +104,16 @@ function summon() {
     // EQUIPMENT //
     // armor //
     var armor_items = [];
-    if (feet) {armor_items.push({id: feet, Count: feet_n + 'b'});} else {armor_items.push({});}
-    if (legs) {armor_items.push({id: legs, Count: legs_n + 'b'});} else {armor_items.push({});}
-    if (chest) {armor_items.push({id: chest, Count: chest_n + 'b'});} else {armor_items.push({});}
-    if (head) {armor_items.push({id: head, Count: head_n + 'b'});} else {armor_items.push({});}
+    if (feet) {armor_items.push({id: feet, Count: feet_n});} else {armor_items.push({});}
+    if (legs) {armor_items.push({id: legs, Count: legs_n});} else {armor_items.push({});}
+    if (chest) {armor_items.push({id: chest, Count: chest_n});} else {armor_items.push({});}
+    if (head) {armor_items.push({id: head, Count: head_n});} else {armor_items.push({});}
     if (head || chest || legs || feet) {nbt.ArmorItems = armor_items;}
 
     // held //
     var held_items = [];
-    if (mainhand) {held_items.push({id: mainhand, Count: mainhand_n + 'b'});} else {held_items.push({});}
-    if (offhand) {held_items.push({id: offhand, Count: offhand_n + 'b'});} else {held_items.push({});}
+    if (mainhand) {held_items.push({id: mainhand, Count: mainhand_n});} else {held_items.push({});}
+    if (offhand) {held_items.push({id: offhand, Count: offhand_n});} else {held_items.push({});}
     if (mainhand || offhand) {nbt.HandItems = held_items;}
 
     // CONVERT TO NBT //
