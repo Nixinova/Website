@@ -88,7 +88,7 @@ function summon() {
     $('#output_text').empty();
     $('#cmd_note').addClass('hide');
     $('.only').addClass('hide');
-    $('.!only').removeClass('hide');
+    $('.not-only').removeClass('hide');
     $('.' + entity).removeClass('hide');
 
     // COORDS //
