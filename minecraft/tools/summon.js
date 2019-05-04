@@ -63,6 +63,7 @@ function summon() {
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
     var cat_type = value('input_cat_type', 'int')
+    var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
     var fox_type = cleanup(value('input_fox_type'));
     var horse_tame = $('#input_horse_tame').hasClass('on');
@@ -108,6 +109,7 @@ function summon() {
     if (entity === 'cat') {
         $('#nbt').removeClass('hide');
         if (cat_type) {nbt.CatType = cat_type;}
+        if (cat_collar) {nbt.CollarColor = cat_collar;}
     }
 
     // creeper //
