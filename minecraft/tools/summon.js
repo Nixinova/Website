@@ -58,7 +58,7 @@ function summon() {
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
-    var fox_type = checked(value('input_fox_type'));
+    var fox_type = cleanup(value('input_fox_type'));
 
     var head = cleanup(value('input_armour_head' ));
     var chest= cleanup(value('input_armour_chest'));
