@@ -64,6 +64,7 @@ function summon() {
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
     var zombie_baby = $('#input_zombie_baby').hasClass('on');
+    var horse_tame = $('#input_horse_tame').hasClass('on');
 
     var head = cleanup(value('input_armour_head' ));
     var chest= cleanup(value('input_armour_chest'));
@@ -96,6 +97,11 @@ function summon() {
     // fox //
     if (entity === 'fox') {
         if (fox_type) {nbt.Type = fox_type;}
+    }
+
+    // zombie //
+    if (entity === 'donkey' || entity === 'horse' || entity === 'mule' || entity === 'skeleton_horse' || entity === 'zombie_horse') {
+        if (horse_tame) {nbt.Tame = true;}
     }
 
     // tropical fish //
