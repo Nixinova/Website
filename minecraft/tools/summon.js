@@ -69,6 +69,8 @@ function summon() {
     var despawnable = $('#input_despawnable').hasClass('on');
 
     var baby = $('#input_is_baby').hasClass('on');
+    var baby_time = value('#input_baby_time');
+    var baby_time_value = value('#input_baby_time_value');
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
@@ -120,12 +122,18 @@ function summon() {
 
     // babies //
     if (baby_mobs.indexOf(entity) > -1) {
-        $('.baby_mobs.only').removeClass('hide');
+        $('.baby_mobs').removeClass('hide');
         if (baby) {nbt.IsBaby = true;}
     }
     if (neg_age_mobs.indexOf(entity) > -1) {
-        $('.baby_mobs.only').removeClass('hide');
-        if (baby) {nbt.Age = -999999;}
+        $('.baby_mobs').removeClass('hide');
+        $('.baby_living_mobs').removeClass('hide');
+        if (input_baby_time_value) {
+            if (input_baby_time == 't') {nbt.Age = 1-input_baby_time_value}
+            if (input_baby_time == 's') {nbt.Age = 1-input_baby_time_value*20}
+            if (input_baby_time == 'm') {nbt.Age = 1-input_baby_time_value*1200}
+            if (input_baby_time == 'h') {nbt.Age = 1-input_baby_time_value*72000}
+        }
     }
 
     // cat //

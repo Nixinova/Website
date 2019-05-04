@@ -172,7 +172,7 @@
                     </select><br/>
 
                     <span class="form-item indent">Temper:</span>
-                    <input type="number" min="1" max="100" id="input_llama_temper" onblur="submit()">
+                    <input type="number" min="1" max="100" id="input_llama_temper" onblur="submit()"><br/>
                 </span>
 
                 <span class="mooshroom only">
@@ -314,7 +314,19 @@
 
                 <span class="baby_mobs only">
                     <span class="form-item indent">Baby?</span>
-                    <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                    <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
+
+                    <span class="baby_living_mobs only">
+                        &ensp; <span>Time until adulthood:</span>
+                        <input type="number" value="1000" min="0" id="input_baby_time_value">
+                        <select id="input_baby_time" onblur="submit()">
+                            <option value="t">Ticks</option>
+                            <option value="s">Seconds</option>
+                            <option value="m">Minutes</option>
+                            <option value="h">Hours</option>
+                        </select>
+                    </span>
+                    <br/>
                 </span>
             </p>
             <p name="Armour">
