@@ -81,6 +81,8 @@ function summon() {
     var horse_tame = $('#input_horse_tame').hasClass('on');
     var mob_color = value('input_mob_color', 'int')
     var mooshroom_type = cleanup(value('input_mooshroom_type'))
+    var panda_dominant_gene = cleanup(value('input_panda_gene_1'));
+    var panda_recessive_gene = cleanup(value('input_panda_gene_2'));
     var tropical_fish_size = value('input_tropical_fish_size', 'int');
     var tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
     var tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
@@ -129,7 +131,7 @@ function summon() {
     if (neg_age_mobs.indexOf(entity) > -1) {
         $('.baby_mobs').removeClass('hide');
         $('.baby_living_mobs').removeClass('hide');
-        if (baby_time_value && baby) {
+        if (baby && baby_time_value) {
             if (baby_time == 't') {nbt.Age = 0-baby_time_value}
             if (baby_time == 's') {nbt.Age = 0-baby_time_value*20}
             if (baby_time == 'm') {nbt.Age = 0-baby_time_value*1200}
@@ -172,6 +174,12 @@ function summon() {
     // mooshroom //
     if (entity === 'mooshroom') {
         if (mooshroom_type) {nbt.Type = mooshroom_type;}
+    }
+
+    // panda //
+    if (entity === 'panda') {
+        if (panda_dominant_gene) {nbt.MainGene = panda_dominant_gene;}
+        if (panda_recessive_gene) {nbt.HiddenGene = panda_recessive_gene;}
     }
 
     // tame mobs //
