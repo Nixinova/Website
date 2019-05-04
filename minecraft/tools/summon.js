@@ -56,8 +56,8 @@ function summon() {
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
     var fox_type = cleanup(value('input_fox_type'));
-    var tropical_fish_type = value('input_tropical_fish_type', 'int');
     var tropical_fish_size = value('input_tropical_fish_size', 'int');
+    var tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
     var tropical_fish_body_color = value('input_tropical_fish_body_color', 'int');
     var tropical_fish_pattern_color = value('input_tropical_fish_pattern_color', 'int');
     var villager_type = cleanup(value('input_villager_type'));
@@ -99,7 +99,7 @@ function summon() {
 
     // tropical fish //
     if (entity === 'tropical_fish') {
-        let byte_1 = tropical_fish_type;
+        let byte_1 = tropical_fish_size;
         let byte_2 = tropical_fish_pattern * Math.pow(2,8);
         let byte_3 = tropical_fish_body_color * Math.pow(2,16);
         let byte_4 = tropical_fish_pattern_color * Math.pow(2,24);
