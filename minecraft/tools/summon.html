@@ -79,10 +79,12 @@
                     <option>Spider</option>
                     <option>Squid</option>
                     <option>Turtle</option>
+                    <option>Trader Llama</option>
                     <option>Tropical Fish</option>
                     <option>Vex</option>
                     <option>Villager</option>
                     <option>Vindicator</option>
+                    <option>Wandering Trader</option>
                     <option>Witch</option>
                     <option>Wither</option>
                     <option>Wither Skeleton</option>
@@ -100,6 +102,11 @@
             </p>
             <p id="nbt" class="only">
                 <span class="form-item">NBT:</span><br/>
+
+                <span class="baby_mobs only">
+                    <span class="form-item indent">Baby?</span>
+                    <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                </span>
 
                 <span class="cat only">
                     <span class="form-item indent">Type:</span>
@@ -152,9 +159,13 @@
                     </select><br/>
                 </span>
 
-                <span class="tame_mobs only">
-                    <span class="form-item indent">Tame?</span>
-                    <button id="input_horse_tame" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <span class="mooshroom only">
+                    <span class="form-item indent">Type:</span>
+                    <select id="input_mooshroom_type" onblur="submit()">
+                        <option></option>
+                        <option>Brown</option>
+                        <option>Red</option>
+                    </select>
                 </span>
 
                 <span class="sheep shulker only">
@@ -178,6 +189,11 @@
                         <option value="14">Red</option>
                         <option value="15">Black</option>
                     </select><br/>
+                </span>
+
+                <span class="tame_mobs only">
+                    <span class="form-item indent">Tame?</span>
+                    <button id="input_horse_tame" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
 
                 <span class="tropical_fish only">
@@ -279,11 +295,6 @@
                     <span class="form-item indent">Level:</span>
                     <input type="number" value="1" min="1" max="5" onblur="submit()" id="input_villager_level">
                     <br/>
-                </span>
-
-                <span class="baby_mobs only">
-                    <span class="form-item indent">Baby?</span>
-                    <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             </p>
             <p name="Armour">

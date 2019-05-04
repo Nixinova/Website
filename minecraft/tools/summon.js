@@ -65,20 +65,21 @@ function summon() {
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
+    var baby = $('#input_is_baby').hasClass('on');
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
     var fox_type = cleanup(value('input_fox_type'));
     var horse_tame = $('#input_horse_tame').hasClass('on');
+    var mob_color = value('input_mob_color', 'int')
+    var mooshroom_type = cleanup(value('input_mooshroom_type'))
     var tropical_fish_size = value('input_tropical_fish_size', 'int');
     var tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
     var tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
     var tropical_fish_pattern_color = value('input_tropical_fish_pattern_color', 'int');
-    var mob_color = value('input_mob_color', 'int')
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
-    var baby = $('#input_is_baby').hasClass('on');
 
     var head = cleanup(value('input_armour_head' ));
     var chest= cleanup(value('input_armour_chest'));
@@ -108,11 +109,29 @@ function summon() {
 
     // SPECIFIC ENTITY NBT //
 
+    // babies //
+    if (baby_mobs.indexOf(entity) > -1) {
+        $('#nbt').removeClass('hide');
+        $('.baby_mobs.only').removeClass('hide');
+        if (baby) {nbt.IsBaby = true;}
+    }
+    if (neg_age_mobs.indexOf(entity) > -1) {
+        $('#nbt').removeClass('hide');
+        $('.baby_mobs.only').removeClass('hide');
+        if (baby) {nbt.Age = -999999;}
+    }
+
     // cat //
     if (entity === 'cat') {
         $('#nbt').removeClass('hide');
         if (cat_type) {nbt.CatType = cat_type;}
         if (cat_collar) {nbt.CollarColor = cat_collar;}
+    }
+
+    // coloured mobs //
+    if (entity === 'sheep' || entity === 'shulker') {
+        $('#nbt').removeClass('hide');
+        if (mob_color) {nbt.Color = mob_color;}
     }
 
     // creeper //
@@ -127,17 +146,17 @@ function summon() {
         if (fox_type) {nbt.Type = fox_type;}
     }
 
+    // mooshroom //
+    if (entity === 'mooshroom') {
+        $('#nbt').removeClass('hide');
+        if (mooshroom_type) {nbt.Type = mooshroom_type}
+    }
+
     // tame mobs //
     if (tame_mobs.indexOf(entity) > -1) {
         $('.tame_mobs.only').removeClass('hide');
         $('#nbt').removeClass('hide');
         if (horse_tame) {nbt.Tame = true;}
-    }
-
-    // coloured mobs //
-    if (entity === 'sheep' || entity === 'shulker') {
-        $('#nbt').removeClass('hide');
-        if (mob_color) {nbt.Color = mob_color;}
     }
 
     // tropical fish //
@@ -159,18 +178,6 @@ function summon() {
         if (villager_type) {nbt.VillagerData.type = villager_type;}
         if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
         if (villager_level) {nbt.VillagerData.level = villager_level;}
-    }
-
-    // babies //
-    if (baby_mobs.indexOf(entity) > -1) {
-        $('#nbt').removeClass('hide');
-        $('.baby_mobs.only').removeClass('hide');
-        if (baby) {nbt.IsBaby = true;}
-    }
-    if (neg_age_mobs.indexOf(entity) > -1) {
-        $('#nbt').removeClass('hide');
-        $('.baby_mobs.only').removeClass('hide');
-        if (baby) {nbt.Age = -999999;}
     }
 
     // EQUIPMENT //
