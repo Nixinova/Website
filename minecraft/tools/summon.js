@@ -55,6 +55,9 @@ function summon() {
         'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
     ]
+    var tame_mobs = [
+        'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
+    ]
 
     // call from input form //
     var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
@@ -124,8 +127,9 @@ function summon() {
         if (fox_type) {nbt.Type = fox_type;}
     }
 
-    // horses //
-    if (entity === 'donkey' || entity === 'horse' || entity === 'mule' || entity === 'skeleton_horse' || entity === 'zombie_horse') {
+    // tame mobs //
+    if (tame_mobs.indexOf(entity) > -1) {
+        $('.tame_mobs.only').removeClass('hide');
         $('#nbt').removeClass('hide');
         if (horse_tame) {nbt.Tame = true;}
     }
