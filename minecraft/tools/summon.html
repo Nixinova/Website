@@ -103,6 +103,9 @@
             <p id="nbt" class="only">
                 <span class="form-item">NBT:</span><br/>
 
+                <span class="form-item indent">AI?</span>
+                <button id="input_no_ai" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+
                 <span class="baby_mobs only">
                     <span class="form-item indent">Baby?</span>
                     <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
@@ -162,9 +165,8 @@
                 <span class="mooshroom only">
                     <span class="form-item indent">Type:</span>
                     <select id="input_mooshroom_type" onblur="submit()">
-                        <option></option>
+                        <option value="">Red</option>
                         <option>Brown</option>
-                        <option>Red</option>
                     </select>
                 </span>
 

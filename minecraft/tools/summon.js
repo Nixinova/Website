@@ -65,6 +65,8 @@ function summon() {
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
 
+    var no_ai = $('#input_no_ai').hasClass('on');
+
     var baby = $('#input_is_baby').hasClass('on');
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
@@ -107,61 +109,55 @@ function summon() {
     // COORDS //
     if (!X) {X = '~';}   if (!Y) {Y = '~';}   if (!Z) {Z = '~';}
 
-    // SPECIFIC ENTITY NBT //
+    // ENTITY NBT //
+
+    // all //
+    if (no_ai) {nbt.NoAI = true;}
 
     // babies //
     if (baby_mobs.indexOf(entity) > -1) {
-        $('#nbt').removeClass('hide');
         $('.baby_mobs.only').removeClass('hide');
         if (baby) {nbt.IsBaby = true;}
     }
     if (neg_age_mobs.indexOf(entity) > -1) {
-        $('#nbt').removeClass('hide');
         $('.baby_mobs.only').removeClass('hide');
         if (baby) {nbt.Age = -999999;}
     }
 
     // cat //
     if (entity === 'cat') {
-        $('#nbt').removeClass('hide');
         if (cat_type) {nbt.CatType = cat_type;}
         if (cat_collar) {nbt.CollarColor = cat_collar;}
     }
 
     // coloured mobs //
     if (entity === 'sheep' || entity === 'shulker') {
-        $('#nbt').removeClass('hide');
         if (mob_color) {nbt.Color = mob_color;}
     }
 
     // creeper //
     if (entity === 'creeper') {
-        $('#nbt').removeClass('hide');
         if (creeper_powered) {nbt.powered = true;}
     }
 
     // fox //
     if (entity === 'fox') {
-        $('#nbt').removeClass('hide');
         if (fox_type) {nbt.Type = fox_type;}
     }
 
     // mooshroom //
     if (entity === 'mooshroom') {
-        $('#nbt').removeClass('hide');
         if (mooshroom_type) {nbt.Type = mooshroom_type}
     }
 
     // tame mobs //
     if (tame_mobs.indexOf(entity) > -1) {
         $('.tame_mobs.only').removeClass('hide');
-        $('#nbt').removeClass('hide');
         if (horse_tame) {nbt.Tame = true;}
     }
 
     // tropical fish //
     if (entity === 'tropical_fish') {
-        $('#nbt').removeClass('hide');
         if (tropical_fish_size === 0) {$('.large-fish').addClass('hide'); $('.small-fish').removeClass('hide');}
         if (tropical_fish_size === 1) {$('.small-fish').addClass('hide'); $('.large-fish').removeClass('hide');}
         let byte_1 = tropical_fish_size;
@@ -173,7 +169,6 @@ function summon() {
 
     // villager //
     if (entity === 'villager') {
-        $('#nbt').removeClass('hide');
         nbt.VillagerData = {};
         if (villager_type) {nbt.VillagerData.type = villager_type;}
         if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
