@@ -13,7 +13,7 @@
 <body>
     <header>
         <nav></nav>
-        <script>$(document).ready(function(){$("nav").load("/imports/navigation.html");});</script>
+        <script>$(document).ready(function(){$("nav").load("/imports/navigation");});</script>
         <script src="summon.js"></script>
     </header>
 
@@ -160,6 +160,19 @@
                         <option>Red</option>
                         <option>Snow</option>
                     </select><br/>
+                </span>
+
+                <span class="llama only">
+                    <span class="form-item indent">Type:</span>
+                    <select id="input_llama_type" onblur="submit()">
+                        <option value=" ">Creamy</option>
+                        <option value="1">White</option>
+                        <option value="2">Brown</option>
+                        <option value="3">Gray</option>
+                    </select><br/>
+
+                    <span class="form-item indent">Temper:</span>
+                    <input type="number" min="1" max="100" id="input_llama_temper" onblur="submit()">
                 </span>
 
                 <span class="mooshroom only">

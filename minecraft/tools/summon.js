@@ -56,7 +56,7 @@ function summon() {
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
     ]
     var tame_mobs = [
-        'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
+        'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse', 'llama'
     ]
 
     // call from input form //
@@ -73,6 +73,8 @@ function summon() {
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
     var fox_type = cleanup(value('input_fox_type'));
+    var llama_type = value('input_llama_type', 'int')
+    var llama_temper = value('input_llama_temper', 'int')
     var horse_tame = $('#input_horse_tame').hasClass('on');
     var mob_color = value('input_mob_color', 'int')
     var mooshroom_type = cleanup(value('input_mooshroom_type'))
@@ -147,9 +149,15 @@ function summon() {
         if (fox_type) {nbt.Type = fox_type;}
     }
 
+    // llama //
+    if (entity === 'llama') {
+        if (llama_type) {nbt.Variant = llama_type;}
+        if (llama_temper) {nbt.Temper = llama_temper;}
+    }
+
     // mooshroom //
     if (entity === 'mooshroom') {
-        if (mooshroom_type) {nbt.Type = mooshroom_type}
+        if (mooshroom_type) {nbt.Type = mooshroom_type;}
     }
 
     // tame mobs //
@@ -224,7 +232,7 @@ function submit() {
         summon();
     }
     catch (error) {
-        alert('Error on submit: ' + error.message + '.');
+        alert('Error on submit: ' + error.message);
     }
     finally {
         summon();
