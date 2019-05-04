@@ -139,6 +139,12 @@ function summon() {
         }
     }
 
+    // tame mobs //
+    if (tame_mobs.indexOf(entity) > -1) {
+        $('.tame_mobs.only').removeClass('hide');
+        if (horse_tame) {nbt.Tame = true;}
+    }
+
     // cat //
     if (entity === 'cat') {
         if (cat_type) {nbt.CatType = cat_type;}
@@ -182,12 +188,6 @@ function summon() {
         if (panda_recessive_gene) {nbt.HiddenGene = panda_recessive_gene;}
     }
 
-    // tame mobs //
-    if (tame_mobs.indexOf(entity) > -1) {
-        $('.tame_mobs.only').removeClass('hide');
-        if (horse_tame) {nbt.Tame = true;}
-    }
-
     // tropical fish //
     if (entity === 'tropical_fish') {
         if (tropical_fish_size === 0) {$('.large-fish').addClass('hide'); $('.small-fish').removeClass('hide');}
@@ -205,6 +205,11 @@ function summon() {
         if (villager_type) {nbt.VillagerData.type = villager_type;}
         if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
         if (villager_level) {nbt.VillagerData.level = villager_level;}
+    }
+
+    // wolf //
+    if (entity === 'wolf') {
+        if (wolf_collar) {nbt.CollarColor = wolf_collar;}
     }
 
     // EQUIPMENT //
