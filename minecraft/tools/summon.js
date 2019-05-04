@@ -114,7 +114,7 @@ function summon() {
 
     // all //
     if (!no_ai) {nbt.NoAI = true;}
-    if (despawnable) {nbt.PersistenceRequired = true;}
+    if (!despawnable) {nbt.PersistenceRequired = true;}
 
     // babies //
     if (baby_mobs.indexOf(entity) > -1) {
