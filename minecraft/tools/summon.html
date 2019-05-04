@@ -23,8 +23,9 @@
         <script>document.ready('javascript:submit()')</script>
         <form action="javascript:submit()" id="input_form">
             <style>
-                .on::before {content: 'True\a0'} /* nbsp; */
+                .on::before {content: 'True'}
                 .off::after {content: 'False'}
+                .on {padding: 5px 12.5px;}
             </style>
             <p>
                 <span class="form-item">Entity:</span>
@@ -103,7 +104,7 @@
             <p name="nbt">
                 <span class="form-item">NBT:</span><br/>
 
-                <span class="form-item indent">AI?</span>
+                <span class="form-item indent">Movement?</span>
                 <button id="input_no_ai" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
                 <span class="cat only">
@@ -168,7 +169,7 @@
                 <span class="sheep shulker only">
                     <span class="form-item indent">Colour:</span>
                     <select id="input_mob_color" onblur="submit()">
-                        <option value="16" class="shulker only">Default</option>
+                        <option value="">Default</option>
                         <option value="0">White</option>
                         <option value="1">Orange</option>
                         <option value="2">Magenta</option>
