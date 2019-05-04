@@ -61,7 +61,7 @@ function summon() {
     var tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
     var tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
     var tropical_fish_pattern_color = value('input_tropical_fish_pattern_color', 'int');
-    var mob_color = value('input_shulker_color', 'int')
+    var mob_color = value('input_mob_color', 'int')
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
@@ -105,8 +105,8 @@ function summon() {
         if (horse_tame) {nbt.Tame = true;}
     }
 
-    // colored mobs //
-    if (entity === 'shulker' || entity === 'sheep') {
+    // coloured mobs //
+    if (entity === 'sheep' || entity === 'shulker') {
         if (mob_color) {nbt.Color = mob_color;}
     }
 
