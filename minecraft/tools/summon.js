@@ -157,7 +157,7 @@ function summon() {
     if (neg_age_mobs.indexOf(entity) > -1) {
         $('#nbt').removeClass('hide');
         $('.baby_mobs.only').removeClass('hide');
-        if (baby) {nbt.Age = -100;}
+        if (baby) {nbt.Age = -99999;}
     }
 
     // EQUIPMENT //
