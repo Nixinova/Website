@@ -258,11 +258,11 @@ function summon() {
         nbt.ArmorItems = armor_items;
         var armor_drop_chances;
         if (head_c || chest_c || legs_c || feet_c) {
-            if (!head_c) {head_c = 1;}
-            if (!chest_c){chest_c= 1;}
-            if (!legs_c) {legs_c = 1;}
-            if (!feet_c) {feet_c = 1;}
-            armor_drop_chances = [feet_c/100 + 'f', legs_c/100 + 'f', chest_c/100 + 'f', head_c/100 + 'f'];
+            if (!head_c) {head_c = 100;}
+            if (!chest_c){chest_c= 100;}
+            if (!legs_c) {legs_c = 100;}
+            if (!feet_c) {feet_c = 100;}
+            //armor_drop_chances = [feet_c/100+'f', legs_c/100+'f', chest_c/100+'f', head_c/100+'f'];
             nbt.ArmorDropChances = armor_drop_chances;
         }
     }
@@ -275,9 +275,9 @@ function summon() {
         nbt.HandItems = held_items;
         var hand_drop_chances;
         if (mainhand_c || offhand_c) {
-            if (!mainhand_c) {mainhand_c = 1;}
-            if (!offhand_c)  {offhand_c  = 1;}
-            hand_drop_chances = [mainhand_c/100 + 'f', offhand_c/100 + 'f'];
+            if (!mainhand_c) {mainhand_c = 100;}
+            if (!offhand_c)  {offhand_c  = 100;}
+            //hand_drop_chances = [mainhand_c/100+'f', offhand_c/100+'f'];
             nbt.HandDropChances = hand_drop_chances;
         }
     }
