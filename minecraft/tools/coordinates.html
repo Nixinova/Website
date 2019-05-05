@@ -9,25 +9,27 @@
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="show_more.js"></script>
+    <script src="coordinates.js"></script>
+    <style>
+        input {padding-left: 20px; text-align: center;}
+    </style>
 </head>
 <body>
     <header>
         <nav></nav>
-        <script>$(document).ready(function(){$("nav").load("/imports/navigation.html");});</script>
-        <script src="coordinates.js"></script>
+        <script>$("nav").load("/imports/navigation");</script>
     </header>
 
     <main>
         <h1>Coordinate Tools</h1>
         <p>Translates overworld coordinates into nether, chunk and region coordinates.</p>
-        <script>document.ready('javascript:submit()')</script>
         <form action="javascript:submit()" id="input_form">
             <div>
                 <p>
                     <span class="form-item-L">Block coordinates</span>
-                    X <input type="number" id="block_x" value="0" onblur="submit()" onclick="this.value=''"> &nbsp;
-                    Y <input type="number" id="block_y" value="0" onblur="submit()" onclick="this.value=''" min="0" max="255"> &nbsp;
-                    Z <input type="number" id="block_z" value="0" onblur="submit()" onclick="this.value=''"> &nbsp;
+                    X <input type="number" id="block_x" value="0" onblur="submit()"> &nbsp;
+                    Y <input type="number" id="block_y" value="0" onblur="submit()" min="0" max="255"> &nbsp;
+                    Z <input type="number" id="block_z" value="0" onblur="submit()"> &nbsp;
                     <button onclick="copyBlock()">Copy</button>
                 </p>
             </div>
