@@ -74,7 +74,7 @@ function summon() {
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
-    var fox_type = cleanup(value('input_fox_type'));
+    var fox_type = $('#input_fox_type').hasClass('red');
     var ghast_explosion_power = value('input_ghast_explosion_power');
     var llama_type = value('input_llama_type', 'int')
     var llama_temper = value('input_llama_temper', 'int')
@@ -122,22 +122,6 @@ function summon() {
     // all //
     if (!no_ai) {nbt.NoAI = true;}
     if (!despawnable) {nbt.PersistenceRequired = true;}
-
-    // babies //
-    if (baby_mobs.indexOf(entity) > -1) {
-        $('.baby_mobs').removeClass('hide');
-        if (baby) {nbt.IsBaby = true;}
-    }
-    if (neg_age_mobs.indexOf(entity) > -1) {
-        $('.baby_mobs').removeClass('hide');
-        if (baby && baby_time_value) {
-            if (baby_time == 't') {nbt.Age = 0-baby_time_value}
-            if (baby_time == 's') {nbt.Age = 0-baby_time_value*20}
-            if (baby_time == 'm') {nbt.Age = 0-baby_time_value*1200}
-            if (baby_time == 'h') {nbt.Age = 0-baby_time_value*72000}
-            $('.baby_living_mobs').removeClass('hide');
-        }
-    }
 
     // tame mobs //
     if (tame_mobs.indexOf(entity) > -1) {
@@ -210,6 +194,22 @@ function summon() {
     // wolf //
     if (entity === 'wolf') {
         if (wolf_collar) {nbt.CollarColor = wolf_collar;}
+    }
+
+    // babies //
+    if (baby_mobs.indexOf(entity) > -1) {
+        $('.baby_mobs').removeClass('hide');
+        if (baby) {nbt.IsBaby = true;}
+    }
+    if (neg_age_mobs.indexOf(entity) > -1) {
+        $('.baby_mobs').removeClass('hide');
+        if (baby && baby_time_value) {
+            if (baby_time == 't') {nbt.Age = 0-baby_time_value}
+            if (baby_time == 's') {nbt.Age = 0-baby_time_value*20}
+            if (baby_time == 'm') {nbt.Age = 0-baby_time_value*1200}
+            if (baby_time == 'h') {nbt.Age = 0-baby_time_value*72000}
+            $('.baby_living_mobs').removeClass('hide');
+        }
     }
 
     // EQUIPMENT //
