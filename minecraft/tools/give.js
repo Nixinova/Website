@@ -106,7 +106,7 @@ function give() {
             var team_invert = $('#input_selector_team_i').hasClass('on')
             var tag = value('input_selector_tag').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g,"")
             var tag_invert = $('#input_selector_tag_i').hasClass('on')
-            var mode = value('input_selector_gm')
+            var mode = value('input_selector_gm').toLowerCase()
             var mode_invert = $('#input_selector_gm_i').hasClass('on')
             var xp_min = value('input_selector_xp_min','int')
             var xp_max = value('input_selector_xp_max','int')
@@ -242,15 +242,9 @@ function give() {
             }
             
             if (mode) {
-                if (mode == '0' && !mode_invert) {selector.push('gamemode=survival')}
-                if (mode == '1' && !mode_invert) {selector.push('gamemode=creative')}
-                if (mode == '2' && !mode_invert) {selector.push('gamemode=adventure')}
-                if (mode == '3' && !mode_invert) {selector.push('gamemode=spectator')}
-                
-                if (mode == '0' && mode_invert) {selector.push('gamemode=!survival')}
-                if (mode == '1' && mode_invert) {selector.push('gamemode=!creative')}
-                if (mode == '2' && mode_invert) {selector.push('gamemode=!adventure')}
-                if (mode == '3' && mode_invert) {selector.push('gamemode=!spectator')}
+                var mode_option;
+                if (mode_invert) {mode_option = '!';} else {mode_option = '';}
+                selector.push('gamemode=' + mode_option + mode);
             }
             
             if (xp_min || xp_max) {
