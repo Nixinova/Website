@@ -74,6 +74,7 @@ function summon() {
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
+    var endermite_life = value('input_endermite_life', 'int')
     var $fox_type = $('#input_fox_type');
     var ghast_explosion_power = value('input_ghast_explosion_power');
     var llama_type = value('input_llama_type', 'int')
@@ -143,6 +144,11 @@ function summon() {
     // creeper //
     if (entity === 'creeper') {
         if (creeper_powered) {nbt.powered = true;}
+    }
+
+    // endermite //
+    if (entity === 'endermite') {
+        if (endermite_life) {nbt.Lifetime = 2400-endermite_life}
     }
 
     // fox //
