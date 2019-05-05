@@ -104,17 +104,17 @@ function summon() {
     var chest_n= value('input_armour_chest_num',  'int');
     var legs_n = value('input_armour_legs_num',   'int');
     var feet_n = value('input_armour_feet_num',   'int');
-    var head_c = value('input_armour_head_count' )//100;
-    var chest_c= value('input_armour_chest_count')//100;
-    var legs_c = value('input_armour_legs_count' )//100;
-    var feet_c = value('input_armour_feet_count' )//100;
+    var head_c = value('input_armour_head_count' ,'int')/100;
+    var chest_c= value('input_armour_chest_count','int')/100;
+    var legs_c = value('input_armour_legs_count' ,'int')/100;
+    var feet_c = value('input_armour_feet_count' ,'int')/100;
 
     var mainhand = cleanup(value('input_held_item'));
     var mainhand_n = value('input_held_item_num', 'int');
-    var mainhand_c = value('input_held_item_count')//100;
+    var mainhand_c = value('input_held_item_count', 'int')/100;
     var offhand = cleanup(value('input_offhand_item'));
     var offhand_n = value('input_offhand_item_num', 'int');
-    var offhand_c = value('input_offhand_item_count')//100;
+    var offhand_c = value('input_offhand_item_count', 'int')/100;
 
     var nbt = {}
 
@@ -258,6 +258,10 @@ function summon() {
         nbt.ArmorItems = armor_items;
         var armor_drop_chances;
         if (head_c || chest_c || legs_c || feet_c) {
+            if (!head_c) {head_c = 1;}
+            if (!chest_c){chest_c= 1;}
+            if (!legs_c) {legs_c = 1;}
+            if (!feet_c) {feet_c = 1;}
             armor_drop_chances = [feet_c + 'f', legs_c + 'f', chest_c + 'f', head_c + 'f'];
             nbt.ArmorDropChances = armor_drop_chances;
         }
@@ -271,6 +275,8 @@ function summon() {
         nbt.HandItems = held_items;
         var hand_drop_chances;
         if (mainhand_c || offhand_c) {
+            if (!mainhand_c) {mainhand_c = 1;}
+            if (!offhand_c)  {offhand_c  = 1;}
             hand_drop_chances = [mainhand_c + 'f', offhand_c + 'f'];
             nbt.HandDropChances = hand_drop_chances;
         }
