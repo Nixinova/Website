@@ -100,14 +100,14 @@ function summon() {
     var chest= cleanup(value('input_armour_chest'));
     var legs = cleanup(value('input_armour_legs' ));
     var feet = cleanup(value('input_armour_feet' ));
-    var head_n = value('input_armour_head_num', 'int');
+    var head_n = value('input_armour_head_num',  'int');
     var chest_n= value('input_armour_chest_num', 'int');
-    var legs_n = value('input_armour_legs_num', 'int');
-    var feet_n = value('input_armour_feet_num', 'int');
+    var legs_n = value('input_armour_legs_num',  'int');
+    var feet_n = value('input_armour_feet_num',  'int');
     var head_c = value('input_armour_head_count', 'int')/100;
-    var chest_c= value('input_armour_chest_count', 'int')/100;
+    var chest_c= value('input_armour_chest_count','int')/100;
     var legs_c = value('input_armour_legs_count', 'int')/100;
-    var feet_c = value('input_armour_feet_count', 'int'/100);
+    var feet_c = value('input_armour_feet_count', 'int')/100;
 
     var mainhand = cleanup(value('input_held_item'));
     var mainhand_n = value('input_held_item_num', 'int');
@@ -275,7 +275,7 @@ function summon() {
     }
 
     // CONVERT TO NBT //
-    if (!isEmpty(nbt)) {
+    if (!isEmpty(nbt)) { //                   Removes quotes on IDs            Sets floats to ints
         var NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g,'$1:').replace(/"([0-9.]+f)"/g, '$1');
     } else {NBT = '';}
 
