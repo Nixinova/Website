@@ -136,7 +136,7 @@ function summon() {
 
     // cat //
     if (entity === 'cat') {
-        if (cat_type !== undefined) {nbt.CatType = cat_type;}
+        if (cat_type !== null) {nbt.CatType = cat_type;}
         if (cat_collar) {nbt.CollarColor = cat_collar;}
     }
 
@@ -186,12 +186,12 @@ function summon() {
 
     // rabbit ..
     if (entity === 'rabbit') {
-        if (rabbit_type !== undefined) {nbt.RabbitType = rabbit_type;}
+        if (rabbit_type !== null) {nbt.RabbitType = rabbit_type;}
     }
 
     // slime //
     if (entity === 'slime') {
-        if (slime_size !== undefined) {nbt.Size = slime_size;}
+        if (slime_size !== null) {nbt.Size = slime_size;}
     }
 
     // tropical fish //
