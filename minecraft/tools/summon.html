@@ -11,25 +11,24 @@
     <script src="show_more.js"></script>
 </head>
 <body>
-    <header>
-        <nav></nav>
-        <script>$(document).ready(function(){$("nav").load("/imports/navigation");});</script>
-        <script src="summon.js"></script>
-    </header>
+<header>
+    <nav></nav>
+    <script>$(document).ready(function(){$("nav").load("/imports/navigation");});</script>
+    <script src="summon.js"></script>
+</header>
 
-    <main>
-        <h2>/summon</h2>
-        <p>Generates /summon commands for Minecraft 1.13+.</p>
-        <form action="javascript:submit()" id="input_form">
-            <style>
-                button {animation: none;}
-                .on {padding: 5px 12.5px;}
-                .on::before {content: 'True ';}
-                .off::after {content: 'False';}
-            </style>
-            <p>
-                <span class="form-item">Mob:</span>
-                <select id="input_entity" onchange="submit()">
+<main>
+    <h2>/summon</h2>
+    <p>Generates /summon commands for Minecraft 1.13+.</p>
+    <form action="javascript:submit()" id="input_form">
+        <style>
+            button {width: 70px; text-align: center;}
+            .on::before {content: 'True';}
+            .off::after {content: 'False';}
+        </style>
+        <p>
+            <span class="form-item">Mob:</span>
+            <select id="input_entity" onchange="submit()">
                     <option>Bat</option>
                     <option>Blaze</option>
                     <option>Cat</option>
@@ -94,23 +93,23 @@
                     <option>Zombie Horse</option>
                     <option>Zombie Pigman</option>
                     <option>Zombie Villager</option>
-                </select><br/>
+            </select><br/>
 
-                <span class="form-item">Coordinates:</span>
-                <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_x"> &nbsp;
-                <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_y"> &nbsp;
-                <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_z"><br/>
-            </p>
-            <p name="nbt">
-                <span class="form-item">NBT:</span><br/>
+            <span class="form-item">Coordinates:</span>
+            <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_x"> &nbsp;
+            <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_y"> &nbsp;
+            <input type="text" onblur="submit()"onfocus="this.value=''" value="~" size="6" id="input_z"><br/>
+        </p>
+        <p name="nbt">
+            <span class="form-item">NBT:</span><br/>
 
-                <span class="form-item indent">Able to move?</span>
-                <button id="input_no_ai" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+            <span class="form-item indent">Able to move?</span>
+            <button id="input_no_ai" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
-                <span class="form-item indent">Despawnable?</span>
-                <button id="input_despawnable" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+            <span class="form-item indent">Despawnable?</span>
+            <button id="input_despawnable" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
-                <span class="cat only">
+            <span class="cat only">
                     <span class="form-item indent">Type:</span>
                     <select id="input_cat_type" onblur="submit()">                     
                         <option value="0">Tabby</option>
@@ -125,7 +124,7 @@
                         <option value="9">Jellie</option>
                         <option value="10">Black</option>
                     </select><br/>
-
+    
                     <span class="form-item indent">Collar colour:</span>
                     <select id="input_cat_collar" onblur="submit()">
                         <option value="">Default</option>
@@ -146,28 +145,32 @@
                         <option value="14">Red</option>
                         <option value="15">Black</option>
                     </select><br/>
-                </span>
-
-                <span class="creeper only">
+            </span>
+    
+            <span class="creeper only">
                     <span class="form-item indent">Powered?</span>
                     <button id="input_creeper_powered" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
-                </span>
+            </span>
 
-                <span class="fox only">
-                    <style>
-                        .fox.red {background-color: #f90;}
-                        .fox.snow {background-color: #def;}
-                    </style>
-                    <span class="form-item indent">Type:</span>
-                    <button id="input_fox_type" class="snow fox" onclick="$(this).toggleClass('snow').toggleClass('red')"></button><br/>
-                </span>
+            <span class="fox only">
+                <style>
+                    .fox.red {background-color: #f90;}
+                    .fox.snow {background-color: #def;}
+                    .fox.red::after {content: 'Red';}
+                    .fox.snow::after {content: 'Snow';}
+                </style>
+                <script>var foxCount = 0;</script>
+                <span class="form-item indent">Type:</span>
+                <button id="input_fox_type" class="snow fox" onclick="$(this).toggleClass('snow').toggleClass('red');foxCount++;">
+                </button><br/>
+            </span>
 
-                <span class="ghast only">
+            <span class="ghast only">
                     <span class="form-item indent">Fireball power:</span>
                     <input type="number" min="1" id="input_ghast_explosion_power" onblur="submit()">
-                </span>
+            </span>
 
-                <span class="llama only">
+            <span class="llama only">
                     <span class="form-item indent">Type:</span>
                     <select id="input_llama_type" onblur="submit()">
                         <option value=" ">Creamy</option>
@@ -175,20 +178,20 @@
                         <option value="2">Brown</option>
                         <option value="3">Gray</option>
                     </select><br/>
-
+    
                     <span class="form-item indent">Temper:</span>
                     <input type="number" min="1" max="100" id="input_llama_temper" onblur="submit()"><br/>
-                </span>
-
-                <span class="mooshroom only">
+            </span>
+    
+            <span class="mooshroom only">
                     <span class="form-item indent">Type:</span>
                     <select id="input_mooshroom_type" onblur="submit()">
                         <option value="">Red</option>
                         <option>Brown</option>
                     </select><br/>
-                </span>
-
-                <span class="panda only">
+            </span>
+    
+            <span class="panda only">
                     <span class="form-item indent">Main gene:</span>
                     <select id="input_panda_gene_1" onblur="submit()">
                         <option>Normal</option>
@@ -210,9 +213,9 @@
                         <option>Weak</option>
                         <option>Brown</option>
                     </select><br/>
-                </span>
-
-                <span class="sheep shulker only">
+            </span>
+    
+            <span class="sheep shulker only">
                     <span class="form-item indent">Colour:</span>
                     <select id="input_mob_color" onblur="submit()">
                         <option value="">Default</option>
@@ -233,14 +236,14 @@
                         <option value="14">Red</option>
                         <option value="15">Black</option>
                     </select><br/>
-                </span>
-
-                <span class="tame_mobs only">
+            </span>
+    
+            <span class="tame_mobs only">
                     <span class="form-item indent">Tame?</span>
                     <button id="input_horse_tame" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
-                </span>
-
-                <span class="tropical_fish only">
+            </span>
+    
+            <span class="tropical_fish only">
                     <span class="form-item indent">Size:</span>
                     <select id="input_tropical_fish_size" onblur="submit()">
                         <option value="0">Small</option>
@@ -255,7 +258,7 @@
                         <option value="3" class="small-fish">Dasher</option>
                         <option value="4" class="small-fish">Brinely</option>
                         <option value="5" class="small-fish">Spotty</option>
-
+    
                         <option value="0" class="large-fish">Flopper</option>
                         <option value="1" class="large-fish">Stripey</option>
                         <option value="2" class="large-fish">Glitter</option>
@@ -263,7 +266,7 @@
                         <option value="4" class="large-fish">Betty</option>
                         <option value="5" class="large-fish">Clayfish</option>
                     </select><br/>
-
+    
                     <span class="form-item indent">Base colour:</span>
                     <select id="input_tropical_fish_base_color" onblur="submit()">
                         <option value="0">White</option>
@@ -282,7 +285,7 @@
                         <option value="13">Green</option>
                         <option value="14">Red</option>
                     </select><br/>
-
+    
                     <span class="form-item indent">Pattern colour:</span>
                     <select id="input_tropical_fish_pattern_color" onblur="submit()">
                         <option value="0">White</option>
@@ -302,9 +305,9 @@
                         <option value="14">Red</option>
                     </select>
                     <br/>
-                </span>
-
-                <span class="villager only">
+            </span>
+    
+            <span class="villager only">
                     <span class="form-item indent">Type:</span>
                     <select id="input_villager_type" onblur="submit()">
                         <option></option>
@@ -316,7 +319,7 @@
                         <option>Swamp</option>
                         <option>Taiga</option>
                     </select><br/>
-
+    
                     <span class="form-item indent">Profession:</span>
                     <select id="input_villager_profession" onblur="submit()">
                         <option>None</option>
@@ -335,13 +338,13 @@
                         <option>Toolsmith</option>
                         <option>Weaponsmith</option>
                     </select><br/>
-
+    
                     <span class="form-item indent">Level:</span>
                     <input type="number" value="1" min="1" max="5" onblur="submit()" id="input_villager_level">
                     <br/>
-                </span>
-
-                <span class="wolf only">
+            </span>
+    
+            <span class="wolf only">
                     <span class="form-item indent">Collar colour:</span>
                     <select id="input_wolf_collar" onblur="submit()">
                         <option value="">Default</option>
@@ -362,12 +365,12 @@
                         <option value="14">Red</option>
                         <option value="15">Black</option>
                     </select><br/>
-                </span>
-
-                <span class="baby_mobs only">
+            </span>
+    
+            <span class="baby_mobs only">
                     <span class="form-item indent">Baby?</span>
                     <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
-
+    
                     <span class="baby_living_mobs only"> &ensp;
                         <span>Time until adulthood:</span>
                         <input type="number" value="1000" min="0" id="input_baby_time_value"> &nbsp;
@@ -378,60 +381,61 @@
                             <option value="h">Hours</option>
                         </select>
                     </span><br/>
-                </span>
-            </p>
-            <p name="Armour">
-                <span class="form-item">Equipment:</span><br/>
-                
-                <span class="form-item indent">Head:</span>
-                <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_head"> &nbsp;
-                <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_head_num"><br/>
-
-                <span class="form-item indent">Chest:</span>
-                <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_chest"> &nbsp;
-                <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_chest_num"><br/>
-
-                <span class="form-item indent">Legs:</span>
-                <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_legs"> &nbsp;
-                <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_legs_num"><br/>
-
-                <span class="form-item indent">Feet:</span>
-                <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_feet"> &nbsp;
-                <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_feet_num"><br/>
-                
-                <span class="form-item indent">Main hand:</span>
-                <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_held_item"> &nbsp;
-                <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_held_item_num"><br/>
-
-                <span class="form-item indent">Offhand:</span>
-                <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_offhand_item"> &nbsp;
-                <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_offhand_item_num">
-            </p>
-        </form>
-        
-        <h3 class="section_heading" onmouseover="submit()">Output</h3>
-        <div id="cmd_note" class="hide">
-            <p style="margin-left: 2em">
-                <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
-                <span class="command">
-                    <span style="color: lightgray">/summon</span>
-                    <span style="color: #5ff">@s</span>
-                    <span style="color: #ff5">minecraft:command_block</span>
-                    <span style="color: lightgreen">1</span>
-                </span>
-            </p>
-        </div>
-        <div id="output_text" class="command"></div>
-        <p style="text-align: center;">
-            <button onclick="submit()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
+            </span>
         </p>
-        <script>$(document).ready(function(){submit()});</script>
-    </main>
+        <p name="Armour">
+            <span class="form-item">Equipment:</span><br/>
+            
+            <span class="form-item indent">Head:</span>
+            <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_head"> &nbsp;
+            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_head_num"><br/>
+    
+            <span class="form-item indent">Chest:</span>
+            <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_chest"> &nbsp;
+            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_chest_num"><br/>
+    
+            <span class="form-item indent">Legs:</span>
+            <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_legs"> &nbsp;
+            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_legs_num"><br/>
+    
+            <span class="form-item indent">Feet:</span>
+            <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_feet"> &nbsp;
+            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_feet_num"><br/>
+            
+            <span class="form-item indent">Main hand:</span>
+            <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_held_item"> &nbsp;
+            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_held_item_num"><br/>
+            <span class="form-item indent">Offhand:</span>
 
-    <footer>
-        <span id="copyright"></span>
-        &bull;&nbsp;<a href="summon.js" title="summon.js" target="_blank">View code</a>
-    </footer>
-    <script>$("#copyright").load("/imports/footer")</script>
+            <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_offhand_item"> &nbsp;
+            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_offhand_item_num">
+        </p>
+    </form>
+    
+    <h3 class="section_heading" onmouseover="submit()">Output</h3>
+    <div id="cmd_note" class="hide">
+        <p style="margin-left: 2em">
+            <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
+            <span class="command">
+                <span style="color: lightgray">/summon</span>
+                <span style="color: #5ff">@s</span>
+                <span style="color: #ff5">minecraft:command_block</span>
+                <span style="color: lightgreen">1</span>
+            </span>
+        </p>
+    </div>
+    <div id="output_text" class="command"></div>
+    <p style="text-align: center;">
+        <button onclick="submit()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
+    </p>
+    <script>$(document).ready(function(){submit()});</script>
+</main>
+
+<footer>
+    <span id="copyright"></span>
+    &bull;&nbsp;<a href="summon.js" title="summon.js" target="_blank">View code</a>
+</footer>
+<script>$("#copyright").load("/imports/footer")</script>
+
 </body>
 </html>

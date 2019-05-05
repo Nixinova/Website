@@ -74,7 +74,7 @@ function summon() {
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
-    var fox_type = $('#input_fox_type').hasClass('red');
+    var $fox_type = $('#input_fox_type');
     var ghast_explosion_power = value('input_ghast_explosion_power');
     var llama_type = value('input_llama_type', 'int')
     var llama_temper = value('input_llama_temper', 'int')
@@ -147,7 +147,8 @@ function summon() {
 
     // fox //
     if (entity === 'fox') {
-        if (fox_type) {nbt.Type = fox_type;}
+        if ($fox_type.hasClass('red') && foxCount) {nbt.Type = 'red';}
+        if ($fox_type.hasClass('snow')) {nbt.Type = 'snow';}
     }
 
     // ghast //
