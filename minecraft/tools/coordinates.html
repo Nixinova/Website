@@ -11,7 +11,7 @@
     <script src="show_more.js"></script>
     <script src="coordinates.js"></script>
     <style>
-        input {padding-left: 20px; text-align: center;}
+        input {width: 100px; padding-left: 20px; text-align: center;}
     </style>
 </head>
 <body>
@@ -26,7 +26,7 @@
         <form action="javascript:submit()" id="input_form">
             <div>
                 <p>
-                    <span class="form-item-L">Block coordinates</span>
+                    <span class="form-item long">Block coordinates</span>
                     X <input type="number" id="block_x" value="0" onblur="submit()"> &nbsp;
                     Y <input type="number" id="block_y" value="0" onblur="submit()" min="0" max="255"> &nbsp;
                     Z <input type="number" id="block_z" value="0" onblur="submit()"> &nbsp;
@@ -36,19 +36,19 @@
             <hr>
             <div>
                 <p>
-                    <span class="form-item-L">Nether coordinates</span>
+                    <span class="form-item long">Nether coordinates</span>
                     X <input type="number" id="nether_x" value="0" readonly> &nbsp;
                     Y <input type="number" id="nether_y" value="0" readonly> &nbsp;
                     Z <input type="number" id="nether_z" value="0" readonly> &nbsp;
                     <button onclick="copyNether()">Copy</button><br/>
 
-                    <span class="form-item-L">Chunk coordinates</span>
+                    <span class="form-item long">Chunk coordinates</span>
                     X <input type="number" id="chunk_x" value="0" readonly> &nbsp;
                     Y <input type="number" id="chunk_y" value="0" readonly> &nbsp;
                     Z <input type="number" id="chunk_z" value="0" readonly> &nbsp;
                     <button onclick="copyChunk()">Copy</button><br/>
 
-                    <span class="form-item-L">Region file name</span>
+                    <span class="form-item long">Region file name</span>
                     <code>
                         r.<span style='margin-left: -1ex'></span>
                         <input type="number" id="region_x" value="0" readonly>.<span style='margin-left: -1ex'></span>
@@ -58,7 +58,7 @@
             </div>
         <!--<div>
                 <p onblur="submit()">
-                    <span class="form-item-L">Region file name</span>
+                    <span class="form-item long">Region file name</span>
                     <code>
                         r.<input type="number" id="region_x" value=0>.<input type="number" id="region_z" value=0>.mca
                     </code>

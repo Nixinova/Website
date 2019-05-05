@@ -114,12 +114,12 @@
             <!-- target (username) -->
             <p class="negative hide" id="select-username">
                 <span class="form-item">Username:</span>
-                <input type="text" onfocus="this.value=''" size="13" maxlength="16" id="input_selector_player">
+                <input type="text" size="13" maxlength="16" id="input_selector_player">
             </p>
             <!-- item -->
             <p onblur="submit()">
                 <span class="form-item">Item:</span>
-                <input type="text" value="stone" onfocus="this.value=''" onblur="submit()" size="13" id="input_item"><br/>
+                <input type="text" value="stone" onblur="submit()" size="13" id="input_item"><br/>
                 
                 <span class="hide" id="potion">
                     <span class="form-item">Potion:</span> <input type="text" size="13" id="input_item_potion"><br/>
@@ -130,7 +130,7 @@
                 </span>
 
                 <span class="form-item">Custom name:</span>
-                <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_item_name">  
+                <input type="text" onblur="submit()" size="13" id="input_item_name">  
                 <a id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
                 
                 <span id="preview" class="hide">
@@ -176,7 +176,7 @@
                 var enchAdded = 0
             </script>
             <p class="negative">
-                <span class="form-item">Description:</span> <input type="text" onfocus="this.value=''" size="13" id="input_item_lore">
+                <span class="form-item">Description:</span> <input type="text" size="13" id="input_item_lore">
                 <a onblur="submit()" id="add-lore" class="plus"></a><br/>
 
                 <span class="form-item">Enchantments:</span>
@@ -235,7 +235,7 @@
                 </span>
 
                 <span class="form-item">Can destroy:</span>
-                Block: <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_item_destroy"> &nbsp;
+                Block: <input type="text" onblur="submit()" size="13" id="input_item_destroy"> &nbsp;
                 Group: <select id="input_item_destroy_tags" onblur="submit()">
                     <option value=" "></option>
                     <option>Acacia Logs</option>
@@ -287,7 +287,7 @@
                 <a id="add-can-break" class="plus" onclick="submit()"></a><br/>
                 
                 <span class="form-item">Can place on:</span>
-                Block: <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_item_place_on"> &nbsp;
+                Block: <input type="text" onblur="submit()" size="13" id="input_item_place_on"> &nbsp;
                 Group: <select id="input_item_place_on_tags" onblur="submit()">
                     <option value=" "></option>
                     <option>Acacia Logs</option>
