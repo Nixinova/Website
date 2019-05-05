@@ -262,7 +262,7 @@ function summon() {
             if (!chest_c){chest_c= 100;}
             if (!legs_c) {legs_c = 100;}
             if (!feet_c) {feet_c = 100;}
-            //armor_drop_chances = [feet_c/100+'f', legs_c/100+'f', chest_c/100+'f', head_c/100+'f'];
+            armor_drop_chances = [feet_c/100+'f', legs_c/100+'f', chest_c/100+'f', head_c/100+'f'];
             nbt.ArmorDropChances = armor_drop_chances;
         }
     }
@@ -277,7 +277,7 @@ function summon() {
         if (mainhand_c || offhand_c) {
             if (!mainhand_c) {mainhand_c = 100;}
             if (!offhand_c)  {offhand_c  = 100;}
-            //hand_drop_chances = [mainhand_c/100+'f', offhand_c/100+'f'];
+            hand_drop_chances = [mainhand_c/100+'f', offhand_c/100+'f'];
             nbt.HandDropChances = hand_drop_chances;
         }
     }
