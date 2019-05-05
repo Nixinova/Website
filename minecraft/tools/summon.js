@@ -104,17 +104,17 @@ function summon() {
     var chest_n= value('input_armour_chest_num',  'int');
     var legs_n = value('input_armour_legs_num',   'int');
     var feet_n = value('input_armour_feet_num',   'int');
-    var head_c = value('input_armour_head_count' ,'int');
-    var chest_c= value('input_armour_chest_count','int');
-    var legs_c = value('input_armour_legs_count' ,'int');
-    var feet_c = value('input_armour_feet_count' ,'int');
+    var head_c = value('input_armour_head_count' ,'num');
+    var chest_c= value('input_armour_chest_count','num');
+    var legs_c = value('input_armour_legs_count' ,'num');
+    var feet_c = value('input_armour_feet_count' ,'num');
 
     var mainhand = cleanup(value('input_held_item'));
     var mainhand_n = value('input_held_item_num', 'int');
-    var mainhand_c = value('input_held_item_count', 'int');
+    var mainhand_c = value('input_held_item_count', 'num');
     var offhand = cleanup(value('input_offhand_item'));
     var offhand_n = value('input_offhand_item_num', 'int');
-    var offhand_c = value('input_offhand_item_count', 'int');
+    var offhand_c = value('input_offhand_item_count', 'num');
 
     var nbt = {}
 
