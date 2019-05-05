@@ -220,11 +220,11 @@ function summon() {
 
     // babies //
     if (zombies.indexOf(entity) > -1) {
-        $('.zombies').removeClass('hide');
+        $('.baby_mobs').removeClass('hide');
         if (baby) {nbt.IsBaby = true;}
     }
     if (neg_age_mobs.indexOf(entity) > -1) {
-        $('.zombies').removeClass('hide');
+        $('.baby_mobs').removeClass('hide');
         if (baby && baby_time_value) {
             if (baby_time == 't') {nbt.Age = 0-baby_time_value}
             if (baby_time == 's') {nbt.Age = 0-baby_time_value*20}
