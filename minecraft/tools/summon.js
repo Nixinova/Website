@@ -104,17 +104,17 @@ function summon() {
     var chest_n= value('input_armour_chest_num',  'int');
     var legs_n = value('input_armour_legs_num',   'int');
     var feet_n = value('input_armour_feet_num',   'int');
-    var head_c = 1//value('input_armour_head_count', 'int')/100;
-    var chest_c= 1//value('input_armour_chest_count','int')/100;
-    var legs_c = 1//value('input_armour_legs_count', 'int')/100;
-    var feet_c = 1//value('input_armour_feet_count', 'int')/100;
+    var head_c = value('input_armour_head_count' )//100;
+    var chest_c= value('input_armour_chest_count')//100;
+    var legs_c = value('input_armour_legs_count' )//100;
+    var feet_c = value('input_armour_feet_count' )//100;
 
     var mainhand = cleanup(value('input_held_item'));
     var mainhand_n = value('input_held_item_num', 'int');
-    var mainhand_c = 1//value('input_held_item_count', 'int')/100;
+    var mainhand_c = value('input_held_item_count')//100;
     var offhand = cleanup(value('input_offhand_item'));
     var offhand_n = value('input_offhand_item_num', 'int');
-    var offhand_c = 1//value('input_offhand_item_count', 'int')/100;
+    var offhand_c = value('input_offhand_item_count')//100;
 
     var nbt = {}
 
@@ -254,29 +254,31 @@ function summon() {
     if (legs) {armor_items.push({id: legs,  Count: legs_n });} else {armor_items.push({});}
     if (chest){armor_items.push({id: chest, Count: chest_n});} else {armor_items.push({});}
     if (head) {armor_items.push({id: head,  Count: head_n });} else {armor_items.push({});}
-    if (head || chest || legs || feet) {nbt.ArmorItems = armor_items;}
-
-    var armor_drop_chances;
-    if (head_c || chest_c || legs_c || feet_c) {
-        armor_drop_chances = [feet_c + 'f', legs_c + 'f', chest_c + 'f', head_c + 'f'];
-        nbt.ArmorDropChances = armor_drop_chances;
+    if (head || chest || legs || feet) {
+        nbt.ArmorItems = armor_items;
+        var armor_drop_chances;
+        if (head_c || chest_c || legs_c || feet_c) {
+            armor_drop_chances = [feet_c + 'f', legs_c + 'f', chest_c + 'f', head_c + 'f'];
+            nbt.ArmorDropChances = armor_drop_chances;
+        }
     }
 
     // held //
     var held_items = [];
     if (mainhand) {held_items.push({id: mainhand, Count: mainhand_n});} else {held_items.push({});}
     if (offhand) {held_items.push({id: offhand, Count: offhand_n});} else {held_items.push({});}
-    if (mainhand || offhand) {nbt.HandItems = held_items;}
-
-    var hand_drop_chances;
-    if (mainhand_c || offhand_c) {
-        hand_drop_chances = [mainhand_c + 'f', offhand_c + 'f'];
-        nbt.HandDropChances = hand_drop_chances;
+    if (mainhand || offhand) {
+        nbt.HandItems = held_items;
+        var hand_drop_chances;
+        if (mainhand_c || offhand_c) {
+            hand_drop_chances = [mainhand_c + 'f', offhand_c + 'f'];
+            nbt.HandDropChances = hand_drop_chances;
+        }
     }
 
     // CONVERT TO NBT //
-    if (!isEmpty(nbt)) { //                   Removes quotes on IDs            Sets floats to ints
-        var NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g,'$1:').replace(/"([0-9.]+f)"/g, '$1');
+    if (!isEmpty(nbt)) { //                   Removes quotes on IDs            Show int types as plain ints
+        var NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g,'$1:').replace(/"([0-9.]+[bdfLs])"/g, '$1');
     } else {NBT = '';}
 
     /// OUTPUT ///
