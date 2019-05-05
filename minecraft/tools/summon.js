@@ -85,6 +85,7 @@ function summon() {
     var mooshroom_type = cleanup(value('input_mooshroom_type'))
     var panda_dominant_gene = cleanup(value('input_panda_gene_1'));
     var panda_recessive_gene = cleanup(value('input_panda_gene_2'));
+    var rabbit_type = value('input_rabbit_type','int')
     var slime_size = value('input_slime_size','int')
     var tropical_fish_size = value('input_tropical_fish_size', 'int');
     var tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
@@ -181,6 +182,14 @@ function summon() {
     if (entity === 'panda') {
         if (panda_dominant_gene) {nbt.MainGene = panda_dominant_gene;}
         if (panda_recessive_gene) {nbt.HiddenGene = panda_recessive_gene;}
+    }
+
+    // rabbit ..
+    if (entity === 'rabbit') {
+        if (rabbit_type) {
+            if (rabbit_type === -1) {rabbit_type = 'none';}
+            nbt.RabbitType = rabbit_type;
+        }
     }
 
     // slime //

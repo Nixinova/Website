@@ -222,6 +222,21 @@
                         <option>Brown</option>
                     </select><br/>
             </span>
+
+            <span class="rabbit only">
+                <span class="form-item indent">Type:</span>
+                <select id="input_rabbit_type" onblur="submit()">
+                    <option value="">Random</option>
+                    <option value="0">Brown</option>
+                    <option value="1">White</option>
+                    <option value="2">Black</option>
+                    <option value="3">Black and white</option>
+                    <option value="4">Gold</option>
+                    <option value="5">Salt and pepper</option>
+                    <option value="99">The Killer Bunny</option>
+                    <option value="-1">Toast</option>
+                </select>
+            </span>
     
             <span class="sheep shulker only">
                     <span class="form-item indent">Colour:</span>
@@ -443,9 +458,9 @@
         </p>
     </div>
     <div id="output_text" class="command"></div>
-    <p style="text-align: center;">
+<!--<p style="text-align: center;">
         <button onclick="submit()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
-    </p>
+    </p>-->
     <script>$(document).ready(function(){submit()});</script>
 </main>
 
