@@ -166,16 +166,16 @@
                     <button id="input_item_s" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Strikethrough</button> &nbsp;
                     <button id="input_item_o" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Obfuscated</button> &nbsp;
                 </span>
-            </p>
-            <!-- desc and ench -->
-            <script>
-                var lore = new Array(undefined)
-                var e = new Array(undefined)
-                var elvl = new Array(undefined)
-                var loreAdded = 0
-                var enchAdded = 0
-            </script>
-            <p class="negative">
+
+                <!-- desc and ench -->
+                <script>
+                    var lore = new Array(undefined)
+                    var e = new Array(undefined)
+                    var elvl = new Array(undefined)
+                    var loreAdded = 0
+                    var enchAdded = 0
+                </script>
+
                 <span class="form-item">Description:</span> <input type="text" size="13" id="input_item_lore">
                 <a onblur="submit()" id="add-lore" class="plus"></a><br/>
 
@@ -221,13 +221,12 @@
                     <option>Unbreaking</option>
                 </select> &nbsp;
                 Level: <input class="lvl" type="number" value="1" min="1" max="32737" id="input_item_ench_lvl" onchange="submit()">
-            </p>
-            <!-- other -->
-            <script>
-                var CanDestroy = new Array(undefined)
-                var CanPlaceOn = new Array(undefined)
-            </script>
-            <p class="negative">
+            
+                <!-- other -->
+                <script>
+                    var CanDestroy = new Array(undefined)
+                    var CanPlaceOn = new Array(undefined)
+                </script>
                 <span class="tool">
                     <span class="form-item">Durability:</span>
                     <input type="number" id="input_item_durability"> &nbsp;
@@ -397,10 +396,9 @@
                     Modifier IDs:
                     <input type="number" id="input_item_mod_uuid_least" min="1" onchange="submit()">
                     <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()">
-                </span>
-            </p>
-            <p>
-                <span class="form-item">Show attributes:</span>
+                </span><br/>
+
+                <span>Show attributes:</span>
                 <span id="hideflags" onchange="submit()">
                     <button id="ench" class="on" onclick="$(this).toggleClass('on').toggleClass('off')">Enchantments</button> &nbsp;
                     <button id="mods" class="on" onclick="$(this).toggleClass('on').toggleClass('off')">Modifiers   </button> &nbsp;
@@ -416,6 +414,7 @@
             </p>
         </form>
         
+        <!-- OUTPUT -->
         <h3 class="section_heading" onmouseover="submit()">Output</h3>
         <div id="cmd_note" class="hide">
             <p style="margin-left: 2em">
@@ -428,14 +427,15 @@
                 </span>
             </p>
         </div>
+        <!-- output text -->
         <div id="output_text" class="command"></div>
-        <p style="text-align: center;">
+    <!--<p style="text-align: center;">
             <button onclick="submit()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
-        </p>
+        </p>-->
         <script>$(document).ready(function(){submit()});</script>
     </main>
 
-    <footer class="sticky">
+    <footer>
         <span id="copyright"></span>
         •&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>
     </footer>
