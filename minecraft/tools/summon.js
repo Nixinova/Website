@@ -147,7 +147,7 @@ function summon() {
 
     // fox //
     if (entity === 'fox') {
-        if ($fox_type.hasClass('red') && foxCount) {nbt.Type = 'red';}
+        if ($fox_type.hasClass('red') && foxCount > 0) {nbt.Type = 'red';}
         if ($fox_type.hasClass('snow')) {nbt.Type = 'snow';}
     }
 

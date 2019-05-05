@@ -155,13 +155,13 @@
             <span class="fox only">
                 <style>
                     .fox.red {background-color: #f90;}
-                    .fox.snow {background-color: #def;}
+                    .fox.snow {background-color: #def; color: black;}
                     .fox.red::after {content: 'Red';}
                     .fox.snow::after {content: 'Snow';}
                 </style>
                 <script>var foxCount = 0;</script>
                 <span class="form-item indent">Type:</span>
-                <button id="input_fox_type" class="snow fox" onclick="$(this).toggleClass('snow').toggleClass('red');foxCount++;">
+                <button id="input_fox_type" class="red fox" onclick="$(this).toggleClass('snow').toggleClass('red');foxCount++;">
                 </button><br/>
             </span>
 
