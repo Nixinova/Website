@@ -136,8 +136,8 @@
                 <span id="preview" class="hide">
                     &nbsp; Preview: &nbsp;
                     <span id="preview-text" style="padding: 5px 10px; font-family: Minecraft; background-color: #100110e9; border: 3px solid #205e; border-radius: 5px;">
-                    </span>
-                </span><br/>
+                    </span><br/>
+                </span>
 
                 <span id="cname-content" class="hide">
                     <span class="form-item indent">Colour:</span>
@@ -220,7 +220,7 @@
                     <option>Thorns</option>
                     <option>Unbreaking</option>
                 </select> &nbsp;
-                Level: <input class="lvl" type="number" value="1" min="1" max="32737" id="input_item_ench_lvl" onchange="submit()">
+                <span>Level:</span> <input class="lvl" type="number" value="1" min="1" max="32737" id="input_item_ench_lvl" onchange="submit()"><br/>
             
                 <!-- other -->
                 <script>
@@ -234,8 +234,8 @@
                 </span>
 
                 <span class="form-item">Can destroy:</span>
-                Block: <input type="text" onblur="submit()" size="13" id="input_item_destroy"> &nbsp;
-                Group: <select id="input_item_destroy_tags" onblur="submit()">
+                <span>Block:</span> <input type="text" onblur="submit()" size="13" id="input_item_destroy"> &nbsp;
+                <span>Group:</span> <select id="input_item_destroy_tags" onblur="submit()">
                     <option value=" "></option>
                     <option>Acacia Logs</option>
                     <option value="Anvil">Anvils</option>
@@ -286,8 +286,10 @@
                 <a id="add-can-break" class="plus" onclick="submit()"></a><br/>
                 
                 <span class="form-item">Can place on:</span>
-                Block: <input type="text" onblur="submit()" size="13" id="input_item_place_on"> &nbsp;
-                Group: <select id="input_item_place_on_tags" onblur="submit()">
+                <span>Block:</span>
+                <input type="text" onblur="submit()" size="13" id="input_item_place_on"> &nbsp;
+                <span>Group:</span>
+                <select id="input_item_place_on_tags" onblur="submit()">
                     <option value=" "></option>
                     <option>Acacia Logs</option>
                     <option value="Anvil">Anvils</option>
@@ -358,7 +360,7 @@
 
                 <span id="modifiers">
                     <span class="form-item">Modifiers:</span> &nbsp;
-                    Attribute: 
+                    <span>Attribute:</span> 
                     <select id="input_item_mod" onchange="submit()">
                         <option></option>
                         <option value="armor">Armour Defense</option>
@@ -371,19 +373,19 @@
                         <option value="maxHealth">Max Health</option>
                         <option value="movementSpeed">Movement Speed</option>
                     </select>
-                    Amount:
+                    <span>Amount:</span>
                     <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
                     <a id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a><br/>
                 </span>
 
                 <span id="mods-content" class="hide indent">
-                    Operation: 
+                    <span>Operation:</span> 
                     <select id="input_item_mod_operation" onchange="submit()">
                         <option value="0">Add</option>
                         <option value="1">Add Percent</option>
                         <option value="2">Multiply</option>
                     </select> &nbsp;
-                    Slot:
+                    <span>Slot:</span>
                     <select id="input_item_mod_slot" onchange="submit()">
                         <option value="">Any</option>
                         <option>Main Hand</option>
@@ -393,7 +395,7 @@
                         <option>Legs</option>
                         <option>Feet</option>
                     </select> &nbsp;
-                    Modifier IDs:
+                    <span>Modifier IDs:</span>
                     <input type="number" id="input_item_mod_uuid_least" min="1" onchange="submit()">
                     <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()"><br/>
                 </span>
@@ -410,7 +412,7 @@
             </p>
             <!-- count -->
             <p>
-                Amount: <input type="number" value="1" min="1" id="input_count">
+                <span>Amount:</span> <input type="number" value="1" min="1" id="input_count">
             </p>
         </form>
         
