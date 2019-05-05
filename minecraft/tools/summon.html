@@ -395,7 +395,7 @@
             </span>
 
             <span class="zombies only">
-                <span class="form-item indent">Break doors?</span>
+                <span class="form-item indent">Breaks doors?</span>
                 <button id="input_zombies_canbreak_doors" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             </span>
     
@@ -404,8 +404,8 @@
                 <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
     
                 <span class="baby_living_mobs only"> &ensp;
-                    <span>Time until adulthood:</span>
-                    <input type="number" value="1000" min="0" id="input_baby_time_value"> &nbsp;
+                    <span>Time until adulthood:</span> &nbsp;
+                    <input type="number" value="1000" min="0" id="input_baby_time_value">
                     <select id="input_baby_time" onchange="submit()">
                         <option value="t">Ticks</option>
                         <option value="s">Seconds</option>
@@ -420,27 +420,46 @@
             
             <span class="form-item indent">Head:</span>
             <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_head"> &nbsp;
-            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_head_num"><br/>
+            <span class="form-item indent">Count:</span>
+            <input type="number" value="1" min="1" max="64" id="input_armour_head_num"><br/>
+            <span class="form-item indent">Drop chance:</span>
+            <input type="number" value="1" min="1" max="100" id="input_armour_feet_count"><br/>
     
             <span class="form-item indent">Chest:</span>
             <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_chest"> &nbsp;
-            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_chest_num"><br/>
+            <span class="form-item indent">Count:</span>
+            <input type="number" value="1" min="1" max="64" id="input_armour_chest_num"><br/>
+            <span class="form-item indent">Drop chance:</span>
+            <input type="number" value="1" min="1" max="100" id="input_armour_chest_count"><br/>
     
             <span class="form-item indent">Legs:</span>
             <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_legs"> &nbsp;
-            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_legs_num"><br/>
+            <span class="form-item indent">Count:</span>
+            <input type="number" value="1" min="1" max="64" id="input_armour_legs_num"><br/>
+            <span class="form-item indent">Drop chance:</span>
+            <input type="number" value="1" min="1" max="100" id="input_armour_legs_count"><br/>
     
             <span class="form-item indent">Feet:</span>
             <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_armour_feet"> &nbsp;
-            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_armour_feet_num"><br/>
+            <span class="form-item indent">Count:</span>
+            <input type="number" value="1" min="1" max="64" id="input_armour_feet_num"><br/>
+            <span class="form-item indent">Drop chance:</span>
+            <input type="number" value="1" min="1" max="100" id="input_armour_feet_count"><br/>
             
+
             <span class="form-item indent">Main hand:</span>
             <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_held_item"> &nbsp;
-            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_held_item_num"><br/>
-            <span class="form-item indent">Offhand:</span>
+            <span class="form-item indent">Count:</span>
+            <input type="number" value="1" min="1" max="64" id="input_held_item_num"><br/>
+            <span class="form-item indent">Drop chance:</span>
+            <input type="number" value="1" min="1" max="100" id="input_held_item_count"><br/>
 
+            <span class="form-item indent">Offhand:</span>
             <input type="text" onfocus="this.value=''" onblur="submit()" size="13" id="input_offhand_item"> &nbsp;
-            <input type="number" value="1" onfocus="this.value=''" min="1" max="64" id="input_offhand_item_num">
+            <span class="form-item indent">Count:</span>
+            <input type="number" value="1" min="1" max="64" id="input_offhand_item_num">
+            <span class="form-item indent">Drop chance:</span>
+            <input type="number" value="1" min="1" max="100" id="input_offhand_item_count"><br/>
         </p>
     </form>
     
