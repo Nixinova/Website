@@ -137,10 +137,10 @@
                     &nbsp; Preview: &nbsp;
                     <span id="preview-text" style="padding: 5px 10px; font-family: Minecraft; background-color: #100110e9; border: 3px solid #205e; border-radius: 5px;">
                     </span>
-                </span>
+                </span><br/>
 
-                <span id="cname-content" class="hide indent" style="display: block; margin-top: 0;">
-                    <span class="form-item">Colour:</span>
+                <span id="cname-content" class="hide">
+                    <span class="form-item indent">Colour:</span>
                     <select id="input_item_colour" onchange="submit()">
                         <option value="">White</option>
                         <option>Aqua</option>
@@ -159,13 +159,13 @@
                         <option>Red</option>
                         <option>Yellow</option>
                     </select><br/>
-                    <span class="form-item">Styles:</span>
+                    <span class="form-item indent">Styles:</span>
                     <button id="input_item_b" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Bold</button> &nbsp;
                     <button id="input_item_i" class="on" onclick="$(this).toggleClass('on').toggleClass('off')">Italic</button> &nbsp;
                     <button id="input_item_u" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Underlined</button> &nbsp;
                     <button id="input_item_s" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Strikethrough</button> &nbsp;
                     <button id="input_item_o" class="off" onclick="$(this).toggleClass('on').toggleClass('off')">Obfuscated</button> &nbsp;
-                </span>
+                </span><br/>
 
                 <!-- desc and ench -->
                 <script>
@@ -395,8 +395,8 @@
                     </select> &nbsp;
                     Modifier IDs:
                     <input type="number" id="input_item_mod_uuid_least" min="1" onchange="submit()">
-                    <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()">
-                </span><br/>
+                    <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()"><br/>
+                </span>
 
                 <span>Show attributes:</span>
                 <span id="hideflags" onchange="submit()">
