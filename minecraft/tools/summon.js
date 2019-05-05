@@ -49,7 +49,7 @@ function rvNestedDupes(array) {
 function summon() {
 
     /// VARIABLES ///
-    var baby_mobs = ['drowned', 'zombie', 'zombie_pigman', 'zombie_villager']
+    var zombies = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager']
     var neg_age_mobs = [
         'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot', 'panda',
         'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
@@ -92,6 +92,7 @@ function summon() {
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
+    var zombies_canbreak_doors = $('#input_zombies_canbreak_doors').hasClass('on');
 
     var head = cleanup(value('input_armour_head' ));
     var chest= cleanup(value('input_armour_chest'));
@@ -205,13 +206,19 @@ function summon() {
         if (wolf_collar) {nbt.CollarColor = wolf_collar;}
     }
 
+    // zombies //
+    if (zombies.indexOf(entity) > -1) {
+        $('.zombies').removeClass('hide');
+        if (zombies_canbreak_doors) {nbt.CanBreakDoors = true;}
+    }
+
     // babies //
-    if (baby_mobs.indexOf(entity) > -1) {
-        $('.baby_mobs').removeClass('hide');
+    if (zombies.indexOf(entity) > -1) {
+        $('.zombies').removeClass('hide');
         if (baby) {nbt.IsBaby = true;}
     }
     if (neg_age_mobs.indexOf(entity) > -1) {
-        $('.baby_mobs').removeClass('hide');
+        $('.zombies').removeClass('hide');
         if (baby && baby_time_value) {
             if (baby_time == 't') {nbt.Age = 0-baby_time_value}
             if (baby_time == 's') {nbt.Age = 0-baby_time_value*20}
