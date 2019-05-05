@@ -110,46 +110,46 @@
             <button id="input_despawnable" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
             <span class="cat only">
-                    <span class="form-item indent">Type:</span>
-                    <select id="input_cat_type" onblur="submit()">                     
-                        <option value="0">Tabby</option>
-                        <option value="1">Tuxedo</option>
-                        <option value="2">Red</option>
-                        <option value="3">Siamese</option>
-                        <option value="4">British Shorthair</option>
-                        <option value="5">Calico</option>
-                        <option value="6">Persian</option>
-                        <option value="7">Ragdoll</option>
-                        <option value="8">White</option>
-                        <option value="9">Jellie</option>
-                        <option value="10">Black</option>
-                    </select><br/>
+                 <span class="form-item indent">Type:</span>
+                 <select id="input_cat_type" onchange="submit()">
+                    <option value="0">Tabby</option>
+                    <option value="1">Tuxedo</option>
+                    <option value="2">Red</option>
+                    <option value="3">Siamese</option>
+                    <option value="4">British Shorthair</option>
+                    <option value="5">Calico</option>
+                    <option value="6">Persian</option>
+                    <option value="7">Ragdoll</option>
+                    <option value="8">White</option>
+                    <option value="9">Jellie</option>
+                    <option value="10">Black</option>
+                 </select><br/>
     
-                    <span class="form-item indent">Collar colour:</span>
-                    <select id="input_cat_collar" onblur="submit()">
-                        <option value="">Default</option>
-                        <option value="0">White</option>
-                        <option value="1">Orange</option>
-                        <option value="2">Magenta</option>
-                        <option value="3">Light blue</option>
-                        <option value="4">Yellow</option>
-                        <option value="5">Lime</option>
-                        <option value="6">Pink</option>
-                        <option value="7">Gray</option>
-                        <option value="8">Light gray</option>
-                        <option value="9">Cyan</option>
-                        <option value="10">Purple</option>
-                        <option value="11">Blue</option>
-                        <option value="12">Brown</option>
-                        <option value="13">Green</option>
-                        <option value="14">Red</option>
-                        <option value="15">Black</option>
-                    </select><br/>
+                 <span class="form-item indent">Collar colour:</span>
+                 <select id="input_cat_collar" onchange="submit()">
+                    <option value="">Default</option>
+                    <option value="0">White</option>
+                    <option value="1">Orange</option>
+                    <option value="2">Magenta</option>
+                    <option value="3">Light blue</option>
+                    <option value="4">Yellow</option>
+                    <option value="5">Lime</option>
+                    <option value="6">Pink</option>
+                    <option value="7">Gray</option>
+                    <option value="8">Light gray</option>
+                    <option value="9">Cyan</option>
+                    <option value="10">Purple</option>
+                    <option value="11">Blue</option>
+                    <option value="12">Brown</option>
+                    <option value="13">Green</option>
+                    <option value="14">Red</option>
+                    <option value="15">Black</option>
+                 </select><br/>
             </span>
     
             <span class="creeper only">
-                    <span class="form-item indent">Powered?</span>
-                    <button id="input_creeper_powered" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <span class="form-item indent">Powered?</span>
+                <button id="input_creeper_powered" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             </span>
 
             <span class="endermite only">
@@ -174,13 +174,13 @@
             </span>
 
             <span class="ghast only">
-                    <span class="form-item indent">Fireball power:</span>
-                    <input type="number" min="1" id="input_ghast_explosion_power" onblur="submit()">
+                <span class="form-item indent">Fireball power:</span>
+                <input type="number" min="1" id="input_ghast_explosion_power" onblur="submit()">
             </span>
 
             <span class="llama only">
                     <span class="form-item indent">Type:</span>
-                    <select id="input_llama_type" onblur="submit()">
+                    <select id="input_llama_type" onchange="submit()">
                         <option value=" ">Creamy</option>
                         <option value="1">White</option>
                         <option value="2">Brown</option>
@@ -193,7 +193,7 @@
     
             <span class="mooshroom only">
                     <span class="form-item indent">Type:</span>
-                    <select id="input_mooshroom_type" onblur="submit()">
+                    <select id="input_mooshroom_type" onchange="submit()">
                         <option value="">Red</option>
                         <option>Brown</option>
                     </select><br/>
@@ -201,7 +201,7 @@
     
             <span class="panda only">
                     <span class="form-item indent">Main gene:</span>
-                    <select id="input_panda_gene_1" onblur="submit()">
+                    <select id="input_panda_gene_1" onchange="submit()">
                         <option>Normal</option>
                         <option>Lazy</option>
                         <option>Worried</option>
@@ -212,7 +212,7 @@
                     </select><br/>
                     
                     <span class="form-item indent">Hidden gene:</span>
-                    <select id="input_panda_gene_2" onblur="submit()">
+                    <select id="input_panda_gene_2" onchange="submit()">
                         <option>Normal</option>
                         <option>Lazy</option>
                         <option>Worried</option>
@@ -225,7 +225,7 @@
 
             <span class="rabbit only">
                 <span class="form-item indent">Type:</span>
-                <select id="input_rabbit_type" onblur="submit()">
+                <select id="input_rabbit_type" onchange="submit()">
                     <option value="">Default</option>
                     <option value="0">Brown</option>
                     <option value="1">White</option>
@@ -238,26 +238,26 @@
             </span>
     
             <span class="sheep shulker only">
-                    <span class="form-item indent">Colour:</span>
-                    <select id="input_mob_color" onblur="submit()">
-                        <option value="">Default</option>
-                        <option value="0">White</option>
-                        <option value="1">Orange</option>
-                        <option value="2">Magenta</option>
-                        <option value="3">Light blue</option>
-                        <option value="4">Yellow</option>
-                        <option value="5">Lime</option>
-                        <option value="6">Pink</option>
-                        <option value="7">Gray</option>
-                        <option value="8">Light gray</option>
-                        <option value="9">Cyan</option>
-                        <option value="10">Purple</option>
-                        <option value="11">Blue</option>
-                        <option value="12">Brown</option>
-                        <option value="13">Green</option>
-                        <option value="14">Red</option>
-                        <option value="15">Black</option>
-                    </select><br/>
+                <span class="form-item indent">Colour:</span>
+                <select id="input_mob_color" onblur="onchange()">
+                    <option value="">Default</option>
+                    <option value="0">White</option>
+                    <option value="1">Orange</option>
+                    <option value="2">Magenta</option>
+                    <option value="3">Light blue</option>
+                    <option value="4">Yellow</option>
+                    <option value="5">Lime</option>
+                    <option value="6">Pink</option>
+                    <option value="7">Gray</option>
+                    <option value="8">Light gray</option>
+                    <option value="9">Cyan</option>
+                    <option value="10">Purple</option>
+                    <option value="11">Blue</option>
+                    <option value="12">Brown</option>
+                    <option value="13">Green</option>
+                    <option value="14">Red</option>
+                    <option value="15">Black</option>
+                </select><br/>
             </span>
 
             <span class="slime only">
@@ -266,132 +266,132 @@
             </span>
     
             <span class="tame_mobs only">
-                    <span class="form-item indent">Tame?</span>
-                    <button id="input_horse_tame" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <span class="form-item indent">Tame?</span>
+                <button id="input_horse_tame" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             </span>
     
             <span class="tropical_fish only">
-                    <span class="form-item indent">Size:</span>
-                    <select id="input_tropical_fish_size" onblur="submit()">
-                        <option value="0">Small</option>
-                        <option value="1">Large</option>
-                    </select><br/>
-                    
-                    <span class="form-item indent">Pattern:</span>
-                    <select id="input_tropical_fish_pattern" onblur="submit()">
-                        <option value="0" class="small-fish">Kob</option>
-                        <option value="1" class="small-fish">Sunstreak</option>
-                        <option value="2" class="small-fish">Snooper</option>
-                        <option value="3" class="small-fish">Dasher</option>
-                        <option value="4" class="small-fish">Brinely</option>
-                        <option value="5" class="small-fish">Spotty</option>
+                <span class="form-item indent">Size:</span>
+                <select id="input_tropical_fish_size" onchange="submit()">
+                    <option value="0">Small</option>
+                    <option value="1">Large</option>
+                </select><br/>
+                
+                <span class="form-item indent">Pattern:</span>
+                <select id="input_tropical_fish_pattern" onchange="submit()">
+                    <option value="0" class="small-fish">Kob</option>
+                    <option value="1" class="small-fish">Sunstreak</option>
+                    <option value="2" class="small-fish">Snooper</option>
+                    <option value="3" class="small-fish">Dasher</option>
+                    <option value="4" class="small-fish">Brinely</option>
+                    <option value="5" class="small-fish">Spotty</option>
     
-                        <option value="0" class="large-fish">Flopper</option>
-                        <option value="1" class="large-fish">Stripey</option>
-                        <option value="2" class="large-fish">Glitter</option>
-                        <option value="3" class="large-fish">Blockfish</option>
-                        <option value="4" class="large-fish">Betty</option>
-                        <option value="5" class="large-fish">Clayfish</option>
-                    </select><br/>
+                    <option value="0" class="large-fish">Flopper</option>
+                    <option value="1" class="large-fish">Stripey</option>
+                    <option value="2" class="large-fish">Glitter</option>
+                    <option value="3" class="large-fish">Blockfish</option>
+                    <option value="4" class="large-fish">Betty</option>
+                    <option value="5" class="large-fish">Clayfish</option>
+                </select><br/>
     
-                    <span class="form-item indent">Base colour:</span>
-                    <select id="input_tropical_fish_base_color" onblur="submit()">
-                        <option value="0">White</option>
-                        <option value="1">Orange</option>
-                        <option value="2">Magenta</option>
-                        <option value="3">Sky</option>
-                        <option value="4">Yellow</option>
-                        <option value="5">Lime</option>
-                        <option value="6">Rose</option>
-                        <option value="7">Gray</option>
-                        <option value="8">Silver</option>
-                        <option value="9">Teal</option>
-                        <option value="10">Plum</option>
-                        <option value="11">Blue</option>
-                        <option value="12">Brown</option>
-                        <option value="13">Green</option>
-                        <option value="14">Red</option>
-                    </select><br/>
+                <span class="form-item indent">Base colour:</span>
+                <select id="input_tropical_fish_base_color" onchange="submit()">
+                    <option value="0">White</option>
+                    <option value="1">Orange</option>
+                    <option value="2">Magenta</option>
+                    <option value="3">Sky</option>
+                    <option value="4">Yellow</option>
+                    <option value="5">Lime</option>
+                    <option value="6">Rose</option>
+                    <option value="7">Gray</option>
+                    <option value="8">Silver</option>
+                    <option value="9">Teal</option>
+                    <option value="10">Plum</option>
+                    <option value="11">Blue</option>
+                    <option value="12">Brown</option>
+                    <option value="13">Green</option>
+                    <option value="14">Red</option>
+                </select><br/>
     
-                    <span class="form-item indent">Pattern colour:</span>
-                    <select id="input_tropical_fish_pattern_color" onblur="submit()">
-                        <option value="0">White</option>
-                        <option value="1">Orange</option>
-                        <option value="2">Magenta</option>
-                        <option value="3">Sky</option>
-                        <option value="4">Yellow</option>
-                        <option value="5">Lime</option>
-                        <option value="6">Rose</option>
-                        <option value="7">Gray</option>
-                        <option value="8">Silver</option>
-                        <option value="9">Teal</option>
-                        <option value="10">Plum</option>
-                        <option value="11">Blue</option>
-                        <option value="12">Brown</option>
-                        <option value="13">Green</option>
-                        <option value="14">Red</option>
-                    </select>
-                    <br/>
+                <span class="form-item indent">Pattern colour:</span>
+                <select id="input_tropical_fish_pattern_color" onchange="submit()">
+                    <option value="0">White</option>
+                    <option value="1">Orange</option>
+                    <option value="2">Magenta</option>
+                    <option value="3">Sky</option>
+                    <option value="4">Yellow</option>
+                    <option value="5">Lime</option>
+                    <option value="6">Rose</option>
+                    <option value="7">Gray</option>
+                    <option value="8">Silver</option>
+                    <option value="9">Teal</option>
+                    <option value="10">Plum</option>
+                    <option value="11">Blue</option>
+                    <option value="12">Brown</option>
+                    <option value="13">Green</option>
+                    <option value="14">Red</option>
+                </select>
+                <br/>
             </span>
     
             <span class="villager only">
-                    <span class="form-item indent">Type:</span>
-                    <select id="input_villager_type" onblur="submit()">
-                        <option></option>
-                        <option>Desert</option>
-                        <option>Jungle</option>
-                        <option>Plains</option>
-                        <option>Savanna</option>
-                        <option>Snow</option>
-                        <option>Swamp</option>
-                        <option>Taiga</option>
-                    </select><br/>
+                <span class="form-item indent">Type:</span>
+                <select id="input_villager_type" onchange="submit()">
+                    <option></option>
+                    <option>Desert</option>
+                    <option>Jungle</option>
+                    <option>Plains</option>
+                    <option>Savanna</option>
+                    <option>Snow</option>
+                    <option>Swamp</option>
+                    <option>Taiga</option>
+                </select><br/>
     
-                    <span class="form-item indent">Profession:</span>
-                    <select id="input_villager_profession" onblur="submit()">
-                        <option>None</option>
-                        <option>Armorer</option>
-                        <option>Butcher</option>
-                        <option>Cartographer</option>
-                        <option>Cleric</option>
-                        <option>Farmer</option>
-                        <option>Fisherman</option>
-                        <option>Fletcher</option>
-                        <option>Leatherworker</option>
-                        <option>Librarian</option>
-                        <option>Nitwit</option>
-                        <option>Mason</option>
-                        <option>Shepherd</option>
-                        <option>Toolsmith</option>
-                        <option>Weaponsmith</option>
-                    </select><br/>
+                <span class="form-item indent">Profession:</span>
+                <select id="input_villager_profession" onchange="submit()">
+                    <option>None</option>
+                    <option>Armorer</option>
+                    <option>Butcher</option>
+                    <option>Cartographer</option>
+                    <option>Cleric</option>
+                    <option>Farmer</option>
+                    <option>Fisherman</option>
+                    <option>Fletcher</option>
+                    <option>Leatherworker</option>
+                    <option>Librarian</option>
+                    <option>Nitwit</option>
+                    <option>Mason</option>
+                    <option>Shepherd</option>
+                    <option>Toolsmith</option>
+                    <option>Weaponsmith</option>
+                </select><br/>
     
-                    <span class="form-item indent">Level:</span>
-                    <input type="number" value="1" min="1" max="5" onblur="submit()" id="input_villager_level">
-                    <br/>
+                <span class="form-item indent">Level:</span>
+                <input type="number" value="1" min="1" max="5" onblur="submit()" id="input_villager_level">
+                <br/>
             </span>
     
             <span class="wolf only">
-                    <span class="form-item indent">Collar colour:</span>
-                    <select id="input_wolf_collar" onblur="submit()">
-                        <option value="">Default</option>
-                        <option value="0">White</option>
-                        <option value="1">Orange</option>
-                        <option value="2">Magenta</option>
-                        <option value="3">Light blue</option>
-                        <option value="4">Yellow</option>
-                        <option value="5">Lime</option>
-                        <option value="6">Pink</option>
-                        <option value="7">Gray</option>
-                        <option value="8">Light gray</option>
-                        <option value="9">Cyan</option>
-                        <option value="10">Purple</option>
-                        <option value="11">Blue</option>
-                        <option value="12">Brown</option>
-                        <option value="13">Green</option>
-                        <option value="14">Red</option>
-                        <option value="15">Black</option>
-                    </select><br/>
+                <span class="form-item indent">Collar colour:</span>
+                <select id="input_wolf_collar" onchange="submit()">
+                    <option value="">Default</option>
+                    <option value="0">White</option>
+                    <option value="1">Orange</option>
+                    <option value="2">Magenta</option>
+                    <option value="3">Light blue</option>
+                    <option value="4">Yellow</option>
+                    <option value="5">Lime</option>
+                    <option value="6">Pink</option>
+                    <option value="7">Gray</option>
+                    <option value="8">Light gray</option>
+                    <option value="9">Cyan</option>
+                    <option value="10">Purple</option>
+                    <option value="11">Blue</option>
+                    <option value="12">Brown</option>
+                    <option value="13">Green</option>
+                    <option value="14">Red</option>
+                    <option value="15">Black</option>
+                </select><br/>
             </span>
 
             <span class="zombies only">
@@ -400,19 +400,19 @@
             </span>
     
             <span class="baby_mobs only">
-                    <span class="form-item indent">Baby?</span>
-                    <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
+                <span class="form-item indent">Baby?</span>
+                <button id="input_is_baby" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
     
-                    <span class="baby_living_mobs only"> &ensp;
-                        <span>Time until adulthood:</span>
-                        <input type="number" value="1000" min="0" id="input_baby_time_value"> &nbsp;
-                        <select id="input_baby_time" onblur="submit()">
-                            <option value="t">Ticks</option>
-                            <option value="s">Seconds</option>
-                            <option value="m">Minutes</option>
-                            <option value="h">Hours</option>
-                        </select>
-                    </span><br/>
+                <span class="baby_living_mobs only"> &ensp;
+                    <span>Time until adulthood:</span>
+                    <input type="number" value="1000" min="0" id="input_baby_time_value"> &nbsp;
+                    <select id="input_baby_time" onchange="submit()">
+                        <option value="t">Ticks</option>
+                        <option value="s">Seconds</option>
+                        <option value="m">Minutes</option>
+                        <option value="h">Hours</option>
+                    </select>
+                </span><br/>
             </span>
         </p>
         <p name="Armour">
