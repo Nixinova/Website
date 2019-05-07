@@ -42,27 +42,27 @@
         var mobilenav_visible = false;
 
         function showElements(id1, id2) {
-            $(id1).removeClass('hide').css("opacity", 0.5).animate({"opacity": 0.0}, 500, "swing");
-            if (id2) {$(id2).removeClass('hide').css("opacity", 0.5).animate({"opacity": 0.0}, 500, "swing"); }
+            $(id1).css("opacity", 0.5).animate({"opacity": 1.0}, 500, "swing").addClass('hide');
+            if (id2) {$(id2).css("opacity", 0.5).animate({"opacity": 1.0}, 500, "swing").addClass('hide'); }
         }
         function hideElements(id1, id2) {
-            $(id1).css("opacity", 0.5).animate({"opacity": 1.0}, 250, "swing").addClass('hide');
-            if (id2) {$(id2).css("opacity", 0.5).animate({"opacity": 1.0}, 250, "swing").addClass('hide'); }
+            $(id1).removeClass('hide').css("opacity", 0.5).animate({"opacity": 0.0}, 250, "swing");
+            if (id2) {$(id2).removeClass('hide').css("opacity", 0.5).animate({"opacity": 0.0}, 250, "swing"); }
         }
 
         function toggleMobileNav() {
             if (mobilenav_visible) {
-                showElements('#mobile-nav');
-                hideElements('main','footer')
+                hideElements('#mobile-nav');
+                showElements('main','footer')
                 mobilenav_visible = false;
             }
             else {
-                hideElements('#mobile-nav');
-                showElements('main','footer')
+                showElements('#mobile-nav');
+                hideElements('main','footer')
                 mobilenav_visible = true;
             } 
-            $('main').toggleClass('hide');
-            $('footer').toggleClass('hide');
+            //$('main').toggleClass('hide');
+            //$('footer').toggleClass('hide');
         }
     </script>
 </head>
