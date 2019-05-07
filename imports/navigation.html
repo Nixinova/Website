@@ -42,12 +42,12 @@
         var mobilenav_visible = false;
 
         function showElements(id1, id2) {
-            $(id1).css("opacity", 0.5).animate({"opacity": 0.0}, 500, "swing");
-            if (id2) {$(id2).css("opacity", 0.5).animate({"opacity": 0.0}, 500, "swing"); }
+            $(id1).removeClass('hide').css("opacity", 0.5).animate({"opacity": 0.0}, 500, "swing");
+            if (id2) {$(id2).removeClass('hide').css("opacity", 0.5).animate({"opacity": 0.0}, 500, "swing"); }
         }
         function hideElements(id1, id2) {
-            $(id1).css("opacity", 0.5).animate({"opacity": 1.0}, 250, "swing");
-            if (id2) {$(id2).css("opacity", 0.5).animate({"opacity": 1.0}, 250, "swing"); }
+            $(id1).css("opacity", 0.5).animate({"opacity": 1.0}, 250, "swing").addClass('hide');
+            if (id2) {$(id2).css("opacity", 0.5).animate({"opacity": 1.0}, 250, "swing").addClass('hide'); }
         }
 
         function toggleMobileNav() {
