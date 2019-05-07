@@ -1,8 +1,5 @@
 https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
 
-/images/*           https://i.nixinova.com/:splat
-/imports/*          https://t.nixinova.com/:splat
-
 # Styles
 /style.css          /css/style.css
 /*/style.css        /css/style.css
