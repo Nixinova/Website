@@ -6,11 +6,7 @@ https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
 /fonts/*            /css/fonts/:splat
 
 # Home
-/home               /   200
-
-# Resource packs
-/resourcepacks      /minecraft/resource-packs
-/resource-packs     /minecraft/resource-packs
+/home               /
 
 # Maps
 /maps/*             /minecraft/maps/:splat
@@ -22,7 +18,7 @@ https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
 # Tools
 /tools/*            /minecraft/tools/:splat
 /give               /minecraft/tools/give
-/replaceitem        /minecraft/tools/replaceitem
+/summon             /minecraft/tools/summon
 
 # Info
 /computer           /info/pc-specs
