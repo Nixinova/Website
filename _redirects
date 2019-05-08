@@ -1,6 +1,6 @@
 https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
 
-/images/* https://images.nixinova.com/:splat
+/images/*           https://images.nixinova.com/:splat 301!
 
 # Styles
 /style.css          /css/style.css
