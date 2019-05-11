@@ -2,7 +2,7 @@ textarea {transition: none;}
 form p {text-align: left;}
 h2:not(.upper) {text-transform: lowercase}
 
-.elipsis, .plus, .minus {background: #eee; border-radius: 20px;}
+.elipsis, .plus, .minus {background: #eee; border-radius: 20px; animation: none;}
 .elipsis {padding: 5px 8px;}
 .plus, .minus {padding: 5px 10px;}
 a.elipsis, a.plus, a.minus {color: #222;}
