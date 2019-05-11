@@ -407,10 +407,11 @@ function give() {
 
             // lore //
             if (i_lore) {
-                i_lore = '\\"' + i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace('\n', '\\",\\"') + '\\"';
+                i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"');
                 i_lore = i_lore.split('\n');
                 for (i in i_lore) {
                     i_lore[i] = '\\"' + i_lore[i] + '\\"';
+                    i_lore[i] = i_lore[i].replace(/\\\\/g, '\\');
                 }
                 nbt.display.Lore = i_lore;
             }
