@@ -410,9 +410,7 @@ function give() {
             if (i_lore) {
                 i_lore = i_lore.replace(/\\\\/g, '\\')
                 i_lore = i_lore.replace(/\\\"/g, '\"')
-                lore.push(i_lore)
-                lore = rvDupes(lore)
-                nbt.display.Lore = lore
+                nbt.display.Lore = i_lore.split('\n')
             }
 
             // enchantments //
