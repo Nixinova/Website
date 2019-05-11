@@ -330,11 +330,10 @@ function give() {
             display = {}
 
             if (i_name) {
-                var preview = $('#preview-text')
-                var preview2 = document.getElementById('preview-text')
-                $('#preview').removeClass('hide')
-                preview2.innerHTML = i_name.replace(/\\\\\\\\/g,'\\').replace(/\\\\\\"/g,'"')
-                display.text = i_name
+                var preview = $('#preview-text');
+                $('#preview').removeClass('hide');
+                preview.html(i_name.replace(/\\\\\\\\/g,'\\').replace(/\\\\\\"/g,'"'));
+                display.text = i_name;
 
                 var colour
                 if (!i_colour)                  {colour = '#fff'; shadow = '#000000';}
@@ -394,9 +393,9 @@ function give() {
 
                 if (i_obfus) {
                     display.obfuscated = true
-                    preview2.innerHTML = '*'
+                    preview.html('*')
                     for (i = 0; i < i_name.length-1; i++) {
-                        preview2.innerHTML += '*'
+                        preview.html(preview.html() += '*');
                     }
                 }
 
@@ -408,9 +407,11 @@ function give() {
 
             // lore //
             if (i_lore) {
-                i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\\"/g, '\"')
-                i_lore = '\"' + i_lore + '\"'
-                nbt.display.Lore = i_lore.split('\n')
+                i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\\"/g, '\"');
+                for (i in i_lore) {
+                    i_lore[i] = '\"' + i_lore[i] + '\"';
+                }
+                nbt.display.Lore = i_lore.split('\n');
             }
 
             // enchantments //
