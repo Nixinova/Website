@@ -408,8 +408,8 @@ function give() {
 
             // lore //
             if (i_lore) {
-                i_lore = i_lore.replace(/\\\\/g, '\\')
-                i_lore = i_lore.replace(/\\\"/g, '\"')
+                i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\\"/g, '\"')
+                i_lore = '\"' + i_lore + '\"'
                 nbt.display.Lore = i_lore.split('\n')
             }
 
