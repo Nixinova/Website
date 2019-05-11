@@ -409,7 +409,7 @@ function give() {
             if (i_lore) {
                 i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace(/,/g, '&comma;');
                 i_lore = i_lore.split('\n');  
-                nbt.display.Lore = JSON.stringify(i_lore).replace(/^\[|\]$/g, '').split(',').replace(/&comma;/g, ',');
+                nbt.display.Lore = JSON.stringify(i_lore).replace(/^\[|\]$/g, '').split(',');
             }
 
             // enchantments //
@@ -549,6 +549,7 @@ function give() {
                 .replace(/}"]/g, '}]')
                 .replace(/"{id:\\/g, "{id:")
                 .replace(/}",{id:/g, "},{id:")
+                .replace(/&comma;/g, ',')
             } else {NBT = ''}
         }
 
