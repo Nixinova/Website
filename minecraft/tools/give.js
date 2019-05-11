@@ -407,9 +407,9 @@ function give() {
 
             // lore //
             if (i_lore) {
-                i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace(/,/g, '&com;');
+                i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace(/,/g, '&comma;');
                 i_lore = i_lore.split('\n');  
-                nbt.display.Lore = JSON.stringify(i_lore).replace(/^\[|\]$/g, '').split(',').replace(/&com;/g, ',');
+                nbt.display.Lore = JSON.stringify(i_lore).replace(/^\[|\]$/g, '').split(',').replace(/&comma;/g, ',');
             }
 
             // enchantments //
@@ -565,7 +565,7 @@ function give() {
     $('#output_text').append(
         '<span style="color: lightgray">/give</span> ' +
         '<span style="color: #5ff">' + target_text + selector + '</span> ' +
-        '<span style="color: #ff5">' + item + NBT + '</span> ' +
+        '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
         '<span style="color: lightgreen">' + count + '</span>'
     )
 
