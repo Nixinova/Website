@@ -400,18 +400,18 @@ function give() {
                 }
 
                 nbt.display.Name = JSON.stringify(display)
-                .replace(/\\\\\\\\\\\\\\\\/g, '\\\\').replace(/\\\\\\\\\\\\\\\"/g, '\\"')
+                .replace(/\\\\\\\\\\\\\\\\/g, '\\\\').replace(/\\\\\\\\\\\\\\"/g, '\\"')
             } else {
                 $('#preview').addClass('hide')
             }
 
             // lore //
             if (i_lore) {
-                i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\\"/g, '\"');
-                for (i in i_lore) {
-                    i_lore[i] = '\\"' + i_lore[i] + '\\"';
-                }
+                i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"');
                 nbt.display.Lore = i_lore.split('\n');
+                for (i in i_lore) {
+                    i_lore[i] = '"' + i_lore[i] + '"';
+                }
             }
 
             // enchantments //
