@@ -407,8 +407,10 @@ function give() {
 
             // lore //
             if (i_lore) {
-                i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').split('\n');
-                nbt.display.Lore = '\\"' + i_lore.replace(',', '\\",\\"') + '\\"';
+                //i_lore = i_lore
+                //.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace(',', '\\",\\"')
+                //.split('\n');
+                nbt.display.Lore = i_lore
             }
 
             // enchantments //
