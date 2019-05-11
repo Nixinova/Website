@@ -409,7 +409,7 @@ function give() {
             if (i_lore) {
                 i_lore = i_lore .replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace(',', '\\",\\"') .split('\n');
                 for (i in i_lore) {
-                    i_lore[i] = '$q' + i_lore[i] + '$a'
+                    i_lore[i] = '\\"' + i_lore[i] + '\\"'
                 }
                 nbt.display.Lore = i_lore
             }
