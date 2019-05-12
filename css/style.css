@@ -6,7 +6,8 @@
 * {box-sizing: border-box; transition: 0.5s;}
 body {font: normal 15px 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: linear-gradient(#222, #444);}
 nav {background: #222;}
-main {padding: 0 5vw;}
+main {padding: 0 5vw; min-height: calc(100vh - 70px);}
+footer {height: 50px; width: 100%; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff; text-align: center;}
 p {text-align: center; margin-left: 10px;}
 code {font-size: 1.1em;}
 key {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
@@ -24,10 +25,7 @@ h4 {font-size: 14px; font-weight: bold; text-align: center; margin-top: 1em; mar
     main {padding: 0 10px;}
 }
 
-/* Footer */
-main.sticky-footer {margin-bottom: 70px;}
-footer {text-align: center; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff;}
-footer.bottom, footer.sticky {position: fixed; bottom: 0; width: 100%;}
+/*footer.bottom, footer.sticky {position: fixed; bottom: 0; width: 100%;}
 
 /* Links */
 a {text-decoration: none; cursor: pointer;}
