@@ -1,45 +1,5 @@
 /// FUNCTIONS ///
 
-function value(id, n) {
-    if (n == 'int') {return parseInt(document.getElementById(id).value, 10);}
-    if (n == 'num') {return parseFloat(document.getElementById(id).value, 10);}
-    else {return $.trim(document.getElementById(id).value);}
-}
-
-function checked(id) {
-    return document.getElementById(id).checked;
-}
-
-function isEmpty(object) {
-    for (key in object) {
-        if (object.hasOwnProperty(key)) return false;
-    }
-    return true;
-}
-
-function rvDupes(array) {
-    let newArray = [];
-    for (a = 0; a < array.length; a++) {
-        if (newArray.indexOf(array[a]) == -1) {
-            newArray.push(array[a]);
-        }
-        if (newArray[a] == null) {newArray.splice(a,1);}
-    }
-    return newArray;
-}
-
-function rvNestedDupes(array) {
-    let newArray = [];
-    let itemsFound = {};
-    for (i = 0; i < array.length; i++) {
-        let str = JSON.stringify(array[i]);
-        if (itemsFound[str]) {continue;}
-        newArray.push(array[i]);
-        itemsFound[str] = true;
-    }
-    return newArray;
-}
-
 /// SUBMIT ///
 
 function give() {
@@ -83,14 +43,10 @@ function give() {
     ];
 
     /// VARIABLES ///
+    // call from query string //
+    var item = getQueryString('item');
     
     // call from input form //
-    var main = $('#input_firework_type','int');
-    var query = main.prevObject.prevObject[0].location.search.split('&');
-    for (i in query) {
-        if (query[i].match(/(\?|)item=.+/)) {var $item = query[i].replace(/(\?|)item=/, '');}
-    }
-    
     var target = value('input_selector_target');
     var player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
     var target_x = value('input_selector_x','num');
@@ -119,7 +75,7 @@ function give() {
     var score_min = value('input_selector_score_min','int');
     var score_max = value('input_selector_score_max','int');
 
-    var item = ($item? $item: value('input_item')).toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
+    var item = value('input_item').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
     var i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_");
     var i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
     var i_firework_flicker = $('#input_item_firework_flicker').hasClass('on');

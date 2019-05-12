@@ -1,47 +1,7 @@
 /// FUNCTIONS ///
 
-function value(id, n) {
-    if (n === 'int') {return parseInt(document.getElementById(id).value, 10);}
-    if (n === 'num') {return parseFloat(document.getElementById(id).value, 10);}
-    else {return $.trim(document.getElementById(id).value);}
-}
-
 function cleanup(id) {
     return id.toLowerCase().replace(/[ -]/g, '_').replace(/[^a-z_:]/g,'').replace(/_+/g, '_').replace(/:+/g, ':').replace(/:_/g, ':');
-}
-
-function checked(id) {
-    return document.getElementById(id).checked;
-}
-
-function isEmpty(object) {
-    for (key in object) {
-        if (object.hasOwnProperty(key)) return false;
-    }
-    return true;
-}
-
-function rvDupes(array) {
-    let newArray = [];
-    for (a = 0; a < array.length; a++) {
-        if (newArray.indexOf(array[a]) == -1) {
-            newArray.push(array[a]);
-        }
-        if (newArray[a] == null) {newArray.splice(a,1);}
-    }
-    return newArray;
-}
-
-function rvNestedDupes(array) {
-    let newArray = [];
-    let itemsFound = {};
-    for (i = 0; i < array.length; i++) {
-        let str = JSON.stringify(array[i]);
-        if (itemsFound[str]) {continue};
-        newArray.push(array[i]);
-        itemsFound[str] = true;
-    }
-    return newArray;
 }
 
 /// SUBMIT ///
