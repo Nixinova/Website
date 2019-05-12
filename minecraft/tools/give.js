@@ -549,6 +549,7 @@ function give() {
                 .replace(/}"]/g, '}]')
                 .replace(/"{id:\\/g, "{id:")
                 .replace(/}",{id:/g, "},{id:")
+                .replace(/&comma;/g, ',')
             } else {NBT = ''}
         }
 
@@ -557,7 +558,7 @@ function give() {
     }
 
     /// OUTPUT ///
-    var output = '/give ' + target_text + selector + ' ' + item + NBT.replace(/&comma;/g, ',') + ' ' + count
+    var output = '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count
     if (output.length > 256) {
         $('#cmd_note').removeClass('hide')
         if (target == '@s') {target = '@p'}
