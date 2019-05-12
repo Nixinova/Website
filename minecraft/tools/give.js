@@ -91,7 +91,7 @@ function give() {
             var query = main.prevObject.prevObject[0].location.search.split('&');
             alert(JSON.stringify(query));
             for (i in query) {
-                if (query[i].match(/(?|)item=.+/)) {var $item = query[i].replace(/(?|)item=/, '');}
+                if (query[i].match(/(\?|)item=.+/)) {var $item = query[i].replace(/(\?|)item=/, '');}
             }
             if ($item) {alert($item);}
             var target = value('input_selector_target');
