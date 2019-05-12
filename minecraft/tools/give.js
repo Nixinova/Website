@@ -116,7 +116,7 @@ function give() {
 
             var item = value('input_item').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
             var i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_");
-            var i_skull = value('input_item_skull').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
+            var i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
             var i_name = value('input_item_name').replace(/\\/g, "\\\\\\\\").replace(/\"/g, '\\\\\\"');
             var i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
             var i_bold = $('#input_item_b').hasClass('on');
@@ -302,21 +302,20 @@ function give() {
             // potion //
             if (item2 == 'potion' || item2 == 'splash_potion' || item2 == 'lingering_potion') {
                 $('#potion').removeClass('hide');
-                $('#potion-color-picker').farbtastic('#potion-color');
             } else {
                 $('#potion').addClass('hide');
                 document.getElementById('input_item_potion').value = '';
             }
             if (i_potion) {nbt.Potion = i_potion;}
 
-            // skull //
+            // head //
             if (item2 == 'player_head' || item2 == 'player_wall_head') {
-                $('#skull').removeClass('hide');
+                $('#head').removeClass('hide');
             } else {
-                $('#skull').addClass('hide');
-                document.getElementById('input_item_skull').value = '';
+                $('#head').addClass('hide');
+                document.getElementById('input_item_head').value = '';
             }
-            if (i_skull) {nbt.SkullOwner = i_skull;}
+            if (i_head) {nbt.SkullOwner = i_head;}
 
             // display //
             if (i_name || i_lore) {nbt.display = {};}
