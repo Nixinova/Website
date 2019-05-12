@@ -88,8 +88,12 @@ function give() {
         {
             // JSON.stringify($('#input_firework_type','int'));
             var main = $('#input_firework_type','int');
-            var query = main.prevObject.prevObject[0].location.search;
+            var query = main.prevObject.prevObject[0].location.search.split('=');
             alert(JSON.stringify(query));
+            for (i in query) {
+                if (query[i] === '?item') {var $item = query[i+1];}
+            }
+            if ($item) {alert($item);}
             var target = value('input_selector_target');
             var player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
             var target_x = value('input_selector_x','num');
