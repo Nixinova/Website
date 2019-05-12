@@ -118,9 +118,9 @@ function give() {
             var i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_");
             var i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
             var i_firework_flicker = $('#input_firework_flicker').hasClass('on');
-            var i_firework_flight = value('#input_firework_flight','int');
-            var i_firework_type = value('#input_firework_type','int');
-            alert($('main',int));
+            var i_firework_flight = value('input_firework_flight','int');
+            var i_firework_type = value('input_firework_type','int');
+            alert($('#input_firework_type'));
             var i_firework_trail = $('#input_firework_trail').hasClass('on');
             var i_name = value('input_item_name').replace(/\\/g, "\\\\\\\\").replace(/\"/g, '\\\\\\"');
             var i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
