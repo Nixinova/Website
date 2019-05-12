@@ -83,9 +83,9 @@ function give() {
     ];
 
     /// VARIABLES ///
-    if (true) {
+    {
         // call from input form //
-        if (true) {
+        {
             var target = value('input_selector_target');
             var player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
             var target_x = value('input_selector_x','num');
@@ -117,6 +117,10 @@ function give() {
             var item = value('input_item').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
             var i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_");
             var i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
+            var i_firework_type = $('#input_firework_type','int');
+            var i_firework_twinkle = $('#input_firework_twinkle').hasClass('on');
+            var i_firework_trail = $('#input_firework_trail').hasClass('on');
+            var i_firework_flight = $('#input_firework_flight','int');
             var i_name = value('input_item_name').replace(/\\/g, "\\\\\\\\").replace(/\"/g, '\\\\\\"');
             var i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
             var i_bold = $('#input_item_b').hasClass('on');
@@ -171,9 +175,9 @@ function give() {
     $('#output_text').empty();
     $('#cmd_note').addClass('hide');
 
-    if (true) {
+    {
         // select player //
-        if (true) {
+        {
             if (target == '--') {
                 $('#select-username').removeClass('hide');
                 $('#expand-target').addClass('hide');
@@ -290,17 +294,17 @@ function give() {
 
         // select item //
         var colpos = item.search(':');
-        var item2 = item.replace('minecraft:','');
+        var item_id = item.replace('minecraft:','');
         if (!item || item === 'minecraft:' || item === ':') {item = 'stone';}
         if (colpos === item.length-1) {item = 'minecraft:' + item.slice(0,-1);}
         if (colpos === -1) {item = 'minecraft:' + item;} else
         if (colpos === 0) {item = 'minecraft' + item;}
         // NBT //
-        if (true) {
+        {
             nbt = {};
 
             // potion //
-            if (item2 == 'potion' || item2 == 'splash_potion' || item2 == 'lingering_potion') {
+            if (item_id === 'potion' || item_id === 'splash_potion' || item_id === 'lingering_potion') {
                 $('#potion').removeClass('hide');
             } else {
                 $('#potion').addClass('hide');
@@ -309,13 +313,28 @@ function give() {
             if (i_potion) {nbt.Potion = i_potion;}
 
             // head //
-            if (item2 == 'player_head' || item2 == 'player_wall_head') {
+            if (item_id === 'player_head' || item_id === 'player_wall_head') {
                 $('#head').removeClass('hide');
             } else {
                 $('#head').addClass('hide');
                 document.getElementById('input_item_head').value = '';
             }
             if (i_head) {nbt.SkullOwner = i_head;}
+
+            // fireworks //
+            if (item_id === 'firework_rocket') {
+                $('firework').removeClass('hide');
+            } else {
+                $('#firework').addClass('hide');
+            }
+            if (i_firework_type || i_firework_trail || i_firework_twinkle|| i_firework_flight) {
+                let explosions = []
+                if (i_firework_type) {explosions.push({Type: i_firework_type});}
+                if (i_firework_flicker) {explosions.push({Flicker: i_firework_flicker});}
+                if (i_firework_trail) {explosions.push({Trail: i_firework_trail});}
+                nbt.Fireworks.Explosions = explosions;
+                if (i_firework_flight) {nbt.Fireworks.Flight = i_firework_flight;}
+            }
 
             // display //
             if (i_name || i_lore) {nbt.display = {};}
@@ -424,13 +443,13 @@ function give() {
                 nbt.Enchantments = []
                 for (i = 0; i < e.length; i++) {
                     if (e[i]) {
-                        nbt.Enchantments.push('{id:"minecraft:' + e[i] + '",lvl:' + elvl[i] + '}');
+                        nbt.Enchantments.push({id: "minecraft:' + e[i] + '", lvl:' + elvl[i] + '});
                     }
                 }
             }
 
             // tools & weapons items //
-            if (durable_items.indexOf(item2) > -1) {
+            if (durable_items.indexOf(item_id) > -1) {
                 $('.tool').removeClass('hide');
             } else {
                 $('.tool').addClass('hide');
@@ -439,7 +458,7 @@ function give() {
             }
 
             // damage //
-            var damage = durabilities[item2] - i_durability;
+            var damage = durabilities[item_id] - i_durability;
             if (i_durability && !i_unbreakable) {nbt.Damage = damage;}
 
             // unbreakable //
