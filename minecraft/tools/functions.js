@@ -23,14 +23,14 @@ function getQueryString(val) {
     if (times === 0) {return '';}
 }
 
-function value(id, type, query) {
+function value(id, type) {
     if (type == 'int') return parseInt($(id).val(), 10);
     else if (type == 'num') return parseFloat($(id).val(), 10);
-    else if (type === 'query') {
-        let queryVar = getQueryString(query);
+    else {
+        let queryVar = getQueryString(id.replace('input_',''));
         if (queryVar) return $.trim(queryVar);
+        else return $.trim($(id).val());
     }
-    else return $.trim($(id).val());
 }
 
 function checked(id) {
