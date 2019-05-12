@@ -86,6 +86,10 @@ function give() {
     {
         // call from input form //
         {
+            // JSON.stringify($('#input_firework_type','int'));
+            var main = $('#input_firework_type','int');
+            var query = main.prevObject.prevObject[0].location.search;
+            alert(query);
             var target = value('input_selector_target');
             var player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
             var target_x = value('input_selector_x','num');
