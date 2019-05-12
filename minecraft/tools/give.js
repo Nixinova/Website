@@ -535,7 +535,7 @@ function give() {
 
             // nbt //
             if (!isEmpty(nbt)) {
-                NBT = JSON.stringify(nbt);
+                NBT = JSON.stringify(nbt)
                 .replace(/"([^(")\\]+)":/g,'$1:')
                 .replace(/\\",lvl:/g,'",lvl:')
                 .replace(/}"]/g, '}]')
