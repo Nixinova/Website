@@ -328,10 +328,11 @@ function give() {
                 $('#firework').addClass('hide');
             }
             if (i_firework_type || i_firework_trail || i_firework_twinkle|| i_firework_flight) {
-                let explosions = []
+                let explosions = [];
                 if (i_firework_type) {explosions.push({Type: i_firework_type});}
                 if (i_firework_flicker) {explosions.push({Flicker: i_firework_flicker});}
                 if (i_firework_trail) {explosions.push({Trail: i_firework_trail});}
+                nbt.Fireworks = {};
                 nbt.Fireworks.Explosions = explosions;
                 if (i_firework_flight) {nbt.Fireworks.Flight = i_firework_flight;}
             }
