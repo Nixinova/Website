@@ -1,12 +1,5 @@
 https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
 
-/images/*           https://images.nixinova.com/:splat
-
-# Styles
-/style.css          /css/style.css
-/*/style.css        /css/style.css
-/fonts/*            /css/fonts/:splat
-
 # Home
 /home               /
 
@@ -21,10 +14,6 @@ https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
 /tools/*            /minecraft/tools/:splat
 /give               /minecraft/tools/give
 /summon             /minecraft/tools/summon
-
-# Info
-/computer           /info/pc-specs
-/minecraft          /info/minecraft
 
 # Search
 /search q=*         /search#gsc.q=:splat&gsc.tab=0
