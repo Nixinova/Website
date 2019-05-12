@@ -536,19 +536,20 @@ function give() {
         $('#cmd_note').removeClass('hide');
         if (target == '@s') {target = '@p';}
     }
-    $('#output_text').append(
-        '<span style="color: lightgray">/give</span> ' +
-        '<span style="color: #5ff">' + target_text + selector + '</span> ' +
-        '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
-        '<span style="color: lightgreen">' + count + '</span>'
-    );
+    if (!outputQuery) {
+        $('#output_text').html(
+            '<span style="color: lightgray">/give</span> ' +
+            '<span style="color: #5ff">' + target_text + selector + '</span> ' +
+            '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
+            '<span style="color: lightgreen">' + count + '</span>'
+        );
+    } else {
+        $('#output_text').html(outputQuery);
+    }
 
     // copy text
-    const _ = ' ';
-    var copyText = '/give ' + target_text + selector +_+ item + NBT +_+ count;
-
     let box = document.createElement('textarea');
-    box.value = copyText;
+    box.value = output;
     document.body.appendChild(box);
     box.select();
     document.execCommand('copy');
