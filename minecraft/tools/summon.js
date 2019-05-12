@@ -65,8 +65,7 @@ function summon() {
     for (i in query) {
         if (query[i].match(/(\?|)entity=.+/)) {var $entity = query[i].replace(/(\?|)entity=/, '');}
     }
-
-    var entity = (value('input_entity')? value('input_entity'): $entity).toLowerCase().replace(/ /g, '_');
+    var entity = ($entity? $entity: value('input_entity')).toLowerCase().replace(/ /g, '_');
     var X = value('input_x').replace(/[^0-9-~^]/g, '');
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
