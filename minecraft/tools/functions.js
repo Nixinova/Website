@@ -29,7 +29,7 @@ function value(id, type) {
     else if (type === 'none') return $.trim($(id).val());
     else {
         let queryVar = getQueryString(id.replace('input_',''));
-        if (queryVar) return $.trim(queryVar);
+        if (queryVar) {$(id).val(queryVar); return $.trim(queryVar);}
         else return $.trim($(id).val());
     }
 }
