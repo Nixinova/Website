@@ -48,8 +48,14 @@
                         .radius::after {content: 'Radius';}
                         .volume::after {content: 'Volume';}
                     </style>
-                    <button class="radius" id="input_selection_area" onchange="submit()"
-                    onclick="$(this).toggleClass('radius').toggleClass('volume');"></button> &nbsp;
+                    <script>
+                        function toggleVolumeRadius(id) {
+                            $(id).toggleClass('radius').toggleClass('volume');
+                            $('#radius').toggleClass('hide')
+                            $('#volume').toggleClass('hide')
+                        }
+                    </script>
+                    <button class="radius" id="input_selection_area" onchange="submit()" onclick="toggleVolumeRadius(this);"></button> &nbsp;
 
                     <span id="radius" onblur="submit()">
                         <span>Distance:</span> &nbsp;
@@ -57,7 +63,7 @@
                         <input type="number" step="any" placeholder="max" size="3" id="input_selector_dist_max"><br/>
                     </span>
 
-                    <span id="volume" onblur="submit()">
+                    <span id="volume" class="hide" onblur="submit()">
                         <span>Size:</span> &nbsp;
                         <input type="number" step="any" placeholder="x" size="3" id="input_selector_vol_x"> &nbsp;
                         <input type="number" step="any" placeholder="y" size="3" id="input_selector_vol_y"> &nbsp;
