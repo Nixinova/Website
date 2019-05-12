@@ -93,7 +93,7 @@ function give() {
             var target_z = value('input_selector_z','num');
             var dist_min = value('input_selector_dist_min','num');
             var dist_max = value('input_selector_dist_max','num');
-            var selection_area = $('input_selection_area');
+            var selection_area = $('#input_selection_area');
             var vol_x = value('input_selector_vol_x','num');
             var vol_y = value('input_selector_vol_y','num');
             var vol_z = value('input_selector_vol_z','num');
