@@ -537,8 +537,9 @@ function give() {
         if (target == '@s') {target = '@p';}
     }
     if (outputQuery) {
+        outputQuery = decodeURIComponent(outputQuery)//.replace(/%20/g,' ').replace(/%22/g, '"').replace(/%27/g, "'");
         $('#output_text').html(
-            '<span style="color: lightgray">' + outputQuery.replace('%20',' ') + '</span>'
+            '<span style="color: lightgray">' + outputQuery + '</span>'
         );
     } else {
         $('#output_text').html(
