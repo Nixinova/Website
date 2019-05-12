@@ -120,7 +120,6 @@ function give() {
             var i_firework_flicker = $('#input_item_firework_flicker').hasClass('on');
             var i_firework_flight = value('input_item_firework_flight','int');
             var i_firework_type = value('input_item_firework_type','int');
-            $('body').append(JSON.stringify($('#input_firework_type','int')) +'<br>' );
             var i_firework_trail = $('#input_item_firework_trail').hasClass('on');
             var i_name = value('input_item_name').replace(/\\/g, "\\\\\\\\").replace(/\"/g, '\\\\\\"');
             var i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
