@@ -538,7 +538,7 @@ function give() {
     }
     if (outputQuery) {
         $('#output_text').html(
-            outputQuery.replace('%20','')
+            '<span style="color: lightgray">' + outputQuery.replace('%20',' ') + '</span>'
         );
     } else {
         $('#output_text').html(
