@@ -60,7 +60,13 @@ function summon() {
     ]
 
     // call from input form //
-    var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
+    var main = $('#input_firework_type','int');
+    var query = main.prevObject.prevObject[0].location.search.split('&');
+    for (i in query) {
+        if (query[i].match(/(\?|)entity=.+/)) {var $entity = query[i].replace(/(\?|)entity=/, '');}
+    }
+
+    var entity = (value('input_entity')? value('input_entity'): $entity).toLowerCase().replace(/ /g, '_');
     var X = value('input_x').replace(/[^0-9-~^]/g, '');
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
