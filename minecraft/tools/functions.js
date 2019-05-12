@@ -13,7 +13,7 @@ function getQueryString(val) {
     let main = $('#input_firework_type','int');
     let query = main.prevObject.prevObject[0].location.search.split('&');
     let regexMatch = new RegExp('(\\?|)' + val + '=.+');
-    let regexReplace = new RegExp('(\\?|)' + val);
+    let regexReplace = new RegExp('(\\?|)' + val + '=');
     let times = 0;
     for (var i in query) {
         if (query[i].match(regexMatch)) {
@@ -24,8 +24,9 @@ function getQueryString(val) {
 }
 
 function value(id, type) {
-    if (type == 'int') return parseInt($(id).val(), 10);
-    else if (type == 'num') return parseFloat($(id).val(), 10);
+    if (type === 'int') return parseInt($(id).val(), 10);
+    else if (type === 'num') return parseFloat($(id).val(), 10);
+    else if (type === 'none') return $.trim($(id).val());
     else {
         let queryVar = getQueryString(id.replace('input_',''));
         if (queryVar) return $.trim(queryVar);
