@@ -121,8 +121,8 @@ function give() {
             var score_min = value('input_selector_score_min','int');
             var score_max = value('input_selector_score_max','int');
 
-            var item = value('input_item').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
-            if (!item) {item = $item;}
+            var item = value('input_item') ? value('input_item') : $item;
+            item = item.toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
             var i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g,"").replace(/_+/g, "_");
             var i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
             var i_firework_flicker = $('#input_item_firework_flicker').hasClass('on');
