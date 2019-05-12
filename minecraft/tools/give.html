@@ -43,10 +43,13 @@
                     <input type="number" step="any" placeholder="z" size="3" id="input_selector_z"><br/>
 
                     <span class="form-item">Selection Area:</span>
-                    <select id="input_selection_area" onchange="submit()">
-                        <option>Radius</option>
-                        <option>Volume</option>
-                    </select> &nbsp;
+
+                    <style>
+                        .radius::after {content: 'Radius';}
+                        .volume::after {content: 'Volume';}
+                    </style>
+                    <button class="radius" id="input_selection_area" onchange="submit()"
+                    onclick="$(this).toggleClass('radius').toggleClass('volume');"></button> &nbsp;
 
                     <span id="radius" onblur="submit()">
                         <span>Distance:</span> &nbsp;
