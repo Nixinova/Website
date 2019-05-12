@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="show_more.js"></script>
     <script src="give.js"></script>
+    <link rel="stylesheet" href="/plugins/farbtastic/farbtastic.css" type="text/css">
+    <script type="text/javascript" src="/plugins/farbtastic/farbtastic.js"></script>
 </head>
 <body>
     <header>
@@ -131,7 +133,9 @@
                 <input type="text" value="stone" onclick="$(this).value=''" onblur="submit()" size="13" id="input_item"><br/>
                 
                 <span class="hide" id="potion">
-                    <span class="form-item">Potion:</span> <input type="text" size="13" id="input_item_potion"><br/>
+                    <span class="form-item indent">Potion:</span> <input type="text" size="13" id="input_item_potion"><br/>
+                    <span class="form-item indent">Colour:</span> <input type="text" id="potion-color" value="#123456">
+                    <div id="potion-color-picker"></div>
                 </span>
 
                 <span class="hide" id="skull">

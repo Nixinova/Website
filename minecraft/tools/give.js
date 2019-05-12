@@ -302,6 +302,7 @@ function give() {
             // potion //
             if (item2 == 'potion' || item2 == 'splash_potion' || item2 == 'lingering_potion') {
                 $('#potion').removeClass('hide');
+                $('#potion-color-picker').farbtastic('#potion-color');
             } else {
                 $('#potion').addClass('hide');
                 document.getElementById('input_item_potion').value = '';
