@@ -47,7 +47,7 @@ function give() {
     var item = getQueryString('item');
     
     // call from input form //
-    var target = value('input_selector_target','none');
+    var target = value('input_selector_target');
     var player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
     var target_x = value('input_selector_x','num');
     var target_y = value('input_selector_y','num');
@@ -537,7 +537,7 @@ function give() {
         if (target == '@s') {target = '@p';}
     }
     if (outputQuery) {
-        outputQuery = decodeURIComponent(outputQuery)//.replace(/%20/g,' ').replace(/%22/g, '"').replace(/%27/g, "'");
+        outputQuery = decodeURIComponent(outputQuery);
         $('#output_text').html(
             '<span style="color: lightgray">' + outputQuery + '</span>'
         );
