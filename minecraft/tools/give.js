@@ -522,7 +522,7 @@ function give() {
             .replace(/"{id:\\/g, "{id:")
             .replace(/}",{id:/g, "},{id:")
             .replace(/&comma;/g, ',');
-        } else {NBT = '';}
+        } else {NBT = getQueryString('nbt')? getQueryString('nbt') : '';}
       }
 
     // count //
@@ -536,15 +536,17 @@ function give() {
         $('#cmd_note').removeClass('hide');
         if (target == '@s') {target = '@p';}
     }
-    if (!outputQuery) {
+    if (outputQuery) {
+        $('#output_text').html(
+            outputQuery.replace('%20','')
+        );
+    } else {
         $('#output_text').html(
             '<span style="color: lightgray">/give</span> ' +
             '<span style="color: #5ff">' + target_text + selector + '</span> ' +
             '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
             '<span style="color: lightgreen">' + count + '</span>'
         );
-    } else {
-        $('#output_text').html(outputQuery);
     }
 
     // copy text
