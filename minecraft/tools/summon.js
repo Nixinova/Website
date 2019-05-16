@@ -25,7 +25,7 @@ function summon() {
     for (i in query) {
         if (query[i].match(/(\?|)entity=.+/)) {var $entity = query[i].replace(/(\?|)entity=/, '');}
     }
-    var entity = ($entity? $entity: value('input_entity')).toLowerCase().replace(/ /g, '_');
+    var entity = ($entity? $entity: (value('input_entity')? value('input_entity'): 'bat')).toLowerCase().replace(/ /g, '_');
     var X = value('input_x').replace(/[^0-9-~^]/g, '');
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
@@ -279,7 +279,7 @@ function submit() {
         summon();
     }
     catch (error) {
-        alert('Error on submit (line ' + error.stack + '):' + error.message);
+        alert('Error on submit (line ' + error.stack + ').' + error.name + ': ' + error.message);
     }
     finally {
         summon();
