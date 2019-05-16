@@ -149,10 +149,7 @@ function give() {
     }
 
     var selector = []
-
-    if (target) {
-        if (target == '--') {target_text = player} else {target_text = target;}
-    } else {target_text = '@s';}
+    if (target == '--') {target_text = player? player: '@s'} else {target_text = target;}
 
     if (target_x) {selector.push('x=' + target_x);}
     if (target_y) {selector.push('y=' + target_y);}

@@ -8,5 +8,5 @@
 /* Minecraft */
 @font-face {
 	font-family: 'Minecraft';
-	src: local('Minecraft'), url('minecraft.ttf') format('truetype');
+	src: local('Minecraft'), url('fonts/minecraft.ttf') format('truetype');
 }
