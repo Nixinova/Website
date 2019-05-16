@@ -169,17 +169,17 @@ function give() {
     }
 
     if (!isNaN(xrot_min) || !isNaN(xrot_max)) {
-        if (!isNaN(xrot_min) && isNaN(xrot_max)) {selector.push('x_rotation=' + !isNaN(xrot_min) + '..');}
-        if (isNaN(xrot_min) && !isNaN(xrot_max)) {selector.push('x_rotation=' + '..' + !isNaN(xrot_max));}
-        if (!isNaN(xrot_min) && !isNaN(xrot_max) && !isNaN(xrot_min) != !isNaN(xrot_max)) {selector.push('x_rotation=' + !isNaN(xrot_min) + '..' + !isNaN(xrot_max));}
-        if (!isNaN(xrot_min) && !isNaN(xrot_max) && !isNaN(xrot_min) == !isNaN(xrot_max)) {selector.push('x_rotation=' + !isNaN(xrot_min));}
+        if (!isNaN(xrot_min) && isNaN(xrot_max)) {selector.push('x_rotation=' + xrot_min + '..');}
+        if (isNaN(xrot_min) && !isNaN(xrot_max)) {selector.push('x_rotation=' + '..' + xrot_max);}
+        if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) {selector.push('x_rotation=' + xrot_min + '..' + xrot_max);}
+        if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) {selector.push('x_rotation=' + xrot_min);}
     }
 
     if (!isNaN(yrot_min) || !isNaN(yrot_max)) {
-        if (!isNaN(yrot_min) && isNaN(yrot_max)) {selector.push('y_rotation=' + !isNaN(yrot_min) + '..');}
-        if (isNaN(yrot_min) && !isNaN(yrot_max)) {selector.push('y_rotation=' + '..' + !isNaN(yrot_max));}
-        if (!isNaN(yrot_min) && !isNaN(yrot_max) && !isNaN(yrot_min) != !isNaN(yrot_max)) {selector.push('y_rotation=' + !isNaN(yrot_min) + '..' + !isNaN(yrot_max));}
-        if (!isNaN(yrot_min) && !isNaN(yrot_max) && !isNaN(yrot_min) == !isNaN(yrot_max)) {selector.push('y_rotation=' + !isNaN(yrot_min));}
+        if (!isNaN(yrot_min) && isNaN(yrot_max)) {selector.push('y_rotation=' + yrot_min + '..');}
+        if (isNaN(yrot_min) && !isNaN(yrot_max)) {selector.push('y_rotation=' + '..' + yrot_max);}
+        if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) {selector.push('y_rotation=' + yrot_min + '..' + yrot_max);}
+        if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) {selector.push('y_rotation=' + yrot_min);}
     }
 
     if (limit) {selector.push('limit=' + limit);}
