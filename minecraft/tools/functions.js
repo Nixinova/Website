@@ -10,7 +10,7 @@ function show_more(sourceId, targetId, rvcols) {
 }
 
 function getQueryString(val) {
-    let href = window.location.href.split('?')
+    let href = window.location.href.split('#')
     let query = href[1]? href[1].split('&') : '';
     if (query) {
         let regexMatch = new RegExp('(\\?|)' + val + '=.+');
