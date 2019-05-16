@@ -23,7 +23,7 @@ function summon() {
 
     // call from input form //
     var query = '';
-    if (window.location.href.search('?')) {
+    if (window.location.href.search(/\?/)) {
         query = window.location.href.split('?')[1].split('&');
     }
     for (i in query) {
@@ -283,7 +283,7 @@ function submit() {
         summon();
     }
     catch (error) {
-        alert(error + error.stack);
+        alert(error + '\n' + error.stack);
     }
     finally {
         summon();
