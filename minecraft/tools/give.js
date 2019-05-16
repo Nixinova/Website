@@ -43,8 +43,6 @@ function give() {
     ];
 
     /// VARIABLES ///
-    // call from query string //
-    var item = getQueryString('item');
     
     // call from input form //
     var target = value('input_selector_target');
