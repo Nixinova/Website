@@ -10,19 +10,19 @@ function show_more(sourceId, targetId, rvcols) {
 }
 
 function getQueryString(val) {
-    let query;
-    if (window.location.href.search(/\?/)) {
-        query = window.location.href.split('?')[1].split('&');
+    let href = window.location.href.split('?')
+    let query = href[1]? href[1].split('&') : '';
+    if (query) {
+        let regexMatch = new RegExp('(\\?|)' + val + '=.+');
+        let regexReplace = new RegExp('(\\?|)' + val + '=');
+        let times = 0;
+        for (var i in query) {
+            if (query[i].match(regexMatch)) {
+                return query[i].replace(regexReplace, '');
+            } else {times++;}
+        }
+        if (times === 0) {return '';}
     }
-    let regexMatch = new RegExp('(\\?|)' + val + '=.+');
-    let regexReplace = new RegExp('(\\?|)' + val + '=');
-    let times = 0;
-    for (var i in query) {
-        if (query[i].match(regexMatch)) {
-            return query[i].replace(regexReplace, '');
-        } else {times++;}
-    }
-    if (times === 0) {return '';}
 }
 
 function value(id, type) {
