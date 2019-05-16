@@ -279,7 +279,7 @@ function submit() {
         summon();
     }
     catch (error) {
-        alert('Error on submit: ' + error.message);
+        alert('Error on submit (line ' + error.stack + '):' + error.message);
     }
     finally {
         summon();
