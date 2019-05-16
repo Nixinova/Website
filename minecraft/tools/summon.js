@@ -7,6 +7,9 @@ function cleanup(id) {
 /// SUBMIT ///
 
 function summon() {
+    //debug
+    alert(main.prevObject.prevObject[0].location.search.split('&'));
+    alert(window.location.href);
 
     /// VARIABLES ///
     var zombies = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager']
@@ -279,7 +282,7 @@ function submit() {
         summon();
     }
     catch (error) {
-        alert('Error on submit (line ' + error.stack + ').' + error.name + ': ' + error.message);
+        alert(error + error.stack);
     }
     finally {
         summon();
