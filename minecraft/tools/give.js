@@ -564,7 +564,7 @@ function submit() {
         give();
     }
     catch (error) {
-        alert(error + '\n' + error.stack);
+        alert(error.stack);
     }
     finally {
         give();

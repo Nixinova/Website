@@ -10,8 +10,10 @@ function show_more(sourceId, targetId, rvcols) {
 }
 
 function getQueryString(val) {
-    let main = $('#input_firework_type','int');
-    let query = main.prevObject.prevObject[0].location.search.split('&');
+    let query;
+    if (window.location.href.search(/\?/)) {
+        query = window.location.href.split('?')[1].split('&');
+    }
     let regexMatch = new RegExp('(\\?|)' + val + '=.+');
     let regexReplace = new RegExp('(\\?|)' + val + '=');
     let times = 0;
@@ -24,7 +26,7 @@ function getQueryString(val) {
 }
 
 function value(id, type) {
-    let queryVar = getQueryString(id.replace(/input_|selector_|item_/,'')); $('body').append(queryVar);
+    let queryVar = getQueryString(id.replace(/(input_)/,'')); $('body').append(queryVar);
     if (type === 'int') return parseInt($(id).val(), 10);
     else if (type === 'num') return parseFloat($(id).val(), 10);
     else if (queryVar) {

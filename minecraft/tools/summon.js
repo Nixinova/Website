@@ -20,13 +20,6 @@ function summon() {
     ]
 
     // call from input form //
-    var query = '';
-    if (window.location.href.search(/\?/)) {
-        query = window.location.href.split('?')[1].split('&');
-    }
-    for (i in query) {
-        if (query[i].match(/entity=.+/)) {var $entity = query[i].replace(/entity=/, '');}
-    }
     var entity = ($entity? $entity: (value('input_entity')? value('input_entity'): 'bat')).toLowerCase().replace(/ /g, '_');
     var X = value('input_x').replace(/[^0-9-~^]/g, '');
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
@@ -281,7 +274,7 @@ function submit() {
         summon();
     }
     catch (error) {
-        alert(error + '\n' + error.stack);
+        alert(error.stack);
     }
     finally {
         summon();
