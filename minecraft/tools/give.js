@@ -151,38 +151,38 @@ function give() {
     var selector = []
     if (target == '--') {target_text = player? player: '@s'} else {target_text = target;}
 
-    if (target_x) {selector.push('x=' + target_x);}
-    if (target_y) {selector.push('y=' + target_y);}
-    if (target_z) {selector.push('z=' + target_z);}
+    if (target_x!='') {selector.push('x=' + target_x);}
+    if (target_y!='') {selector.push('y=' + target_y);}
+    if (target_z!='') {selector.push('z=' + target_z);}
 
-    if (selection_area == 'radius' && (dist_min || dist_max)) {
+    if (selection_area == 'radius' && (dist_min!='' || dist_max!='')) {
         if (dist_min && !dist_max) {selector.push('distance=' + dist_min + '..');}
         if (!dist_min && dist_max) {selector.push('distance=' + '..' + dist_max);}
         if (dist_min && dist_max && dist_min != dist_max) {selector.push('distance=' + dist_min + '..' + dist_max);}
         if (dist_min && dist_max && dist_min == dist_max) {selector.push('distance=' + dist_min);}
     }
 
-    if (selection_area == 'volume' && (vol_x || vol_y || vol_z)) {
-        if (vol_x) {selector.push('dx=' + vol_x);}
-        if (vol_y) {selector.push('dy=' + vol_y);}
-        if (vol_z) {selector.push('dz=' + vol_z);}
+    if (selection_area == 'volume' && (vol_x!='' || vol_y!='' || vol_z!='')) {
+        if (vol_x!='') {selector.push('dx=' + vol_x);}
+        if (vol_y!='') {selector.push('dy=' + vol_y);}
+        if (vol_z!='') {selector.push('dz=' + vol_z);}
     }
 
     if (xrot_min || xrot_max) {
-        if (xrot_min && !xrot_max) {selector.push('x_rotation=' + xrot_min + '..');}
-        if (!xrot_min && xrot_max) {selector.push('x_rotation=' + '..' + xrot_max);}
-        if (xrot_min && xrot_max && xrot_min != xrot_max) {selector.push('x_rotation=' + xrot_min + '..' + xrot_max);}
-        if (xrot_min && xrot_max && xrot_min == xrot_max) {selector.push('x_rotation=' + xrot_min);}
+        if (xrot_min!='' && !xrot_max!='') {selector.push('x_rotation=' + xrot_min + '..');}
+        if (!xrot_min!='' && xrot_max!='') {selector.push('x_rotation=' + '..' + xrot_max);}
+        if (xrot_min!='' && xrot_max!='' && xrot_min != xrot_max) {selector.push('x_rotation=' + xrot_min + '..' + xrot_max);}
+        if (xrot_min!='' && xrot_max!='' && xrot_min == xrot_max) {selector.push('x_rotation=' + xrot_min);}
     }
 
-    if (yrot_min || yrot_max) {
-        if (yrot_min && !yrot_max) {selector.push('y_rotation=' + yrot_min + '..');}
-        if (!yrot_min && yrot_max) {selector.push('y_rotation=' + '..' + yrot_max);}
-        if (yrot_min && yrot_max && yrot_min != yrot_max) {selector.push('y_rotation=' + yrot_min + '..' + yrot_max);}
-        if (yrot_min && yrot_max && yrot_min == yrot_max) {selector.push('y_rotation=' + yrot_min);}
+    if (yrot_min!='' || yrot_max!='') {
+        if (yrot_min!='' && !yrot_max!='') {selector.push('y_rotation=' + yrot_min + '..');}
+        if (!yrot_min!='' && yrot_max!='') {selector.push('y_rotation=' + '..' + yrot_max);}
+        if (yrot_min!='' && yrot_max!='' && yrot_min != yrot_max) {selector.push('y_rotation=' + yrot_min + '..' + yrot_max);}
+        if (yrot_min!='' && yrot_max!='' && yrot_min == yrot_max) {selector.push('y_rotation=' + yrot_min);}
     }
 
-    if (limit) {selector.push('limit=' + limit);}
+    if (limit!='') {selector.push('limit=' + limit);}
 
     if (team) {
         if (team_invert) {selector.push('team=!' + team);}
@@ -200,14 +200,14 @@ function give() {
         selector.push('gamemode=' + mode_option + mode);
     }
     
-    if (xp_min || xp_max) {
-        if (xp_min && !xp_max) {selector.push('level=' + xp_min + '..');}
-        if (!xp_min && xp_max) {selector.push('level=' + '..' + xp_max);}
-        if (xp_min && xp_max && xp_min != xp_max) {selector.push('level=' + xp_min + '..' + xp_max);}
-        if (xp_min && xp_max && xp_min == xp_max) {selector.push('level=' + xp_min);}
+    if (xp_min!='' || xp_max!='') {
+        if (xp_min!='' && !xp_max!='') {selector.push('level=' + xp_min + '..');}
+        if (!xp_min!='' && xp_max!='') {selector.push('level=' + '..' + xp_max);}
+        if (xp_min!='' && xp_max!='' && xp_min != xp_max) {selector.push('level=' + xp_min + '..' + xp_max);}
+        if (xp_min!='' && xp_max!='' && xp_min == xp_max) {selector.push('level=' + xp_min);}
     }
     
-    if (score && (score_min || score_max)) {
+    if (score && (score_min!='' || score_max!='')) {
         scores.push(score);
         scores_min.push(score_min);
         scores_max.push(score_max);
@@ -229,10 +229,10 @@ function give() {
         score_text = []
         for (i = 0; i < scores.length; i++) {
             if (scores[i]) {
-                if (scores_min[i] && !scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i] + '..');}
-                if (!scores_min[i] && scores_max[i]) {score_text.push(scores[i] + '=' + '..' + scores_max[i]);}
-                if (scores_min[i] && scores_max[i] && scores_min[i] != scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i] + '..' + scores_max[i]);}
-                if (scores_min[i] && scores_max[i] && scores_min[i] == scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i]);}
+                if (scores_min[i]!='' && !scores_max[i]!='') {score_text.push(scores[i] + '=' + scores_min[i] + '..');}
+                if (!scores_min[i]!='' && scores_max[i]!='') {score_text.push(scores[i] + '=' + '..' + scores_max[i]);}
+                if (scores_min[i]!='' && scores_max[i]!='' && scores_min[i] != scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i] + '..' + scores_max[i]);}
+                if (scores_min[i]!='' && scores_max[i]!='' && scores_min[i] == scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i]);}
             }
         }
         selector.push('scores={' + JSON.stringify(score_text).replace(/[\[\]]/g,'') + '}');
