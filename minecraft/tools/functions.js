@@ -26,14 +26,20 @@ function getQueryString(val) {
 }
 
 function value(id, type) {
-    let queryVar = getQueryString(id.replace(/(input_)/,'')); $('body').append(queryVar);
-    if (type === 'int') return parseInt($(id).val(), 10);
-    else if (type === 'num') return parseFloat($(id).val(), 10);
-    else if (queryVar) {
-        $(id).val(queryVar);
-        return $.trim(queryVar);
+    if (function_count > 0) {
+        let queryVar = getQueryString(id.replace(/(input_)/,''));
+        if (type === 'int') return parseInt($(id).val(), 10);
+        else if (type === 'num') return parseFloat($(id).val(), 10);
+        else if (queryVar) {
+            $(id).val(queryVar);
+            return $.trim(queryVar);
+        }
+        else return $.trim($(id).val());
+    } else {
+        if (type === 'int') return parseInt($(id).val(), 10);
+        else if (type === 'num') return parseFloat($(id).val(), 10);
+        else return $.trim($(id).val());
     }
-    else return $.trim($(id).val());
 }
 
 function checked(id) {

@@ -10,6 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="functions.js"></script>
     <script src="summon.js"></script>
+    <style>
+        button {width: 70px; text-align: center;}
+        .on::before {content: 'True';}
+        .off::after {content: 'False';}
+    </style>
+    <script>var function_count = 0;</script>
 </head>
 <body>
 <header>
@@ -21,11 +27,6 @@
     <h2>/summon</h2>
     <p>Generates /summon commands for Minecraft 1.13+.</p>
     <form action="javascript:submit()" id="input_form">
-        <style>
-            button {width: 70px; text-align: center;}
-            .on::before {content: 'True';}
-            .off::after {content: 'False';}
-        </style>
         <p>
             <span class="form-item">Mob:</span>
             <select id="input_entity" onchange="submit()">

@@ -267,6 +267,9 @@ function summon() {
     box.select();
     document.execCommand('copy');
     document.body.removeChild(box);
+
+    // counter
+    function_count++;
 }
 
 function submit() {
