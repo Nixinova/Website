@@ -8,7 +8,6 @@ function cleanup(id) {
 
 function summon() {
     //debug
-    alert(main.prevObject.prevObject[0].location.search.split('&'));
     alert(window.location.href);
 
     /// VARIABLES ///
@@ -24,9 +23,9 @@ function summon() {
 
     // call from input form //
     var main = $('#input_firework_type','int');
-    var query = main.prevObject.prevObject[0].location.search.split('&');
+    var query = window.location.href.split('?')[1].split('&');
     for (i in query) {
-        if (query[i].match(/(\?|)entity=.+/)) {var $entity = query[i].replace(/(\?|)entity=/, '');}
+        if (query[i].match(/entity=.+/)) {var $entity = query[i].replace(/entity=/, '');}
     }
     var entity = ($entity? $entity: (value('input_entity')? value('input_entity'): 'bat')).toLowerCase().replace(/ /g, '_');
     var X = value('input_x').replace(/[^0-9-~^]/g, '');
