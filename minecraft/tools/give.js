@@ -564,7 +564,7 @@ function submit() {
         give();
     }
     catch (error) {
-        alert('Error on submit: ' + error.message + '.');
+        alert('Error on submit (line ' + e.stack + '):' + error.message + '.');
     }
     finally {
         give();

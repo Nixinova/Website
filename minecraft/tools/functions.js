@@ -28,7 +28,7 @@ function value(id, type) {
     if (type === 'int') return parseInt($(id).val(), 10);
     else if (type === 'num') return parseFloat($(id).val(), 10);
     else if (type === 'none') return $.trim($(id).val());
-    //else if (queryVar) {$(id).val(queryVar); return $.trim(queryVar);}
+    else if (queryVar) {$(id).val(queryVar); return $.trim(queryVar);}
     else return $.trim($(id).val());
 }
 
