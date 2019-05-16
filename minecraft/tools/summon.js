@@ -7,8 +7,6 @@ function cleanup(id) {
 /// SUBMIT ///
 
 function summon() {
-    //debug
-    alert(window.location.href);
 
     /// VARIABLES ///
     var zombies = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager']
