@@ -38,7 +38,7 @@ function value(id, type) {
     } else {
         if (type === 'int') return parseInt($('#'+id).val(), 10);
         else if (type === 'num') return parseFloat($('#'+id).val(), 10);
-        else return $.trim($(id).val());
+        else return $.trim($('#'+id).val());
     }
 }
 
