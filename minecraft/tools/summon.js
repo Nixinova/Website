@@ -22,8 +22,10 @@ function summon() {
     ]
 
     // call from input form //
-    var main = $('#input_firework_type','int');
-    var query = window.location.href.split('?')[1].split('&');
+    var query = '';
+    if (window.location.href.search('?')) {
+        query = window.location.href.split('?')[1].split('&');
+    }
     for (i in query) {
         if (query[i].match(/entity=.+/)) {var $entity = query[i].replace(/entity=/, '');}
     }
