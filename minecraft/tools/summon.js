@@ -20,7 +20,7 @@ function summon() {
     ]
 
     // call from input form //
-    var entity = ($entity? $entity: (value('input_entity')? value('input_entity'): 'bat')).toLowerCase().replace(/ /g, '_');
+    var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
     var X = value('input_x').replace(/[^0-9-~^]/g, '');
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');

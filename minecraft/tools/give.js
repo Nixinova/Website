@@ -46,7 +46,6 @@ function give() {
     
     // call from input form //
     var target = value('input_selector_target');
-    if (!target) {target = '@s';}
     var player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g,"");
     var target_x = value('input_selector_x','num');
     var target_y = value('input_selector_y','num');
