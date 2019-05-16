@@ -56,10 +56,10 @@ function give() {
     var vol_x = value('input_selector_vol_x','num');
     var vol_y = value('input_selector_vol_y','num');
     var vol_z = value('input_selector_vol_z','num');
-    var xrot_min = value('input_selector_xrot_min','num');
-    var xrot_max = value('input_selector_xrot_max','num');
-    var yrot_min = value('input_selector_yrot_min','num');
-    var yrot_max = value('input_selector_yrot_max','num');
+    var !isNaN(xrot_min) = value('input_selector_!isNaN(xrot_min)','num');
+    var !isNaN(xrot_max) = value('input_selector_!isNaN(xrot_max)','num');
+    var !isNaN(yrot_min) = value('input_selector_!isNaN(yrot_min)','num');
+    var !isNaN(yrot_max) = value('input_selector_!isNaN(yrot_max)','num');
     var limit = value('input_selector_limit','int');
     var team = value('input_selector_team').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g,"");
     var team_invert = $('#input_selector_team_i').hasClass('on');
@@ -107,8 +107,8 @@ function give() {
 
     // fix values //
     if (dist_max && dist_min > dist_max) {let foo = dist_min; dist_min = dist_max; dist_max = foo;}
-    if (xrot_max && xrot_min > xrot_max) {let foo = xrot_min; xrot_min = xrot_max; xrot_max = foo;}
-    if (yrot_max && yrot_min > yrot_max) {let foo = yrot_min; yrot_min = yrot_max; yrot_max = foo;}
+    if (!isNaN(xrot_max) && !isNaN(xrot_min) > !isNaN(xrot_max)) {let foo = !isNaN(xrot_min); !isNaN(xrot_min) = !isNaN(xrot_max); !isNaN(xrot_max) = foo;}
+    if (!isNaN(yrot_max) && !isNaN(yrot_min) > !isNaN(yrot_max)) {let foo = !isNaN(yrot_min); !isNaN(yrot_min) = !isNaN(yrot_max); !isNaN(yrot_max) = foo;}
     if (xp_max && xp_min > xp_max) {let foo = xp_min; xp_min = xp_max; xp_max = foo;}
     if (score_max && score_min > score_max) {let foo = score_min; score_min = score_max; score_max = foo;}
 
@@ -151,9 +151,9 @@ function give() {
     var selector = []
     if (target == '--') {target_text = player? player: '@s'} else {target_text = target;}
 
-    if (target_x) {selector.push('x=' + target_x);}
-    if (target_y) {selector.push('y=' + target_y);}
-    if (target_z) {selector.push('z=' + target_z);}
+    if (!isNaN(target_x)) {selector.push('x=' + target_x);}
+    if (!isNaN(target_y)) {selector.push('y=' + target_y);}
+    if (!isNaN(target_z)) {selector.push('z=' + target_z);}
 
     if (selection_area == 'radius' && (dist_min || dist_max)) {
         if (dist_min && !dist_max) {selector.push('distance=' + dist_min + '..');}
@@ -168,18 +168,18 @@ function give() {
         if (vol_z) {selector.push('dz=' + vol_z);}
     }
 
-    if (xrot_min || xrot_max) {
-        if (xrot_min && !xrot_max) {selector.push('x_rotation=' + xrot_min + '..');}
-        if (!xrot_min && xrot_max) {selector.push('x_rotation=' + '..' + xrot_max);}
-        if (xrot_min && xrot_max && xrot_min != xrot_max) {selector.push('x_rotation=' + xrot_min + '..' + xrot_max);}
-        if (xrot_min && xrot_max && xrot_min == xrot_max) {selector.push('x_rotation=' + xrot_min);}
+    if (!isNaN(xrot_min) || !isNaN(xrot_max)) {
+        if (!isNaN(xrot_min) && isNaN(xrot_max)) {selector.push('x_rotation=' + !isNaN(xrot_min) + '..');}
+        if (isNaN(xrot_min) && !isNaN(xrot_max)) {selector.push('x_rotation=' + '..' + !isNaN(xrot_max));}
+        if (!isNaN(xrot_min) && !isNaN(xrot_max) && !isNaN(xrot_min) != !isNaN(xrot_max)) {selector.push('x_rotation=' + !isNaN(xrot_min) + '..' + !isNaN(xrot_max));}
+        if (!isNaN(xrot_min) && !isNaN(xrot_max) && !isNaN(xrot_min) == !isNaN(xrot_max)) {selector.push('x_rotation=' + !isNaN(xrot_min));}
     }
 
-    if (yrot_min || yrot_max) {
-        if (yrot_min && !yrot_max) {selector.push('y_rotation=' + yrot_min + '..');}
-        if (!yrot_min && yrot_max) {selector.push('y_rotation=' + '..' + yrot_max);}
-        if (yrot_min && yrot_max && yrot_min != yrot_max) {selector.push('y_rotation=' + yrot_min + '..' + yrot_max);}
-        if (yrot_min && yrot_max && yrot_min == yrot_max) {selector.push('y_rotation=' + yrot_min);}
+    if (!isNaN(yrot_min) || !isNaN(yrot_max)) {
+        if (!isNaN(yrot_min) && isNaN(yrot_max)) {selector.push('y_rotation=' + !isNaN(yrot_min) + '..');}
+        if (isNaN(yrot_min) && !isNaN(yrot_max)) {selector.push('y_rotation=' + '..' + !isNaN(yrot_max));}
+        if (!isNaN(yrot_min) && !isNaN(yrot_max) && !isNaN(yrot_min) != !isNaN(yrot_max)) {selector.push('y_rotation=' + !isNaN(yrot_min) + '..' + !isNaN(yrot_max));}
+        if (!isNaN(yrot_min) && !isNaN(yrot_max) && !isNaN(yrot_min) == !isNaN(yrot_max)) {selector.push('y_rotation=' + !isNaN(yrot_min));}
     }
 
     if (limit) {selector.push('limit=' + limit);}
@@ -207,7 +207,7 @@ function give() {
         if (xp_min && xp_max && xp_min == xp_max) {selector.push('level=' + xp_min);}
     }
     
-    if (score && (score_min || score_max)) {
+    if (score && (!isNaN(score_min) || !isNaN(score_max))) {
         scores.push(score);
         scores_min.push(score_min);
         scores_max.push(score_max);
