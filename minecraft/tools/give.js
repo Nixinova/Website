@@ -146,12 +146,14 @@ function give() {
     } else {
         $('#select-username').addClass('hide');
         $('#expand-target').removeClass('hide');
-        document.getElementById('input_selector_player').value = '';
+        $('#input_selector_player').val('');
     }
 
     var selector = []
 
-    if (target != '--') {target_text = target;} else {target_text = '@p';}
+    if (target) {
+        if (target == '--') {target_text = player} else {target_text = target;}
+    } else {target_text = '@s';}
 
     if (target_x) {selector.push('x=' + target_x);}
     if (target_y) {selector.push('y=' + target_y);}
