@@ -1,4 +1,9 @@
 <head>
+    <script name="Noindex script">
+        if (window.location.href === 'https://nixinova.netlify.com/imports/navigation') {
+            $(head).append('<meta name="robots" content="noindex">');
+        }
+    </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style name="Navigation styles">
         .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
