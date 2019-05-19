@@ -18,58 +18,34 @@
     <script>$("nav").load("/imports/navigation")</script>
 </header>
 <main>
-    <div id="gallery">
-        <div id="pause" onclick="togglePlay()">
-            <i class="material-icons" id="pause-text">play_arrow</i>
-        </div>
-        <div class="screenshot"></div>
-    </div>
-    <div id="caption">
-        <p></p>
-    </div>
-
-    <script src="gallery.js"></script>
-    <script name="Gallery cycler">
-        function playGallery() {
-            gallery(
-                [
-                    'nixinova-mash-up/v3.1.0',
-                    'nixinova-mash-up/v3.1.0',
-                    'nixinova-mash-up/v3-alpha',
-                    'nixinova-mash-up/v3-alpha',
-                    'nixinova-mash-up/v3-alpha'
-                ],
-                [
-                    'overview.png',
-                    'blocks.png',
-                    'cave.jpg',
-                    'snowy_village.jpg',
-                    'jungle_temple.jpg'
-                ],
-                [
-                    'An overview of this resource pack.',
-                    'Some of the blocks in this resource pack.',
-                    'A cave with ores and mobs inside.',
-                    'A snowy village, with houses and a farm.',
-                    'A jungle temple surrounded by trees and leaves.'
-                ]
-            )
-        }
-
-        var i = 0;
-        playGallery();
-
-        setInterval(playGallery, 10000);
-    </script>
-
-    <h1>Nixinova Mash-Up Pack</h1>
-    <p>
-        These packs are a mash-up of textures from different resource packs.<br/>
-        Hover over a version number to display more information about that version of the resource pack.<br/>
-        <strong>
-            These downloads are for the Java Edition of Minecraft only.
-        </strong>
-    </p>
+    <h1>Changelogs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th colpsan="3">Version</th>
+                <td rowspan="2">Changes</td>
+            </tr>
+            <tr>
+                <th>Minecraft</th>
+                <th>Pack</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1.14.1-pre1</td>
+                <td id="v3.0.6">v3.0.6</td>
+                <td>85</td>
+                <td>
+                    <ul>
+                        <li>Replaced wood, stones, ores with 64x textures from v1.3.1.</li>
+                        <li>Replaced item frame, oak sign, and boat textures with the ones from v1.3.1.</li>
+                        <li>Removed lectern item.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
     <hr>
 
