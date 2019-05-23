@@ -1,10 +1,9 @@
-function createTable1(id, arr) {
+function createTable(id, arr) {
     var table = $('#'+id);
 
     for (i in arr) {
         if (!arr[i].date) {arr[i].date = '(TBA)';}
         if (!arr[i].name) {arr[i].name = arr[i].packver;}
-        if (arr[i].pre) {arr[i].mcver == `${arr[i].mcver} (pre${arr[i].pre})`;}
         if (arr[i].snap) {arr[i].mcver == `${arr[i].mcver} (${arr[i].snap})`;}
 
         table.append(`<tr>
@@ -14,9 +13,4 @@ function createTable1(id, arr) {
         <td><samp>${arr[i].date}</samp></td>
         </tr>`);
     }
-}
-function createTable(id, arr) {
-    try {createTable1(id,arr)}
-    catch(e) {alert(id + e.stack)}
-    finally {createTable1(id,arr)}
 }
