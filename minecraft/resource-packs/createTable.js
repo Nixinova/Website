@@ -8,7 +8,7 @@ function createTable(ver, arr) {
 
         table.append(`<tr>
         <td style="min-width: 250px">Nixinova Mash-Up ${arr[i].mcver} ${arr[i].id}</td>
-        <td>v${attr[i].name}</td>
+        <td>v${arr[i].name}</td>
         <td><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
         <td><small>${arr[i].date}</small></td>
         </tr>`);
