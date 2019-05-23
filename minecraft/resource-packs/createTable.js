@@ -17,12 +17,12 @@ function create_table(ver, arr) {
 
 function createTable(ver, arr) {
     try {
-        createTable(ver, arr);
+        create_table(ver, arr);
     }
     catch(e) {
         alert(e.stack)
     }
     finally {
-        createTable(ver, arr);
+        create_table(ver, arr);
     }
 }
