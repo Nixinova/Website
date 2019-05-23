@@ -5,6 +5,7 @@ function createTable1(id, arr) {
         if (!arr[i].date) {arr[i].date = '(TBA)';}
         arr[i].name = arr[i].name ? arr[i].name.replace('v', '') : arr[i].packver;
         if (arr[i].pre) {mcver += ` (pre${arr[i].pre})`;}
+        if (arr[i].snap) {mcver += ` (${arr[i].snap})`;}
 
         table.append(`<tr>
         <td style="min-width: 250px">Nixinova Mash-Up ${arr[i].mcver} ${arr[i].id}</td>
