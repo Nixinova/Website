@@ -1,4 +1,4 @@
-//function create_element() {
+function create_element() {
     class rp_ver extends HTMLAnchorElement {
         constructor() {
             super();
@@ -22,4 +22,4 @@
     }
 
     customElements.define('rp-ver', rp_ver);
-//}
+}
