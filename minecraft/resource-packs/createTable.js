@@ -1,5 +1,5 @@
 function createTable(mcver, arr) {
-    var table = $('#'+mcver);
+    var table = $('#v'+mcver);
     for (i in arr) {
         table.append(`<tr>
         <td>Nixinova Mash-Up ${mcver}-${arr.id}</td>
