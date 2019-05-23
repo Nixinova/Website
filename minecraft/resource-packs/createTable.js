@@ -20,7 +20,7 @@ function createTable(ver, arr) {
         create_table(ver, arr);
     }
     catch(e) {
-        alert(e.stack)
+        alert(ver + e.stack )
     }
     finally {
         create_table(ver, arr);
