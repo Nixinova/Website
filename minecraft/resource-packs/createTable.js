@@ -1,4 +1,4 @@
-function createTable(ver, arr) {
+function create_table(ver, arr) {
     var id = ver.replace(/\./g, '_');
     var table = $('#'+id);
     for (i in arr) {
@@ -12,5 +12,17 @@ function createTable(ver, arr) {
         <td><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
         <td><small>${arr[i].date}</small></td>
         </tr>`);
+    }
+}
+
+function createTable(ver, arr) {
+    try {
+        createTable(ver, arr);
+    }
+    catch(e) {
+        alert(e.stack)
+    }
+    finally {
+        createTable(ver, arr);
     }
 }
