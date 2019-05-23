@@ -15,5 +15,7 @@ function createTable1(id, arr) {
     }
 }
 function createTable(id, arr) {
-    createTable1(id,arr)
+    try {createTable1(id,arr)}
+    catch(e) {alert(id + e.stack)}
+    finally {createTable1(id,arr)}
 }
