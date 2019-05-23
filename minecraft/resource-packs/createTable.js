@@ -1,4 +1,4 @@
-function createTable(id, arr) {
+function createTable1(id, arr) {
     var table = $('#'+id);
 
     for (i in arr) {
@@ -13,4 +13,7 @@ function createTable(id, arr) {
         <td><small>${arr[i].date}</small></td>
         </tr>`);
     }
+}
+function createTable(id, arr) {
+    createTable1(id,arr)
 }
