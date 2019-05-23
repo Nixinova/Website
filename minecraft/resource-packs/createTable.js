@@ -2,7 +2,7 @@ function createTable(id, arr) {
     var table = $('#'+id);
 
     for (i in arr) {
-        if (!arr[i].date) {arr[i].date = '(TBA)';}
+        if (!arr[i].date) {arr[i].date = '(TBC)';}
         if (!arr[i].name) {arr[i].name = arr[i].packver;}
         if (arr[i].snap) {arr[i].mcver == `${arr[i].mcver} (${arr[i].snap})`;}
 
