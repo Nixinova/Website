@@ -3,8 +3,8 @@ function createTable(mcver, arr) {
     var table = $('#'+id);
     for (i in arr) {
         if (!arr[i].date) {arr[i].date = '';}
-        if (!arr[i].name) {arr[i].name = arr[i].packver.replace('v', '');}
         if (!arr[i].mcver) {arr[i].mcver = mcver}
+        arr[i].name = arr[i].name ? arr[i].name.replace('v', '') : arr[i].packver;
 
         table.append(`<tr>
         <td style="min-width: 250px">Nixinova Mash-Up ${arr[i].mcver} ${arr[i].id}</td>
