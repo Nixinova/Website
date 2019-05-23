@@ -4,16 +4,17 @@
             super();
 
             var ver = document.createElement('a');
-            var link = this.getAttribute('link');
-            var mc_ver = this.getAttribute('mc-ver');
-            var pack_ver = this.getAttribute('pack-ver');
-            ver.href = `https://mediafire.com/?${link}`;
-            ver.title = `${pack_ver} (for ${mc_ver})`
-            ver.textContent = pack_ver;
-            ver.target = '_blank';
+            var attr = {};
+            attr.link = this.getAttribute('link');
+            attr.mc_ver = this.getAttribute('mc-ver');
+            attr.pack_ver = this.getAttribute('pack-ver');
+
+            var href = `https://mediafire.com/?${attr.link}`;
+            var title = `${attr.pack_ver} (for ${attr.mc_ver})`
+            var textContent = attr.pack_ver;
 
             var shadow = this.attachShadow({mode: 'open'});
-            shadow.appendChild(ver);
+            shadow.appendChild(`<a href="${href}" title="${title}" target="_blank">${textContent}</a>`);
         }
     }
 
