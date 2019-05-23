@@ -1,10 +1,10 @@
-function createTable(ver, arr) {
-    var id = ver.replace(/\./g, '_');
+function createTable(mcver, arr) {
+    var id = mcver.replace(/\./g, '_');
     var table = $('#'+id);
     for (i in arr) {
         if (!arr[i].date) {arr[i].date = '';}
-        if (!arr[i].name) {arr[i].name = arr[i].packver;}
-        if (!arr[i].mcver) {arr[i].mcver = ver}
+        if (!arr[i].name) {arr[i].name = arr[i].packver.replace('v', '');}
+        if (!arr[i].mcver) {arr[i].mcver = mcver}
 
         table.append(`<tr>
         <td style="min-width: 250px">Nixinova Mash-Up ${arr[i].mcver} ${arr[i].id}</td>
