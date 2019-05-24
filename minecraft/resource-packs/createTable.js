@@ -6,7 +6,7 @@ function createTable(id, arr) {
         if (arr[i].snap) {arr[i].mcver == `${arr[i].mcver}&ensp;(${arr[i].snap})`;}
 
         table.append(`<tr>
-        <td width="250px">Nixinova Mash-Up ${arr[i].mcver} (${arr[i].id})</td>
+        <td width="250px">Nixinova Mash-Up ${arr[i].mcver} (${$.trim(arr[i].id)})</td>
         <td width="075px">${arr[i].packver}</td>
         <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
         <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
