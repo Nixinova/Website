@@ -47,7 +47,7 @@ ul.plain {list-style-type: none; text-align: center;}
 iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 
 /* Flexboxes */
-@media (min-width: 801px) {
+@media (min-width: 1001px) {
     .row {display: flex;}
     .row>div {margin: 0 10px;}
     .flex {width: var(--width);}
