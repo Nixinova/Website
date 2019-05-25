@@ -14,13 +14,13 @@
     <script>
         function createTable(id, arr) {
         var table = $('#'+id);
-        const unzip_msg = ' <i class="material-icons" title="Unzip this file in your .minecraft resourcepacks folder.">info</i>';
+        const UNZIP_MSG = ' <i class="material-icons" title="Unzip this file in your .minecraft resourcepacks folder.">info</i>';
 
         for (i in arr) {
             if (!arr[i].date) {arr[i].date = '(TBC)';}
             if (arr[i].snap) {arr[i].mcver == `${arr[i].mcver}&ensp;(${arr[i].snap})`;}
-            let unzip;
-            if (arr[i].unzip) {unzip = unzip_msg;}
+            let unzip = '';
+            if (arr[i].unzip) {unzip = UNZIP_MSG;}
 
             table.append(`<tr>
             <td width="250px">Nixinova Mash-Up ${arr[i].mcver} (${$.trim(arr[i].id)})</td>
