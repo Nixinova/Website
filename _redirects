@@ -5,7 +5,6 @@ https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
 
 # Maps
 /maps/*             /minecraft/maps/:splat
-/downloads/*        /minecraft/maps/:splat
 /skywars            /minecraft/maps/skywars
 /musical-blocks     /minecraft/maps/musical-blocks
 /kitpvp             /minecraft/maps/kitpvp
@@ -16,7 +15,10 @@ https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
 /summon             /minecraft/tools/summon
 
 # Resource packs
-/resource-packs/mash-up v=*    https://mediafire.com/?:splat
+/resource-packs/*   /minecraft/resource-packs/:splat
+/mash-up            /minecraft/resource-packs/mash-up
+/themed             /minecraft/resource-packs/themed
+/herobrinenzk       /minecraft/resource-packs/herobrinenzk
 
 # Search
 /search q=*         /search#gsc.q=:splat&gsc.tab=0
