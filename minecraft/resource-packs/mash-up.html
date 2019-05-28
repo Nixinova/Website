@@ -15,7 +15,7 @@
     <script>
         function createTable(id, arr) {
         var table = $('#'+id);
-        const UNZIP_MSG = ' <i class="material-icons" title="Unzip this file in your .minecraft resourcepacks folder.">info</i>';
+        const UNZIP_MSG = ' <i class="material-icons" title="Unzip this file in your resource packs folder.">info</i>';
 
         for (i in arr) {
             if (!arr[i].date) {arr[i].date = '(TBC)';}
@@ -105,6 +105,7 @@
         <h3>1.14</h3>
         <table id="v1_14" class="flex centered" style="--width: 50%"></table>
         <script>createTable('v1_14', [
+            {mcver: '1.14.2', id: 'r1', packver: 'v3.2.0', dl: '7r6wpqfb7wq29z1', date: '2019-05-28'},
             {mcver: '1.14.2', id: 'p3', packver: 'v3.1.1', dl: 'skyk2wik4j3e22j', date: '2019-05-25'},
             {mcver: '1.14.2', id: 'p2', packver: 'v3.1.0', dl: '6d1dzp3istur2lf', date: '2019-05-25'},
             {mcver: '1.14.2', id: 'p1', packver: 'v3.0.6', dl: '9ab9hl46dam6dy9', date: '2019-05-18'},
