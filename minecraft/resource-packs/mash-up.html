@@ -26,10 +26,11 @@
 
                 let id_type = $.trim(arr[i].id).substring(0);
                 let id_num = $.trim(arr[i].id).substring(-1);
-                switch(id_type) {
-                    case 's': let id_hover = 'Snapshot version' + id_num;
-                    case 'p': let id_hover = 'Pre-release version' + id_num;
-                    case 'r': let id_hover = 'Release version' + id_num;
+                let id_hover;
+                switch (id_type) {
+                    case 's': id_hover = 'Snapshot version' + id_num;
+                    case 'p': id_hover = 'Pre-release version' + id_num;
+                    case 'r': id_hover = 'Release version' + id_num;
                 }
 
                 table.append(`<tr>
