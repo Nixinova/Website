@@ -23,8 +23,6 @@
             for (i in arr) {
                 if (!arr[i].date) {arr[i].date = '(TBC)';}
                 if (arr[i].snap) {arr[i].mcver = `${arr[i].mcver} (${arr[i].snap})`;}
-                let unzip = '';
-                if (arr[i].unzip) {unzip = UNZIP_MSG;}
 
                 let id_type = $.trim(arr[i].id).substring(0);
                 let id_num = $.trim(arr[i].id).substring(-1);
@@ -38,7 +36,7 @@
                     <td width="320px">Nixinova Mash-Up ${arr[i].mcver}</td>
                     <td width="050px">${$.trim(arr[i].id)}</td>
                     <td width="090px"><span title="${id_hover}">${arr[i].packver}</span></td>
-                    <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a>${unzip}</td>
+                    <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank" title="${UNZIP_MSG}">Download</a></td>
                     <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
                 </tr>`);
             }
