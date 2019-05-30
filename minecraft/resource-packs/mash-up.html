@@ -26,10 +26,18 @@
                 let unzip = '';
                 if (arr[i].unzip) {unzip = UNZIP_MSG;}
 
+                let id_type = $.trim(arr[i].id).substring(0);
+                let id_num = $.trim(arr[i].id).substring(-1);
+                switch(id_type) {
+                    case 's': let id_hover = 'Snapshot version' + id_num;
+                    case 'p': let id_hover = 'Pre-release version' + id_num;
+                    case 'r': let id_hover = 'Release version' + id_num;
+                }
+
                 table.append(`<tr>
                     <td width="320px">Nixinova Mash-Up ${arr[i].mcver}</td>
                     <td width="050px">${$.trim(arr[i].id)}</td>
-                    <td width="075px">${arr[i].packver}</td>
+                    <td width="075px"><span title="${id_hover}">${arr[i].packver}</span></td>
                     <td width="120px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a>${unzip}</td>
                     <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
                 </tr>`);
