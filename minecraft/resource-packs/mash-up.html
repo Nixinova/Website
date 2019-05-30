@@ -1,4 +1,5 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html lang="en-NZ">
 <head>
     <title>Nixinova Mash-Up Pack – Nixinova</title>
     <link rel="icon" href="/favicon.ico">
@@ -9,28 +10,28 @@
     <style>
         p {margin-top: 0;}
         hr.midline {width: 66%; border-color: #888;}
-        table {min-width: 500px;}
+        table {min-width: 700px;}
         i.material-icons {cursor: help; font-size: 1em;}
     </style>
     <script>
         function createTable(id, arr) {
-        var table = $('#'+id);
-        const UNZIP_MSG = ' <i class="material-icons" title="Unzip this file in your resource packs folder.">info</i>';
+            var table = $('#'+id);
+            const UNZIP_MSG = ' <i class="material-icons" title="Unzip this file in your resource packs folder.">info</i>';
 
-        for (i in arr) {
-            if (!arr[i].date) {arr[i].date = '(TBC)';}
-            if (arr[i].snap) {arr[i].mcver = `${arr[i].mcver} [${arr[i].snap}]`;}
-            let unzip = '';
-            if (arr[i].unzip) {unzip = UNZIP_MSG;}
+            for (i in arr) {
+                if (!arr[i].date) {arr[i].date = '(TBC)';}
+                if (arr[i].snap) {arr[i].mcver = `${arr[i].mcver} [${arr[i].snap}]`;}
+                let unzip = '';
+                if (arr[i].unzip) {unzip = UNZIP_MSG;}
 
-            table.append(`<tr>
-            <td width="350px">Nixinova Mash-Up ${arr[i].mcver} (${$.trim(arr[i].id)})</td>
-            <td width="075px">${arr[i].packver}</td>
-            <td width="120px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a>${unzip}</td>
-            <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
-            </tr>`);
+                table.append(`<tr>
+                <td width="350px">Nixinova Mash-Up ${arr[i].mcver} (${$.trim(arr[i].id)})</td>
+                <td width="075px">${arr[i].packver}</td>
+                <td width="120px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a>${unzip}</td>
+                <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
+                </tr>`);
+            }
         }
-    }
     </script>
 </head>
 <body>
@@ -50,7 +51,7 @@
     </div>
 
     <script src="gallery.js"></script>
-    <script name="Gallery cycler">
+    <script id="Gallery cycler">
         function playGallery() {
             gallery(
                 [
