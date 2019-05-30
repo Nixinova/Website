@@ -10,7 +10,7 @@
     <style>
         p {margin-top: 0;}
         hr.midline {width: 66%; border-color: #888;}
-        table {min-width: 600px; margin: 0 auto;}
+        table {margin: 0 auto;}
         table tr {line-height: 1.2; font-size: 1.1em;}
         table i.material-icons {cursor: help; font-size: 1em;}
         samp {font-size: smaller;}
@@ -37,8 +37,8 @@
                 table.append(`<tr>
                     <td width="320px">Nixinova Mash-Up ${arr[i].mcver}</td>
                     <td width="050px">${$.trim(arr[i].id)}</td>
-                    <td width="075px"><span title="${id_hover}">${arr[i].packver}</span></td>
-                    <td width="120px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a>${unzip}</td>
+                    <td width="090px"><span title="${id_hover}">${arr[i].packver}</span></td>
+                    <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a>${unzip}</td>
                     <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
                 </tr>`);
             }
