@@ -39,7 +39,7 @@ ul.plain {list-style-type: none; text-align: center;}
 /* Galleries */
 #gallery, #caption {width: 100%;}
 #gallery {margin-top: -2.65em;}
-#gallery .screenshot {height: calc(75%/16*10); background-position: center; background-size: cover; border: 5px solid #444; border-bottom: none; transition: 3s;}
+#gallery .screenshot {height: calc(75vh/16*10); background-position: center; background-size: cover; border: 5px solid #444; border-bottom: none; transition: 3s;}
 #pause {display: inline; position: relative; top: 2.4em; left: 5px; background: #222; padding: 1ex 1.4ex; cursor: pointer; font-size: 1.5em; border: 3px solid #333;}
 #caption {height: 10em; background: #666e; padding: 3em 1.6em; font-size: 1.5em; text-align: center; border: 5px solid #444;}
 
