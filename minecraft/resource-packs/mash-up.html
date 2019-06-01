@@ -26,14 +26,15 @@
                 if (!arr[i].date) {arr[i].date = '(TBC)';}
                 if (arr[i].snap) {arr[i].mcver = `${arr[i].mcver} (${arr[i].snap})`;}
                 if (attr[i].dl) {arr[i].dl = 'https://mediafire.com?' + arr[i].dl;}
+                arr[i].id = $.trim(arr[i].id);
 
-                let id_type = $.trim(arr[i].id).substring(1,0);
-                let id_num = $.trim(arr[i].id).substring(1,-1);
+                let id_type = arr[i].id.substring(0,1);
+                let id_num = arr[i].id.substring(1);
                 let id_hover;
                 switch (id_type) {
-                    case 's': id_hover = 'Snapshot version' + id_num; break;
-                    case 'p': id_hover = 'Pre-release version' + id_num; break;
-                    case 'r': id_hover = 'Release version' + id_num; break;
+                    case 's': id_hover = 'Snapshot version ' + id_num; break;
+                    case 'p': id_hover = 'Pre-release version ' + id_num; break;
+                    case 'r': id_hover = 'Release version ' + id_num; break;
                 }
 
                 table.append(`<tr>
