@@ -50,21 +50,11 @@
     <script src="gallery.js"></script>
     <script name="Gallery cycler">
         function playGallery() {
-            gallery(
-                [
-                    'endercreeper/rp',
-                    'endercreeper/rp',
-                    'herobrinenzk/(2)'
-                ], [
-                    'creeper.jpg',
-                    'discs.jpg',
-                    'ores.jpg'
-                ], [
-                    'A retextured creeper, with half of it being an enderman.',
-                    'Retextured music discs.',
-                    'Ores have an outline to make them more visible.'
-                ]
-            )
+            gallery([
+                {ver: 'endercreeper/rp', file: 'creeper.jpg', caption: 'A retextured creeper, with half of it being an enderman.'},
+                {ver: 'endercreeper/rp', file: 'discs.jpg', caption: 'Retextured music discs.'},
+                {ver: 'herobrinenzk/(2)', file: 'ores.jpg', caption: 'Ores have an outline to make them more visible.'}
+            ]);
         }
 
         var i = 0;

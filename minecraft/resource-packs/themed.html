@@ -50,27 +50,13 @@
     <script src="gallery.js"></script>
     <script name="Gallery cycler">
         function playGallery() {
-            gallery(
-                [
-                    'easter-mash-up/v1.2.1',
-                    'easter-mash-up/v1.2.1',
-                    'christmas-mash-up/v2.1.1',
-                    'christmas-mash-up/v2.1.1',
-                    'christmas-mash-up/v2.1.1'
-                ], [
-                    'changed-textures.jpg',
-                    'title.jpg',
-                    'blocks.jpg',
-                    'items.jpg',
-                    'ores.jpg'
-                ], [
-                    'All of the changed textures in the Easter pack.',
-                    'The main menu screen in the Easter pack.',
-                    'All of the changed blocks in the Christmas pack.',
-                    'All of the changed items in the Christmas pack.',
-                    'A collection of ores from the Christmas pack.'
-                ]
-            )
+            gallery([
+                {path: 'easter-mash-up/v1.2.1', img: 'changed-textures.jpg', caption: 'All of the changed textures in the Easter pack.'},
+                {path: 'easter-mash-up/v1.2.1', img: 'title.jpg', caption: 'The main menu screen in the Easter pack.'},
+                {path: 'christmas-mash-up/v2.1.1', img: 'blocks.jpg', caption: 'All of the changed blocks in the Christmas pack.'},
+                {path: 'christmas-mash-up/v2.1.1', img: 'items.jpg', caption: 'All of the changed items in the Christmas pack.'},
+                {path: 'christmas-mash-up/v2.1.1', img: 'ores.jpg', caption: 'A collection of ores from the Christmas pack.'}
+            ]);
         }
 
         var i = 0;

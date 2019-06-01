@@ -1,24 +1,17 @@
 var $text = $('#pause-text');
 var count = 0;
 
-function gallery(_paths, _images, _captions, duplicates) {
+function gallery(arr) {
     if ($text.html() == 'pause' || count === 0) {
         const $gallery_img = $('#gallery .screenshot')
         const $caption = $('#caption p');
-        const paths = _paths;
-        const images = _images;
-        const captions = _captions;
 
-        if (duplicates == 'all') {
-            for (ii in images) {
-                paths[ii] = paths[0]
-            }
-        }
+        if (arr[arr[i].path]) {arr[i].path = arr[arr[i].path].path}
         
-        var src = '/images/minecraft/resource-packs/' + paths[i] + '/' + images[i];
+        var src = '/images/minecraft/resource-packs/' + arr[i].path + '/' + arr[i].img;
 
-        $gallery_img.css("background-image", "url('" + src + "')").attr("alt", caption[i]);
-        $caption.html(captions[i]);
+        $gallery_img.css("background-image", "url('" + src + "')").attr("alt", arr[i].caption);
+        $caption.html(arr[i].items.caption);
 
         i++;
         if (i >= images.length) {i = 0;}

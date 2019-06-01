@@ -67,29 +67,14 @@
     <script src="gallery.js"></script>
     <script id="Gallery cycler">
         function playGallery() {
-            gallery(
-                [
-                    'nixinova-mash-up/v3.1.0',
-                    'nixinova-mash-up/v3.1.0',
-                    'nixinova-mash-up/v3-alpha',
-                    'nixinova-mash-up/v3-alpha',
-                    'nixinova-mash-up/v3-alpha'
-                ],
-                [
-                    'overview.png',
-                    'blocks.png',
-                    'cave.jpg',
-                    'snowy_village.jpg',
-                    'jungle_temple.jpg'
-                ],
-                [
-                    'An overview of this resource pack.',
-                    'Some of the blocks in this resource pack.',
-                    'A cave with ores and mobs inside.',
-                    'A snowy village, with houses and a farm.',
-                    'A jungle temple surrounded by trees and leaves.'
-                ]
-            )
+            gallery([
+                {ver: 'nixinova-mash-up/v3.2.2_2', img: 'overview.png', caption: 'An overview of this resource pack.'},
+                {ver: 0, img: 'blocks.png', caption: 'An overview of this resource pack.',},
+                {ver: 0, img: 'jungle_temple.png', caption: 'Some of the blocks in this resource pack.',},
+                {ver: 0, img: 'shipwreck.png', caption: 'A cave with ores and mobs inside.'},
+                {ver: 0, img: 'zombie_village.png', caption: 'A snowy village, with houses and a farm.',},
+                {ver: 'nixinova-mash-up/v3-alpha', img: 'cave.jpg', caption: 'A jungle temple surrounded by trees and leaves.'}
+            ]);
         }
 
         var i = 0;
@@ -120,6 +105,7 @@
         <h3>1.14</h3>
         <table id="v1_14" class="flex"></table>
         <script>createTable('v1_14', [
+            {mcver: '1.14.2',               id: 'r6', packver: 'v3.2.3  ', dl: '9es4t15nt6b88f3', date: '2019-06-02'},
             {mcver: '1.14.2',               id: 'r5', packver: 'v3.2.2_2', dl: 'kr7dpcc7tbhc47r', date: '2019-06-01'},
             {mcver: '1.14.2',               id: 'r4', packver: 'v3.2.2_1', dl: 'yffe02gebvjlinb', date: '2019-06-01'},
             {mcver: '1.14.2',               id: 'r3', packver: 'v3.2.2  ', dl: '6sb00qb5mwtnycm', date: '2019-06-01'},
