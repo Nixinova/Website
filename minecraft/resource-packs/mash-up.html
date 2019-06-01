@@ -21,11 +21,14 @@
             const UNZIP_MSG = 'Unzip this file in your resource packs folder.';
 
             for (i in arr) {
+                let dl_text = attr[i].dl ? 'Download' : 'Unavailable';
+
                 if (!arr[i].date) {arr[i].date = '(TBC)';}
                 if (arr[i].snap) {arr[i].mcver = `${arr[i].mcver} (${arr[i].snap})`;}
+                if (attr[i].dl) {arr[i].dl = 'https://mediafire.com?' + arr[i].dl;}
 
-                let id_type = $.trim(arr[i].id).substring(0);
-                let id_num = $.trim(arr[i].id).substring(-1);
+                let id_type = $.trim(arr[i].id).substring(1,0);
+                let id_num = $.trim(arr[i].id).substring(1,-1);
                 let id_hover;
                 switch (id_type) {
                     case 's': id_hover = 'Snapshot version' + id_num;
@@ -37,7 +40,7 @@
                     <td width="320px">Nixinova Mash-Up ${arr[i].mcver}</td>
                     <td width="050px">${$.trim(arr[i].id)}</td>
                     <td width="090px"><span title="${id_hover}">${arr[i].packver}</span></td>
-                    <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank" title="${UNZIP_MSG}">Download</a></td>
+                    <td width="100px"><a href="${arr[i].dl}" target="_blank" title="${UNZIP_MSG}">${dl_text}</a></td>
                     <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
                 </tr>`);
             }
@@ -200,12 +203,13 @@
         <h3>1.12</h3>
         <table id="v1_12" class="flex"></table>
         <script>createTable('v1_12', [
-            {mcver: '1.12.2',                 id: 'r3', packver: 'v2.0.6', dl: 'x6a3gj2rauwgui6', date: '2018-02-04'},
-            {mcver: '1.12.2',                 id: 'r2', packver: 'v2.0.5', dl: 'xxb553oc8h2eced', date: '2017-09-19'},
-            {mcver: '1.12.1',                 id: 'r1', packver: 'v2.0.4', dl: '8ve0yg0vyah7824', date: '2017-08-26', modified: true},
-            {mcver: '1.12  ', snap: '17w17a', id: 's3', packver: 'v2.0.2', dl: '3nx2j85a9a6502e', date: '2017-04-23'},
-            {mcver: '1.12  ', snap: '17w17a', id: 's2', packver: 'v2.0.1', dl: '9lka054f1w0ldoq', date: '2017-04-23'},
-            {mcver: '1.12  ', snap: '17w17a', id: 's1', packver: 'v2    ', dl: 'bxs3spt5rk17i0j', date: '2017-04-23'}
+            {mcver: '1.12.2',               id: 'r3', packver: 'v2.0.6', dl: 'x6a3gj2rauwgui6', date: '2018-02-04'},
+            {mcver: '1.12.2',               id: 'r2', packver: 'v2.0.5', dl: 'xxb553oc8h2eced', date: '2017-09-19'},
+            {mcver: '1.12.1',               id: 'r1', packver: 'v2.0.4', dl: '8ve0yg0vyah7824', date: '2017-08-26', modified: true},
+            {mcver: '1.12  ',               id: 'r1', packver: 'v2.0.3',                                          },
+            {mcver: '1.12  ', snap: 'pre5', id: 'p3', packver: 'v2.0.2', dl: '3nx2j85a9a6502e', date: '2017-05-27'},
+            {mcver: '1.12  ', snap: 'pre2', id: 'p2', packver: 'v2.0.1', dl: '9lka054f1w0ldoq', date: '2017-05-13'},
+            {mcver: '1.12  ', snap: 'pre1', id: 'p1', packver: 'v2    ', dl: 'bxs3spt5rk17i0j', date: '2017-05-10'}
         ]);</script>
     </div>
 
@@ -259,8 +263,8 @@
         <h3>1.12</h3>
         <table id="v1_12-snap" class="flex"></table>
         <script>createTable('v1_12-snap', [
-            {mcver: '17w15a', id: 's2', packver: 'v1.9.1', dl: 'xyljtkgpr2iiu11', date: '2017-04-21'},
-            {mcver: '17w13b', id: 's1', packver: 'v1.9.0', dl: '7k1x7h9n6fxabqr', date: '2017-04-03'}
+            {mcver: '1.12', snap: '17w15a', id: 's2', packver: 'v1.9.1', dl: 'xyljtkgpr2iiu11', date: '2017-04-21'},
+            {mcver: '1.12', snap: '17w13b', id: 's1', packver: 'v1.9.0', dl: '7k1x7h9n6fxabqr', date: '2017-04-03'}
         ]);</script>
         
         <hr class="midline">
@@ -268,12 +272,12 @@
         <h3>1.11</h3>
         <table id="v1_11" class="flex"></table>
         <script>createTable('v1_11', [
-            {mcver: '1.11.2', id: 'r1', packver: 'v1.8.0    ', dl: 'mx1e97tzs7oex9o', date: '2017-02-04'},
-            {mcver: '1.11  ', id: 'r5', packver: 'v1.7.1    ', dl: 'tavs7omuvtutuza', date: '2016-12-11'},
+            {mcver: '1.11.2', id: 'r1', packver: 'v1.8.0  ', dl: 'mx1e97tzs7oex9o', date: '2017-02-04'},
+            {mcver: '1.11  ', id: 'r5', packver: 'v1.7.1  ', dl: 'tavs7omuvtutuza', date: '2016-12-11'},
             {mcver: '1.11  ', id: 'r4', packver: 'v1.7.0_1', dl: 'au86v2f555symrk', date: '2016-12-04'},
-            {mcver: '1.11  ', id: 'r3', packver: 'v1.7.0    ', dl: '66g3qxnv6mlj4be', date: '2016-12-04', unzip: true},
-            {mcver: '1.11  ', id: 'r2', packver: 'v1.6.7    ', dl: 'bi727ck5xel2vda', date: '2016-11-26'},
-            {mcver: '1.11  ', id: 'r1', packver: 'v1.6.6    ', dl: 'g5euey0vnz4dven', date: '2016-11-15', unzip: true}
+            {mcver: '1.11  ', id: 'r3', packver: 'v1.7.0  ', dl: '66g3qxnv6mlj4be', date: '2016-12-04', unzip: true},
+            {mcver: '1.11  ', id: 'r2', packver: 'v1.6.7  ', dl: 'bi727ck5xel2vda', date: '2016-11-26'},
+            {mcver: '1.11  ', id: 'r1', packver: 'v1.6.6  ', dl: 'g5euey0vnz4dven', date: '2016-11-15', unzip: true}
         ]);</script>
         
         <hr class="midline">
@@ -282,9 +286,9 @@
         <table id="v1_10" class="flex"></table>
         <script>createTable('v1_10', [
             {mcver: '1.10.2', id: 'r4', packver: 'v1.6.5_1', dl: 'al6c42m2a92fnmq', date: '2016-11-26'},
-            {mcver: '1.10.2', id: 'r3', packver: 'v1.6.5    ', dl: 'mf8q3jfcjzgi06v', date: '2016-09-18', unzip: true},
-            {mcver: '1.10.2', id: 'r2', packver: 'v1.6.4    ', dl: 'cuvk2tkrit15eg4', date: '2016-09-18', unzip: true},
-            {mcver: '1.10.2', id: 'r1', packver: 'v1.6.3    ', dl: 'l13ze36i3z9yby6', date: '2016-09-18', unzip: true}
+            {mcver: '1.10.2', id: 'r3', packver: 'v1.6.5  ', dl: 'mf8q3jfcjzgi06v', date: '2016-09-18', unzip: true},
+            {mcver: '1.10.2', id: 'r2', packver: 'v1.6.4  ', dl: 'cuvk2tkrit15eg4', date: '2016-09-18', unzip: true},
+            {mcver: '1.10.2', id: 'r1', packver: 'v1.6.3  ', dl: 'l13ze36i3z9yby6', date: '2016-09-18', unzip: true}
         ]);</script>
         
         <hr class="midline">
