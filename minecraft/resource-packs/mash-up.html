@@ -39,8 +39,8 @@
 
                 table.append(`<tr>
                     <td width="320px">Nixinova Mash-Up ${arr[i].mcver}</td>
-                    <td width="050px">${$.trim(arr[i].id)}</td>
-                    <td width="090px"><span title="${id_hover}">${arr[i].packver}</span></td>
+                    <td width="050px" title="${id_hover}">${$.trim(arr[i].id)}</td>
+                    <td width="090px">${arr[i].packver}</td>
                     <td width="100px"><a href="${arr[i].dl}" target="_blank" title="${UNZIP_MSG}">${dl_text}</a></td>
                     <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
                 </tr>`);
