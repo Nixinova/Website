@@ -10,7 +10,7 @@
     <style>
         p {margin-top: 0;}
         hr.midline {width: 66%; border-color: #888;}
-        table {min-width: 500px;}
+        
         samp {font-size: smaller;}
     </style>
     <script>
@@ -22,7 +22,7 @@
             if (arr[i].snap) {arr[i].mcver == `${arr[i].mcver}&ensp;(${arr[i].snap})`;}
 
             table.append(`<tr>
-            <td width="200px"><span class="nomobile">Nixinova</span> ${id} <span class="nomobile">Mash-Up</span> ${arr[i].mcver}</td>
+            <td width="320px"><span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span> ${arr[i].mcver}</td>
             <td width="075px">${arr[i].packver}</td>
             <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
             <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
