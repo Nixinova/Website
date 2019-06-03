@@ -22,7 +22,7 @@
             if (arr[i].snap) {arr[i].mcver == `${arr[i].mcver}&ensp;(${arr[i].snap})`;}
 
             table.append(`<tr>
-            <td width="320px"><span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span> ${arr[i].mcver}</td>
+            <td width="320px"><only desktop>Nixinova</only> ${id} <only desktop>Mash-Up</only> ${arr[i].mcver}</td>
             <td width="075px">${arr[i].packver}</td>
             <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
             <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
@@ -43,19 +43,16 @@
         </div>
         <div class="screenshot"></div>
     </div>
-    <div id="caption">
-        <p></p>
-    </div>
 
     <script src="gallery.js"></script>
     <script name="Gallery cycler">
         function playGallery() {
             gallery([
-                {path: 'easter-mash-up/v1.2.1', img: 'changed-textures.jpg', caption: 'All of the changed textures in the Easter pack.'},
-                {path: 'easter-mash-up/v1.2.1', img: 'title.jpg', caption: 'The main menu screen in the Easter pack.'},
-                {path: 'christmas-mash-up/v2.1.1', img: 'blocks.jpg', caption: 'All of the changed blocks in the Christmas pack.'},
-                {path: 'christmas-mash-up/v2.1.1', img: 'items.jpg', caption: 'All of the changed items in the Christmas pack.'},
-                {path: 'christmas-mash-up/v2.1.1', img: 'ores.jpg', caption: 'A collection of ores from the Christmas pack.'}
+                'easter-mash-up/v1.2.1/changed-textures.jpg',
+                'easter-mash-up/v1.2.1/title.jpg',
+                'christmas-mash-up/v2.1.1/blocks.jpg',
+                'christmas-mash-up/v2.1.1/items.jpg',
+                'christmas-mash-up/v2.1.1/ores.jpg'
             ]);
         }
 
@@ -68,7 +65,7 @@
     <h1>Themed Mash-Up Packs</h2>
     <p>
         These packs are themed holiday packs, which only change a few textures.<br/>
-        Use in addition to my <a no-sp href="mash-up">regular Mash-Up Pack</a> for the best experience!<br/>
+        Use in addition to my <a href="mash-up">regular Mash-Up Pack</a> for the best experience!<br/>
         Hover over a version number to display more information about that version of the resource pack.<br/>
         <strong>
             These downloads are for the Java Edition of Minecraft only.

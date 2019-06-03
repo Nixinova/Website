@@ -38,7 +38,7 @@
                 }
 
                 table.append(`<tr>
-                    <td width="320px"><span class="desktoponly">Nixinova Mash-Up</span> ${arr[i].mcver}</td>
+                    <td width="320px"><only desktop>Nixinova Mash-Up</only> ${arr[i].mcver}</td>
                     <td width="050px" title="${id_hover}">${$.trim(arr[i].id)}</td>
                     <td width="090px">${arr[i].packver}</td>
                     <td width="100px"><a href="${arr[i].dl}" target="_blank" title="${UNZIP_MSG}">${dl_text}</a></td>
@@ -60,20 +60,17 @@
         </div>
         <div class="screenshot"></div>
     </div>
-    <div id="caption">
-        <p></p>
-    </div>
 
     <script src="gallery.js"></script>
     <script id="Gallery cycler">
         function playGallery() {
             gallery([
-                {path: 'nixinova-mash-up/v3.2.2_2', img: 'overview.png', caption: 'An overview of this resource pack.'},
-                {path: 'nixinova-mash-up/v3.2.2_2', img: 'blocks.png', caption: 'An overview of this resource pack.',},
-                {path: 'nixinova-mash-up/v3.2.2_2', img: 'jungle_temple.png', caption: 'Some of the blocks in this resource pack.',},
-                {path: 'nixinova-mash-up/v3.2.2_2', img: 'shipwreck.png', caption: 'A cave with ores and mobs inside.'},
-                {path: 'nixinova-mash-up/v3.2.2_2', img: 'zombie_village.png', caption: 'A snowy village, with houses and a farm.',},
-                {path: 'nixinova-mash-up/v3-alpha', img: 'cave.jpg', caption: 'A jungle temple surrounded by trees and leaves.'}
+                'nixinova-mash-up/v3.2.2_2/overview.png',
+                'nixinova-mash-up/v3.2.2_2/blocks.png',
+                'nixinova-mash-up/v3.2.2_2/jungle_temple.png',
+                'nixinova-mash-up/v3.2.2_2/shipwreck.png',
+                'nixinova-mash-up/v3.2.2_2/zombie_village.png',
+                'nixinova-mash-up/v3-alpha/cave.jpg'
             ]);
         }
 
