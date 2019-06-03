@@ -64,10 +64,10 @@ a:hover button {background: royalblue; font-size: 21px;}
 /* Hiding */
 .hide {display: none !important;}
 @media (min-width: 801px) {
-    only[mobile] {display: none !important;}
+    .mobileonly {display: none !important;}
 }
 @media (max-width: 800px) {
-    only[desktop] {display: none !important;}
+    .desktoponly {display: none !important;}
     main {margin-top: 6em;}
 }
 
