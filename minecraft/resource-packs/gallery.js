@@ -11,7 +11,7 @@ function gallery(arr) {
             var src = '/images/minecraft/resource-packs/' + arr[i].path + '/' + arr[i].img;
 
             $gallery_img.css("background-image", "url('" + src + "')").attr("alt", arr[i].caption);
-            $caption.html(arr[i].items.caption);
+            $caption.html(arr[i].caption);
 
             //i++;
             //if (i >= images.length) {i = 0;}
