@@ -11,7 +11,7 @@
     <style>
         p {margin-top: 0;}
         hr.midline {width: 66%; border-color: #888;}
-        table {min-width: 500px;}
+        
         samp {font-size: smaller;}
     </style>
     <script>
@@ -25,7 +25,7 @@
             <td width="300px">${arr[i].name}</td>
             <td width="075px">${arr[i].mcver}</td>
             <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
-            <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
+            <td width="120px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
             </tr>`);
         }
     }
