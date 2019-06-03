@@ -1,4 +1,5 @@
 var $text = $('#pause-text');
+var count = 0;
 
 function togglePlay() {
     if ($text.html() == 'pause') {
@@ -16,4 +17,5 @@ function gallery(arr) {
             $gallery_img.css("background-image", "url('" + src + "')");
         }
     }
+    count++;
 };
