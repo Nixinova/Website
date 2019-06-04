@@ -16,7 +16,7 @@
         samp {font-size: smaller;}
     </style>
     <script>
-        function createTable(id, arr) {
+        function createTable1(id, arr) {
             var table = $('#'+id);
             const UNZIP_MSG = 'Unzip this file in your resource packs folder.';
 
@@ -47,6 +47,8 @@
                 </tr>`);
             }
         }
+
+        function createTable(id,arr){try{createTable1(id,arr)}catch(e){alert(e.stack)}}
     </script>
 </head>
 <body>
