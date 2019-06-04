@@ -25,7 +25,7 @@
 
                 if (!arr[i].date) {arr[i].date = '(TBC)';}
                 if (arr[i].snap) {arr[i].mcver = `${arr[i].mcver} (${arr[i].snap})`;}
-                if (arr[i].dl) {arr[i].dl = 'https://mediafire.com?' + arr[i].dl;}
+                if (arr[i].dl) {arr[i].dl = 'https://mediafire.com?' + arr[i].dl;} else {arr[i].dl = '';}
                 let unzip;
                 if (arr[i].unzip) {unzip = UNZIP_MSG}
                 arr[i].id = $.trim(arr[i].id);
@@ -193,7 +193,7 @@
             {mcver: '1.12.2',               id: 'r3', packver: 'v2.0.6', dl: 'x6a3gj2rauwgui6', date: '2018-02-04'},
             {mcver: '1.12.2',               id: 'r2', packver: 'v2.0.5', dl: 'xxb553oc8h2eced', date: '2017-09-19'},
             {mcver: '1.12.1',               id: 'r1', packver: 'v2.0.4', dl: '8ve0yg0vyah7824', date: '2017-08-26', modified: true},
-            {mcver: '1.12  ',               id: 'r1', packver: 'v2.0.3',                                          },
+            {mcver: '1.12  ',               id: 'r1', packver: 'v2.0.3', dl: undefined        , date: ''          },
             {mcver: '1.12  ', snap: 'pre5', id: 'p3', packver: 'v2.0.2', dl: '3nx2j85a9a6502e', date: '2017-05-27'},
             {mcver: '1.12  ', snap: 'pre2', id: 'p2', packver: 'v2.0.1', dl: '9lka054f1w0ldoq', date: '2017-05-13'},
             {mcver: '1.12  ', snap: 'pre1', id: 'p1', packver: 'v2    ', dl: 'bxs3spt5rk17i0j', date: '2017-05-10'}
