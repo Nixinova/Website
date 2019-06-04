@@ -22,11 +22,7 @@ h2 {font-size: 2.2rem;}
 h3 {font-size: 1.7rem;}
 h4 {font-size: 1.0rem;}
 h5 {font-size: 0.8rem;}
-h6 {font-size: 14px; font-weight: bold; text-align: center; margin-top: 1em; margin-bottom: -1em;}
-
-@media (max-width: 800px) {
-    main {padding: 0 10px;}
-}
+h6 {font: 14px bold; text-align: center; margin-top: 1em; margin-bottom: -1em;}
 
 /* Links */
 a {text-decoration: none; cursor: pointer;}
@@ -45,8 +41,9 @@ ul.plain {list-style-type: none; text-align: center;}
 /* YouTube videos */
 iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 
-/* Flexboxes */
-@media (min-width: 1001px) {
+/* Responsive */
+@media (min-width: 1000px) {
+    main {padding: 0 10px;}
     .row {display: flex;}
     .row>div {margin: 0 10px;}
     .flex {width: var(--width);}
@@ -57,7 +54,7 @@ iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 /* Buttons */
 div.button, .button-div {text-align: center;}
 button {background: dodgerblue; color: white; padding: 12px 30px; cursor: pointer; font-size: 20px; border: none; border-radius: 0.5em; transition: 0.25s;}
-#download-btn button {margin: 0; border-radius: 2em;}
+div.download button {margin: 0; border-radius: 2em;}
 a button, a:visited button {color: white; text-decoration: none;}
 a:hover button {background: royalblue; font-size: 21px;}
 
