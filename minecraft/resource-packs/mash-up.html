@@ -16,7 +16,7 @@
         samp {font-size: smaller;}
     </style>
     <script>
-        function createTable1(id, arr) {
+        function createTable(id, arr) {
             var table = $('#'+id);
             const UNZIP_MSG = 'Unzip this file in your resource packs folder.';
 
@@ -26,6 +26,7 @@
                 if (!arr[i].date) {arr[i].date = '(TBC)';}
                 if (arr[i].snap) {arr[i].mcver = `${arr[i].mcver} (${arr[i].snap})`;}
                 if (arr[i].dl) {arr[i].dl = 'https://mediafire.com?' + arr[i].dl;}
+                let unzip;
                 if (arr[i].unzip) {unzip = UNZIP_MSG}
                 arr[i].id = $.trim(arr[i].id);
 
@@ -47,8 +48,6 @@
                 </tr>`);
             }
         }
-
-        function createTable(id,arr){try{createTable1(id,arr)}catch(e){alert(e.stack)}}
     </script>
 </head>
 <body>
