@@ -4,7 +4,7 @@
 
 /* Base elements */
 * {box-sizing: border-box; transition: 0.5s;}
-body {font: normal 15px 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: #2b2b2b;}
+body {font: normal 15px 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: #4c4c4c;}
 nav {background: #222;}
 main {padding: 0 5vw; min-height: calc(100vh - 143px);}
 footer {width: 100%; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff; text-align: center;}
