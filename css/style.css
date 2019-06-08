@@ -4,7 +4,7 @@
 
 /* Base elements */
 * {box-sizing: border-box; transition: 0.5s;}
-body {font: normal 15px 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: #2b2b2b;}
+body {font: normal 15px 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: #313131;}
 nav {background: #222;}
 main {padding: 0 5vw; min-height: calc(100vh - 143px);}
 footer {width: 100%; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff; text-align: center;}
@@ -17,16 +17,13 @@ img {max-width: 100%; vertical-align: middle; border: 0;}
 /* Headings */
 h1, h2, h3, h4, h5 {color: #eee; margin: 0; font-weight: bold; text-align: center; width: 100%;}
 h1, h2, h3, h4 {text-transform: uppercase;}
-h1 {font-size: 2.5rem;}
-h2 {font-size: 2.2rem;}
-h3 {font-size: 1.7rem;}
-h4 {font-size: 1.0rem;}
-h5 {font-size: 0.8rem;}
-h6 {font-size: 14px; font-weight: bold; text-align: center; margin-top: 1em; margin-bottom: -1em;}
-
-@media (max-width: 800px) {
-    main {padding: 0 10px;}
-}
+h4, h5, h6 {font-weight: bold;}
+h1 {font-size: 2.6em;}
+h2 {font-size: 2.1em;}
+h3 {font-size: 1.6em;}
+h4 {font-size: 1.4em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1.1em; text-align: center; margin-top: 1em; margin-bottom: -1em;}
 
 /* Links */
 a {text-decoration: none; cursor: pointer;}
@@ -45,8 +42,9 @@ ul.plain {list-style-type: none; text-align: center;}
 /* YouTube videos */
 iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 
-/* Flexboxes */
-@media (min-width: 1001px) {
+/* Responsive */
+@media (min-width: 1000px) {
+    main {padding: 0 10px;}
     .row {display: flex;}
     .row>div {margin: 0 10px;}
     .flex {width: var(--width);}
@@ -55,9 +53,9 @@ iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 }
 
 /* Buttons */
-div.button, .button-div {text-align: center;}
+div.download {text-align: center;}
 button {background: dodgerblue; color: white; padding: 12px 30px; cursor: pointer; font-size: 20px; border: none; border-radius: 0.5em; transition: 0.25s;}
-#download-btn button {margin: 0; border-radius: 2em;}
+div.download button {margin: 0; border-radius: 2em;}
 a button, a:visited button {color: white; text-decoration: none;}
 a:hover button {background: royalblue; font-size: 21px;}
 
