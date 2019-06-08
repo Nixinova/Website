@@ -12,7 +12,6 @@
         hr.midline {width: 66%; border-color: #888;}
         table {margin: 0 auto;}
         table tr {line-height: 1.2; font-size: 1.1em;}
-        table td {padding: auto 15px;}
         table i.material-icons {cursor: help; font-size: 1em;}
         samp {font-size: smaller;}
     </style>
@@ -41,11 +40,11 @@
                 }
 
                 table.append(`<tr>
-                    <td style="max-width: 250px;"><span class="desktoponly">Nixinova Mash-Up</span> ${arr[i].mcver}</td>
-                    <td style="max-width: 050px;" title="${id_hover}">${$.trim(arr[i].id)}</td>
-                    <td style="max-width: 090px;">${arr[i].packver}</td>
-                    <td style="max-width: 100px;"><a href="${arr[i].dl}" target="_blank" title="${unzip}">${dl_text}</a></td>
-                    <td style="max-width: 100px;"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
+                    <td width="300px"><span class="desktoponly">Nixinova Mash-Up</span> ${arr[i].mcver}</td>
+                    <td width="050px" title="${id_hover}">${$.trim(arr[i].id)}</td>
+                    <td width="090px">${arr[i].packver}</td>
+                    <td width="100px"><a href="${arr[i].dl}" target="_blank" title="${unzip}">${dl_text}</a></td>
+                    <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
                 </tr>`);
             }
         }
