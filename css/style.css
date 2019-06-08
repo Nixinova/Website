@@ -22,7 +22,7 @@ h2 {font-size: 2.2rem;}
 h3 {font-size: 1.7rem;}
 h4 {font-size: 1.0rem;}
 h5 {font-size: 0.8rem;}
-h6 {font: 14px bold; text-align: center; margin-top: 1em; margin-bottom: -1em;}
+h6 {font: 0.7rem bold; text-align: center; margin-top: 1em; margin-bottom: -1em;}
 
 /* Links */
 a {text-decoration: none; cursor: pointer;}
