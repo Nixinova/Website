@@ -9,7 +9,7 @@ function togglePlay() {
 }
 
 function gallery(arr) {
-    if ($text.html() == 'play_arrow') {
+    if ($text.html() == 'pause') {
         const $gallery_img = $('#gallery .screenshot')
         let src = '/images/minecraft/resource-packs/' + arr[i];
         $gallery_img.css("background-image", "url('" + src + "')");
