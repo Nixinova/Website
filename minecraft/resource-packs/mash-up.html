@@ -57,30 +57,8 @@
 </header>
 <main>
     <div id="gallery">
-        <div id="pause" onclick="togglePlay(); playGallery();">
-            <i class="material-icons" id="pause-text">play_arrow</i>
-        </div>
-        <div class="screenshot"></div>
+        <div class="screenshot" style="background-image: url('/images/nixinova-mash-up/v3.2.2_2.png')"></div>
     </div>
-
-    <script src="gallery.js"></script>
-    <script id="Gallery cycler">
-        function playGallery() {
-            gallery([
-                'nixinova-mash-up/v3.2.2_2/overview.png',
-                'nixinova-mash-up/v3.2.2_2/blocks.png',
-                'nixinova-mash-up/v3.2.2_2/jungle_temple.png',
-                'nixinova-mash-up/v3.2.2_2/shipwreck.png',
-                'nixinova-mash-up/v3.2.2_2/zombie_village.png',
-                'nixinova-mash-up/v3-alpha/cave.jpg'
-            ]);
-        }
-
-        var i = 0;
-        playGallery();
-
-        setInterval(playGallery, 10000);
-    </script>
 
     <h1>Nixinova Mash-Up Pack</h1>
     <p>

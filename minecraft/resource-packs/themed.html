@@ -38,29 +38,8 @@
 </header>
 <main>
     <div id="gallery">
-        <div id="pause" onclick="togglePlay(); playGallery();">
-            <i class="material-icons" id="pause-text">play_arrow</i>
-        </div>
-        <div class="screenshot"></div>
+        <div class="screenshot" style="background-image: url('/images/easter-mash-up/v1.2.1.jpg');"></div>
     </div>
-
-    <script src="gallery.js"></script>
-    <script name="Gallery cycler">
-        function playGallery() {
-            gallery([
-                'easter-mash-up/v1.2.1/changed-textures.jpg',
-                'easter-mash-up/v1.2.1/title.jpg',
-                'christmas-mash-up/v2.1.1/blocks.jpg',
-                'christmas-mash-up/v2.1.1/items.jpg',
-                'christmas-mash-up/v2.1.1/ores.jpg'
-            ]);
-        }
-
-        var i = 0;
-        playGallery();
-
-        setInterval(playGallery, 10000);
-    </script>
 
     <h1>Themed Mash-Up Packs</h2>
     <p>
