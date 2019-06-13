@@ -11,7 +11,7 @@ function togglePlay() {
 function gallery(arr) {
     if ($text.html() == 'pause') {
         const $gallery_img = $('#gallery .screenshot')
-        let src = '/images/minecraft/resource-packs/' + arr[i];
+        let src = 'https://images.nixinova.com/minecraft/resource-packs/' + arr[i];
         $gallery_img.css("background-image", "url('" + src + "')");
 
         i++;
