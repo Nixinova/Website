@@ -15,8 +15,9 @@
         table i.material-icons {cursor: help; font-size: 1em;}
         samp {font-size: smaller;}
 
-        .table-version-title {width: 280px;}
-        .table-version-packver {width: 70px;}
+        .table-version-title {width: 210px;}
+        .table-version-title-snap {width: 280px;}
+        .table-version-packver {width: 75px;}
         .table-version-download {width: 100px;}
         .table-version-date {width: 80px;}
     </style>
@@ -27,15 +28,15 @@
 
             for (i in arr) {
                 let dl_text = arr[i].dl ? 'Download' : 'Unavailable';
+                let snap_class = arr[i].snap ? '-snap' : '';
+                let unzip = arr[i].unzip ? UNZIP_MSG : '';
 
                 if (!arr[i].date) {arr[i].date = '(TBC)';}
                 if (arr[i].snap) {arr[i].mcver = `${arr[i].mcver} (${arr[i].snap})`;}
                 if (arr[i].dl) {arr[i].dl = 'https://mediafire.com?' + arr[i].dl;} else {arr[i].dl = '';}
-                let unzip;
-                if (arr[i].unzip) {unzip = UNZIP_MSG}
 
                 table.append(`<tr>
-                    <td class="table-version-title"><span class="desktoponly">Nixinova Mash-Up</span> ${arr[i].mcver}</td>
+                    <td class="table-version-title${snap_class}"><span class="desktoponly">Nixinova Mash-Up</span> ${arr[i].mcver}</td>
                     <td class="table-version-packver">${arr[i].packver}</td>
                     <td class="table-version-download"><a href="${arr[i].dl}" target="_blank" title="${unzip}">${dl_text}</a></td>
                     <td class="table-version-date"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
