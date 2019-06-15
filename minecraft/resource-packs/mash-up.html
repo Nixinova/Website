@@ -26,8 +26,9 @@
 
             for (i in arr) {
                 let dl_text = arr[i].dl ? 'Download' : 'Unavailable';
-                let dl_type = arr[i].unzip ? 'abbr' : 'span';
-                let unzip = arr[i].unzip ? 'Unzip this file in your resource packs folder.' : '';
+                let dl_element = arr[i].unzip ? 'abbr' : 'span';
+                let dl_title = arr[i].unzip ? 'Unzip this file in your resource packs folder.' : ''
+                let unzip = arr[i].unzip ? 'Unzip this file in your resource packs folder.' : `Download ${packver} for ${mcver}`;
 
                 let mcver = arr[i].snap ? `${arr[i].mcver} (${arr[i].snap})` : arr[i].mcver;
                 let packver = arr[i].packver;
@@ -37,7 +38,7 @@
                 table.append(`<tr>
                     <td><span class="desktoponly">Nixinova Mash-Up</span> ${mcver}</td>
                     <td>${packver}</td>
-                    <td><a href="${dl}" target="_blank" title="Download ${packver} for ${mcver}"><${dl_type} title="${unzip}">Download</span></a></td>
+                    <td><a href="${dl}" target="_blank"><${dl_element} title="${dl_title}">Download</span></a></td>
                     <td><samp><time datetime="${date.replace(/-/g,'')}+12:00">${date}</time></samp></td>
                 </tr>`);
             }
