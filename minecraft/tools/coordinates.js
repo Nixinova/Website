@@ -24,7 +24,6 @@ function coord(type) {
     var nether_y = value('nether_y');
     var nether_z = value('nether_z');
     var region_x = value('region_x');
-    var region_y = NaN; // should stay unused
     var region_z = value('region_z');
 
     /// GENERATOR ///

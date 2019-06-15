@@ -566,6 +566,9 @@ function submit() {
     catch (error) {
         alert(error.stack);
     }
+    finally {
+        give();
+    }
 }
 
 /* Copyright 2019 Nixinova */

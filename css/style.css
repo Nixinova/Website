@@ -9,8 +9,9 @@ nav {background: #222;}
 main {padding: 0 5vw; min-height: calc(100vh - 143px);}
 footer {width: 100%; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff; text-align: center;}
 p {text-align: center;}
+hr {width: 90%;}
 code {font-size: 1.1em;}
-key {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
+kbd {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
 img {max-width: 100%; vertical-align: middle; border: 0;}
 abbr {cursor: help;}
 
@@ -28,7 +29,7 @@ h6 {font-size: 1.1em; text-align: center; margin-top: 1em; margin-bottom: -1em;}
 /* Links */
 a {text-decoration: none; cursor: pointer;}
 a:link, a:visited {color: #acf;}
-a:not(.tooltip):hover {opacity: 0.65; transition: 0.2s;}
+a:link:hover {opacity: 0.65; transition: 0.2s;}
 
 /* Lists */
 ul.plain {list-style-type: none; text-align: center;}
