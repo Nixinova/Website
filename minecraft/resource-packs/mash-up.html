@@ -34,7 +34,7 @@
                 let dl_text = arr[i].dl ? 'Download' : 'Unavailable';
                 let dl_title = `Download ${packver} for Minecraft ${arr[i].snap ? arr[i].snap : arr[i].mcver}`;
 
-                let unzip = arr[i].unzip ? '<sup title="Unzip this file in your resource packs folder.">*</sup>' : '';
+                let unzip = arr[i].unzip ? '<small title="Unzip this file in your resource packs folder.">*</small>' : '';
 
                 table.append(`<tr>
                     <td><span class="desktoponly">Nixinova Mash-Up</span> ${mcver}</td>
