@@ -123,9 +123,6 @@ function submit(id) {
     catch (error) {
         alert('Error on submit: ' + error + '.');
     }
-    finally {
-        coord(id);
-    }
 }
 
 /* Copyright 2018 Nixinova */

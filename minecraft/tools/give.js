@@ -254,8 +254,8 @@ function give() {
     var item_id = item.replace('minecraft:','');
     if (!item || item === 'minecraft:' || item === ':') {item = 'stone';}
     if (colpos === item.length-1) {item = 'minecraft:' + item.slice(0,-1);}
-    if (colpos === -1) {item = 'minecraft:' + item;} else
-    if (colpos === 0) {item = 'minecraft' + item;}
+    if (colpos === -1) {item = 'minecraft:' + item;}
+    else if (colpos === 0) {item = 'minecraft' + item;}
     // NBT //
       {
         nbt = {};
@@ -368,7 +368,7 @@ function give() {
                 }
             }
 
-            nbt.display.Name = JSON.stringify(display)
+            nbt.display.Name = JSON.stringify(display);
             .replace(/\\\\\\\\\\\\\\\\/g, '\\\\').replace(/\\\\\\\\\\\\\\"/g, '\\"');
         } else {
             $('#preview').addClass('hide');
@@ -565,9 +565,6 @@ function submit() {
     }
     catch (error) {
         alert(error.stack);
-    }
-    finally {
-        give();
     }
 }
 

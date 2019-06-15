@@ -9,15 +9,15 @@ function cleanup(id) {
 function summon() {
 
     /// VARIABLES ///
-    var zombies = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager']
+    var zombies = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
     var neg_age_mobs = [
         'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot', 'panda',
         'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
-    ]
+    ];
     var tame_mobs = [
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse', 'llama'
-    ]
+    ];
 
     // call from input form //
     var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
@@ -198,10 +198,10 @@ function summon() {
     if (neg_age_mobs.indexOf(entity) > -1) {
         $('.baby_mobs').removeClass('hide');
         if (baby && baby_time_value) {
-            if (baby_time == 't') {nbt.Age = 0-baby_time_value}
-            if (baby_time == 's') {nbt.Age = 0-baby_time_value*20}
-            if (baby_time == 'm') {nbt.Age = 0-baby_time_value*1200}
-            if (baby_time == 'h') {nbt.Age = 0-baby_time_value*72000}
+            if (baby_time == 't') {nbt.Age = 0-baby_time_value;}
+            if (baby_time == 's') {nbt.Age = 0-baby_time_value*20;}
+            if (baby_time == 'm') {nbt.Age = 0-baby_time_value*1200;}
+            if (baby_time == 'h') {nbt.Age = 0-baby_time_value*72000;}
             $('.baby_living_mobs').removeClass('hide');
         }
     }
@@ -278,9 +278,6 @@ function submit() {
     }
     catch (error) {
         alert(error.stack);
-    }
-    finally {
-        summon();
     }
 }
 
