@@ -125,4 +125,4 @@ function submit(id) {
     }
 }
 
-/* Copyright 2018 Nixinova */
+/* Copyright 2019 Nixinova */
