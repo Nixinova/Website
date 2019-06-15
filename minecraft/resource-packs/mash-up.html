@@ -11,8 +11,9 @@
         p {margin-top: 0;}
         hr.midline {width: 66%; border-color: #888;}
         table {margin: 0 auto;}
-        table tr td {padding: 0 5px;}
         table tr {line-height: 1.2; font-size: 1.1em;}
+        table tr td {padding: 0 5px;}
+        table tr td sup {cursor: help;}
         samp {font-size: smaller;}
 
         @media (min-width: 600px) {
@@ -27,18 +28,19 @@
             for (i in arr) {
                 let dl_text = arr[i].dl ? 'Download' : 'Unavailable';
                 let dl_element = arr[i].unzip ? 'abbr' : 'span';
-                let dl_title = arr[i].unzip ? 'Unzip this file in your resource packs folder.' : ''
-                let unzip = arr[i].unzip ? 'Unzip this file in your resource packs folder.' : `Download ${packver} for ${mcver}`;
+                let dl_title = `Download ${packver} for ${mcver}`;
 
                 let mcver = arr[i].snap ? `${arr[i].mcver} (${arr[i].snap})` : arr[i].mcver;
                 let packver = arr[i].packver;
                 let dl = arr[i].dl ? 'https://mediafire.com?' + arr[i].dl : '';
                 let date = arr[i].date ? arr[i].date : '(TBC)';
 
+                let unzip = arr[i].unzip ? '<sup title="Unzip this file in your resource packs folder.">?</sup>' : '';
+
                 table.append(`<tr>
                     <td><span class="desktoponly">Nixinova Mash-Up</span> ${mcver}</td>
                     <td>${packver}</td>
-                    <td><a href="${dl}" target="_blank"><${dl_element} title="${dl_title}">Download</span></a></td>
+                    <td><a href="${dl}" target="_blank"><${dl_element} title="${dl_title}">Download</span>${unzip}</a></td>
                     <td><samp><time datetime="${date.replace(/-/g,'')}+12:00">${date}</time></samp></td>
                 </tr>`);
             }
