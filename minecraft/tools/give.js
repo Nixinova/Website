@@ -368,7 +368,7 @@ function give() {
                 }
             }
 
-            nbt.display.Name = JSON.stringify(display);
+            nbt.display.Name = JSON.stringify(display)
             .replace(/\\\\\\\\\\\\\\\\/g, '\\\\').replace(/\\\\\\\\\\\\\\"/g, '\\"');
         } else {
             $('#preview').addClass('hide');
