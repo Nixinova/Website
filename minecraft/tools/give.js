@@ -93,9 +93,9 @@ function give() {
     var i_unbreakable = $('#input_item_unbreakable').hasClass('on');
     var i_durability = value('input_item_durability',1);
     var i_destroy = value('input_item_destroy').toLowerCase().replace(/[ \-]/g, "_").replace(/[^a-z_:#]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_destroy_tag = value('input_item_destroy_tags').toLowerCase().replace(/ /g, '_');
+    var i_destroy_tag = value('input_item_destroy_tags');
     var i_place_on = value('input_item_place_on').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:#]/g,"").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_place_on_tag = value('input_item_place_on_tags').toLowerCase().replace(/ /g, '_');
+    var i_place_on_tag = value('input_item_place_on_tags');
     var i_mod = value('input_item_mod');
     var i_mod_amount = value('input_item_mod_value','int');
     var i_mod_op = value('input_item_mod_operation','num');
@@ -368,8 +368,7 @@ function give() {
                 }
             }
 
-            nbt.display.Name = JSON.stringify(display)
-            .replace(/\\\\\\\\\\\\\\\\/g, '\\\\').replace(/\\\\\\\\\\\\\\"/g, '\\"');
+            nbt.display.Name = JSON.stringify(display).replace(/\\\\\\\\\\\\\\\\/g, '\\\\').replace(/\\\\\\\\\\\\\\"/g, '\\"');
         } else {
             $('#preview').addClass('hide');
         }
