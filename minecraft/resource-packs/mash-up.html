@@ -27,17 +27,18 @@
             for (i in arr) {
                 let dl_text = arr[i].dl ? 'Download' : 'Unavailable';
                 let dl_type = arr[i].unzip ? 'abbr' : 'span';
-                let unzip_text = arr[i].unzip ? 'Unzip this file in your resource packs folder.' : '';
+                let unzip = arr[i].unzip ? 'Unzip this file in your resource packs folder.' : '';
 
-                if (!arr[i].date) {arr[i].date = '(TBC)';}
-                if (arr[i].snap) {arr[i].mcver = `${arr[i].mcver} (${arr[i].snap})`;}
-                if (arr[i].dl) {arr[i].dl = 'https://mediafire.com?' + arr[i].dl;} else {arr[i].dl = '';}
+                let mcver = arr[i].snap ? `${arr[i].mcver} (${arr[i].snap})` : arr[i].mcver;
+                let packver = arr[i].packver;
+                let dl = arr[i].dl ? 'https://mediafire.com?' + arr[i].dl : '';
+                let date = arr[i].date ? arr[i].date : '(TBC)';
 
                 table.append(`<tr>
-                    <td><span class="desktoponly">Nixinova Mash-Up</span> ${arr[i].mcver}</td>
-                    <td>${arr[i].packver}</td>
-                    <td><a href="${arr[i].dl}" target="_blank"><${dl_type} title="${unzip_text}">Download</span></a></td>
-                    <td><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
+                    <td><span class="desktoponly">Nixinova Mash-Up</span> ${mcver}</td>
+                    <td>${packver}</td>
+                    <td><a href="${dl}" target="_blank" title="Download ${packver} for ${mcver}"><${dl_type} title="${unzip}">Download</span></a></td>
+                    <td><samp><time datetime="${date.replace(/-/g,'')}+12:00">${date}</time></samp></td>
                 </tr>`);
             }
         }
