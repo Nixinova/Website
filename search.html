@@ -8,19 +8,19 @@
     <meta name="keywords" content="nixinova,nixi,nova,nixinova website,nixinova search">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style name="Search bar modifications">
+    <style name="Search modifications">
         div.gsc-thumbnail-inside>div.gs-title {font-size: 18px !important;}
-        div.gsc-control-cse {border-radius: 1em;}
-        div.gsq_a td span b {color: black;}
-        a.gs-title {font-family: 'Montserrat';}
+        div.gsc-control-cse {border-radius: 1em !important;}
+        div.gsq_a td span b {color: black !important;}
+        a.gs-title {font-family: 'Montserrat' !important;}
 
-        #gsc-i-id1 {padding: 5px; margin: -2px 0 0 -5px;}
-        .gscb_a {padding: 0; display: inline;}
-        .gsc-control-cse {border-color: #222; background-color: #333;}
-        .gsc-webResult.gsc-result {border-color: #333; background-color: #444; padding: 5px;}
-        .gs-snippet {color: #eee; padding: 5px;}
-        .gs-title, .gs-title a, a.gs-title:link, .gcsc-find-more-on-google {color: #a6c6fd !important;}
-        .gsc-cursor-page {background: none;}
+        #gsc-i-id1 {padding: 5px !important; margin: -2px 0 0 -5px !important;}
+        .gscb_a {padding: 0 !important; display: inline !important;}
+        .gsc-control-cse {border-color: #222 !important; background-color: #333 !important;}
+        .gsc-webResult.gsc-result {border-color: #0000 !important; background-color: #0000 !important; padding: 5px !important;}
+        .gs-snippet {color: #eee !important; padding: 5px !important;}
+        .gs-title, a.gs-title *, a.gs-title:link, .gcsc-find-more-on-google {color: #a6c6fd !important;}
+        .gsc-cursor-page {background: none !important;}
     </style>
 </head>
 <body>
@@ -30,7 +30,7 @@
     </header>
     
     <main>
-        <!--<iframe src="/imports/search-query" style="width:100%; height:100%; z-index: 99; border: none; margin-top: -5px;"></iframe>-->
+        <script>$('.gcsc-find-more-on-google svg path').attr('fill','#a6c6fd');</script>
         <div id="search">
             <h2>Search this website</h2>
             <script>
