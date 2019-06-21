@@ -13,7 +13,7 @@
         hr.midline {width: 75%; border-color: #888;}
         table {margin: 0 auto;}
         table tr {line-height: 1.2; font-size: 1.1em;}
-        table tr td {padding: 0 5px;}
+        table tr td {padding: 0 5px; white-space: nowrap;}
         table tr td small {cursor: help;}
         samp {font-size: smaller;}
 
@@ -31,7 +31,7 @@
                 let mcver = arr[i].snap ? `${arr[i].mcver} (${arr[i].snap})` : arr[i].mcver;
                 let packver = $.trim(arr[i].packver);
                 let dl = arr[i].dl ? 'https://mediafire.com?' + arr[i].dl : '';
-                let date = arr[i].date ? arr[i].date.replace(/-/g, '&#8209;') : '(TBC)';
+                let date = arr[i].date ? arr[i].date : '(TBC)';
 
                 let dl_text = arr[i].dl ? 'Download' : 'Unavailable';
                 let dl_title = `Download ${packver} for Minecraft ${arr[i].snap ? arr[i].snap : arr[i].mcver}`;
