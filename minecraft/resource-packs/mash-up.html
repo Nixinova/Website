@@ -16,6 +16,7 @@
         table tr td {padding: 0 5px;}
         table tr td small {cursor: help;}
         samp {font-size: smaller;}
+        .date {width: 90px;}
 
         @media (min-width: 600px) {
             table {min-width: 550px;}
@@ -41,7 +42,7 @@
                 table.append(`<tr>
                     <td><span class="desktoponly">Nixinova Mash-Up</span> ${mcver}</td>
                     <td>${packver}</td>
-                    <td><a href="${dl}" target="_blank" title="${dl_title}">Download</a>${unzip}</td>
+                    <td class="date"><a href="${dl}" target="_blank" title="${dl_title}">Download</a>${unzip}</td>
                     <td><samp><time datetime="${date.replace(/-/g,'')}+12:00">${date}</time></samp></td>
                 </tr>`);
             }
