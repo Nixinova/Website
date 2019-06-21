@@ -16,7 +16,6 @@
         table tr td {padding: 0 5px;}
         table tr td small {cursor: help;}
         samp {font-size: smaller;}
-        .date {width: 90px;}
 
         @media (min-width: 600px) {
             table {min-width: 550px;}
@@ -32,7 +31,7 @@
                 let mcver = arr[i].snap ? `${arr[i].mcver} (${arr[i].snap})` : arr[i].mcver;
                 let packver = $.trim(arr[i].packver);
                 let dl = arr[i].dl ? 'https://mediafire.com?' + arr[i].dl : '';
-                let date = arr[i].date ? arr[i].date : '(TBC)';
+                let date = arr[i].date ? arr[i].date.replace(/-/g, '—') : '(TBC)';
 
                 let dl_text = arr[i].dl ? 'Download' : 'Unavailable';
                 let dl_title = `Download ${packver} for Minecraft ${arr[i].snap ? arr[i].snap : arr[i].mcver}`;
@@ -42,7 +41,7 @@
                 table.append(`<tr>
                     <td><span class="desktoponly">Nixinova Mash-Up</span> ${mcver}</td>
                     <td>${packver}</td>
-                    <td class="date"><a href="${dl}" target="_blank" title="${dl_title}">Download</a>${unzip}</td>
+                    <td><a href="${dl}" target="_blank" title="${dl_title}">Download</a>${unzip}</td>
                     <td><samp><time datetime="${date.replace(/-/g,'')}+12:00">${date}</time></samp></td>
                 </tr>`);
             }
