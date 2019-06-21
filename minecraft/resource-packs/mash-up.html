@@ -31,7 +31,7 @@
                 let mcver = arr[i].snap ? `${arr[i].mcver} (${arr[i].snap})` : arr[i].mcver;
                 let packver = $.trim(arr[i].packver);
                 let dl = arr[i].dl ? 'https://mediafire.com?' + arr[i].dl : '';
-                let date = arr[i].date ? arr[i].date.replace(/-/g, '—') : '(TBC)';
+                let date = arr[i].date ? arr[i].date.replace(/-/g, '&#8209;') : '(TBC)';
 
                 let dl_text = arr[i].dl ? 'Download' : 'Unavailable';
                 let dl_title = `Download ${packver} for Minecraft ${arr[i].snap ? arr[i].snap : arr[i].mcver}`;
