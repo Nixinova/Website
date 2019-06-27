@@ -1,6 +1,15 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+    
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body id="content">
     <style name="Navigation styles">
+        @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
         nav * div {transition: 0.1s !important;}
         .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
         .navigation ul li {margin-right: -0.5ex;}
@@ -17,11 +26,6 @@
 
         i {visibility: hidden;}
     </style>
-    <script name="Noindex script">
-        if (window.location.href == 'https://nixinova.com/imports/navigation') {
-            $(head).append('<meta name="robots" content="noindex">');
-        }
-    </script>
     <script name="Desktop navigation script">
         function toggle(id) {
             $('#' + id + '_nav').toggleClass('hide').css("opacity", 0.0).animate({"opacity": 1.0}, 200, "swing");
@@ -70,8 +74,6 @@
             } 
         }
     </script>
-</head>
-<body>
     <div id="desktop-nav" class="desktoponly">
         <div id="primary" class="navigation">
             <ul class="nav-list">
@@ -207,3 +209,5 @@
         },1000)
     </script>
 </body>
+
+</html>
