@@ -7,207 +7,209 @@
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body id="content">
-    <style name="Navigation styles">
-        @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
-        nav * div {transition: 0.1s !important;}
-        .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
-        .navigation ul li {margin-right: -0.5ex;}
-        .navigation li {display: inline-block; padding: 0;}
-        .navigation li i.material-icons {position: relative; top: 3px; right: 3px;}
-        .navigation a, .nav-link {display: inline-block; padding: 15px 30px; margin-right: 0px; text-decoration: none; color: #FFF; border-radius: 5px; cursor: pointer;}
-        .navigation a:hover, .nav-link:hover  {background: #383838; transition: 0.5s;}
+<body>
+    <div  id="content">
+        <style name="Navigation styles">
+            @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+            nav * div {transition: 0.1s !important;}
+            .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
+            .navigation ul li {margin-right: -0.5ex;}
+            .navigation li {display: inline-block; padding: 0;}
+            .navigation li i.material-icons {position: relative; top: 3px; right: 3px;}
+            .navigation a, .nav-link {display: inline-block; padding: 15px 30px; margin-right: 0px; text-decoration: none; color: #FFF; border-radius: 5px; cursor: pointer;}
+            .navigation a:hover, .nav-link:hover  {background: #383838; transition: 0.5s;}
 
-        #mobile-menu ul {display: block;}
-        #mobile-menu-icon {position: fixed; top: 0; left: 0; width: 3em; padding: 1em; cursor: pointer; z-index: 10;}
-        #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; z-index: 7; padding-top: 3em; margin-top: 0; background: #111; font-size: 1.2em;}
-        #mobile-nav li {font-style: italic;}
-        #mobile-nav li a {color: white; font-style: normal;}
+            #mobile-menu ul {display: block;}
+            #mobile-menu-icon {position: fixed; top: 0; left: 0; width: 3em; padding: 1em; cursor: pointer; z-index: 10;}
+            #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; z-index: 7; padding-top: 3em; margin-top: 0; background: #111; font-size: 1.2em;}
+            #mobile-nav li {font-style: italic;}
+            #mobile-nav li a {color: white; font-style: normal;}
 
-        i {visibility: hidden;}
-    </style>
-    <script name="Desktop navigation script">
-        function toggle(id) {
-            $('#' + id + '_nav').toggleClass('hide').css("opacity", 0.0).animate({"opacity": 1.0}, 200, "swing");
-            if ($('#' + id + '-dropdown').html() == "arrow_drop_down") {
-                $('#' + id + '-dropdown').html("arrow_drop_up");
+            i {visibility: hidden;}
+        </style>
+        <script name="Desktop navigation script">
+            function toggle(id) {
+                $('#' + id + '_nav').toggleClass('hide').css("opacity", 0.0).animate({"opacity": 1.0}, 200, "swing");
+                if ($('#' + id + '-dropdown').html() == "arrow_drop_down") {
+                    $('#' + id + '-dropdown').html("arrow_drop_up");
+                }
+                else {
+                    $('#' + id + '-dropdown').html("arrow_drop_down");
+                }
             }
-            else {
+
+            function hideElement(id) {
+                $('#' + id + '_nav').css("opacity",0.0).addClass('hide');
                 $('#' + id + '-dropdown').html("arrow_drop_down");
             }
-        }
 
-        function hideElement(id) {
-            $('#' + id + '_nav').css("opacity",0.0).addClass('hide');
-            $('#' + id + '-dropdown').html("arrow_drop_down");
-        }
-        
-        function hide(id1, id2, id3, id4) {
-            hideElement(id1);
-            if (id2) {hideElement(id2);}
-            if (id3) {hideElement(id3);}
-            if (id4) {hideElement(id4);}
-        }
-    </script>
-    <script name="Mobile navigation script">
-        var mobilenav_visible = false;
-
-        function showElements(id1, id2) {
-            $(id1).removeClass('hide').css("opacity", 1);
-            if (id2) {$(id2).removeClass('hide').css("opacity", 1); }
-        }
-        function hideElements(id1, id2) {
-            $(id1).css("opacity", 0).addClass('hide');
-            if (id2) {$(id2).css("opacity", 0).addClass('hide'); }
-        }
-
-        function toggleMobileNav() {
-            if (mobilenav_visible) {
-                hideElements('#mobile-nav');
-                showElements('main','footer')
-                mobilenav_visible = false;
+            function hide(id1, id2, id3, id4) {
+                hideElement(id1);
+                if (id2) {hideElement(id2);}
+                if (id3) {hideElement(id3);}
+                if (id4) {hideElement(id4);}
             }
-            else {
-                showElements('#mobile-nav');
-                hideElements('main','footer')
-                mobilenav_visible = true;
-            } 
-        }
-    </script>
-    <div id="desktop-nav" class="desktoponly">
-        <div id="primary" class="navigation">
-            <ul class="nav-list">
-                <li><a href="/">Home</a></li>
-                
-                <li id="nav-mc">
-                    <a onclick="hide('nixi','dl','rp'); toggle('mc');" onmouseover="">Minecraft
-                        <sub><i id="mc-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                    </a>
-                </li>
-                <li id="nav-nixi">
-                    <a onclick="hide('mc','dl','rp'); toggle('nixi');" onmouseover="">Nixinova
-                        <sub><i id="nixi-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                    </a>
-                </li>
-                <li id="nav-search">
-                    <a href="/search#gsc.q=">
-                        &nbsp;<sub><i class="material-icons">search</i></sub>&nbsp;
-                    </a>
-                </li>
-            </ul>
-        </div>
+        </script>
+        <script name="Mobile navigation script">
+            var mobilenav_visible = false;
 
-        <div id="mc_nav" class="navigation secondary hide">
-            <hr class="mobileonly">
-            <ul class="nav-list">
-                <li id="mcnav-maps">
-                    <a onclick="hide('tool', 'rp', 'nixi'); toggle('dl');" onmouseover="">Maps
-                        <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                    </a>
-                </li>
-                <li id="mcnav-tools">
-                    <a onclick="hide('dl', 'rp', 'nixi'); toggle('tool');" onmouseover="">Tools
-                        <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                    </a>
-                </li>
-                <li id="mcnav-rp">
-                    <a onclick="hide('tool', 'dl', 'nixi'); toggle('rp');" onmouseover="">Resource Packs
-                        <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                    </a>
-                </li>
-            </ul>
+            function showElements(id1, id2) {
+                $(id1).removeClass('hide').css("opacity", 1);
+                if (id2) {$(id2).removeClass('hide').css("opacity", 1); }
+            }
+            function hideElements(id1, id2) {
+                $(id1).css("opacity", 0).addClass('hide');
+                if (id2) {$(id2).css("opacity", 0).addClass('hide'); }
+            }
 
-            <div id="mc_sub_nav">
-                <hr class="mobileonly">
-                <div id="dl_nav" class="navigation tertiary hide">
-                    <ul class="nav-list">
-                        <li id="dlnav-pvp"><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
-                        <li id="dlnav-sw"><a href="/minecraft/maps/skywars">SkyWars</a></li>
-                        <li id="dlnav-mb"><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
-                    </ul>
-                </div>
-                <div id="tool_nav" class="navigation tertiary hide">
-                    <ul class="nav-list">
-                        <li id="toolnav-give"><a href="/minecraft/tools/give">/give</a></li>
-                        <li id="toolnav-summon"><a href="/minecraft/tools/summon">/summon</a></li>
-                        <li id="toolnav-coords"><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
-                    </ul>
-                </div>
-                <div id="rp_nav" class="navigation tertiary hide">
-                    <ul class="nav-list">
-                        <li id="rpnav-mashup"><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
-                        <li id="rpnav-themed"><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
-                        <li id="rpnav-herobrinenzk"><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
-                    </ul>
-                </div>
+            function toggleMobileNav() {
+                if (mobilenav_visible) {
+                    hideElements('#mobile-nav');
+                    showElements('main','footer')
+                    mobilenav_visible = false;
+                }
+                else {
+                    showElements('#mobile-nav');
+                    hideElements('main','footer')
+                    mobilenav_visible = true;
+                } 
+            }
+        </script>
+        <div id="desktop-nav" class="desktoponly">
+            <div id="primary" class="navigation">
+                <ul class="nav-list">
+                    <li><a href="/">Home</a></li>
+
+                    <li id="nav-mc">
+                        <a onclick="hide('nixi','dl','rp'); toggle('mc');" onmouseover="">Minecraft
+                            <sub><i id="mc-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                        </a>
+                    </li>
+                    <li id="nav-nixi">
+                        <a onclick="hide('mc','dl','rp'); toggle('nixi');" onmouseover="">Nixinova
+                            <sub><i id="nixi-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                        </a>
+                    </li>
+                    <li id="nav-search">
+                        <a href="/search#gsc.q=">
+                            &nbsp;<sub><i class="material-icons">search</i></sub>&nbsp;
+                        </a>
+                    </li>
+                </ul>
             </div>
 
+            <div id="mc_nav" class="navigation secondary hide">
+                <hr class="mobileonly">
+                <ul class="nav-list">
+                    <li id="mcnav-maps">
+                        <a onclick="hide('tool', 'rp', 'nixi'); toggle('dl');" onmouseover="">Maps
+                            <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                        </a>
+                    </li>
+                    <li id="mcnav-tools">
+                        <a onclick="hide('dl', 'rp', 'nixi'); toggle('tool');" onmouseover="">Tools
+                            <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                        </a>
+                    </li>
+                    <li id="mcnav-rp">
+                        <a onclick="hide('tool', 'dl', 'nixi'); toggle('rp');" onmouseover="">Resource Packs
+                            <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                        </a>
+                    </li>
+                </ul>
+
+                <div id="mc_sub_nav">
+                    <hr class="mobileonly">
+                    <div id="dl_nav" class="navigation tertiary hide">
+                        <ul class="nav-list">
+                            <li id="dlnav-pvp"><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
+                            <li id="dlnav-sw"><a href="/minecraft/maps/skywars">SkyWars</a></li>
+                            <li id="dlnav-mb"><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
+                        </ul>
+                    </div>
+                    <div id="tool_nav" class="navigation tertiary hide">
+                        <ul class="nav-list">
+                            <li id="toolnav-give"><a href="/minecraft/tools/give">/give</a></li>
+                            <li id="toolnav-summon"><a href="/minecraft/tools/summon">/summon</a></li>
+                            <li id="toolnav-coords"><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
+                        </ul>
+                    </div>
+                    <div id="rp_nav" class="navigation tertiary hide">
+                        <ul class="nav-list">
+                            <li id="rpnav-mashup"><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
+                            <li id="rpnav-themed"><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
+                            <li id="rpnav-herobrinenzk"><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="nixi_nav" class="navigation tertiary hide">
+                <hr class="mobileonly">
+                <ul class="nav-list">
+                    <li id="nixinav-mc"><a href="/info/minecraft">Minecraft Player Info</a></li>
+                    <li id="nixinav-pc"><a href="/info/pc-specs">Computer Specs</a></li>
+                </ul>
+            </div>
+
+            <hr style="margin: 0;">
         </div>
 
-        <div id="nixi_nav" class="navigation tertiary hide">
-            <hr class="mobileonly">
-            <ul class="nav-list">
-                <li id="nixinav-mc"><a href="/info/minecraft">Minecraft Player Info</a></li>
-                <li id="nixinav-pc"><a href="/info/pc-specs">Computer Specs</a></li>
-            </ul>
-        </div>
-            
-        <hr style="margin: 0;">
-    </div>
+        <div id="mobile-menu" class="mobileonly">
+            <div id="mobile-menu-icon">
+                <i class="material-icons" onclick="toggleMobileNav()">menu</i>
+            </div>
 
-    <div id="mobile-menu" class="mobileonly">
-        <div id="mobile-menu-icon">
-            <i class="material-icons" onclick="toggleMobileNav()">menu</i>
-        </div>
-        
-        <ul id="mobile-nav" class="hide" style="list-style-type: none;">
-                <li id="nav-home">
-                    <ul style="padding: 0; list-style-type: square;">
-                        <li><a href="/">Home</a></li>
+            <ul id="mobile-nav" class="hide" style="list-style-type: none;">
+                    <li id="nav-home">
+                        <ul style="padding: 0; list-style-type: square;">
+                            <li><a href="/">Home</a></li>
+                        </ul>
+                    </li>
+
+                <li>Minecraft
+                    <ul style="list-style-type: none;">
+                        <li>Maps
+                            <ul>
+                                <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
+                                <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
+                                <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
+                            </ul>
+                        </li>
+                        <li>Tools
+                            <ul>
+                                <li><a href="/minecraft/tools/give">/give</a></li>
+                                <li><a href="/minecraft/tools/summon">/summon</a></li>
+                                <li><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
+                            </ul>
+                        </li>
+                        <li>Resource Packs
+                            <ul>
+                                <li><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
+                                <li><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
+                                <li><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
 
-            <li>Minecraft
-                <ul style="list-style-type: none;">
-                    <li>Maps
-                        <ul>
-                            <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
-                            <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
-                            <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
-                        </ul>
-                    </li>
-                    <li>Tools
-                        <ul>
-                            <li><a href="/minecraft/tools/give">/give</a></li>
-                            <li><a href="/minecraft/tools/summon">/summon</a></li>
-                            <li><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
-                        </ul>
-                    </li>
-                    <li>Resource Packs
-                        <ul>
-                            <li><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
-                            <li><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
-                            <li><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
+                <li>Nixinova
+                    <ul>
+                        <li><a href="/info/minecraft">Minecraft Player Info</a></li>
+                        <li><a href="/info/pc-specs">Computer Specs</a></li>
+                    </ul>
+                </li>
 
-            <li>Nixinova
-                <ul>
-                    <li><a href="/info/minecraft">Minecraft Player Info</a></li>
-                    <li><a href="/info/pc-specs">Computer Specs</a></li>
-                </ul>
-            </li>
+            </ul>
+        </div>
 
-        </ul>
+        <script name="Hide icons until load">
+            $(document).ready(function(){
+                $("i").css("visibility","visible");
+            },1000)
+        </script>
     </div>
-
-    <script name="Hide icons until load">
-        $(document).ready(function(){
-            $("i").css("visibility","visible");
-        },1000)
-    </script>
 </body>
 
 </html>
