@@ -400,7 +400,7 @@ function give() {
             nbt.Enchantments = []
             for (i = 0; i < e.length; i++) {
                 if (e[i]) {
-                    nbt.Enchantments.push({id: '"minecraft:' + e[i] + '"', lvl: elvl[i]});
+                    nbt.Enchantments.push(`{id: '"minecraft:' + ${e[i]} + '"', lvl: ${elvl[i]}}`);
                 }
             }
         }
