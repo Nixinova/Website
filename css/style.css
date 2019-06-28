@@ -30,6 +30,9 @@ a {text-decoration: none; cursor: pointer;}
 a:link, a:visited {color: #acf;}
 a:link:hover {opacity: 0.65; transition: 0.2s;}
 
+/* Icons */
+i.material-icons {cursor: pointer;}
+
 /* Lists */
 ul.plain {list-style-type: none; text-align: center;}
 
@@ -70,8 +73,5 @@ a:hover button {background: royalblue; font-size: 21px;}
     .desktoponly {display: none !important;}
     main {margin-top: 5em;}
 }
-
-/* Icons */
-i.fa {color: white;}
 
 /* Copyright © Nixinova 2019 */
