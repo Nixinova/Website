@@ -454,8 +454,8 @@
         </form>
         
         <!-- OUTPUT -->
-        <h3 onmouseover="submit()">
-            Output <i onclick="submit()" class="material-icons">autorenew</i>
+        <h3 onclick="submit()">
+            Output <i class="material-icons">autorenew</i>
         </h3>
         <div id="cmd_note" class="hide">
             <p style="margin-left: 2em">
@@ -472,7 +472,7 @@
         <div id="output_text" class="command"></div>
 
         <p style="text-align: center;">
-            <button onclick="submit()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
+            <button onmouseover="submit()" onclick="copyCommand()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
         </p>
 
         <script>$(function(){submit();});</script>

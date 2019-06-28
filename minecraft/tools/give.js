@@ -529,7 +529,7 @@ function give() {
 
     /// OUTPUT ///
     var outputQuery = getQueryString('output');
-    var output = outputQuery? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
+    window.output = outputQuery? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
     if (output.length > 256) {
         $('#cmd_note').removeClass('hide');
         if (target == '@s') {target = '@p';}
@@ -548,16 +548,17 @@ function give() {
         );
     }
 
-    // copy text
+    // counter
+    function_count++;
+}
+
+function copyCommand() {
     let box = document.createElement('textarea');
-    box.value = output;
+    box.value = window.output;
     document.body.appendChild(box);
     box.select();
     document.execCommand('copy');
     document.body.removeChild(box);
-
-    // counter
-    function_count++;
 }
 
 function submit() {

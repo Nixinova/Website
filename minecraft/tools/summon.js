@@ -260,16 +260,17 @@ function summon() {
         '<span style="color: lightgreen">' + NBT + '</span>'
     );
 
-    // copy text
+    // counter
+    function_count++;
+}
+
+function copyCommand() {
     let box = document.createElement('textarea');
-    box.value = output;
+    box.value = window.output;
     document.body.appendChild(box);
     box.select();
     document.execCommand('copy');
     document.body.removeChild(box);
-
-    // counter
-    function_count++;
 }
 
 function submit() {
