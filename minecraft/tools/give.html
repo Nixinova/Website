@@ -373,8 +373,9 @@
                 </select><br/>
 
                 <script>
+                    var uuid = 0;
                     function uuid() {
-                        return Math.floor(Math.random() * 999);
+                        return uuid++;
                     }
                     var modifiers = [];
                     var uuids = {
