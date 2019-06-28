@@ -27,7 +27,7 @@ h6 {font-size: 1.1em; text-align: center; margin-top: 1em; margin-bottom: -1em;}
 
 /* Links */
 a {text-decoration: none; cursor: pointer;}
-a:link, a:visited {color: #acf;}
+:not(nav) a:link, a:visited {color: #acf;}
 a:link:hover {opacity: 0.65; transition: 0.2s;}
 
 /* Lists */
