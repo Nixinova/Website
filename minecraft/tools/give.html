@@ -200,11 +200,11 @@
 
                 <!-- desc and ench -->
                 <script>
-                    var lore = new Array(undefined)
-                    var e = new Array(undefined)
-                    var elvl = new Array(undefined)
-                    var loreAdded = 0
-                    var enchAdded = 0
+                    var lore = new Array(undefined);
+                    var e = new Array(undefined);
+                    var elvl = new Array(undefined);
+                    var loreAdded = 0;
+                    var enchAdded = 0;
                 </script>
 
                 <span class="form-item">Description:</span><br/>
@@ -255,8 +255,8 @@
             
                 <!-- other -->
                 <script>
-                    var CanDestroy = new Array(undefined)
-                    var CanPlaceOn = new Array(undefined)
+                    var CanDestroy = new Array(undefined);
+                    var CanPlaceOn = new Array(undefined);
                 </script>
                 <span class="tool">
                     <span class="form-item">Durability:</span>
@@ -376,9 +376,9 @@
 
                 <script>
                     function uuid() {
-                        return Math.floor(Math.random() * 99999)
+                        return Math.floor(Math.random() * 999);
                     }
-                    var modifiers = []
+                    var modifiers = [];
                     var uuids = {
                         'attackDamage': [uuid(), uuid()],
                         'armor': [uuid(), uuid()],
@@ -389,8 +389,8 @@
                         'luck': [uuid(), uuid()],
                         'maxHealth': [uuid(), uuid()],
                         'movementSpeed': [uuid(), uuid()]
-                    }
-                    var Attributes = {Names:[],Values:[]}
+                    };
+                    var Attributes = {Names:[],Values:[]};
                 </script>
 
                 <span id="modifiers">
@@ -401,6 +401,7 @@
                         <option value="armor">Armour Defense</option>
                         <option value="armorToughness">Armour Toughness</option>
                         <option value="attackDamage">Attack Damage</option>
+                        <option value="attackReach">Attack Reach</option>
                         <option value="attackSpeed">Attack Speed</option>
                         <option value="followRange">Follow Range</option>
                         <option value="knockbackResistance">Knockback Resistance</option>
