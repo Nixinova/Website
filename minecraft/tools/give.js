@@ -466,17 +466,19 @@ function give() {
         }
 
         // modifiers //
-        if (i_mod === 'maxHealth'           && i_mod_amount > 1024)  {i_mod_amount =  1024;}
-        if (i_mod === 'followRange'         && i_mod_amount > 2048)  {i_mod_amount =  2048;}
-        if (i_mod === 'knockbackResistance' && i_mod_amount > 1)     {i_mod_amount =     1;}
-        if (i_mod === 'movementSpeed'       && i_mod_amount > 1024)  {i_mod_amount =  1024;}
-        if (i_mod === 'attackDamage'        && i_mod_amount > 2048)  {i_mod_amount =  2048;}
         if (i_mod === 'armor'               && i_mod_amount > 30)    {i_mod_amount =    30;}
         if (i_mod === 'armorToughness'      && i_mod_amount > 20)    {i_mod_amount =    20;}
+        if (i_mod === 'attackDamage'        && i_mod_amount > 2048)  {i_mod_amount =  2048;}
         if (i_mod === 'attackSpeed'         && i_mod_amount > 1024)  {i_mod_amount =  1024;}
+        if (i_mod === 'attackRange'         && i_mod_amount >    6)  {i_mod_amount =     6;}
+        if (i_mod === 'attackRange'         && i_mod_amount <    0)  {i_mod_amount =     0;}
+        if (i_mod === 'followRange'         && i_mod_amount > 2048)  {i_mod_amount =  2048;}
+        if (i_mod === 'knockbackResistance' && i_mod_amount > 1)     {i_mod_amount =     1;}
         if (i_mod === 'luck'                && i_mod_amount > 1024)  {i_mod_amount =  1024;}
         if (i_mod === 'luck'                && i_mod_amount < -1024) {i_mod_amount = -1024;}
         if (i_mod !== 'luck'                && i_mod_amount <= 0)    {i_mod_amount =     0;}
+        if (i_mod === 'maxHealth'           && i_mod_amount > 1024)  {i_mod_amount =  1024;}
+        if (i_mod === 'movementSpeed'       && i_mod_amount > 1024)  {i_mod_amount =  1024;}
 
         if (i_mod && i_mod_amount) {
 
