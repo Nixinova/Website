@@ -11,7 +11,7 @@
     <script src="functions.js"></script>
     <script src="summon.js"></script>
     <style>
-        button {width: 70px; text-align: center;}
+        :not(#copyCommand) button {width: 70px; text-align: center;}
         .on::before {content: 'True';}
         .off::after {content: 'False';}
     </style>
@@ -481,7 +481,7 @@
     </div>
     <div id="output_text" class="command"></div>
 
-    <p style="text-align: center;">
+    <p id="copyCommand" style="text-align: center;">
         <button onmouseover="submit()" onclick="copyCommand()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
     </p>
 
