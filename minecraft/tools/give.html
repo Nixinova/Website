@@ -374,21 +374,18 @@
 
                 <script>
                     var uuid = 0;
-                    function uuid() {
-                        return uuid++;
-                    }
                     var modifiers = [];
                     var uuids = {
-                        'attackDamage': [uuid(), uuid()],
-                        'armor': [uuid(), uuid()],
-                        'armorToughness': [uuid(), uuid()],
-                        'attackReach': [uuid(), uuid()],
-                        'attackSpeed': [uuid(), uuid()],
-                        'followRange': [uuid(), uuid()],
-                        'knockbackResistance': [uuid(), uuid()],
-                        'luck': [uuid(), uuid()],
-                        'maxHealth': [uuid(), uuid()],
-                        'movementSpeed': [uuid(), uuid()]
+                        'attackDamage': [uuid++, uuid++],
+                        'armor': [uuid++, uuid++],
+                        'armorToughness': [uuid++, uuid++],
+                        'attackReach': [uuid++, uuid++],
+                        'attackSpeed': [uuid++, uuid++],
+                        'followRange': [uuid++, uuid++],
+                        'knockbackResistance': [uuid++, uuid++],
+                        'luck': [uuid++, uuid++],
+                        'maxHealth': [uuid++, uuid++],
+                        'movementSpeed': [uuid++, uuid++]
                     };
                     var Attributes = {Names:[], Values:[]};
                 </script>
