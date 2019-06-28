@@ -30,7 +30,7 @@
         <form action="javascript:submit()" id="input_form">
             <!-- target -->
             <p onchange="submit()">
-                <span class="form-item" onblur="submit()">Target:</span>
+                <span class="form-item">Target:</span>
                     <select id="input_selector_target">
                         <option value="@s">Yourself</option>
                         <option value="@p">Nearest player</option>
@@ -63,13 +63,13 @@
                     </script>
                     <button class="radius" id="input_selection_area" onchange="submit()" onclick="toggleVolumeRadius(this);"></button> &nbsp;
 
-                    <span id="radius" onblur="submit()">
+                    <span id="radius">
                         <span>Distance:</span> &nbsp;
                         <input type="number" step="any" placeholder="min" size="3" id="input_selector_dist_min"> &nbsp;
                         <input type="number" step="any" placeholder="max" size="3" id="input_selector_dist_max"><br/>
                     </span>
 
-                    <span id="volume" class="hide" onblur="submit()">
+                    <span id="volume" class="hide">
                         <span>Size:</span> &nbsp;
                         <input type="number" step="any" placeholder="x" size="3" id="input_selector_vol_x"> &nbsp;
                         <input type="number" step="any" placeholder="y" size="3" id="input_selector_vol_y"> &nbsp;
@@ -134,7 +134,7 @@
             <!-- item -->
             <p onblur="submit()">
                 <span class="form-item">Item:</span>
-                <input type="text" onclick="$(this).value=''" onblur="submit()" size="13" id="input_item"><br/>
+                <input type="text" onclick="$(this).value=''" size="13" id="input_item"><br/>
                 
                 <span class="hide" id="potion">
                     <span class="form-item indent">Potion:</span> <input type="text" size="13" id="input_item_potion"><br/>
@@ -160,7 +160,7 @@
                 </span>
 
                 <span class="form-item">Custom name:</span>
-                <input type="text" onblur="submit()" size="13" id="input_item_name">  
+                <input type="text" size="13" id="input_item_name">  
                 <a id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
                 
                 <span id="preview" class="hide">
@@ -265,7 +265,7 @@
                 </span>
 
                 <span class="form-item">Can destroy:</span>
-                <span>Block:</span> <input type="text" onblur="submit()" size="13" id="input_item_destroy"> &nbsp;
+                <span>Block:</span> <input type="text" size="13" id="input_item_destroy"> &nbsp;
                 <span>Group:</span> <select id="input_item_destroy_tags" onblur="submit()">
                     <option value="">&nbsp;</option>
                     <option value="anvil">Anvils</option>
@@ -320,7 +320,7 @@
                 
                 <span class="form-item">Can place on:</span>
                 <span>Block:</span>
-                <input type="text" onblur="submit()" size="13" id="input_item_place_on"> &nbsp;
+                <input type="text" size="13" id="input_item_place_on"> &nbsp;
                 <span>Group:</span>
                 <select id="input_item_place_on_tags" onblur="submit()">
                     <option value="">&nbsp;</option>
@@ -383,15 +383,15 @@
                         'attackDamage': [uuid(), uuid()],
                         'armor': [uuid(), uuid()],
                         'armorToughness': [uuid(), uuid()],
-                        'attackSpeed': [uuid(), uuid()],
                         'attackReach': [uuid(), uuid()],
+                        'attackSpeed': [uuid(), uuid()],
                         'followRange': [uuid(), uuid()],
                         'knockbackResistance': [uuid(), uuid()],
                         'luck': [uuid(), uuid()],
                         'maxHealth': [uuid(), uuid()],
                         'movementSpeed': [uuid(), uuid()]
                     };
-                    var Attributes = {Names:[],Values:[]};
+                    var Attributes = {Names:[], Values:[]};
                 </script>
 
                 <span id="modifiers">
@@ -418,8 +418,8 @@
                 <span id="mods-content" class="hide indent">
                     <span>Operation:</span> 
                     <select id="input_item_mod_operation" onchange="submit()">
-                        <option value="0">Add</option>
-                        <option value="1">Add Percent</option>
+                        <option value="0">Addition</option>
+                        <option value="1">Percentage</option>
                         <option value="2">Multiply</option>
                     </select> &nbsp;
                     <span>Slot:</span>
@@ -468,10 +468,12 @@
         </div>
         <!-- output text -->
         <div id="output_text" class="command"></div>
-    <!--<p style="text-align: center;">
+
+        <p style="text-align: center;">
             <button onclick="submit()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
-        </p>-->
-        <script>$(document).ready(function(){submit()});</script>
+        </p>
+
+        <script>$(function(){submit();});</script>
     </main>
 
     <footer>
