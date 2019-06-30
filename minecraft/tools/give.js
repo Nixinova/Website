@@ -375,8 +375,7 @@ function give() {
 
         // lore //
         if (i_lore) {
-            i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace(/,/g, '&comma;');
-            i_lore = i_lore.split('\n');  
+            i_lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace(/,/g, '&comma;').split('\n');  
             nbt.display.Lore = JSON.stringify(i_lore).replace(/^\[|\]$/g, '').split(',');
         }
 
