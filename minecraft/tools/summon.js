@@ -30,7 +30,7 @@ function summon() {
     var despawnable = $('#input_despawnable').hasClass('on');
     var silent = $('#input_silent').hasClass('on');
     var pickup = $('#input_pickup').hasClass('on');
-    var riding = value('#input_riding').toLowerCase().replace(/ /g, '_');
+    var riding = value('input_riding').toLowerCase().replace(/ /g, '_');
 
     var baby = $('#input_is_baby').hasClass('on');
     var baby_time = value('input_baby_time');
