@@ -24,10 +24,13 @@ function summon() {
     var X = value('input_x').replace(/[^0-9-~^]/g, '');
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
-    var name = value('input_name').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    var name = value('input_customname').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 
     var no_ai = $('#input_no_ai').hasClass('on');
     var despawnable = $('#input_despawnable').hasClass('on');
+    var silent = $('#input_silent').hasClass('on');
+    var pickup = $('#input_pickup').hasClass('on');
+    var riding = value('#input_riding').toLowerCase().replace(/ /g, '_');
 
     var baby = $('#input_is_baby').hasClass('on');
     var baby_time = value('input_baby_time');
@@ -89,16 +92,14 @@ function summon() {
     // COORDS //
     if (!X) {X = '~';}   if (!Y) {Y = '~';}   if (!Z) {Z = '~';}
 
-    // NAME //
-    if (name) {
-        nbt.CustomName = '"' + name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"') + '"';
-    }
-
     // ENTITY NBT //
     {
     // all //
+    if (name) {nbt.CustomName = '"' + name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"') + '"';}
     if (!no_ai) {nbt.NoAI = true;}
     if (!despawnable) {nbt.PersistenceRequired = true;}
+    if (!silent) {nbt.Silent = true;}
+    if (!pickup) {nbt.CanPickUpLoot = true;}
 
     // tame mobs //
     if (tame_mobs.indexOf(entity) > -1) {
@@ -214,6 +215,7 @@ function summon() {
 
     }
     // EQUIPMENT //
+    {
     // armor //
     var armor_items = [];
     if (feet) {armor_items.push({id: feet,  Count: feet_n });} else {armor_items.push({});}
@@ -246,6 +248,7 @@ function summon() {
             hand_drop_chances = [mainhand_c/100+'f', offhand_c/100+'f'];
             nbt.HandDropChances = hand_drop_chances;
         }
+    }
     }
 
     // CONVERT TO NBT //

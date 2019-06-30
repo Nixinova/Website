@@ -100,18 +100,24 @@
             <input type="text" onfocus="this.value=''" value="~" size="6" id="input_x"> &nbsp;
             <input type="text" onfocus="this.value=''" value="~" size="6" id="input_y"> &nbsp;
             <input type="text" onfocus="this.value=''" value="~" size="6" id="input_z"><br/>
-
-            <span class="form-item">Name:</span>
-            <input type="text" onfocus="this.value=''" size="13" id="input_name"><br/>
         </p>
         <p name="nbt">
             <span class="form-item">NBT:</span><br/>
+
+            <span class="form-item">Name:</span>
+            <input type="text" onfocus="this.value=''" size="13" id="input_customname"><br/>
 
             <span class="form-item indent">Able to move?</span>
             <button id="input_no_ai" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
             <span class="form-item indent">Despawnable?</span>
             <button id="input_despawnable" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+
+            <span class="form-item indent">Silent?</span>
+            <button id="input_silent" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+
+            <span class="form-item indent">Pick up items?</span>
+            <button id="input_pickup" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
             <span class="cat only">
                  <span class="form-item indent">Type:</span>
