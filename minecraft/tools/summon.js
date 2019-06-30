@@ -24,6 +24,7 @@ function summon() {
     var X = value('input_x').replace(/[^0-9-~^]/g, '');
     var Y = value('input_y').replace(/[^0-9-~^]/g, '');
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
+    var name = value('input_name').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 
     var no_ai = $('#input_no_ai').hasClass('on');
     var despawnable = $('#input_despawnable').hasClass('on');
@@ -87,6 +88,13 @@ function summon() {
 
     // COORDS //
     if (!X) {X = '~';}   if (!Y) {Y = '~';}   if (!Z) {Z = '~';}
+
+    // NAME //
+    if (name) {
+        name = name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace(/,/g, '&comma;');
+        name = name.split('\n');  
+        nbt.display.CustomName = JSON.stringify(name).replace(/^\[|\]$/g, '').split(',');
+    }
 
     // ENTITY NBT //
     {

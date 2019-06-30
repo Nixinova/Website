@@ -114,9 +114,9 @@
                     </span>
 
                     <script>
-                        var scores = new Array(undefined)
-                        var scores_min = new Array(undefined)
-                        var scores_max = new Array(undefined)
+                        var scores = []
+                        var scores_min = []
+                        var scores_max = []
                     </script>
                 
                     <span class="form-item">Score:</span>
@@ -200,9 +200,9 @@
 
                 <!-- desc and ench -->
                 <script>
-                    var lore = new Array(undefined);
-                    var e = new Array(undefined);
-                    var elvl = new Array(undefined);
+                    var lore = [];
+                    var e = [];
+                    var elvl = [];
                     var loreAdded = 0;
                     var enchAdded = 0;
                 </script>
@@ -215,10 +215,10 @@
                     <option></option>
                     <option>Aqua Affinity</option>
                     <option>Bane of Arthropods</option>
-                    <option>Blast Protection </option>
-                    <option>Channeling </option>
-                    <option>Curse of Binding </option>
-                    <option>Curse of Vanishing </option>
+                    <option>Blast Protection</option>
+                    <option>Channeling</option>
+                    <option>Curse of Binding</option>
+                    <option>Curse of Vanishing</option>
                     <option>Depth Strider</option>
                     <option>Efficiency</option>
                     <option>Feather Falling</option>
@@ -255,8 +255,8 @@
             
                 <!-- other -->
                 <script>
-                    var CanDestroy = new Array(undefined);
-                    var CanPlaceOn = new Array(undefined);
+                    var CanDestroy = [];
+                    var CanPlaceOn = [];
                 </script>
                 <span class="tool">
                     <span class="form-item">Durability:</span>
@@ -451,7 +451,7 @@
         
         <!-- OUTPUT -->
         <h3 onclick="submit()">
-            Output <i class="material-icons">autorenew</i>
+            Output <sub><i class="material-icons">autorenew</i></sub>
         </h3>
         <div id="cmd_note" class="hide">
             <p style="margin-left: 2em">
