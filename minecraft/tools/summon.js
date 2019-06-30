@@ -255,8 +255,8 @@ function summon() {
 
     /// OUTPUT ///
     const _ = ' ';
-    var output = '/summon ' + entity +_+ X +_+ Y +_+ Z +_+ NBT;
-    if (output.length > 256) {
+    window.output = '/summon ' + entity +_+ X +_+ Y +_+ Z +_+ NBT;
+    if (window.output.length > 256) {
         $('#cmd_note').removeClass('hide');
     }
     $('#output_text').append(
