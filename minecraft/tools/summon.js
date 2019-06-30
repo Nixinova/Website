@@ -91,7 +91,7 @@ function summon() {
 
     // NAME //
     if (name) {
-        name = '"' + name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"') + '"';
+        nbt.CustomName = '"' + name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"') + '"';
     }
 
     // ENTITY NBT //
