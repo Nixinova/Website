@@ -1,10 +1,10 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Varela+Round|Quicksand:700');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Montserrat');
 @font-face {font-family: 'Minecraft'; src: local('Minecraft'), url('minecraft.ttf') format('truetype');}
 
 /* Base elements */
 * {box-sizing: border-box; transition: 0.5s;}
-body {font: normal 15px 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: #313131;}
+body {font: normal 15px 'Noto Sans', 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: #313131;}
 nav {background: #222;}
 main {min-height: calc(100vh - 143px);}
 footer {width: 100%; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff; text-align: center;}
@@ -15,6 +15,7 @@ img {max-width: 100%; vertical-align: middle; border: 0;}
 abbr {cursor: help;}
 
 /* Headings */
+h1, h2, h3, h4, h5, h6 {font-family: 'Montserrat', sans-serif;}
 h1, h2, h3, h4, h5 {color: #eee; margin: 0; font-weight: bold; text-align: center; width: 100%;}
 h1, h2, h3, h4 {text-transform: uppercase;}
 h4, h5, h6 {font-weight: bold;}
