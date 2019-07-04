@@ -3,16 +3,11 @@
     <title>Themed Mash-Up Packs – Nixinova</title>
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/resource-packs.css">
     <meta name="description" content="Download special-edition holiday-themed resource packs by Nixinova for Minecraft 1.8–1.14.">
     <meta name="keywords" content="nixinova,nixi,nova,nixynova,resource pack,resource packs,minecraft,texture pack,texture packs,Easter resource packs,Christmas resource packs,Minecraft Easter pack,Minecraft Christmas pack">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        p {margin-top: 0;}
-        hr.midline {width: 66%; border-color: #888;}
-        
-        samp {font-size: smaller;}
-    </style>
     <script>
         function createTable(id, arr) {
         var table = $('#'+id);
@@ -21,12 +16,14 @@
             if (!arr[i].date) {arr[i].date = '(TBC)';}
             if (arr[i].snap) {arr[i].mcver == `${arr[i].mcver}&ensp;(${arr[i].snap})`;}
 
-            table.append(`<tr>
-            <td width="320px"><span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span> ${arr[i].mcver}</td>
-            <td width="075px">${arr[i].packver}</td>
-            <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
-            <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
-            </tr>`);
+            table.append(`
+                <tr>
+                    <td width="320px"><span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span> ${arr[i].mcver}</td>
+                    <td width="075px">${arr[i].packver}</td>
+                    <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
+                    <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
+                </tr>
+            `);
         }
     }
     </script>

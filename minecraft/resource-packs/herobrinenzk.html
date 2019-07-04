@@ -3,17 +3,12 @@
 <head>
     <title>HeroBrineNZK Resource Packs – Nixinova</title>
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/resource-packs.css">
     <meta name="description" content="Download HeroBrineNZK and Endercreeper Resource Packs by Nixinova, for Minecraft 1.8">
     <meta name="keywords" content="nixinova,nixi,nova,nixynova,resource pack,resource packs,minecraft,texture pack,texture packs,HeroBrineNZK texture pack,herobrinenzk rp,endercreeper,endercreeper resource pack">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        p {margin-top: 0;}
-        hr.midline {width: 66%; border-color: #888;}
-        
-        samp {font-size: smaller;}
-    </style>
     <script>
         function createTable(id, arr) {
         var table = $('#'+id);
@@ -21,12 +16,14 @@
         for (i in arr) {
             if (!arr[i].date) {arr[i].date = '(TBC)';}
 
-            table.append(`<tr>
-            <td width="200px">${arr[i].name}</td>
-            <td width="050px">${arr[i].mcver}</td>
-            <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
-            <td width="120px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
-            </tr>`);
+            table.append(`
+                <tr>
+                    <td width="200px">${arr[i].name}</td>
+                    <td width="050px">${arr[i].mcver}</td>
+                    <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
+                    <td width="120px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
+                </tr>
+            `);
         }
     }
     </script>
@@ -50,29 +47,29 @@
         </strong>
     </p>
 
-    <hr>
+    <hr class="divider">
 
-    <!-- herobrinenzk -->
-    <div width="40">
+    <div>
         <h2>HeroBrineNZK RP</h2>
         <p>
             A small resource pack I used from 2014 &ndash; 2015, or Minecraft 1.8.
         </p>
-        <table id="herobrinenzk" class="flex centered" style="--width: 50%"></table>
+        <table id="herobrinenzk" class="flex"></table>
         <script>createTable('herobrinenzk', [
             {mcver: '1.8.8', name: 'HeroBrineNZK(2)', dl: 'j94dpml4zpj8j07', date: '2015-08-23'},
             {mcver: '1.8.7', name: 'HeroBrineNZK   ', dl: 'cbax8zmmkakru2i', date: '2015-07-19'},
             {mcver: '1.8.1', name: 'HeroBrineNZK RP', dl: '6688qcc88cf573u', date: '2014-12-24'}
         ]);</script>
     </div>
+
+    <hr class="divider">
     
-    <!-- Endercreeper RP -->
     <div>
         <h2>Endercreeper RP</h2>
         <p>
             A small resource pack I used in 2014, which retextures creepers and music disc, for Minecraft 1.7.
         </p>
-        <table id="endercreeper" class="flex centered" style="--width: 50%"></table>
+        <table id="endercreeper" class="flex"></table>
         <script>createTable('endercreeper', [
             {mcver: '1.7.9', name: 'Endercreeper RP           ', dl: 'g64qrc47vgg80c0', date: '2014-05-18'},
             {mcver: '1.7.4', name: 'Endercreeper RP (BoxCraft)', dl: 'dj5beckqr7yfvaf', date: '2014-05-14'}
