@@ -6,6 +6,7 @@ table tr {line-height: 1.2; font-size: 1.1em;}
 table tr td {padding: 0 5px; white-space: nowrap;}
 table tr td small {cursor: help;}
 
+hr.half {width: 50%;}
 hr.divider {width: 90%;}
 
 @media (min-width: 600px) {
