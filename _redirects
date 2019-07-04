@@ -4,7 +4,7 @@ https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
 /images/*           https://images.nixinova.com/:splat 301!
 
 # Styling
-/css/style.css           /css/main.css
+/css/style.css      /css/main.css
 
 # Home
 /home               /
