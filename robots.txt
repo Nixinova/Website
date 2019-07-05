@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /imports
+
+Sitemap: /sitemap.txt
