@@ -13,7 +13,7 @@
             var table = $('#'+id);
 
             for (i in arr) {
-                let mcver = arr[i].snap ? `${arr[i].mcver} (${arr[i].snap})` : arr[i].mcver;
+                let mcver = arr[i].snap ? `${arr[i].mcver} (${$.trim(arr[i].snap)})` : arr[i].mcver;
                 let packver = $.trim(arr[i].packver);
                 let dl = arr[i].dl ? 'https://mediafire.com?' + arr[i].dl : '';
                 let date = arr[i].date ? arr[i].date : '(TBC)';
