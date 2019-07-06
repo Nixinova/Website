@@ -1,6 +1,6 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-@font-face {font-family: 'Minecraft'; src: local('Minecraft'), url('minecraft.ttf') format('truetype');}
+@font-face {font-family: 'Minecraft'; src: local('Minecraft'), url('http://fontsforweb.com/public/fonts/1412/minecraftfont.ttf') format('truetype');}
 
 /* Base elements */
 * {box-sizing: border-box; transition: 0.5s;}
