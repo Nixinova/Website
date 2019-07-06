@@ -4,7 +4,7 @@
 
 function give() {
     /// LISTS ///
-    var durable_items = [
+    const durable_items = [
         "diamond_sword", "diamond_pickaxe", "diamond_axe", "diamond_shovel", "diamond_hoe",
         "iron_sword", "iron_pickaxe", "iron_axe", "iron_shovel", "iron_hoe",
         "golden_sword", "golden_pickaxe", "golden_axe", "golden_shovel", "golden_hoe",
@@ -19,7 +19,7 @@ function give() {
 
         "bow", "shears", "fishing_rod", "flint_and_steel", "carrot_on_a_stick", "elytra", "shield"
     ];
-    var durabilities = {
+    const durabilities = {
         "diamond_sword": 1561, "diamond_pickaxe": 1561, "diamond_axe": 1561, "diamond_shovel": 1561, "diamond_hoe": 1561,
         "iron_sword": 250, "iron_pickaxe": 250, "iron_axe": 250, "iron_shovel": 250, "iron_hoe": 250,
         "golden_sword": 32, "golden_pickaxe": 32, "golden_axe": 32, "golden_shovel": 32, "golden_hoe": 32,
@@ -34,7 +34,7 @@ function give() {
 
         "bow": 384, "shears": 237, "fishing_rod": 64, "flint_and_steel": 63, "carrot_on_a_stick": 225, "elytra": 431, "shield": 336
     };
-    var tags = [
+    const tags = [
         'acacia_logs','anvil','banners','birch_logs','buttons','carpets','coral_blocks','corals',
         'dark_oak_logs','doors','enderman_holdable','flower_pots','ice','impermeable','jungle_logs',
         'leaves','logs','oak_logs','planks','rails','sand','saplings','slabs','spruce_logs','stairs',
@@ -149,7 +149,7 @@ function give() {
     }
 
     var selector = []
-    if (target == '--') {target_text = player? player: '@s'} else {target_text = target;}
+    if (target == '--') {target_text = player ? player : '@s'} else {target_text = target;}
 
     if (!isNaN(target_x)) {selector.push('x=' + target_x);}
     if (!isNaN(target_y)) {selector.push('y=' + target_y);}
