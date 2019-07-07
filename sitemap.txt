@@ -8,5 +8,5 @@ https://nixinova.com/minecraft/resource-packs/themed
 https://nixinova.com/minecraft/tools/coordinates
 https://nixinova.com/minecraft/tools/give
 https://nixinova.com/minecraft/tools/summon
-https://nixinova.com/info/computer
+https://nixinova.com/info/pc-specs
 https://nixinova.com/info/minecraft
