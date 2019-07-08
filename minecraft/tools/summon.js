@@ -59,6 +59,8 @@ function summon() {
     var villager_type = cleanup(value('input_villager_type'));
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
+    var wolf_collar = value('input_wolf_collar', 'int');
+    var wolf_sitting = $('#wolf_sitting').hasClass('on');
     var zombies_canbreak_doors = $('#input_zombies_canbreak_doors').hasClass('on');
 
     var head = cleanup(value('input_armour_head' ));
@@ -191,6 +193,7 @@ function summon() {
     // wolf //
     if (entity === 'wolf') {
         if (wolf_collar) {nbt.CollarColor = wolf_collar;}
+        if (wolf_sitting) {nbt.Sitting = wolf_sitting;}
     }
 
     // zombies //
