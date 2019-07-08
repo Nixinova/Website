@@ -12,6 +12,7 @@
     <script src="coordinates.js"></script>
     <style>
         input {width: 100px; padding-left: 20px; text-align: center;}
+        .form-item.long {width: 250px;}
     </style>
 </head>
 <body>
@@ -26,26 +27,32 @@
         <form action="javascript:submit()" id="input_form">
             <div>
                 <p>
-                    <span class="form-item long">Block coordinates</span>
-                    X <input type="number" id="block_x" value="0" onblur="submit()"> &nbsp;
-                    Y <input type="number" id="block_y" value="0" onblur="submit()" min="0" max="255"> &nbsp;
-                    Z <input type="number" id="block_z" value="0" onblur="submit()"> &nbsp;
+                    <span class="form-item long">Overworld block coordinates</span>
+                    X: <input type="number" id="overworld_block_x" value="0" onblur="submit()"> &nbsp;
+                    Y: <input type="number" id="overworld_block_y" value="0" onblur="submit()" min="0" max="255"> &nbsp;
+                    Z: <input type="number" id="overworld_block_z" value="0" onblur="submit()"> &nbsp;
                     <button onclick="copyBlock()">Copy</button>
                 </p>
             </div>
             <hr>
             <div>
                 <p>
-                    <span class="form-item long">Nether coordinates</span>
-                    X <input type="number" id="nether_x" value="0" readonly> &nbsp;
-                    Y <input type="number" id="nether_y" value="0" readonly> &nbsp;
-                    Z <input type="number" id="nether_z" value="0" readonly> &nbsp;
+                    <span class="form-item long">Nether block coordinates</span>
+                    X: <input type="number" id="nether_block_x" value="0" readonly> &nbsp;
+                    Y: <input type="number" id="nether_block_y" value="0" readonly> &nbsp;
+                    Z: <input type="number" id="nether_block_z" value="0" readonly> &nbsp;
                     <button onclick="copyNether()">Copy</button><br/>
 
-                    <span class="form-item long">Chunk coordinates</span>
-                    X <input type="number" id="chunk_x" value="0" readonly> &nbsp;
-                    Y <input type="number" id="chunk_y" value="0" readonly> &nbsp;
-                    Z <input type="number" id="chunk_z" value="0" readonly> &nbsp;
+                    <span class="form-item long">Overworld chunk coordinates</span>
+                    X: <input type="number" id="overworld_chunk_x" value="0" readonly> &nbsp;
+                    Y: <input type="number" id="overworld_chunk_y" value="0" readonly> &nbsp;
+                    Z: <input type="number" id="overworld_chunk_z" value="0" readonly> &nbsp;
+                    <button onclick="copyChunk()">Copy</button><br/>
+
+                    <span class="form-item long">Nether chunk coordinates</span>
+                    X: <input type="number" id="nether_chunk_x" value="0" readonly> &nbsp;
+                    Y: <input type="number" id="nether_chunk_y" value="0" readonly> &nbsp;
+                    Z: <input type="number" id="nether_chunk_z" value="0" readonly> &nbsp;
                     <button onclick="copyChunk()">Copy</button><br/>
 
                     <span class="form-item long">Region file name</span>
@@ -56,25 +63,6 @@
                     </code>
                 </p>
             </div>
-        <!--<div>
-                <p onblur="submit()">
-                    <span class="form-item long">Region file name</span>
-                    <code>
-                        r.<input type="number" id="region_x" value=0>.<input type="number" id="region_z" value=0>.mca
-                    </code>
-                    <br>
-                    This region contains chunks
-                    (<span id="region_x_min_chunk"></span>,<span id="region_y_min_chunk"></span>,<span id="region_z_min_chunk"></span>)
-                    to
-                    (<span id="region_x_max_chunk"></span>,<span id="region_y_max_chunk"></span>,<span id="region_z_max_chunk"></span>).
-                    <br>
-                    This region contains blocks
-                    (<span id="region_x_min_block"></span>,<span id="region_y_min_block"></span>,<span id="region_z_min_block"></span>)
-                    to
-                    (<span id="region_x_max_block"></span>,<span id="region_y_max_block"></span>,<span id="region_z_max_block"></span>).
-                </p>
-            </div>
-         -->
         </form>
         <script>$(document).ready(function(){submit()});</script>
     </main>
