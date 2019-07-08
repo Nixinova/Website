@@ -28,6 +28,7 @@ function summon() {
 
     var no_ai = $('#input_no_ai').hasClass('on');
     var despawnable = $('#input_despawnable').hasClass('on');
+    var invulnerable = $('#input_invulnerable').hasClass('on');
     var silent = $('#input_silent').hasClass('on');
     var pickup = $('#input_pickup').hasClass('on');
     var riding = value('input_riding').toLowerCase().replace(/ /g, '_');
@@ -98,6 +99,7 @@ function summon() {
     if (name) {nbt.CustomName = '"' + name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"') + '"';}
     if (!no_ai) {nbt.NoAI = true;}
     if (!despawnable) {nbt.PersistenceRequired = true;}
+    if (!invulnerable) {nbt.Invulnerable = true;}
     if (!silent) {nbt.Silent = true;}
     if (!pickup) {nbt.CanPickUpLoot = true;}
 
