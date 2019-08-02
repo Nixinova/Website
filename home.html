@@ -9,13 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style name="Showcase section styles">
         #showcase {text-align: center;}
-        #showcase article {display: block; margin: 5px; padding: 10px 15px; width: 97%;}
-        #showcase article section {background: #46484e; padding: 10px 25px; display: inline-block;}
+        #showcase article {display: block; margin: auto; padding: 10px 15px; width: 97%;}
+        #showcase article section {background: #46484e; margin: 0 10px; padding: 10px 25px; display: inline-block;}
         #showcase article section a {color: #eee; text-decoration: none;}
-
-        @media (max-width: 1000px) {
-            #showcase article {padding-left: 0;margin-left: 0;}
-            #showcase article section {margin-left: 10px;}
+        @media (min-width: 850px) {
+            #showcase article section {width: calc(33% - 20px);}
         }
     </style>
 </head>
@@ -38,13 +36,13 @@
                 </section>
                 <section id="musical-blocks">
                     <a href="/minecraft/maps/musical-blocks">
-                        <h3>Musical Blocks</h3>
+                        <h3>Musical Blocks</h3>
                         <p>The somewhat obscure<br>minigame Musical Blocks<br>in vanilla Minecraft 1.8.</p>
                     </a>
                 </section>
                 <section id="kitpvp">
                     <a href="/minecraft/maps/kitpvp">
-                        <h3>Musical Blocks</h3>
+                        <h3>KitPvP</h3>
                         <p>The unending PvP game<br>in vanilla Minecraft 1.8–1.14.<br>Pick a kit and fight!</p>
                     </a>
                 </section>
