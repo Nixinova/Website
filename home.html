@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+    <title>Nixinova</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="The personal website of Nixinova, which contains map and resource pack downloads as well as in-game tools for Minecraft.">
+    <meta name="author" content="Nixinova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style name="Showcase section styles">
+        #showcase article {display: block; margin: 5px; padding: 10px 15px; width: 97%;}
+        #showcase article section {background: #46484e; padding: 10px 25px; display: inline-block; width: 92%;}
+        #showcase article section a {color: #eee; text-decoration: none;}
+
+        @media (max-width: 1000px) {
+            #showcase article {padding-left: 0;margin-left: 0;}
+            #showcase article section {margin-left: 10px;}
+        }
+    </style>
+</head>
+<body style="background: #44b; overflow: hidden;">
+    <header>
+        <nav style="opacity: 0;"></nav>
+        <script>$('nav').load('imports/navigation')</script>
+    </header>
+
+    <main>
+
+        <div id="showcase">
+            <article id="maps">
+                <h2>Minecraft Maps</h2>
+                <section id="skywars">
+                    <a href="/minecraft/maps/skywars">
+                        <h3>SkyWars</h3>
+                        <p>The popular minigame<br>SkyWars remade in vanilla<br>Minecraft 1.12–1.14.</p>
+                    </a>
+                </section>
+                <section id="musical-blocks">
+                    <a href="/minecraft/maps/musical-blocks">
+                        <h3>Musical Blocks</h3>
+                        <p>The somewhat obscure<br>minigame Musical Blocks<br>in vanilla Minecraft 1.8.</p>
+                    </a>
+                </section>
+                <section id="kitpvp">
+                    <a href="/minecraft/maps/kitpvp">
+                        <h3>Musical Blocks</h3>
+                        <p>The unending PvP game<br>in vanilla Minecraft 1.8–1.14.<br>Pick a kit and fight!</p>
+                    </a>
+                </section>
+            </article>
+        </div>
+
+    </main>
+
+    <footer style="position: fixed; bottom: 0;"></footer>
+    <script>$("footer").load("imports/footer #content")</script>
+</body>
+</html>
