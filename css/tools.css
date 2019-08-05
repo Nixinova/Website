@@ -1,5 +1,6 @@
 textarea {transition: none;}
-form p {text-align: left; line-height: 2;}
+form p {text-align: left;}
+select, input {padding: 5px; margin-top: 10px;}
 h2:not(.upper) {text-transform: lowercase}
 
 .elipsis, .plus, .minus {background: #eee; border-radius: 20px; animation: none;}
