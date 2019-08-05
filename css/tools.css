@@ -1,5 +1,5 @@
 textarea {transition: none;}
-form p {text-align: left;}
+form p {text-align: left; line-height: 2;}
 h2:not(.upper) {text-transform: lowercase}
 
 .elipsis, .plus, .minus {background: #eee; border-radius: 20px; animation: none;}
