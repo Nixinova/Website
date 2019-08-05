@@ -1,3 +1,4 @@
+/* Base styles */
 textarea {transition: none;}
 form p {text-align: left;}
 h2:not(.upper) {text-transform: lowercase}
@@ -6,19 +7,21 @@ h2:not(.upper) {text-transform: lowercase}
     form, #output_text {width: 850px; margin: 0 calc(50% - 425px);}]
 }
 
+/* Buttons */
 button {padding: 5px 10px; margin: 6px 1px; font-size: inherit; border-radius: 5px;}
 button.on {background: #5c5;}
 button.off{background: #f55;}
 button.reset {padding: 20px; margin: 0 50px; border: none; border-radius: 5em; cursor: pointer; font: 2em 'Passion One';}
 
+/* Inputs */
 input, select {padding: 5px 6px; margin-top: 10px; display: inline-block; border: 1px solid #ccc; border-radius: 4px;}
 input[type="submit"] {width: 100%; background: #94c0c4; padding: 14px 20px; margin: 8px 0px; border: none;
     border-radius: 4px; cursor: pointer; color: #333; font: normal 2em 'Passion One'; text-align: center;}
 input[type="submit"]:hover {box-shadow: 0px 10px 14px -5px #3338;}
 input[type="number"] {width: 70px;}
-
 textarea {padding: 2px 6px; margin: 6px 0; border-radius: 4px;}
 
+/* Dropdown icons */
 .elipsis, .plus, .minus {background: #eee; border-radius: 20px; animation: none;}
 .elipsis {padding: 5px 8px;}
 .plus, .minus {padding: 5px 10px;}
@@ -27,15 +30,19 @@ a.elipsis, a.plus, a.minus {color: #222; transition: 0s;}
 .minus::before {content: '−';}
 .elipsis::before {content: '⋯';}
 
-.command {background: gray; color: #333; padding: 5px 1em; margin-right: 2em; font-family: monospace; 
-    border: dotted #aaa 1px; border-radius: 5px; word-break: break-word;}
+/* Output */
+#cmd_note .command {white-space: nowrap;}
+.command {
+    background: gray; color: #333; padding: 5px 1em; margin-right: 2em; font-family: monospace; 
+    border: dotted #aaa 1px; border-radius: 5px; word-break: break-word;
+}
+
 @media (min-width: 900px) {
     #input_form p {margin-left: 5em;}
     .command {margin-left: 2em;}
 }
 
-#cmd_note .command {white-space: nowrap;}
-    
+/* Indentation */
 .thirds p {margin: 0; padding: 0;}
 @media (max-width: 1200px) {
     .thirds {width: 100%;}
