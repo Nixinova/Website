@@ -4,13 +4,13 @@ form p {text-align: left;}
 h2:not(.upper) {text-transform: lowercase}
 
 @media (min-width: 900px) {
-    form, #output_text {width: 850px; margin: 0 calc(50% - 425px);}]
+    form, #output_text {width: 800px; margin: 0 calc(50% - 400px);}]
 }
 
 /* Buttons */
 button {padding: 5px 10px; margin: 6px 1px; font-size: inherit; border-radius: 5px;}
-button.on {background: #5c5;}
-button.off{background: #f55;}
+button.on  {background: #5c5;}
+button.off {background: #f55;}
 button.reset {padding: 20px; margin: 0 50px; border: none; border-radius: 5em; cursor: pointer; font: 2em 'Passion One';}
 
 /* Inputs */
@@ -35,11 +35,6 @@ a.elipsis, a.plus, a.minus {color: #222; transition: 0s;}
 .command {
     background: gray; color: #333; padding: 5px 1em; margin-right: 2em; font-family: monospace; 
     border: dotted #aaa 1px; border-radius: 5px; word-break: break-word;
-}
-
-@media (min-width: 900px) {
-    #input_form p {margin-left: 5em;}
-    .command {margin-left: 2em;}
 }
 
 /* Indentation */
