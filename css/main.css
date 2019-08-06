@@ -73,7 +73,7 @@ a:hover button {background: royalblue; font-size: 21px;}
 }
 @media (max-width: 800px) {
     .desktoponly {display: none !important;}
-    main {margin-top: 5em;}
+    main {padding-top: 5em;}
 }
 
 /* Useful code */
