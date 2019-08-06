@@ -6,9 +6,6 @@ https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
 # Styling
 /css/style.css      /css/main.css
 
-# Home
-/home               /
-
 # Maps
 /maps/*             /minecraft/maps/:splat
 /skywars            /minecraft/maps/skywars
