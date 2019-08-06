@@ -1,3 +1,6 @@
+/* Font */
+@font-face {font-family: 'Minecraft'; src: local('Minecraft'), url('/css/minecraft.ttf') format('truetype');}
+
 /* Base styles */
 textarea {transition: none;}
 form p {text-align: left;}
