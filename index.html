@@ -10,12 +10,12 @@
     <style>
         /* Showcase */
         #showcase {background: #313131; min-height: calc(100vh - 60px); text-align: center;}
-        #showcase article {display: block; margin: auto; padding: 10px 15px; width: 97%;}
-        #showcase article section {background: #46484e; width: 100%; margin: 0 10px; width: 100%; padding: 10px 25px; display: inline-block;}
-        #showcase article section h3 {white-space: nowrap;}
-        #showcase article section a {color: #eee; text-decoration: none;}
+        #showcase tr {display: block; margin: auto; padding: 10px 15px; width: 97%;}
+        #showcase tr td {background: #46484e; width: 100%; margin: 0 10px; width: 100%; padding: 10px 25px; display: inline-block;}
+        #showcase tr td h3 {white-space: nowrap;}
+        #showcase tr td a {color: #eee; text-decoration: none;}
         @media (min-width: 1000px) {
-            #showcase article section {width: calc(33% - 20px); border-radius: 5px;}
+            #showcase tr td {width: calc(33% - 20px); border-radius: 5px;}
         }
 
         /* Image */
@@ -35,73 +35,79 @@
             <img src="/images/nixinova.png" alt="Nixinova" onmousedown="return false">
         </div>
 
-        <div id="showcase">
-            <article>
-                <h2>Minecraft Maps</h2>
-                <section>
+        <table id="showcase">
+            <tr>
+                <td colspan=3>
+                    <h2>Minecraft Maps</h2>
+                </td>
+                <td>
                     <a href="/minecraft/maps/skywars">
                         <h3>SkyWars</h3>
                         <p>Play the popular minigame SkyWars remade in vanilla Minecraft 1.12–1.14.</p>
                     </a>
-                </section>
-                <section>
+                </td>
+                <td>
                     <a href="/minecraft/maps/musical-blocks">
                         <h3>Musical Blocks</h3>
                         <p>Play the minigame Musical Blocks (aka Block Party) in vanilla Minecraft 1.8.</p>
                     </a>
-                </section>
-                <section>
+                </td>
+                <td>
                     <a href="/minecraft/maps/kitpvp">
                         <h3>KitPvP</h3>
                         <p>Play the unending PvP game in vanilla Minecraft 1.8–1.14. Pick a kit and fight!</p>
                     </a>
-                </section>
-            </article>
+                </td>
+            </tr>
 
-            <article>
-                <h2>Minecraft Tools</h2>
-                <section>
+            <tr>
+                <td colspan=3>
+                    <h2>Minecraft Tools</h2>
+                </td>
+                <td>
                     <a href="/minecraft/tools/give">
                         <h3><samp>/give</samp></h3>
                         <p>Generates custom <samp>/give</samp> item or block commands with NBT for Minecraft 1.14.</p>
                     </a>
-                </section>
-                <section>
+                </td>
+                <td>
                     <a href="/minecraft/tools/summon">
                         <h3><samp>/summon</samp></h3>
                         <p>Generates custom <samp>/summon</samp> entity commands for Minecraft 1.14.</p>
                     </a>
-                </section>
-                <section>
+                </td>
+                <td>
                     <a href="/minecraft/tools/coordinates">
                         <h3>Coordinates</h3>
                         <p>Converts overworld coordinates into nether, chunk, and region coordinates.</p>
                     </a>
-                </section>
-            </article>
+                </td>
+            </tr>
             
-            <article>
-                <h2>Minecraft Resource Packs</h2>
-                <section>
+            <tr>
+                <td colspan=3>
+                    <h2>Minecraft Resource Packs</h2>
+                </td>
+                <td>
                     <a href="/minecraft/resource-packs/mash-up">
                         <h3>Nixinova Mash-Up</h3>
                         <p>My current resource pack for Minecraft 1.14, based on Faithful with a collection of textures from other packs.</p>
                     </a>
-                </section>
-                <section>
+                </td>
+                <td>
                     <a href="/minecraft/resource-packs/themed">
                         <h3>Themed Mash-Up</h3>
                         <p>Somewhat annual holiday-themed (Easter and Christmas) versions of my regular mash-up pack.</p>
                     </a>
-                </section>
-                <section>
+                </td>
+                <td>
                     <a href="/minecraft/resource-packs/endercreeper">
                         <h3>Endercreeper RP</h3>
                         <p>The first version of my Minecraft resource pack, from 2014, which retextures creepers and ores.</p>
                     </a>
-                </section>
+                </td>
             </article>
-        </div>
+        </table>
 
     </main>
 
