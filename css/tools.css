@@ -27,11 +27,11 @@ textarea {padding: 2px 6px; margin: 6px 0; border-radius: 4px;}
 /* Dropdown icons */
 .elipsis, .plus, .minus, .clear {background: #eee; border-radius: 20px; animation: none;}
 .elipsis {padding: 5px  8px;}
-.plus, .minus {padding: 5px 10px;}
+.plus, .minus, .clear {padding: 5px 10px;}
 .plus::before {content: '+';}
 .minus::before {content: '−';}
 .elipsis::before {content: '⋯';}
-.clear::before {content: 'x';}
+.clear::before {content: '⨯';}
 a.elipsis, a.plus, a.minus, a.clear {color: #222; transition: 0s;}
 
 /* Output */

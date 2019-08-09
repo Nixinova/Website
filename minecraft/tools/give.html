@@ -251,7 +251,7 @@
                     <option>Thorns</option>
                     <option>Unbreaking</option>
                 </select>
-                <a id="clear-ench" class="clear" onclick="e=[];elvl=[];"></a>
+                <a id="clear-ench" class="clear" onclick="e=[];elvl=[];submit();"></a>
                 &nbsp;
                 <span>Level:</span> <input class="lvl" type="number" value="1" min="1" max="32737" id="input_item_ench_lvl" onchange="submit()"><br/>
             
@@ -318,7 +318,7 @@
                     <option value="spruce_logs">Wood (spruce)</option>
                     <option value="wool">Wool</option>
                 </select>
-                <a id="clear-canDestroy" class="clear" onclick="CanDestroy=[]"></a><br/>
+                <a id="clear-canDestroy" class="clear" onclick="CanDestroy=[];submit();"></a><br/>
                 
                 <span class="form-item">Can place on:</span>
                 <span>Block:</span>
@@ -374,7 +374,7 @@
                     <option value="spruce_logs">Wood (spruce)</option>
                     <option value="wool">Wool</option>
                 </select>
-                <a id="clear-canPlaceOn" class="clear" onclick="CanPlaceOn=[]"></a><br/>
+                <a id="clear-canPlaceOn" class="clear" onclick="CanPlaceOn=[];submit();"></a><br/>
 
                 <script>
                     var uuid = 0;
@@ -412,6 +412,9 @@
                     </select>
                     <span>Amount:</span>
                     <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
+
+                    <a id="clear-mods" class="clear" onclick="modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
+                    &nbsp;
                     <a id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a><br/>
                 </span>
 
@@ -435,8 +438,6 @@
                     <span>Modifier IDs:</span>
                     <input type="number" id="input_item_mod_uuid_least" min="1" onchange="submit()">
                     <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()">
-
-                    <a id="clear-mods" class="clear" onclick="modifiers=[];Attributes = {Names:[], Values:[]};"></a>
                     <br/>
                 </span>
 
