@@ -250,7 +250,9 @@
                     <option>Sweeping Edge</option>
                     <option>Thorns</option>
                     <option>Unbreaking</option>
-                </select> &nbsp;
+                </select>
+                <a id="clear-ench" class="clear" onclick="e=[];elvl=[];"></a>
+                &nbsp;
                 <span>Level:</span> <input class="lvl" type="number" value="1" min="1" max="32737" id="input_item_ench_lvl" onchange="submit()"><br/>
             
                 <!-- other -->
@@ -315,7 +317,8 @@
                     <option value="jungle_logs">Wood (jungle)</option>
                     <option value="spruce_logs">Wood (spruce)</option>
                     <option value="wool">Wool</option>
-                </select><br/>
+                </select>
+                <a id="clear-canDestroy" class="clear" onclick="CanDestroy=[]"></a><br/>
                 
                 <span class="form-item">Can place on:</span>
                 <span>Block:</span>
@@ -370,7 +373,8 @@
                     <option value="jungle_logs">Wood (jungle)</option>
                     <option value="spruce_logs">Wood (spruce)</option>
                     <option value="wool">Wool</option>
-                </select><br/>
+                </select>
+                <a id="clear-canPlaceOn" class="clear" onclick="CanPlaceOn=[]"></a><br/>
 
                 <script>
                     var uuid = 0;
@@ -430,7 +434,10 @@
                     </select> &nbsp;
                     <span>Modifier IDs:</span>
                     <input type="number" id="input_item_mod_uuid_least" min="1" onchange="submit()">
-                    <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()"><br/>
+                    <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()">
+
+                    <a id="clear-mods" class="clear" onclick="modifiers=[];Attributes = {Names:[], Values:[]};"></a>
+                    <br/>
                 </span>
 
                 <span>Show attributes:</span>
