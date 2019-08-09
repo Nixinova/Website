@@ -38,7 +38,7 @@
                         <option value="@a">All players</option>
                         <option value="--">Specific player</option>
                     </select>
-                <a id="expand-target" class="elipsis" onclick="show_more('expand-target','target-content',false)"></a>
+                 <a href="javascript:void(0)" id="expand-target" class="elipsis" onclick="show_more('expand-target','target-content',false)"></a>
             </p>
             <!-- target (expanded content) -->
             <div id="target-content" class="hide indent">
@@ -123,7 +123,7 @@
                     <input type="text" placeholder="objective" size="10" id="input_selector_score_objective"> &ensp;
                     <input type="number" placeholder="min" size="3" id="input_selector_score_min"> &nbsp;
                     <input type="number" placeholder="max" size="3" id="input_selector_score_max">
-                    <a onclick="submit()" id="add-score" class="plus"></a>
+                     <a href="javascript:void(0)" onclick="submit()" id="add-score" class="plus"></a>
                 </p>
             </div>
             <!-- target (username) -->
@@ -161,7 +161,7 @@
 
                 <span class="form-item">Custom name:</span>
                 <input type="text" size="13" id="input_item_name">  
-                <a id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
+                 <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
                 
                 <span id="preview" class="hide">
                     &nbsp; Preview: &nbsp;
@@ -251,7 +251,7 @@
                     <option>Thorns</option>
                     <option>Unbreaking</option>
                 </select>
-                <a id="clear-ench" class="clear" onclick="e=[];elvl=[];submit();"></a>
+                 <a href="javascript:void(0)" id="clear-ench" class="clear" onclick="e=[];elvl=[];submit();"></a>
                 &nbsp;
                 <span>Level:</span> <input class="lvl" type="number" value="1" min="1" max="32737" id="input_item_ench_lvl" onchange="submit()"><br/>
             
@@ -318,7 +318,7 @@
                     <option value="spruce_logs">Wood (spruce)</option>
                     <option value="wool">Wool</option>
                 </select>
-                <a id="clear-canDestroy" class="clear" onclick="CanDestroy=[];submit();"></a><br/>
+                 <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="CanDestroy=[];submit();"></a><br/>
                 
                 <span class="form-item">Can place on:</span>
                 <span>Block:</span>
@@ -374,7 +374,7 @@
                     <option value="spruce_logs">Wood (spruce)</option>
                     <option value="wool">Wool</option>
                 </select>
-                <a id="clear-canPlaceOn" class="clear" onclick="CanPlaceOn=[];submit();"></a><br/>
+                 <a href="javascript:void(0)" id="clear-canPlaceOn" class="clear" onclick="CanPlaceOn=[];submit();"></a><br/>
 
                 <script>
                     var uuid = 0;
@@ -413,9 +413,9 @@
                     <span>Amount:</span>
                     <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
 
-                    <a id="clear-mods" class="clear" onclick="modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
+                     <a href="javascript:void(0)" id="clear-mods" class="clear" onclick="modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
                     &nbsp;
-                    <a id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a><br/>
+                     <a href="javascript:void(0)" id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a><br/>
                 </span>
 
                 <span id="mods-content" class="hide indent">
