@@ -1,5 +1,3 @@
-https://nixinova.netlify.com/*  https://nixinova.com/:splat  301!
-
 # Subdomains
 /images/*           https://images.nixinova.com/:splat 301!
 
