@@ -11,7 +11,7 @@ h2:not(.upper) {text-transform: lowercase; margin-top: 1em;}
 }
 
 /* Buttons */
-button {padding: 5px 10px; font-size: inherit; border-radius: 5px;}
+button {padding: 5px 10px; font-size: inherit; border: none; border-radius: 5px;}
 button.on  {background: #5c5;}
 button.off {background: #f55;}
 button.reset {padding: 20px; margin: 0 50px; border: none; border-radius: 5em; cursor: pointer; font: 2em 'Passion One';}

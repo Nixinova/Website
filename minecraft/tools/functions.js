@@ -26,28 +26,6 @@ function getQueryString(val) {
 }
 
 function value(id, type) {
-    /*if (function_count > 0) {
-        let queryVar = getQueryString(id.replace(/(input_)/,''));
-        if (type === 'int') return parseInt($('#'+id).val(), 10);
-        else if (type === 'num') return parseFloat($('#'+id).val(), 10);
-        else if (queryVar) {
-            $(id).val(queryVar);
-            return $.trim(queryVar);
-        }
-        else return $.trim($(id).val());
-    } else* {
-    
-    if (type === 'int') {
-        return parseInt($('#'+id).val(), 10);
-    }
-    else if (type === 'num') {
-        let output = parseFloat($('#'+id).val(), 10);
-        if (output === null) {output = 0;}
-        return output;
-    }
-    else {
-        return $.trim($('#'+id).val());
-    }*/
     if (type === 'int') return parseInt($('#'+id).val(), 10);
     else if (type === 'num') return parseFloat($('#'+id).val(), 10);
     else return $.trim($('#'+id).val());
