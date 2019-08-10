@@ -35,7 +35,7 @@ function value(id, type) {
             return $.trim(queryVar);
         }
         else return $.trim($(id).val());
-    } else*/ {
+    } else* {
     
     if (type === 'int') {
         return parseInt($('#'+id).val(), 10);
@@ -47,7 +47,10 @@ function value(id, type) {
     }
     else {
         return $.trim($('#'+id).val());
-    }
+    }*/
+    if (type === 'int') return parseInt($('#'+id).val(), 10);
+    else if (type === 'num') return parseFloat($('#'+id).val(), 10);
+    else return $.trim($('#'+id).val());
 }
 
 function checked(id) {
