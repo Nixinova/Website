@@ -101,9 +101,9 @@ function summon() {
     if (name) {nbt.CustomName = '"' + name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"') + '"';}
     if (!no_ai) {nbt.NoAI = true;}
     if (!despawnable) {nbt.PersistenceRequired = true;}
-    if (!invulnerable) {nbt.Invulnerable = true;}
-    if (!silent) {nbt.Silent = true;}
-    if (!pickup) {nbt.CanPickUpLoot = true;}
+    if (invulnerable) {nbt.Invulnerable = true;}
+    if (silent) {nbt.Silent = true;}
+    if (pickup) {nbt.CanPickUpLoot = true;}
 
     // tame mobs //
     if (tame_mobs.indexOf(entity) > -1) {
