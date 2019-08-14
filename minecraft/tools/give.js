@@ -123,7 +123,7 @@ function give() {
     
 
     /// OTHER ///
-    if (target == '@e') {
+    if (target === '@e') {
         $('.player_only').addClass('hide');
     } else {
         $('.player_only').removeClass('hide');
@@ -136,7 +136,7 @@ function give() {
   {
     // select player //
     
-    if (target == '--') {
+    if (target === '--') {
         $('#select-username').removeClass('hide');
         $('#expand-target').addClass('hide');
         if ($('#expand-target').hasClass('minus')) {
@@ -149,20 +149,20 @@ function give() {
     }
 
     var selector = []
-    if (target == '--') {target_text = player ? player : '@s'} else {target_text = target;}
+    if (target === '--') {target_text = player ? player : '@s'} else {target_text = target;}
 
     if (!isNaN(target_x)) {selector.push('x=' + target_x);}
     if (!isNaN(target_y)) {selector.push('y=' + target_y);}
     if (!isNaN(target_z)) {selector.push('z=' + target_z);}
 
-    if (selection_area == 'radius' && (dist_min || dist_max)) {
+    if (selection_area === 'radius' && (dist_min || dist_max)) {
         if (dist_min && !dist_max) {selector.push('distance=' + dist_min + '..');}
         if (!dist_min && dist_max) {selector.push('distance=' + '..' + dist_max);}
         if (dist_min && dist_max && dist_min != dist_max) {selector.push('distance=' + dist_min + '..' + dist_max);}
         if (dist_min && dist_max && dist_min == dist_max) {selector.push('distance=' + dist_min);}
     }
 
-    if (selection_area == 'volume' && (vol_x || vol_y || vol_z)) {
+    if (selection_area === 'volume' && (vol_x || vol_y || vol_z)) {
         if (vol_x) {selector.push('dx=' + vol_x);}
         if (vol_y) {selector.push('dy=' + vol_y);}
         if (vol_z) {selector.push('dz=' + vol_z);}
@@ -485,7 +485,7 @@ function give() {
             if (!i_mod_uuid_most) {i_mod_uuid_most = uuids[i_mod][1];}
 
             for (i = 0; i < modifiers.length; i++) {
-                if (modifiers[i].AttributeName == 'generic.'+ i_mod) {
+                if (modifiers[i].AttributeName === 'generic.'+ i_mod) {
                     modifiers.splice(i,1);
                 }
             }
@@ -523,7 +523,7 @@ function give() {
       }
 
     // count //
-    if (count == '') {count = '1';}
+    if (count === '') {count = '1';}
   }
 
     /// OUTPUT ///
@@ -531,7 +531,7 @@ function give() {
     window.output = outputQuery? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
     if (output.length > 256) {
         $('#cmd_note').removeClass('hide');
-        if (target == '@s') {target = '@p';}
+        if (target === '@s') {target = '@p';}
     }
     if (outputQuery) {
         outputQuery = decodeURIComponent(outputQuery);
