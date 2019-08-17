@@ -17,7 +17,14 @@ function give() {
         "golden_helmet", "golden_chestplate", "golden_leggings", "golden_boots",
         "leather_helmet", "leather_chestplate", "leather_leggings", "leather_boots",
 
-        "bow", "shears", "fishing_rod", "flint_and_steel", "carrot_on_a_stick", "elytra", "shield"
+        "trident", "bow", "flint_and_steel", "elytra", "shield", "carrot_on_a_stick", "fishing_rod", "shears"
+    ];
+    const tags = [
+        'acacia_logs', 'anvil', 'banners', 'birch_logs', 'buttons', 'carpets', 'coral_blocks', 'corals',
+        'dark_oak_logs', 'doors', 'enderman_holdable', 'flower_pots', 'ice', 'impermeable', 'jungle_logs',
+        'leaves', 'logs', 'oak_logs', 'planks', 'rails', 'sand', 'saplings', 'slabs', 'spruce_logs', 'stairs',
+        'standing_signs', 'stone_bricks', 'underwater_bonemeals', 'valid_spawn', 'wall_corals', 'wall_signs', 'walls',
+        'wooden_buttons', 'wooden_doors', 'wooden_pressure_places', 'wooden_slabs', 'wooden_stairs', 'wool'
     ];
     const durabilities = {
         "diamond_sword": 1561, "diamond_pickaxe": 1561, "diamond_axe": 1561, "diamond_shovel": 1561, "diamond_hoe": 1561,
@@ -32,15 +39,9 @@ function give() {
         "golden_helmet": 78, "golden_chestplate": 113, "golden_leggings": 106, "golden_boots": 92,
         "leather_helmet": 56, "leather_chestplate": 81, "leather_leggings": 76, "leather_boots": 66,
 
-        "bow": 384, "shears": 237, "fishing_rod": 64, "flint_and_steel": 63, "carrot_on_a_stick": 225, "elytra": 431, "shield": 336
+        "trident": 250, "bow": 384, "flint_and_steel": 63, "elytra": 431, "shield": 336,
+        "carrot_on_a_stick": 225, "fishing_rod": 64, "shears": 237
     };
-    const tags = [
-        'acacia_logs', 'anvil', 'banners', 'birch_logs', 'buttons', 'carpets', 'coral_blocks', 'corals',
-        'dark_oak_logs', 'doors', 'enderman_holdable', 'flower_pots', 'ice', 'impermeable', 'jungle_logs',
-        'leaves', 'logs', 'oak_logs', 'planks', 'rails', 'sand', 'saplings', 'slabs', 'spruce_logs', 'stairs',
-        'stone_bricks', 'underwater_bonemeals', 'valid_spawn', 'wall_corals', 'wooden_buttons',
-        'wooden_doors', 'wooden_pressure_places', 'wooden_slabs', 'wooden_stairs', 'wool'
-    ];
 
     /// VARIABLES ///
 
