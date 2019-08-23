@@ -124,10 +124,24 @@
             <button id="input_pickup" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
             <span class="bee only">
-                <span class="form-item indent">Has stung?</span>
-                <button id="input_bee_stung" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 <span class="form-item indent">Has nectar?</span>
                 <button id="input_bee_nectar" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <span class="form-item indent">Has stung?</span>
+                <button id="input_bee_stung" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                
+                <span class="form-item indent">Angry?</span>
+                <button id="input_bee_angry" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
+    
+                <span class="angry-bee only"> &ensp;
+                    <span>Time until peaceful:</span> &nbsp;
+                    <input type="number" value="1000" min="0" id="input_bee_angry_time_value">
+                    <select id="input_bee_angry_time" onchange="submit()">
+                        <option value="t">Ticks</option>
+                        <option value="s">Seconds</option>
+                        <option value="m">Minutes</option>
+                        <option value="h">Hours</option>
+                    </select>
+                </span><br/>
             </span>
 
             <span class="cat only">
@@ -201,48 +215,48 @@
             </span>
 
             <span class="llama only">
-                    <span class="form-item indent">Type:</span>
-                    <select id="input_llama_type" onchange="submit()">
-                        <option value=" ">Creamy</option>
-                        <option value="1">White</option>
-                        <option value="2">Brown</option>
-                        <option value="3">Gray</option>
-                    </select><br/>
+                <span class="form-item indent">Type:</span>
+                <select id="input_llama_type" onchange="submit()">
+                    <option value=" ">Creamy</option>
+                    <option value="1">White</option>
+                    <option value="2">Brown</option>
+                    <option value="3">Gray</option>
+                </select><br/>
     
-                    <span class="form-item indent">Temper:</span>
-                    <input type="number" min="1" max="100" id="input_llama_temper"><br/>
+                <span class="form-item indent">Temper:</span>
+                <input type="number" min="1" max="100" id="input_llama_temper"><br/>
             </span>
     
             <span class="mooshroom only">
-                    <span class="form-item indent">Type:</span>
-                    <select id="input_mooshroom_type" onchange="submit()">
-                        <option value="">Red</option>
-                        <option>Brown</option>
-                    </select><br/>
+                <span class="form-item indent">Type:</span>
+                <select id="input_mooshroom_type" onchange="submit()">
+                    <option value="">Red</option>
+                    <option>Brown</option>
+                </select><br/>
             </span>
     
             <span class="panda only">
-                    <span class="form-item indent">Main gene:</span>
-                    <select id="input_panda_gene_1" onchange="submit()">
-                        <option>Normal</option>
-                        <option>Lazy</option>
-                        <option>Worried</option>
-                        <option>Playful</option>
-                        <option>Aggressive</option>
-                        <option>Weak</option>
-                        <option>Brown</option>
-                    </select><br/>
-                    
-                    <span class="form-item indent">Hidden gene:</span>
-                    <select id="input_panda_gene_2" onchange="submit()">
-                        <option>Normal</option>
-                        <option>Lazy</option>
-                        <option>Worried</option>
-                        <option>Playful</option>
-                        <option>Aggressive</option>
-                        <option>Weak</option>
-                        <option>Brown</option>
-                    </select><br/>
+                <span class="form-item indent">Main gene:</span>
+                <select id="input_panda_gene_1" onchange="submit()">
+                    <option>Normal</option>
+                    <option>Lazy</option>
+                    <option>Worried</option>
+                    <option>Playful</option>
+                    <option>Aggressive</option>
+                    <option>Weak</option>
+                    <option>Brown</option>
+                </select><br/>
+                
+                <span class="form-item indent">Hidden gene:</span>
+                <select id="input_panda_gene_2" onchange="submit()">
+                    <option>Normal</option>
+                    <option>Lazy</option>
+                    <option>Worried</option>
+                    <option>Playful</option>
+                    <option>Aggressive</option>
+                    <option>Weak</option>
+                    <option>Brown</option>
+                </select><br/>
             </span>
 
             <span class="rabbit only">

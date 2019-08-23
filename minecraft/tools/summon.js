@@ -35,6 +35,9 @@ function summon() {
     var baby_time_value = value('input_baby_time_value');
     var bee_stung = $('#input_bee_stung').hasClass('on');
     var bee_nectar = $('#input_bee_nectar').hasClass('on');
+    var bee_angry = $('#input_bee_angry').hasClass('on');
+    var bee_angry_time = $('#input_bee_angry_time').hasClass('on');
+    var bee_angry_time_value = $('#input_bee_angry_time_value').hasClass('on');
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
@@ -116,6 +119,17 @@ function summon() {
         if (entity === 'bee') {
             if (bee_nectar) {nbt.HasNectar = true;}
             if (bee_stung) {nbt.HasStung = true;}
+            
+            if (neg_age_mobs.indexOf(entity) > -1) {
+                $('.angry-bee').removeClass('hide');
+                if (bee_angry_time && bee_angry_time_value) {
+                    if (bee_angry_time === 't') {nbt.Anger = 0 - bee_angry_time_value;}
+                    if (bee_angry_time === 's') {nbt.Anger = 0 - bee_angry_time_value * 20;}
+                    if (bee_angry_time === 'm') {nbt.Anger = 0 - bee_angry_time_value * 1200;}
+                    if (bee_angry_time === 'h') {nbt.Anger = 0 - bee_angry_time_value * 72000;}
+                    $('.baby_living_mobs').removeClass('hide');
+               }
+           
        }
 
         // cat //
