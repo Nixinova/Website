@@ -124,10 +124,9 @@ function summon() {
                 $('.angry-bee').removeClass('hide');
                 if (bee_angry_time && bee_angry_time_value) {
                     if (bee_angry_time === 't') {nbt.Anger = 0 - bee_angry_time_value;}
-                    if (bee_angry_time === 's') {nbt.Anger = 0 - bee_angry_time_value * 20;}
-                    if (bee_angry_time === 'm') {nbt.Anger = 0 - bee_angry_time_value * 1200;}
-                    if (bee_angry_time === 'h') {nbt.Anger = 0 - bee_angry_time_value * 72000;}
-                    $('.baby_living_mobs').removeClass('hide');
+                    else if (bee_angry_time === 's') {nbt.Anger = 0 - bee_angry_time_value * 20;}
+                    else if (bee_angry_time === 'm') {nbt.Anger = 0 - bee_angry_time_value * 1200;}
+                    else if (bee_angry_time === 'h') {nbt.Anger = 0 - bee_angry_time_value * 72000;}
                 }
             }
        }
