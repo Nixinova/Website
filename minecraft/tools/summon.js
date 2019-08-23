@@ -11,8 +11,8 @@ function summon() {
     /// VARIABLES ///
     var zombies = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
     var neg_age_mobs = [
-        'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot', 'panda',
-        'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
+        'bee', 'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot',
+        'panda', 'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
     ];
     var tame_mobs = ['llama', 'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'];
@@ -120,7 +120,7 @@ function summon() {
             if (bee_nectar) {nbt.HasNectar = true;}
             if (bee_stung) {nbt.HasStung = true;}
             
-            if (neg_age_mobs.indexOf(entity) > -1) {
+            if (bee_angry) {
                 $('.angry-bee').removeClass('hide');
                 if (bee_angry_time && bee_angry_time_value) {
                     if (bee_angry_time === 't') {nbt.Anger = 0 - bee_angry_time_value;}
@@ -128,8 +128,8 @@ function summon() {
                     if (bee_angry_time === 'm') {nbt.Anger = 0 - bee_angry_time_value * 1200;}
                     if (bee_angry_time === 'h') {nbt.Anger = 0 - bee_angry_time_value * 72000;}
                     $('.baby_living_mobs').removeClass('hide');
-               }
-           
+                }
+            }
        }
 
         // cat //
