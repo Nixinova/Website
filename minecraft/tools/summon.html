@@ -25,12 +25,13 @@
 
 <main>
     <h2>/summon</h2>
-    <p>Generates /summon commands for Minecraft 1.13+.</p>
+    <p>Generates /summon commands for Minecraft 1.13 to 1.15.</p>
     <form action="javascript:submit()" id="input_form">
         <p>
             <span class="form-item">Mob:</span>
             <select id="input_entity" onchange="submit()">
                     <option>Bat</option>
+                    <option>Bee</option>
                     <option>Blaze</option>
                     <option>Cat</option>
                     <option>Cave Spider</option>
@@ -122,6 +123,13 @@
             <span class="form-item indent">Pick up items?</span>
             <button id="input_pickup" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
+            <span class="bee only">
+                <span class="form-item indent">Has stung?</span>
+                <button id="input_bee_stung" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <span class="form-item indent">Has nectar?</span>
+                <button id="input_bee_nectar" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+            </span>
+
             <span class="cat only">
                  <span class="form-item indent">Type:</span>
                  <select id="input_cat_type" onchange="submit()">
@@ -189,7 +197,7 @@
 
             <span class="ghast only">
                 <span class="form-item indent">Fireball power:</span>
-                <input type="number" min="1" id="input_ghast_explosion_power">
+                <input type="number" min="1" id="input_ghast_explosion_power"><br/>
             </span>
 
             <span class="llama only">

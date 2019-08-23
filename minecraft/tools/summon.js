@@ -29,11 +29,12 @@ function summon() {
     var invulnerable = $('#input_invulnerable').hasClass('on');
     var silent = $('#input_silent').hasClass('on');
     var pickup = $('#input_pickup').hasClass('on');
-    var riding = value('input_riding').toLowerCase().replace(/ /g, '_');
 
     var baby = $('#input_is_baby').hasClass('on');
     var baby_time = value('input_baby_time');
     var baby_time_value = value('input_baby_time_value');
+    var bee_stung = $('#input_bee_stung').hasClass('on');
+    var bee_nectar = $('#input_bee_nectar').hasClass('on');
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
@@ -91,182 +92,188 @@ function summon() {
     $('.' + entity).removeClass('hide');
 
     // COORDS //
-    if (!X) { X = '~'; }
-    if (!Y) { Y = '~'; }
-    if (!Z) { Z = '~'; }
+    if (!X) {X = '~';}
+    if (!Y) {Y = '~';}
+    if (!Z) {Z = '~';}
 
     // ENTITY NBT //
     {
         // all //
-        if (name) { nbt.CustomName = '"' + name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"') + '"'; }
-        if (!no_ai) { nbt.NoAI = true; }
-        if (!despawnable) { nbt.PersistenceRequired = true; }
-        if (invulnerable) { nbt.Invulnerable = true; }
-        if (silent) { nbt.Silent = true; }
-        if (pickup) { nbt.CanPickUpLoot = true; }
+        if (name) {nbt.CustomName = '"' + name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"') + '"';}
+        if (!no_ai) {nbt.NoAI = true;}
+        if (!despawnable) {nbt.PersistenceRequired = true;}
+        if (invulnerable) {nbt.Invulnerable = true;}
+        if (silent) {nbt.Silent = true;}
+        if (pickup) {nbt.CanPickUpLoot = true;}
 
         // tame mobs //
         if (tame_mobs.indexOf(entity) > -1) {
             $('.tame_mobs.only').removeClass('hide');
-            if (horse_tame) { nbt.Tame = true; }
-        }
+            if (horse_tame) {nbt.Tame = true;}
+       }
+
+        // bee //
+        if (entity === 'bee') {
+            if (bee_nectar) {nbt.HasNectar = true;}
+            if (bee_stung) {nbt.HasStung = true;}
+       }
 
         // cat //
         if (entity === 'cat') {
-            if (cat_type !== null) { nbt.CatType = cat_type; }
-            if (cat_collar) { nbt.CollarColor = cat_collar; }
-        }
+            if (cat_type !== null) {nbt.CatType = cat_type;}
+            if (cat_collar) {nbt.CollarColor = cat_collar;}
+       }
 
         // coloured mobs //
         if (entity === 'sheep' || entity === 'shulker') {
-            if (mob_color) { nbt.Color = mob_color; }
-        }
+            if (mob_color) {nbt.Color = mob_color;}
+       }
 
         // creeper //
         if (entity === 'creeper') {
-            if (creeper_powered) { nbt.powered = true; }
-        }
+            if (creeper_powered) {nbt.powered = true;}
+       }
 
         // endermite //
         if (entity === 'endermite') {
-            if (endermite_life) { nbt.Lifetime = 2400 - endermite_life }
-            if (endermite_attackable) { nbt.PlayerSpawned = true; }
-        }
+            if (endermite_life) {nbt.Lifetime = 2400 - endermite_life}
+            if (endermite_attackable) {nbt.PlayerSpawned = true;}
+       }
 
         // fox //
         if (entity === 'fox') {
-            if ($fox_type.hasClass('red') && foxCount > 0) { nbt.Type = 'red'; }
-            if ($fox_type.hasClass('snow')) { nbt.Type = 'snow'; }
-        }
+            if ($fox_type.hasClass('red') && foxCount > 0) {nbt.Type = 'red';}
+            if ($fox_type.hasClass('snow')) {nbt.Type = 'snow';}
+       }
 
         // ghast //
         if (entity === 'ghast') {
-            if (ghast_explosion_power) { nbt.ExplosionPower = ghast_explosion_power; }
-        }
+            if (ghast_explosion_power) {nbt.ExplosionPower = ghast_explosion_power;}
+       }
 
         // llama //
         if (entity === 'llama') {
-            if (llama_type) { nbt.Variant = llama_type; }
-            if (llama_temper) { nbt.Temper = llama_temper; }
-        }
+            if (llama_type) {nbt.Variant = llama_type;}
+            if (llama_temper) {nbt.Temper = llama_temper;}
+       }
 
         // mooshroom //
         if (entity === 'mooshroom') {
-            if (mooshroom_type) { nbt.Type = mooshroom_type; }
-        }
+            if (mooshroom_type) {nbt.Type = mooshroom_type;}
+       }
 
         // panda //
         if (entity === 'panda') {
-            if (panda_dominant_gene) { nbt.MainGene = panda_dominant_gene; }
-            if (panda_recessive_gene) { nbt.HiddenGene = panda_recessive_gene; }
-        }
+            if (panda_dominant_gene) {nbt.MainGene = panda_dominant_gene;}
+            if (panda_recessive_gene) {nbt.HiddenGene = panda_recessive_gene;}
+       }
 
         // rabbit ..
         if (entity === 'rabbit') {
-            if (rabbit_type !== null) { nbt.RabbitType = rabbit_type; }
-        }
+            if (rabbit_type !== null) {nbt.RabbitType = rabbit_type;}
+       }
 
         // slime //
         if (entity === 'slime') {
-            if (slime_size !== null) { nbt.Size = slime_size; }
-        }
+            if (slime_size !== null) {nbt.Size = slime_size;}
+       }
 
         // tropical fish //
         if (entity === 'tropical_fish') {
-            if (tropical_fish_size === 0) { $('.large-fish').addClass('hide'); $('.small-fish').removeClass('hide'); }
-            if (tropical_fish_size === 1) { $('.small-fish').addClass('hide'); $('.large-fish').removeClass('hide'); }
+            if (tropical_fish_size === 0) {$('.large-fish').addClass('hide'); $('.small-fish').removeClass('hide');}
+            if (tropical_fish_size === 1) {$('.small-fish').addClass('hide'); $('.large-fish').removeClass('hide');}
             let byte_1 = tropical_fish_size;
             let byte_2 = tropical_fish_pattern * Math.pow(2, 8);
             let byte_3 = tropical_fish_base_color * Math.pow(2, 16);
             let byte_4 = tropical_fish_pattern_color * Math.pow(2, 24);
             nbt.Variant = byte_1 + byte_2 + byte_3 + byte_4;
-        }
+       }
 
         // villager //
         if (entity === 'villager') {
             nbt.VillagerData = {};
-            if (villager_type) { nbt.VillagerData.type = villager_type; }
-            if (villager_profession) { nbt.VillagerData.profession = villager_profession; }
-            if (villager_level) { nbt.VillagerData.level = villager_level; }
-        }
+            if (villager_type) {nbt.VillagerData.type = villager_type;}
+            if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
+            if (villager_level) {nbt.VillagerData.level = villager_level;}
+       }
 
         // wolf //
         if (entity === 'wolf') {
-            if (wolf_collar) { nbt.CollarColor = wolf_collar; }
-            if (wolf_sitting) { nbt.Sitting = wolf_sitting; }
-        }
+            if (wolf_collar) {nbt.CollarColor = wolf_collar;}
+            if (wolf_sitting) {nbt.Sitting = wolf_sitting;}
+       }
 
         // zombies //
         if (zombies.indexOf(entity) > -1) {
             $('.zombies').removeClass('hide');
-            if (zombies_canbreak_doors) { nbt.CanBreakDoors = true; }
-        }
+            if (zombies_canbreak_doors) {nbt.CanBreakDoors = true;}
+       }
 
         // babies //
         if (zombies.indexOf(entity) > -1) {
             $('.baby_mobs').removeClass('hide');
-            if (baby) { nbt.IsBaby = true; }
-        }
+            if (baby) {nbt.IsBaby = true;}
+       }
         if (neg_age_mobs.indexOf(entity) > -1) {
             $('.baby_mobs').removeClass('hide');
             if (baby && baby_time_value) {
-                if (baby_time === 't') { nbt.Age = 0 - baby_time_value; }
-                if (baby_time === 's') { nbt.Age = 0 - baby_time_value * 20; }
-                if (baby_time === 'm') { nbt.Age = 0 - baby_time_value * 1200; }
-                if (baby_time === 'h') { nbt.Age = 0 - baby_time_value * 72000; }
+                if (baby_time === 't') {nbt.Age = 0 - baby_time_value;}
+                if (baby_time === 's') {nbt.Age = 0 - baby_time_value * 20;}
+                if (baby_time === 'm') {nbt.Age = 0 - baby_time_value * 1200;}
+                if (baby_time === 'h') {nbt.Age = 0 - baby_time_value * 72000;}
                 $('.baby_living_mobs').removeClass('hide');
-            }
-        }
+           }
+       }
 
-    }
+   }
     // EQUIPMENT //
     {
         // armor //
         var armor_items = [];
-        if (feet) { armor_items.push({ id: feet, Count: feet_n }); } else { armor_items.push({}); }
-        if (legs) { armor_items.push({ id: legs, Count: legs_n }); } else { armor_items.push({}); }
-        if (chest) { armor_items.push({ id: chest, Count: chest_n }); } else { armor_items.push({}); }
-        if (head) { armor_items.push({ id: head, Count: head_n }); } else { armor_items.push({}); }
+        if (feet) {armor_items.push({id: feet, Count: feet_n});} else {armor_items.push({});}
+        if (legs) {armor_items.push({id: legs, Count: legs_n});} else {armor_items.push({});}
+        if (chest) {armor_items.push({id: chest, Count: chest_n});} else {armor_items.push({});}
+        if (head) {armor_items.push({id: head, Count: head_n});} else {armor_items.push({});}
         if (head || chest || legs || feet) {
             nbt.ArmorItems = armor_items;
             var armor_drop_chances;
             if (head_c || chest_c || legs_c || feet_c) {
-                if (!head_c) { head_c = 100; }
-                if (!chest_c) { chest_c = 100; }
-                if (!legs_c) { legs_c = 100; }
-                if (!feet_c) { feet_c = 100; }
+                if (!head_c) {head_c = 100;}
+                if (!chest_c) {chest_c = 100;}
+                if (!legs_c) {legs_c = 100;}
+                if (!feet_c) {feet_c = 100;}
                 armor_drop_chances = [feet_c / 100 + 'f', legs_c / 100 + 'f', chest_c / 100 + 'f', head_c / 100 + 'f'];
                 nbt.ArmorDropChances = armor_drop_chances;
-            }
-        }
+           }
+       }
 
         // held //
         var held_items = [];
-        if (mainhand) { held_items.push({ id: mainhand, Count: mainhand_n }); } else { held_items.push({}); }
-        if (offhand) { held_items.push({ id: offhand, Count: offhand_n }); } else { held_items.push({}); }
+        if (mainhand) {held_items.push({id: mainhand, Count: mainhand_n});} else {held_items.push({});}
+        if (offhand) {held_items.push({id: offhand, Count: offhand_n});} else {held_items.push({});}
         if (mainhand || offhand) {
             nbt.HandItems = held_items;
             var hand_drop_chances;
             if (mainhand_c || offhand_c) {
-                if (!mainhand_c) { mainhand_c = 100; }
-                if (!offhand_c) { offhand_c = 100; }
+                if (!mainhand_c) {mainhand_c = 100;}
+                if (!offhand_c) {offhand_c = 100;}
                 hand_drop_chances = [mainhand_c / 100 + 'f', offhand_c / 100 + 'f'];
                 nbt.HandDropChances = hand_drop_chances;
-            }
-        }
-    }
+           }
+       }
+   }
 
     // CONVERT TO NBT //
-    if (!isEmpty(nbt)) { //                   Removes quotes on IDs            Show int types as plain ints
+    if (!isEmpty(nbt)) {//                   Removes quotes on IDs            Show int types as plain ints
         var NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/"([0-9.]+[bdfLs])"/g, '$1');
-    } else { NBT = ''; }
+   } else {NBT = '';}
 
     /// OUTPUT ///
     const _ = ' ';
     window.output = '/summon ' + entity + _ + X + _ + Y + _ + Z + _ + NBT;
     if (window.output.length > 256) {
         $('#cmd_note').removeClass('hide');
-    }
+   }
     $('#output_text').append(
         '<span style="color: lightgray">/summon</span> ' +
         '<span style="color: #5ff">' + entity + '</span> ' +
@@ -290,10 +297,10 @@ function copyCommand() {
 function submit() {
     try {
         summon();
-    }
+   }
     catch (error) {
         alert(error.stack);
-    }
+   }
 }
 
 /* Copyright 2019 Nixinova */
