@@ -36,8 +36,8 @@ function summon() {
     var bee_stung = $('#input_bee_stung').hasClass('on');
     var bee_nectar = $('#input_bee_nectar').hasClass('on');
     var bee_angry = $('#input_bee_angry').hasClass('on');
-    var bee_angry_time = $('#input_bee_angry_time').hasClass('on');
-    var bee_angry_time_value = $('#input_bee_angry_time_value').hasClass('on');
+    var bee_angry_time = value('input_bee_angry_time');
+    var bee_angry_time_value = value('input_bee_angry_time_value');
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = $('#input_creeper_powered').hasClass('on');
