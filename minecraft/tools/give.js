@@ -4,6 +4,14 @@
 
 function give() {
     /// LISTS ///
+    const tags = [
+        'anvil', 'bamboo_plantable_on', 'banners', 'beds', 'beehives', 'bee_growables', 'buttons', 'wooden_buttons', 'carpets',
+        'corals', 'coral_blocks', 'wall_corals', 'crops', 'dirt_like', 'doors', 'wooden_doors', 'dragon_immune', 'enderman_holdable',
+        'fences', 'wooden_fences', 'flowers', 'small_flowers', 'tall_flowers', 'flower_pots', 'impermeable', 'valid_spawn', 'ice',
+        'leaves', 'logs', 'planks', 'wooden_pressure_plates', 'rails', 'sand', 'saplings', 'slabs', 'wooden_slabs', 'stairs',
+        'wooden_stairs', 'signs', 'wall_signs', 'standing_signs', 'stone_bricks', 'wooden_trapdoors', 'walls', 'wither_immune',
+        'acacia_logs', 'birch_logs', 'dark_oak_logs', 'oak_logs', 'jungle_logs', 'spruce_logs', 'wool'
+    ];
     const durable_items = [
         "diamond_sword", "diamond_pickaxe", "diamond_axe", "diamond_shovel", "diamond_hoe",
         "iron_sword", "iron_pickaxe", "iron_axe", "iron_shovel", "iron_hoe",
@@ -18,13 +26,6 @@ function give() {
         "leather_helmet", "leather_chestplate", "leather_leggings", "leather_boots",
 
         "trident", "bow", "flint_and_steel", "elytra", "shield", "carrot_on_a_stick", "fishing_rod", "shears"
-    ];
-    const tags = [
-        'acacia_logs', 'anvil', 'banners', 'birch_logs', 'buttons', 'carpets', 'coral_blocks', 'corals',
-        'dark_oak_logs', 'doors', 'enderman_holdable', 'flower_pots', 'ice', 'impermeable', 'jungle_logs',
-        'leaves', 'logs', 'oak_logs', 'planks', 'rails', 'sand', 'saplings', 'slabs', 'spruce_logs', 'stairs',
-        'standing_signs', 'stone_bricks', 'underwater_bonemeals', 'valid_spawn', 'wall_corals', 'wall_signs', 'walls',
-        'wooden_buttons', 'wooden_doors', 'wooden_pressure_places', 'wooden_slabs', 'wooden_stairs', 'wool'
     ];
     const durabilities = {
         "diamond_sword": 1561, "diamond_pickaxe": 1561, "diamond_axe": 1561, "diamond_shovel": 1561, "diamond_hoe": 1561,

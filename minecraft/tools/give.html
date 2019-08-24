@@ -25,7 +25,7 @@
 
     <main>
         <h2>/give</h2>
-        <p>Generates /give commands for Minecraft 1.13+.</p>
+        <p>Generates /give commands for Minecraft 1.13 to 1.15.</p>
         <script>document.ready('javascript:submit()')</script>
         <form action="javascript:submit()" id="input_form">
             <!-- target -->
@@ -271,15 +271,18 @@
                 <span>Group:</span> <select id="input_item_destroy_tags" onchange="submit()">
                     <option value="">&nbsp;</option>
                     <option value="anvil">Anvils</option>
-                    <option value="wooden_buttons">Buttons (wooden)</option>
+                    <option value="bamboo_plantable_on">Bamboo Plantable</option>
                     <option value="banners">Banners</option>
                     <option value="beds">Beds</option>
-                    <option value="bamboo_plantable_on">Bamboo Plantable</option>
+                    <option value="beehives">Beehives</option>
+                    <option value="bee_growables">Bee-interactive growables</option>
                     <option value="buttons">Buttons</option>
+                    <option value="wooden_buttons">Buttons (wooden)</option>
                     <option value="carpets">Carpets</option>
                     <option value="corals">Corals (all)</option>
                     <option value="coral_blocks">Corals (blocks)</option>
                     <option value="wall_corals">Corals (wall)</option>
+                    <option value="crops">Crops</option>
                     <option value="dirt_like">Dirt-like</option>
                     <option value="doors">Doors (all)</option>
                     <option value="wooden_doors">Doors (wooden)</option>
@@ -287,7 +290,9 @@
                     <option value="enderman_holdable">Enderman Holdable Blocks</option>
                     <option value="fences">Fences (all)</option>
                     <option value="wooden_fences">Fences (wooden)</option>
+                    <option value="flowers">Flowers (all)</option>
                     <option value="small_flowers">Flowers (small)</option>
+                    <option value="tall_flowers">Flowers (tall)</option>
                     <option value="flower_pots">Flower Pots</option>
                     <option value="impermeable">Glass</option>
                     <option value="valid_spawn">Grasses</option>
@@ -327,23 +332,28 @@
                 <select id="input_item_place_on_tags" onchange="submit()">
                     <option value="">&nbsp;</option>
                     <option value="anvil">Anvils</option>
-                    <option value="wooden_buttons">Buttons (wooden)</option>
+                    <option value="bamboo_plantable_on">Bamboo Plantable</option>
                     <option value="banners">Banners</option>
                     <option value="beds">Beds</option>
-                    <option value="bamboo_plantable_on">Bamboo Plantable</option>
+                    <option value="beehives">Beehives</option>
+                    <option value="bee_growables">Bee-interactive growables</option>
                     <option value="buttons">Buttons</option>
+                    <option value="wooden_buttons">Buttons (wooden)</option>
                     <option value="carpets">Carpets</option>
                     <option value="corals">Corals (all)</option>
                     <option value="coral_blocks">Corals (blocks)</option>
                     <option value="wall_corals">Corals (wall)</option>
+                    <option value="crops">Crops</option>
                     <option value="dirt_like">Dirt-like</option>
-                    <option vaue="doors">Doors (all)</option>
+                    <option value="doors">Doors (all)</option>
                     <option value="wooden_doors">Doors (wooden)</option>
                     <option value="dragon_immune">Dragon Immune</option>
                     <option value="enderman_holdable">Enderman Holdable Blocks</option>
                     <option value="fences">Fences (all)</option>
                     <option value="wooden_fences">Fences (wooden)</option>
+                    <option value="flowers">Flowers (all)</option>
                     <option value="small_flowers">Flowers (small)</option>
+                    <option value="tall_flowers">Flowers (tall)</option>
                     <option value="flower_pots">Flower Pots</option>
                     <option value="impermeable">Glass</option>
                     <option value="valid_spawn">Grasses</option>
