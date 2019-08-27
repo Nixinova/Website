@@ -1,12 +1,12 @@
 /* Font */
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');=
 
 /* Base elements */
 * {box-sizing: border-box; transition: 0.5s;}
 body {font: normal 15px 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: #313131;}
 main {min-height: calc(100vh - 143px);}
 nav {background: #222;}
-footer {width: 100%; padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff; text-align: center;}
+footer {width: calc(100% -30px); padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff; text-align: center;}
 p {text-align: center;}
 code {font-size: 1.1em;}
 kbd {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
