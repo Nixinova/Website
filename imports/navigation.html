@@ -37,20 +37,13 @@
             }
         }
 
-        function hideItem(id) {
+        function hide(id) {
             $('#' + id + '_nav').css("opacity",0.0).addClass('hide');
             $('#' + id + '-dropdown').html("arrow_drop_down");
         }
         function show(id) {
             $('#' + id + '_nav').css("opacity",1.0).removeClass('hide');
             $('#' + id + '-dropdown').html("arrow_drop_up");
-        }
-        
-        function hide(id1, id2, id3, id4) {
-            hideItem(id1);
-            if (id2) {hideItem(id2);}
-            if (id3) {hideItem(id3);}
-            if (id4) {hideItem(id4);}
         }
     </script>
     <script name="Mobile navigation script">
@@ -103,17 +96,17 @@
             <hr class="mobileonly">
             <ul class="nav-list">
                 <li id="mcnav-maps">
-                    <a onmouseover="show('dl');" onmouseout="hide('tool', 'rp');">Maps
+                    <a onmouseover="show('dl');" onmouseout="hide('tool'); hide('rp');">Maps
                         <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
                 <li id="mcnav-tools">
-                    <a onmouseover="show('tool');" onmouseout="hide('dl', 'rp');">Tools
+                    <a onmouseover="show('tool');" onmouseout="hide('dl'); hide('rp');">Tools
                         <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
                 <li id="mcnav-rp">
-                    <a onmouseover="show('rp');" onmouseout="hide('tool', 'dl');">Resource Packs
+                    <a onmouseover="show('rp');" onmouseout="hide('tool'); hide('dl');">Resource Packs
                         <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
