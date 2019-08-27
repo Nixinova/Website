@@ -1,5 +1,9 @@
 /* Font */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@font-face {
+    font-family: 'Valken';
+    src: local('Valken'), url('/css/valken.ttf') format ('truetype');
+}
 
 /* Base elements */
 * {box-sizing: border-box; transition: 0.5s;}
