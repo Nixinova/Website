@@ -3,7 +3,7 @@
     
 <head>
     <script name="Noindex script">
-        if (window.location.href == 'https://nixinova.com/imports/navigation') {
+        if (window.location.href === 'https://nixinova.com/imports/navigation') {
             $(head).append('<meta name="robots" content="noindex">');
         }
     </script>
@@ -82,15 +82,11 @@
                 <li><a href="/">Home</a></li>
                 
                 <li id="nav-mc">
-                    <a onclick="hide('nixi','dl','rp'); toggle('mc');" onmouseover="">Minecraft
+                    <a onclick="hide('dl','rp'); toggle('mc');" onmouseover="">Minecraft
                         <sub><i id="mc-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
-                <li id="nav-nixi">
-                    <a onclick="hide('mc','dl','rp'); toggle('nixi');" onmouseover="">Nixinova
-                        <sub><i id="nixi-dropdown" class="material-icons">arrow_drop_down</i></sub>
-                    </a>
-                </li>
+                
                 <li id="nav-search">
                     <a href="/search#gsc.q=">
                         &nbsp;<sub><i class="material-icons">search</i></sub>&nbsp;
@@ -103,17 +99,17 @@
             <hr class="mobileonly">
             <ul class="nav-list">
                 <li id="mcnav-maps">
-                    <a onclick="hide('tool', 'rp', 'nixi'); toggle('dl');" onmouseover="">Maps
+                    <a onclick="hide('tool', 'rp'); toggle('dl');" onmouseover="">Maps
                         <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
                 <li id="mcnav-tools">
-                    <a onclick="hide('dl', 'rp', 'nixi'); toggle('tool');" onmouseover="">Tools
+                    <a onclick="hide('dl', 'rp'); toggle('tool');" onmouseover="">Tools
                         <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
                 <li id="mcnav-rp">
-                    <a onclick="hide('tool', 'dl', 'nixi'); toggle('rp');" onmouseover="">Resource Packs
+                    <a onclick="hide('tool', 'dl'); toggle('rp');" onmouseover="">Resource Packs
                         <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
@@ -144,14 +140,6 @@
                 </div>
             </div>
 
-        </div>
-
-        <div id="nixi_nav" class="navigation tertiary hide">
-            <hr class="mobileonly">
-            <ul class="nav-list">
-                <li id="nixinav-mc"><a href="/info/minecraft">Minecraft Player Info</a></li>
-                <li id="nixinav-pc"><a href="/info/pc-specs">Computer Specs</a></li>
-            </ul>
         </div>
             
         <hr style="margin: 0;">
@@ -195,26 +183,15 @@
                 </ul>
             </li>
 
-            <li>Nixinova
-                <ul>
-                    <li><a href="/info/minecraft">Minecraft Player Info</a></li>
-                    <li><a href="/info/pc-specs">Computer Specs</a></li>
-                </ul>
-            </li>
-
         </ul>
     </div>
 
-    <script name="Hide icons until load">
+    <script>
         $(document).ready(function(){
+            $("nav").css("opacity",0.0).animate({"opacity": 1.0}, 1000);
             $("i").css("visibility","visible");
         },1000)
     </script>
-    
-    <!-- Nav opacity -->
-    <script>$(document).ready(function(){
-        $("nav").css("opacity",0.0).animate({"opacity": 1.0}, 1000);
-    },1000)</script>
 </body>
 
 </html>
