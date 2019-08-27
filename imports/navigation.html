@@ -73,7 +73,7 @@
     </script>
 </head>
 <body>
-    <div id="desktop-nav" class="desktoponly">
+    <div id="desktop-nav" class="desktoponly" onmouseout="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
         <div id="primary" class="navigation">
             <ul class="nav-list">
                 <li><a href="/">Home</a></li>
@@ -96,17 +96,17 @@
             <hr class="mobileonly">
             <ul class="nav-list">
                 <li id="mcnav-maps">
-                    <a onmouseover="show('dl'); hide('tool'); hide('rp');" onmouseout="hide('dl');">Maps
+                    <a onmouseover="show('dl'); hide('tool'); hide('rp');">Maps
                         <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
                 <li id="mcnav-tools">
-                    <a onmouseover="show('tool'); hide('dl'); hide('rp');" onmouseout="hide('tool');">Tools
+                    <a onmouseover="show('tool'); hide('dl'); hide('rp');">Tools
                         <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
                 <li id="mcnav-rp">
-                    <a onmouseover="show('rp'); hide('tool'); hide('dl');" onmouseout="hide('rp');">Resource Packs
+                    <a onmouseover="show('rp'); hide('tool'); hide('dl');">Resource Packs
                         <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
