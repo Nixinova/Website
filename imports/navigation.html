@@ -63,10 +63,12 @@
                 mobilenav_visible = true;
             } 
         }
+        
+        $('main').attr("onmouseover", "hide('mc'); hide('dl'); hide('tool'); hide('rp');");
     </script>
 </head>
 <body>
-    <div id="desktop-nav" class="desktoponly" > <!--onmouseout="hide('dl'); hide('tool'); hide('rp');"-->
+    <div id="desktop-nav" class="desktoponly">
         <div id="primary" class="navigation">
             <ul class="nav-list">
                 <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
