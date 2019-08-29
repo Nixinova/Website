@@ -78,15 +78,17 @@
     <div id="desktop-nav" class="desktoponly" > <!--onmouseout="hide('dl'); hide('tool'); hide('rp');"-->
         <div id="primary" class="navigation">
             <ul class="nav-list">
-                <li><a href="/">Home</a></li>
+                <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
+                    <a href="/">Home</a>
+                </li>
                 
-                <li id="nav-mc" onmouseover="show('mc');">
+                <li id="nav-mc" onmouseover="show('mc');" onclick="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
                     <a href="">Minecraft
                         <sub><i id="mc-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
                 
-                <li id="nav-search">
+                <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
                     <a href="/search#gsc.q=">
                         &nbsp;<sub><i class="material-icons">search</i></sub>&nbsp;
                     </a>
@@ -97,17 +99,17 @@
         <div id="mc_nav" class="navigation secondary hide">
             <hr class="mobileonly">
             <ul class="nav-list">
-                <li id="mcnav-maps" onmouseover="toggle('dl'); hide('tool'); hide('rp');">
+                <li onmouseover="show('dl'); hide('tool'); hide('rp');" onclick="hide('dl');">
                     <a href="">Maps
                         <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
-                <li id="mcnav-tools" onmouseover="toggle('tool'); hide('dl'); hide('rp');">
+                <li onmouseover="show('tool'); hide('dl'); hide('rp');" onclick="hide('tool');">
                     <a href="">Tools
                         <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
-                <li id="mcnav-rp" onmouseover="toggle('rp'); hide('tool'); hide('dl');">
+                <li onmouseover="show('rp'); hide('tool'); hide('dl');" onclick="hide('rp');">
                     <a href="">Resource Packs
                         <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
@@ -118,23 +120,23 @@
                 <hr class="mobileonly">
                 <div id="dl_nav" class="navigation tertiary hide">
                     <ul class="nav-list">
-                        <li id="dlnav-pvp"><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
-                        <li id="dlnav-sw"><a href="/minecraft/maps/skywars">SkyWars</a></li>
-                        <li id="dlnav-mb"><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
+                        <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
+                        <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
+                        <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
                     </ul>
                 </div>
                 <div id="tool_nav" class="navigation tertiary hide">
                     <ul class="nav-list">
-                        <li id="toolnav-give"><a href="/minecraft/tools/give">/give</a></li>
-                        <li id="toolnav-summon"><a href="/minecraft/tools/summon">/summon</a></li>
-                        <li id="toolnav-coords"><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
+                        <li><a href="/minecraft/tools/give">/give</a></li>
+                        <li><a href="/minecraft/tools/summon">/summon</a></li>
+                        <li><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
                     </ul>
                 </div>
                 <div id="rp_nav" class="navigation tertiary hide">
                     <ul class="nav-list">
-                        <li id="rpnav-mashup"><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
-                        <li id="rpnav-themed"><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
-                        <li id="rpnav-herobrinenzk"><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                        <li><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
+                        <li><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
+                        <li><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
                     </ul>
                 </div>
             </div>
