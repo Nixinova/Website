@@ -41,11 +41,11 @@
         }
 
         function hide(id) {
-            $('#' + id + '_nav').css("opacity",0.0).addClass('hide');
+            $('#' + id + '_nav').css("opacity", 1.0).animate({"opacity": 0.0}, 200, "swing").addClass('hide');
             $('#' + id + '-dropdown').html("arrow_drop_down");
         }
         function show(id) {
-            $('#' + id + '_nav').css("opacity",1.0).removeClass('hide');
+            $('#' + id + '_nav').removeClass('hide').css("opacity", 0.0).animate({"opacity": 1.0}, 200, "swing");;
             $('#' + id + '-dropdown').html("arrow_drop_up");
         }
 
