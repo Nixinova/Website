@@ -10,7 +10,7 @@
     <!-- Navigation -->
     <style name="Navigation styles">
         @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
-        nav * div {transition: 0.1s !important;}
+        nav * div {transition: 0.1s;}
         .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
         .navigation ul li {margin-right: -0.5ex;}
         .navigation li {display: inline-block; padding: 0;}
@@ -27,26 +27,17 @@
         i {visibility: hidden;}
     </style>
     <script name="Navigation scripts">
-        function toggle(id) {
-            let dropdown = $('#' + id + '-dropdown');
-            let nav = $('#' + id + '_nav');
-            if (dropdown.html() == "arrow_drop_down") {
-                dropdown.html("arrow_drop_up");
-                nav.removeClass('hide').css("opacity", 0.0).animate({"opacity": 1.0}, 200, "swing");
-            }
-            else {
-                dropdown.html("arrow_drop_down");
-                nav.css("opacity", 1.0).animate({"opacity": 0.0}, 200, "swing").addClass('hide');
-            }
-        }
-
         function hide(id) {
-            $('#' + id + '_nav').css("opacity", 1.0).animate({"opacity": 0.0}, 200, "swing").addClass('hide');
+            $('#' + id + '_nav').css("opacity", 1).animate({"opacity": 0}, 200, "swing").addClass('hide');
             $('#' + id + '-dropdown').html("arrow_drop_down");
         }
         function show(id) {
-            $('#' + id + '_nav').removeClass('hide').css("opacity", 0.0).animate({"opacity": 1.0}, 200, "swing");;
+            $('#' + id + '_nav').css("transition","none").removeClass('hide').css("opacity",0).animate({"opacity":1}, 200, "swing").css("transition","0.1s");
             $('#' + id + '-dropdown').html("arrow_drop_up");
+        }
+
+        function toggle(id) {
+            if ($('#' + id + '-dropdown').html() === "arrow_drop_down") show(id); else hide(id);
         }
 
         function showElements(id1, id2) {
@@ -99,17 +90,17 @@
         <div id="mc_nav" class="navigation secondary hide">
             <hr class="mobileonly">
             <ul class="nav-list">
-                <li onmouseover="show('dl'); hide('tool'); hide('rp');" onclick="hide('dl');">
+                <li onmouseover="show('dl'); hide('tool'); hide('rp');" onclick="toggle('dl');">
                     <a>Maps
                         <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
-                <li onmouseover="show('tool'); hide('dl'); hide('rp');" onclick="hide('tool');">
+                <li onmouseover="show('tool'); hide('dl'); hide('rp');" onclick="toggle('tool');">
                     <a>Tools
                         <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
-                <li onmouseover="show('rp'); hide('tool'); hide('dl');" onclick="hide('rp');">
+                <li onmouseover="show('rp'); hide('tool'); hide('dl');" onclick="toggle('rp');">
                     <a>Resource Packs
                         <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
