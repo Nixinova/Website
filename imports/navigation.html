@@ -28,12 +28,15 @@
     </style>
     <script name="Desktop navigation script">
         function toggle(id) {
-            $('#' + id + '_nav').toggleClass('hide').css("opacity", 0.0).animate({"opacity": 1.0}, 200, "swing");
-            if ($('#' + id + '-dropdown').html() == "arrow_drop_down") {
-                $('#' + id + '-dropdown').html("arrow_drop_up");
+            let dropdown = $('#' + id + '-dropdown');
+            let nav = $('#' + id + '_nav');
+            if (dropdown.html() == "arrow_drop_down") {
+                dropdown.html("arrow_drop_up");
+                nav.removeClass('hide').css("opacity", 0.0).animate({"opacity": 1.0}, 200, "swing");
             }
             else {
-                $('#' + id + '-dropdown').html("arrow_drop_down");
+                dropdown.html("arrow_drop_down");
+                nav.css("opacity", 1.0).animate({"opacity": 0.0}, 200, "swing").addClass('hide');
             }
         }
 
