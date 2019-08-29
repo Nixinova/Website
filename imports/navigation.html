@@ -26,7 +26,7 @@
 
         i {visibility: hidden;}
     </style>
-    <script name="Desktop navigation script">
+    <script name="Navigation scripts">
         function toggle(id) {
             let dropdown = $('#' + id + '-dropdown');
             let nav = $('#' + id + '_nav');
@@ -48,9 +48,6 @@
             $('#' + id + '_nav').css("opacity",1.0).removeClass('hide');
             $('#' + id + '-dropdown').html("arrow_drop_up");
         }
-    </script>
-    <script name="Mobile navigation script">
-        var mobilenav_visible = false;
 
         function showElements(id1, id2) {
             $(id1).removeClass('hide').css("opacity", 1);
@@ -60,6 +57,8 @@
             $(id1).css("opacity", 0).addClass('hide');
             if (id2) {$(id2).css("opacity", 0).addClass('hide'); }
         }
+
+        var mobilenav_visible = false;
 
         function toggleMobileNav() {
             if (mobilenav_visible) {
@@ -81,8 +80,8 @@
             <ul class="nav-list">
                 <li><a href="/">Home</a></li>
                 
-                <li id="nav-mc">
-                    <a onmouseover="show('mc');">Minecraft
+                <li id="nav-mc" onmouseover="show('mc');">
+                    <a href="">Minecraft
                         <sub><i id="mc-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
@@ -98,18 +97,18 @@
         <div id="mc_nav" class="navigation secondary hide">
             <hr class="mobileonly">
             <ul class="nav-list">
-                <li id="mcnav-maps">
-                    <a onmouseover="toggle('dl'); hide('tool'); hide('rp');">Maps
+                <li id="mcnav-maps" onmouseover="toggle('dl'); hide('tool'); hide('rp');">
+                    <a href="">Maps
                         <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
-                <li id="mcnav-tools">
-                    <a onmouseover="toggle('tool'); hide('dl'); hide('rp');">Tools
+                <li id="mcnav-tools" onmouseover="toggle('tool'); hide('dl'); hide('rp');">
+                    <a href="">Tools
                         <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
-                <li id="mcnav-rp">
-                    <a onmouseover="toggle('rp'); hide('tool'); hide('dl');">Resource Packs
+                <li id="mcnav-rp" onmouseover="toggle('rp'); hide('tool'); hide('dl');">
+                    <a href="">Resource Packs
                         <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
                     </a>
                 </li>
