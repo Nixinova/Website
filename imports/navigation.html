@@ -28,11 +28,11 @@
     </style>
     <script name="Navigation scripts">
         function hide(id) {
-            $('#' + id + '_nav').css("opacity", 1).animate({"opacity": 0}, 100).addClass('hide');
+            $('#' + id + '_nav').css("opacity", 1).animate({"opacity": 0}, 20).addClass('hide');
             $('#' + id + '-dropdown').html("arrow_drop_down");
         }
         function show(id) {
-            $('#' + id + '_nav').removeClass('hide').css("opacity",0).animate({"opacity":1}, 100);
+            $('#' + id + '_nav').removeClass('hide').css("opacity",0).animate({"opacity":1}, 20);
             $('#' + id + '-dropdown').html("arrow_drop_up");
         }
 
