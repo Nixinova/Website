@@ -144,13 +144,18 @@ function give() {
             if ($('#expand-target').hasClass('minus')) {
                 show_more('expand-target', 'target-content', false);
             }
+        } else if (target === '@s') {
+            $('#expand-target').addClass('hide');
+            if ($('#expand-target').hasClass('minus')) {
+                show_more('expand-target', 'target-content', false);
+            }
         } else {
             $('#select-username').addClass('hide');
             $('#expand-target').removeClass('hide');
             $('#input_selector_player').val('');
         }
 
-        var selector = []
+        var selector = [];
         if (target === '--') { target_text = player ? player : '@s' } else { target_text = target; }
 
         if (!isNaN(target_x)) { selector.push('x=' + target_x); }
