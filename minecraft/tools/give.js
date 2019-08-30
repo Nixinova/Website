@@ -538,10 +538,10 @@ function give() {
         );
     } else {
         $('#output_text').html(
-            '<span style="color: #777">/give</span> ' +
+            '<span style="color: lightgray">/give</span> ' +
             '<span style="color: #5ff">' + target_text + selector + '</span> ' +
             '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
-            '<span style="color: #f5f">' + count + '</span>'
+            '<span style="color: lightpink">' + count + '</span>'
         );
     }
 
