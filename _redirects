@@ -1,5 +1,6 @@
 #subdomains
-/images/*           https://images.nixinova.com/:splat
+/images/*           https://static.nixinova.com/images/:splat
+/imports/*          https://static.nixinova.com/imports/:splat
 
 #maps
 /maps/*             /minecraft/maps/:splat
