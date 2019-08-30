@@ -108,20 +108,20 @@ function give() {
     var count = value('input_count');
 
     // fix values //
-    if (dist_max && dist_min > dist_max) { let foo = dist_min; dist_min = dist_max; dist_max = foo; }
-    if (xrot_max && xrot_min > xrot_max) { let foo = xrot_min; xrot_min = xrot_max; xrot_max = foo; }
-    if (yrot_max && yrot_min > yrot_max) { let foo = yrot_min; yrot_min = yrot_max; yrot_max = foo; }
-    if (xp_max && xp_min > xp_max) { let foo = xp_min; xp_min = xp_max; xp_max = foo; }
-    if (score_max && score_min > score_max) { let foo = score_min; score_min = score_max; score_max = foo; }
+    if (dist_max && dist_min > dist_max) {let foo = dist_min; dist_min = dist_max; dist_max = foo;}
+    if (xrot_max && xrot_min > xrot_max) {let foo = xrot_min; xrot_min = xrot_max; xrot_max = foo;}
+    if (yrot_max && yrot_min > yrot_max) {let foo = yrot_min; yrot_min = yrot_max; yrot_max = foo;}
+    if (xp_max && xp_min > xp_max) {let foo = xp_min; xp_min = xp_max; xp_max = foo;}
+    if (score_max && score_min > score_max) {let foo = score_min; score_min = score_max; score_max = foo;}
 
     // hide flags //
     var hf = 0
-    if ($('#ench').hasClass('off')) hf += 1;
-    if ($('#mods').hasClass('off')) hf += 2;
-    if ($('#unbr').hasClass('off')) hf += 4;
-    if ($('#dstr').hasClass('off')) hf += 8;
-    if ($('#plon').hasClass('off')) hf += 16;
-    if ($('#othr').hasClass('off')) hf += 32;
+    if ($('#ench').hasClass('off')) {hf += 1;}
+    if ($('#mods').hasClass('off')) {hf += 2;}
+    if ($('#unbr').hasClass('off')) {hf += 4;}
+    if ($('#dstr').hasClass('off')) {hf += 8;}
+    if ($('#plon').hasClass('off')) {hf += 16;}
+    if ($('#othr').hasClass('off')) {hf += 32;}
 
 
     /// OTHER ///
@@ -156,63 +156,62 @@ function give() {
         }
 
         var selector = [];
-        if (target === '--') { target_text = player ? player : '@s' }
-        else { target_text = target; }
+        if (target === '--') {target_text = player ? player : '@s'} else {target_text = target;}
 
-        if (!isNaN(target_x)) selector.push('x=' + target_x);
-        if (!isNaN(target_y)) selector.push('y=' + target_y);
-        if (!isNaN(target_z)) selector.push('z=' + target_z);
+        if (!isNaN(target_x)) {selector.push('x=' + target_x);}
+        if (!isNaN(target_y)) {selector.push('y=' + target_y);}
+        if (!isNaN(target_z)) {selector.push('z=' + target_z);}
 
         if (selection_area === 'radius' && (dist_min || dist_max)) {
-            if (dist_min && !dist_max) selector.push('distance=' + dist_min + '..');
-            if (!dist_min && dist_max) selector.push('distance=' + '..' + dist_max);
-            if (dist_min && dist_max && dist_min != dist_max) selector.push('distance=' + dist_min + '..' + dist_max);
-            if (dist_min && dist_max && dist_min == dist_max) selector.push('distance=' + dist_min);
+            if (dist_min && !dist_max) {selector.push('distance=' + dist_min + '..');}
+            if (!dist_min && dist_max) {selector.push('distance=' + '..' + dist_max);}
+            if (dist_min && dist_max && dist_min != dist_max) {selector.push('distance=' + dist_min + '..' + dist_max);}
+            if (dist_min && dist_max && dist_min == dist_max) {selector.push('distance=' + dist_min);}
         }
 
         if (selection_area === 'volume' && (vol_x || vol_y || vol_z)) {
-            if (vol_x) selector.push('dx=' + vol_x);
-            if (vol_y) selector.push('dy=' + vol_y);
-            if (vol_z) selector.push('dz=' + vol_z);
+            if (vol_x) {selector.push('dx=' + vol_x);}
+            if (vol_y) {selector.push('dy=' + vol_y);}
+            if (vol_z) {selector.push('dz=' + vol_z);}
         }
 
         if (!isNaN(xrot_min) || !isNaN(xrot_max)) {
-            if (!isNaN(xrot_min) && isNaN(xrot_max)) selector.push('x_rotation=' + xrot_min + '..');
-            if (isNaN(xrot_min) && !isNaN(xrot_max)) selector.push('x_rotation=' + '..' + xrot_max);
-            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) selector.push('x_rotation=' + xrot_min + '..' + xrot_max);
-            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) selector.push('x_rotation=' + xrot_min);
+            if (!isNaN(xrot_min) && isNaN(xrot_max)) {selector.push('x_rotation=' + xrot_min + '..');}
+            if (isNaN(xrot_min) && !isNaN(xrot_max)) {selector.push('x_rotation=' + '..' + xrot_max);}
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) {selector.push('x_rotation=' + xrot_min + '..' + xrot_max);}
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) {selector.push('x_rotation=' + xrot_min);}
         }
 
         if (!isNaN(yrot_min) || !isNaN(yrot_max)) {
-            if (!isNaN(yrot_min) && isNaN(yrot_max)) selector.push('y_rotation=' + yrot_min + '..');
-            if (isNaN(yrot_min) && !isNaN(yrot_max)) selector.push('y_rotation=' + '..' + yrot_max);
-            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) selector.push('y_rotation=' + yrot_min + '..' + yrot_max);
-            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) selector.push('y_rotation=' + yrot_min);
+            if (!isNaN(yrot_min) && isNaN(yrot_max)) {selector.push('y_rotation=' + yrot_min + '..');}
+            if (isNaN(yrot_min) && !isNaN(yrot_max)) {selector.push('y_rotation=' + '..' + yrot_max);}
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) {selector.push('y_rotation=' + yrot_min + '..' + yrot_max);}
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) {selector.push('y_rotation=' + yrot_min);}
         }
 
-        if (limit) { selector.push('limit=' + limit); }
+        if (limit) {selector.push('limit=' + limit);}
 
         if (team) {
-            if (team_invert) selector.push('team=!' + team);
-            else selector.push('team=' + team);
+            if (team_invert) {selector.push('team=!' + team);}
+            else {selector.push('team=' + team);}
         }
 
         if (tag) {
-            if (tag_invert) selector.push('tag=!' + tag);
-            else selector.push('tag=' + tag);
+            if (tag_invert) {selector.push('tag=!' + tag);}
+            else {selector.push('tag=' + tag);}
         }
 
         if (mode) {
             var mode_option;
-            if (mode_invert) mode_option = '!'; else mode_option = '';
+            if (mode_invert) {mode_option = '!';} else {mode_option = '';}
             selector.push('gamemode=' + mode_option + mode);
         }
 
         if (xp_min || xp_max) {
-            if (xp_min && !xp_max) selector.push('level=' + xp_min + '..');
-            else if (!xp_min && xp_max) selector.push('level=' + '..' + xp_max);
-            else if (xp_min && xp_max && xp_min != xp_max) selector.push('level=' + xp_min + '..' + xp_max);
-            else if (xp_min && xp_max && xp_min == xp_max) selector.push('level=' + xp_min);
+            if (xp_min && !xp_max) {selector.push('level=' + xp_min + '..');}
+            else if (!xp_min && xp_max) {selector.push('level=' + '..' + xp_max);}
+            else if (xp_min && xp_max && xp_min != xp_max) {selector.push('level=' + xp_min + '..' + xp_max);}
+            else if (xp_min && xp_max && xp_min == xp_max) {selector.push('level=' + xp_min);}
         }
 
         if (score && (!isNaN(score_min) || !isNaN(score_max))) {
@@ -237,10 +236,10 @@ function give() {
             score_text = []
             for (i = 0; i < scores.length; i++) {
                 if (scores[i]) {
-                    if (scores_min[i] && !scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i] + '..');
-                    else if (!scores_min[i] && scores_max[i]) score_text.push(scores[i] + '=' + '..' + scores_max[i]);
-                    else if (scores_min[i] && scores_max[i] && scores_min[i] != scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i] + '..' + scores_max[i]);
-                    else if (scores_min[i] && scores_max[i] && scores_min[i] == scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i]);
+                    if (scores_min[i] && !scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i] + '..');}
+                    else if (!scores_min[i] && scores_max[i]) {score_text.push(scores[i] + '=' + '..' + scores_max[i]);}
+                    else if (scores_min[i] && scores_max[i] && scores_min[i] != scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i] + '..' + scores_max[i]);}
+                    else if (scores_min[i] && scores_max[i] && scores_min[i] == scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i]);}
                 }
             }
             selector.push('scores={' + JSON.stringify(score_text).replace(/[\[\]]/g, '') + '}');
@@ -260,10 +259,10 @@ function give() {
         // select item //
         var colpos = item.search(':');
         var item_id = item.replace('minecraft:', '');
-        if (!item || item === 'minecraft:' || item === ':') item = 'stone';
-        if (colpos === item.length - 1) item = 'minecraft:' + item.slice(0, -1);
-        if (colpos === -1) item = 'minecraft:' + item;
-        else if (colpos === 0) item = 'minecraft' + item;
+        if (!item || item === 'minecraft:' || item === ':') {item = 'stone';}
+        if (colpos === item.length - 1) {item = 'minecraft:' + item.slice(0, -1);}
+        if (colpos === -1) {item = 'minecraft:' + item;}
+        else if (colpos === 0) {item = 'minecraft' + item;}
         // NBT //
         {
             nbt = {};
@@ -275,7 +274,7 @@ function give() {
                 $('#potion').addClass('hide');
                 $('input_item_potion').val('');
             }
-            if (i_potion) nbt.Potion = i_potion;
+            if (i_potion) {nbt.Potion = i_potion;}
 
             // head //
             if (item_id === 'player_head' || item_id === 'player_wall_head') {
@@ -284,7 +283,7 @@ function give() {
                 $('#head').addClass('hide');
                 $('input_item_head').val('');
             }
-            if (i_head) nbt.SkullOwner = i_head;
+            if (i_head) {nbt.SkullOwner = i_head;}
 
             // fireworks //
             if (item_id === 'firework_rocket') {
@@ -294,16 +293,16 @@ function give() {
             }
             if (i_firework_type || i_firework_trail || i_firework_flicker || i_firework_flight) {
                 let explosions = [];
-                if (i_firework_type) explosions.push({ "Type": i_firework_type });
-                if (i_firework_flicker) explosions.push({ "Flicker": i_firework_flicker });
-                if (i_firework_trail) explosions.push({ "Trail": i_firework_trail });
+                if (i_firework_type) {explosions.push({"Type": i_firework_type});}
+                if (i_firework_flicker) {explosions.push({"Flicker": i_firework_flicker});}
+                if (i_firework_trail) {explosions.push({"Trail": i_firework_trail});}
                 nbt.Fireworks = {};
                 nbt.Fireworks.Explosions = explosions;
-                if (i_firework_flight) nbt.Fireworks.Flight = i_firework_flight;
+                if (i_firework_flight) {nbt.Fireworks.Flight = i_firework_flight;}
             }
 
             // display //
-            if (i_name || i_lore) nbt.display = {};
+            if (i_name || i_lore) {nbt.display = {};}
             display = {};
 
             if (i_name) {
@@ -313,22 +312,22 @@ function give() {
                 display.text = i_name;
 
                 var colour
-                if (!i_colour) { colour = '#fff'; shadow = '#000000'; }
-                if (i_colour === 'aqua') { colour = '#5ff'; shadow = '#00002a'; }
-                if (i_colour === 'black') { colour = '#000'; shadow = '#002a00'; }
-                if (i_colour === 'blue') { colour = '#55f'; shadow = '#002a2a'; }
-                if (i_colour === 'dark_aqua') { colour = '#0aa'; shadow = '#2a0000'; }
-                if (i_colour === 'dark_blue') { colour = '#00a'; shadow = '#2a002a'; }
-                if (i_colour === 'dark_gray') { colour = '#555'; shadow = '#2a2a00'; }
-                if (i_colour === 'dark_green') { colour = '#0a0'; shadow = '#2a2a2a'; }
-                if (i_colour === 'dark_purple') { colour = '#a0a'; shadow = '#151515'; }
-                if (i_colour === 'dark_red') { colour = '#a00'; shadow = '#15153f'; }
-                if (i_colour === 'gold') { colour = '#fa0'; shadow = '#153f15'; }
-                if (i_colour === 'gray') { colour = '#aaa'; shadow = '#153f3f'; }
-                if (i_colour === 'green') { colour = '#5f5'; shadow = '#3f1515'; }
-                if (i_colour === 'light_purple') { colour = '#f5f'; shadow = '#3f153f'; }
-                if (i_colour === 'red') { colour = '#f55'; shadow = '#3f3f15'; }
-                if (i_colour === 'yellow') { colour = '#ff5'; shadow = '#3f3f3f'; }
+                if (!i_colour) {colour = '#fff'; shadow = '#000000';}
+                if (i_colour === 'aqua') {colour = '#5ff'; shadow = '#00002a';}
+                if (i_colour === 'black') {colour = '#000'; shadow = '#002a00';}
+                if (i_colour === 'blue') {colour = '#55f'; shadow = '#002a2a';}
+                if (i_colour === 'dark_aqua') {colour = '#0aa'; shadow = '#2a0000';}
+                if (i_colour === 'dark_blue') {colour = '#00a'; shadow = '#2a002a';}
+                if (i_colour === 'dark_gray') {colour = '#555'; shadow = '#2a2a00';}
+                if (i_colour === 'dark_green') {colour = '#0a0'; shadow = '#2a2a2a';}
+                if (i_colour === 'dark_purple') {colour = '#a0a'; shadow = '#151515';}
+                if (i_colour === 'dark_red') {colour = '#a00'; shadow = '#15153f';}
+                if (i_colour === 'gold') {colour = '#fa0'; shadow = '#153f15';}
+                if (i_colour === 'gray') {colour = '#aaa'; shadow = '#153f3f';}
+                if (i_colour === 'green') {colour = '#5f5'; shadow = '#3f1515';}
+                if (i_colour === 'light_purple') {colour = '#f5f'; shadow = '#3f153f';}
+                if (i_colour === 'red') {colour = '#f55'; shadow = '#3f3f15';}
+                if (i_colour === 'yellow') {colour = '#ff5'; shadow = '#3f3f3f';}
 
                 if (i_colour) {
                     display.color = i_colour;
@@ -407,7 +406,7 @@ function give() {
                 nbt.Enchantments = []
                 for (i in e.length) {
                     if (e[i]) {
-                        nbt.Enchantments.push({ id: e[i], lvl: parseInt(elvl[i]) });
+                        nbt.Enchantments.push({id: e[i], lvl: parseInt(elvl[i])});
                     }
                 }
             }
@@ -423,17 +422,17 @@ function give() {
 
             // damage //
             var damage = durabilities[item_id] - i_durability;
-            if (i_durability && !i_unbreakable) nbt.Damage = damage;
+            if (i_durability && !i_unbreakable) {nbt.Damage = damage;}
 
             // unbreakable //
-            if (i_unbreakable) nbt.Unbreakable = true;
+            if (i_unbreakable) {nbt.Unbreakable = true;}
 
             // CanDestroy //
             if (i_destroy) {
                 CanDestroy.push(i_destroy)
                 for (i in CanDestroy.length) {
                     for (j in tags.length) {
-                        if (CanDestroy[i] == tags[j]) CanDestroy[i] = '#' + tags[j];
+                        if (CanDestroy[i] == tags[j]) {CanDestroy[i] = '#' + tags[j];}
                     }
                 }
                 CanDestroy = rvDupes(CanDestroy);
@@ -443,7 +442,7 @@ function give() {
                 CanDestroy.push('#' + i_destroy_tag)
                 for (i in CanDestroy.length) {
                     for (j in tags.length) {
-                        if (CanDestroy[i] == tags[j]) CanDestroy[i] = '#' + tags[j];
+                        if (CanDestroy[i] == tags[j]) {CanDestroy[i] = '#' + tags[j];}
                     }
                 }
                 CanDestroy = rvDupes(CanDestroy);
@@ -455,7 +454,7 @@ function give() {
                 CanPlaceOn.push(i_place_on)
                 for (i in CanPlaceOn.length) {
                     for (j in tags.length) {
-                        if (CanPlaceOn[i] == tags[j]) CanPlaceOn[i] = '#' + tags[j];
+                        if (CanPlaceOn[i] == tags[j]) {CanPlaceOn[i] = '#' + tags[j];}
                     }
                 }
                 CanPlaceOn = rvDupes(CanPlaceOn);
@@ -465,7 +464,7 @@ function give() {
                 CanPlaceOn.push('#' + i_place_on_tag)
                 for (i in CanPlaceOn.length) {
                     for (j in tags.length) {
-                        if (CanPlaceOn[i] == tags[j]) CanPlaceOn[i] = '#' + tags[j];
+                        if (CanPlaceOn[i] == tags[j]) {CanPlaceOn[i] = '#' + tags[j];}
                     }
                 }
                 CanPlaceOn = rvDupes(CanPlaceOn);
@@ -473,24 +472,24 @@ function give() {
             }
 
             // modifiers //
-            if (i_mod === 'armor'               && i_mod_amount >    30) { i_mod_amount =    30; }
-            if (i_mod === 'armorToughness'      && i_mod_amount >    20) { i_mod_amount =    20; }
-            if (i_mod === 'attackDamage'        && i_mod_amount >  2048) { i_mod_amount =  2048; }
-            if (i_mod === 'attackSpeed'         && i_mod_amount >  1024) { i_mod_amount =  1024; }
-            if (i_mod === 'attackRange'         && i_mod_amount >     6) { i_mod_amount =     6; }
-            if (i_mod === 'attackRange'         && i_mod_amount <     0) { i_mod_amount =     0; }
-            if (i_mod === 'followRange'         && i_mod_amount >  2048) { i_mod_amount =  2048; }
-            if (i_mod === 'knockbackResistance' && i_mod_amount >     1) { i_mod_amount =     1; }
-            if (i_mod === 'luck'                && i_mod_amount >  1024) { i_mod_amount =  1024; }
-            if (i_mod === 'luck'                && i_mod_amount < -1024) { i_mod_amount = -1024; }
-            if (i_mod !== 'luck'                && i_mod_amount <     0) { i_mod_amount =     0; }
-            if (i_mod === 'maxHealth'           && i_mod_amount >  1024) { i_mod_amount =  1024; }
-            if (i_mod === 'movementSpeed'       && i_mod_amount >  1024) { i_mod_amount =  1024; }
+            if (i_mod === 'armor'               && i_mod_amount >    30) {i_mod_amount =    30;}
+            if (i_mod === 'armorToughness'      && i_mod_amount >    20) {i_mod_amount =    20;}
+            if (i_mod === 'attackDamage'        && i_mod_amount >  2048) {i_mod_amount =  2048;}
+            if (i_mod === 'attackSpeed'         && i_mod_amount >  1024) {i_mod_amount =  1024;}
+            if (i_mod === 'attackRange'         && i_mod_amount >     6) {i_mod_amount =     6;}
+            if (i_mod === 'attackRange'         && i_mod_amount <     0) {i_mod_amount =     0;}
+            if (i_mod === 'followRange'         && i_mod_amount >  2048) {i_mod_amount =  2048;}
+            if (i_mod === 'knockbackResistance' && i_mod_amount >     1) {i_mod_amount =     1;}
+            if (i_mod === 'luck'                && i_mod_amount >  1024) {i_mod_amount =  1024;}
+            if (i_mod === 'luck'                && i_mod_amount < -1024) {i_mod_amount = -1024;}
+            if (i_mod !== 'luck'                && i_mod_amount <=    0) {i_mod_amount =     0;}
+            if (i_mod === 'maxHealth'           && i_mod_amount >  1024) {i_mod_amount =  1024;}
+            if (i_mod === 'movementSpeed'       && i_mod_amount >  1024) {i_mod_amount =  1024;}
 
             if (i_mod && i_mod_amount) {
 
-                if (!i_mod_uuid_least) i_mod_uuid_least = uuids[i_mod][0];
-                if (!i_mod_uuid_most) i_mod_uuid_most = uuids[i_mod][1];
+                if (!i_mod_uuid_least) {i_mod_uuid_least = uuids[i_mod][0];}
+                if (!i_mod_uuid_most) {i_mod_uuid_most = uuids[i_mod][1];}
 
                 for (i in modifiers.length) {
                     if (modifiers[i].AttributeName == 'generic.' + i_mod) {
@@ -516,7 +515,7 @@ function give() {
             }
 
             // hide flags //
-            if (hf > 0) nbt.HideFlags = hf;
+            if (hf > 0) {nbt.HideFlags = hf;}
 
             // nbt //
             if (!isEmpty(nbt)) {
@@ -527,21 +526,19 @@ function give() {
                     .replace(/"{id:\\/g, "{id:")
                     .replace(/}",{id:/g, "},{id:")
                     .replace(/&comma;/g, ',');
-            } else {
-                NBT = getQueryString('nbt') ? getQueryString('nbt') : '';
-            }
+            } else {NBT = getQueryString('nbt') ? getQueryString('nbt') : '';}
         }
 
         // count //
-        if (count == '') count = '1';
+        if (count == '') {count = '1';}
     }
 
     /// OUTPUT ///
     var outputQuery = getQueryString('output');
-    var output = outputQuery ? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
+    window.output = outputQuery ? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
     if (output.length > 256) {
         $('#cmd_note').removeClass('hide');
-        if (target === '@s') target = '@p';
+        if (target === '@s') {target = '@p';}
     }
     if (outputQuery) {
         outputQuery = decodeURIComponent(outputQuery);
