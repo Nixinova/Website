@@ -145,6 +145,7 @@ function give() {
                 show_more('expand-target', 'target-content', false);
             }
         } else if (target === '@s') {
+            $('#select-username').addClass('hide');
             $('#expand-target').addClass('hide');
             if ($('#expand-target').hasClass('minus')) {
                 show_more('expand-target', 'target-content', false);
