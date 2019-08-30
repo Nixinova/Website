@@ -10,22 +10,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         function createTable(id, arr) {
-        var table = $('#'+id);
+            var table = $('#'+id);
 
-        for (i in arr) {
-            if (!arr[i].date) {arr[i].date = '(TBC)';}
-            if (arr[i].snap) {arr[i].mcver == `${arr[i].mcver}&ensp;(${arr[i].snap})`;}
-
-            table.append(`
-                <tr>
-                    <td width="320px"><span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span> ${arr[i].mcver}</td>
-                    <td width="075px">${arr[i].packver}</td>
-                    <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
-                    <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
-                </tr>
-            `);
+            for (i in arr) {
+                table.append(`
+                    <tr>
+                        <td width="320px"><span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span> ${arr[i].mcver}</td>
+                        <td width="075px">${arr[i].packver}</td>
+                        <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
+                        <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
+                    </tr>
+                `);
+            }
         }
-    }
     </script>
 </head>
 <body>
@@ -35,7 +32,7 @@
 </header>
 <main>
     <div id="gallery">
-        <div class="screenshot" style="background-image: url('/images/minecraft/resource-packs/endercreeper.jpg');"></div>
+        <div class="screenshot" style="background-image: url('/images/minecraft/resource-packs/easter-mash-up.jpg');"></div>
     </div>
 
     <h1>Themed Mash-Up Packs</h2>
