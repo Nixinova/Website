@@ -192,19 +192,15 @@ function give() {
         if (limit) {selector.push('limit=' + limit);}
 
         if (team) {
-            if (team_invert) {selector.push('team=!' + team);}
-            else {selector.push('team=' + team);}
+            selector.push(team_invert ? 'team=!' + team : 'team=' + team);
         }
 
         if (tag) {
-            if (tag_invert) {selector.push('tag=!' + tag);}
-            else {selector.push('tag=' + tag);}
+            selector.push(taginvert ? 'tag=!' + tag : 'tag=' + tag);
         }
 
         if (mode) {
-            var mode_option;
-            if (mode_invert) {mode_option = '!';} else {mode_option = '';}
-            selector.push('gamemode=' + mode_option + mode);
+            selector.push(mode_invert ? 'gamemode=!' + mode : 'gamemode=' + mode);
         }
 
         if (xp_min || xp_max) {
@@ -260,7 +256,7 @@ function give() {
         var colpos = item.search(':');
         var item_id = item.replace('minecraft:', '');
         if (!item || item === 'minecraft:' || item === ':') {item = 'stone';}
-        if (colpos === item.length - 1) {item = 'minecraft:' + item.slice(0, -1);}
+        if (colpos == item.length - 1) {item = 'minecraft:' + item.slice(0, -1);}
         if (colpos === -1) {item = 'minecraft:' + item;}
         else if (colpos === 0) {item = 'minecraft' + item;}
         // NBT //
@@ -312,26 +308,24 @@ function give() {
                 display.text = i_name;
 
                 var colour
-                if (!i_colour) {colour = '#fff'; shadow = '#000000';}
-                if (i_colour === 'aqua') {colour = '#5ff'; shadow = '#00002a';}
-                if (i_colour === 'black') {colour = '#000'; shadow = '#002a00';}
-                if (i_colour === 'blue') {colour = '#55f'; shadow = '#002a2a';}
-                if (i_colour === 'dark_aqua') {colour = '#0aa'; shadow = '#2a0000';}
-                if (i_colour === 'dark_blue') {colour = '#00a'; shadow = '#2a002a';}
-                if (i_colour === 'dark_gray') {colour = '#555'; shadow = '#2a2a00';}
-                if (i_colour === 'dark_green') {colour = '#0a0'; shadow = '#2a2a2a';}
-                if (i_colour === 'dark_purple') {colour = '#a0a'; shadow = '#151515';}
-                if (i_colour === 'dark_red') {colour = '#a00'; shadow = '#15153f';}
-                if (i_colour === 'gold') {colour = '#fa0'; shadow = '#153f15';}
-                if (i_colour === 'gray') {colour = '#aaa'; shadow = '#153f3f';}
-                if (i_colour === 'green') {colour = '#5f5'; shadow = '#3f1515';}
-                if (i_colour === 'light_purple') {colour = '#f5f'; shadow = '#3f153f';}
-                if (i_colour === 'red') {colour = '#f55'; shadow = '#3f3f15';}
-                if (i_colour === 'yellow') {colour = '#ff5'; shadow = '#3f3f3f';}
+                if (!i_colour                   ) {colour = '#fff'; shadow = '#000000';}
+                if (i_colour === 'aqua'         ) {colour = '#5ff'; shadow = '#00002a';}
+                if (i_colour === 'black'        ) {colour = '#000'; shadow = '#002a00';}
+                if (i_colour === 'blue'         ) {colour = '#55f'; shadow = '#002a2a';}
+                if (i_colour === 'dark_aqua'    ) {colour = '#0aa'; shadow = '#2a0000';}
+                if (i_colour === 'dark_blue'    ) {colour = '#00a'; shadow = '#2a002a';}
+                if (i_colour === 'dark_gray'    ) {colour = '#555'; shadow = '#2a2a00';}
+                if (i_colour === 'dark_green'   ) {colour = '#0a0'; shadow = '#2a2a2a';}
+                if (i_colour === 'dark_purple'  ) {colour = '#a0a'; shadow = '#151515';}
+                if (i_colour === 'dark_red'     ) {colour = '#a00'; shadow = '#15153f';}
+                if (i_colour === 'gold'         ) {colour = '#fa0'; shadow = '#153f15';}
+                if (i_colour === 'gray'         ) {colour = '#aaa'; shadow = '#153f3f';}
+                if (i_colour === 'green'        ) {colour = '#5f5'; shadow = '#3f1515';}
+                if (i_colour === 'light_purple' ) {colour = '#f5f'; shadow = '#3f153f';}
+                if (i_colour === 'red'          ) {colour = '#f55'; shadow = '#3f3f15';}
+                if (i_colour === 'yellow'       ) {colour = '#ff5'; shadow = '#3f3f3f';}
 
-                if (i_colour) {
-                    display.color = i_colour;
-                }
+                if (i_colour) {display.color = i_colour;}
                 preview.css('color', colour);
                 preview.css('text-shadow', '2px 2px' + shadow);
 
@@ -416,7 +410,7 @@ function give() {
                 $('.tool').removeClass('hide');
             } else {
                 $('.tool').addClass('hide');
-                document.getElementById('input_item_unbreakable').checked = false;
+                $('input_item_unbreakable').prop('checked',false);
                 $('input_item_durability').val('');
             }
 
@@ -435,8 +429,7 @@ function give() {
                         if (CanDestroy[i] == tags[j]) {CanDestroy[i] = '#' + tags[j];}
                     }
                 }
-                CanDestroy = rvDupes(CanDestroy);
-                nbt.CanDestroy = CanDestroy;
+                nbt.CanDestroy = rvDupes(CanDestroy);
             }
             if (i_destroy_tag) {
                 CanDestroy.push('#' + i_destroy_tag)
@@ -445,8 +438,7 @@ function give() {
                         if (CanDestroy[i] == tags[j]) {CanDestroy[i] = '#' + tags[j];}
                     }
                 }
-                CanDestroy = rvDupes(CanDestroy);
-                nbt.CanDestroy = CanDestroy;
+                nbt.CanDestroy = rvDupes(CanDestroy);
             }
 
             // CanPlaceOn //
@@ -457,8 +449,7 @@ function give() {
                         if (CanPlaceOn[i] == tags[j]) {CanPlaceOn[i] = '#' + tags[j];}
                     }
                 }
-                CanPlaceOn = rvDupes(CanPlaceOn);
-                nbt.CanPlaceOn = CanPlaceOn;
+                nbt.CanPlaceOn = rvDupes(CanPlaceOn);
             }
             if (i_place_on_tag) {
                 CanPlaceOn.push('#' + i_place_on_tag)
@@ -467,8 +458,7 @@ function give() {
                         if (CanPlaceOn[i] == tags[j]) {CanPlaceOn[i] = '#' + tags[j];}
                     }
                 }
-                CanPlaceOn = rvDupes(CanPlaceOn);
-                nbt.CanPlaceOn = CanPlaceOn;
+                nbt.CanPlaceOn = rvDupes(CanPlaceOn);
             }
 
             // modifiers //
@@ -482,14 +472,14 @@ function give() {
             if (i_mod === 'knockbackResistance' && i_mod_amount >     1) {i_mod_amount =     1;}
             if (i_mod === 'luck'                && i_mod_amount >  1024) {i_mod_amount =  1024;}
             if (i_mod === 'luck'                && i_mod_amount < -1024) {i_mod_amount = -1024;}
-            if (i_mod !== 'luck'                && i_mod_amount <=    0) {i_mod_amount =     0;}
+            if (i_mod !== 'luck'                && i_mod_amount <     0) {i_mod_amount =     0;}
             if (i_mod === 'maxHealth'           && i_mod_amount >  1024) {i_mod_amount =  1024;}
             if (i_mod === 'movementSpeed'       && i_mod_amount >  1024) {i_mod_amount =  1024;}
 
             if (i_mod && i_mod_amount) {
 
                 if (!i_mod_uuid_least) {i_mod_uuid_least = uuids[i_mod][0];}
-                if (!i_mod_uuid_most) {i_mod_uuid_most = uuids[i_mod][1];}
+                if (!i_mod_uuid_most)  {i_mod_uuid_most = uuids[i_mod][1];}
 
                 for (i in modifiers.length) {
                     if (modifiers[i].AttributeName == 'generic.' + i_mod) {
@@ -530,13 +520,13 @@ function give() {
         }
 
         // count //
-        if (count == '') {count = '1';}
+        if (count === '') {count = '1';}
     }
 
     /// OUTPUT ///
     var outputQuery = getQueryString('output');
     window.output = outputQuery ? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
-    if (output.length > 256) {
+    if (output.length > 255) {
         $('#cmd_note').removeClass('hide');
         if (target === '@s') {target = '@p';}
     }
@@ -547,10 +537,10 @@ function give() {
         );
     } else {
         $('#output_text').html(
-            '<span style="color: lightgray">/give</span> ' +
+            '<span style="color: #777">/give</span> ' +
             '<span style="color: #5ff">' + target_text + selector + '</span> ' +
             '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
-            '<span style="color: lightgreen">' + count + '</span>'
+            '<span style="color: #f5f">' + count + '</span>'
         );
     }
 
