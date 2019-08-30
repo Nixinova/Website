@@ -1,9 +1,6 @@
 #subdomains
 /images/*           https://images.nixinova.com/:splat
 
-#styling
-/css/style.css      /css/main.css
-
 #maps
 /maps/*             /minecraft/maps/:splat
 /skywars            /minecraft/maps/skywars
