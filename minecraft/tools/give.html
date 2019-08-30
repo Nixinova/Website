@@ -97,7 +97,7 @@
 
                     <span class="player_only">
                         <span class="form-item">Gamemode:</span>
-                        <select id="input_selector_gm">
+                        <select id="input_selector_gm" onchange="submit()">
                             <option>&nbsp;</option>
                             <option>Survival</option>
                             <option>Creative</option>
@@ -146,15 +146,15 @@
 
                 <span class="hide" id="firework">
                     <span class="form-item">Firework effects:</span><br/>
-                    <select id="input_item_firework_type">
+                    <select id="input_item_firework_type" onchange="submit()">
                         <option value="0">Small Ball</option>
                         <option value="1">Large Ball</option>
                         <option value="2">Creeper</option>
                         <option value="3">Star</option>
                         <option value="4">Burst</option>
                     </select>
-                    <button id="input_item_firework_flicker" class="off" onclick="toggleOnOff(this)">Flicker</button> &nbsp;
-                    <button id="input_item_firework_trail" class="off" onclick="toggleOnOff(this)">Trail</button> &nbsp;
+                    <button id="input_item_firework_flicker" class="off" onclick="toggleOnOff(this); submit();">Flicker</button> &nbsp;
+                    <button id="input_item_firework_trail" class="off" onclick="toggleOnOff(this); submit();">Trail</button> &nbsp;
                     <span>Flight time:</span> <input type="number" min="-127" max="128" id="input_item_firework_flight">
                     <br/>
                 </span>
