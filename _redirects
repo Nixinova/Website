@@ -1,21 +1,22 @@
-# Subdomains
-/images/*           https://images.nixinova.com/:splat 301!
+#subdomains
+/images/*           https://images.nixinova.com/:splat
 
-# Styling
+#styling
 /css/style.css      /css/main.css
 
-# Maps
+#maps
 /maps/*             /minecraft/maps/:splat
 /skywars            /minecraft/maps/skywars
 /musical-blocks     /minecraft/maps/musical-blocks
 /kitpvp             /minecraft/maps/kitpvp
 
-# Tools
+#tools
 /tools/*            /minecraft/tools/:splat
 /give               /minecraft/tools/give
 /summon             /minecraft/tools/summon
+/coordinates        /minecraft/tools/coordinates
 
-# Resource packs
+#resource packs
 /resource-packs/*   /minecraft/resource-packs/:splat
 /mash-up            /minecraft/resource-packs/mash-up
 /themed             /minecraft/resource-packs/themed
