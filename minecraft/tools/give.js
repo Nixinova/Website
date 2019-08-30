@@ -116,12 +116,12 @@ function give() {
 
     // hide flags //
     var hf = 0
-    if ($('#ench').hasClass('off')) { hf += 1; }
-    if ($('#mods').hasClass('off')) { hf += 2; }
-    if ($('#unbr').hasClass('off')) { hf += 4; }
-    if ($('#dstr').hasClass('off')) { hf += 8; }
-    if ($('#plon').hasClass('off')) { hf += 16; }
-    if ($('#othr').hasClass('off')) { hf += 32; }
+    if ($('#ench').hasClass('off')) hf += 1;
+    if ($('#mods').hasClass('off')) hf += 2;
+    if ($('#unbr').hasClass('off')) hf += 4;
+    if ($('#dstr').hasClass('off')) hf += 8;
+    if ($('#plon').hasClass('off')) hf += 16;
+    if ($('#othr').hasClass('off')) hf += 32;
 
 
     /// OTHER ///
@@ -156,62 +156,63 @@ function give() {
         }
 
         var selector = [];
-        if (target === '--') { target_text = player ? player : '@s' } else { target_text = target; }
+        if (target === '--') { target_text = player ? player : '@s' }
+        else { target_text = target; }
 
-        if (!isNaN(target_x)) { selector.push('x=' + target_x); }
-        if (!isNaN(target_y)) { selector.push('y=' + target_y); }
-        if (!isNaN(target_z)) { selector.push('z=' + target_z); }
+        if (!isNaN(target_x)) selector.push('x=' + target_x);
+        if (!isNaN(target_y)) selector.push('y=' + target_y);
+        if (!isNaN(target_z)) selector.push('z=' + target_z);
 
         if (selection_area === 'radius' && (dist_min || dist_max)) {
-            if (dist_min && !dist_max) { selector.push('distance=' + dist_min + '..'); }
-            if (!dist_min && dist_max) { selector.push('distance=' + '..' + dist_max); }
-            if (dist_min && dist_max && dist_min != dist_max) { selector.push('distance=' + dist_min + '..' + dist_max); }
-            if (dist_min && dist_max && dist_min == dist_max) { selector.push('distance=' + dist_min); }
+            if (dist_min && !dist_max) selector.push('distance=' + dist_min + '..');
+            if (!dist_min && dist_max) selector.push('distance=' + '..' + dist_max);
+            if (dist_min && dist_max && dist_min != dist_max) selector.push('distance=' + dist_min + '..' + dist_max);
+            if (dist_min && dist_max && dist_min == dist_max) selector.push('distance=' + dist_min);
         }
 
         if (selection_area === 'volume' && (vol_x || vol_y || vol_z)) {
-            if (vol_x) { selector.push('dx=' + vol_x); }
-            if (vol_y) { selector.push('dy=' + vol_y); }
-            if (vol_z) { selector.push('dz=' + vol_z); }
+            if (vol_x) selector.push('dx=' + vol_x);
+            if (vol_y) selector.push('dy=' + vol_y);
+            if (vol_z) selector.push('dz=' + vol_z);
         }
 
         if (!isNaN(xrot_min) || !isNaN(xrot_max)) {
-            if (!isNaN(xrot_min) && isNaN(xrot_max)) { selector.push('x_rotation=' + xrot_min + '..'); }
-            if (isNaN(xrot_min) && !isNaN(xrot_max)) { selector.push('x_rotation=' + '..' + xrot_max); }
-            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) { selector.push('x_rotation=' + xrot_min + '..' + xrot_max); }
-            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) { selector.push('x_rotation=' + xrot_min); }
+            if (!isNaN(xrot_min) && isNaN(xrot_max)) selector.push('x_rotation=' + xrot_min + '..');
+            if (isNaN(xrot_min) && !isNaN(xrot_max)) selector.push('x_rotation=' + '..' + xrot_max);
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) selector.push('x_rotation=' + xrot_min + '..' + xrot_max);
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) selector.push('x_rotation=' + xrot_min);
         }
 
         if (!isNaN(yrot_min) || !isNaN(yrot_max)) {
-            if (!isNaN(yrot_min) && isNaN(yrot_max)) { selector.push('y_rotation=' + yrot_min + '..'); }
-            if (isNaN(yrot_min) && !isNaN(yrot_max)) { selector.push('y_rotation=' + '..' + yrot_max); }
-            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) { selector.push('y_rotation=' + yrot_min + '..' + yrot_max); }
-            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) { selector.push('y_rotation=' + yrot_min); }
+            if (!isNaN(yrot_min) && isNaN(yrot_max)) selector.push('y_rotation=' + yrot_min + '..');
+            if (isNaN(yrot_min) && !isNaN(yrot_max)) selector.push('y_rotation=' + '..' + yrot_max);
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) selector.push('y_rotation=' + yrot_min + '..' + yrot_max);
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) selector.push('y_rotation=' + yrot_min);
         }
 
         if (limit) { selector.push('limit=' + limit); }
 
         if (team) {
-            if (team_invert) { selector.push('team=!' + team); }
-            else { selector.push('team=' + team); }
+            if (team_invert) selector.push('team=!' + team);
+            else selector.push('team=' + team);
         }
 
         if (tag) {
-            if (tag_invert) { selector.push('tag=!' + tag); }
-            else { selector.push('tag=' + tag); }
+            if (tag_invert) selector.push('tag=!' + tag);
+            else selector.push('tag=' + tag);
         }
 
         if (mode) {
             var mode_option;
-            if (mode_invert) { mode_option = '!'; } else { mode_option = ''; }
+            if (mode_invert) mode_option = '!'; else mode_option = '';
             selector.push('gamemode=' + mode_option + mode);
         }
 
         if (xp_min || xp_max) {
-            if (xp_min && !xp_max) { selector.push('level=' + xp_min + '..'); }
-            else if (!xp_min && xp_max) { selector.push('level=' + '..' + xp_max); }
-            else if (xp_min && xp_max && xp_min != xp_max) { selector.push('level=' + xp_min + '..' + xp_max); }
-            else if (xp_min && xp_max && xp_min == xp_max) { selector.push('level=' + xp_min); }
+            if (xp_min && !xp_max) selector.push('level=' + xp_min + '..');
+            else if (!xp_min && xp_max) selector.push('level=' + '..' + xp_max);
+            else if (xp_min && xp_max && xp_min != xp_max) selector.push('level=' + xp_min + '..' + xp_max);
+            else if (xp_min && xp_max && xp_min == xp_max) selector.push('level=' + xp_min);
         }
 
         if (score && (!isNaN(score_min) || !isNaN(score_max))) {
@@ -236,10 +237,10 @@ function give() {
             score_text = []
             for (i = 0; i < scores.length; i++) {
                 if (scores[i]) {
-                    if (scores_min[i] && !scores_max[i]) { score_text.push(scores[i] + '=' + scores_min[i] + '..'); }
-                    else if (!scores_min[i] && scores_max[i]) { score_text.push(scores[i] + '=' + '..' + scores_max[i]); }
-                    else if (scores_min[i] && scores_max[i] && scores_min[i] != scores_max[i]) { score_text.push(scores[i] + '=' + scores_min[i] + '..' + scores_max[i]); }
-                    else if (scores_min[i] && scores_max[i] && scores_min[i] == scores_max[i]) { score_text.push(scores[i] + '=' + scores_min[i]); }
+                    if (scores_min[i] && !scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i] + '..');
+                    else if (!scores_min[i] && scores_max[i]) score_text.push(scores[i] + '=' + '..' + scores_max[i]);
+                    else if (scores_min[i] && scores_max[i] && scores_min[i] != scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i] + '..' + scores_max[i]);
+                    else if (scores_min[i] && scores_max[i] && scores_min[i] == scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i]);
                 }
             }
             selector.push('scores={' + JSON.stringify(score_text).replace(/[\[\]]/g, '') + '}');
@@ -259,10 +260,10 @@ function give() {
         // select item //
         var colpos = item.search(':');
         var item_id = item.replace('minecraft:', '');
-        if (!item || item === 'minecraft:' || item === ':') { item = 'stone'; }
-        if (colpos === item.length - 1) { item = 'minecraft:' + item.slice(0, -1); }
-        if (colpos === -1) { item = 'minecraft:' + item; }
-        else if (colpos === 0) { item = 'minecraft' + item; }
+        if (!item || item === 'minecraft:' || item === ':') item = 'stone';
+        if (colpos === item.length - 1) item = 'minecraft:' + item.slice(0, -1);
+        if (colpos === -1) item = 'minecraft:' + item;
+        else if (colpos === 0) item = 'minecraft' + item;
         // NBT //
         {
             nbt = {};
@@ -274,7 +275,7 @@ function give() {
                 $('#potion').addClass('hide');
                 $('input_item_potion').val('');
             }
-            if (i_potion) { nbt.Potion = i_potion; }
+            if (i_potion) nbt.Potion = i_potion;
 
             // head //
             if (item_id === 'player_head' || item_id === 'player_wall_head') {
@@ -283,7 +284,7 @@ function give() {
                 $('#head').addClass('hide');
                 $('input_item_head').val('');
             }
-            if (i_head) { nbt.SkullOwner = i_head; }
+            if (i_head) nbt.SkullOwner = i_head;
 
             // fireworks //
             if (item_id === 'firework_rocket') {
@@ -293,16 +294,16 @@ function give() {
             }
             if (i_firework_type || i_firework_trail || i_firework_flicker || i_firework_flight) {
                 let explosions = [];
-                if (i_firework_type) { explosions.push({ "Type": i_firework_type }); }
-                if (i_firework_flicker) { explosions.push({ "Flicker": i_firework_flicker }); }
-                if (i_firework_trail) { explosions.push({ "Trail": i_firework_trail }); }
+                if (i_firework_type) explosions.push({ "Type": i_firework_type });
+                if (i_firework_flicker) explosions.push({ "Flicker": i_firework_flicker });
+                if (i_firework_trail) explosions.push({ "Trail": i_firework_trail });
                 nbt.Fireworks = {};
                 nbt.Fireworks.Explosions = explosions;
-                if (i_firework_flight) { nbt.Fireworks.Flight = i_firework_flight; }
+                if (i_firework_flight) nbt.Fireworks.Flight = i_firework_flight;
             }
 
             // display //
-            if (i_name || i_lore) { nbt.display = {}; }
+            if (i_name || i_lore) nbt.display = {};
             display = {};
 
             if (i_name) {
@@ -422,17 +423,17 @@ function give() {
 
             // damage //
             var damage = durabilities[item_id] - i_durability;
-            if (i_durability && !i_unbreakable) { nbt.Damage = damage; }
+            if (i_durability && !i_unbreakable) nbt.Damage = damage;
 
             // unbreakable //
-            if (i_unbreakable) { nbt.Unbreakable = true; }
+            if (i_unbreakable) nbt.Unbreakable = true;
 
             // CanDestroy //
             if (i_destroy) {
                 CanDestroy.push(i_destroy)
                 for (i in CanDestroy.length) {
                     for (j in tags.length) {
-                        if (CanDestroy[i] == tags[j]) { CanDestroy[i] = '#' + tags[j]; }
+                        if (CanDestroy[i] == tags[j]) CanDestroy[i] = '#' + tags[j];
                     }
                 }
                 CanDestroy = rvDupes(CanDestroy);
@@ -442,7 +443,7 @@ function give() {
                 CanDestroy.push('#' + i_destroy_tag)
                 for (i in CanDestroy.length) {
                     for (j in tags.length) {
-                        if (CanDestroy[i] == tags[j]) { CanDestroy[i] = '#' + tags[j]; }
+                        if (CanDestroy[i] == tags[j]) CanDestroy[i] = '#' + tags[j];
                     }
                 }
                 CanDestroy = rvDupes(CanDestroy);
@@ -454,7 +455,7 @@ function give() {
                 CanPlaceOn.push(i_place_on)
                 for (i in CanPlaceOn.length) {
                     for (j in tags.length) {
-                        if (CanPlaceOn[i] == tags[j]) { CanPlaceOn[i] = '#' + tags[j]; }
+                        if (CanPlaceOn[i] == tags[j]) CanPlaceOn[i] = '#' + tags[j];
                     }
                 }
                 CanPlaceOn = rvDupes(CanPlaceOn);
@@ -464,7 +465,7 @@ function give() {
                 CanPlaceOn.push('#' + i_place_on_tag)
                 for (i in CanPlaceOn.length) {
                     for (j in tags.length) {
-                        if (CanPlaceOn[i] == tags[j]) { CanPlaceOn[i] = '#' + tags[j]; }
+                        if (CanPlaceOn[i] == tags[j]) CanPlaceOn[i] = '#' + tags[j];
                     }
                 }
                 CanPlaceOn = rvDupes(CanPlaceOn);
@@ -482,14 +483,14 @@ function give() {
             if (i_mod === 'knockbackResistance' && i_mod_amount >     1) { i_mod_amount =     1; }
             if (i_mod === 'luck'                && i_mod_amount >  1024) { i_mod_amount =  1024; }
             if (i_mod === 'luck'                && i_mod_amount < -1024) { i_mod_amount = -1024; }
-            if (i_mod !== 'luck'                && i_mod_amount <=    0) { i_mod_amount =     0; }
+            if (i_mod !== 'luck'                && i_mod_amount <     0) { i_mod_amount =     0; }
             if (i_mod === 'maxHealth'           && i_mod_amount >  1024) { i_mod_amount =  1024; }
             if (i_mod === 'movementSpeed'       && i_mod_amount >  1024) { i_mod_amount =  1024; }
 
             if (i_mod && i_mod_amount) {
 
-                if (!i_mod_uuid_least) { i_mod_uuid_least = uuids[i_mod][0]; }
-                if (!i_mod_uuid_most) { i_mod_uuid_most = uuids[i_mod][1]; }
+                if (!i_mod_uuid_least) i_mod_uuid_least = uuids[i_mod][0];
+                if (!i_mod_uuid_most) i_mod_uuid_most = uuids[i_mod][1];
 
                 for (i in modifiers.length) {
                     if (modifiers[i].AttributeName == 'generic.' + i_mod) {
@@ -515,7 +516,7 @@ function give() {
             }
 
             // hide flags //
-            if (hf > 0) { nbt.HideFlags = hf; }
+            if (hf > 0) nbt.HideFlags = hf;
 
             // nbt //
             if (!isEmpty(nbt)) {
@@ -526,19 +527,21 @@ function give() {
                     .replace(/"{id:\\/g, "{id:")
                     .replace(/}",{id:/g, "},{id:")
                     .replace(/&comma;/g, ',');
-            } else { NBT = getQueryString('nbt') ? getQueryString('nbt') : ''; }
+            } else {
+                NBT = getQueryString('nbt') ? getQueryString('nbt') : '';
+            }
         }
 
         // count //
-        if (count == '') { count = '1'; }
+        if (count == '') count = '1';
     }
 
     /// OUTPUT ///
     var outputQuery = getQueryString('output');
-    window.output = outputQuery ? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
+    var output = outputQuery ? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
     if (output.length > 256) {
         $('#cmd_note').removeClass('hide');
-        if (target === '@s') { target = '@p'; }
+        if (target === '@s') target = '@p';
     }
     if (outputQuery) {
         outputQuery = decodeURIComponent(outputQuery);
