@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+    
+<head>
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-7730644887366759", enable_page_level_ads: true});</script>
+    
+    <!-- Navigation styles -->
+    <style>
+        @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+        nav * div {transition: 0.1s;}
+        .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
+        .navigation ul li {margin-right: -0.5ex;}
+        .navigation li {display: inline-block; padding: 0;}
+        .navigation i.material-icons {position: relative; top: 3px; right: 3px;}
+        .navigation a, .navigation a:link, .navigation a:visited {display: inline-block; padding: 15px 30px; margin-right: 0px; color: #fff; border-radius: 5px;}
+        .navigation a:hover, .nav-link:hover {background: #383838; transition: 0.5s;}
+
+        #mobile-menu ul {display: block;}
+        #mobile-menu-icon {position: fixed; top: 0; left: 0; width: 3em; padding: 1em; cursor: pointer; z-index: 10;}
+        #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; z-index: 7; padding-top: 3em; margin-top: 0; background: #111; font-size: 1.2em;}
+        #mobile-nav li {font-style: italic;}
+        #mobile-nav li a {color: white; font-style: normal;}
+
+        i {visibility: hidden;}
+    </style>
+    <!-- Navigation scripts -->
+    <script>
+        if (window.location.href === 'https://nixinova.com/imports/navigation') {
+            $(head).append('<meta name="robots" content="noindex">');
+        }
+    </script>
+    <script>
+        function hide(id) {
+            $('#' + id + '_nav').css("opacity", 1).animate({"opacity": 0}, 20).addClass('hide');
+            $('#' + id + '-dropdown').html("arrow_drop_down");
+        }
+        function show(id) {
+            $('#' + id + '_nav').removeClass('hide').css("opacity",0).animate({"opacity":1}, 20);
+            $('#' + id + '-dropdown').html("arrow_drop_up");
+        }
+
+        function toggle(id) {
+            if ($('#' + id + '-dropdown').html() === "arrow_drop_down") show(id); else hide(id);
+        }
+
+        function showElements(id1, id2) {
+            $(id1).removeClass('hide').css("opacity", 1);
+            if (id2) {$(id2).removeClass('hide').css("opacity", 1); }
+        }
+        function hideElements(id1, id2) {
+            $(id1).css("opacity", 0).addClass('hide');
+            if (id2) {$(id2).css("opacity", 0).addClass('hide'); }
+        }
+
+        var mobilenav_visible = false;
+
+        function toggleMobileNav() {
+            if (mobilenav_visible) {
+                hideElements('#mobile-nav');
+                showElements('main','footer')
+                mobilenav_visible = false;
+            }
+            else {
+                showElements('#mobile-nav');
+                hideElements('main','footer')
+                mobilenav_visible = true;
+            } 
+        }
+        
+        $('main').attr("onmouseover", "hide('mc'); hide('dl'); hide('tool'); hide('rp');");
+    </script>
+</head>
+<body>
+    <div id="desktop-nav" class="desktoponly">
+        <div id="primary" class="navigation">
+            <ul class="nav-list">
+                <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
+                    <a href="/">Home</a>
+                </li>
+                
+                <li id="nav-mc" onmouseover="show('mc');" onclick="toggle('mc'); hide('dl'); hide('tool'); hide('rp');">
+                    <a>Minecraft
+                        <sub><i id="mc-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                    </a>
+                </li>
+                
+                <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
+                    <a href="/search#gsc.q=">
+                        &nbsp;<sub><i class="material-icons">search</i></sub>&nbsp;
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="mc_nav" class="navigation secondary hide">
+            <hr class="mobileonly">
+            <ul class="nav-list">
+                <li onmouseover="show('dl'); hide('tool'); hide('rp');" onclick="toggle('dl');">
+                    <a>Maps
+                        <sub><i id="dl-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                    </a>
+                </li>
+                <li onmouseover="show('tool'); hide('dl'); hide('rp');" onclick="toggle('tool');">
+                    <a>Tools
+                        <sub><i id="tool-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                    </a>
+                </li>
+                <li onmouseover="show('rp'); hide('tool'); hide('dl');" onclick="toggle('rp');">
+                    <a>Resource Packs
+                        <sub><i id="rp-dropdown" class="material-icons">arrow_drop_down</i></sub>
+                    </a>
+                </li>
+            </ul>
+
+            <div id="mc_sub_nav">
+                <hr class="mobileonly">
+                <div id="dl_nav" class="navigation tertiary hide">
+                    <ul class="nav-list">
+                        <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
+                        <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
+                        <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
+                    </ul>
+                </div>
+                <div id="tool_nav" class="navigation tertiary hide">
+                    <ul class="nav-list">
+                        <li><a href="/minecraft/tools/give">/give</a></li>
+                        <li><a href="/minecraft/tools/summon">/summon</a></li>
+                        <li><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
+                    </ul>
+                </div>
+                <div id="rp_nav" class="navigation tertiary hide">
+                    <ul class="nav-list">
+                        <li><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
+                        <li><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
+                        <li><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+            
+        <hr style="margin: 0;">
+    </div>
+
+    <div id="mobile-menu" class="mobileonly">
+        <div id="mobile-menu-icon">
+            <i class="material-icons" onclick="toggleMobileNav()">menu</i>
+        </div>
+        
+        <ul id="mobile-nav" class="hide" style="list-style-type: none;">
+                <li id="nav-home">
+                    <ul style="padding: 0; list-style-type: square;">
+                        <li><a href="/">Home</a></li>
+                    </ul>
+                </li>
+
+            <li>Minecraft
+                <ul style="list-style-type: none;">
+                    <li>Maps
+                        <ul>
+                            <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
+                            <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
+                            <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
+                        </ul>
+                    </li>
+                    <li>Tools
+                        <ul>
+                            <li><a href="/minecraft/tools/give">/give</a></li>
+                            <li><a href="/minecraft/tools/summon">/summon</a></li>
+                            <li><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
+                        </ul>
+                    </li>
+                    <li>Resource Packs
+                        <ul>
+                            <li><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
+                            <li><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
+                            <li><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("nav").css("opacity",0.0).animate({"opacity": 1.0}, 1000);
+            $("i").css("visibility","visible");
+        },1000)
+    </script>
+</body>
+
+</html>
