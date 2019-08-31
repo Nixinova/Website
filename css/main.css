@@ -1,9 +1,9 @@
 /* Font */
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 /* Base elements */
 * {box-sizing: border-box; transition: 0.5s;}
-body {font: normal 15px 'Noto Sans', 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: #313131;}
+body {font: normal 15px 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: #313131;}
 main {min-height: calc(100vh - 143px);}
 nav {background: #222;}
 footer {width: calc(100% - 30px); padding: 15px; margin-top: 15px; background: #222; border-top: solid #fff; text-align: center;}
@@ -73,7 +73,7 @@ a:hover button {background: #46e; font-size: 21px;}
 }
 @media (max-width: 800px) {
     .desktoponly {display: none !important;}
-    main {padding-top: 5em;}
+    main {padding-top: 4.25em;}
 }
 
 /* Useful code */
