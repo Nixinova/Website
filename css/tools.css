@@ -37,7 +37,7 @@ a.elipsis, a.plus, a.minus, a.clear {color: #222; transition: 0s;}
 /* Output */
 #cmd_note .command {white-space: nowrap;}
 .command {
-    background: gray; color: #333; padding: 5px 1em; margin-right: 2em; font-family: monospace; 
+    display: block; background: gray; color: #333; padding: 5px 1em; margin-right: 2em; font-family: monospace; 
     border: dotted #aaa 1px; border-radius: 5px; word-break: break-word;
 }
 
