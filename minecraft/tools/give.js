@@ -526,18 +526,18 @@ function give() {
 
     /// OUTPUT ///
     var outputQuery = getQueryString('output');
-    window.output = outputQuery ? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
+    var output = outputQuery ? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
     if (output.length > 255) {
         $('#cmd_note').removeClass('hide');
         if (target === '@s') {target = '@p';}
     }
     if (outputQuery) {
         outputQuery = decodeURIComponent(outputQuery);
-        $('output').html(
+        $('.generator-output').html(
             '<span style="color: lightgray">' + outputQuery + '</span>'
         );
     } else {
-        $('output').html(
+        $('.generator-output').html(
             '<span style="color: lightgray">/give</span> ' +
             '<span style="color: #5ff">' + target_text + selector + '</span> ' +
             '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
