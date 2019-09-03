@@ -27,7 +27,7 @@
         <form action="javascript:submit()" id="input_form">
             <div>
                 <p>
-                    <span class="form-item long">Overworld block coordinates</span>
+                    <label class="long">Overworld block coordinates</label>
                     X: <input type="number" id="overworld_block_x" value="0" onblur="submit()"> &nbsp;
                     Y: <input type="number" id="overworld_block_y" value="0" onblur="submit()" min="0" max="255"> &nbsp;
                     Z: <input type="number" id="overworld_block_z" value="0" onblur="submit()"> &nbsp;
@@ -37,25 +37,25 @@
             <hr>
             <div>
                 <p>
-                    <span class="form-item long">Nether block coordinates</span>
+                    <label class="long">Nether block coordinates</label>
                     X: <input type="number" id="nether_block_x" value="0" readonly> &nbsp;
                     Y: <input type="number" id="nether_block_y" value="0" readonly> &nbsp;
                     Z: <input type="number" id="nether_block_z" value="0" readonly> &nbsp;
                     <button onclick="copyNether()">Copy</button><br/>
 
-                    <span class="form-item long">Overworld chunk coordinates</span>
+                    <label class="long">Overworld chunk coordinates</label>
                     X: <input type="number" id="overworld_chunk_x" value="0" readonly> &nbsp;
                     Y: <input type="number" id="overworld_chunk_y" value="0" readonly> &nbsp;
                     Z: <input type="number" id="overworld_chunk_z" value="0" readonly> &nbsp;
                     <button onclick="copyChunk()">Copy</button><br/>
 
-                    <span class="form-item long">Nether chunk coordinates</span>
+                    <label class="long">Nether chunk coordinates</label>
                     X: <input type="number" id="nether_chunk_x" value="0" readonly> &nbsp;
                     Y: <input type="number" id="nether_chunk_y" value="0" readonly> &nbsp;
                     Z: <input type="number" id="nether_chunk_z" value="0" readonly> &nbsp;
                     <button onclick="copyChunk()">Copy</button><br/>
 
-                    <span class="form-item long">Region file name</span>
+                    <label class="long">Region file name</label>
                     <code>
                         r.<span style='margin-left: -1ex'></span>
                         <input type="number" id="region_x" value="0" readonly>.<span style='margin-left: -1ex'></span>
