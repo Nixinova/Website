@@ -533,11 +533,11 @@ function give() {
     }
     if (outputQuery) {
         outputQuery = decodeURIComponent(outputQuery);
-        $('#output_text').html(
+        $('output').html(
             '<span style="color: lightgray">' + outputQuery + '</span>'
         );
     } else {
-        $('#output_text').html(
+        $('output').html(
             '<span style="color: lightgray">/give</span> ' +
             '<span style="color: #5ff">' + target_text + selector + '</span> ' +
             '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
