@@ -287,7 +287,7 @@ function summon() {
     if (output.length > 256) {
         $('#cmd_note').removeClass('hide');
    }
-    $('output').append(
+    $('.generator-output').append(
         '<span style="color: lightgray">/summon</span> ' +
         '<span style="color: #5ff">' + entity + '</span> ' +
         '<span style="color: #ff5">' + X + _ + Y + _ + Z + '</span> ' +
