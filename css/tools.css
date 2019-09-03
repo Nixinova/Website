@@ -52,8 +52,8 @@ p.indent, div.indent {margin: -13px 0 -13px 20px;}
 p.negative {margin-top: -15px;}
 
 @media (min-width: 600px) {
-    .form-item {display: inline-block; width: 120px;}
-    .form-item.long {display: inline-block; width: 180px;}
+    label {display: inline-block; width: 120px;}
+    label.long {display: inline-block; width: 180px;}
 }
 
 /* Copyright © Nixinova 2019 */
