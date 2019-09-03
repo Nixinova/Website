@@ -30,7 +30,7 @@
         <form action="javascript:submit()" id="input_form">
             <!-- target -->
             <p onchange="submit()">
-                <span class="form-item">Target:</span>
+                <label>Target:</label>
                     <select id="input_selector_target">
                         <option value="@s">Yourself</option>
                         <option value="@p">Nearest player</option>
@@ -43,12 +43,12 @@
             <!-- target (expanded content) -->
             <div id="target-content" class="hide indent">
                 <p onblur="submit()">
-                    <span class="form-item">Coordinates:</span>
+                    <label>Coordinates:</label>
                     <input type="number" step="any" placeholder="x" size="3" id="input_selector_x"> &nbsp;
                     <input type="number" step="any" placeholder="y" size="3" id="input_selector_y"> &nbsp;
                     <input type="number" step="any" placeholder="z" size="3" id="input_selector_z"><br/>
 
-                    <span class="form-item">Selection Area:</span>
+                    <label>Selection Area:</label>
 
                     <style>
                         .radius::after {content: 'Radius';}
@@ -76,27 +76,27 @@
                         <input type="number" step="any" placeholder="z" size="3" id="input_selector_vol_z"><br/>
                     </span>
                     
-                    <span class="form-item">Vert. Rotation:</span>
+                    <label>Vert. Rotation:</label>
                     <input type="number" step="any" placeholder="min" min="-90" max="90" size="3" id="input_selector_xrot_min"> &nbsp;
                     <input type="number" step="any" placeholder="max" min="-90" max="90" size="3" id="input_selector_xrot_max"><br/>
                     
-                    <span class="form-item">Horiz. Rotation:</span>
+                    <label>Horiz. Rotation:</label>
                     <input type="number" step="any" placeholder="min" min="-180" max="179.9" size="3" id="input_selector_yrot_min"> &nbsp;
                     <input type="number" step="any" placeholder="max" min="-180" max="179.9" size="3" id="input_selector_yrot_max"><br/>
                     
-                    <span class="form-item">Limit:</span>
+                    <label>Limit:</label>
                     <input type="number" min="0" size="8" id="input_selector_limit"><br/>
                     
-                    <span class="form-item">Team:</span>
+                    <label>Team:</label>
                     <input type="text" size="8" id="input_selector_team"> &nbsp;
                     <button class="off" id="input_selector_team_i" onclick="toggleOnOff(this)">Invert</button><br/>
                     
-                    <span class="form-item">Tag:</span>
+                    <label>Tag:</label>
                     <input type="text" size="8" id="input_selector_tag"> &nbsp;
                     <button class="off" id="input_selector_tag_i" onclick="toggleOnOff(this)">Invert</button><br/>
 
                     <span class="player_only">
-                        <span class="form-item">Gamemode:</span>
+                        <label>Gamemode:</label>
                         <select id="input_selector_gm" onchange="submit()">
                             <option>&nbsp;</option>
                             <option>Survival</option>
@@ -108,7 +108,7 @@
                     </span>
 
                     <span class="player_only">
-                        <span class="form-item">XP Level:</span>
+                        <label>XP Level:</label>
                         <input type="number" placeholder="min" min="0" max="24790" size="3" id="input_selector_xp_min"> &nbsp;
                         <input type="number" placeholder="max" min="0" max="24791" size="3" id="input_selector_xp_max"><br/>
                     </span>
@@ -119,7 +119,7 @@
                         var scores_max = []
                     </script>
                 
-                    <span class="form-item">Score:</span>
+                    <label>Score:</label>
                     <input type="text" placeholder="objective" size="10" id="input_selector_score_objective"> &ensp;
                     <input type="number" placeholder="min" size="3" id="input_selector_score_min"> &nbsp;
                     <input type="number" placeholder="max" size="3" id="input_selector_score_max">
@@ -128,24 +128,24 @@
             </div>
             <!-- target (username) -->
             <p class="negative hide" id="select-username">
-                <span class="form-item">Username:</span>
+                <label>Username:</label>
                 <input type="text" size="13" maxlength="16" id="input_selector_player">
             </p>
             <!-- item -->
             <p onblur="submit()">
-                <span class="form-item">Item:</span>
+                <label>Item:</label>
                 <input type="text" onclick="$(this).value=''" size="13" id="input_item"><br/>
                 
                 <span class="hide" id="potion">
-                    <span class="form-item indent">Potion:</span> <input type="text" size="13" id="input_item_potion"><br/>
+                    <label class="indent">Potion:</label> <input type="text" size="13" id="input_item_potion"><br/>
                 </span>
 
                 <span class="hide" id="head">
-                    <span class="form-item indent">Player name:</span> <input type="text" size="13" id="input_item_head"><br/>
+                    <label class="indent">Player name:</label> <input type="text" size="13" id="input_item_head"><br/>
                 </span>
 
                 <span class="hide" id="firework">
-                    <span class="form-item">Firework effects:</span><br/>
+                    <label>Firework effects:</label><br/>
                     <select id="input_item_firework_type" onchange="submit()">
                         <option value="0">Small Ball</option>
                         <option value="1">Large Ball</option>
@@ -159,7 +159,7 @@
                     <br/>
                 </span>
 
-                <span class="form-item">Custom name:</span>
+                <label>Custom name:</label>
                 <input type="text" size="13" id="input_item_name">  
                  <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
                 
@@ -170,7 +170,7 @@
              --></span><br/>
 
                 <span id="cname-content" class="hide">
-                    <span class="form-item indent">Colour:</span>
+                    <label class="indent">Colour:</label>
                     <select id="input_item_colour" onchange="submit()">
                         <option value="">White</option>
                         <option>Aqua</option>
@@ -189,7 +189,7 @@
                         <option>Red</option>
                         <option>Yellow</option>
                     </select><br/>
-                    <span class="form-item indent">Styles:</span>
+                    <label class="indent">Styles:</label>
                     <button id="input_item_b" class="off" onclick="toggleOnOff(this)">Bold</button> &nbsp;
                     <button id="input_item_i" class="on" onclick="toggleOnOff(this)">Italic</button> &nbsp;
                     <button id="input_item_u" class="off" onclick="toggleOnOff(this)">Underlined</button> &nbsp;
@@ -207,10 +207,10 @@
                     var enchAdded = 0;
                 </script>
 
-                <span class="form-item">Description:</span><br/>
+                <label>Description:</label><br/>
                 <textarea id="input_item_lore" class="indent"></textarea><br/>
 
-                <span class="form-item">Enchantments:</span>
+                <label>Enchantments:</label>
                 <select id="input_item_ench" onchange="submit()">
                     <option></option>
                     <option>Aqua Affinity</option>
@@ -261,12 +261,12 @@
                     var CanPlaceOn = [];
                 </script>
                 <span class="tool">
-                    <span class="form-item">Durability:</span>
+                    <label>Durability:</label>
                     <input type="number" id="input_item_durability"> &nbsp;
                     <button id="input_item_unbreakable" class="off" onclick="toggleOnOff(this)">Unbreakable</button><br/>
                 </span>
 
-                <span class="form-item">Can destroy:</span>
+                <label>Can destroy:</label>
                 <span>Block:</span> <input type="text" size="13" id="input_item_destroy"> &nbsp;
                 <span>Group:</span> <select id="input_item_destroy_tags" onchange="submit()">
                     <option value="">&nbsp;</option>
@@ -325,7 +325,7 @@
                 </select>
                 <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="CanDestroy=[];submit();"></a><br/>
                 
-                <span class="form-item">Can place on:</span>
+                <label>Can place on:</label>
                 <span>Block:</span>
                 <input type="text" size="13" id="input_item_place_on"> &nbsp;
                 <span>Group:</span>
@@ -405,7 +405,7 @@
                 </script>
 
                 <span id="modifiers">
-                    <span class="form-item">Modifiers:</span> &nbsp;
+                    <label>Modifiers:</label> &nbsp;
                     <span>Attribute:</span> 
                     <select id="input_item_mod" onchange="submit()">
                         <option></option>
