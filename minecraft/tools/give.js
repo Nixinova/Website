@@ -132,8 +132,8 @@ function give() {
     }
 
     /// GENERATOR ///
-    $('#output_text').empty();
-    $('#cmd_note').addClass('hide');
+    $('#generator-output').empty();
+    $('#cmd-note').addClass('hide');
 
     {
         // select player //
@@ -533,11 +533,11 @@ function give() {
     }
     if (outputQuery) {
         outputQuery = decodeURIComponent(outputQuery);
-        $('.generator-output').html(
+        $('#generator-output').html(
             '<span style="color: lightgray">' + outputQuery + '</span>'
         );
     } else {
-        $('.generator-output').html(
+        $('#generator-output').html(
             '<span style="color: lightgray">/give</span> ' +
             '<span style="color: #5ff">' + target_text + selector + '</span> ' +
             '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
