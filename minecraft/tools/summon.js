@@ -283,11 +283,11 @@ function summon() {
 
     /// OUTPUT ///
     const _ = ' ';
-    window.output = '/summon ' + entity + _ + X + _ + Y + _ + Z + _ + NBT;
-    if (window.output.length > 256) {
+    var output = '/summon ' + entity + _ + X + _ + Y + _ + Z + _ + NBT;
+    if (output.length > 256) {
         $('#cmd_note').removeClass('hide');
    }
-    $('#output_text').append(
+    $('output').append(
         '<span style="color: lightgray">/summon</span> ' +
         '<span style="color: #5ff">' + entity + '</span> ' +
         '<span style="color: #ff5">' + X + _ + Y + _ + Z + '</span> ' +
