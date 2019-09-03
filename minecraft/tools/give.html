@@ -20,7 +20,7 @@
 <body>
     <header>
         <nav></nav>
-        <script>$("nav").load("/imports/navigation");</script>
+        <script>$("nav").load("/imports/navigation #navigation-content");</script>
     </header>
 
     <main>
@@ -471,7 +471,7 @@
         <h3 onclick="submit()">
             Output <sub><i class="material-icons">autorenew</i></sub>
         </h3>
-        <div id="cmd_note" class="hide">
+        <div id="cmd-note" class="hide">
             <p>
                 <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
                 <output class="command">
@@ -482,7 +482,7 @@
                 </output>
             </p>
         </div>
-        <output class="command generator-output"></output>
+        <output id="generator-output" class="command"></output>
 
         <p style="text-align: center;">
             <button onclick="copyCommand()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
@@ -495,6 +495,6 @@
         <span id="copyright"></span>
         •&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>
     </footer>
-    <script>$("#copyright").load("/imports/footer #content")</script>
+    <script>$("#copyright").load("/imports/footer #footer-content")</script>
 </body>
 </html>
