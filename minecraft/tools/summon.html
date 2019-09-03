@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/tools.css">
     <meta name="description" content="A generator which creates /summon commands for Minecraft 1.13 and above.">
-    <meta name="keywords" content="nixinova,nixi,nova,nixynova,nixinova website,summon,minecraft,summon generator,minecraft summon,minecraft summon generator,minecraft /summon generator,minecraft command generator">
+    <meta name="keywords" content="nixinova,nixi,nova,nixinova website,summon,minecraft,summon generator,minecraft summon,minecraft summon generator,minecraft /summon generator,minecraft command generator">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="functions.js"></script>
@@ -506,17 +506,17 @@
         Output <i onclick="submit()" class="material-icons">autorenew</i>
     </h3>
     <div id="cmd_note" class="hide">
-        <p style="margin-left: 2em">
+        <p>
             <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
-            <span class="command">
+            <output class="command">
                 <span style="color: lightgray">/summon</span>
                 <span style="color: #5ff">@s</span>
                 <span style="color: #ff5">minecraft:command_block</span>
                 <span style="color: lightgreen">1</span>
-            </span>
+            </output>
         </p>
     </div>
-    <output class="command"></output>
+    <output class="command generator-output"></output>
 
     <p style="text-align: center;">
         <button id="copyCommand" onclick="copyCommand()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
