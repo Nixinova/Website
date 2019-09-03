@@ -22,7 +22,7 @@ input[type="submit"] {width: 100%; background: #94c0c4; padding: 14px 20px; marg
     border-radius: 4px; cursor: pointer; color: #333; font: normal 2em 'Passion One'; text-align: center;}
 input[type="submit"]:hover {box-shadow: 0px 10px 14px -5px #3338;}
 input[type="number"] {width: 70px;}
-textarea {padding: 2px 6px; margin: 6px 0; border-radius: 4px;}
+textarea {padding: 2px 6px; margin: 6px 0 10px; border-radius: 4px;}
 
 /* Dropdown icons */
 .elipsis, .plus, .minus, .clear {background: #eee; border-radius: 20px; animation: none;}
@@ -35,7 +35,6 @@ textarea {padding: 2px 6px; margin: 6px 0; border-radius: 4px;}
 a.elipsis, a.plus, a.minus, a.clear {color: #222; transition: 0s;}
 
 /* Output */
-#cmd_note .command {white-space: nowrap;}
 .command {
     display: block; background: gray; color: #333; padding: 5px 1em; margin-right: 2em; font-family: monospace; 
     border: dotted #aaa 1px; border-radius: 5px; word-break: break-word;
