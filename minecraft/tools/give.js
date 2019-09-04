@@ -526,8 +526,8 @@ function give() {
 
     /// OUTPUT ///
     var outputQuery = getQueryString('output');
-    var output = outputQuery ? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
-    if (output.length > 255) {
+    window.output = outputQuery ? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
+    if (window.output.length > 255) {
         $('#cmd_note').removeClass('hide');
         if (target === '@s') {target = '@p';}
     }
