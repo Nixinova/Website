@@ -399,7 +399,7 @@ function give() {
                 elvl = elvl2;
 
                 nbt.Enchantments = []
-                for (i in e.length) {
+                for (i in e) {
                     if (e[i]) {
                         nbt.Enchantments.push({id: e[i], lvl: parseInt(elvl[i])});
                     }
@@ -425,18 +425,18 @@ function give() {
             // CanDestroy //
             if (i_destroy) {
                 CanDestroy.push(i_destroy)
-                for (i in CanDestroy.length) {
-                    for (j in tags.length) {
-                        if (CanDestroy[i] == tags[j]) {CanDestroy[i] = '#' + tags[j];}
+                for (i in CanDestroy) {
+                    for (tag of tags) {
+                        if (CanDestroy[i] == tag) {CanDestroy[i] = '#' + tag;}
                     }
                 }
                 nbt.CanDestroy = rvDupes(CanDestroy);
             }
             if (i_destroy_tag) {
                 CanDestroy.push('#' + i_destroy_tag)
-                for (i in CanDestroy.length) {
-                    for (j in tags.length) {
-                        if (CanDestroy[i] == tags[j]) {CanDestroy[i] = '#' + tags[j];}
+                for (i in CanDestroy) {
+                    for (tag of tags) {
+                        if (CanDestroy[i] == tag) {CanDestroy[i] = '#' + tag;}
                     }
                 }
                 nbt.CanDestroy = rvDupes(CanDestroy);
@@ -445,18 +445,18 @@ function give() {
             // CanPlaceOn //
             if (i_place_on) {
                 CanPlaceOn.push(i_place_on)
-                for (i in CanPlaceOn.length) {
-                    for (j in tags.length) {
-                        if (CanPlaceOn[i] == tags[j]) {CanPlaceOn[i] = '#' + tags[j];}
+                for (i in CanPlaceOn) {
+                    for (tag of tags) {
+                        if (CanPlaceOn[i] == tag) {CanPlaceOn[i] = '#' + tag;}
                     }
                 }
                 nbt.CanPlaceOn = rvDupes(CanPlaceOn);
             }
             if (i_place_on_tag) {
                 CanPlaceOn.push('#' + i_place_on_tag)
-                for (i in CanPlaceOn.length) {
-                    for (j in tags.length) {
-                        if (CanPlaceOn[i] == tags[j]) {CanPlaceOn[i] = '#' + tags[j];}
+                for (i in CanPlaceOn) {
+                    for (tag of tags) {
+                        if (CanPlaceOn[i] == tag) {CanPlaceOn[i] = '#' + tag;}
                     }
                 }
                 nbt.CanPlaceOn = rvDupes(CanPlaceOn);
@@ -521,33 +521,26 @@ function give() {
         }
 
         // count //
-        if (count === '') {count = '1';}
+        if (!count) {count = '1';}
     }
 
     /// OUTPUT ///
-    var outputQuery = getQueryString('output');
-    window.output = outputQuery ? outputQuery : '/give ' + target_text + selector + ' ' + item + NBT + ' ' + count;
+    window.output = `/give ${target_text}${selector} ${item}${NBT} ${count}`;
     let output = window.output;
     if (output.length > 255) {
         $('#cmd_note').removeClass('hide');
         if (target === '@s') {target = '@p';}
     }
-    if (outputQuery) {
-        outputQuery = decodeURIComponent(outputQuery);
-        $('#generator-output').html(
-            '<span style="color: lightgray">' + outputQuery + '</span>'
-        );
-    } else {
-        $('#generator-output').html(
-            '<span style="color: lightgray">/give</span> ' +
-            '<span style="color: #5ff">' + target_text + selector + '</span> ' +
-            '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
-            '<span style="color: lightpink">' + count + '</span>'
-        );
-    }
+    
+    $('#generator-output').html(
+        '<span style="color: lightgray">/give</span> ' +
+        '<span style="color: #5ff">' + target_text + selector + '</span> ' +
+        '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
+        '<span style="color: lightpink">' + count + '</span>'
+    );
 
     // counter
-    function_count++;
+    ++function_count;
 }
 
 function copyCommand() {
@@ -564,7 +557,7 @@ function submit() {
         give();
     }
     catch (error) {
-        alert(error.stack);
+        $('#generator-output').html(error.stack);
     }
 }
 
