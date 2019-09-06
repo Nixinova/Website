@@ -22,11 +22,11 @@
     
     function hide(id) {
         $('#' + id + '_nav').css("opacity", 1).animate({"opacity": 0}, 20).addClass('hide');
-        $('#' + id + '-dropdown').toggleClass("fa-caret-down").toggleClass("fa-caret-up");
+        $('#' + id + '-dropdown').addClass("fa-caret-down").removeClass("fa-caret-up");
     }
     function show(id) {
         $('#' + id + '_nav').removeClass('hide').css("opacity",0).animate({"opacity":1}, 20);
-        $('#' + id + '-dropdown').toggleClass("fa-caret-up").toggleClass("fa-caret-down");
+        $('#' + id + '-dropdown').addClass("fa-caret-up").removeClass("fa-caret-down");
     }
     function toggle(id) {
         if ($('#' + id + '-dropdown').hasClass('fa-carat-down')) show(id);
