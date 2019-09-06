@@ -509,6 +509,7 @@ function give() {
             if (hf > 0) {nbt.HideFlags = hf;}
 
             // nbt //
+            var NBT = '';
             if (!isEmpty(nbt)) {
                 NBT = JSON.stringify(nbt)
                     .replace(/"([^(")\\]+)":/g, '$1:')
@@ -517,7 +518,7 @@ function give() {
                     .replace(/"{id:\\/g, "{id:")
                     .replace(/}",{id:/g, "},{id:")
                     .replace(/&comma;/g, ',');
-            } else NBT = '';
+            }
         }
 
         // count //
