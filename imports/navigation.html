@@ -66,13 +66,13 @@
             
             <li id="nav-mc" onmouseover="show('mc');" onclick="toggle('mc'); hide('dl'); hide('tool'); hide('rp');">
                 <a>Minecraft
-                    <span id="mc-dropdown" class="fas fa-caret-down"></span>
+                    <i id="mc-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
             
             <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
                 <a href="/search#gsc.q=">
-                    &nbsp;<span class="fas fa-search"></span>&nbsp;
+                    &nbsp;<i class="fas fa-search"></i>&nbsp;
                 </a>
             </li>
         </ul>
@@ -82,17 +82,17 @@
         <ul class="nav-list">
             <li onmouseover="show('dl'); hide('tool'); hide('rp');" onclick="toggle('dl');">
                 <a>Maps
-                    <span id="dl-dropdown" class="fas fa-caret-down"></span>
+                    <i id="dl-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
             <li onmouseover="show('tool'); hide('dl'); hide('rp');" onclick="toggle('tool');">
                 <a>Tools
-                    <span id="tool-dropdown" class="fas fa-caret-down"></span>
+                    <i id="tool-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
             <li onmouseover="show('rp'); hide('tool'); hide('dl');" onclick="toggle('rp');">
                 <a>Resource Packs
-                    <span id="rp-dropdown" class="fas fa-caret-down"></span>
+                    <i id="rp-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
         </ul>
@@ -126,7 +126,7 @@
 </div>
 <div id="mobile-menu" class="mobileonly">
     <div id="mobile-menu-icon">
-        <span class="material-icons" onclick="toggleMobileNav()">menu</span>
+        <i class="fas fa-bars" onclick="toggleMobileNav()"></i>
     </div>
     
     <ul id="mobile-nav" class="hide" style="list-style-type: none;">
