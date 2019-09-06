@@ -66,13 +66,13 @@
             
             <li id="nav-mc" onmouseover="show('mc');" onclick="toggle('mc'); hide('dl'); hide('tool'); hide('rp');">
                 <a>Minecraft
-                    <i id="mc-dropdown" class="fas fa-caret-down"></i>
+                    <span id="mc-dropdown" class="fas fa-caret-down"></span>
                 </a>
             </li>
             
             <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
                 <a href="/search#gsc.q=">
-                    &nbsp;<i class="fas fa-search"></i>&nbsp;
+                    &nbsp;<span class="fas fa-search"></span>&nbsp;
                 </a>
             </li>
         </ul>
@@ -82,17 +82,17 @@
         <ul class="nav-list">
             <li onmouseover="show('dl'); hide('tool'); hide('rp');" onclick="toggle('dl');">
                 <a>Maps
-                    <i id="dl-dropdown" class="fas fa-caret-down"></i>
+                    <span id="dl-dropdown" class="fas fa-caret-down"></span>
                 </a>
             </li>
             <li onmouseover="show('tool'); hide('dl'); hide('rp');" onclick="toggle('tool');">
                 <a>Tools
-                    <i id="tool-dropdown" class="fas fa-caret-down"></i>
+                    <span id="tool-dropdown" class="fas fa-caret-down"></span>
                 </a>
             </li>
             <li onmouseover="show('rp'); hide('tool'); hide('dl');" onclick="toggle('rp');">
                 <a>Resource Packs
-                    <i id="rp-dropdown" class="fas fa-caret-down"></i>
+                    <span id="rp-dropdown" class="fas fa-caret-down"></span>
                 </a>
             </li>
         </ul>
@@ -126,7 +126,7 @@
 </div>
 <div id="mobile-menu" class="mobileonly">
     <div id="mobile-menu-icon">
-        <i class="material-icons" onclick="toggleMobileNav()">menu</i>
+        <span class="material-icons" onclick="toggleMobileNav()">menu</span>
     </div>
     
     <ul id="mobile-nav" class="hide" style="list-style-type: none;">
