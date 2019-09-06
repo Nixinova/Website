@@ -108,11 +108,11 @@ function give() {
     var count = value('input_count');
 
     // fix values //
-    if (dist_max && dist_min > dist_max) {let foo = dist_min; dist_min = dist_max; dist_max = foo;}
-    if (xrot_max && xrot_min > xrot_max) {let foo = xrot_min; xrot_min = xrot_max; xrot_max = foo;}
-    if (yrot_max && yrot_min > yrot_max) {let foo = yrot_min; yrot_min = yrot_max; yrot_max = foo;}
-    if (xp_max && xp_min > xp_max) {let foo = xp_min; xp_min = xp_max; xp_max = foo;}
-    if (score_max && score_min > score_max) {let foo = score_min; score_min = score_max; score_max = foo;}
+    if (dist_max && dist_min > dist_max) {[dist_min, dist_max] = [dist_max, dist_min];}
+    if (xrot_max && xrot_min > xrot_max) {[xrot_min, xrot_max] = [xrot_max, xrot_min];}
+    if (yrot_max && yrot_min > yrot_max) {[yrot_min, yrot_max] = [yrot_max, yrot_min];}
+    if (xp_max && xp_min > xp_max) {[xp_min, xp_max] = [xp_max, xp_min];}
+    if (score_max && score_min > score_max) {[score_min, score_max] = [score_max, score_min];}
 
     // hide flags //
     var hf = 0
