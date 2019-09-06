@@ -517,7 +517,7 @@ function give() {
                     .replace(/"{id:\\/g, "{id:")
                     .replace(/}",{id:/g, "},{id:")
                     .replace(/&comma;/g, ',');
-            }
+            } else NBT = '';
         }
 
         // count //
