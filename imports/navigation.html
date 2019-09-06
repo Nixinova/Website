@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-NZ">
-    
-<head>
-    <!-- Google Adsense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-7730644887366759", enable_page_level_ads: true});</script>
-    
-    <!-- Navigation styles -->
+<div>
     <style>
         @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
         nav * div {transition: 0.1s;}
@@ -25,13 +17,11 @@
 
         i {visibility: hidden;}
     </style>
-    <!-- Navigation scripts -->
     <script>
-        if (window.location.href === 'https://nixinova.com/imports/navigation') {
-            $(head).append('<meta name="robots" content="noindex">');
+        if (window.location.href.indexOf('imports/navigation') > 0) {
+            $('head').append('<meta name="robots" content="noindex">');
         }
-    </script>
-    <script>
+        
         function hide(id) {
             $('#' + id + '_nav').css("opacity", 1).animate({"opacity": 0}, 20).addClass('hide');
             $('#' + id + '-dropdown').html("arrow_drop_down");
@@ -71,8 +61,6 @@
         
         $('main').attr("onmouseover", "hide('mc'); hide('dl'); hide('tool'); hide('rp');");
     </script>
-</head>
-<body>
     <div id="desktop-nav" class="desktoponly">
         <div id="primary" class="navigation">
             <ul class="nav-list">
@@ -191,6 +179,4 @@
             $("i").css("visibility","visible");
         },1000)
     </script>
-</body>
-
-</html>
+</div>

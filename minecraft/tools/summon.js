@@ -89,8 +89,8 @@ function summon() {
 
     /// GENERATOR ///
     // OUTPUT //
-    $('#output_text').empty();
-    $('#cmd_note').addClass('hide');
+    $('#generator-output').empty();
+    $('#cmd-note').addClass('hide');
     $('.only').addClass('hide');
     $('.' + entity).removeClass('hide');
 
@@ -285,9 +285,9 @@ function summon() {
     const _ = ' ';
     window.output = '/summon ' + entity + _ + X + _ + Y + _ + Z + _ + NBT;
     if (window.output.length > 256) {
-        $('#cmd_note').removeClass('hide');
+        $('#cmd-note').removeClass('hide');
    }
-    $('#output_text').append(
+    $('#generator-output').append(
         '<span style="color: lightgray">/summon</span> ' +
         '<span style="color: #5ff">' + entity + '</span> ' +
         '<span style="color: #ff5">' + X + _ + Y + _ + Z + '</span> ' +
