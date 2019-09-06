@@ -517,7 +517,7 @@ function give() {
                     .replace(/"{id:\\/g, "{id:")
                     .replace(/}",{id:/g, "},{id:")
                     .replace(/&comma;/g, ',');
-            } else {NBT = getQueryString('nbt') ? getQueryString('nbt') : '';}
+            }
         }
 
         // count //
@@ -525,19 +525,19 @@ function give() {
     }
 
     /// OUTPUT ///
-    window.output = `/give ${target_text}${selector} ${item}${NBT} ${count}`;
-    let output = window.output;
-    if (output.length > 255) {
+    window.output = `/give ${target_text + selector} ${item + NBT} ${count}`;
+    if (window.output.length > 255) {
         $('#cmd_note').removeClass('hide');
+        console.log('531 true');
         if (target === '@s') {target = '@p';}
     }
     
-    $('#generator-output').html(
-        '<span style="color: lightgray">/give</span> ' +
-        '<span style="color: #5ff">' + target_text + selector + '</span> ' +
-        '<span style="color: #ff5">' + item + NBT.replace(/&/g, '&amp;') + '</span> ' +
-        '<span style="color: lightpink">' + count + '</span>'
-    );
+    $('#generator-output').html(`
+        <span style="color: lightgray">/give</span>
+        <span style="color: #5ff">${target_text + selector}</span>
+        <span style="color: #ff5">${item + NBT.replace(/&/g, '&amp;')}</span>
+        <span style="color: lightpink">${count}</span>
+    `);
 
     // counter
     ++function_count;

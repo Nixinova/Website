@@ -123,7 +123,7 @@ function summon() {
             if (bee_angry) {
                 $('.angry-bee').removeClass('hide');
                 if (bee_angry_time && bee_angry_time_value) {
-                    if (bee_angry_time === 't') {nbt.Anger = 0 - bee_angry_time_value;}
+                    /**/ if (bee_angry_time === 't') {nbt.Anger = 0 - bee_angry_time_value;}
                     else if (bee_angry_time === 's') {nbt.Anger = 0 - bee_angry_time_value * 20;}
                     else if (bee_angry_time === 'm') {nbt.Anger = 0 - bee_angry_time_value * 1200;}
                     else if (bee_angry_time === 'h') {nbt.Anger = 0 - bee_angry_time_value * 72000;}
@@ -181,7 +181,7 @@ function summon() {
             if (panda_recessive_gene) {nbt.HiddenGene = panda_recessive_gene;}
        }
 
-        // rabbit ..
+        // rabbit //
         if (entity === 'rabbit') {
             if (rabbit_type !== null) {nbt.RabbitType = rabbit_type;}
        }
@@ -196,9 +196,9 @@ function summon() {
             if (tropical_fish_size === 0) {$('.large-fish').addClass('hide'); $('.small-fish').removeClass('hide');}
             if (tropical_fish_size === 1) {$('.small-fish').addClass('hide'); $('.large-fish').removeClass('hide');}
             let byte_1 = tropical_fish_size;
-            let byte_2 = tropical_fish_pattern * Math.pow(2, 8);
-            let byte_3 = tropical_fish_base_color * Math.pow(2, 16);
-            let byte_4 = tropical_fish_pattern_color * Math.pow(2, 24);
+            let byte_2 = tropical_fish_pattern * 2**8;
+            let byte_3 = tropical_fish_base_color * 2**16;
+            let byte_4 = tropical_fish_pattern_color * 2**24;
             nbt.Variant = byte_1 + byte_2 + byte_3 + byte_4;
        }
 
@@ -230,10 +230,10 @@ function summon() {
         if (neg_age_mobs.indexOf(entity) > -1) {
             $('.baby_mobs').removeClass('hide');
             if (baby && baby_time_value) {
-                if (baby_time === 't') {nbt.Age = 0 - baby_time_value;}
-                if (baby_time === 's') {nbt.Age = 0 - baby_time_value * 20;}
-                if (baby_time === 'm') {nbt.Age = 0 - baby_time_value * 1200;}
-                if (baby_time === 'h') {nbt.Age = 0 - baby_time_value * 72000;}
+                /**/ if (baby_time === 't') {nbt.Age = 0 - baby_time_value;}
+                else if (baby_time === 's') {nbt.Age = 0 - baby_time_value * 20;}
+                else if (baby_time === 'm') {nbt.Age = 0 - baby_time_value * 1200;}
+                else if (baby_time === 'h') {nbt.Age = 0 - baby_time_value * 72000;}
                 $('.baby_living_mobs').removeClass('hide');
            }
        }
@@ -243,19 +243,19 @@ function summon() {
     {
         // armor //
         var armor_items = [];
-        if (feet) {armor_items.push({id: feet, Count: feet_n});} else {armor_items.push({});}
-        if (legs) {armor_items.push({id: legs, Count: legs_n});} else {armor_items.push({});}
+        if (feet)  {armor_items.push({id: feet , Count: feet_n });} else {armor_items.push({});}
+        if (legs)  {armor_items.push({id: legs , Count: legs_n });} else {armor_items.push({});}
         if (chest) {armor_items.push({id: chest, Count: chest_n});} else {armor_items.push({});}
-        if (head) {armor_items.push({id: head, Count: head_n});} else {armor_items.push({});}
+        if (head)  {armor_items.push({id: head , Count: head_n });} else {armor_items.push({});}
         if (head || chest || legs || feet) {
             nbt.ArmorItems = armor_items;
             var armor_drop_chances;
             if (head_c || chest_c || legs_c || feet_c) {
-                if (!head_c) {head_c = 100;}
-                if (!chest_c) {chest_c = 100;}
-                if (!legs_c) {legs_c = 100;}
-                if (!feet_c) {feet_c = 100;}
-                armor_drop_chances = [feet_c / 100 + 'f', legs_c / 100 + 'f', chest_c / 100 + 'f', head_c / 100 + 'f'];
+                head_c  = head_c  ? head_c  / 100 + 'f' : '1f';
+                chest_c = chest_c ? chest_c / 100 + 'f' : '1f';
+                legs_c  = legs_c  ? legs_c  / 100 + 'f' : '1f';
+                feet_c  = feet_c  ? feet_c  / 100 + 'f' : '1f';
+                armor_drop_chances = [feet_c, legs_c, chest_c, head_c];
                 nbt.ArmorDropChances = armor_drop_chances;
            }
        }
@@ -263,39 +263,39 @@ function summon() {
         // held //
         var held_items = [];
         if (mainhand) {held_items.push({id: mainhand, Count: mainhand_n});} else {held_items.push({});}
-        if (offhand) {held_items.push({id: offhand, Count: offhand_n});} else {held_items.push({});}
+        if (offhand)  {held_items.push({id: offhand,  Count: offhand_n });} else {held_items.push({});}
         if (mainhand || offhand) {
             nbt.HandItems = held_items;
             var hand_drop_chances;
             if (mainhand_c || offhand_c) {
-                if (!mainhand_c) {mainhand_c = 100;}
-                if (!offhand_c) {offhand_c = 100;}
-                hand_drop_chances = [mainhand_c / 100 + 'f', offhand_c / 100 + 'f'];
+                mainhand_c = mainhand_c ? mainhand_c / 100 + 'f' : '1f';
+                offhand_c  = offhand_c  ? offhand_c  / 100 + 'f' : '1f';
+                hand_drop_chances = [mainhand_c, offhand_c];
                 nbt.HandDropChances = hand_drop_chances;
            }
        }
    }
 
     // CONVERT TO NBT //
-    if (!isEmpty(nbt)) {//                   Removes quotes on IDs            Show int types as plain ints
+    if (!isEmpty(nbt)) {//                    Removes quotes on IDs             Show int types as plain ints
         var NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/"([0-9.]+[bdfLs])"/g, '$1');
-   } else {NBT = '';}
+   } else NBT = '';
 
     /// OUTPUT ///
     const _ = ' ';
-    window.output = '/summon ' + entity + _ + X + _ + Y + _ + Z + _ + NBT;
+    window.output = `/summon ${entity} ${X} ${Y} ${Z} ${NBT}`;
     if (window.output.length > 256) {
         $('#cmd-note').removeClass('hide');
    }
-    $('#generator-output').append(
-        '<span style="color: lightgray">/summon</span> ' +
-        '<span style="color: #5ff">' + entity + '</span> ' +
-        '<span style="color: #ff5">' + X + _ + Y + _ + Z + '</span> ' +
-        '<span style="color: lightgreen">' + NBT + '</span>'
-    );
+    $('#generator-output').append(`
+        <span style="color: lightgray">/summon</span>
+        <span style="color: #5ff">${entity}</span>
+        <span style="color: #ff5">${X} ${Y} ${Z}</span>
+        <span style="color: lightgreen">${NBT}</span>
+    `);
 
     // counter
-    function_count++;
+    ++function_count;
 }
 
 function copyCommand() {
@@ -312,7 +312,7 @@ function submit() {
         summon();
    }
     catch (error) {
-        alert(error.stack);
+        $('#generator-output').html(error.stack);
    }
 }
 
