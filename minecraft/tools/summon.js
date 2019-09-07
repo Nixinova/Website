@@ -106,7 +106,7 @@ function summon() {
         if (pickup) {nbt.CanPickUpLoot = true;}
 
         // tame mobs //
-        if (tame_mobs.indexOf(entity) > -1) {
+        if (tame_mobs.includes(entity)) {
             $('.tame_mobs.only').removeClass('hide');
             if (horse_tame) {nbt.Tame = true;}
        }
