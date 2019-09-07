@@ -41,14 +41,13 @@ a.elipsis, a.plus, a.minus, a.clear {color: #222; transition: 0s;}
 }
 
 /* Indentation */
-.thirds p {margin: 0; padding: 0;}
-@media (max-width: 1200px) {
-    .thirds {width: 100%;}
-}
-
-.indent {margin: 0 20px;}
 p.indent, div.indent {margin: -13px 0 -13px 20px;}
 p.negative {margin-top: -15px;}
+.indent {margin: 0 20px;}
+
+@media (max-width: 900px) {    
+    main {margin-left: 1em;}
+}
 
 @media (min-width: 600px) {
     label {display: inline-block; width: 125px;}
