@@ -65,8 +65,8 @@ function give() {
     var team_invert = hasClass('input_selector_team_i', 'on');
     var tag = value('input_selector_tag').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
     var tag_invert = hasClass('input_selector_tag_i', 'on');
-    var mode = value('input_selector_gm').toLowerCase();
-    var mode_invert = hasClass('input_selector_gm_i', 'on');
+    var gamemode = value('input_selector_gm').toLowerCase();
+    var gamemode_invert = hasClass('input_selector_gm_i', 'on');
     var xp_min = value('input_selector_xp_min', 'int');
     var xp_max = value('input_selector_xp_max', 'int');
     var score = value('input_selector_score_objective').toLowerCase().replace(/[^a-z_:]/g, "");
@@ -202,7 +202,7 @@ function give() {
             selector.push('tag=' + not + tag);
         }
 
-        if (mode) {
+        if (gamemode) {
             let not = gamemode_invert ? '!' : '';
             selector.push('gamemode=' + not + gamemode);
         }

@@ -45,7 +45,7 @@ hr.divider {width: 90%;}
 iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 
 /* Icons */
-i.material-icons {cursor: pointer;}
+.fas {cursor: pointer;}
 
 /* Galleries */
 #gallery {width: 100%;}
