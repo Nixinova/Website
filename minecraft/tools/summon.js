@@ -1,21 +1,17 @@
-/// FUNCTIONS ///
 
-function cleanup(id) {
-    return id.toLowerCase().replace(/[ -]/g, '_').replace(/[^a-z_:]/g, '').replace(/_+/g, '_').replace(/:+/g, ':').replace(/:_/g, ':');
-}
 
 /// SUBMIT ///
 
 function summon() {
 
     /// VARIABLES ///
-    var zombies = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
-    var neg_age_mobs = [
+    const zombies = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
+    const neg_age_mobs = [
         'bee', 'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot',
         'panda', 'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
     ];
-    var tame_mobs = ['llama', 'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'];
+    const tame_mobs = ['llama', 'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'];
 
     // call from input form //
     var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
@@ -24,30 +20,30 @@ function summon() {
     var Z = value('input_z').replace(/[^0-9-~^]/g, '');
     var name = value('input_customname').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 
-    var no_ai = $('#input_no_ai').hasClass('on');
-    var despawnable = $('#input_despawnable').hasClass('on');
-    var invulnerable = $('#input_invulnerable').hasClass('on');
-    var silent = $('#input_silent').hasClass('on');
-    var pickup = $('#input_pickup').hasClass('on');
+    var no_ai = hasClass('input_no_ai', 'on');
+    var despawnable = hasClass('input_despawnable', 'on');
+    var invulnerable = hasClass('input_invulnerable', 'on');
+    var silent = hasClass('input_silent', 'on');
+    var pickup = hasClass('input_pickup', 'on');
 
-    var baby = $('#input_is_baby').hasClass('on');
+    var baby = hasClass('input_is_baby', 'on');
     var baby_time = value('input_baby_time');
     var baby_time_value = value('input_baby_time_value');
-    var bee_stung = $('#input_bee_stung').hasClass('on');
-    var bee_nectar = $('#input_bee_nectar').hasClass('on');
-    var bee_angry = $('#input_bee_angry').hasClass('on');
+    var bee_stung = hasClass('input_bee_stung', 'on');
+    var bee_nectar = hasClass('input_bee_nectar', 'on');
+    var bee_angry = hasClass('input_bee_angry', 'on');
     var bee_angry_time = value('input_bee_angry_time');
     var bee_angry_time_value = value('input_bee_angry_time_value');
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
-    var creeper_powered = $('#input_creeper_powered').hasClass('on');
+    var creeper_powered = hasClass('input_creeper_powered', 'on');
     var endermite_life = value('input_endermite_life', 'int')
-    var endermite_attackable = $('#input_endermite_attackable').hasClass('off');
+    var endermite_attackable = hasClass('input_endermite_attackable', 'off');
     var $fox_type = $('#input_fox_type');
     var ghast_explosion_power = value('input_ghast_explosion_power');
     var llama_type = value('input_llama_type', 'int')
     var llama_temper = value('input_llama_temper', 'int')
-    var horse_tame = $('#input_horse_tame').hasClass('on');
+    var horse_tame = hasClass('input_horse_tame', 'on');
     var mob_color = value('input_mob_color', 'int')
     var mooshroom_type = cleanup(value('input_mooshroom_type'))
     var panda_dominant_gene = cleanup(value('input_panda_gene_1'));
@@ -62,8 +58,8 @@ function summon() {
     var villager_profession = cleanup(value('input_villager_profession'));
     var villager_level = value('input_villager_level', 'int');
     var wolf_collar = value('input_wolf_collar', 'int');
-    var wolf_sitting = $('#wolf_sitting').hasClass('on');
-    var zombies_canbreak_doors = $('#input_zombies_canbreak_doors').hasClass('on');
+    var wolf_sitting = hasClass('wolf_sitting', 'on');
+    var zombies_canbreak_doors = hasClass('input_zombies_canbreak_doors', 'on');
 
     var head = cleanup(value('input_armour_head'));
     var chest = cleanup(value('input_armour_chest'));
@@ -282,7 +278,6 @@ function summon() {
    } else NBT = '';
 
     /// OUTPUT ///
-    const _ = ' ';
     window.output = `/summon ${entity} ${X} ${Y} ${Z} ${NBT}`;
     if (window.output.length > 256) {
         $('#cmd-note').removeClass('hide');

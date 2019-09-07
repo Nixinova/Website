@@ -26,17 +26,32 @@ function getQueryString(val) {
 }
 
 function value(id, type) {
-    if (type === 'int') return parseInt($('#'+id).val(), 10);
-    else if (type === 'num') return parseFloat($('#'+id).val(), 10);
-    else return $.trim($('#'+id).val());
+    switch (type) {
+        case 'int': return parseInt($('#'+id).val(), 10);
+        case 'num': return parseFloat($('#'+id).val(), 10);
+        default: return $.trim($('#'+id).val());
+    }
 }
 
 function checked(id) {
     return document.getElementById(id).checked;
 }
 
+function hasClass(id, class_) {
+    return $('#' + id).hasClass(class_);
+}
+
+function cleanup(id) {
+    return id.toLowerCase()
+        .replace(/[ -]/g, '_')
+        .replace(/[^a-z_:]/g, '')
+        .replace(/_+/g, '_')
+        .replace(/:+/g, ':')
+        .replace(/:_/g, ':');
+}
+
 function isEmpty(object) {
-    for (key in object) {
+    for (key of object) {
         if (object.hasOwnProperty(key)) return false;
     }
     return true;
