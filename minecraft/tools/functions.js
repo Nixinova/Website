@@ -51,7 +51,7 @@ function cleanup(id) {
 }
 
 function isEmpty(object) {
-    for (key of object) {
+    for (key in object) {
         if (object.hasOwnProperty(key)) return false;
     }
     return true;
