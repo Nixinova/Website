@@ -60,10 +60,10 @@ function isEmpty(object) {
 function rvNestedDupes(array) {
     let newArray = [];
     let itemsFound = {};
-    for (i = 0; i < array.length; i++) {
-        let str = JSON.stringify(array[i]);
+    for (x of array) {
+        let str = JSON.stringify(x);
         if (itemsFound[str]) {continue};
-        newArray.push(array[i]);
+        newArray.push(x);
         itemsFound[str] = true;
     }
     return newArray;
@@ -75,7 +75,7 @@ function rvDupes(array) {
         if (newArray.indexOf(array[a]) == -1) {
             newArray.push(array[a]);
         }
-        if (newArray[a] == null) {newArray.splice(a,1);}
+        if (newArray[a] === null) {newArray.splice(a,1);}
     }
     return newArray;
 }
