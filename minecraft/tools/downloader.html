@@ -13,7 +13,7 @@
     <script>
         function getJsonContent(hash, version) {
             let url = `https://launchermeta.mojang.com/v1/packages/${hash}/${version}.json`;
-            $.getJSON(url);
+            return $.getJSON(url);
         }
     </script>
 </head>
