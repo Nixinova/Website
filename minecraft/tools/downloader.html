@@ -12,18 +12,8 @@
     <script src="downloader.js"></script>
     <script>
         function getJsonContent(hash, version) {
-            let request = new XMLHttpRequest();
-            let url = `https://launchermeta.mojang.com/v1/packages/${hash}/${version}.json`
-            request.open('GET', url, true);
-            request.send(null);
-            request.onreadystatechange = () => {
-                if (request.readyState === 4 && request.status === 200) {
-                    var type = request.getResponseHeader('Content-Type');
-                    if (type.indexOf("text") !== 1) {
-                        return request.responseText;
-                    }
-                }
-            }
+            let url = `https://launchermeta.mojang.com/v1/packages/${hash}/${version}.json`;
+            $.getJSON(url);
         }
     </script>
 </head>
@@ -38,7 +28,11 @@
         <p>Generates Minecraft download links from a given JSON file or hash from Mojang.</p>
         <form action="javascript:submit()" id="input_form">
             <div>
-                
+                <label>Version JSON hash or URL:</label>
+                <input type="text" id="input_version"><br>
+
+                <label>Version name:</label>
+                <input type="text" id="input_version"><br>
             </div>
         </form>
         <script>$(submit());</script>
