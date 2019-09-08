@@ -1,27 +1,26 @@
 function show_more(sourceId, targetId, rvcols) {
-    var source = $('#' + sourceId)
-    var target = $('#' + targetId)
+    var source = $('#' + sourceId);
+    var target = $('#' + targetId);
     
-    source.toggleClass('minus')
-    source.toggleClass('elipsis')
-    target.toggleClass("hide")
+    source.toggleClass('minus').toggleClass('elipsis');
+    target.toggleClass("hide");
 
-    if (rvcols) {target.toggleClass("row")}
+    if (rvcols) target.toggleClass("row");
 }
 
 function getQueryString(val) {
-    let href = window.location.href.split('#')
+    let href = window.location.href.split('#');
     let query = href[1]? href[1].split('&') : '';
     if (query) {
-        let regexMatch = new RegExp('(\\?|)' + val + '=.+');
-        let regexReplace = new RegExp('(\\?|)' + val + '=');
+        let regexMatch = new RegExp('(\\?|)' + RegExp.escape(val) + '=.+');
+        let regexReplace = new RegExp('(\\?|)' + RegExp.escape(val) + '=');
         let times = 0;
-        for (var i in query) {
-            if (query[i].match(regexMatch)) {
-                return query[i].replace(regexReplace, '');
-            } else {times++;}
+        for (var q of query) {
+            if (q.match(regexMatch)) {
+                return q.replace(regexReplace, '');
+            } else ++times;
         }
-        if (times === 0) {return '';}
+        if (times === 0) return '';
     }
 }
 
@@ -62,7 +61,7 @@ function rvNestedDupes(array) {
     let itemsFound = {};
     for (x of array) {
         let str = JSON.stringify(x);
-        if (itemsFound[str]) {continue};
+        if (itemsFound[str]) continue;
         newArray.push(x);
         itemsFound[str] = true;
     }
