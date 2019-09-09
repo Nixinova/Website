@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /imports
+Disallow: /assets/imports
 
 Sitemap: /sitemap.txt
