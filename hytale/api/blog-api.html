@@ -50,7 +50,7 @@
 
             $('output').html(`
                 ${weekday}, ${day.slice(-2)} ${month} ${year}, ${hour.slice(-2)}:${min.slice(-2)}:${sec.slice(-2)} (UTC)<br>
-                ${blog_excerpts[blog_urls.infexOf(selected_blog)]}
+                ${blog_excerpts[blog_urls.indexOf(selected_blog)]}
             `);
         }
     </script>
