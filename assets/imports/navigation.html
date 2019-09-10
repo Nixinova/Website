@@ -63,13 +63,19 @@
                 <a href="/">Home</a>
             </li>
             
-            <li id="nav-mc" onmouseover="show('mc');" onclick="toggle('mc'); hide('dl'); hide('tool'); hide('rp');">
+            <li id="nav-mc" onmouseover="show('mc');" onclick="toggle('mc'); hide('dl'); hide('tool'); hide('rp'); hide('ht');">
                 <a>Minecraft
                     <i id="mc-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
             
-            <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
+            <li id="nav-mc" onmouseover="show('ht');" onclick="toggle('ht'); hide('mc'); hide('dl'); hide('tool'); hide('rp');">
+                <a>Hytale
+                    <i id="ht-dropdown" class="fas fa-caret-down"></i>
+                </a>
+            </li>
+            
+            <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp'); hide('ht');">
                 <a href="/search#gsc.q=">
                     &nbsp;<i class="fas fa-search"></i>&nbsp;
                 </a>
@@ -95,6 +101,7 @@
                 </a>
             </li>
         </ul>
+
         <div id="mc_sub_nav">
             <hr class="mobileonly">
             <div id="dl_nav" class="navigation tertiary hide">
@@ -120,6 +127,13 @@
             </div>
         </div>
     </div>
+    
+    <div id="ht_nav" class="navigation secondary hide">
+        <hr class="mobileonly">
+        <ul class="nav-list">
+            <li><a href="/hytale/api/blog-api">Blog API</a></li>
+        </ul>
+    </div>
         
     <hr style="margin: 0;">
 </div>
@@ -129,11 +143,12 @@
     </div>
     
     <ul id="mobile-nav" class="hide" style="list-style-type: none;">
-            <li id="nav-home">
-                <ul style="padding: 0; list-style-type: square;">
-                    <li><a href="/">Home</a></li>
-                </ul>
-            </li>
+
+        <li id="nav-home">
+            <ul style="padding: 0; list-style-type: square;">
+                <li><a href="/">Home</a></li>
+            </ul>
+        </li>
         <li>Minecraft
             <ul style="list-style-type: none;">
                 <li>Maps
@@ -159,6 +174,12 @@
                 </li>
             </ul>
         </li>
+        <li>Hytale
+            <ul>
+                <li><a href="/hytale/api/blog-api">Blog API</a></li>
+            </ul>
+        </li>
+
     </ul>
 </div>
 <script id="footer-script">
