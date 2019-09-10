@@ -23,6 +23,7 @@
             blog_titles.push(blogs[i].title);
             blog_urls.push(blogs[i].slug);
             blog_dates.push(blogs[i].publishedAt);
+            $('#titles').append(`<option>${blog_titles[i]}</option>`);
         }
     </script>
 </head>
@@ -33,7 +34,9 @@
     </header>
 
     <main>
-        
+        <select id="titles">
+
+        </select>
     </main>
 
     <footer class="bottom">
