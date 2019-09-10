@@ -20,17 +20,19 @@
         var blog_titles = [];
         var blog_urls = [];
         var blog_dates = [];
+        var blog_excerpts = [];
 
         $( content => {
             for (i in blogs) {
                 blog_titles.push(blogs[i].title);
                 blog_urls.push(blogs[i].slug);
                 blog_dates.push(blogs[i].publishedAt);
+                blog_excerpts.push(blogs[i].bodyExcerpt);
                 $('#titles').append(`<option value="${blog_urls[i]}">${blog_titles[i]}</option>`);
             }
         });
 
-        function getDate() {
+        function getInfo() {
             let selected_blog = $('#titles').val();
             let index = blog_urls.indexOf(selected_blog);
             let date = new Date(blog_dates[index]);
@@ -46,7 +48,10 @@
             let min = '00' + date.getUTCMinutes().toString();
             let sec = '00' + date.getUTCSeconds().toString();
 
-            $('output').html(`${weekday}, ${day.slice(-2)} ${month} ${year}, ${hour.slice(-2)}:${min.slice(-2)}:${sec.slice(-2)} (UTC)`);
+            $('output').html(`
+                ${weekday}, ${day.slice(-2)} ${month} ${year}, ${hour.slice(-2)}:${min.slice(-2)}:${sec.slice(-2)} (UTC)<br>
+                ${blog_excerpts[blog_urls.infexOf(selected_blog)]}
+            `);
         }
     </script>
     <header>
@@ -60,7 +65,7 @@
                 <p>
                     <label>Blog post:</label>
                     <select id="titles"></select>
-                    <button onclick="try{getDate()}catch(e){$('body').append(e.stack)}">Get date</button><br>
+                    <button onclick="try{getInfo()}catch(e){$('body').append(e.stack)}">Get info</button><br>
 
                     <output style="padding:1em;"></output>
                 </p>
@@ -70,7 +75,6 @@
 
     <footer class="bottom">
         <span id="copyright"></span>
-        •&nbsp;<a href="blogs.json" target="_blank">View JSON</a>
     </footer>
     <script id="load-copyright">$("#copyright").load("/assets/imports/footer"); $("#load-copyright").remove();</script>
 </body>
