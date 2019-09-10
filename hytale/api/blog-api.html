@@ -47,7 +47,7 @@
             let min = date.getUTCMinutes();
             let sec = date.getUTCSeconds();
 */
-            $('output').html(date.replace('GMT','UTC').replace(/ \(.+/,''))//`${weekday} ${day} ${month} ${year}, ${hour}:${min}:${sec} (UTC)`);
+            $('output').html(date.toString().replace('GMT','UTC').replace(/ \(.+/,''))//`${weekday} ${day} ${month} ${year}, ${hour}:${min}:${sec} (UTC)`);
         }
     </script>
     <header>
