@@ -11,7 +11,7 @@
     <script src="blog-api.js"></script>
     <script>
         var req = new XMLHttpRequest();
-        req.open("GET","blogs.json",true);
+        req.open("GET","blogs.json",false);
         req.send();
         var response = req.responseText;
         var blogs = JSON.parse(response);
@@ -29,7 +29,7 @@
 <body>
     <header>
         <nav></nav>
-        <script>$("nav").load("/imports/navigation");</script>
+        <script>$("nav").load("/assets/imports/navigation");</script>
     </header>
 
     <main>
@@ -38,8 +38,8 @@
 
     <footer class="bottom">
         <span id="copyright"></span>
-        •&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>
+        <!--•&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>-->
     </footer>
-    <script>$("#copyright").load("/imports/footer")</script>
+    <script>$("#copyright").load("/assets/imports/footer")</script>
 </body>
 </html>
