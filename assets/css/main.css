@@ -60,7 +60,7 @@ a:hover button {background: #46e; font-size: 21px;}
 
 /* Responsive */
 @media (min-width: 1000px) {
-    main {min-height: calc(100vh - 144px);}
+    main {min-height: calc(100vh - 8.95em);}
     .row {display: flex;}
     .row>div {margin: 0 10px;}
     .flex {width: var(--width);}

@@ -38,7 +38,7 @@
 <body>
     <header>
         <nav></nav>
-        <script>$("nav").load("/imports/navigation")</script>
+        <script id="load-nav">$("nav").load("/imports/navigation"); $("#load-nav").remove();</script>
     </header>
     <main>
         <div id="gallery">
@@ -48,7 +48,6 @@
         <h1>Nixinova Mash-Up Pack</h1>
         <p>
             These packs are a mash-up of textures from different resource packs.<br/>
-            Hover over a version number to display more information about that version of the resource pack.<br/>
             <strong>These downloads are for the Java Edition of Minecraft only.</strong>
         </p>
 
@@ -64,7 +63,7 @@
             </p>
 
             <table id="v3" class="flex"></table>
-            <script>createTable('v3', [
+            <script id="createTable-v3">createTable('v3', [
                 {mcver: '1.15  ', snap: '19w34a', packver: 'v3.5.0  ', dl: 'cug83ybfi2shksi', date: '2019-08-23'},
                 {mcver: '1.14.4',                 packver: 'v3.4.4  ', dl: 'emqa6f3s2vnfhuz', date: '2019-08-10'},
                 {mcver: '1.14.4', snap: 'pre6  ', packver: 'v3.4.3  ', dl: '8a0bpb1wpklnttt', date: '2019-07-18'},
@@ -94,7 +93,7 @@
                 {mcver: '1.14  ',                 packver: 'v3.0.1  ', dl: 'a2yl9r0qrgwn1iu', date: '2019-04-25'},
                 {mcver: '1.14  ',                 packver: 'v3.0.0  ', dl: 'n5todfmtp139dv5', date: '2019-04-24'},
                 {mcver: '1.14  ', snap: 'pre1  ', packver: 'v3-alpha', dl: 'wb1hhjt7i8wcs5i', date: '2019-04-12'}
-            ]);</script>
+            ]); $('#createTable-v3').remove();</script>
         </div>
 
         <hr class="divider">
@@ -109,7 +108,7 @@
             </p>
 
             <table id="v2" class="flex"></table>
-            <script>createTable('v2', [
+            <script id="createTable-v2">createTable('v2', [
                 {mcver: '1.14  ', snap: '19w14b', packver: 'v2.8.1  ', dl: 'hnxsg2nd103fdns', date: '2019-04-07'},
                 {mcver: '1.14  ', snap: '19w12b', packver: 'v2.8.0  ', dl: 'cmljbvkxhd6amx5', date: '2019-03-24'},
                 {mcver: '1.14  ', snap: '19w11b', packver: 'v2.7.7_1', dl: '9lhkfpc7i25ay1y', date: '2019-03-17'},
@@ -153,7 +152,7 @@
                 {mcver: '1.12  ', snap: 'pre5  ', packver: 'v2.0.2  ', dl: '3nx2j85a9a6502e', date: '2017-05-27'},
                 {mcver: '1.12  ', snap: 'pre2  ', packver: 'v2.0.1  ', dl: '9lka054f1w0ldoq', date: '2017-05-13'},
                 {mcver: '1.12  ', snap: 'pre1  ', packver: 'v2.0.0  ', dl: 'bxs3spt5rk17i0j', date: '2017-05-10'}
-            ]);</script>
+            ]); $('#createTable-v2').remove();</script>
         </div>
 
         <hr class="divider">
@@ -166,7 +165,7 @@
             </p>
 
             <table id="v2-pvp" class="flex"></table>
-            <script>createTable('v2-pvp', [
+            <script id="createTable-v2-pvp">createTable('v2-pvp', [
                 {mcver: '1.8.9', packver: 'v2.2.8  ', dl: 'r4tjay0p46aij2n', date: '2019-07-08'},
                 {mcver: '1.8.9', packver: 'v2.2.7  ', dl: 'edy9pv5uj9s2v1g', date: '2019-06-22'},
                 {mcver: '1.8.9', packver: 'v2.2.6  ', dl: 'hyyyzpy4jbxkaa9', date: '2019-06-15'},
@@ -191,7 +190,7 @@
                 {mcver: '1.8.9', packver: 'v2.0.3  ', dl: '44hu5rctqqzeg87', date: '2017-12-10'},
                 {mcver: '1.8.9', packver: 'v2.0.1  ', dl: 'b9hpx6m29armagf', date: '2017-08-27'},
                 {mcver: '1.8.9', packver: 'v2.0.0  ', dl: 'u5pzo28i80xalcs', date: '2017-08-26'},
-            ]);</script>
+            ]); $('#createTable-v2-pvp').remove();</script>
         </div>
 
         <hr class="divider">
@@ -206,7 +205,7 @@
             </p>
 
             <table id="v1" class="flex"></table>
-            <script>createTable('v1', [
+            <script id="createTable-v1">createTable('v1', [
                 {mcver: '1.12', snap: '17w15a', packver: 'v1.9.1', dl: 'xyljtkgpr2iiu11', date: '2017-04-21'},
                 {mcver: '1.12', snap: '17w13b', packver: 'v1.9.0', dl: '7k1x7h9n6fxabqr', date: '2017-04-03'},
                 {mcver: '1.11.2', packver: 'v1.8.0  ', dl: 'mx1e97tzs7oex9o', date: '2017-02-04'},
@@ -222,11 +221,11 @@
                 {mcver: '1.9.4 ', packver: 'v1.4.1  ', dl: 'jeb5at4sa9p7ubk', date: '2016-08-06'},
                 {mcver: '1.9.4 ', packver: 'v1.4.0  ', dl: 'e1y5xi3171kev14', date: '2016-08-06'},
                 {mcver: '1.9.4 ', packver: 'v1.3.1  ', dl: 'ugbuqlf7fg3aoui', date: '2016-06-28', unzip: true}
-            ]);</script>
+            ]); $('#createTable-v1').remove();</script>
         </div>
     </main>
 
     <footer></footer>
-    <script>$("footer").load("/imports/footer")</script>
+    <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
 </body>
 </html>
