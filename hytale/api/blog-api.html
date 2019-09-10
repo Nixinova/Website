@@ -13,7 +13,7 @@
 <body>
     <script>
         var req = new XMLHttpRequest();
-        req.open("GET","blogs.json",false);
+        req.open("GET","https://cors-anywhere.herokuapp.com/https://hytale.com/api/blog/post/published",false);
         req.send();
         var response = req.responseText;
         var blogs = JSON.parse(response);
