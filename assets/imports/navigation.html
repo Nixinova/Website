@@ -63,13 +63,13 @@
                 <a href="/">Home</a>
             </li>
             
-            <li id="nav-mc" onmouseover="show('mc');" onclick="toggle('mc'); hide('dl'); hide('tool'); hide('rp'); hide('ht');">
+            <li id="nav-mc" onmouseover="show('mc'); hide('ht');" onclick="toggle('mc'); hide('dl'); hide('tool'); hide('rp'); hide('ht');">
                 <a>Minecraft
                     <i id="mc-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
             
-            <li id="nav-mc" onmouseover="show('ht');" onclick="toggle('ht'); hide('mc'); hide('dl'); hide('tool'); hide('rp');">
+            <li id="nav-mc" onmouseover="show('ht'); hide('mc');" onclick="toggle('ht'); hide('mc'); hide('dl'); hide('tool'); hide('rp');">
                 <a>Hytale
                     <i id="ht-dropdown" class="fas fa-caret-down"></i>
                 </a>
@@ -85,17 +85,17 @@
     <div id="mc_nav" class="navigation secondary hide">
         <hr class="mobileonly">
         <ul class="nav-list">
-            <li onmouseover="show('dl'); hide('tool'); hide('rp');" onclick="toggle('dl');">
+            <li onmouseover="show('dl'); hide('tool'); hide('rp'); hide('ht');" onclick="toggle('dl');">
                 <a>Maps
                     <i id="dl-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
-            <li onmouseover="show('tool'); hide('dl'); hide('rp');" onclick="toggle('tool');">
+            <li onmouseover="show('tool'); hide('dl'); hide('rp'); hide('ht');" onclick="toggle('tool');">
                 <a>Tools
                     <i id="tool-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
-            <li onmouseover="show('rp'); hide('tool'); hide('dl');" onclick="toggle('rp');">
+            <li onmouseover="show('rp'); hide('tool'); hide('dl'); hide('ht');" onclick="toggle('rp');">
                 <a>Resource Packs
                     <i id="rp-dropdown" class="fas fa-caret-down"></i>
                 </a>
