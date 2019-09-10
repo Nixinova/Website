@@ -32,10 +32,13 @@
         });
 
         function getDate(slug) {
-            var selected_blog = $('#titles').val();
-            var index = blog_urls.indexOf(selected_blog);
-            var date = new Date(blog_dates[index]);
-            alert(date);
+            let selected_blog = $('#titles').val();
+            let index = blog_urls.indexOf(selected_blog);
+            let date = new Date(blog_dates[index]);
+            let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+            let year = date.getFullYear(); month = months[date.getMonth()]; day = date.getDate(), weekday = date.getDay();
+            let hour = date.getUTCHours(), min = date.getUTCMinutes(), sec = date.getUTCSeconds();
+            alert(`${weekday} ${day} ${month} ${year}, ${hour}:${min}:${sec} (UTC)`);
             //return date;
         }
     </script>
