@@ -3,10 +3,12 @@
     <title>Hytale Blog API &ndash; Nixinova</title>
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/tools.css">
     <meta name="description" content="">
     <meta name="keywords" content="nixinova">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/assets/js/tool-functions.js"></script>
     <script src="blogs.json"></script>
 </head>
 <body>
@@ -20,14 +22,22 @@
         var blog_urls = [];
         var blog_dates = [];
 
-        $(function() {
+        $( content => {
             for (i in blogs) {
                 blog_titles.push(blogs[i].title);
                 blog_urls.push(blogs[i].slug);
                 blog_dates.push(blogs[i].publishedAt);
-                $('#titles').append(`<option>${blog_titles[i]}</option>`);
+                $('#titles').append(`<option value="${blog_urls[i]}">${blog_titles[i]}</option>`);
             }
         });
+
+        function getDate(slug) {
+            var selected_blog = $('#titles').val();
+            var index = blog_urls.indexOf(selected_blog);
+            var date = new Date(blog_dates[index]);
+            alert(date);
+            return date;
+        }
     </script>
     <header>
         <nav></nav>
@@ -37,14 +47,18 @@
     <main>
         <form action="javascript:submit()" id="input_form">
             <div>
-                <select id="titles"></select>
+                <p>
+                    <label>Blog post:</label>
+                    <select id="titles"></select>
+                    <button onclick="getDate()">Get date</button>
+                </p>
             </div>
         </form>
     </main>
 
     <footer class="bottom">
         <span id="copyright"></span>
-        <!--•&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>-->
+        •&nbsp;<a href="blogs.json" target="_blank">View JSON</a>
     </footer>
     <script>$("#copyright").load("/assets/imports/footer")</script>
 </body>
