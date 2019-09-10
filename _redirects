@@ -1,9 +1,6 @@
 #subdomains
 /images/*           https://images.nixinova.com/:splat
 
-#test
-/hytale-blog-api/*  https://hytale.com/api/blog/post/slug/:splat 200
-
 #assets
 /css/*              /assets/css/:splat
 /imports/*          /assets/imports/:splat
