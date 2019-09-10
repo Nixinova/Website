@@ -1,0 +1,45 @@
+<html lang="en-NZ">
+<head>
+    <title>Hytale Blog API &ndash; Nixinova</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <meta name="description" content="">
+    <meta name="keywords" content="nixinova">
+    <meta name="author" content="Nixinova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="blogs.json"></script>
+    <script src="blog-api.js"></script>
+    <script>
+        var req = new XMLHttpRequest();
+        req.open("GET","blogs.json",true);
+        req.send();
+        var response = req.responseText;
+        var blogs = JSON.parse(response);
+        var blog_titles = [];
+        var blog_urls = [];
+        var blog_dates = [];
+
+        for (i in blogs) {
+            blog_titles.push(blogs[i].title);
+            blog_urls.push(blogs[i].slug);
+            blog_dates.push(blogs[i].publishedAt);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav></nav>
+        <script>$("nav").load("/imports/navigation");</script>
+    </header>
+
+    <main>
+        
+    </main>
+
+    <footer class="bottom">
+        <span id="copyright"></span>
+        •&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>
+    </footer>
+    <script>$("#copyright").load("/imports/footer")</script>
+</body>
+</html>
