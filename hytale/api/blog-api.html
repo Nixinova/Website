@@ -30,7 +30,7 @@
             }
         });
 
-        function getDate(slug) {
+        function getDate() {
             let selected_blog = $('#titles').val();
             let index = blog_urls.indexOf(selected_blog);
             let date = new Date(blog_dates[index]);
@@ -61,7 +61,7 @@
                 <p>
                     <label>Blog post:</label>
                     <select id="titles"></select>
-                    <button onclick="getDate()">Get date</button><br>
+                    <button onclick="try{getDate()}catch(e){alert(e.stack)}">Get date</button><br>
 
                     <output style="padding:1em;"></output>
                 </p>
