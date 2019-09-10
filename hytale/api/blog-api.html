@@ -8,7 +8,6 @@
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="blogs.json"></script>
-    <script src="blog-api.js"></script>
 </head>
 <body>
     <script>
@@ -21,12 +20,14 @@
         var blog_urls = [];
         var blog_dates = [];
 
-        for (i in blogs) {
-            blog_titles.push(blogs[i].title);
-            blog_urls.push(blogs[i].slug);
-            blog_dates.push(blogs[i].publishedAt);
-            $('#titles').append(`<option>${blog_titles[i]}</option>`);
-        }
+        $(function() {
+            for (i in blogs) {
+                blog_titles.push(blogs[i].title);
+                blog_urls.push(blogs[i].slug);
+                blog_dates.push(blogs[i].publishedAt);
+                $('#titles').append(`<option>${blog_titles[i]}</option>`);
+            }
+        });
     </script>
     <header>
         <nav></nav>
@@ -34,9 +35,11 @@
     </header>
 
     <main>
-        <select id="titles">
-
-        </select>
+        <form action="javascript:submit()" id="input_form">
+            <div>
+                <select id="titles"></select>
+            </div>
+        </form>
     </main>
 
     <footer class="bottom">
