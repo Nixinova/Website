@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="blogs.json"></script>
     <script src="blog-api.js"></script>
+</head>
+<body>
     <script>
         var req = new XMLHttpRequest();
         req.open("GET","blogs.json",false);
@@ -26,8 +28,6 @@
             $('#titles').append(`<option>${blog_titles[i]}</option>`);
         }
     </script>
-</head>
-<body>
     <header>
         <nav></nav>
         <script>$("nav").load("/assets/imports/navigation");</script>
