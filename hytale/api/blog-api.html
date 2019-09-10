@@ -35,7 +35,7 @@
             let selected_blog = $('#titles').val();
             let index = blog_urls.indexOf(selected_blog);
             let date = new Date(blog_dates[index]);
-
+/*
             let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
             let weekdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
@@ -46,8 +46,8 @@
             let hour = date.getUTCHours();
             let min = date.getUTCMinutes();
             let sec = date.getUTCSeconds();
-
-            $('output').html(`${weekday} ${day} ${month} ${year}, ${hour}:${min}:${sec} (UTC)`);
+*/
+            $('output').html(date)//`${weekday} ${day} ${month} ${year}, ${hour}:${min}:${sec} (UTC)`);
         }
     </script>
     <header>
