@@ -55,7 +55,7 @@
                 | ${blog_authors[index]}
                 <br>
                 ${blog_excerpts[index]}
-                ('<a href="https://hytale.com/${year}/${date.getUTCMonth()+1}/${selected_blog}">Read more...</a>)
+                <a href="https://hytale.com/${year}/${date.getUTCMonth()+1}/${selected_blog}">(read more...)</a>
             `);
         }
     </script>
@@ -71,9 +71,10 @@
                     <label>Blog post:</label>
                     <select id="titles"></select>
                     <button onclick="try{getInfo()}catch(e){$('body').append(e.stack)}">Get info</button><br>
-
-                    <output style="padding:1em;"></output>
                 </p>
+            </div>
+            <div>
+                <output style="margin: 1em;"></output>
             </div>
         </form>
     </main>
