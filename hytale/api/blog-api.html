@@ -50,9 +50,9 @@
 
             $('output').html(`
                 <h3>${blog_titles[index]}</h3>
-                </span>${weekday}, ${day} ${month} ${year}, ${hour}:${min} (UTC)<span>
-                <em>by ${blog_authors[index]}</em>
                 <p>
+                    <em>${weekday}, ${day} ${month} ${year}, ${hour}:${min} (UTC)</em>
+                    by ${blog_authors[index]}<br>
                     ${blog_excerpts[index]}
                     <a href="https://hytale.com/news/${year}/${date.getUTCMonth()+1}/${selected_blog}">(read more)</a>
                 </p>
