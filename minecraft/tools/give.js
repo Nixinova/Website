@@ -508,6 +508,7 @@ function give() {
             .replace(/"{id:\\/g, "{id:")
             .replace(/}",{id:/g, "},{id:")
             .replace(/&comma;/g, ',')
+            .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;');
     }
 
@@ -524,7 +525,7 @@ function give() {
     $('#generator-output').html(`
         <span style="color: lightgray">/give</span>
         <span style="color: #5ff">${target_text + selector}</span>
-        <span style="color: #ff5">${item + NBT.replace(/&/g, '&amp;')}</span>
+        <span style="color: #ff5">${item + NBT}</span>
         <span style="color: lightpink">${count}</span>
     `);
 
