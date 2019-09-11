@@ -8,7 +8,6 @@
     <meta name="keywords" content="nixinova">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/assets/js/tool-functions.js"></script>
 </head>
 <body>
     <script>
@@ -44,17 +43,19 @@
 
             let year = date.getUTCFullYear();
             let month = months[date.getUTCMonth()];
-            let day = '00' + date.getUTCDate();
+            let day = ('00' + date.getUTCDate()).slice(-2);
             let weekday = weekdays[date.getUTCDay()];
-            let hour = '00' + date.getUTCHours();
-            let min = '00' + date.getUTCMinutes();
+            let hour = ('00' + date.getUTCHours()).slice(-2);
+            let min = ('00' + date.getUTCMinutes()).slice(-2);
 
             $('output').html(`
-                ${weekday}, ${day.slice(-2)} ${month} ${year}, ${hour.slice(-2)}:${min.slice(-2)} (UTC)
-                | ${blog_authors[index]}
-                <br>
-                ${blog_excerpts[index]}
-                <a href="https://hytale.com/news/${year}/${date.getUTCMonth()+1}/${selected_blog}">(read more...)</a>
+                <h3>${blog_titles[index]}</h3>
+                </span>${weekday}, ${day} ${month} ${year}, ${hour}:${min} (UTC)<span>
+                <em>by ${blog_authors[index]}</em>
+                <p>
+                    ${blog_excerpts[index]}
+                    <a href="https://hytale.com/news/${year}/${date.getUTCMonth()+1}/${selected_blog}">(read more)</a>
+                </p>
             `);
         }
     </script>
