@@ -80,14 +80,14 @@ function give() {
     var i_firework_flight = value('input_item_firework_flight', 'int');
     var i_firework_type = value('input_item_firework_type', 'int');
     var i_firework_trail = hasClass('input_item_firework_trail', 'on');
-    var i_name = value('input_item_name').replace(/</g, '\<').replace(/\\/g, "\\\\\\\\").replace(/\"/g, '\\\\\\"');
+    var i_name = value('input_item_name').replace(/\\/g, "\\\\\\\\").replace(/\"/g, '\\\\\\"');
     var i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
     var i_bold = hasClass('input_item_b', 'on');
     var i_italic = hasClass('input_item_i', 'on');
     var i_underline = hasClass('input_item_u', 'on');
     var i_strike = hasClass('input_item_s', 'on');
     var i_obfus = hasClass('input_item_o', 'on');
-    var i_lore = value('input_item_lore').replace(/</g, '\<').replace(/\\/g, "\\\\").replace(/\"/g, '\\"');
+    var i_lore = value('input_item_lore').replace(/\\/g, "\\\\").replace(/\"/g, '\\"');
     var i_ench = value('input_item_ench').toLowerCase().replace(/ /g, '_');
     var i_ench_lvl = value('input_item_ench_lvl', 1);
     var i_unbreakable = hasClass('input_item_unbreakable', 'on');
@@ -507,7 +507,8 @@ function give() {
             .replace(/}"]/g, '}]')
             .replace(/"{id:\\/g, "{id:")
             .replace(/}",{id:/g, "},{id:")
-            .replace(/&comma;/g, ',');
+            .replace(/&comma;/g, ',')
+            .replace(/</g, '&lt;');
     }
 
     // count //
