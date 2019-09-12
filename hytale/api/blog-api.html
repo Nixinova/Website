@@ -46,7 +46,7 @@
 
             let year = date.getUTCFullYear();
             let month = months[date.getUTCMonth()];
-            let day = ('00' + date.getUTCDate()).slice(-2);
+            let day = date.getUTCDate();
             let weekday = weekdays[date.getUTCDay()];
             let hour = ('00' + date.getUTCHours()).slice(-2);
             let min = ('00' + date.getUTCMinutes()).slice(-2);
@@ -60,10 +60,10 @@
             $('output').html(`
                 <img src="${image}">
                 <h3>${title}</h3>
-                <p style="text-align: center;">
+                <em>
                     ${weekday}, ${day} ${month} ${year}, ${hour}:${min} (UTC)
                     (by ${author})
-                </p>
+                </em>
                 <p>
                     ${excerpt}
                     <a href="url">(read more)</a>
@@ -79,7 +79,7 @@
     <main>
         <form action="javascript:submit()" id="input_form">
             <h1>Hytale Blog API</h1>
-            <p>Get information about any Hytale blog post.</p>
+            <p style="text-align: center;">Get information about any Hytale blog post.</p>
             <div>
                 <p>
                     <label>Blog post:</label>
