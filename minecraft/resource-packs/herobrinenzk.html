@@ -3,8 +3,8 @@
 <head>
     <title>HeroBrineNZK Resource Packs – Nixinova</title>
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/resource-packs.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/resource-packs.css">
     <meta name="description" content="Download HeroBrineNZK and Endercreeper Resource Packs by Nixinova, for Minecraft 1.8">
     <meta name="keywords" content="nixinova,nixi,nova,nixynova,resource pack,resource packs,minecraft,texture pack,texture packs,HeroBrineNZK texture pack,herobrinenzk rp,endercreeper,endercreeper resource pack">
     <meta name="author" content="Nixinova">
@@ -29,56 +29,56 @@
     </script>
 </head>
 <body>
-<header>
-    <nav></nav>
-    <script>$("nav").load("/imports/navigation")</script>
-</header>
-<main>
-    <div id="gallery">
-        <div class="screenshot" style="background-image: url('/images/minecraft/resource-packs/endercreeper.jpg');"></div>
-    </div>
-
-    <h1>HeroBrineNZK Packs</h2>
-    <p>
-        These are my oldest resource packs, which contain only a few, custom textures.<br/>
-        Hover over a version number to display more information about that version of the resource pack.<br/>
-        <strong>
-            These downloads are for the Java Edition of Minecraft only.
-        </strong>
-    </p>
-
-    <hr class="divider">
-
-    <div>
-        <h2>HeroBrineNZK RP</h2>
-        <p>
-            A small resource pack I used from 2014 &ndash; 2015, or Minecraft 1.8.
-        </p>
-        <table id="herobrinenzk" class="flex"></table>
-        <script>createTable('herobrinenzk', [
-            {mcver: '1.8.8', name: 'HeroBrineNZK(2)', dl: 'j94dpml4zpj8j07', date: '2015-08-23'},
-            {mcver: '1.8.7', name: 'HeroBrineNZK   ', dl: 'cbax8zmmkakru2i', date: '2015-07-19'},
-            {mcver: '1.8.1', name: 'HeroBrineNZK RP', dl: '6688qcc88cf573u', date: '2014-12-24'}
-        ]);</script>
-    </div>
-
-    <hr class="divider">
+    <header>
+        <nav></nav>
+        <script id="load-nav">$("nav").load("/assets/imports/navigation"); $('#load-nav').remove();</script>
+    </header>
+    <main>
+        <div id="gallery">
+            <div class="screenshot" style="background-image: url('/images/minecraft/resource-packs/endercreeper.jpg');"></div>
+        </div>
     
-    <div>
-        <h2>Endercreeper RP</h2>
+        <h1>HeroBrineNZK Packs</h2>
         <p>
-            A small resource pack I used in 2014, which retextures creepers and music disc, for Minecraft 1.7.
+            These are my oldest resource packs, which contain only a few, custom textures.<br/>
+            Hover over a version number to display more information about that version of the resource pack.<br/>
+            <strong>
+                These downloads are for the Java Edition of Minecraft only.
+            </strong>
         </p>
-        <table id="endercreeper" class="flex"></table>
-        <script>createTable('endercreeper', [
-            {mcver: '1.7.9', name: 'Endercreeper RP           ', dl: 'g64qrc47vgg80c0', date: '2014-05-18'},
-            {mcver: '1.7.4', name: 'Endercreeper RP (BoxCraft)', dl: 'dj5beckqr7yfvaf', date: '2014-05-14'}
-        ]);</script>
-    </div>
-</main>
-
-<footer></footer>
-<script>$("footer").load("/imports/footer")</script>
+    
+        <hr class="divider">
+    
+        <div>
+            <h2>HeroBrineNZK RP</h2>
+            <p>
+                A small resource pack I used from 2014 &ndash; 2015, or Minecraft 1.8.
+            </p>
+            <table id="herobrinenzk" class="flex"></table>
+            <script>createTable('herobrinenzk', [
+                {mcver: '1.8.8', name: 'HeroBrineNZK(2)', dl: 'j94dpml4zpj8j07', date: '2015-08-23'},
+                {mcver: '1.8.7', name: 'HeroBrineNZK   ', dl: 'cbax8zmmkakru2i', date: '2015-07-19'},
+                {mcver: '1.8.1', name: 'HeroBrineNZK RP', dl: '6688qcc88cf573u', date: '2014-12-24'}
+            ]);</script>
+        </div>
+    
+        <hr class="divider">
+        
+        <div>
+            <h2>Endercreeper RP</h2>
+            <p>
+                A small resource pack I used in 2014, which retextures creepers and music disc, for Minecraft 1.7.
+            </p>
+            <table id="endercreeper" class="flex"></table>
+            <script>createTable('endercreeper', [
+                {mcver: '1.7.9', name: 'Endercreeper RP           ', dl: 'g64qrc47vgg80c0', date: '2014-05-18'},
+                {mcver: '1.7.4', name: 'Endercreeper RP (BoxCraft)', dl: 'dj5beckqr7yfvaf', date: '2014-05-14'}
+            ]);</script>
+        </div>
+    </main>
+    
+    <footer></footer>
+    <script id="load-footer">$("footer").load("/assets/imports/footer"); $('#load-footer').remove();</script>
 
 </body>
 </html>

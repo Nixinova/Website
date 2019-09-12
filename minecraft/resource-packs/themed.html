@@ -29,7 +29,7 @@
 <body>
 <header>
     <nav></nav>
-    <script>$("nav").load("/imports/navigation")</script>
+    <script id="load-nav">$("nav").load("/assets/imports/navigation"); $('#load-footer').remove();</script>
 </header>
 <main>
     <div id="gallery">
@@ -81,7 +81,7 @@
 </main>
 
 <footer></footer>
-<script>$("footer").load("/imports/footer")</script>
+<script id="load-footer">$("footer").load("/assets/imports/footer"); $('#load-footer').remove();</script>
 
 </body>
 </html>

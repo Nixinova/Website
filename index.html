@@ -3,7 +3,7 @@
 <head>
     <title>Nixinova</title>
     <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <meta name="description" content="The personal website of Nixinova, which contains map and resource pack downloads as well as in-game tools for Minecraft.">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +38,7 @@
 <body style="background: #44b; overflow-x: hidden;">
     <header>
         <nav style="opacity: 0;"></nav>
-        <script>$('nav').load('imports/navigation')</script>
+        <script id="load-nav">$('nav').load('imports/navigation'); $('#load-nav').remove();</script>
     </header>
 
     <main>
@@ -120,11 +120,21 @@
                 </section>
             </article>
 
+            <article>
+                <h2>Hytale API</h2>
+                <section>
+                    <a href="/hytale/api/blog-api">
+                        <h3>Blog API</h3>
+                        <p>Generate information about a selected Hytale blog post from an automatically updating list.</p>
+                    </a>
+                </section>
+            </article>
+
         </div>
 
     </main>
 
     <footer style="margin-top: 0;"></footer>
-    <script>$("footer").load("imports/footer")</script>
+    <script id="load-footer">$("footer").load("imports/footer"); $('#load-footer').remove();</script>
 </body>
 </html>

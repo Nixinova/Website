@@ -2,10 +2,10 @@
 <head>
     <title>/give generator &ndash; Nixinova</title>
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/tools.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/tools.css">
     <meta name="description" content="A generator which creates /give commands for Minecraft 1.13 and above.">
-    <meta name="keywords" content="nixinova,nixi,nova,nixynova,nixinova website,nixinova bitballoon,give,minecraft,give generator">
+    <meta name="keywords" content="nixinova,nixinova website,nixinova bitballoon,give,minecraft,give generator">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/assets/js/tool-functions.js"></script>
@@ -17,10 +17,10 @@
         var function_count = 0;
     </script>
 </head>
-<body>
+<body onload="submit()">
     <header>
         <nav></nav>
-        <script>$("nav").load("/imports/navigation");</script>
+        <script id="load-footer">$("nav").load("/assets/imports/navigation"); $('#load-footer').remove();</script>
     </header>
 
     <main>
@@ -487,14 +487,12 @@
         <p style="text-align: center;">
             <button onclick="copyCommand()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
         </p>
-
-        <script>$(function(){submit();});</script>
     </main>
 
     <footer>
         <span id="copyright"></span>
         •&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>
     </footer>
-    <script>$("#copyright").load("/imports/footer")</script>
+    <script id="load-footer">$("#copyright").load("/assets/imports/footer"); $('#load-footer').remove();</script>
 </body>
 </html>

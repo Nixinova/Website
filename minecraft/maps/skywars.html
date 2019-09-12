@@ -14,7 +14,7 @@
 <body>
     <header>
         <nav></nav>
-        <script>$("nav").load("/imports/navigation");</script>
+        <script id="load-nav">$("nav").load("/imports/navigation"); $('#load-nav').remove();</script>
     </header>
 
     <main>
@@ -53,6 +53,6 @@
     </main>
     
     <footer></footer>
-    <script>$("footer").load("/imports/footer")</script>
+    <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
 </body>
 </html>
