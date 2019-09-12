@@ -60,10 +60,11 @@
             $('output').html(`
                 <img src="${image}">
                 <h3>${title}</h3>
-                <p>
+                <p style="text-align: center;">
                     ${weekday}, ${day} ${month} ${year}, ${hour}:${min} (UTC)
                     (by ${author})
-                    <br>
+                </p>
+                <p>
                     ${excerpt}
                     <a href="url">(read more)</a>
                 </p>
@@ -77,6 +78,8 @@
 
     <main>
         <form action="javascript:submit()" id="input_form">
+            <h1>Hytale Blog API</h1>
+            <p>Get information about any Hytale blog post.</p>
             <div>
                 <p>
                     <label>Blog post:</label>
