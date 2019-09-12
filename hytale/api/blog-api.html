@@ -61,8 +61,8 @@
                 <img src="${image}">
                 <h3>${title}</h3>
                 <em>
-                    ${weekday}, ${day} ${month} ${year}, ${hour}:${min} (UTC)
-                    (by ${author})
+                    Posted on ${weekday}, ${day} ${month} ${year}, ${hour}:${min} (UTC)
+                    by ${author}
                 </em>
                 <p>
                     ${excerpt}
@@ -91,7 +91,7 @@
         </form>
     </main>
 
-    <footer class="bottom">
+    <footer>
         <span id="copyright"></span>
     </footer>
     <script id="load-copyright">$("#copyright").load("/assets/imports/footer"); $("#load-copyright").remove();</script>
