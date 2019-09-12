@@ -41,7 +41,7 @@
             let index = blog.urls.indexOf(selected_blog);
             let date = new Date(blog.dates[index]);
 
-            const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
             const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
             let year = date.getUTCFullYear();
@@ -66,7 +66,7 @@
                 </em>
                 <p>
                     ${excerpt}
-                    <a href="url">(read more)</a>
+                    <a href="${url}">(read more)</a>
                 </p>
             `);
         }
@@ -84,7 +84,7 @@
                 <p>
                     <label>Blog post:</label>
                     <select id="titles" style="max-width: 75%;"></select>
-                    <button onclick="try{getInfo()}catch(e){$('body').append(e.stack)}">Get info</button><br>
+                    <button onclick="getInfo()">Get info</button><br>
                 </p>
             </div>
             <output style="margin: 1em; display: block;"></output>
