@@ -16,30 +16,33 @@
         req.send();
         var response = req.responseText;
         var blogs = JSON.parse(response);
-        var blog_titles = [];
-        var blog_urls = [];
-        var blog_dates = [];
-        var blog_excerpts = [];
-        var blog_authors = [];
+        let blog = {};
+        blog.titles = [];
+        blog.urls = [];
+        blog.dates = [];
+        blog.excerpts = [];
+        blog.authors = [];
+        blog.images = [];
 
         $( content => {
             for (i in blogs) {
-                blog_titles.push(blogs[i].title);
-                blog_urls.push(blogs[i].slug);
-                blog_dates.push(blogs[i].publishedAt);
-                blog_excerpts.push(blogs[i].bodyExcerpt);
-                blog_authors.push(blogs[i].author);
-                $('#titles').append(`<option value="${blog_urls[i]}">${blog_titles[i]}</option>`);
+                blog.titles.push(blogs[i].title);
+                blog.urls.push(blogs[i].slug);
+                blog.dates.push(blogs[i].publishedAt);
+                blog.excerpts.push(blogs[i].bodyExcerpt);
+                blog.authors.push(blogs[i].author);
+                blog.images.push(blogs[i].coverImage.s3Key);
+                $('#titles').append(`<option value="${blog.urls[i]}">${blog.titles[i]}</option>`);
             }
         });
 
         function getInfo() {
             let selected_blog = $('#titles').val();
-            let index = blog_urls.indexOf(selected_blog);
-            let date = new Date(blog_dates[index]);
+            let index = blog.urls.indexOf(selected_blog);
+            let date = new Date(blog.dates[index]);
 
-            let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-            let weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
             let year = date.getUTCFullYear();
             let month = months[date.getUTCMonth()];
@@ -48,13 +51,21 @@
             let hour = ('00' + date.getUTCHours()).slice(-2);
             let min = ('00' + date.getUTCMinutes()).slice(-2);
 
+            let image = 'https://cdn.hytale.com/variants/blog_cover_' + blog.images[index];
+            let url = `https://hytale.com/news/${year}/${date.getUTCMonth()+1}/${selected_blog}`;
+            let title = blog.titles[index];
+            let author = blog.authors[index];
+            let except = blog.excerpts[index];
+
             $('output').html(`
-                <h3>${blog_titles[index]}</h3>
+                <img src="${image}">
+                <h3>${title}</h3>
                 <p>
-                    <em>${weekday}, ${day} ${month} ${year}, ${hour}:${min} (UTC)</em>
-                    by ${blog_authors[index]}<br>
-                    ${blog_excerpts[index]}
-                    <a href="https://hytale.com/news/${year}/${date.getUTCMonth()+1}/${selected_blog}">(read more)</a>
+                    ${weekday}, ${day} ${month} ${year}, ${hour}:${min} (UTC)
+                    (by ${author})
+                    <br>
+                    ${excerpt}
+                    <a href="url">(read more)</a>
                 </p>
             `);
         }
