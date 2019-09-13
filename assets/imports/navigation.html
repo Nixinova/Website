@@ -1,44 +1,59 @@
 <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
 <style>
+    i {visibility: hidden;}
     nav * div {transition: 0.1s;}
+
+    #mobile-menu ul {display: block;}
+    #mobile-menu-icon {position: fixed; top: 0; left: 0; width: 3em; padding: 1em; cursor: pointer; z-index: 10;}
+    #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; z-index: 7; padding-top: 3em; margin-top: 0; background: #111; font-size: 1.2em;}
+    #mobile-nav li {font-style: italic;}
+    #mobile-nav li a {color: white; font-style: normal;}
+
     .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
     .navigation ul li {margin-right: -0.5ex;}
     .navigation li {display: inline-block; padding: 0;}
     .navigation i.material-icons {position: relative; top: 3px; right: 3px;}
     .navigation a, .navigation a:link, .navigation a:visited {display: inline-block; padding: 15px 30px; margin-right: 0px; color: #fff; border-radius: 5px;}
     .navigation a:hover, .nav-link:hover {background: #383838; transition: 0.5s;}
-    #mobile-menu ul {display: block;}
-    #mobile-menu-icon {position: fixed; top: 0; left: 0; width: 3em; padding: 1em; cursor: pointer; z-index: 10;}
-    #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; z-index: 7; padding-top: 3em; margin-top: 0; background: #111; font-size: 1.2em;}
-    #mobile-nav li {font-style: italic;}
-    #mobile-nav li a {color: white; font-style: normal;}
-    i {visibility: hidden;}
 </style>
 <script>
     if (window.location.href.includes('imports/navigation')){
         $('head').append('<meta name="robots" content="noindex">');
     }
     
-    function hide(id) {
-        $('#' + id + '_nav').css("opacity", 1).animate({"opacity": 0}, 20).addClass('hide');
-        $('#' + id + '-dropdown').addClass("fa-caret-down").removeClass("fa-caret-up");
+    function hide() {
+        for (let i of arguments) {
+            $('#' + i + '_nav').css("opacity", 1).animate({"opacity": 0}, 20).addClass('hide');
+            $('#' + i + '-dropdown').addClass("fa-caret-down").removeClass("fa-caret-up");
+        }
     }
-    function show(id) {
-        $('#' + id + '_nav').removeClass('hide').css("opacity",0).animate({"opacity":1}, 20);
-        $('#' + id + '-dropdown').addClass("fa-caret-up").removeClass("fa-caret-down");
+    function show() {
+        for (let i of arguments) {
+            $('#' + i + '_nav').removeClass('hide').css("opacity",0).animate({"opacity":1}, 20);
+            $('#' + i + '-dropdown').addClass("fa-caret-up").removeClass("fa-caret-down");
+        }
     }
-    function toggle(id) {
-        if ($('#' + id + '-dropdown').hasClass('fa-carat-down')) show(id);
-        else hide(id);
+    function toggle() {
+        for (let i of arguments) {
+            if ($('#' + i + '-dropdown').hasClass('fa-carat-down')) show(i);
+            else hide(i);
+        }
     }
     function showElements(id1, id2) {
-        $(id1).removeClass('hide').css("opacity", 1);
-        if (id2) $(id2).removeClass('hide').css("opacity", 1);
+        for (let i of arguments) $(i).removeClass('hide').css("opacity", 1);
     }
-    function hideElements(id1, id2) {
-        $(id1).css("opacity", 0).addClass('hide');
-        if (id2) $(id2).css("opacity", 0).addClass('hide');
+    function hideElements() {
+        for (let i of arguments) $(i).css("opacity", 0).addClass('hide');
     }
+    function toggleAndHideOther(id) {
+        toggle(id);
+        if (id === 'mc') hide('ht','dl','rp','tool');
+        if (id === 'ht') hide('mc','dl','rp','tool');
+    }
+    function hideAll() {
+        hide('mc','ht','dl','rp','tool');
+    }
+
     var mobilenav_visible = false;
     function toggleMobileNav() {
         if (mobilenav_visible) {
@@ -53,29 +68,29 @@
         } 
     }
     
-    $('main').attr("onmouseover", "hide('mc'); hide('dl'); hide('tool'); hide('rp');");
+    $('main').attr("onmouseover", "hideAll();");
 </script>
 
 <div id="desktop-nav" class="desktoponly">
     <div id="primary" class="navigation">
         <ul class="nav-list">
-            <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp');">
+            <li onmouseover="hideAll();">
                 <a href="/">Home</a>
             </li>
             
-            <li id="nav-mc" onmouseover="show('mc'); hide('ht');" onclick="toggle('mc'); hide('dl'); hide('tool'); hide('rp'); hide('ht');">
+            <li id="nav-mc" onmouseover="show('mc'); hide('ht');" onclick="toggleAndHideOther('mc');">
                 <a>Minecraft
                     <i id="mc-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
             
-            <li id="nav-mc" onmouseover="show('ht'); hide('mc');" onclick="toggle('ht'); hide('mc'); hide('dl'); hide('tool'); hide('rp');">
+            <li id="nav-mc" onmouseover="show('ht'); hide('mc');" onclick="toggleAndHideOther('ht');">
                 <a>Hytale
                     <i id="ht-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
             
-            <li onmouseover="hide('mc'); hide('dl'); hide('tool'); hide('rp'); hide('ht');">
+            <li style="position: absolute; right: 5px;" onmouseover="hideAll();">
                 <a href="/search#gsc.q=">
                     &nbsp;<i class="fas fa-search"></i>&nbsp;
                 </a>
@@ -85,17 +100,17 @@
     <div id="mc_nav" class="navigation secondary hide">
         <hr class="mobileonly">
         <ul class="nav-list">
-            <li onmouseover="show('dl'); hide('tool'); hide('rp'); hide('ht');" onclick="toggle('dl');">
+            <li onmouseover="show('dl'); hide('tool','rp','ht');" onclick="toggle('dl');">
                 <a>Maps
                     <i id="dl-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
-            <li onmouseover="show('tool'); hide('dl'); hide('rp'); hide('ht');" onclick="toggle('tool');">
+            <li onmouseover="show('tool'); hide('dl','rp','ht');" onclick="toggle('tool');">
                 <a>Tools
                     <i id="tool-dropdown" class="fas fa-caret-down"></i>
                 </a>
             </li>
-            <li onmouseover="show('rp'); hide('tool'); hide('dl'); hide('ht');" onclick="toggle('rp');">
+            <li onmouseover="show('rp'); hide('tool','dl','ht');" onclick="toggle('rp');">
                 <a>Resource Packs
                     <i id="rp-dropdown" class="fas fa-caret-down"></i>
                 </a>
