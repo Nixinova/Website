@@ -58,9 +58,11 @@ div.download button {margin: 0; border-radius: 2em;}
 a button, a:visited button {color: #fff; text-decoration: none;}
 a:hover button {background: #46e; font-size: 21px;}
 
+/* Hiding */
+.hide {display: none !important;}
+
 /* Responsive */
 @media (min-width: 1000px) {
-    main {min-height: calc(100vh - 8.95em);}
     .row {display: flex;}
     .row>div {margin: 0 10px;}
     .flex {width: var(--width);}
@@ -68,15 +70,13 @@ a:hover button {background: #46e; font-size: 21px;}
     .aligned {margin: 0 calc(50% - var(--margin)/2);}
 }
 
-/* Hiding */
-.hide {display: none !important;}
-
 @media (min-width: 801px) {
     .mobileonly {display: none !important;}
+    main {min-height: calc(100vh - 8.95em);}
 }
 @media (max-width: 800px) {
     .desktoponly {display: none !important;}
-    main {padding-top: 4.25em;}
+    main {padding-top: 4em; min-height: calc(100vh - 4.97em);}
 }
 
 /* Useful code */
