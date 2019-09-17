@@ -2,7 +2,6 @@
 @font-face {font-family: 'Minecraft'; src: local('Minecraft'), url('/assets/fonts/minecraft.ttf') format('truetype');}
 
 /* Base styles */
-textarea {transition: none;}
 form p {text-align: left; line-height: 2.5;}
 h2:not(.upper) {text-transform: lowercase;}
 
@@ -23,10 +22,10 @@ input[type="submit"] {width: 100%; background: #94c0c4; padding: 14px 20px; marg
     border-radius: 4px; cursor: pointer; color: #333; font: normal 2em 'Passion One'; text-align: center;}
 input[type="submit"]:hover {box-shadow: 0px 10px 14px -5px #3338;}
 input[type="number"] {width: 70px;}
-textarea {padding: 2px 6px; margin: 6px 0 10px; border-radius: 4px;}
+textarea {transition: none; padding: 2px 6px; margin: 10px 0; border-radius: 4px;}
 
 /* Dropdown icons */
-.elipsis, .plus, .minus, .clear {background: #eee; border-radius: 20px; animation: none;}
+.elipsis, .plus, .minus, .clear {margin-left: 10px; font-size: 95%; background: #eee; border-radius: 20px; animation: none;}
 .elipsis, .clear {padding: 5px  8px;}
 .plus, .minus {padding: 5px 10px;}
 .plus::before {content: '+';}
