@@ -428,19 +428,21 @@
                     <label class="short">Amount:</label>
                     <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
 
-                     <a href="javascript:void(0)" id="clear-mods" class="clear" onclick="$('#input_item_mod').val('');modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
+                    <a href="javascript:void(0)" id="clear-mods" class="clear" onclick="$('#input_item_mod').val('');modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
                     &nbsp;
-                     <a href="javascript:void(0)" id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a><br/>
+                    <a href="javascript:void(0)" id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a>
+                    <br/>
                 </span>
 
-                <span id="mods-content" class="hide indent">
-                    <span>Operation:</span> 
+                <span id="mods-content" class="hide">
+                    <label></label>
+                    <label class="short">Operation:</label>
                     <select id="input_item_mod_operation" onchange="submit()">
                         <option value="0">Addition</option>
                         <option value="1">Percentage</option>
                         <option value="2">Multiply</option>
                     </select> &nbsp;
-                    <span>Slot:</span>
+                    <label class="short">Slot:</label>
                     <select id="input_item_mod_slot" onchange="submit()">
                         <option value="">Any</option>
                         <option>Main Hand</option>
@@ -450,13 +452,16 @@
                         <option>Legs</option>
                         <option>Feet</option>
                     </select> &nbsp;
-                    <span>Modifier IDs:</span>
+                    <br/>
+
+                    <label></label>
+                    <label class="short">Modifier IDs:</label>
                     <input type="number" id="input_item_mod_uuid_least" min="1" onchange="submit()">
                     <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()">
                     <br/>
                 </span>
 
-                <span>Show attributes:</span>
+                <label>Show attributes:</label>
                 <span id="hideflags" onchange="submit()">
                     <button id="ench" class="on" onclick="toggleOnOff(this)">Enchantments</button> &nbsp;
                     <button id="mods" class="on" onclick="toggleOnOff(this)">Modifiers   </button> &nbsp;
