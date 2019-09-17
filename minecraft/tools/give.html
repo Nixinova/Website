@@ -267,9 +267,9 @@
                 </span>
 
                 <label>Can destroy:</label>
-                <span>Block:</span>
+                <label class="short">Block:</label>
                 <input type="text" size="13" id="input_item_destroy"> &nbsp;
-                <span>Group:</span>
+                <label class="short">Group:</label>
                 <select id="input_item_destroy_tags" onchange="submit()">
                     <option value="">&nbsp;</option>
                     <option value="anvil">Anvils</option>
@@ -328,9 +328,9 @@
                 <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="$('#input_item_destroy_tags').val('');CanDestroy=[];submit();"></a><br/>
                 
                 <label>Can place on:</label>
-                <span>Block:</span>
+                <label class="short">Block:</label>
                 <input type="text" size="13" id="input_item_place_on"> &nbsp;
-                <span>Group:</span>
+                <label class="short">Group:</label>
                 <select id="input_item_place_on_tags" onchange="submit()">
                     <option value="">&nbsp;</option>
                     <option value="anvil">Anvils</option>
@@ -407,8 +407,8 @@
                 </script>
 
                 <span id="modifiers">
-                    <label>Modifiers:</label> &nbsp;
-                    <span>Attribute:</span> 
+                    <label>Modifiers:</label>
+                    <label class="short">Attribute:</label>
                     <select id="input_item_mod" onchange="submit()">
                         <option></option>
                         <option value="armor">Armour Defense</option>
@@ -422,7 +422,7 @@
                         <option value="maxHealth">Max Health</option>
                         <option value="movementSpeed">Movement Speed</option>
                     </select>
-                    <span>Amount:</span>
+                    <label class="short">Amount:</label>
                     <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
 
                      <a href="javascript:void(0)" id="clear-mods" class="clear" onclick="$('#input_item_mod').val('');modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
