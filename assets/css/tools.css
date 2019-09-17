@@ -18,6 +18,7 @@ button.reset {padding: 20px; margin: 0 50px; border: none; border-radius: 5em; c
 
 /* Inputs */
 input, select, button {padding: 5px 10px; margin-top: 10px; display: inline-block; border: none; border-radius: 4px;}
+input, select {width: 160px;}
 input[type="submit"] {width: 100%; background: #94c0c4; padding: 14px 20px; margin: 8px 0px; border: none;
     border-radius: 4px; cursor: pointer; color: #333; font: normal 2em 'Passion One'; text-align: center;}
 input[type="submit"]:hover {box-shadow: 0px 10px 14px -5px #3338;}
