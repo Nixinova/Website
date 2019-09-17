@@ -3,7 +3,7 @@
 
 /* Base styles */
 textarea {transition: none;}
-form p {text-align: left;}
+form p {text-align: left; line-height: 2.5;}
 h2:not(.upper) {text-transform: lowercase;}
 
 @media (min-width: 900px) {
