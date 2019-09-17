@@ -2,7 +2,7 @@
 @font-face {font-family: 'Minecraft'; src: local('Minecraft'), url('/assets/fonts/minecraft.ttf') format('truetype');}
 
 /* Base styles */
-form p {text-align: left; line-height: 2.5;}
+form p {text-align: left; line-height: 3;}
 h2:not(.upper) {text-transform: lowercase;}
 
 @media (min-width: 900px) {
