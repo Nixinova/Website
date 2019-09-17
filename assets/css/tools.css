@@ -17,7 +17,7 @@ button.off {background: #f55;}
 button.reset {padding: 20px; margin: 0 50px; border: none; border-radius: 5em; cursor: pointer; font: 2em 'Passion One';}
 
 /* Inputs */
-input, select, button {padding: 6px 10px; margin-top: 10px; display: inline-block; border: none; border-radius: 4px;}
+input, select, button {padding: 5px 10px; margin-top: 10px; display: inline-block; border: none; border-radius: 4px;}
 input, select {width: 160px;}
 input[type="submit"] {width: 100%; background: #94c0c4; padding: 14px 20px; margin: 8px 0px; border: none;
     border-radius: 4px; cursor: pointer; color: #333; font: normal 2em 'Passion One'; text-align: center;}
@@ -51,6 +51,7 @@ p.negative {margin-top: -15px;}
 }
 
 @media (min-width: 600px) {
+    span.set-width {display: inline-block; width: var(--width);}
     label {display: inline-block; width: 125px;}
     label.short {margin-left: 15px; width: 100px;}
     label.long {width: 250px;}
