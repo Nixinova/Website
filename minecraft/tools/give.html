@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/tools.css">
     <meta name="description" content="A generator which creates /give commands for Minecraft 1.13 and above.">
-    <meta name="keywords" content="nixinova,nixinova website,nixinova bitballoon,give,minecraft,give generator">
+    <meta name="keywords" content="nixinova,nixinova website,give,minecraft,give generator, minecraft /give generator,minecraft command generator,command generator">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/assets/js/tool-functions.js"></script>
@@ -134,7 +134,7 @@
             <!-- item -->
             <p onblur="submit()">
                 <label>Item:</label>
-                <input type="text" onclick="$(this).value=''" size="13" id="input_item"><br/>
+                <input type="text" placeholder="minecraft:stone" onclick="$(this).value=''" size="13" id="input_item"><br/>
                 
                 <span class="hide" id="potion">
                     <label class="indent">Potion:</label> <input type="text" size="13" id="input_item_potion"><br/>
@@ -211,6 +211,7 @@
                 <textarea id="input_item_lore" rows="6" cols="40"></textarea><br/>
 
                 <label>Enchantments:</label>
+                <label class="short"></label>
                 <select id="input_item_ench" onchange="submit()">
                     <option></option>
                     <option>Aqua Affinity</option>
@@ -251,9 +252,11 @@
                     <option>Thorns</option>
                     <option>Unbreaking</option>
                 </select>
-                 <a href="javascript:void(0)" id="clear-ench" class="clear" onclick="e=[];elvl=[];submit();"></a>
                 &nbsp;
-                <span>Level:</span> <input class="lvl" type="number" value="1" min="1" max="32737" id="input_item_ench_lvl" onchange="submit()"><br/>
+                <label class="short">Level:</label>
+                <input class="lvl" type="number" value="1" min="1" max="32737" id="input_item_ench_lvl" onchange="submit()">
+                <a href="javascript:void(0)" id="clear-ench" class="clear" onclick="$('#input_item_ench').val('');e=[];elvl=[];submit();"></a>
+                <br/>
             
                 <!-- other -->
                 <script>
@@ -267,8 +270,10 @@
                 </span>
 
                 <label>Can destroy:</label>
-                <span>Block:</span> <input type="text" size="13" id="input_item_destroy"> &nbsp;
-                <span>Group:</span> <select id="input_item_destroy_tags" onchange="submit()">
+                <label class="short">Block:</label>
+                <input type="text" size="13" id="input_item_destroy"> &nbsp;
+                <label class="short">Group:</label>
+                <select id="input_item_destroy_tags" onchange="submit()">
                     <option value="">&nbsp;</option>
                     <option value="anvil">Anvils</option>
                     <option value="bamboo_plantable_on">Bamboo Plantable</option>
@@ -323,12 +328,12 @@
                     <option value="spruce_logs">Wood (spruce)</option>
                     <option value="wool">Wool</option>
                 </select>
-                <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="CanDestroy=[];submit();"></a><br/>
+                <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="$('#input_item_destroy_tags').val('');CanDestroy=[];submit();"></a><br/>
                 
                 <label>Can place on:</label>
-                <span>Block:</span>
+                <label class="short">Block:</label>
                 <input type="text" size="13" id="input_item_place_on"> &nbsp;
-                <span>Group:</span>
+                <label class="short">Group:</label>
                 <select id="input_item_place_on_tags" onchange="submit()">
                     <option value="">&nbsp;</option>
                     <option value="anvil">Anvils</option>
@@ -384,7 +389,7 @@
                     <option value="spruce_logs">Wood (spruce)</option>
                     <option value="wool">Wool</option>
                 </select>
-                 <a href="javascript:void(0)" id="clear-canPlaceOn" class="clear" onclick="CanPlaceOn=[];submit();"></a><br/>
+                 <a href="javascript:void(0)" id="clear-canPlaceOn" class="clear" onclick="$('#input_item_place_on_tags').val('');CanPlaceOn=[];submit();"></a><br/>
 
                 <script>
                     var uuid = 0;
@@ -405,8 +410,8 @@
                 </script>
 
                 <span id="modifiers">
-                    <label>Modifiers:</label> &nbsp;
-                    <span>Attribute:</span> 
+                    <label>Modifiers:</label>
+                    <label class="short">Attribute:</label>
                     <select id="input_item_mod" onchange="submit()">
                         <option></option>
                         <option value="armor">Armour Defense</option>
@@ -419,23 +424,25 @@
                         <option value="luck">Luck</option>
                         <option value="maxHealth">Max Health</option>
                         <option value="movementSpeed">Movement Speed</option>
-                    </select>
-                    <span>Amount:</span>
+                    </select> &nbsp;
+                    <label class="short">Amount:</label>
                     <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
 
-                     <a href="javascript:void(0)" id="clear-mods" class="clear" onclick="modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
+                    <a href="javascript:void(0)" id="clear-mods" class="clear" onclick="$('#input_item_mod').val('');modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
                     &nbsp;
-                     <a href="javascript:void(0)" id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a><br/>
+                    <a href="javascript:void(0)" id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a>
+                    <br/>
                 </span>
 
-                <span id="mods-content" class="hide indent">
-                    <span>Operation:</span> 
+                <span id="mods-content" class="hide">
+                    <label></label>
+                    <label class="short">Operation:</label>
                     <select id="input_item_mod_operation" onchange="submit()">
                         <option value="0">Addition</option>
                         <option value="1">Percentage</option>
                         <option value="2">Multiply</option>
                     </select> &nbsp;
-                    <span>Slot:</span>
+                    <label class="short">Slot:</label>
                     <select id="input_item_mod_slot" onchange="submit()">
                         <option value="">Any</option>
                         <option>Main Hand</option>
@@ -445,13 +452,16 @@
                         <option>Legs</option>
                         <option>Feet</option>
                     </select> &nbsp;
-                    <span>Modifier IDs:</span>
+                    <br/>
+
+                    <label></label>
+                    <label class="short">Modifier IDs:</label>
                     <input type="number" id="input_item_mod_uuid_least" min="1" onchange="submit()">
                     <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()">
                     <br/>
                 </span>
 
-                <span>Show attributes:</span>
+                <label>Show attributes:</label>
                 <span id="hideflags" onchange="submit()">
                     <button id="ench" class="on" onclick="toggleOnOff(this)">Enchantments</button> &nbsp;
                     <button id="mods" class="on" onclick="toggleOnOff(this)">Modifiers   </button> &nbsp;
@@ -463,7 +473,8 @@
             </p>
             <!-- count -->
             <p>
-                <span>Amount:</span> <input type="number" value="1" min="1" id="input_count">
+                <label>Amount:</label>
+                <input type="number" value="1" min="1" id="input_count">
             </p>
         </form>
         
