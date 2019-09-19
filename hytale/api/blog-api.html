@@ -48,7 +48,6 @@
             let year = date.getUTCFullYear();
             let month = months[date.getUTCMonth()];
             let day = date.getUTCDate();
-            let weekday = weekdays[date.getUTCDay()];
             let hour = ('00' + date.getUTCHours()).slice(-2);
             let min = ('00' + date.getUTCMinutes()).slice(-2);
 
@@ -62,7 +61,7 @@
                 <img src="${image}">
                 <h3>${title}</h3>
                 <em>
-                    Posted on ${weekday} ${day} ${month} ${year} at ${hour}:${min} (UTC)
+                    Posted on ${day} ${month} ${year} at ${hour}:${min} UTC
                     by ${author}
                 </em>
                 <p style="line-height: 1.8;">
@@ -84,7 +83,7 @@
             <div>
                 <p style="text-align: center;">
                     <label>Blog post:</label>
-                    <select id="titles" style="width: auto; max-width: 50%;"></select> &nbsp;
+                    <select id="titles" style="width: auto; max-width: 60%;"></select> &nbsp;
                     <button onclick="getInfo()">Get info</button><br>
                 </p>
             </div>
