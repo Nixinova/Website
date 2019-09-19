@@ -4,13 +4,7 @@
     nav * div {transition: 0.1s;}
 
     #mobile-menu-icon {position: fixed; top: 0; left: 0; width: 3em; padding: 1em; cursor: pointer; z-index: 10;}
-/*
-    #mobile-menu ul {display: block;}
-    #mobile-nav {position: fixed; top: 0; left: 0; height: 100%; width: 100%; z-index: 7; padding-top: 3em; margin-top: 0; background: #222; font-size: 1.2em;}
-    #mobile-nav li {font-style: italic;}
-    #movile-nav li ul li {display: block;}
-    #mobile-nav li a {color: white; font-style: normal;}
-*/
+    
     #mobile-nav {width: 100%; height: 100%; box-sizing: border-box; background: #041021f6; overflow-y: auto;}
     #mobile-nav>ul {display: block; padding: 1em;}
     #mobile-nav ul {display: block; margin: 0; padding: 0; list-style: none;}
@@ -21,12 +15,12 @@
     #mobile-nav ul>li span a::before {content: '• ';}
     #mobile-nav strong {text-align: center;font-size: 1.5em;}
 
-    .navigation ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
-    .navigation ul li {margin-right: -0.5ex;}
-    .navigation li {display: inline-block; padding: 0;}
-    .navigation i.material-icons {position: relative; top: 3px; right: 3px;}
-    .navigation a, .navigation a:link, .navigation a:visited {display: inline-block; padding: 15px 30px; margin-right: 0px; color: #fff; border-radius: 5px;}
-    .navigation a:hover, .nav-link:hover {background: #383838; transition: 0.5s;}
+    #desktop-nav ul {list-style-type: none; padding: 0; margin: 0; zoom: 1; text-align: center;}
+    #desktop-nav ul li {margin-right: -0.5ex;}
+    #desktop-nav li {display: inline-block; padding: 0;}
+    #desktop-nav i.material-icons {position: relative; top: 3px; right: 3px;}
+    #desktop-nav a, .a:link, .a:visited {display: inline-block; padding: 15px 30px; margin-right: 0px; color: #fff; border-radius: 5px;}
+    #desktop-nav a:hover, .nav-link:hover {background: #383838; transition: 0.5s;}
 </style>
 <script>
     if (window.location.href.includes('imports/navigation')){
@@ -109,7 +103,7 @@
             </li>
         </ul>
     </div>
-    <div id="mc_nav" class="navigation secondary hide">
+    <div id="mc_nav" class="secondary hide">
         <hr class="mobileonly">
         <ul class="nav-list">
             <li onmouseover="show('dl'); hide('tool','rp','ht');" onclick="toggle('dl');">
@@ -131,21 +125,21 @@
 
         <div id="mc_sub_nav">
             <hr class="mobileonly">
-            <div id="dl_nav" class="navigation tertiary hide">
+            <div id="dl_nav" class="tertiary hide">
                 <ul class="nav-list">
                     <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
                     <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
                     <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
                 </ul>
             </div>
-            <div id="tool_nav" class="navigation tertiary hide">
+            <div id="tool_nav" class="tertiary hide">
                 <ul class="nav-list">
                     <li><a href="/minecraft/tools/give">/give</a></li>
                     <li><a href="/minecraft/tools/summon">/summon</a></li>
                     <li><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
                 </ul>
             </div>
-            <div id="rp_nav" class="navigation tertiary hide">
+            <div id="rp_nav" class="tertiary hide">
                 <ul class="nav-list">
                     <li><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
                     <li><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
@@ -155,7 +149,7 @@
         </div>
     </div>
     
-    <div id="ht_nav" class="navigation secondary hide">
+    <div id="ht_nav" class="secondary hide">
         <hr class="mobileonly">
         <ul class="nav-list">
             <li><a href="/hytale/api/blog-api">Blog API</a></li>
@@ -169,43 +163,6 @@
         <i class="fas fa-bars" onclick="toggleMobileNav()"></i>
     </div>
     
-    <!--<ul id="mobile-nav" class="hide" style="list-style-type: none;">
-
-        <li id="nav-home">
-            <li><a href="/">Home</a></li>
-        </li>
-        <li>Minecraft
-            <ul style="list-style-type: none;">
-                <li>Maps
-                    <ul>
-                        <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
-                        <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
-                        <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
-                    </ul>
-                </li>
-                <li>Tools
-                    <ul>
-                        <li><a href="/minecraft/tools/give">/give</a></li>
-                        <li><a href="/minecraft/tools/summon">/summon</a></li>
-                        <li><a href="/minecraft/tools/coordinates">Coordinate Tools</a></li>
-                    </ul>
-                </li>
-                <li>Resource Packs
-                    <ul>
-                        <li><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
-                        <li><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
-                        <li><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>Hytale
-            <ul>
-                <li><a href="/hytale/api/blog-api">Blog API</a></li>
-            </ul>
-        </li>
-
-    </ul>-->
     <div id="mobile-nav" class="hide">
         <ul>
             <li style="text-align: center; margin-top: 2em;">
