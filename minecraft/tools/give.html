@@ -24,7 +24,7 @@
 <body onload="submit()">
     <header>
         <nav></nav>
-        <script>$("nav").load("/assets/imports/navigation"); $(this).remove();</script>
+        <script id="load-nav">$("nav").load("/assets/imports/navigation"); $('#load-nav').remove();</script>
     </header>
 
     <main>
@@ -512,6 +512,6 @@
         <span id="copyright"></span>
         •&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>
     </footer>
-    <script>$("#copyright").load("/assets/imports/footer"); $(this).remove();</script>
+    <script id="load-footer">$("#copyright").load("/assets/imports/footer"); $('#load-footer').remove();</script>
 </body>
 </html>
