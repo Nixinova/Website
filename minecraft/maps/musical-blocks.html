@@ -1,8 +1,7 @@
 <html lang="en-NZ">
 <head>
     <title>Musical Blocks – Nixinova</title>
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <meta charset="UTF-8">
     <meta name="description" content=
         "The minigame Musical Blocks or Block Party recreated in vanilla Minecraft. Musical Blocks 
         is a small minigame where the player has to run to whatever colour the map tells them to go to.">
@@ -10,11 +9,13 @@
         block party map,musical blocks map, block party map download, block party download, musical blocks download">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
     <header>
         <nav></nav>
-        <script id="load-nav">$("nav").load("/imports/navigation"); $('#load-nav').remove();</script>
+        <script>$("nav").load("/imports/navigation"); $(this).remove();</script>
     </header>
 
     <main>
@@ -55,6 +56,6 @@
     </main>
     
     <footer></footer>
-    <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
+    <script>$("footer").load("/imports/footer"); $(this).remove();</script>
 </body>
 </html>

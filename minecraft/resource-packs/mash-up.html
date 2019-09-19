@@ -2,12 +2,13 @@
 <html lang="en-NZ">
 <head>
     <title>Nixinova Mash-Up Pack – Nixinova</title>
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/resource-packs.css">
+    <meta charset="UTF-8">
     <meta name="description" content="Download Nixinova's Mash-Up Resource Pack versions 1, 2 and 3 for Minecraft 1.9 – 1.14.">
     <meta name="keywords" content="nixinova,nixi,nova,resource pack,resource packs,minecraft,texture pack,texture packs,Nixinova mash-up,Nixinova mash-up pack,Minecraft resource pack,nixinova v1,nixinova v2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/resource-packs.css">
     <script>
         function createTable(id, arr) {
             var table = $('#'+id);
@@ -38,7 +39,7 @@
 <body>
     <header>
         <nav></nav>
-        <script id="load-nav">$("nav").load("/imports/navigation"); $("#load-nav").remove();</script>
+        <script>$("nav").load("/imports/navigation"); $(this).remove();</script>
     </header>
     <main>
         <div id="gallery">
@@ -227,6 +228,6 @@
     </main>
 
     <footer></footer>
-    <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
+    <script>$("footer").load("/imports/footer"); $(this).remove();</script>
 </body>
 </html>

@@ -2,13 +2,14 @@
 <html>
 <head>
     <title>Themed Mash-Up Packs – Nixinova</title>
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/resource-packs.css">
+    <meta charset="UTF-8">
     <meta name="description" content="Download special-edition holiday-themed resource packs by Nixinova for Minecraft 1.8–1.14.">
     <meta name="keywords" content="nixinova,nixi,nova,nixynova,resource pack,resource packs,minecraft,texture pack,texture packs,Easter resource packs,Christmas resource packs,Minecraft Easter pack,Minecraft Christmas pack">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/resource-packs.css">
     <script>
         function createTable(id, arr) {
             var table = $('#'+id);
@@ -27,61 +28,61 @@
     </script>
 </head>
 <body>
-<header>
-    <nav></nav>
-    <script id="load-nav">$("nav").load("/assets/imports/navigation"); $('#load-footer').remove();</script>
-</header>
-<main>
-    <div id="gallery">
-        <div class="screenshot" style="background-image: url('/images/minecraft/resource-packs/easter-mash-up.jpg');"></div>
-    </div>
-
-    <h1>Themed Mash-Up Packs</h2>
-    <p>
-        These packs are themed holiday packs, which only change a few textures.<br/>
-        Use in addition to my <a href="mash-up">regular Mash-Up Pack</a> for the best experience!<br/>
-        Hover over a version number to display more information about that version of the resource pack.<br/>
-        <strong>
-            These downloads are for the Java Edition of Minecraft only.
-        </strong>
-    </p>
-
-    <hr class="half">
+    <header>
+        <nav></nav>
+        <script>$("nav").load("/assets/imports/navigation"); $(this).remove();</script>
+    </header>
+    <main>
+        <div id="gallery">
+            <div class="screenshot" style="background-image: url('/images/minecraft/resource-packs/easter-mash-up.jpg');"></div>
+        </div>
     
-    <div>
-        <h2>Christmas Packs</h2>
-        <p>Special-edition Christmas texture packs.</p>
-
-        <table id="Christmas" class="flex"></table>
-        <script>createTable('Christmas', [
-            {mcver: '1.8.9', packver: 'v2.1.1', dl: 'eclwghi7at9198q', date: '2017-12-10'},
-            {mcver: '1.8.9', packver: 'v2.1.0', dl: 'ut5cob9naoqva14', date: '2017-12-10'},
-            {mcver: '1.11 ', packver: 'v1.7.0', dl: 'a1bcjguugldbi2m', date: '2016-12-06'}
-        ]);</script>
-    </div>
-
-    <hr class="half">
-
-    <div>
-        <h2>Easter Packs</h2>
-        <p>Special-edition Easter texture packs.</p>
+        <h1>Themed Mash-Up Packs</h2>
+        <p>
+            These packs are themed holiday packs, which only change a few textures.<br/>
+            Use in addition to my <a href="mash-up">regular Mash-Up Pack</a> for the best experience!<br/>
+            Hover over a version number to display more information about that version of the resource pack.<br/>
+            <strong>
+                These downloads are for the Java Edition of Minecraft only.
+            </strong>
+        </p>
+    
+        <hr class="half">
         
-        <table id="Easter" class="flex"></table>
-        <script>createTable('Easter', [
-            {mcver: '1.14-pre2', packver: 'v1.2.1', dl: 'ow8ptqqupwuspp0', date: '2019-04-13'},
-            {mcver: '1.14-pre2', packver: 'v1.2.0', dl: '5b5ob6zua09odsi', date: '2019-04-13'},
-            {mcver: '1.8.9    ', packver: 'v1.1.2', dl: 'bidnu8g8942stdw', date: '2018-03-31'},
-            {mcver: '1.8.9    ', packver: 'v1.1.1', dl: 'tir1jp52f9dtdn4', date: '2018-03-31'},
-            {mcver: '1.8.9    ', packver: 'v1.1.0', dl: 's52b5ycklmplndu', date: '2018-03-31'},
-            {mcver: '1.8.9    ', packver: 'v1.0.2', dl: '6z8ed43gju9okyc', date: '2018-03-31'},
-            {mcver: '1.8.9    ', packver: 'v1.0.1', dl: 'je6lak3g2ep0sbx', date: '2018-03-19'}
-        ]);</script>
-    </div>
-
-</main>
-
-<footer></footer>
-<script id="load-footer">$("footer").load("/assets/imports/footer"); $('#load-footer').remove();</script>
+        <div>
+            <h2>Christmas Packs</h2>
+            <p>Special-edition Christmas texture packs.</p>
+        
+            <table id="Christmas" class="flex"></table>
+            <script>createTable('Christmas', [
+                {mcver: '1.8.9', packver: 'v2.1.1', dl: 'eclwghi7at9198q', date: '2017-12-10'},
+                {mcver: '1.8.9', packver: 'v2.1.0', dl: 'ut5cob9naoqva14', date: '2017-12-10'},
+                {mcver: '1.11 ', packver: 'v1.7.0', dl: 'a1bcjguugldbi2m', date: '2016-12-06'}
+            ]);</script>
+        </div>
+    
+        <hr class="half">
+    
+        <div>
+            <h2>Easter Packs</h2>
+            <p>Special-edition Easter texture packs.</p>
+            
+            <table id="Easter" class="flex"></table>
+            <script>createTable('Easter', [
+                {mcver: '1.14-pre2', packver: 'v1.2.1', dl: 'ow8ptqqupwuspp0', date: '2019-04-13'},
+                {mcver: '1.14-pre2', packver: 'v1.2.0', dl: '5b5ob6zua09odsi', date: '2019-04-13'},
+                {mcver: '1.8.9    ', packver: 'v1.1.2', dl: 'bidnu8g8942stdw', date: '2018-03-31'},
+                {mcver: '1.8.9    ', packver: 'v1.1.1', dl: 'tir1jp52f9dtdn4', date: '2018-03-31'},
+                {mcver: '1.8.9    ', packver: 'v1.1.0', dl: 's52b5ycklmplndu', date: '2018-03-31'},
+                {mcver: '1.8.9    ', packver: 'v1.0.2', dl: '6z8ed43gju9okyc', date: '2018-03-31'},
+                {mcver: '1.8.9    ', packver: 'v1.0.1', dl: 'je6lak3g2ep0sbx', date: '2018-03-19'}
+            ]);</script>
+        </div>
+    
+    </main>
+    
+    <footer></footer>
+    <script>$("footer").load("/assets/imports/footer"); $(this).remove();</script>
 
 </body>
 </html>

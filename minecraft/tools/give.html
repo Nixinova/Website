@@ -1,13 +1,14 @@
 <html lang="en-NZ">
 <head>
     <title>/give generator &ndash; Nixinova</title>
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/tools.css">
+    <meta charset="UTF-8">
     <meta name="description" content="A generator which creates /give commands for Minecraft 1.13 and above.">
     <meta name="keywords" content="nixinova,nixinova website,give,minecraft,give generator, minecraft /give generator,minecraft command generator,command generator">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/tools.css">
     <script src="/assets/js/tool-functions.js"></script>
     <script src="give.js"></script>
     <script>
@@ -23,7 +24,7 @@
 <body onload="submit()">
     <header>
         <nav></nav>
-        <script id="load-footer">$("nav").load("/assets/imports/navigation"); $('#load-footer').remove();</script>
+        <script>$("nav").load("/assets/imports/navigation"); $(this).remove();</script>
     </header>
 
     <main>
@@ -511,6 +512,6 @@
         <span id="copyright"></span>
         •&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>
     </footer>
-    <script id="load-footer">$("#copyright").load("/assets/imports/footer"); $('#load-footer').remove();</script>
+    <script>$("#copyright").load("/assets/imports/footer"); $(this).remove();</script>
 </body>
 </html>
