@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html lang="en-NZ">
+<head>
+    <title>Nixinova</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="The personal website of Nixinova, which contains downloads for map and resource packs created by me as well as in-game tools for Minecraft.">
+    <meta name="author" content="Nixinova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://nixinova.com/favicon.ico">
+    <link rel="stylesheet" href="https://nixinova.com/assets/css/main.css">
+    <style>
+        @font-face {font-family: 'Valken'; src: local('Valken'), url('https://nixinova.com/assets/fonts/valken.ttf') format('truetype');}
+        
+        html {scroll-behavior: smooth;}
+        
+        /* Image */
+        #image-container {background: #44b; padding: calc(50vh - 185px/2 - 59px/2 ) 0;}
+        #image-container img {max-width: 60%; margin-left: 20%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
+        
+        /* Down arrow */
+        #down-arrow {position: absolute; bottom: 0; width: 100%; text-align: center; font-size: 5em;}
+        #down-arrow a {color: #eee;}
+        #down-arrow a i {font-size: 2em; visibility: hidden;}
+        
+        /* Showcase */
+        #showcase {background: #313131; min-height: calc(100vh - 60px); text-align: center;}
+        #showcase article {display: block; padding: 10px 15px; width: 97%;}
+        #showcase article section {background: #46484e; width: 100%; padding: 10px 25px; display: inline-block; vertical-align: top; min-height: 14em;}
+        #showcase article section h3 {white-space: nowrap; margin-bottom: 0.5em;}
+        #showcase article section a {color: #eee; text-decoration: none;}
+        #showcase article section p {font-size: 1.1em;}
+
+        @media (min-width: 1200px) {
+            #showcase article {margin: auto;}
+            #showcase article section {width: 25%; margin: 0 10px; border-radius: 5px;}
+        }
+
+        .half {font-size: 4em;}
+        ul {margin-left: 0;}
+        section {display: flex;}
+        @media (min-width: 1051px) {
+            .half {width: 50vw; height: 50vw;}
+        }
+        @media (max-width: 1050px) {
+            .half {width: 100vw; height: 50vh;}
+        }
+    </style>
+    <script src="https://code.Jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body style="background: #44b; overflow-x: hidden;">
+    <header>
+        <nav style="opacity: 0;"></nav>
+        <script id="load-nav">$('nav').load('https://nixinova.com/imports/navigation'); $('#load-nav').remove();</script>
+    </header>
+
+    <main style="margin-bottom: -3px;">
+
+        <div id="image-container" class="section">
+            <img src="https://nixinova.com/images/nixinova.png" alt="&thinsp;NIXINOVA" onmousedown="return false;">
+            <div id="down-arrow">
+                <a href="#showcase" onclick="$(this).addClass('hide')" onscroll="$(this).addClass('hide')">
+                    <i class="fas fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+
+        <div id="showcase">
+            
+            <section id="maps" class="section">
+                <div class="half" style="background: #eee; color: #222;">
+                    <div style="padding-top: calc(25vw - 215.88px / 2);">
+                        <strong>Minecraft<br>Maps</strong>
+                    </div>
+                </div>
+                <div class="half" style="background: #222; color: #eee;">
+                    <div style="padding-top: calc(15%);">
+                        <ul style="list-style-type: none;">
+                            <li><a href="https://nixinova.com/minecraft/maps/skywars">SkyWars</a></li>
+                            <li><a href="https://nixinova.com/minecraft/maps/kitpvp">KitPvP</a></li>
+                            <li><a href="https://nixinova.com/minecraft/maps/musical-blocks">Musical&nbsp;Blocks</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tools" class="section">
+                <div class="half" style="background: #222; color: #eee;">
+                    <div>
+                        <ul style="list-style-type: none;">
+                            <li><a href="https://nixinova.com/minecraft/tools/give">/give</a></li>
+                            <li><a href="https://nixinova.com/minecraft/tools/summon">/summon</a></li>
+                            <li><a href="https://nixinova.com/minecraft/tools/coordinates">Coordinates</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="half" style="background: #eee; color: #222;">
+                    <div style="padding-top: calc(25vw - 215.88px / 2);">
+                        <strong>Minecraft<br>Tools</strong>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="packs" class="section">
+                <div class="half" style="background: #eee; color: #222;">
+                    <div style="padding-top: calc(25vw - 215.88px / 2);">
+                        <strong>Minecraft<br>Resource Packs</strong>
+                    </div>
+                </div>
+                <div class="half" style="background: #222; color: #eee;">
+                    <div>
+                        <ul style="list-style-type: none;">
+                            <li><a href="https://nixinova.com/minecraft/resource-packs/mash-up">Mash-Up</a></li>
+                            <li><a href="https://nixinova.com/minecraft/resource-packs/themed">Themed</a></li>
+                            <li><a href="https://nixinova.com/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="api" class="section">
+                <div class="half" style="background: #222; color: #eee;">
+                    <div style="padding-top: calc(25vw - 300.89px / 2);">
+                        <ul style="list-style-type: none;">
+                            <li><a href="https://nixinova.com/hytale/api/blog-api">Blog API</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="half" style="background: #eee; color: #222;">
+                    <div style="padding-top: calc(25vw - 215.88px / 2);">
+                        <strong>Hytale<br>API</strong>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer style="margin-top: 2px;">
+        <span>
+            Copyright &copy; Nixinova 2019
+            &bull;
+            <a href="https://github.com/Nixinova/website/issues/new" target="_blank" title="Report website issues on GitHub">
+                Report issue
+            </a>
+        </span>
+    </footer>
+    <script id="load-footer">$("footer").load("https://nixinova.com/imports/footer"); $('#load-footer').remove();</script>
+</body>
+</html>
