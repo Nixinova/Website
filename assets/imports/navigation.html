@@ -50,12 +50,21 @@
             mobilenav_visible = true;
         } 
     }
+
+    $(window).on('scroll', function(){
+      let t = $(window).scrollTop();
+      let d = $(document).height();
+      let h = $(window).height();
+      $('#scollbar') .css('width', (t / (d - h)) * 100);
+    })
     
     $('main').attr("onmouseover", "hideAll();");
 </script>
 <style>
     i {visibility: hidden;}
     nav * div {transition: 0.1s;}
+
+    #scrollbar {position: fixed; top: 0px; left: 0px; height: 3px; background-color: #50c878;}
 
     #mobile-menu-icon {position: fixed; top: 0; left: 0; width: 3em; padding: 1em; cursor: pointer; z-index: 10;}
     
@@ -76,7 +85,7 @@
     #desktop-nav a, .a:link, .a:visited {display: inline-block; padding: 15px 30px; margin-right: 0px; color: #fff; border-radius: 5px;}
     #desktop-nav a:hover, .nav-link:hover {background: #383838; transition: 0.5s;}
 </style>
-
+<span id="scrollbar"></span>
 <div id="desktop-nav" class="desktoponly">
     <div id="primary" class="navigation">
         <ul class="nav-list">
