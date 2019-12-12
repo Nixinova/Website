@@ -189,6 +189,24 @@
                     <button id="input_creeper_powered" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             
+                <span class="ender_dragon only">
+                    <label class="indent">State:</label>
+                    <select id="input_dragon_state" onchange="submit()">
+                        <option>Hovering</option>
+                        <option value="0">Circling</option>
+                        <option value="1">Strafing</option>
+                        <option value="2">Preparing to land</option>
+                        <option value="3">Landing</option>
+                        <option value="4">Taking off</option>
+                        <option value="5">Breath attack</option>
+                        <option value="6">Seeking out player</option>
+                        <option value="7">Roaring</option>
+                        <option value="8">Charging</option>
+                        <option value="9">Preparing to die</option>
+                        <option>Brown</option>
+                    </select><br/>
+                </span>
+            
                 <span class="endermite only">
                     <label class="indent">Life length:</label>
                     <input id="input_endermite_life" type="number" min="1" max="2400"><br/>

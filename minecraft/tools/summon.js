@@ -39,6 +39,7 @@ function summon() {
     var creeper_powered = hasClass('input_creeper_powered', 'on');
     var endermite_life = value('input_endermite_life', 'int')
     var endermite_attackable = hasClass('input_endermite_attackable', 'off');
+    var enderdragon_state = value('input_endermite_life', 'int')
     var $fox_type = $('#input_fox_type');
     var ghast_explosion_power = value('input_ghast_explosion_power');
     var llama_type = value('input_llama_type', 'int')
@@ -145,9 +146,14 @@ function summon() {
 
         // endermite //
         if (entity === 'endermite') {
-            if (endermite_life) {nbt.Lifetime = 2400 - endermite_life}
+            if (endermite_life) {nbt.Lifetime = 2400 - endermite_life;}
             if (endermite_attackable) {nbt.PlayerSpawned = true;}
        }
+
+       // endermite //
+       if (entity === 'ender_dragon') {
+           if (enderdragon_state) {nbt.DragonPhase = enderdragon_state;}
+      }
 
         // fox //
         if (entity === 'fox') {
