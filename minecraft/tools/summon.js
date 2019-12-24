@@ -152,7 +152,7 @@ function summon() {
 
        // ender_dragon //
        if (entity === 'ender_dragon') {
-           if (enderdragon_state != '10') {nbt.DragonPhase = enderdragon_state;}
+           if (enderdragon_state != 10) {nbt.DragonPhase = enderdragon_state;}
       }
 
         // fox //
