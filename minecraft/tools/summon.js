@@ -12,6 +12,7 @@ function summon() {
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
     ];
     const tame_mobs = ['llama', 'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'];
+    const owner_mobs = ['wolf','cat'];
 
     // call from input form //
     var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
@@ -47,6 +48,7 @@ function summon() {
     var horse_tame = hasClass('input_horse_tame', 'on');
     var mob_color = value('input_mob_color', 'int')
     var mooshroom_type = cleanup(value('input_mooshroom_type'))
+    var owner_uuid = value('input_ghast_explosion_power');
     var panda_dominant_gene = cleanup(value('input_panda_gene_1'));
     var panda_recessive_gene = cleanup(value('input_panda_gene_2'));
     var rabbit_type = value('input_rabbit_type', 'int')
@@ -109,8 +111,14 @@ function summon() {
         // tame mobs //
         if (tame_mobs.includes(entity)) {
             $('.tame_mobs.only').removeClass('hide');
-            if (horse_tame) {nbt.Tame = true;}
+            if (owner_uuid) {nbt.OwnerUUID = owner_uuid;}
        }
+
+       // owned mobs //
+       if (owned_mobs.includes(entity)) {
+           $('.owned_mobs.only').removeClass('hide');
+           if (horse_tame) {nbt.Tame = true;}
+      }
 
         // bee //
         if (entity === 'bee') {
