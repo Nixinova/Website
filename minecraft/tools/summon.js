@@ -12,7 +12,7 @@ function summon() {
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
     ];
     const tame_mobs = ['llama', 'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'];
-    const owner_mobs = ['wolf','cat'];
+    const owned_mobs = ['wolf','cat'];
 
     // call from input form //
     var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
