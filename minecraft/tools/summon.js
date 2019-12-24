@@ -178,7 +178,7 @@ function summon() {
         // llama //
         if (entity === 'llama') {
             if (llama_type) {nbt.Variant = llama_type;}
-            if (llama_carpet) {nbt.DecorItem = {Count: 1, id: llama_carpet + "_carpet"};}
+            if (llama_carpet) {nbt.DecorItem = {id: llama_carpet + "_carpet", Count: 1};}
             if (llama_temper) {nbt.Temper = llama_temper;}
        }
 
