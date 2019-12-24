@@ -44,7 +44,7 @@ function summon() {
     var $fox_type = $('#input_fox_type');
     var ghast_explosion_power = value('input_ghast_explosion_power');
     var llama_type = value('input_llama_type', 'int')
-    var llama_type = value('input_llama_carpet').toLowerCase().replace(/ /g, '_');
+    var llama_carpet = value('input_llama_carpet').toLowerCase().replace(/ /g, '_');
     var llama_temper = value('input_llama_temper', 'int')
     var horse_tame = hasClass('input_horse_tame', 'on');
     var mob_color = value('input_mob_color', 'int')
