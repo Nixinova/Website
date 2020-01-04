@@ -117,4 +117,4 @@ function submit(id) {
     }
 }
 
-/* Copyright 2019 Nixinova */
+/* Copyright © Nixinova 2020 */

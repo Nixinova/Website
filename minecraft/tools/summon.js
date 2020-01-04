@@ -1,5 +1,3 @@
-
-
 /// SUBMIT ///
 
 function summon() {
@@ -327,4 +325,4 @@ function submit() {
    }
 }
 
-/* Copyright 2019 Nixinova */
+/* Copyright © Nixinova 2020 */
