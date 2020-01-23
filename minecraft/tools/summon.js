@@ -14,9 +14,9 @@ function summon() {
 
     // call from input form //
     var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
-    var X = value('input_x').replace(/[^0-9-.~^]/g, '');
-    var Y = value('input_y').replace(/[^0-9-.~^]/g, '');
-    var Z = value('input_z').replace(/[^0-9-.~^]/g, '');
+    var X = value('input_x').match(/^[~^]?-?[0-9]*\.?[0-9]+/g, '');
+    var Y = value('input_y').match(/^[~^]?-?[0-9]*\.?[0-9]+/g, '');
+    var Z = value('input_z').match(/^[~^]?-?[0-9]*\.?[0-9]+/g, '');
     var name = value('input_customname').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 
     var no_ai = hasClass('input_no_ai', 'on');
