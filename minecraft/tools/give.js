@@ -1,296 +1,530 @@
 /// SUBMIT ///
 
-function summon() {
+function give() {
+    /// LISTS ///
+    const tags = [
+        'anvil', 'bamboo_plantable_on', 'banners', 'beds', 'beehives', 'bee_growables', 'buttons', 'wooden_buttons', 'carpets',
+        'corals', 'coral_blocks', 'wall_corals', 'crops', 'dirt_like', 'doors', 'wooden_doors', 'dragon_immune', 'enderman_holdable',
+        'fences', 'wooden_fences', 'flowers', 'small_flowers', 'tall_flowers', 'flower_pots', 'impermeable', 'valid_spawn', 'ice',
+        'leaves', 'logs', 'planks', 'wooden_pressure_plates', 'rails', 'sand', 'saplings', 'slabs', 'wooden_slabs', 'stairs',
+        'wooden_stairs', 'signs', 'wall_signs', 'standing_signs', 'stone_bricks', 'wooden_trapdoors', 'walls', 'wither_immune',
+        'acacia_logs', 'birch_logs', 'dark_oak_logs', 'oak_logs', 'jungle_logs', 'spruce_logs', 'wool'
+    ];
+    const durable_items = [
+        "diamond_sword", "diamond_pickaxe", "diamond_axe", "diamond_shovel", "diamond_hoe",
+        "iron_sword", "iron_pickaxe", "iron_axe", "iron_shovel", "iron_hoe",
+        "golden_sword", "golden_pickaxe", "golden_axe", "golden_shovel", "golden_hoe",
+        "stone_sword", "stone_pickaxe", "stone_axe", "stone_shovel", "stone_hoe",
+        "wooden_sword", "wooden_pickaxe", "wooden_axe", "wooden_shovel", "wooden_hoe",
+
+        "diamond_helmet", "diamond_chestplate", "diamond_leggings", "diamond_boots",
+        "iron_helmet", "iron_chestplate", "iron_leggings", "iron_boots",
+        "chainmail_helmet", "chainmail_chestplate", "chainmail_leggings", "chainmail_boots",
+        "golden_helmet", "golden_chestplate", "golden_leggings", "golden_boots",
+        "leather_helmet", "leather_chestplate", "leather_leggings", "leather_boots",
+
+        "trident", "bow", "flint_and_steel", "elytra", "shield", "carrot_on_a_stick", "fishing_rod", "shears"
+    ];
+    const durabilities = {
+        "diamond_sword": 1561, "diamond_pickaxe": 1561, "diamond_axe": 1561, "diamond_shovel": 1561, "diamond_hoe": 1561,
+        "iron_sword": 250, "iron_pickaxe": 250, "iron_axe": 250, "iron_shovel": 250, "iron_hoe": 250,
+        "golden_sword": 32, "golden_pickaxe": 32, "golden_axe": 32, "golden_shovel": 32, "golden_hoe": 32,
+        "stone_sword": 131, "stone_pickaxe": 131, "stone_axe": 131, "stone_shovel": 131, "stone_hoe": 131,
+        "wooden_sword": 59, "wooden_pickaxe": 59, "wooden_axe": 59, "wooden_shovel": 59, "wooden_hoe": 59,
+
+        "diamond_helmet": 364, "diamond_chestplate": 529, "diamond_leggings": 496, "diamond_boots": 430,
+        "iron_helmet": 166, "iron_chestplate": 241, "iron_leggings": 226, "iron_boots": 196,
+        "chainmail_helmet": 166, "chainmail_chestplate": 241, "chainmail_leggings": 226, "chainmail_boots": 196,
+        "golden_helmet": 78, "golden_chestplate": 113, "golden_leggings": 106, "golden_boots": 92,
+        "leather_helmet": 56, "leather_chestplate": 81, "leather_leggings": 76, "leather_boots": 66,
+
+        "trident": 250, "bow": 384, "flint_and_steel": 63, "elytra": 431, "shield": 336,
+        "carrot_on_a_stick": 225, "fishing_rod": 64, "shears": 237
+    };
 
     /// VARIABLES ///
-    const zombies = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
-    const neg_age_mobs = [
-        'bee', 'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot',
-        'panda', 'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
-        'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
-    ];
-    const tame_mobs = ['llama', 'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'];
 
     // call from input form //
-    var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
-    var X = value('input_x').replace(/[^0-9-~^]/g, '');
-    var Y = value('input_y').replace(/[^0-9-~^]/g, '');
-    var Z = value('input_z').replace(/[^0-9-~^]/g, '');
-    var name = value('input_customname').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    var target = value('input_selector_target');
+    var player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
+    var target_x = value('input_selector_x', 'num');
+    var target_y = value('input_selector_y', 'num');
+    var target_z = value('input_selector_z', 'num');
+    var dist_min = value('input_selector_dist_min', 'num');
+    var dist_max = value('input_selector_dist_max', 'num');
+    var selection_area = $('#input_selection_area').attr('class');
+    var vol_x = value('input_selector_vol_x', 'num');
+    var vol_y = value('input_selector_vol_y', 'num');
+    var vol_z = value('input_selector_vol_z', 'num');
+    var xrot_min = value('input_selector_xrot_min', 'num');
+    var xrot_max = value('input_selector_xrot_max', 'num');
+    var yrot_min = value('input_selector_yrot_min', 'num');
+    var yrot_max = value('input_selector_yrot_max', 'num');
+    var limit = value('input_selector_limit', 'int');
+    var team = value('input_selector_team').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
+    var team_invert = hasClass('input_selector_team_i', 'on');
+    var tag = value('input_selector_tag').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
+    var tag_invert = hasClass('input_selector_tag_i', 'on');
+    var gamemode = value('input_selector_gm').toLowerCase();
+    var gamemode_invert = hasClass('input_selector_gm_i', 'on');
+    var xp_min = value('input_selector_xp_min', 'int');
+    var xp_max = value('input_selector_xp_max', 'int');
+    var score = value('input_selector_score_objective').toLowerCase().replace(/[^a-z_:]/g, "");
+    var score_min = value('input_selector_score_min', 'int');
+    var score_max = value('input_selector_score_max', 'int');
 
-    var no_ai = hasClass('input_no_ai', 'on');
-    var despawnable = hasClass('input_despawnable', 'on');
-    var invulnerable = hasClass('input_invulnerable', 'on');
-    var silent = hasClass('input_silent', 'on');
-    var pickup = hasClass('input_pickup', 'on');
+    var item = value('input_item').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
+    var i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_");
+    var i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
+    var i_firework_flicker = hasClass('input_item_firework_flicker', 'on');
+    var i_firework_flight = value('input_item_firework_flight', 'int');
+    var i_firework_type = value('input_item_firework_type', 'int');
+    var i_firework_trail = hasClass('input_item_firework_trail', 'on');
+    var i_name = value('input_item_name').replace(/\\/g, "\\\\\\\\").replace(/\"/g, '\\\\\\"');
+    var i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
+    var i_bold = hasClass('input_item_b', 'on');
+    var i_italic = hasClass('input_item_i', 'on');
+    var i_underline = hasClass('input_item_u', 'on');
+    var i_strike = hasClass('input_item_s', 'on');
+    var i_obfus = hasClass('input_item_o', 'on');
+    var i_lore = value('input_item_lore').replace(/\\/g, "\\\\").replace(/\"/g, '\\"');
+    var i_ench = value('input_item_ench').toLowerCase().replace(/ /g, '_');
+    var i_ench_lvl = value('input_item_ench_lvl', 1);
+    var i_unbreakable = hasClass('input_item_unbreakable', 'on');
+    var i_durability = value('input_item_durability', 1);
+    var i_destroy = value('input_item_destroy').toLowerCase().replace(/[ \-]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
+    var i_destroy_tag = value('input_item_destroy_tags');
+    var i_place_on = value('input_item_place_on').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
+    var i_place_on_tag = value('input_item_place_on_tags');
+    var i_mod = value('input_item_mod');
+    var i_mod_amount = value('input_item_mod_value', 'int');
+    var i_mod_op = value('input_item_mod_operation', 'num');
+    var i_mod_slot = value('input_item_mod_slot').toLowerCase().replace(/ /g, '');
+    var i_mod_uuid_least = value('input_item_mod_uuid_least', 'int');
+    var i_mod_uuid_most = value('input_item_mod_uuid_most', 'int');
 
-    var baby = hasClass('input_is_baby', 'on');
-    var baby_time = value('input_baby_time');
-    var baby_time_value = value('input_baby_time_value');
-    var bee_stung = hasClass('input_bee_stung', 'on');
-    var bee_nectar = hasClass('input_bee_nectar', 'on');
-    var bee_angry = hasClass('input_bee_angry', 'on');
-    var bee_angry_time = value('input_bee_angry_time');
-    var bee_angry_time_value = value('input_bee_angry_time_value');
-    var cat_type = value('input_cat_type', 'int')
-    var cat_collar = value('input_cat_collar', 'int')
-    var creeper_powered = hasClass('input_creeper_powered', 'on');
-    var endermite_life = value('input_endermite_life', 'int')
-    var endermite_attackable = hasClass('input_endermite_attackable', 'off');
-    var enderdragon_state = value('input_endermite_life', 'int')
-    var $fox_type = $('#input_fox_type');
-    var ghast_explosion_power = value('input_ghast_explosion_power');
-    var llama_type = value('input_llama_type', 'int')
-    var llama_temper = value('input_llama_temper', 'int')
-    var horse_tame = hasClass('input_horse_tame', 'on');
-    var mob_color = value('input_mob_color', 'int')
-    var mooshroom_type = cleanup(value('input_mooshroom_type'))
-    var panda_dominant_gene = cleanup(value('input_panda_gene_1'));
-    var panda_recessive_gene = cleanup(value('input_panda_gene_2'));
-    var rabbit_type = value('input_rabbit_type', 'int')
-    var slime_size = value('input_slime_size', 'int')
-    var tropical_fish_size = value('input_tropical_fish_size', 'int');
-    var tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
-    var tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
-    var tropical_fish_pattern_color = value('input_tropical_fish_pattern_color', 'int');
-    var villager_type = cleanup(value('input_villager_type'));
-    var villager_profession = cleanup(value('input_villager_profession'));
-    var villager_level = value('input_villager_level', 'int');
-    var wolf_collar = value('input_wolf_collar', 'int');
-    var wolf_sitting = hasClass('wolf_sitting', 'on');
-    var zombies_canbreak_doors = hasClass('input_zombies_canbreak_doors', 'on');
+    var count = value('input_count');
 
-    var head = cleanup(value('input_armour_head'));
-    var chest = cleanup(value('input_armour_chest'));
-    var legs = cleanup(value('input_armour_legs'));
-    var feet = cleanup(value('input_armour_feet'));
-    var head_n = value('input_armour_head_num', 'int');
-    var chest_n = value('input_armour_chest_num', 'int');
-    var legs_n = value('input_armour_legs_num', 'int');
-    var feet_n = value('input_armour_feet_num', 'int');
-    var head_c = value('input_armour_head_count', 'num');
-    var chest_c = value('input_armour_chest_count', 'num');
-    var legs_c = value('input_armour_legs_count', 'num');
-    var feet_c = value('input_armour_feet_count', 'num');
+    // fix values //
+    if ( dist_max &&  dist_min >  dist_max) {[ dist_min,  dist_max] = [ dist_max,  dist_min];}
+    if ( xrot_max &&  xrot_min >  xrot_max) {[ xrot_min,  xrot_max] = [ xrot_max,  xrot_min];}
+    if ( yrot_max &&  yrot_min >  yrot_max) {[ yrot_min,  yrot_max] = [ yrot_max,  yrot_min];}
+    if (   xp_max &&    xp_min >    xp_max) {[   xp_min,    xp_max] = [   xp_max,    xp_min];}
+    if (score_max && score_min > score_max) {[score_min, score_max] = [score_max, score_min];}
 
-    var mainhand = cleanup(value('input_held_item'));
-    var mainhand_n = value('input_held_item_num', 'int');
-    var mainhand_c = value('input_held_item_count', 'num');
-    var offhand = cleanup(value('input_offhand_item'));
-    var offhand_n = value('input_offhand_item_num', 'int');
-    var offhand_c = value('input_offhand_item_count', 'num');
+    // hide flags //
+    var hf = 0;
+    if ($('#ench').hasClass('off')) hf +=  1;
+    if ($('#mods').hasClass('off')) hf +=  2;
+    if ($('#unbr').hasClass('off')) hf +=  4;
+    if ($('#dstr').hasClass('off')) hf +=  8;
+    if ($('#plon').hasClass('off')) hf += 16;
+    if ($('#othr').hasClass('off')) hf += 32;
 
-    var nbt = {}
+
+    /// OTHER ///
+    if (target === '@e') {
+        $('.player_only').addClass('hide');
+    } else {
+        $('.player_only').removeClass('hide');
+    }
 
     /// GENERATOR ///
-    // OUTPUT //
     $('#generator-output').empty();
     $('#cmd-note').addClass('hide');
-    $('.only').addClass('hide');
-    $('.' + entity).removeClass('hide');
 
-    // COORDS //
-    if (!X) {X = '~';}
-    if (!Y) {Y = '~';}
-    if (!Z) {Z = '~';}
+    // select player //
 
-    // ENTITY NBT //
-    {
-        // all //
-        if (name) {nbt.CustomName = '"' + name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"') + '"';}
-        if (!no_ai) {nbt.NoAI = true;}
-        if (!despawnable) {nbt.PersistenceRequired = true;}
-        if (invulnerable) {nbt.Invulnerable = true;}
-        if (silent) {nbt.Silent = true;}
-        if (pickup) {nbt.CanPickUpLoot = true;}
+    if (target === '--') {
+        $('#select-username').removeClass('hide');
+        $('#expand-target').addClass('hide');
+        if ($('#expand-target').hasClass('minus')) {
+            show_more('expand-target', 'target-content', false);
+        }
+    } else if (target === '@s') {
+        $('#select-username').addClass('hide');
+        $('#expand-target').addClass('hide');
+        if ($('#expand-target').hasClass('minus')) {
+            show_more('expand-target', 'target-content', false);
+        }
+    } else {
+        $('#select-username').addClass('hide');
+        $('#expand-target').removeClass('hide');
+        $('#input_selector_player').val('');
+    }
 
-        // tame mobs //
-        if (tame_mobs.includes(entity)) {
-            $('.tame_mobs.only').removeClass('hide');
-            if (horse_tame) {nbt.Tame = true;}
-       }
+    var selector = [];
+    var target_text = (target === '--') ? (player ? player : '@s') : target;
 
-        // bee //
-        if (entity === 'bee') {
-            if (bee_nectar) {nbt.HasNectar = true;}
-            if (bee_stung) {nbt.HasStung = true;}
-            
-            if (bee_angry) {
-                $('.angry-bee').removeClass('hide');
-                if (bee_angry_time && bee_angry_time_value) {
-                    /**/ if (bee_angry_time === 't') {nbt.Anger = 0 - bee_angry_time_value;}
-                    else if (bee_angry_time === 's') {nbt.Anger = 0 - bee_angry_time_value * 20;}
-                    else if (bee_angry_time === 'm') {nbt.Anger = 0 - bee_angry_time_value * 1200;}
-                    else if (bee_angry_time === 'h') {nbt.Anger = 0 - bee_angry_time_value * 72000;}
+    if (player) {
+        selector = '';
+    } else {
+        if (!isNaN(target_x)) {selector.push('x=' + target_x);}
+        if (!isNaN(target_y)) {selector.push('y=' + target_y);}
+        if (!isNaN(target_z)) {selector.push('z=' + target_z);}
+
+        if (selection_area === 'radius' && (dist_min || dist_max)) {
+            if (dist_min && !dist_max) {selector.push('distance=' + dist_min + '..');}
+            if (!dist_min && dist_max) {selector.push('distance=' + '..' + dist_max);}
+            if (dist_min && dist_max && dist_min != dist_max) {selector.push('distance=' + dist_min + '..' + dist_max);}
+            if (dist_min && dist_max && dist_min == dist_max) {selector.push('distance=' + dist_min);}
+        }
+
+        if (selection_area === 'volume' && (vol_x || vol_y || vol_z)) {
+            if (vol_x) {selector.push('dx=' + vol_x);}
+            if (vol_y) {selector.push('dy=' + vol_y);}
+            if (vol_z) {selector.push('dz=' + vol_z);}
+        }
+
+        if (!isNaN(xrot_min) || !isNaN(xrot_max)) {
+            if (!isNaN(xrot_min) && isNaN(xrot_max)) {selector.push('x_rotation=' + xrot_min + '..');}
+            if (isNaN(xrot_min) && !isNaN(xrot_max)) {selector.push('x_rotation=' + '..' + xrot_max);}
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) {selector.push('x_rotation=' + xrot_min + '..' + xrot_max);}
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) {selector.push('x_rotation=' + xrot_min);}
+        }
+
+        if (!isNaN(yrot_min) || !isNaN(yrot_max)) {
+            if (!isNaN(yrot_min) && isNaN(yrot_max)) {selector.push('y_rotation=' + yrot_min + '..');}
+            if (isNaN(yrot_min) && !isNaN(yrot_max)) {selector.push('y_rotation=' + '..' + yrot_max);}
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) {selector.push('y_rotation=' + yrot_min + '..' + yrot_max);}
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) {selector.push('y_rotation=' + yrot_min);}
+        }
+
+        if (limit) {selector.push('limit=' + limit);}
+
+        if (team) {
+            let not = team_invert ? '!' : ''; 
+            selector.push('team=' + not + team);
+        }
+
+        if (tag) {
+            let not = tag_invert ? '!' : '';
+            selector.push('tag=' + not + tag);
+        }
+
+        if (gamemode) {
+            let not = gamemode_invert ? '!' : '';
+            selector.push('gamemode=' + not + gamemode);
+        }
+
+        if (xp_min || xp_max) {
+            if (xp_min && !xp_max) {selector.push('level=' + xp_min + '..');}
+            else if (!xp_min && xp_max) {selector.push('level=' + '..' + xp_max);}
+            else if (xp_min && xp_max && xp_min != xp_max) {selector.push('level=' + xp_min + '..' + xp_max);}
+            else if (xp_min && xp_max && xp_min == xp_max) {selector.push('level=' + xp_min);}
+        }
+
+        if (score && (!isNaN(score_min) || !isNaN(score_max))) {
+            scores.push(score);
+            scores_min.push(score_min);
+            scores_max.push(score_max);
+            scores_min[scores.indexOf(score)] = score_min;
+            scores_max[scores.indexOf(score)] = score_max;
+
+            let new_scores = [], new_min = [], new_max = [];
+            for (a in scores) {
+                if (new_scores.indexOf(scores[a]) == -1) {
+                    new_scores.push(scores[a]);
+                    new_min.push(scores_min[a]);
+                    new_max.push(scores_max[a]);
                 }
             }
-       }
+            scores = new_scores, scores_min = new_min, scores_max = new_max;
 
-        // cat //
-        if (entity === 'cat') {
-            if (cat_type !== null) {nbt.CatType = cat_type;}
-            if (cat_collar) {nbt.CollarColor = cat_collar;}
-       }
+            let score_text = [];
+            for (i in scores) {
+                if (scores[i]) {
+                    if (scores_min[i] && !scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i] + '..');}
+                    else if (!scores_min[i] && scores_max[i]) {score_text.push(scores[i] + '=' + '..' + scores_max[i]);}
+                    else if (scores_min[i] && scores_max[i] && scores_min[i] != scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i] + '..' + scores_max[i]);}
+                    else if (scores_min[i] && scores_max[i] && scores_min[i] == scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i]);}
+                }
+            }
+            selector.push('scores={' + JSON.stringify(score_text).replace(/[\[\]]/g, '') + '}');
+        }
 
-        // coloured mobs //
-        if (entity === 'sheep' || entity === 'shulker') {
-            if (mob_color) {nbt.Color = mob_color;}
-       }
+        selector = (selector.length !== 0) ? JSON.stringify(selector).replace(/"/g, '').replace(/\\/g, '') : '';
+    }
 
-        // creeper //
-        if (entity === 'creeper') {
-            if (creeper_powered) {nbt.powered = true;}
-       }
+    // select item //
+    let colon_pos = item.search(':');
+    let item_id = item.replace('minecraft:', '');
+    if (!item || item === 'minecraft:' || item === ':') {item = 'minecraft:stone';}
+    else if (colon_pos === item.length - 1) {item = 'minecraft:' + item.slice(0, -1);}
+    else if (colon_pos === -1) {item = 'minecraft:' + item;}
+    else if (colon_pos === 0) {item = 'minecraft' + item;}
+    // NBT //
+    var nbt = {};
 
-        // endermite //
-        if (entity === 'endermite') {
-            if (endermite_life) {nbt.Lifetime = 2400 - endermite_life;}
-            if (endermite_attackable) {nbt.PlayerSpawned = true;}
-       }
+    // potion //
+    if (item_id.includes('potion')) {
+        $('#potion').removeClass('hide');
+    } else {
+        $('#potion').addClass('hide');
+        $('input_item_potion').val('');
+    }
+    if (i_potion) {nbt.Potion = i_potion;}
 
-       // endermite //
-       if (entity === 'ender_dragon') {
-           if (enderdragon_state) {nbt.DragonPhase = enderdragon_state;}
-      }
+    // head //
+    if (item_id.includes('head')) {
+        $('#head').removeClass('hide');
+    } else {
+        $('#head').addClass('hide');
+        $('input_item_head').val('');
+    }
+    if (i_head) {nbt.SkullOwner = i_head;}
 
-        // fox //
-        if (entity === 'fox') {
-            if ($fox_type.hasClass('red') && foxCount > 0) {nbt.Type = 'red';}
-            if ($fox_type.hasClass('snow')) {nbt.Type = 'snow';}
-       }
+    // fireworks //
+    if (item_id === 'firework_rocket') {
+        $('firework').removeClass('hide');
+    } else {
+        $('#firework').addClass('hide');
+    }
+    if (i_firework_type || i_firework_trail || i_firework_flicker || i_firework_flight) {
+        let explosions = [];
+        if (i_firework_type) {explosions.push({"Type": i_firework_type});}
+        if (i_firework_flicker) {explosions.push({"Flicker": i_firework_flicker});}
+        if (i_firework_trail) {explosions.push({"Trail": i_firework_trail});}
+        nbt.Fireworks = {};
+        nbt.Fireworks.Explosions = explosions;
+        if (i_firework_flight) {nbt.Fireworks.Flight = i_firework_flight;}
+    }
 
-        // ghast //
-        if (entity === 'ghast') {
-            if (ghast_explosion_power) {nbt.ExplosionPower = ghast_explosion_power;}
-       }
+    // display //
+    if (i_name || i_lore) {nbt.display = {};}
+    let display = {};
 
-        // llama //
-        if (entity === 'llama') {
-            if (llama_type) {nbt.Variant = llama_type;}
-            if (llama_temper) {nbt.Temper = llama_temper;}
-       }
+    if (i_name) {
+        var preview = $('#preview-text');
+        $('#preview').removeClass('hide');
+        preview.html(i_name.replace(/\\\\\\\\/g, '\\').replace(/\\\\\\"/g, '"'));
+        display.text = i_name;
 
-        // mooshroom //
-        if (entity === 'mooshroom') {
-            if (mooshroom_type) {nbt.Type = mooshroom_type;}
-       }
+        let colour, shadow;
+        switch (i_colour) {
+            case 'aqua'         : colour = '#5ff'; shadow = '#00002a'; break;
+            case 'black'        : colour = '#000'; shadow = '#002a00'; break;
+            case 'blue'         : colour = '#55f'; shadow = '#002a2a'; break;
+            case 'dark_aqua'    : colour = '#0aa'; shadow = '#2a0000'; break;
+            case 'dark_blue'    : colour = '#00a'; shadow = '#2a002a'; break;
+            case 'dark_gray'    : colour = '#555'; shadow = '#2a2a00'; break;
+            case 'dark_green'   : colour = '#0a0'; shadow = '#2a2a2a'; break;
+            case 'dark_purple'  : colour = '#a0a'; shadow = '#151515'; break;
+            case 'dark_red'     : colour = '#a00'; shadow = '#15153f'; break;
+            case 'gold'         : colour = '#fa0'; shadow = '#153f15'; break;
+            case 'gray'         : colour = '#aaa'; shadow = '#153f3f'; break;
+            case 'green'        : colour = '#5f5'; shadow = '#3f1515'; break;
+            case 'light_purple' : colour = '#f5f'; shadow = '#3f153f'; break;
+            case 'red'          : colour = '#f55'; shadow = '#3f3f15'; break;
+            case 'yellow'       : colour = '#ff5'; shadow = '#3f3f3f'; break;
+            default             : colour = '#fff'; shadow = '#000000';
+        }
 
-        // panda //
-        if (entity === 'panda') {
-            if (panda_dominant_gene) {nbt.MainGene = panda_dominant_gene;}
-            if (panda_recessive_gene) {nbt.HiddenGene = panda_recessive_gene;}
-       }
+        if (i_colour) {display.color = i_colour;}
+        preview.css('color', colour);
+        preview.css('text-shadow', '2px 2px' + shadow);
 
-        // rabbit //
-        if (entity === 'rabbit') {
-            if (rabbit_type !== null) {nbt.RabbitType = rabbit_type;}
-       }
+        if (i_bold) {
+            display.bold = true;
+            preview.css('font-weight', 'bold');
+        } else {
+            preview.css('font-weight', 'inherit');
+        }
 
-        // slime //
-        if (entity === 'slime') {
-            if (slime_size !== null) {nbt.Size = slime_size;}
-       }
+        if (!i_italic) {
+            display.italic = false;
+            preview.css('font-style', 'inherit');
+        } else {
+            preview.css('font-style', 'italic');
+        }
 
-        // tropical fish //
-        if (entity === 'tropical_fish') {
-            if (tropical_fish_size === 0) {$('.large-fish').addClass('hide'); $('.small-fish').removeClass('hide');}
-            if (tropical_fish_size === 1) {$('.small-fish').addClass('hide'); $('.large-fish').removeClass('hide');}
-            let byte_1 = tropical_fish_size;
-            let byte_2 = tropical_fish_pattern * 2**8;
-            let byte_3 = tropical_fish_base_color * 2**16;
-            let byte_4 = tropical_fish_pattern_color * 2**24;
-            nbt.Variant = byte_1 + byte_2 + byte_3 + byte_4;
-       }
+        if (i_underline) {
+            display.underlined = true;
+            preview.css('text-decoration', 'underline');
+        } else if (!i_strike) {
+            preview.css('text-decoration', 'inherit');
+        }
 
-        // villager //
-        if (entity === 'villager') {
-            nbt.VillagerData = {};
-            if (villager_type) {nbt.VillagerData.type = villager_type;}
-            if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
-            if (villager_level) {nbt.VillagerData.level = villager_level;}
-       }
+        if (i_strike) {
+            display.strikethrough = true;
+            preview.css('text-decoration', 'line-through');
+        } else if (!i_underline) {
+            preview.css('text-decoration', 'inherit');
+        }
 
-        // wolf //
-        if (entity === 'wolf') {
-            if (wolf_collar) {nbt.CollarColor = wolf_collar;}
-            if (wolf_sitting) {nbt.Sitting = wolf_sitting;}
-       }
+        if (i_strike && i_underline) {
+            preview.css('text-decoration', 'underline line-through');
+        }
 
-        // zombies //
-        if (zombies.indexOf(entity) > -1) {
-            $('.zombies').removeClass('hide');
-            if (zombies_canbreak_doors) {nbt.CanBreakDoors = true;}
-       }
+        if (i_obfus) {
+            display.obfuscated = true;
+            preview.html('*'.repeat(i_name.length));
+        }
 
-        // babies //
-        if (zombies.indexOf(entity) > -1) {
-            $('.baby_mobs').removeClass('hide');
-            if (baby) {nbt.IsBaby = true;}
-       }
-        if (neg_age_mobs.indexOf(entity) > -1) {
-            $('.baby_mobs').removeClass('hide');
-            if (baby && baby_time_value) {
-                /**/ if (baby_time === 't') {nbt.Age = 0 - baby_time_value;}
-                else if (baby_time === 's') {nbt.Age = 0 - baby_time_value * 20;}
-                else if (baby_time === 'm') {nbt.Age = 0 - baby_time_value * 1200;}
-                else if (baby_time === 'h') {nbt.Age = 0 - baby_time_value * 72000;}
-                $('.baby_living_mobs').removeClass('hide');
-           }
-       }
+        nbt.display.Name = JSON.stringify(display).replace(/\\\\\\\\\\\\\\\\/g, '\\\\').replace(/\\\\\\\\\\\\\\"/g, '\\"');
+    } else {
+        $('#preview').addClass('hide');
+    }
 
-   }
-    // EQUIPMENT //
-    {
-        // armor //
-        var armor_items = [];
-        if (feet)  {armor_items.push({id: feet , Count: feet_n });} else {armor_items.push({});}
-        if (legs)  {armor_items.push({id: legs , Count: legs_n });} else {armor_items.push({});}
-        if (chest) {armor_items.push({id: chest, Count: chest_n});} else {armor_items.push({});}
-        if (head)  {armor_items.push({id: head , Count: head_n });} else {armor_items.push({});}
-        if (head || chest || legs || feet) {
-            nbt.ArmorItems = armor_items;
-            var armor_drop_chances;
-            if (head_c || chest_c || legs_c || feet_c) {
-                head_c  = head_c  ? head_c  / 100 + 'f' : '1f';
-                chest_c = chest_c ? chest_c / 100 + 'f' : '1f';
-                legs_c  = legs_c  ? legs_c  / 100 + 'f' : '1f';
-                feet_c  = feet_c  ? feet_c  / 100 + 'f' : '1f';
-                armor_drop_chances = [feet_c, legs_c, chest_c, head_c];
-                nbt.ArmorDropChances = armor_drop_chances;
-           }
-       }
+    // lore //
+    if (i_lore) {
+        let lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace(/,/g, '&comma;').split('\n');
+        nbt.display.Lore = JSON.stringify(lore).replace(/^\[|\]$/g, '').split(',');
+    }
 
-        // held //
-        var held_items = [];
-        if (mainhand) {held_items.push({id: mainhand, Count: mainhand_n});} else {held_items.push({});}
-        if (offhand)  {held_items.push({id: offhand,  Count: offhand_n });} else {held_items.push({});}
-        if (mainhand || offhand) {
-            nbt.HandItems = held_items;
-            var hand_drop_chances;
-            if (mainhand_c || offhand_c) {
-                mainhand_c = mainhand_c ? mainhand_c / 100 + 'f' : '1f';
-                offhand_c  = offhand_c  ? offhand_c  / 100 + 'f' : '1f';
-                hand_drop_chances = [mainhand_c, offhand_c];
-                nbt.HandDropChances = hand_drop_chances;
-           }
-       }
-   }
+    // enchantments //
+    if (i_ench) {
+        e.push(i_ench);
+        elvl.push(i_ench_lvl);
+        elvl[e.indexOf(i_ench)] = i_ench_lvl;
 
-    // CONVERT TO NBT //
-    if (!isEmpty(nbt)) {//                    Removes quotes on IDs             Show int types as plain ints
-        var NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/"([0-9.]+[bdfLs])"/g, '$1');
-   } else NBT = '';
+        let e2 = [], elvl2 = [];
+        for (i in e) {
+            if (e2.indexOf(e[i]) == -1) {
+                e2.push(e[i]);
+                elvl2.push(elvl[i]);
+            }
+        }
+        e = e2;
+        elvl = elvl2;
+
+        nbt.Enchantments = [];
+        for (i in e) {
+            if (e[i]) {
+                nbt.Enchantments.push({id: e[i], lvl: parseInt(elvl[i])});
+            }
+        }
+    }
+
+    // tools & weapons items //
+    if (durable_items.includes(item_id)) {
+        $('.tool').removeClass('hide');
+    } else {
+        $('.tool').addClass('hide');
+        $('input_item_unbreakable').prop('checked',false);
+        $('input_item_durability').val('');
+    }
+
+    // damage //
+    var damage = durabilities[item_id] - i_durability;
+    if (i_durability && !i_unbreakable) {nbt.Damage = damage;}
+
+    // unbreakable //
+    if (i_unbreakable) {nbt.Unbreakable = true;}
+
+    // CanDestroy //
+    if (i_destroy) {
+        CanDestroy.push(i_destroy)
+        for (i in CanDestroy) {
+            for (tag of tags) {
+                if (CanDestroy[i] == tag) {CanDestroy[i] = '#' + tag;}
+            }
+        }
+        nbt.CanDestroy = rvDupes(CanDestroy);
+    }
+    if (i_destroy_tag) {
+        CanDestroy.push('#' + i_destroy_tag)
+        for (i in CanDestroy) {
+            for (tag of tags) {
+                if (CanDestroy[i] == tag) {CanDestroy[i] = '#' + tag;}
+            }
+        }
+        nbt.CanDestroy = rvDupes(CanDestroy);
+    }
+
+    // CanPlaceOn //
+    if (i_place_on) {
+        CanPlaceOn.push(i_place_on)
+        for (i in CanPlaceOn) {
+            for (tag of tags) {
+                if (CanPlaceOn[i] == tag) {CanPlaceOn[i] = '#' + tag;}
+            }
+        }
+        nbt.CanPlaceOn = rvDupes(CanPlaceOn);
+    }
+    if (i_place_on_tag) {
+        CanPlaceOn.push('#' + i_place_on_tag)
+        for (i in CanPlaceOn) {
+            for (tag of tags) {
+                if (CanPlaceOn[i] == tag) {CanPlaceOn[i] = '#' + tag;}
+            }
+        }
+        nbt.CanPlaceOn = rvDupes(CanPlaceOn);
+    }
+
+    // modifiers //
+    /**/ if (i_mod === 'armor'               && i_mod_amount >    30) {i_mod_amount =    30;}
+    else if (i_mod === 'armorToughness'      && i_mod_amount >    20) {i_mod_amount =    20;}
+    else if (i_mod === 'attackDamage'        && i_mod_amount >  2048) {i_mod_amount =  2048;}
+    else if (i_mod === 'attackSpeed'         && i_mod_amount >  1024) {i_mod_amount =  1024;}
+    else if (i_mod === 'attackRange'         && i_mod_amount >     6) {i_mod_amount =     6;}
+    else if (i_mod === 'attackRange'         && i_mod_amount <     0) {i_mod_amount =     0;}
+    else if (i_mod === 'followRange'         && i_mod_amount >  2048) {i_mod_amount =  2048;}
+    else if (i_mod === 'knockbackResistance' && i_mod_amount >     1) {i_mod_amount =     1;}
+    else if (i_mod === 'luck'                && i_mod_amount >  1024) {i_mod_amount =  1024;}
+    else if (i_mod === 'luck'                && i_mod_amount < -1024) {i_mod_amount = -1024;}
+    else if (i_mod !== 'luck'                && i_mod_amount <     0) {i_mod_amount =     0;}
+    else if (i_mod === 'maxHealth'           && i_mod_amount >  1024) {i_mod_amount =  1024;}
+    else if (i_mod === 'movementSpeed'       && i_mod_amount >  1024) {i_mod_amount =  1024;}
+
+    if (i_mod && i_mod_amount) {
+
+        if (!i_mod_uuid_least) {i_mod_uuid_least = uuids[i_mod][0];}
+        if (!i_mod_uuid_most)  {i_mod_uuid_most = uuids[i_mod][1];}
+
+        for (i in modifiers) {
+            if (modifiers[i].AttributeName == 'generic.' + i_mod) {
+                modifiers.splice(i, 1);
+            }
+        }
+
+        if (i_mod_slot) {
+            modifiers.push({
+                AttributeName: 'generic.' + i_mod, Name: 'generic.' + i_mod,
+                Amount: i_mod_amount, Operation: i_mod_op, Slot: i_mod_slot,
+                UUIDLeast: i_mod_uuid_least, UUIDMost: i_mod_uuid_most
+            });
+        } else {
+            modifiers.push({
+                AttributeName: 'generic.' + i_mod, Name: 'generic.' + i_mod,
+                Amount: i_mod_amount, Operation: i_mod_op,
+                UUIDLeast: i_mod_uuid_least, UUIDMost: i_mod_uuid_most
+            });
+        }
+
+        nbt.AttributeModifiers = rvNestedDupes(modifiers);
+    }
+
+    // hide flags //
+    if (hf > 0) {nbt.HideFlags = hf;}
+
+    // nbt //
+    var NBT = '';
+    if (!isEmpty(nbt)) {
+        NBT = JSON.stringify(nbt)
+            .replace(/"([^(")\\]+)":/g, '$1:')
+            .replace(/\\",lvl:/g, '",lvl:')
+            .replace(/}"]/g, '}]')
+            .replace(/"{id:\\/g, "{id:")
+            .replace(/}",{id:/g, "},{id:")
+            .replace(/&comma;/g, ',');
+    }
+
+    // count //
+    if (!count) {count = '1';}
 
     /// OUTPUT ///
-    window.output = `/summon ${entity} ${X} ${Y} ${Z} ${NBT}`;
-    if (window.output.length > 256) {
+    window.output = `/give ${target_text + selector} ${item + NBT} ${count}`;
+    if (window.output.length > 255) {
         $('#cmd-note').removeClass('hide');
-   }
-    $('#generator-output').append(`
-        <span style="color: lightgray">/summon</span>
-        <span style="color: #5ff">${entity}</span>
-        <span style="color: #ff5">${X} ${Y} ${Z}</span>
-        <span style="color: lightgreen">${NBT}</span>
+        if (target === '@s') {target = '@p';}
+    }
+    
+    $('#generator-output').html(`
+        <span style="color: lightgray">/give</span>
+        <span style="color: #5ff">${target_text + selector}</span>
+        <span style="color: #ff5">${item + NBT.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</span>
+        <span style="color: lightpink">${count}</span>
     `);
 
     // counter
@@ -308,11 +542,11 @@ function copyCommand() {
 
 function submit() {
     try {
-        summon();
-   }
+        give();
+    }
     catch (error) {
         $('#generator-output').html(error.stack);
-   }
+    }
 }
 
-/* Copyright © Nixinova 2020 */
+/* Copyright 2020 Nixinova */
