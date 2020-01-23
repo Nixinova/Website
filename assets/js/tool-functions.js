@@ -25,14 +25,11 @@ function getQueryString(val) {
 }
 
 function value(id, type) {
-    let output;
     switch (type) {
-        case 'int': output = parseInt($('#'+id).val(), 10);
-        case 'num': output = parseFloat($('#'+id).val(), 10);
-        default: output = $.trim($('#'+id).val());
+        case 'int': return parseInt($('#'+id).val(), 10);
+        case 'num': return parseFloat($('#'+id).val(), 10);
+        default: return $.trim($('#'+id).val());
     }
-    if (output === null) return '';
-    else return output;
 }
 
 function checked(id) {

@@ -159,9 +159,9 @@ function give() {
     if (player) {
         selector = '';
     } else {
-        if (!isNaN(target_x)) {selector.push('x=' + target_x);}
-        if (!isNaN(target_y)) {selector.push('y=' + target_y);}
-        if (!isNaN(target_z)) {selector.push('z=' + target_z);}
+        if (target_x) {selector.push('x=' + target_x);}
+        if (target_y) {selector.push('y=' + target_y);}
+        if (target_z) {selector.push('z=' + target_z);}
 
         if (selection_area === 'radius' && (dist_min || dist_max)) {
             if (dist_min && !dist_max) {selector.push('distance=' + dist_min + '..');}
