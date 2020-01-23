@@ -99,9 +99,9 @@
                 </select><br/>
             
                 <label>Coordinates:</label>
-                <input type="text" value="~" size="6" pattern="[~0-9-.]" id="input_x" style="width:100px;"> &nbsp;
-                <input type="text" value="~" size="6" pattern="[~0-9-.]" id="input_y" style="width:100px;"> &nbsp;
-                <input type="text" value="~" size="6" pattern="[~0-9-.]" id="input_z" style="width:100px;"><br/>
+                <input type="text" value="~" pattern="[~0-9\-\.]" id="input_x" style="width:100px;" onclick="$(this).val('');"> &nbsp;
+                <input type="text" value="~" pattern="[~0-9\-\.]" id="input_y" style="width:100px;" onclick="$(this).val('');"> &nbsp;
+                <input type="text" value="~" pattern="[~0-9\-\.]" id="input_z" style="width:100px;" onclick="$(this).val('');"><br/>
             </p>
             <p name="nbt">
                 <label>NBT:</label><br/>
