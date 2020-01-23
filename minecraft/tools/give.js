@@ -47,9 +47,9 @@ function give() {
     // call from input form //
     var target = value('input_selector_target');
     var player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
-    var target_x = value('input_selector_x').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
-    var target_y = value('input_selector_y').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
-    var target_z = value('input_selector_z').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
+    var target_x = value('input_selector_x','num');
+    var target_y = value('input_selector_y','num');
+    var target_z = value('input_selector_z','num');
     var dist_min = value('input_selector_dist_min', 'num');
     var dist_max = value('input_selector_dist_max', 'num');
     var selection_area = $('#input_selection_area').attr('class');
