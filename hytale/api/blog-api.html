@@ -23,7 +23,7 @@
                 blogs.excerpts.push(data[i].bodyExcerpt);
                 blogs.authors.push(data[i].author);
                 blogs.images.push(data[i].coverImage.s3Key);
-                $('#titles').html(`<option value="${blogs.urls[i]}">${blogs.titles[i]}</option>`);
+                $('#titles').append(`<option value="${blogs.urls[i]}">${blogs.titles[i]}</option>`);
             }
             $('#get-info').text('Get info');
         });
