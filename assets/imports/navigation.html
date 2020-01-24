@@ -38,30 +38,67 @@
     i {visibility: hidden;}
     nav * div {transition: 0.1s;}
     #scrollbar {position: fixed; top: 0px; left: 0px; height: 3px; background-color: #50c878;}
+
+    #nav-menu {width: 100vw; height: 100vw;}
     #menu-icon {position: fixed; top: 0; left: 0; width: 3em; padding: 1em; cursor: pointer; z-index: 10;}
+    #menu-section {width: 20%; margin: auto;}
+    #menu-header {font-size: 2em;}
 </style>
 <span id="scrollbar"></span>
-<div id="navigation-menu">
+<div id="menu">
     <div id="menu-icon">
-        <i class="fas fa-bars" style="font-size: 2em;" onclick="toggleNav()"></i>
+        <a href="#"><i class="fas fa-bars" style="font-size: 2em;" onclick="toggleNav()"></i></a>
     </div>
     
-    <div id="navigation-contents" class="hide" style="display: flex;">
+    <div id="nav-contents" class="hide" style="display: flex;">
 
-        <div id="navigation-logo">
+        <div style="text-align: center;">
             <img src="/images/nixinova.png" width="50%"><span></span>
         </div>
 
-        <strong>Downloads</strong>
-        <div style="display: flex; width: 100%;">
-            <div style="width: 400px;">
-                <strong>Minecraft Maps</strong>
-                <ul>
-                    <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
-                    <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
-                    <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
-                </ul>
+        <div style="display: flex;">
+
+            <div class="menu-section">
+                <strong class="menu-header">Downloads</strong>
+                <div style="width: 100%;">
+                    <div style="width: 400px;">
+                        <strong>Minecraft Maps</strong>
+                        <ul>
+                            <li><a href="/minecraft/maps/kitpvp">KitPvP</a></li>
+                            <li><a href="/minecraft/maps/skywars">SkyWars</a></li>
+                            <li><a href="/minecraft/maps/musical-blocks">Musical Blocks</a></li>
+                        </ul>
+                        <strong>Minecraft Resource Packs</strong>
+                        <ul>
+                            <li><a href="/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
+                            <li><a href="/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
+                            <li><a href="/minecraft/resource-packs/herobrinenzk">HeroBrineNZK RP</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            
+            <div class="menu-section">
+                <strong>Tools</strong>
+                <div style="width: 100%;">
+                    <div style="width: 400px;">
+                        <strong>Minecraft Commands</strong>
+                        <ul>
+                            <li><a href="/tools/minecraft/commands/kitpvp">KitPvP</a></li>
+                            <li><a href="/tools/minecraft/commands/skywars">SkyWars</a></li>
+                        </ul>
+                        <strong>Minecraft Converters</strong>
+                        <ul>
+                            <li><a href="/tools/minecraft/coordinates">Coordinates</a></li>
+                        </ul>
+                        <strong>Hytale APIs</strong>
+                        <ul>
+                            <li><a href="/tools/hytale/api/blog">Blog API</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
