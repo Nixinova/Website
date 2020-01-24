@@ -33,6 +33,6 @@
 /downloads/minecraft/resource-packs/mash-up         /minecraft/resource-packs/mash-up
 /downloads/minecraft/resource-packs/themed          /minecraft/resource-packs/themed
 /tools/hytale/api/blog                              /hytale/api/blog-api
-/tools/minecraft/coordinates                        /minecraft/tools/coordinated
-/tools/minecraft/give                               /minecraft/tools/give
-/tools/minecraft/summon                             /minecraft/tools/summon
+/tools/minecraft/coordinates                        /minecraft/tools/coordinates
+/tools/minecraft/commands/give                      /minecraft/tools/give
+/tools/minecraft/commands/summon                    /minecraft/tools/summon
