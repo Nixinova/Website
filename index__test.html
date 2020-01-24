@@ -23,10 +23,11 @@
         #down-arrow a i {font-size: 2em; visibility: hidden;}
         
         /* Showcase */
-        #showcase {background: #313131; text-align: center;}
+        #showcase {background: #222; text-align: center;}
         #showcase div {font-size: 4em;}
         #showcase ul {margin-left: 0;}
-        #showcase .title {background: #222; color: #eee;}
+        #showcase a {color: #eee;}
+        #showcase .title {background: #222; color: #eee; margin: auto;}
         #showcase .contents {background: #eee; color: #222;}
         
         /*
@@ -72,7 +73,7 @@
             <div class="title" style="grid-row: 1; grid-column: 1;">
                 <strong>Minecraft<br>Maps</strong>
             </div>
-            <div class="contents" style="grid-row: 1; grid-column: 2;">>
+            <div class="contents" style="grid-row: 1; grid-column: 2;">
                 <ul style="list-style-type: none;">
                     <li><a href="https://nixinova.com/minecraft/maps/skywars">SkyWars</a></li>
                     <li><a href="https://nixinova.com/minecraft/maps/kitpvp">KitPvP</a></li>
@@ -115,15 +116,7 @@
 
     </main>
 
-    <footer style="margin-top: 2px;">
-        <span>
-            Copyright &copy; Nixinova 2019
-            &bull;
-            <a href="https://github.com/Nixinova/website/issues/new" target="_blank" title="Report website issues on GitHub">
-                Report issue
-            </a>
-        </span>
-    </footer>
+    <footer style="margin-top: 0;"></footer>
     <script id="load-footer">$("footer").load("https://nixinova.com/imports/footer"); $('#load-footer').remove();</script>
 </body>
 </html>
