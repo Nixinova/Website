@@ -36,7 +36,10 @@
             const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
             const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-            let date = moment(blog.dates[index]).format('LL [at] LTS zz'); // dddd D MMMM YYYY [at] HH:mm:ss zz
+            let date = moment(blog.dates[index]);
+            let year = date.year;
+            let month = date.month;
+
             let image = 'https://cdn.hytale.com/variants/blog_cover_' + blog.images[index];
             let url = `https://hytale.com/news/${year}/${date.getUTCMonth()+1}/${selected_blog}`;
             let title = blog.titles[index];
@@ -47,7 +50,7 @@
                 <img src="${image}">
                 <h3>${title}</h3>
                 <em>
-                    Posted on <time datetime="${blog.dates[index]}">${date}</time>
+                    Posted on <time datetime="${blog.dates[index]}">${date.format('LL [at] LTS zz')}</time>
                     by ${author}
                 </em>
                 <p style="line-height: 1.8;">
