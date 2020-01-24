@@ -14,12 +14,12 @@
     var nav_visible = false;
     function toggleNav() {
         if (nav_visible) {
-            hideElements('#nav-contents');
+            hideElements('#menu');
             showElements('main','footer');
             $('#menu').removeClass('menu-visible');
             nav_visible = false;
         } else {
-            showElements('#nav-contents');
+            showElements('#menu');
             hideElements('main','footer');
             $('#menu').addClass('menu-visible')
             nav_visible = true;
@@ -41,12 +41,12 @@
     nav * div {transition: 0.1s;}
     #scrollbar {position: fixed; top: 0px; left: 0px; height: 3px; background-color: #50c878;}
 
-    #header {height: var(--header-height); display: flex;}
-    #header-search, #menu-icon {width: 80px; padding: 25px; cursor: pointer; z-index: 10;}
+    #header {height: 80px; display: flex;}
+    #header-search, #menu-icon {width: 80px; padding: 25px; color: white; cursor: pointer; z-index: 10;}
 
     #menu {background-color: var(--header-color); max-width: 600px; margin: auto;}
     #menu ul {margin: 0.5em 0;}
-    #menu-logo {height: 80px; margin: auto;}
+    #menu-logo {margin: auto;}
     .menu-visible {position: fixed; width: 100vw; height: 100vh;}
     .menu-section {margin: auto;}
     .menu-header {display: block; font-size: 2em; text-align: center; text-decoration: underline;}
@@ -64,11 +64,11 @@
         <a href="javascript:toggleNav();"><i class="fas fa-bars" style="font-size: 2em;"></i></a>
     </div>
 
-    <div>
+    <div id="menu-logo">
         <a href="/">
-            <img id="menu-logo" src="/images/nixinova.png" alt="Nixinova"><span></span>
+            <img src="/images/nixinova.png" alt="Nixinova" style="height: 80px;"><span></span>
         </a>
-    </div>
+    </div id="menu-logo">
 
     <div id="header-search">
         <a href="javascript: location = 'https:/\/nixinova.com/search#gsc.q=' + $('#search-text').val();">
