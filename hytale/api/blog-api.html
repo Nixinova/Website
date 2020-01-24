@@ -24,7 +24,7 @@
                 blog.excerpts.push(blogs[i].bodyExcerpt);
                 blog.authors.push(blogs[i].author);
                 blog.images.push(blogs[i].coverImage.s3Key);
-                $('#titles').append(`<option value="${blog.urls[i]}">${blog.titles[i]}</option>`);
+                $('#titles').html(`<option value="${blog.urls[i]}">${blog.titles[i]}</option>`);
             }
         });
 
@@ -46,7 +46,7 @@
                 <img src="${image}">
                 <h3>${title}</h3>
                 <em>
-                    Posted on <time datetime="${blog.dates[index]}">${date.format('LL [at] LTS zz')}</time>
+                    Posted on <time datetime="${blog.dates[index]}">${date.format('dddd D MMMM YYYY [at] HH:mm:ss [UTC]')}</time>
                     by ${author}
                 </em>
                 <p style="line-height: 1.8;">
@@ -68,7 +68,9 @@
             <div>
                 <p style="text-align: center;">
                     <label>Blog post:</label>
-                    <select id="titles" style="width: auto; max-width: 60%;"></select> &nbsp;
+                    <select id="titles" style="width: auto; max-width: 60%;">
+                        <option>Loading blog posts...</option>
+                    </select> &nbsp;
                     <button onclick="getInfo()">Get info</button><br>
                 </p>
             </div>
