@@ -3,51 +3,54 @@
 <head>
     <title>Nixinova</title>
     <meta charset="UTF-8">
-    <meta name="description" content="The personal website of Nixinova, which contains downloads for map and resource packs created by me as well as in-game tools for Minecraft.">
+    <meta name="description" content="The personal website of Nixinova, containing command generation and coordinate tools for
+        Minecraft, APIs for generation information from Hytale blog posts, and downloads of Minecraft maos abd resource packs
+        created by Nixinova.">
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" href="https://nixinova.com/favicon.ico">
+    <link rel="stylesheet" href="https://nixinova.com/assets/css/main.css">
     <style>
-        @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
-
-        :root {--blue: #44b;}
+        @font-face {font-family: 'Valken'; src: local('Valken'), url('https://nixinova.com/assets/fonts/valken.ttf') format('truetype');}
         
-        html {scroll-behavior: smooth;}
+        :root {--blue: #44b; scroll-behavior: smooth;}
         
         /* Image */
-        #image-container {background: var(--blue); padding: calc(50vh - 10.72%) 0; min-height: calc(100vh - 59px);}
-        #image-container img {max-width: 50%; margin-left: 25%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
+        #image-container {background: var(--blue); padding: calc(50vh - 185px/2 - 59px/2 ) 0;}
+        #image-container img {max-width: 60%; margin-left: 20%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
         
         /* Down arrow */
         #down-arrow {position: absolute; bottom: 0; width: 100%; text-align: center; font-size: 5em;}
         #down-arrow a {color: #eee;}
-        #down-arrow a i {font-size: 1em; visibility: hidden;}
+        #down-arrow a i {font-size: 2em; visibility: hidden;}
         
         /* Showcase */
-        #showcase {background: #313131; min-height: calc(100vh - 60px); text-align: center;}
-        #showcase article {display: block; padding: 10px 15px; width: 97%;}
-        #showcase article section {background: #46484e; width: 100%; padding: 10px 25px; display: inline-block; vertical-align: top; min-height: 14em;}
-        #showcase article section h3 {white-space: nowrap; margin-bottom: 0.5em;}
-        #showcase article section a {color: #eee; text-decoration: none;}
-        #showcase article section p {font-size: 1.1em;}
+        #showcase {background: #222; text-align: center; font-size: 4em;}
+        #showcase ul {padding-left: 0;}
+        #showcase a {color: #222;}
+        #showcase .title {background: #222; color: #eee;}
+        #showcase .contents {background: #eee; color: #222;}
 
-        @media (min-width: 1200px) {
-            #showcase article {margin: auto;}
-            #showcase article section {width: 25%; margin: 0 10px; border-radius: 5px;}
+        @media (min-width: 1051px) {
+            #showcase {display: grid;}
+            #showcase div {width: 50vw; height: 50vw;}
+            #showcase .title { padding: calc(25vw - 110px) 0;}
+            #showcase .contents { padding: calc(25vw - 220px) 0;}
+        }
+        @media (max-width: 1050px) {
         }
     </style>
 </head>
 <body style="background: var(--blue); overflow-x: hidden;">
     <header>
         <nav style="opacity: 0;"></nav>
-        <script id="load-nav">$('nav').load('imports/navigation'); $('#load-nav').remove();</script>
+        <script id="load-nav">$('nav').load('https://nixinova.com/imports/navigation'); $('#load-nav').remove();</script>
     </header>
 
-    <main>
+    <main style="margin-bottom: -3px;">
 
-        <div id="image-container">
-            <img src="/images/nixinova.png" alt="&thinsp;NIXINOVA" onmousedown="return false;">
+        <div id="image-container" class="section">
+            <img src="https://nixinova.com/images/nixinova.png" alt="&thinsp;NIXINOVA" onmousedown="return false;">
             <div id="down-arrow">
                 <a href="#showcase" onclick="$(this).addClass('hide')" onscroll="$(this).addClass('hide')">
                     <i class="fas fa-angle-down"></i>
@@ -57,87 +60,53 @@
 
         <div id="showcase">
             
-            <article>
-                <h2>Minecraft Maps</h2>
-                <section>
-                    <a href="/minecraft/maps/skywars">
-                        <h3>SkyWars</h3>
-                        <p>Play the popular minigame SkyWars remade in vanilla Minecraft 1.12–1.14.</p>
-                    </a>
-                </section>
-                <section>
-                    <a href="/minecraft/maps/musical-blocks">
-                        <h3>Musical Blocks</h3>
-                        <p>Play the minigame Musical Blocks (aka Block Party) in vanilla Minecraft 1.8.</p>
-                    </a>
-                </section>
-                <section>
-                    <a href="/minecraft/maps/kitpvp">
-                        <h3>KitPvP</h3>
-                        <p>Play the unending PvP game in vanilla Minecraft 1.8–1.14. Pick a kit and fight!</p>
-                    </a>
-                </section>
-            </article>
+            <div class="title" style="grid-row: 1; grid-column: 1;">
+                <strong>Minecraft<br>Maps</strong>
+            </div>
+            <div class="contents" style="grid-row: 1; grid-column: 2;">
+                <ul style="list-style-type: none;">
+                    <li><a href="https://nixinova.com/downloads/minecraft/maps/skywars">SkyWars</a></li>
+                    <li><a href="https://nixinova.com/downloads/minecraft/maps/kitpvp">KitPvP</a></li>
+                    <li><a href="https://nixinova.com/downloads/minecraft/maps/musical-blocks">Musical&nbsp;Blocks</a></li>
+                </ul>
+            </div>
 
-            <article>
-                <h2>Minecraft Tools</h2>
-                <section>
-                    <a href="/minecraft/tools/give">
-                        <h3><samp>/give</samp></h3>
-                        <p>Generates custom <samp>/give</samp> item or block commands with NBT for Minecraft 1.13–1.15.</p>
-                    </a>
-                </section>
-                <section>
-                    <a href="/minecraft/tools/summon">
-                        <h3><samp>/summon</samp></h3>
-                        <p>Generates custom <samp>/summon</samp> entity commands for Minecraft 1.13–1.15.</p>
-                    </a>
-                </section>
-                <section>
-                    <a href="/minecraft/tools/coordinates">
-                        <h3>Coordinates</h3>
-                        <p>Converts overworld coordinates into nether, chunk, and region coordinates.</p>
-                    </a>
-                </section>
-            </article>
-            
-            <article>
-                <h2>Minecraft Resource Packs</h2>
-                <section>
-                    <a href="/minecraft/resource-packs/mash-up">
-                        <h3>Nixinova Mash-Up</h3>
-                        <p>My current resource pack for Minecraft 1.14, based on Faithful with a collection of textures from other packs.</p>
-                    </a>
-                </section>
-                <section>
-                    <a href="/minecraft/resource-packs/themed">
-                        <h3>Themed Mash-Up</h3>
-                        <p>Somewhat annual holiday-themed (Easter and Christmas) versions of my regular mash-up pack.</p>
-                    </a>
-                </section>
-                <section>
-                    <a href="/minecraft/resource-packs/herobrinenzk">
-                        <h3>HeroBrineNZK RP</h3>
-                        <p>The first version of my Minecraft resource pack which retextures creepers, music discs, and ores.</p>
-                    </a>
-                </section>
-            </article>
+            <div class="title" style="grid-row: 2; grid-column: 2;">
+                <strong>Minecraft<br>Tools</strong>
+            </div>
+            <div class="contents" style="grid-row: 2; grid-column: 1;">
+                <ul style="list-style-type: none;">
+                    <li><a href="https://nixinova.com/tools/minecraft/give">/give</a></li>
+                    <li><a href="https://nixinova.com/tools/minecraft/commands/summon">/summon</a></li>
+                    <li><a href="https://nixinova.com/tools/minecraft/commands/coordinates">Coordinates</a></li>
+                </ul>
+            </div>
 
-            <article>
-                <h2>Hytale API</h2>
-                <section>
-                    <a href="/hytale/api/blog-api">
-                        <h3>Blog API</h3>
-                        <p>Generate information about a selected Hytale blog post from an automatically updating list.</p>
-                    </a>
-                </section>
-            </article>
+            <div class="title" style="grid-row: 3; grid-column: 1;">
+                <strong>Minecraft<br>Resource Packs</strong>
+            </div>
+            <div class="contents" style="grid-row: 3; grid-column: 2;">
+                <ul style="list-style-type: none;">
+                    <li><a href="https://nixinova.com/downloads/minecraft/resource-packs/mash-up">Mash-Up</a></li>
+                    <li><a href="https://nixinova.com/downloads/minecraft/resource-packs/themed">Themed</a></li>
+                    <li><a href="https://nixinova.com/downloads/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                </ul>
+            </div>
+
+            <div class="title" style="grid-row: 4; grid-column: 2;">
+                <strong>Hytale<br>API</strong>
+            </div>
+            <div class="contents" style="grid-row: 4; grid-column: 1;">
+                <ul style="list-style-type: none;">
+                    <li><a href="https://nixinova.com/hytale/api/blog-api">APIs</a></li>
+                </ul>
+            </div>
 
         </div>
 
     </main>
 
     <footer style="margin-top: 0;"></footer>
-    <script id="load-footer">$("footer").load("imports/footer"); $('#load-footer').remove();</script>
+    <script id="load-footer">$("footer").load("https://nixinova.com/imports/footer"); $('#load-footer').remove();</script>
 </body>
 </html>
