@@ -32,20 +32,11 @@
         function getInfo() {
             let selected_blog = $('#titles').val();
             let index = blog.urls.indexOf(selected_blog);
-            let date = new Date(blog.dates[index]);
 
             const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
             const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-            let year = date.getUTCFullYear();
-            let month = date.getUTCMonth() + 1;
-            let monthname = months[date.getUTCMonth()];
-            let day = date.getUTCDate();
-            let weekday = weekdays[date.getUTCDay()];
-            let hour = date.getUTCHours().toString().padStart(2, '0');
-            let min = date.getUTCMinutes().toString().padStart(2, '0');
-            let sec = date.getUTCSeconds().toString().padStart(2, '0');
-
+            let date = moment(blog.dates[index]).format('LL [at] LTS zz'); // dddd D MMMM YYYY [at] HH:mm:ss zz
             let image = 'https://cdn.hytale.com/variants/blog_cover_' + blog.images[index];
             let url = `https://hytale.com/news/${year}/${date.getUTCMonth()+1}/${selected_blog}`;
             let title = blog.titles[index];
@@ -56,10 +47,7 @@
                 <img src="${image}">
                 <h3>${title}</h3>
                 <em>
-                    Posted on
-                    <time datetime="${blog.dates[index]}">
-                        ${weekday} ${day} ${monthname} ${year} at ${hour}:${min}:${sec} UTC
-                    </time>
+                    Posted on <time datetime="${blog.dates[index]}">${date}</time>
                     by ${author}
                 </em>
                 <p style="line-height: 1.8;">
