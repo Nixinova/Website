@@ -3,6 +3,13 @@
     if (window.location.href.includes('imports/navigation')){
         $('head').append('<meta name="robots" content="noindex">');
     }
+    
+    function showElements() {	
+        for (let i of arguments) $(i).removeClass('hide').css("opacity", 1);	
+    }	
+    function hideElements() {	
+        for (let i of arguments) $(i).css("opacity", 0).addClass('hide');	
+    }
 
     var mobilenav_visible = false;
     function toggleNav() {
