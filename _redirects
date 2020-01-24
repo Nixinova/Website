@@ -1,24 +1,38 @@
-#subdomains
-/images/*           https://images.nixinova.com/:splat
+# Subdomains
+/images/*					https://images.nixinova.com/:splat
 
-#assets
-/css/*              /assets/css/:splat
-/imports/*          /assets/imports/:splat
+# Assets
+/css/*						/assets/css/:splat
+/imports/*					/assets/imports/:splat
 
-#maps
-/maps/*             /minecraft/maps/:splat
-/skywars            /minecraft/maps/skywars
-/musical-blocks     /minecraft/maps/musical-blocks
-/kitpvp             /minecraft/maps/kitpvp
+#temp# to keep# # Shortcuts
+#temp# to keep# /musical-blocks	 			/downloads/minecraft/maps/musical-blocks
+#temp# to keep# /kitpvp			 			/downloads/minecraft/maps/kitpvp
+#temp# to keep# /skywars					/downloads/minecraft/maps/skywars
+#temp# to keep# /herobrinenzk				/downloads/minecraft/resource-packs/herobrinenzk
+#temp# to keep# /mash-up					/downloads/minecraft/resource-packs/mash-up
+#temp# to keep# /themed			 			/downloads/minecraft/resource-packs/themed
+#temp# to keep# /give						/tools/give
+#temp# to keep# /summon			 			/tools/summon
+#temp# to keep# /coordinates				/tools/coordinates
+#temp# to keep# 
+#temp# to keep# # Page moves
+#temp# to keep# /maps/*			 			/downloads/minecraft/maps/:splat
+#temp# to keep# /resource-packs/*			/downloads/minecraft/resource-packs/:splat
+#temp# to keep# /tools/*					/downloads/minecraft/tools/:splat
+#temp# to keep# /minecraft/maps/*			/downloads/minecraft/maps/:splat
+#temp# to keep# /minecraft/resource-packs/*	/downloads/minecraft/resource-packs/:splat
+#temp# to keep# /minecraft/tools/*			/tools/minecraft/:splat
+#temp# to keep# /hytale/api/*				/tools/hytale/api/:splat
 
-#tools
-/tools/*            /minecraft/tools/:splat
-/give               /minecraft/tools/give
-/summon             /minecraft/tools/summon
-/coordinates        /minecraft/tools/coordinates
-
-#resource packs
-/resource-packs/*   /minecraft/resource-packs/:splat
-/mash-up            /minecraft/resource-packs/mash-up
-/themed             /minecraft/resource-packs/themed
-/herobrinenzk       /minecraft/resource-packs/herobrinenzk
+#temp#to remove#
+/downloads/minecraft/maps/kitpvp                    /minecraft/maps/kitpvp
+/downloads/minecraft/maps/musical-blocks            /minecraft/maps/musical-blocks
+/downloads/minecraft/maps/skywars                   /minecraft/maps/skywars
+/downloads/minecraft/resource-packs/herobrinenzk    /minecraft/resource-packs/herobrinenzk
+/downloads/minecraft/resource-packs/mash-up         /minecraft/resource-packs/mash-up
+/downloads/minecraft/resource-packs/themed          /minecraft/resource-packs/themed
+/tools/hytale/api/blog                              /hytale/api/blog-api
+/tools/minecraft/coordinates                        /minecraft/tools/coordinated
+/tools/minecraft/give                               /minecraft/tools/give
+/tools/minecraft/summon                             /minecraft/tools/summon
