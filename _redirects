@@ -19,7 +19,6 @@
 # Page moves
 /maps/*			 			/downloads/minecraft/maps/:splat
 /resource-packs/*			/downloads/minecraft/resource-packs/:splat
-/tools/*					/downloads/minecraft/tools/:splat
 /minecraft/maps/*			/downloads/minecraft/maps/:splat
 /minecraft/resource-packs/*	/downloads/minecraft/resource-packs/:splat
 /minecraft/tools/*			/tools/minecraft/:splat
