@@ -14,7 +14,7 @@
     <script>
         var blog = {titles: [], urls: [], dates: [], excerpts: [], authors: [], images: []};
         $.ajax({
-            url: 'https://hytale.com/api/blog/post/published'
+            url: 'https://cors-anywhere.herokuapp.com/https://hytale.com/api/blog/post/published'
         }).done(function(data) {
             let blogs = data;
             for (i in blogs) {
