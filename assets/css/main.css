@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 /* Variabels */
-:root {--body-color: #313131; --header-color: #222;}
+:root {--body-color: #313131; --header-color: #222; --header-height: 80px;}
 
 /* Base elements */
 * {box-sizing: border-box; transition: 0.5s;}
-body {font: normal 15px 'Montserrat', sans-serif; color: #eee; margin: 0; line-height: 1.8; background: var(--body-color);}
+body {font: normal 15px 'Montserrat', sans-serif; background: var(--body-color); margin: var(--header-height) 0 0; color: #eee; line-height: 1.8;}
 nav {background: var(--header-color);}
 footer {width: 100%; padding: 15px; margin-top: 15px; background: var(--header-color); border-top: solid #fff; text-align: center;}
 p {text-align: center;}
