@@ -24,10 +24,10 @@
         
         /* Showcase */
         #showcase {background: #222; text-align: center;}
-        #showcase div {font-size: 4em;}
+        #showcase div {height: 50vw; font-size: 4em; padding: calc(25vw - 110px) 0;}
         #showcase ul {margin-left: 0;}
         #showcase a {color: #222;}
-        #showcase .title {background: #222; color: #eee; margin: auto;}
+        #showcase .title {background: #222; color: #eee;}
         #showcase .contents {background: #eee; color: #222;}
         
         /*
@@ -117,6 +117,8 @@
     </main>
 
     <footer style="margin-top: 0;"></footer>
-    <script id="load-footer">$("footer").load("https://nixinova.com/imports/footer"); $('#load-footer').remove();</script>
+    <script id="load-footer">
+        $("footer").load("https://nixinova.com/imports/footer"); $('footer hr').remove(); $('#load-footer').remove();
+    </script>
 </body>
 </html>
