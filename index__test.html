@@ -23,7 +23,13 @@
         #down-arrow a i {font-size: 2em; visibility: hidden;}
         
         /* Showcase */
-        #showcase {background: #313131; min-height: calc(100vh - 60px); text-align: center;}/*
+        #showcase {background: #313131; text-align: center;}
+        #showcase div {font-size: 4em;}
+        #showcase ul {margin-left: 0;}
+        #showcase .title {background: #222; color: #eee;}
+        #showcase .contents {background: #eee; color: #222;}
+        
+        /*
         #showcase article {display: block; padding: 10px 15px; width: 97%;}
         #showcase article section {background: #46484e; width: 100%; padding: 10px 25px; display: inline-block; vertical-align: top; min-height: 14em;}
         #showcase article section h3 {white-space: nowrap; margin-bottom: 0.5em;}
@@ -35,15 +41,11 @@
             #showcase article section {width: 25%; margin: 0 10px; border-radius: 5px;
         }*/
 
-        .half {font-size: 4em;}
-        ul {margin-left: 0;}
 
         @media (min-width: 1051px) {
-            .half {width: 50vw; height: 50vw;}
-            section {display: flex;}
+            #showcase {display: grid;}
         }
         @media (max-width: 1050px) {
-            .half {width: 100vw; height: 50vh;}
         }
     </style>
     <script src="https://code.Jquery.com/jquery-3.4.1.min.js"></script>
@@ -67,71 +69,47 @@
 
         <div id="showcase">
             
-            <section id="maps" class="section">
-                <div class="half" style="background: #eee; color: #222;">
-                    <div style="padding-top: calc(25vw - 215.88px / 2);">
-                        <strong>Minecraft<br>Maps</strong>
-                    </div>
-                </div>
-                <div class="half" style="background: #222; color: #eee;">
-                    <div style="padding-top: calc(15%);">
-                        <ul style="list-style-type: none;">
-                            <li><a href="https://nixinova.com/minecraft/maps/skywars">SkyWars</a></li>
-                            <li><a href="https://nixinova.com/minecraft/maps/kitpvp">KitPvP</a></li>
-                            <li><a href="https://nixinova.com/minecraft/maps/musical-blocks">Musical&nbsp;Blocks</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            <div class="title" style="grid-row: 1; grid-column: 1;">
+                <strong>Minecraft<br>Maps</strong>
+            </div>
+            <div class="contents" style="grid-row: 1; grid-column: 2;">>
+                <ul style="list-style-type: none;">
+                    <li><a href="https://nixinova.com/minecraft/maps/skywars">SkyWars</a></li>
+                    <li><a href="https://nixinova.com/minecraft/maps/kitpvp">KitPvP</a></li>
+                    <li><a href="https://nixinova.com/minecraft/maps/musical-blocks">Musical&nbsp;Blocks</a></li>
+                </ul>
+            </div>
 
-            <section id="tools" class="section">
-                <div class="half" style="background: #222; color: #eee;">
-                    <div>
-                        <ul style="list-style-type: none;">
-                            <li><a href="https://nixinova.com/minecraft/tools/give">/give</a></li>
-                            <li><a href="https://nixinova.com/minecraft/tools/summon">/summon</a></li>
-                            <li><a href="https://nixinova.com/minecraft/tools/coordinates">Coordinates</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="half" style="background: #eee; color: #222;">
-                    <div style="padding-top: calc(25vw - 215.88px / 2);">
-                        <strong>Minecraft<br>Tools</strong>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="packs" class="section">
-                <div class="half" style="background: #eee; color: #222;">
-                    <div style="padding-top: calc(25vw - 215.88px / 2);">
-                        <strong>Minecraft<br>Resource Packs</strong>
-                    </div>
-                </div>
-                <div class="half" style="background: #222; color: #eee;">
-                    <div>
-                        <ul style="list-style-type: none;">
-                            <li><a href="https://nixinova.com/minecraft/resource-packs/mash-up">Mash-Up</a></li>
-                            <li><a href="https://nixinova.com/minecraft/resource-packs/themed">Themed</a></li>
-                            <li><a href="https://nixinova.com/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            <div class="title" style="grid-row: 2; grid-column: 2;">
+                <strong>Minecraft<br>Tools</strong>
+            </div>
+            <div class="contents" style="grid-row: 2; grid-column: 1;">
+                <ul style="list-style-type: none;">
+                    <li><a href="https://nixinova.com/minecraft/tools/give">/give</a></li>
+                    <li><a href="https://nixinova.com/minecraft/tools/summon">/summon</a></li>
+                    <li><a href="https://nixinova.com/minecraft/tools/coordinates">Coordinates</a></li>
+                </ul>
+            </div>
 
-            <section id="api" class="section">
-                <div class="half" style="background: #222; color: #eee;">
-                    <div style="padding-top: calc(25vw - 300.89px / 2);">
-                        <ul style="list-style-type: none;">
-                            <li><a href="https://nixinova.com/hytale/api/blog-api">Blog API</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="half" style="background: #eee; color: #222;">
-                    <div style="padding-top: calc(25vw - 215.88px / 2);">
-                        <strong>Hytale<br>API</strong>
-                    </div>
-                </div>
-            </section>
+            <div class="title" style="grid-row: 3; grid-column: 1;">
+                <strong>Minecraft<br>Resource Packs</strong>
+            </div>
+            <div class="contents" style="grid-row: 3; grid-column: 2;">
+                <ul style="list-style-type: none;">
+                    <li><a href="https://nixinova.com/minecraft/resource-packs/mash-up">Mash-Up</a></li>
+                    <li><a href="https://nixinova.com/minecraft/resource-packs/themed">Themed</a></li>
+                    <li><a href="https://nixinova.com/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                </ul>
+            </div>
+
+            <div class="title" style="grid-row: 4; grid-column: 2;">
+                <strong>Hytale<br>API</strong>
+            </div>
+            <div class="contents" style="grid-row: 4; grid-column: 1;">
+                <ul style="list-style-type: none;">
+                    <li><a href="https://nixinova.com/hytale/api/blog-api">Blog API</a></li>
+                </ul>
+            </div>
 
         </div>
 
