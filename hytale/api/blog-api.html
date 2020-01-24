@@ -12,20 +12,12 @@
 </head>
 <body>
     <script>
-        var req = new XMLHttpRequest();
-        req.open("GET","https://cors-anywhere.herokuapp.com/https://hytale.com/api/blog/post/published",false);
-        req.send();
-        var response = req.responseText;
-        var blogs = JSON.parse(response);
-        let blog = {};
-        blog.titles = [];
-        blog.urls = [];
-        blog.dates = [];
-        blog.excerpts = [];
-        blog.authors = [];
-        blog.images = [];
-
-        $( content => {
+        var blog = {titles: [], urls: [], dates: [], excerpts: [], authors: [], images: []};
+        $.ajax({
+            url: 'https://hytale.com/api/blog/post/published',
+            dataType: 'jsonp'
+        }).done(function(data) {
+            let blogs = data;
             for (i in blogs) {
                 blog.titles.push(blogs[i].title);
                 blog.urls.push(blogs[i].slug);
@@ -46,10 +38,13 @@
             const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
             let year = date.getUTCFullYear();
-            let month = months[date.getUTCMonth()];
+            let month = date.getUTCMonth() + 1;
+            let monthname = months[date.getUTCMonth()];
             let day = date.getUTCDate();
-            let hour = ('00' + date.getUTCHours()).slice(-2);
-            let min = ('00' + date.getUTCMinutes()).slice(-2);
+            let weekday = weekdays[date.getUTCDay()];
+            let hour = date.getUTCHours().toString().padStart(2, '0');
+            let min = date.getUTCMinutes().toString().padStart(2, '0');
+            let sec = date.getUTCSeconds().toString().padStart(2, '0');
 
             let image = 'https://cdn.hytale.com/variants/blog_cover_' + blog.images[index];
             let url = `https://hytale.com/news/${year}/${date.getUTCMonth()+1}/${selected_blog}`;
@@ -61,7 +56,10 @@
                 <img src="${image}">
                 <h3>${title}</h3>
                 <em>
-                    Posted on ${day} ${month} ${year} at ${hour}:${min} UTC
+                    Posted on
+                    <time datetime="${blog.dates[index]}">
+                        ${weekday} ${day} ${monthname} ${year} at ${hour}:${min}:${sec} UTC
+                    </time>
                     by ${author}
                 </em>
                 <p style="line-height: 1.8;">
