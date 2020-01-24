@@ -43,9 +43,8 @@
             let author = blogs.authors[index];
             let excerpt = blogs.excerpts[index];
 
-            $('body').css('background-image',`url(${image})`);
-
             $('output').html(`
+                <img src="${image}">
                 <h3>${title}</h3>
                 <em>
                     Posted on <time datetime="${blogs.dates[index]}">${date.format('dddd D MMMM YYYY [at] HH:mm:ss [UTC]')}</time>
