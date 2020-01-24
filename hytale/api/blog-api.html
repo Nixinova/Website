@@ -12,41 +12,41 @@
 </head>
 <body>
     <script>
-        var blog = {titles: [], urls: [], dates: [], excerpts: [], authors: [], images: []};
+        var blogs = {titles: [], urls: [], dates: [], excerpts: [], authors: [], images: []};
         $.ajax({
             url: 'https://cors-anywhere.herokuapp.com/https://hytale.com/api/blog/post/published'
         }).done(function(data) {
-            let blogs = data;
-            for (i in blogs) {
-                blog.titles.push(blogs[i].title);
-                blog.urls.push(blogs[i].slug);
-                blog.dates.push(blogs[i].publishedAt);
-                blog.excerpts.push(blogs[i].bodyExcerpt);
-                blog.authors.push(blogs[i].author);
-                blog.images.push(blogs[i].coverImage.s3Key);
-                $('#titles').html(`<option value="${blog.urls[i]}">${blog.titles[i]}</option>`);
+            for (i in data) {
+                blogs.titles.push(data[i].title);
+                blogs.urls.push(data[i].slug);
+                blogs.dates.push(data[i].publishedAt);
+                blogs.excerpts.push(data[i].bodyExcerpt);
+                blogs.authors.push(data[i].author);
+                blogs.images.push(data[i].coverImage.s3Key);
+                $('#titles').html(`<option value="${data.urls[i]}">${data.titles[i]}</option>`);
             }
+            $('#get-info').text('Get info');
         });
 
         function getInfo() {
             let selected_blog = $('#titles').val();
-            let index = blog.urls.indexOf(selected_blog);
+            let index = blogs.urls.indexOf(selected_blog);
 
             const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
             const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-            let date = moment(blog.dates[index]);
-            let image = 'https://cdn.hytale.com/variants/blog_cover_' + blog.images[index];
+            let date = moment(blogs.dates[index]);
+            let image = 'https://cdn.hytale.com/variants/blog_cover_' + blogs.images[index];
             let url = `https://hytale.com/news/${date.year()}/${date.month()+1}/${selected_blog}`;
-            let title = blog.titles[index];
-            let author = blog.authors[index];
-            let excerpt = blog.excerpts[index];
+            let title = blogs.titles[index];
+            let author = blogs.authors[index];
+            let excerpt = blogs.excerpts[index];
 
             $('output').html(`
                 <img src="${image}">
                 <h3>${title}</h3>
                 <em>
-                    Posted on <time datetime="${blog.dates[index]}">${date.format('dddd D MMMM YYYY [at] HH:mm:ss [UTC]')}</time>
+                    Posted on <time datetime="${blogs.dates[index]}">${date.format('dddd D MMMM YYYY [at] HH:mm:ss [UTC]')}</time>
                     by ${author}
                 </em>
                 <p style="line-height: 1.8;">
@@ -71,7 +71,7 @@
                     <select id="titles" style="width: auto; max-width: 60%;">
                         <option>Loading blog posts...</option>
                     </select> &nbsp;
-                    <button onclick="getInfo()">Get info</button><br>
+                    <button id="get-info" onclick="getInfo();"></button><br>
                 </p>
             </div>
             <output style="margin: 1em; display: block;"></output>
