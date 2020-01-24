@@ -37,7 +37,7 @@
 
             let date = moment(blog.dates[index]);
             let image = 'https://cdn.hytale.com/variants/blog_cover_' + blog.images[index];
-            let url = `https://hytale.com/news/${date.year()}/${date.month()}/${selected_blog}`;
+            let url = `https://hytale.com/news/${date.year()}/${date.month()+1}/${selected_blog}`;
             let title = blog.titles[index];
             let author = blog.authors[index];
             let excerpt = blog.excerpts[index];
