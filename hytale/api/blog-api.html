@@ -16,6 +16,7 @@
         $.ajax({
             url: 'https://cors-anywhere.herokuapp.com/https://hytale.com/api/blog/post/published'
         }).done(function(data) {
+            $('#titles').html('');
             for (i in data) {
                 blogs.titles.push(data[i].title);
                 blogs.urls.push(data[i].slug);
