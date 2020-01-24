@@ -42,10 +42,10 @@
     #scrollbar {position: fixed; top: 0px; left: 0px; height: 3px; background-color: #50c878;}
 
     #header {height: var(--header-height); display: flex;}
+    #header-search, #menu-icon {width: 80px; padding: 25px; cursor: pointer; z-index: 10;}
 
     #menu {background-color: var(--header-color); max-width: 600px; margin: auto;}
     #menu ul {margin: 0.5em 0;}
-    #menu-icon {width: 3em; padding: 20px; cursor: pointer; z-index: 10;}
     #menu-logo {height: 80px; margin: auto;}
     .menu-visible {position: fixed; width: 100vw; height: 100vh;}
     .menu-section {margin: auto;}
@@ -61,19 +61,18 @@
 <div id="header">
 
     <div id="menu-icon">
-        <a href="#"><i class="fas fa-bars" style="font-size: 2em;" onclick="toggleNav();"></i></a>
+        <a href="javascript:toggleNav();"><i class="fas fa-bars" style="font-size: 2em;"></i></a>
     </div>
 
-    <div id="menu-logo">
+    <div>
         <a href="/">
-            <img src="/images/nixinova.png" alt="Nixinova"><span></span>
+            <img id="menu-logo" src="/images/nixinova.png" alt="Nixinova"><span></span>
         </a>
     </div>
 
     <div id="header-search">
-        <input type="text" id="search-text">
-        <a onclick="location = 'https:/\/nixinova.com/search#gsc.q=' + $('#search-text').val();">
-            <i class="fas fa-search"></i>
+        <a href="javascript: location = 'https:/\/nixinova.com/search#gsc.q=' + $('#search-text').val();">
+            <i class="fas fa-search" style="font-size: 2em;"></i>
         </a>
     </div>
 
