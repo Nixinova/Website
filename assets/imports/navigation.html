@@ -1,61 +1,69 @@
 
 <!-- Imported from /assets/imports/navigation -->
-<link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
-<script>
-    if (window.location.href.includes('imports/navigation')){
-        $('head').append('<meta name="robots" content="noindex">');
-    }
-    
-    function showElements() {	
-        for (let i of arguments) $(i).removeClass('hide').css("opacity", 1);	
-    }	
-    function hideElements() {	
-        for (let i of arguments) $(i).css("opacity", 0).addClass('hide');	
-    }
-
-    var nav_visible = false;
-    function toggleNav() {
-        if (nav_visible) {
-            hideElements('#menu');
-            showElements('main','footer');
-            $('#menu').removeClass('menu-visible');
-            nav_visible = false;
-        } else {
-            showElements('#menu');
-            hideElements('main','footer');
-            $('#menu').addClass('menu-visible')
-            nav_visible = true;
-        } 
-    }
-    
-    window.addEventListener('scroll', function(){
-      let t = $(window).scrollTop();
-      let d = $(document).height();
-      let h = $(window).height();
-      $('#scollbar') .css('width', (t / (d - h)) * 100);
-    })
-    
-    $('main').attr("onmouseover", "hideAll();");
+<script id="import-into-header">
+    $('head').append($('#move-to-header').html());
+    $('#move-to-header').remove();
+    $('#import-into-header').remove();
 </script>
-<style>
+<span id="move-to-header">
+    <link name="FontAwesome import" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
+    <script name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
+    <script id="navigation-scripts">
+        if (window.location.href.includes('imports/navigation')){
+            $('head').append('<meta name="robots" content="noindex">');
+        }
 
-    i {visibility: hidden;}
-    nav * div {transition: 0.1s;}
-    #scrollbar {position: fixed; top: 0px; left: 0px; height: 3px; background-color: #50c878;}
+        function showElements() {	
+            for (let i of arguments) $(i).removeClass('hide').css("opacity", 1);	
+        }	
+        function hideElements() {	
+            for (let i of arguments) $(i).css("opacity", 0).addClass('hide');	
+        }
 
-    #header {height: 80px; display: flex;}
-    #header-search, #menu-icon {width: 80px; padding: 25px; color: white; cursor: pointer; z-index: 10;}
-    #header-search a, #menu-icon a {color: white;}
+        var nav_visible = false;
+        function toggleNav() {
+            if (nav_visible) {
+                hideElements('#menu');
+                showElements('main','footer');
+                $('#menu').removeClass('menu-visible');
+                nav_visible = false;
+            } else {
+                showElements('#menu');
+                hideElements('main','footer');
+                $('#menu').addClass('menu-visible')
+                nav_visible = true;
+            } 
+        }
 
-    #menu {background-color: var(--body-color); margin: auto; padding-bottom: 40vw;}
-    #menu ul {margin: 0.5em 0;}
-    #menu-logo {margin: auto;}
-    .menu-visible {position: fixed; width: 100vw; height: 100vh;}
-    .menu-section {margin: auto;}
-    .menu-header {display: block; font-size: 2em; text-align: center;}
-    .desktop-flex {display: flex;}
+        window.addEventListener('scroll', function(){
+          let t = $(window).scrollTop();
+          let d = $(document).height();
+          let h = $(window).height();
+          $('#scollbar') .css('width', (t / (d - h)) * 100);
+        })
 
-</style>
+        $('main').attr("onmouseover", "hideAll();");
+    </script>
+    <style id="navigation-styles">
+
+        i {visibility: hidden;}
+        nav * div {transition: 0.1s;}
+        #scrollbar {position: fixed; top: 0px; left: 0px; height: 3px; background-color: #50c878;}
+
+        #header {height: 80px; display: flex;}
+        #header-search, #menu-icon {width: 80px; padding: 25px; color: white; cursor: pointer; z-index: 10;}
+        #header-search a, #menu-icon a {color: white;}
+
+        #menu {background-color: var(--body-color); margin: auto; padding-bottom: 40vw;}
+        #menu ul {margin: 0.5em 0;}
+        #menu-logo {margin: auto;}
+        .menu-visible {position: fixed; width: 100vw; height: 100vh;}
+        .menu-section {margin: auto;}
+        .menu-header {display: block; font-size: 2em; text-align: center;}
+        .desktop-flex {display: flex;}
+
+    </style>
+</span>
 <span id="scrollbar"></span>
 
 <div id="header">
