@@ -14,7 +14,7 @@
     <script>
         var usernames = [];
         function getInfo(username) {
-            $('output ul').html('Loading...');
+            $('output strong').html('Loading...');
             $.ajax({
                 url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
             }).done(function(data) {
@@ -23,15 +23,15 @@
                     $.ajax({
                         url: `https://cors-anywhere.herokuapp.com/https://api.mojang.com/user/profiles/${uuid}/names`
                     }).done(function(data) {
-                        $('output ul').empty();
+                        $('output strong').empty();
                         for (i in data) {
                             let name = data[i].name;
                             let date = moment(data[i].changedToAt).format('D MMMM YYYY [at] HH:mm:ss [UTC]');
                             if (i == 0) {
-                                $('output p').html(`${name} (UUID ${uuid})`);
+                                $('output strong').html(`${name} (UUID ${uuid})`);
                                 $('output ul').append(`<li>Name #1: ${name}`);
                             } else {
-                                let current = i == data.length-1 ? " (current)" : "";
+                                let current = (i == data.length-1) ? " (current)" : "";
                                 $('output ul').append(`<li> Name #${parseInt(i)+1}${current}: ${name} (changed on ${date})</li>`);
                             }
                         }
@@ -58,7 +58,7 @@
             </p>
         </div>
         <output style="margin: 1em; display: block;">
-            <p></p>
+            <strong></strong>
             <ul></ul>
         </output>
     </main>
