@@ -13,24 +13,13 @@
             $('head').append('<meta name="robots" content="noindex">');
         }
 
-        function showElements() {	
-            for (let i of arguments) $(i).removeClass('hide').css("opacity", 1);	
-        }	
-        function hideElements() {	
-            for (let i of arguments) $(i).css("opacity", 0).addClass('hide');	
-        }
-
         var nav_visible = false;
         function toggleNav() {
             if (nav_visible) {
-                hideElements('#menu');
-                showElements('main','footer');
-                $('#menu').removeClass('menu-visible');
+                $('#menu').css("opacity", 1).removeClass('menu-visible').css("opacity", 0);
                 nav_visible = false;
             } else {
-                showElements('#menu');
-                hideElements('main','footer');
-                $('#menu').addClass('menu-visible')
+                $('#menu').css("opacity", 0).addClass('menu-visible').css("opacity", 1);
                 nav_visible = true;
             } 
         }
@@ -41,8 +30,6 @@
           let h = $(window).height();
           $('#scollbar') .css('width', (t / (d - h)) * 100);
         })
-
-        $('main').attr("onmouseover", "hideAll();");
     </script>
     <style id="navigation-styles">
 
@@ -54,10 +41,10 @@
         #header-search, #menu-icon {width: 80px; padding: 25px; color: white; cursor: pointer; z-index: 10;}
         #header-search a, #menu-icon a {color: white;}
 
-        #menu {background-color: var(--body-color); margin: auto; padding-bottom: 40vw;}
+        #menu {background-color: var(--body-color);}
         #menu ul {margin: 0.5em 0;}
         #menu-logo {margin: auto;}
-        .menu-visible {position: fixed; width: 100vw; height: 100vh;}
+        .menu-visible {position: absolute; width: 100vw;}
         .menu-section {margin: auto;}
         .menu-header {display: block; font-size: 2em; text-align: center;}
         .desktop-flex {display: flex;}
