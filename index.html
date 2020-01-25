@@ -26,7 +26,7 @@
         
         /* Showcase */
         #showcase {background: #222; text-align: center; font-size: 4em;}
-        #showcase ul {padding-left: 0;}
+        #showcase ul {padding-left: 0; list-style-type: none;}
         #showcase a {color: #222;}
         #showcase .title {background: #222; color: #eee;}
         #showcase .contents {background: #eee; color: #222;}
@@ -38,6 +38,7 @@
             #showcase .contents { padding: calc(25vw - 220px) 0;}
         }
         @media (max-width: 1050px) {
+            .mobile-nomargin {margin-block-start: 0; margin-block-end: 0;}
         }
     </style>
 </head>
@@ -64,7 +65,7 @@
                 <strong>Minecraft<br>Maps</strong>
             </div>
             <div class="contents" style="grid-row: 1; grid-column: 2;">
-                <ul style="list-style-type: none;">
+                <ul>
                     <li><a href="https://nixinova.com/downloads/minecraft/maps/skywars">SkyWars</a></li>
                     <li><a href="https://nixinova.com/downloads/minecraft/maps/kitpvp">KitPvP</a></li>
                     <li><a href="https://nixinova.com/downloads/minecraft/maps/musical-blocks">Musical&nbsp;Blocks</a></li>
@@ -75,7 +76,7 @@
                 <strong>Minecraft<br>Tools</strong>
             </div>
             <div class="contents" style="grid-row: 2; grid-column: 1;">
-                <ul style="list-style-type: none;">
+                <ul>
                     <li><a href="https://nixinova.com/tools/minecraft/give">/give</a></li>
                     <li><a href="https://nixinova.com/tools/minecraft/commands/summon">/summon</a></li>
                     <li><a href="https://nixinova.com/tools/minecraft/commands/coordinates">Coordinates</a></li>
@@ -86,7 +87,7 @@
                 <strong>Minecraft<br>Resource Packs</strong>
             </div>
             <div class="contents" style="grid-row: 3; grid-column: 2;">
-                <ul style="list-style-type: none;">
+                <ul>
                     <li><a href="https://nixinova.com/downloads/minecraft/resource-packs/mash-up">Mash-Up</a></li>
                     <li><a href="https://nixinova.com/downloads/minecraft/resource-packs/themed">Themed</a></li>
                     <li><a href="https://nixinova.com/downloads/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
@@ -97,7 +98,7 @@
                 <strong>Hytale<br>APIs</strong>
             </div>
             <div class="contents" style="grid-row: 4; grid-column: 1;">
-                <ul style="list-style-type: none;">
+                <ul class="mobile-nomargin">
                     <li><a href="https://nixinova.com/hytale/api/blog-api">Blog API</a></li>
                 </ul>
             </div>
