@@ -16,10 +16,10 @@
         var nav_visible = false;
         function toggleNav() {
             if (nav_visible) { // hide:
-                $('#menu').css('opacity',0);
+                $('#menu').addClass('hide');
                 nav_visible = false;
             } else { // show:
-                $('#menu').css('opacity',1);
+                $('#menu').removeClass('hide');
                 nav_visible = true;
             } 
         }
@@ -74,7 +74,7 @@
 
 <hr style="margin: 0;"/>
 
-<div id="menu" style="opacity: 0;">
+<div id="menu">
 
     <div class="desktop-flex">
 
