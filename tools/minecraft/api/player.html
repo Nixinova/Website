@@ -34,13 +34,17 @@
                         for (i in data) {
                             let name = data[i].name;
                             let date = moment(data[i].changedToAt).format('D MMMM YYYY [at] HH:mm:ss [UTC]');
-                            if (i == 0 && data.length == 1) {
+                            if (i === 0 && data.length === 1) {//a
+                                $('output').addClass('a'+i);
                                 $('output ul').append(`<li>Current name: ${name}</li>`);
-                            } else if (i+1 == data.length) {
+                            } else if (i === data.length-1) {//b
+                                $('output').addClass('b'+i);
                                 $('output ul').append(`<li>Name #${parseInt(i)+1} (current): ${name} (changed on ${date})</li>`);
-                            } else if (i == 0) {
+                            } else if (i === 0) {//c
+                                $('output').addClass('c'+i);
                                 $('output ul').append(`<li>Name #1: ${name}</li>`);
-                            } else {
+                            } else {//d
+                                $('output').addClass('d'+i);
                                 $('output ul').append(`<li>Name #${parseInt(i)+1}: ${name} (changed on ${date})</li>`);
                             }
                         }
