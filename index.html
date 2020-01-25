@@ -25,20 +25,21 @@
         #down-arrow a i {font-size: 1em; visibility: hidden;}
         
         /* Showcase */
-        #showcase {background: #222; text-align: center; font-size: 4em;}
+        #showcase {background: #222; text-align: center;}
         #showcase ul {padding-left: 0; list-style-type: none;}
         #showcase a {color: #222;}
         #showcase .title {background: #222; color: #eee;}
         #showcase .contents {background: #eee; color: #222;}
 
         @media (min-width: 1051px) {
-            #showcase {display: grid;}
+            #showcase {display: grid; font-size: 4em;}
             #showcase div {width: 50vw; height: 50vw;}
             #showcase .title { padding: calc(25vw - 110px) 0;}
             #showcase .contents { padding: calc(25vw - 220px) 0;}
         }
         @media (max-width: 1050px) {
             .mobile-nomargin {margin-block-start: 0; margin-block-end: 0;}
+            #showcase {font-size: 3em;}
         }
     </style>
 </head>
