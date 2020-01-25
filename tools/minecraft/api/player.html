@@ -14,6 +14,7 @@
     <script>
         var usernames = [];
         function getInfo(username) {
+            $('output ul').empty();
             $.ajax({
                 url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
             }).done(function(data) {
@@ -27,7 +28,7 @@
                             let name = data[i].name;
                             let date = moment(data[i].changedToAt).format('ddd D MMM YYYY [at] HH:mm:ss [UTC]');
                             $('output ul').append(`
-                            <li>Name #${data.length-i+1}: ${name} (changed at ${date})</li>
+                            <li>Name #${i}: ${name} (changed at ${date})</li>
                             `);
                         }
                     }
@@ -45,7 +46,7 @@
         <p style="text-align: center;">Get information about any Minecraft player.</p>
         <div>
             <p style="text-align: center;">
-                <label>Blog post:</label>
+                <label>Username:</label>
                 <input type="text" id="input-username"> &nbsp;
                 <button id="get-info" onclick="getInfo($('#input-username').val());">Get info</button><br>
             </p>
