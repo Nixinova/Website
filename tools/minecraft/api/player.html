@@ -23,24 +23,22 @@
                     $.ajax({
                         url: `https://cors-anywhere.herokuapp.com/https://api.mojang.com/user/profiles/${uuid}/names`
                     }).done(function(data) {
-                        $('output p strong').empty();
+                        $('output p').empty();
                         for (i in data) {
                             let name = data[i].name;
                             let date = moment(data[i].changedToAt).format('D MMMM YYYY [at] HH:mm:ss [UTC]');
+                            if (i+1 == data.length) {
                             let uuidFormatted = [
                                 uuid.substring(0,8),
-                                uuid.substring(9,12),
-                                uuid.substring(13,16),
-                                uuid.substring(17,20),
+                                uuid.substring(9,12), uuid.substring(13,16), uuid.substring(17,20),
                                 uuid.substring(21,32)
                             ].join('-');
-                            if (i+1 == data.length) {
-                                $('output strong').html(`<strong>${name} (UUID ${uuid})</strong>`);
-                                $('output ul').append(`<li> Name #${parseInt(i)+1} (current): ${name} (changed on ${date})</li>`);
+                                $('output p').html(`<strong>${name} (UUID ${uuidFormatted})</strong>`);
+                                $('output ul').append(`<li> Name #${parseInt(i)+1} (current): ${name} (changed on ${date}) </li>`);
                             } else if (i == 0) {
-                                $('output ul').append(`<li>Name #1: ${name}`);
+                                $('output ul').append(`<li> Name #1: ${name} </li>`);
                             } else {
-                                $('output ul').append(`<li> Name #${parseInt(i)+1}: ${name} (changed on ${date})</li>`);
+                                $('output ul').append(`<li> Name #${parseInt(i)+1}: ${name} (changed on ${date}) </li>`);
                             }
                         }
                     });
