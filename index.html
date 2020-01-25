@@ -16,7 +16,7 @@
         :root {--blue: #33b; scroll-behavior: smooth;}
         
         /* Image */
-        #image-container {background: var(--blue); padding: calc(50vh - 10.72%) 0; min-height: calc(100vh - 59px);}
+            #image-container {padding: calc(50vh - (58px + 80px)/2) 0; min-height: calc(100vh - 62px);}
         #image-container img {max-width: 50%; margin-left: 25%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
         
         /* Down arrow */
@@ -49,7 +49,7 @@
         <script id="load-nav">$('nav').load('https://nixinova.com/imports/navigation'); $('#load-nav').remove();</script>
     </header>
 
-    <main style="margin-bottom: -3px;">
+    <main>
 
         <div id="image-container" class="section">
             <img src="https://nixinova.com/images/nixinova.png" alt="&thinsp;NIXINOVA" onmousedown="return false;">
