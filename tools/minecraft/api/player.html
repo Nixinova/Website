@@ -26,10 +26,10 @@
                             if (i == 0) {
                                 $('output ul').append(`<li>Name #1: ${data[i].name}`);
                             } else {
-                                let text = i == data.length-1 ? "Current username: " : "Name #${parseInt(i)+1}:";
+                                let current = i == data.length-1 ? " (current)" : "";
                                 let name = data[i].name;
                                 let date = moment(data[i].changedToAt).format('D MMMM YYYY [at] HH:mm:ss [UTC]');
-                                $('output ul').append(`<li> ${text} ${name} (changed on ${date})</li>`);
+                                $('output ul').append(`<li> Name #${parseInt(i)+1}${current}: ${name} (changed on ${date})</li>`);
                             }
                         }
                     });
