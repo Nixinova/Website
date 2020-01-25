@@ -9,7 +9,6 @@
 body {font: normal 15px 'Montserrat', sans-serif; background: var(--body-color); margin: 0; color: #eee; line-height: 1.8;}
 main {margin-top: 80px;}
 nav {background: var(--header-color);}
-footer {width: 100%; padding: 15px; margin-top: 15px; background: var(--header-color); border-top: solid #fff; text-align: center;}
 p {text-align: center;}
 code {font-size: 1.1em;}
 kbd {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
@@ -17,6 +16,8 @@ img {max-width: 100%; vertical-align: middle; border: 0;}
 abbr {cursor: help;}
 
 /* Footer */
+footer {width: 100%; padding: 15px; margin-top: 15px; background: var(--header-color); border-top: solid #fff; text-align: center;}
+footer span {white-space: nowrap;}
 @media (min-width: 801px) {
     footer.bottom {position: fixed; bottom: 0;}
 }
