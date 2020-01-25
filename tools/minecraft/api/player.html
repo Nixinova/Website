@@ -1,0 +1,63 @@
+<html lang="en-NZ">
+<head>
+    <title>Minecraft Player API &ndash; Nixinova</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Get information about Minecraft player.">
+    <meta name="keywords" content="nixinova,minecraft,minecraft api,minecraft blog api,minecraft blog info,minecraft blog dates">
+    <meta name="author" content="Nixinova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/tools.css">
+</head>
+<body>
+    <script>
+        var usernames = [];
+        function getInfo(username) {
+            $.ajax({
+                url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
+            }).done(function(data) {
+                $.ajax({
+                    url: `https://cors-anywhere.herokuapp.com/https://api.mojang.com/user/profiles/${data.id}/names`
+                }).done(function(data) {
+                    for (i in data) {
+                        if (i == 0) {
+                            $('output ul').append(`<li>Current username: ${data[0].name}</li`);
+                        } else {
+                            let name = data[i].name;
+                            let date = moment(data[i].changedToAt).format('ddd D MMM YYYY [at] HH:mm:ss [UTC]');
+                            $('output ul').append(`
+                            <li>Name #${data.length-i+1}: ${name} (changed at ${date})</li>
+                            `);
+                        }
+                    }
+                });
+            });
+        }
+    </script>
+    <header>
+        <nav></nav>
+        <script id="load-nav">$("nav").load("/assets/imports/navigation"); $('#load-nav').remove();</script>
+    </header>
+
+    <main class="content">
+        <h1>Minecraft Player API</h1>
+        <p style="text-align: center;">Get information about any Minecraft player.</p>
+        <div>
+            <p style="text-align: center;">
+                <label>Blog post:</label>
+                <input type="text" id="input-username"> &nbsp;
+                <button id="get-info" onclick="getInfo($('#input-username').val());">Get info</button><br>
+            </p>
+        </div>
+        <output style="margin: 1em; display: block;">
+            <ul></ul>
+        </output>
+    </main>
+
+    <footer>
+        <span id="copyright"></span>
+    </footer>
+    <script id="load-copyright">$("#copyright").load("/assets/imports/footer"); $("#load-copyright").remove();</script>
+</body>
+</html>
