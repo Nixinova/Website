@@ -16,10 +16,10 @@
         var nav_visible = false;
         function toggleNav() {
             if (nav_visible) { // hide:
-                $('#menu').css('opacity',0).removeClass('menu-visible').addClass('menu-hidden');
+                $('#menu').css('opacity',0);
                 nav_visible = false;
             } else { // show:
-                $('#menu').addClass('menu-visible').removeClass('menu-hidden').css('opacity',1);
+                $('#menu').css('opacity',1);
                 nav_visible = true;
             } 
         }
@@ -41,11 +41,9 @@
         #header-search, #menu-icon {width: 80px; padding: 25px; color: white; cursor: pointer; z-index: 10;}
         #header-search a, #menu-icon a {color: white;}
 
-        #menu {background-color: var(--body-color);}
+        #menu {background-color: var(--body-color); position: absolute; width: 100vw;}
         #menu ul {margin: 0.5em 0;}
         #menu-logo {margin: auto;}
-        .menu-visible {position: absolute; width: 100vw;}
-        .menu-hidden {height: 0;}
         .menu-section {margin: auto;}
         .menu-header {display: block; font-size: 2em; text-align: center;}
         .desktop-flex {display: flex;}
@@ -76,7 +74,7 @@
 
 <hr style="margin: 0;">
 
-<div id="menu" class="desktop-flex menu-hidden">
+<div id="menu" class="desktop-flex" style="opacity: 0;">
 
     <div class="desktoponly menu-section"></div>
 
