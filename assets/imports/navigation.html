@@ -15,11 +15,11 @@
 
         var nav_visible = false;
         function toggleNav() {
-            if (nav_visible) {
-                $('#menu').css("opacity", 1).removeClass('menu-visible').css("opacity", 0);
+            if (nav_visible) { // hide:
+                $('#menu').css('opacity',0).removeClass('menu-visible');
                 nav_visible = false;
-            } else {
-                $('#menu').css("opacity", 0).addClass('menu-visible').css("opacity", 1);
+            } else { // show:
+                $('#menu').addClass('menu-visible').css('opacity',1);
                 nav_visible = true;
             } 
         }
