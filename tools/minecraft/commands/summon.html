@@ -99,9 +99,9 @@
                 </select><br/>
             
                 <label>Coordinates:</label>
-                <input type="text" value="~" pattern="^[~^]?-?[0-9]*\.?[0-9]+$" id="input_x" style="width:100px;" onclick="$(this).val('');"> &nbsp;
-                <input type="text" value="~" pattern="^[~^]?-?[0-9]*\.?[0-9]+$" id="input_y" style="width:100px;" onclick="$(this).val('');"> &nbsp;
-                <input type="text" value="~" pattern="^[~^]?-?[0-9]*\.?[0-9]+$" id="input_z" style="width:100px;" onclick="$(this).val('');"><br/>
+                <input type="number" step="any" placeholder="~" id="input_x"> &nbsp;
+                <input type="number" step="any" placeholder="~" id="input_y"> &nbsp;
+                <input type="number" step="any" placeholder="~" id="input_z"><br/>
             </p>
             <p name="nbt">
                 <label>NBT:</label><br/>
@@ -498,50 +498,55 @@
                     </span><br/>
                 </span>
             </p>
+            <style>
+                @media (max-width: 814px) {
+                    .mobile-spacer {margin-left: 20px;}
+                }
+            </style>
             <p name="Armour">
                 <label>Equipment:</label><br/>
                 
-                <label class="indent">Head:</label>
-                <input type="text" size="13" id="input_armour_head"> &nbsp;
-                <span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_armour_head_num">
-                <span class="indent">Drop chance:</span> &nbsp;
+                <label class="indent">Head:</label><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><input type="text" size="13" id="input_armour_head"> &nbsp;<br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_armour_head_num"><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
                 <input type="number" min="1" max="100" id="input_armour_head_count">&ensp;%<br/>
             
-                <label class="indent">Chest:</label>
-                <input type="text" size="13" id="input_armour_chest"> &nbsp;
-                <span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_armour_chest_num">
-                <span class="indent">Drop chance:</span> &nbsp;
+                <label class="indent">Chest:</label><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><input type="text" size="13" id="input_armour_chest"> &nbsp;<br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_armour_chest_num"><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
                 <input type="number" min="1" max="100" id="input_armour_chest_count">&ensp;%<br/>
             
-                <label class="indent">Legs:</label>
-                <input type="text" size="13" id="input_armour_legs"> &nbsp;
-                <span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_armour_legs_num">
-                <span class="indent">Drop chance:</span> &nbsp;
+                <label class="indent">Legs:</label><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><input type="text" size="13" id="input_armour_legs"> &nbsp;<br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_armour_legs_num"><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
                 <input type="number" min="1" max="100" id="input_armour_legs_count">&ensp;%<br/>
             
-                <label class="indent">Feet:</label>
-                <input type="text" size="13" id="input_armour_feet"> &nbsp;
-                <span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_armour_feet_num">
-                <span class="indent">Drop chance:</span> &nbsp;
+                <label class="indent">Feet:</label><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><input type="text" size="13" id="input_armour_feet"> &nbsp;<br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_armour_feet_num"><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
                 <input type="number" min="1" max="100" id="input_armour_feet_count">&ensp;%<br/>
                 
             
-                <label class="indent">Main hand:</label>
-                <input type="text" size="13" id="input_held_item"> &nbsp;
-                <span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_held_item_num">
-                <span class="indent">Drop chance:</span> &nbsp;
+                <label class="indent">Main hand:</label><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><input type="text" size="13" id="input_held_item"> &nbsp;<br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_held_item_num"><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
                 <input type="number" min="1" max="100" id="input_held_item_count">&ensp;%<br/>
             
-                <label class="indent">Offhand:</label>
-                <input type="text" size="13" id="input_offhand_item"> &nbsp;
-                <span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_offhand_item_num">
-                <span class="indent">Drop chance:</span> &nbsp;
+                <label class="indent">Offhand:</label><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><input type="text" size="13" id="input_offhand_item"> &nbsp;<br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_offhand_item_num"><br class="mobileonly"/>
+                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
                 <input type="number" min="1" max="100" id="input_offhand_item_count">&ensp;%<br/>
             </p>
         </form>

@@ -18,7 +18,9 @@
         var function_count = 0;
     </script>
     <style>
-        .indent {margin: -13px 0 -13px 8.5em;}
+        @media (max-width: 814px) {
+            label.short {margin-left: 1em;}
+        }
     </style>
 </head>
 <body onload="submit()">
@@ -118,9 +120,9 @@
                     </span>
 
                     <script>
-                        var scores = []
-                        var scores_min = []
-                        var scores_max = []
+                        var scores = [];
+                        var scores_min = [];
+                        var scores_max = [];
                     </script>
                 
                     <label>Score:</label>
@@ -211,11 +213,16 @@
                     var enchAdded = 0;
                 </script>
 
-                <label style="position: absolute;">Description:</label>
-                <textarea id="input_item_lore" rows="6" cols="40" style="margin-left: 9.6em;"></textarea><br/>
+                <style>
+                    @media (min-width: 815px) {
+                        #input_item_lore {margin-left: 9.6em;}
+                    }
+                </style>
+                <label style="position: absolute;">Description:</label><br class="mobileonly"/>
+                <textarea id="input_item_lore" rows="6" cols="40"></textarea><br/>
 
-                <label>Enchantments:</label>
-                <label class="short"></label>
+                <label>Enchantments:</label><br class="mobileonly"/>
+                <label class="short"></label><br class="mobileonly"/>
                 <select id="input_item_ench" onchange="submit()">
                     <option></option>
                     <option>Aqua Affinity</option>
@@ -255,8 +262,7 @@
                     <option>Sweeping Edge</option>
                     <option>Thorns</option>
                     <option>Unbreaking</option>
-                </select>
-                &nbsp;
+                </select> &nbsp;
                 <label class="short">Level:</label>
                 <span class="set-width" style="--width: 160px;">
                     <input class="lvl" type="number" value="1" min="1" max="32737" id="input_item_ench_lvl" onchange="submit()">
@@ -275,9 +281,9 @@
                     <button id="input_item_unbreakable" class="off" onclick="toggleOnOff(this)">Unbreakable</button><br/>
                 </span>
 
-                <label>Can destroy:</label>
+                <label>Can destroy:</label><br class="mobileonly"/>
                 <label class="short">Block:</label>
-                <input type="text" size="13" id="input_item_destroy"> &nbsp;
+                <input type="text" size="13" id="input_item_destroy"> &nbsp;<br class="mobileonly"/>
                 <label class="short">Group:</label>
                 <select id="input_item_destroy_tags" onchange="submit()">
                     <option value="">&nbsp;</option>
@@ -336,9 +342,9 @@
                 </select>
                 <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="$('#input_item_destroy_tags').val('');CanDestroy=[];submit();"></a><br/>
                 
-                <label>Can place on:</label>
+                <label>Can place on:</label><br class="mobileonly"/>
                 <label class="short">Block:</label>
-                <input type="text" size="13" id="input_item_place_on"> &nbsp;
+                <input type="text" size="13" id="input_item_place_on"> &nbsp;<br class="mobileonly"/>
                 <label class="short">Group:</label>
                 <select id="input_item_place_on_tags" onchange="submit()">
                     <option value="">&nbsp;</option>
@@ -416,7 +422,7 @@
                 </script>
 
                 <span id="modifiers">
-                    <label>Modifiers:</label>
+                    <label>Modifiers:</label><br class="mobileonly"/>
                     <label class="short">Attribute:</label>
                     <select id="input_item_mod" onchange="submit()">
                         <option></option>
@@ -430,7 +436,7 @@
                         <option value="luck">Luck</option>
                         <option value="maxHealth">Max Health</option>
                         <option value="movementSpeed">Movement Speed</option>
-                    </select> &nbsp;
+                    </select> &nbsp;<br class="mobileonly"/>
                     <label class="short">Amount:</label>
                     <span class="set-width" style="--width: 160px;">
                         <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
