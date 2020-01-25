@@ -22,14 +22,14 @@
                     url: `https://cors-anywhere.herokuapp.com/https://api.mojang.com/user/profiles/${data.id}/names`
                 }).done(function(data) {
                     for (i in data) {
-                        if (i == data.length-1) {
-                            $('output ul').append(`<li>Current username: ${data[0].name}</li`);
+                        if (i == 0) {
+                            $('output ul').append(`<li>Name #1: ${name}`);
+                        } else if (i == data.length-1) {
+                            $('output ul').append(`<li>Current username: ${data[i].name}</li`);
                         } else {
                             let name = data[i].name;
-                            let date = moment(data[i].changedToAt).format('ddd D MMM YYYY [at] HH:mm:ss [UTC]');
-                            $('output ul').append(`
-                            <li>Name #${i+1}: ${name} (changed at ${date})</li>
-                            `);
+                            let date = moment(data[i].changedToAt).format('D MMMM YYYY [at] HH:mm:ss [UTC]');
+                            $('output ul').append(`<li>Name #${i+1}: ${name} (changed on ${date})</li>`);
                         }
                     }
                 });
