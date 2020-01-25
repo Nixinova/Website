@@ -12,9 +12,9 @@
 /herobrinenzk				/downloads/minecraft/resource-packs/herobrinenzk
 /mash-up					/downloads/minecraft/resource-packs/mash-up
 /themed			 			/downloads/minecraft/resource-packs/themed
-/give						/tools/give
-/summon			 			/tools/summon
-/coordinates				/tools/coordinates
+/give						/tools/minecraft/commands/give
+/summon			 			/tools/minecraft/commands/summon
+/coordinates				/tools/minecraft/converters/coordinates
 
 # Page moves
 /maps/*			 			/downloads/minecraft/maps/:splat

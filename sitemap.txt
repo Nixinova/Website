@@ -6,6 +6,6 @@ https://nixinova.com/downloads/minecraft/resource-packs/herobrinenzk
 https://nixinova.com/downloads/minecraft/resource-packs/mash-up
 https://nixinova.com/downloads/minecraft/resource-packs/themed
 https://nixinova.com/tools/hytale/api/blog
-https://nixinova.com/tools/minecraft/coordinates
 https://nixinova.com/tools/minecraft/commands/give
 https://nixinova.com/tools/minecraft/commands/summon
+https://nixinova.com/tools/minecraft/converters/coordinates
