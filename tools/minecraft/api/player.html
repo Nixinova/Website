@@ -28,12 +28,11 @@
                     $.ajax({
                         url: `https://cors-anywhere.herokuapp.com/https://api.mojang.com/user/profiles/${uuid}/names`
                     }).done(function(data) {
-                        $('output p').empty();
                         $('output ul').empty();
                         for (i in data) {
                             let name = data[i].name;
                             let date = moment(data[i].changedToAt).format('D MMMM YYYY [at] HH:mm:ss [UTC]');
-                            $('output p').append(`<strong>${data[data.length-1].name} (UUID ${uuidFormatted})</strong>`);
+                            $('output p').html(`<strong>${data[data.length-1].name} (UUID ${uuidFormatted})</strong>`);
                             if (i == 0 && data.length == 1) {
                                 $('output ul').append(`<li>Current name: ${name}</li>`);
                             } else if (i+1 == data.length) {
@@ -46,7 +45,8 @@
                         }
                     });
                 } else {
-                    $('output ul').append("Could not find player " + username);
+                    $('output p').empty();
+                    $('output ul').html("Could not find player " + username);
                 }
             });
         }
