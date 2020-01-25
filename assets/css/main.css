@@ -79,7 +79,6 @@ a:hover button {background: #46e; font-size: 21px;}
 
 @media (min-width: 801px) {
     .mobileonly {display: none !important;}
-    header {position: absolute; top: 0; width: 100%;}
 }
 @media (max-width: 800px) {
     .desktoponly {display: none !important;}
