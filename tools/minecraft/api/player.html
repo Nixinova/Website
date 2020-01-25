@@ -28,7 +28,7 @@
                             let name = data[i].name;
                             let date = moment(data[i].changedToAt).format('ddd D MMM YYYY [at] HH:mm:ss [UTC]');
                             $('output ul').append(`
-                            <li>Name #${i-1}: ${name} (changed at ${date})</li>
+                            <li>Name #${i+1}: ${name} (changed at ${date})</li>
                             `);
                         }
                     }
