@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
     <style>
-        main {margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -10%); width: 100%;}
+        main {margin: auto;}
         #wb404 {margin-left: 22%; width: 66%;}
     </style>
 </head>
 <body style="overflow: hidden;">
     <header>
         <nav></nav>
-        <script>$('nav').load('/imports/navigation')</script>
+        <script id="load-nav">$('nav').load('/assets/imports/navigation'); $('#load-nav').remove();</script>
     </header>
     
     <main>
@@ -30,6 +30,6 @@
 
     
     <footer class="bottom"></footer>
-    <script>$("footer").load("/imports/footer")</script>
+    <script id="load-footer">$("footer").load("/assets/imports/footer"); $('#load-footer').remove();</script>
 </body>
 </html>
