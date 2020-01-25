@@ -45,7 +45,7 @@
     #header-search, #menu-icon {width: 80px; padding: 25px; color: white; cursor: pointer; z-index: 10;}
     #header-search a, #menu-icon a {color: white;}
 
-    #menu {background-color: var(--body-color); margin: 3em auto 0;}
+    #menu {background-color: var(--body-color); margin: auto; padding-bottom: 40vw;}
     #menu ul {margin: 0.5em 0;}
     #menu-logo {margin: auto;}
     .menu-visible {position: fixed; width: 100vw; height: 100vh;}
@@ -79,6 +79,8 @@
 <hr style="margin: 0;">
 
 <div id="menu" class="desktop-flex hide">
+
+    <div class="desktoponly menu-section"></div>
 
     <div class="menu-section">
         <strong class="menu-header">Downloads</strong>
@@ -116,6 +118,8 @@
             </ul>
         </div>
     </div>
+
+    <div class="desktoponly menu-section"></div>
 
 </div>
 <script id="footer-script">
