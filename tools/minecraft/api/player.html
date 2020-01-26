@@ -23,7 +23,7 @@
                 url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
             }).done(function(data) {
                 if (!data) {
-                    $('#username_uuid').html(`Error: ${error}`);
+                    $('#username_uuid').html(`Unknown error`);
                 }
                 var username;
                 var uuid = data.id;
