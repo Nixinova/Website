@@ -72,7 +72,7 @@
             $('#subfolders-text').empty();
             $('#subpages-text').empty();
 
-            $('#go-up').append(`\n<li><em><a href="${location.href.replace(/(.+\/)[a-z]+$/, '$1')}">../</a></em></li>`);
+            $('#go-up').append(`\n<li><a href="${location.href.replace(/(.+)\/[a-z]+$/, '$1')}">← Go back</a></li>`);
 
             if (data[query].subfolders.length > 0) {
                 let folder = query === 'default' ? '' : '/'+query;
