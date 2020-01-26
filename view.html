@@ -8,17 +8,27 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/showcase.css">
-    <script data-name="Page script">
-        var query = location.href.split('?')[1];
-        $('template').load('/assets/content/' + query + '.json');
-    </script>
 </head>
 
 <body>
 
-    <template>
+    <script data-name="Page script">
+        var query = location.href.split('?')[1];
+        $('template').load('/assets/content/' + query + '.json');
+    </script>
 
-    </template>
+    <template></template>
+
+    
+    <header>
+        <nav></nav>
+        <script id="load-nav">$('nav').load('/imports/navigation'); $('#load-nav').remove();</script>
+    </header>
+
+    <main></main>
+
+    <footer style="margin-top: 0;"></footer>
+    <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
 
 </body>
 </html>
