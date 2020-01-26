@@ -106,7 +106,7 @@ function summon() {
     // ENTITY NBT //
     {
         // all //
-        let display = {};
+        let CustomName = {};
         if (name) {
             $('#customname_color').removeClass('hide');
             JSON.stringify(name_color ? {"text": name, "color": name_color} : name);
@@ -136,32 +136,32 @@ function summon() {
                 default             : className="§f";
             }
         
-            if (name_color) {display.color = name_color;}
+            if (name_color) {CustomName.color = name_color;}
             preview.addClass(className);
         
             if (name_bold) {
-                display.bold = true;
+                CustomName.bold = true;
                 preview.css('font-weight', 'bold');
             } else {
                 preview.css('font-weight', 'inherit');
             }
         
             if (!name_italic) {
-                display.italic = false;
+                CustomName.italic = false;
                 preview.css('font-style', 'inherit');
             } else {
                 preview.css('font-style', 'italic');
             }
         
             if (name_underline) {
-                display.underlined = true;
+                CustomName.underlined = true;
                 preview.css('text-decoration', 'underline');
             } else if (!i_strike) {
                 preview.css('text-decoration', 'inherit');
             }
         
             if (name_strike) {
-                display.strikethrough = true;
+                CustomName.strikethrough = true;
                 preview.css('text-decoration', 'line-through');
             } else if (!i_underline) {
                 preview.css('text-decoration', 'inherit');
@@ -172,11 +172,11 @@ function summon() {
             }
         
             if (name_obfus) {
-                display.obfuscated = true;
+                CustomName.obfuscated = true;
                 preview.html('*'.repeat(name.length));
             }
         
-            nbt.CustomName = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
+            nbt.CustomName = JSON.stringify(CustomName).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
         } else {
             $('#customname_color').toggleClass('hide',true);
             $('#preview').addClass('hide');
