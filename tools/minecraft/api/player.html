@@ -33,7 +33,7 @@
                         url: `https://cors-anywhere.herokuapp.com/https://api.mojang.com/user/profiles/${uuid}/names`
                     }).done(function(data) {
                         $('#username-history').empty();
-                        name = data[data.length-1].name;
+                        username = data[data.length-1].name;
                         $('#username_uuid').html(`<strong>${username} (UUID ${uuidFormatted})</strong>`);
                         for (i in data) {
                             let name = data[i].name;
