@@ -8,20 +8,21 @@
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <style>
         .spacing {height: 10px; display: block;}
     </style>
 </head>
 <body>
     <header>
-        <nav></nav>
-        <script id="load-nav">$("nav").load("/imports/navigation"); $('#load-nav').remove();</script>
+        <nav>
+            <script>$("nav").load("/assets/imports/navigation");</script>
+        </nav>
     </header>
 
     <main>
         <div id="gallery">
-            <div class="screenshot" style="background-image: url('/images/minecraft/maps/kitpvp.png')"></div>
+            <div class="screenshot" style="background-image: url('/assets/images/minecraft/maps/kitpvp.png')"></div>
         </div>
 
         <h1>KitPvP</h1>
@@ -58,6 +59,6 @@
     </main>
     
     <footer></footer>
-    <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
+    <script id="load-footer">$("footer").load("/assets/imports/footer"); $('#load-footer').remove();</script>
 </body>
 </html>

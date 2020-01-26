@@ -10,12 +10,13 @@
     <meta name="author" content="Nixinova">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
     <header>
-        <nav></nav>
-        <script id="load-nav">$("nav").load("/imports/navigation"); $('#load-nav').remove();</script>
+        <nav>
+            <script>$("nav").load("/assets/imports/navigation");</script>
+        </nav>
     </header>
 
     <main>
@@ -53,7 +54,8 @@
         </p>
     </main>
     
-    <footer></footer>
-    <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
+    <footer>
+        <script>$("footer").load("/imports/footer");</script>
+    </footer>
 </body>
 </html>

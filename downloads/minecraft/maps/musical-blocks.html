@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
+    
     <header>
-        <nav></nav>
-        <script id="load-nav">$("nav").load("/imports/navigation"); $('#load-nav').remove();</script>
+        <nav>
+            <script>$("nav").load("/assets/imports/navigation");</script>
+        </nav>
     </header>
 
     <main>
@@ -37,7 +39,9 @@
         <h2>Download</h2>
         <div class="download">
             <a href="https://mediafire.com/?75tptjkikx0dn9w" target="_blank">
-                <button class="download"><i class="fas fa-download"></i>&nbsp;v1.7.1 (Minecraft 1.8.5)</button>
+                <button class="download">
+                    <i class="fas fa-download"></i>&nbsp;v1.7.1 (Minecraft 1.8.5)
+                </button>
             </a>
         </div>
         <h6>Older Downloads</h6>
@@ -55,7 +59,9 @@
         </p>
     </main>
     
-    <footer></footer>
-    <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
+    <footer>
+        <script>$("footer").load("/imports/footer");</script>
+    </footer>
+
 </body>
 </html>

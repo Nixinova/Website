@@ -20,8 +20,9 @@
 </head>
 <body>
     <header>
-        <nav></nav>
-        <script id="load-nav">$('nav').load('/assets/imports/navigation'); $('#load-nav').remove();</script>
+        <nav>
+            <script>$('nav').load('/assets/imports/navigation');</script>
+        </nav>
     </header>
     
     <main>
@@ -575,10 +576,11 @@
     </main>
     
     <footer>
-        <span id="copyright"></span>
+        <span id="footer">
+            <script>$("#footer").load("/assets/imports/footer");</script>
+        </span>
         &bull;&nbsp;<a href="summon.js" title="summon.js" target="_blank">View code</a>
     </footer>
-    <script id="load-footer">$("#copyright").load("/assets/imports/footer"); $('#load-footer').remove();</script>
 
 </body>
 </html>
