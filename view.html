@@ -58,12 +58,14 @@
             }
         }
         
-        for (let folder of data[query].subfolders) {
-            $('main ul').append(`<li><strong><a href="/${query}/${folder}/">/${folder}</a></strong></li>`)
-        }
-        for (let page of data[query].pages) {
-            $('main ul').append(`<li><a href="/${query}/${page}">${page}</a></li>`)
-        }
+        (function() {
+            for (let folder of data[query].subfolders) {
+                $('main ul').append(`<li><strong><a href="/${query}/${folder}/">/${folder}</a></strong></li>`)
+            }
+            for (let page of data[query].pages) {
+                $('main ul').append(`<li><a href="/${query}/${page}">${page}</a></li>`)
+            }
+        });
         
 
    </script>
@@ -73,10 +75,10 @@
         <script id="load-nav">$('nav').load('/imports/navigation'); $('#load-nav').remove();</script>
     </header>
 
-    <main>
-        <ul>
-
-        </ul>
+    <main style="display: flex;">
+        <div style="margin: auto;">
+            <ul></ul>
+        </div>
     </main>
 
     <footer style="margin-top: 0;"></footer>
