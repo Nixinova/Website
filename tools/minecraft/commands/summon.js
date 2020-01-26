@@ -156,14 +156,14 @@ function summon() {
             if (name_underline) {
                 CustomName.underlined = true;
                 preview.css('text-decoration', 'underline');
-            } else if (!i_strike) {
+            } else if (!name_strike) {
                 preview.css('text-decoration', 'inherit');
             }
         
             if (name_strike) {
                 CustomName.strikethrough = true;
                 preview.css('text-decoration', 'line-through');
-            } else if (!i_underline) {
+            } else if (!name_underline) {
                 preview.css('text-decoration', 'inherit');
             }
         

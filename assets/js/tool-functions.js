@@ -8,6 +8,10 @@ function show_more(sourceId, targetId, rvcols) {
     if (rvcols) target.toggleClass("row");
 }
 
+function toggleOnOff(id) {
+    $(id).toggleClass('on').toggleClass('off');
+}
+
 function getQueryString(val) {
     let href = window.location.href.split('#');
     let query = href[1]? href[1].split('&') : '';

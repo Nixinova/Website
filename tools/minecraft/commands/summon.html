@@ -13,8 +13,8 @@
     <script src="summon.js"></script>
     <style>
         button:not(#copyCommand) {width: 70px; text-align: center;}
-        .on::before {content: 'True';}
-        .off::after {content: 'False';}
+        .on.notext::before {content: 'True';}
+        .off.notext::after {content: 'False';}
     </style>
     <script>var function_count = 0;</script>
 </head>
@@ -142,19 +142,19 @@
                 </span><br/>
             
                 <label class="indent">Able to move?</label>
-                <button id="input_no_ai" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button id="input_no_ai" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label class="indent">Despawnable?</label>
-                <button id="input_despawnable" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button id="input_despawnable" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label class="indent">Invulnerable?</label>
-                <button id="input_invulnerable" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button id="input_invulnerable" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label class="indent">Silent?</label>
-                <button id="input_silent" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button id="input_silent" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label class="indent">Pick up items?</label>
-                <button id="input_pickup" class="off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button id="input_pickup" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <span class="tame_mobs only">
                     <label class="indent">Tame?</label>
