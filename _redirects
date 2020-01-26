@@ -2,39 +2,39 @@
 /images/*							https://images.nixinova.com/:splat
 
 # Assets
-/css/*								/assets/css/:splat
-/images/*							/assets/images/:splat
-/imports/*							/assets/imports/:splat
+/css/*								/assets/css/:splat									307 
+/images/*							/assets/images/:splat								307 
+/imports/*							/assets/imports/:splat								307 
 
 # Indexes
-/downloads							/subpages?downloads
-/downloads/minecraft				/subpages?downloads/minecraft
-/downloads/minecraft/maps			/subpages?downloads/minecraft/maps
-/downloads/minecraft/resource-packs	/subpages?downloads/minecraft/resource-packs
-/tools								/subpages?tools
-/tools/minecraft					/subpages?tools/minecraft
-/tools/minecraft/api				/subpages?tools/minecraft/api
-/tools/minecraft/commands			/subpages?tools/minecraft/commands
-/tools/minecraft/converters			/subpages?tools/minecraft/converters
-/tools/hytale						/subpages?tools/hytale
-/tools/hytale/api					/subpages?tools/hytale/api
+/downloads							/subpages?downloads									308
+/downloads/minecraft				/subpages?downloads/minecraft						308
+/downloads/minecraft/maps			/subpages?downloads/minecraft/maps					308
+/downloads/minecraft/resource-packs	/subpages?downloads/minecraft/resource-packs		308
+/tools								/subpages?tools										308
+/tools/minecraft					/subpages?tools/minecraft							308
+/tools/minecraft/api				/subpages?tools/minecraft/api						308
+/tools/minecraft/commands			/subpages?tools/minecraft/commands					308
+/tools/minecraft/converters			/subpages?tools/minecraft/converters				308
+/tools/hytale						/subpages?tools/hytale								308
+/tools/hytale/api					/subpages?tools/hytale/api							308
 
 # Page moves
-/maps/*								/downloads/minecraft/maps/:splat
-/resource-packs/*					/downloads/minecraft/resource-packs/:splat
-/minecraft/maps/*					/downloads/minecraft/maps/:splat
-/minecraft/resource-packs/*			/downloads/minecraft/resource-packs/:splat
-/minecraft/tools/coordinates		/tools/minecraft/converters/coordinates
-/minecraft/tools/*					/tools/minecraft/commands/:splat
-/hytale/api/*						/tools/hytale/api/:splat
+/maps/*								/downloads/minecraft/maps/:splat					301
+/resource-packs/*					/downloads/minecraft/resource-packs/:splat			301
+/minecraft/maps/*					/downloads/minecraft/maps/:splat					301
+/minecraft/resource-packs/*			/downloads/minecraft/resource-packs/:splat			301
+/minecraft/tools/coordinates		/tools/minecraft/converters/coordinates				301
+/minecraft/tools/*					/tools/minecraft/commands/:splat					301
+/hytale/api/*						/tools/hytale/api/:splat							301
 
 # Shortcuts
-/musical-blocks						/downloads/minecraft/maps/musical-blocks
-/kitpvp								/downloads/minecraft/maps/kitpvp
-/skywars							/downloads/minecraft/maps/skywars
-/herobrinenzk						/downloads/minecraft/resource-packs/herobrinenzk
-/mash-up							/downloads/minecraft/resource-packs/mash-up
-/themed								/downloads/minecraft/resource-packs/themed
-/give								/tools/minecraft/commands/give
-/summon								/tools/minecraft/commands/summon
-/coordinates						/tools/minecraft/converters/coordinates
+/musical-blocks						/downloads/minecraft/maps/musical-blocks			307
+/kitpvp								/downloads/minecraft/maps/kitpvp					307
+/skywars							/downloads/minecraft/maps/skywars					307
+/herobrinenzk						/downloads/minecraft/resource-packs/herobrinenzk	307
+/mash-up							/downloads/minecraft/resource-packs/mash-up			307
+/themed								/downloads/minecraft/resource-packs/themed			307
+/give								/tools/minecraft/commands/give						307
+/summon								/tools/minecraft/commands/summon					307
+/coordinates						/tools/minecraft/converters/coordinates				307
