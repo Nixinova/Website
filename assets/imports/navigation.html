@@ -9,27 +9,27 @@
     <script data-name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
     <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
     <script data-name="Navigation scripts">
+
         if (window.location.href.includes('imports/navigation')){
             $('head').append('<meta name="robots" content="noindex">');
         }
 
-        var nav_visible = false;
-        function toggleNav() {
-            if (nav_visible) { // hide:
-                $('#menu').addClass('hide');
-                nav_visible = false;
-            } else { // show:
-                $('#menu').removeClass('hide');
-                nav_visible = true;
-            } 
+        function hideNav() {
+            $('#menu').addClass('hide');
+            nav_visible = false;
+        }
+        function showNav() {
+            $('#menu').removeClass('hide');
+            nav_visible = true;
         }
 
-        window.addEventListener('scroll', function(){
-          let t = $(window).scrollTop();
-          let d = $(document).height();
-          let h = $(window).height();
-          $('#scollbar') .css('width', (t / (d - h)) * 100);
-        })
+        var nav_visible = false;
+        function toggleNav() {
+            if (nav_visible) hideNav(); else showNav();
+        }
+
+        $('main').attr('onclick', 'hideNav()');
+
     </script>
     <style data-name="Navigation styles">
 
@@ -50,7 +50,6 @@
 
     </style>
 </span>
-<span id="scrollbar"></span>
 
 <div id="header">
 
