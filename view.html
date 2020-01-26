@@ -52,11 +52,14 @@
             },
             "tools/hytale/api": {
                 pages: ["blog"]
+            },
+            undefined: {
+                pages: []
             }
         }
         
         for (let folder of data[query].subfolders) {
-            $('main ul').append(`<li><strong><a href="/${query}/${folder}/">${page}</a></strong></li>`)
+            $('main ul').append(`<li><strong><a href="/${query}/${folder}/">/${folder}</a></strong></li>`)
         }
         for (let page of data[query].pages) {
             $('main ul').append(`<li><a href="/${query}/${page}">${page}</a></li>`)
