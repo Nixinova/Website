@@ -14,6 +14,7 @@
     <script data-name="Page script">
 
         var query = location.href.split('?')[1];
+        if (!query) query = "blank";
         var data = {
             "downloads": {
                 subfolders: ["minecraft"],
@@ -59,7 +60,7 @@
                 subfolders: [],
                 pages: ["blog"]
             },
-            undefined: {
+            "blank": {
                 subfolders: ["downloads", "tools"],
                 pages: ["404", "index", "search", "view"]
             }
