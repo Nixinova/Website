@@ -73,7 +73,7 @@
             $('#subpages-text').empty();
 
             if (data[query].subfolders.length > 0) {
-                let folder = '/' + (query === 'default' ? '' : query);
+                let folder = query === 'default' ? '' : '/'+query;
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
                     $('#subfolders-text').append(`\n<li><strong><a href="${folder}/${subfolder}/">/${subfolder}</a></strong></li>`)
@@ -81,7 +81,7 @@
             }
 
             if (data[query].subpages.length > 0) {
-                let folder = (query === 'default' ? '' : query);
+                let folder = query === 'default' ? '' : '/'+query;
                 $('#subpages-title').removeClass('hide');
                 for (let subpage of data[query].subpages) {
                     $('#subpages-text').append(`\n<li><a href="${folder}/${subpage}">${subpage}</a></li>`)
