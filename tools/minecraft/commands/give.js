@@ -544,8 +544,9 @@ function submit() {
         give();
     }
     catch (error) {
-        $('#generator-output').html(error.stack);
+        $('#generator-output').html("An unknown error has occurred. Please try again or reload the page.");
+        console.error(error.stack);
     }
 }
 
-/* Copyright 2020 Nixinova */
+/* Copyright © Nixinova 2020 */

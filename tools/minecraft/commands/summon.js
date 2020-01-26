@@ -136,7 +136,7 @@ function summon() {
                 default             : className="§f";
             }
         
-            if (name_colour) {display.color = name_color;}
+            if (name_color) {display.color = name_color;}
             preview.addClass(className);
         
             if (name_bold) {
@@ -402,7 +402,8 @@ function submit() {
         summon();
    }
     catch (error) {
-        $('#generator-output').html(error.stack);
+        $('#generator-output').html("An unknown error has occurred. Please try again or reload the page.");
+        console.error(error.stack);
    }
 }
 
