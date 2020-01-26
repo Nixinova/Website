@@ -7,17 +7,17 @@
 /imports/*							/assets/imports/:splat
 
 # Indexes
-/downloads							/view?downloads
-/downloads/minecraft				/view?downloads/minecraft
-/downloads/minecraft/maps			/view?downloads/minecraft/maps
-/downloads/minecraft/resource-packs	/view?downloads/minecraft/maps
-/tools								/view?tools
-/tools/minecraft					/view?tools/minecraft
-/tools/minecraft/api				/view?tools/minecraft/api
-/tools/minecraft/generators			/view?tools/minecraft/generators
-/tools/minecraft/converters			/view?tools/minecraft/converters
-/tools/hytale						/view?tools/hytale
-/tools/hytale/api					/view?tools/hytale/api
+/downloads							/subpages?downloads
+/downloads/minecraft				/subpages?downloads/minecraft
+/downloads/minecraft/maps			/subpages?downloads/minecraft/maps
+/downloads/minecraft/resource-packs	/subpages?downloads/minecraft/maps
+/tools								/subpages?tools
+/tools/minecraft					/subpages?tools/minecraft
+/tools/minecraft/api				/subpages?tools/minecraft/api
+/tools/minecraft/generators			/subpages?tools/minecraft/generators
+/tools/minecraft/converters			/subpages?tools/minecraft/converters
+/tools/hytale						/subpages?tools/hytale
+/tools/hytale/api					/subpages?tools/hytale/api
 
 # Shortcuts
 /musical-blocks						/downloads/minecraft/maps/musical-blocks
