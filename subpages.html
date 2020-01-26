@@ -72,7 +72,13 @@
             $('#subfolders-text').empty();
             $('#subpages-text').empty();
 
-            $('#go-up').append(`\n<li><a href="${location.href.replace(/(.+)\/[a-z]+$/, '$1')}">← Go back</a></li>`);
+            if (location.href.split('/')[3] !== 'subpages?') {
+                if (location.href.split('/')[3]) {
+                    $('#go-up').append(`\n<a href="/subpages?">← Go back</a>`);
+                } else {
+                    $('#go-up').append(`\n<a href="${location.href.replace(/(.+)\/[a-z]+$/, '$1')}">← Go back</a>`);
+                }
+            } 
 
             if (data[query].subfolders.length > 0) {
                 let folder = query === 'default' ? '' : '/'+query;
@@ -104,7 +110,7 @@
         <div id="content" style="margin: auto;">
 
             <h1 style="border-bottom: solid;">Subpage index</h1>
-            <ul id="go-up"></ul>
+            <span id="go-up"></span>
             <br/>
 
             <h2 id="subfolders-title" class="hide">Subfolders</h2>
