@@ -30,7 +30,9 @@
         }
 
         var skinURLs = {}, capeURLs = {};
+        var query = location.href.split('?')[1];
         function getInfo(username) {
+            if (!username && query) username = query;
             $('#username-history').empty();
             $('#username_uuid').html('Loading...');
             $('#skin').empty();
@@ -110,7 +112,7 @@
         </nav>
     </header>
 
-    <main>
+    <main onload="getInfo();">
         <h1>Minecraft Player API</h1>
         <p style="text-align: center;">Get information about any Minecraft player.</p>
         <div>
