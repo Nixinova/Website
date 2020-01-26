@@ -72,18 +72,18 @@
             $('#pages-text').empty();
 
             if (data[query].subfolders.length > 0) {
-                if (query === 'blank') query = '';
+                ;let folder = (query === 'blank') ? '' : query;
                 $('#subfolders-title').removeClass('hide');
-                for (let folder of data[query].subfolders) {
-                    $('#subfolders-text').append(`\n<li><strong><a href="/${query}/${folder}/">/${folder}</a></strong></li>`)
+                for (let subfolder of data[query].subfolders) {
+                    $('#subfolders-text').append(`\n<li><strong><a href="/${folder}/${subfolder}/">/${subfolder}</a></strong></li>`)
                 }
             }
 
             if (data[query].pages.length > 0) {
-                if (query === 'blank') query = '';
+                let folder = (query === 'blank') ? '' : query;
                 $('#pages-title').removeClass('hide');
                 for (let page of data[query].pages) {
-                    $('#pages-text').append(`\n<li><a href="/${query}/${page}">${page}</a></li>`)
+                    $('#pages-text').append(`\n<li><a href="/${folder}/${page}">${page}</a></li>`)
                 }
             }
 
