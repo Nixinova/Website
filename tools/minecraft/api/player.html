@@ -13,45 +13,56 @@
 <body>
     <script>
         var usernames = [];
+        
         function getInfo(username) {
-            $('output p').html('Loading...');
-            $('output ul').empty();
+            $('#username-history').empty();
+            $('#username_uuid').html('Loading...');
+            $('#skin').empty();
             $.ajax({
                 url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
             }).done(function(data) {
                 if (data) {
+                    var username;
                     var uuid = data.id;
                     var uuidFormatted = [
                         uuid.substring(0,8),
-                        uuid.substring(9,12), uuid.substring(13,16), uuid.substring(17,20),
+                        uuid.substring(8,12), uuid.substring(12,17), uuid.substring(17,21),
                         uuid.substring(21,32)
                     ].join('-');
                     $.ajax({
                         url: `https://cors-anywhere.herokuapp.com/https://api.mojang.com/user/profiles/${uuid}/names`
                     }).done(function(data) {
-                        $('output ul').empty();
-                        $('output p').html(`<strong>${data[data.length-1].name} (UUID ${uuidFormatted})</strong>`);
+                        $('#username-history').empty();
+                        name = data[data.length-1].name;
+                        $('#username_uuid').html(`<strong>${username} (UUID ${uuidFormatted})</strong>`);
                         for (i in data) {
                             let name = data[i].name;
-                            let date = moment(data[i].changedToAt).format('D MMMM YYYY [at] HH:mm:ss [UTC]');
-                            if (i == 0 && data.length == 1) {//a
-                                console.log('a'+i);
-                                $('output ul').append(`<li>Current name: ${name}</li>`);
-                            } else if (i == data.length-1) {//b
-                                console.log('b'+i);
-                                $('output ul').append(`<li>Name #${parseInt(i)+1} (current): ${name} (changed on ${date})</li>`);
-                            } else if (i == 0) {//c
-                                console.log('c'+i);
-                                $('output ul').append(`<li>Name #1: ${name}</li>`);
-                            } else {//d
-                                console.log('d'+i);
-                                $('output ul').append(`<li>Name #${parseInt(i)+1}: ${name} (changed on ${date})</li>`);
+                            let date = moment.unix(data[i].changedToAt).format('DD MMM YYYY [at] HH:mm:ss [UTC]');
+                            if (i == 0 && data.length == 1) {
+                                $('#username-history').append(`<li>Current name: ${name}</li>`);
+                            } else if (i == data.length-1) {
+                                $('#username-history').append(`<li>Name #${parseInt(i)+1} (current): ${name} (changed on ${date})</li>`);
+                            } else if (i == 0) {
+                                $('#username-history').append(`<li>Name #1: ${name}</li>`);
+                            } else {
+                                $('#username-history').append(`<li>Name #${parseInt(i)+1}: ${name} (changed on ${date})</li>`);
                             }
                         }
                     });
+                    $.ajax({
+                        url: 'https://cors-anywhere.herokuapp.com/https://sessionserver.mojang.com/session/minecraft/profile/' + uuid
+                    }).done(function(data) {
+                        let encoded_data = data.properties[0].value;
+                        let decoded_data = JSON.parse(atob(encoded_data));
+                        let skinURL = decoded_data.textures.SKIN.url;
+                        $('#skin').html(`
+                            <img src="${skinURL}" alt="${player}'s skin">
+                        `);
+                    });
                 } else {
-                    $('output p').empty();
-                    $('output ul').html("Could not find player " + username);
+                    $('#username_uuid').empty();
+                    $('#skin').empty();
+                    $('#username-history').html("Could not find player " + username);
                 }
             });
         }
@@ -72,8 +83,9 @@
             </p>
         </div>
         <output style="margin: 1em; display: block;">
-            <p></p>
-            <ul></ul>
+            <p id="username_uuid"></p>
+            <ul id="username-history"></ul>
+            <div id="skin"></div>
         </output>
     </main>
 
