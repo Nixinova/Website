@@ -101,10 +101,82 @@ function summon() {
     // ENTITY NBT //
     {
         // all //
+        let CustomName = {};
         if (name) {
             $('#customname_color').removeClass('hide');
             JSON.stringify(name_color ? {"text": name, "color": name_color} : name);
-        } else $('#customname_color').toggleClass('hide',true);
+
+            var preview = $('#preview-text');
+            $('#preview').removeClass('hide');
+            preview.html(name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
+            CustomName.text = name;
+        
+            let className;
+            switch (name_colour) {
+                case 'aqua'         : className="§b"; break;
+                case 'black'        : className="§0"; break;
+                case 'blue'         : className="§9"; break;
+                case 'dark_aqua'    : className="§3"; break;
+                case 'dark_blue'    : className="§1"; break;
+                case 'dark_gray'    : className="§8"; break;
+                case 'dark_green'   : className="§2"; break;
+                case 'dark_purple'  : className="§5"; break;
+                case 'dark_red'     : className="§4"; break;
+                case 'gold'         : className="§6"; break;
+                case 'gray'         : className="§7"; break;
+                case 'green'        : className="§a"; break;
+                case 'light_purple' : className="§d"; break;
+                case 'red'          : className="§c"; break;
+                case 'yellow'       : className="§e"; break;
+                default             : className="§f";
+            }
+        
+            if (i_colour) {display.color = i_colour;}
+            preview.addClass(className);
+        
+            if (i_bold) {
+                display.bold = true;
+                preview.css('font-weight', 'bold');
+            } else {
+                preview.css('font-weight', 'inherit');
+            }
+        
+            if (!i_italic) {
+                display.italic = false;
+                preview.css('font-style', 'inherit');
+            } else {
+                preview.css('font-style', 'italic');
+            }
+        
+            if (i_underline) {
+                display.underlined = true;
+                preview.css('text-decoration', 'underline');
+            } else if (!i_strike) {
+                preview.css('text-decoration', 'inherit');
+            }
+        
+            if (i_strike) {
+                display.strikethrough = true;
+                preview.css('text-decoration', 'line-through');
+            } else if (!i_underline) {
+                preview.css('text-decoration', 'inherit');
+            }
+        
+            if (i_strike && i_underline) {
+                preview.css('text-decoration', 'underline line-through');
+            }
+        
+            if (i_obfus) {
+                display.obfuscated = true;
+                preview.html('*'.repeat(i_name.length));
+            }
+        
+            nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
+        } else {
+            $('#customname_color').toggleClass('hide',true);
+            $('#preview').addClass('hide');
+        }
+        
         if (!no_ai) {nbt.NoAI = true;}
         if (!despawnable) {nbt.PersistenceRequired = true;}
         if (invulnerable) {nbt.Invulnerable = true;}

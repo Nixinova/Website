@@ -170,11 +170,7 @@
                 <input type="text" size="13" id="input_item_name">  
                  <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
                 
-                <span id="preview" class="hide">
-                    &nbsp; Preview: &nbsp;
-                    <span id="preview-text" style="padding: 5px 10px; font-family: Minecraft; background-color: #100110e9; border: 3px solid #205e; border-radius: 5px;">
-                    </span><!--
-             --></span><br/>
+                 <span id="preview" class="hide">&nbsp; Preview: &nbsp; <span id="preview-text"></span></span><br/>
 
                 <span id="cname-content" class="hide">
                     <label class="indent">Colour:</label>
@@ -198,7 +194,7 @@
                     </select><br/>
                     <label class="indent">Styles:</label>
                     <button id="input_item_b" class="off" onclick="toggleOnOff(this)">Bold</button> &nbsp;
-                    <button id="input_item_i" class="on" onclick="toggleOnOff(this)">Italic</button> &nbsp;
+                    <button id="input_item_i" class="on " onclick="toggleOnOff(this)">Italic</button> &nbsp;
                     <button id="input_item_u" class="off" onclick="toggleOnOff(this)">Underlined</button> &nbsp;
                     <button id="input_item_s" class="off" onclick="toggleOnOff(this)">Strikethrough</button> &nbsp;
                     <button id="input_item_o" class="off" onclick="toggleOnOff(this)">Obfuscated</button> &nbsp;

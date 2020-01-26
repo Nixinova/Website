@@ -360,7 +360,7 @@ function give() {
             preview.html('*'.repeat(i_name.length));
         }
 
-        nbt.display.Name = JSON.stringify(display);
+        nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
     } else {
         $('#preview').addClass('hide');
     }
