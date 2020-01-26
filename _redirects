@@ -10,14 +10,22 @@
 /downloads							/subpages?downloads
 /downloads/minecraft				/subpages?downloads/minecraft
 /downloads/minecraft/maps			/subpages?downloads/minecraft/maps
-/downloads/minecraft/resource-packs	/subpages?downloads/minecraft/maps
+/downloads/minecraft/resource-packs	/subpages?downloads/minecraft/resource-packs
 /tools								/subpages?tools
 /tools/minecraft					/subpages?tools/minecraft
 /tools/minecraft/api				/subpages?tools/minecraft/api
+/tools/minecraft/commands			/subpages?tools/minecraft/commands
 /tools/minecraft/generators			/subpages?tools/minecraft/generators
-/tools/minecraft/converters			/subpages?tools/minecraft/converters
 /tools/hytale						/subpages?tools/hytale
 /tools/hytale/api					/subpages?tools/hytale/api
+
+# Page moves
+/maps/*								/downloads/minecraft/maps/:splat
+/resource-packs/*					/downloads/minecraft/resource-packs/:splat
+/minecraft/maps/*					/downloads/minecraft/maps/:splat
+/minecraft/resource-packs/*			/downloads/minecraft/resource-packs/:splat
+/minecraft/tools/*					/tools/minecraft/:splat
+/hytale/api/*						/tools/hytale/api/:splat
 
 # Shortcuts
 /musical-blocks						/downloads/minecraft/maps/musical-blocks
@@ -29,11 +37,3 @@
 /give								/tools/minecraft/commands/give
 /summon								/tools/minecraft/commands/summon
 /coordinates						/tools/minecraft/converters/coordinates
-
-# Page moves
-/maps/*								/downloads/minecraft/maps/:splat
-/resource-packs/*					/downloads/minecraft/resource-packs/:splat
-/minecraft/maps/*					/downloads/minecraft/maps/:splat
-/minecraft/resource-packs/*			/downloads/minecraft/resource-packs/:splat
-/minecraft/tools/*					/tools/minecraft/:splat
-/hytale/api/*						/tools/hytale/api/:splat
