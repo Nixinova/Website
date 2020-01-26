@@ -18,7 +18,7 @@ function summon() {
     var Y = value('input_y').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
     var Z = value('input_z').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
     var name = value('input_customname').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-    var name_color = value('input_customname_color');
+    var name_color = value('input_customname_color').toLowerCase().replace(/ /g, '_');
 
     var no_ai = hasClass('input_no_ai', 'on');
     var despawnable = hasClass('input_despawnable', 'on');
