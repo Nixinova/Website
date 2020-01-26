@@ -90,7 +90,7 @@
             }
             catch (err) {
                 if (err.name === "PlayerNotFoundError") {
-                    $('#username_uuid').html(`Error: ${error}`);
+                    $('#username_uuid').empty();
                     $('#username-history').html("Could not find player " + username);
                     $('#skin').empty();
                 } else if (err.name === "SkinNotFoundError") {
