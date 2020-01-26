@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/showcase.css">
 </head>
 
 <body>
@@ -18,47 +17,53 @@
         var data = {
             "downloads": {
                 subfolders: ["minecraft"],
-                pages: [],
-                "minecraft": {
-                    subfolders: ["maps", "resource-packs"],
-                    pages: [],
-                    "maps": {
-                        pages: ["kitpvp", "musical-blocks", "skywars"]
-                    },
-                    "resource-packs": {
-                        pages: ["mash-up", "herobrinenzk", "themed"]
-                    }
-                }
+                pages: []
+            },
+            "downloads/minecraft": {
+                subfolders: ["maps", "resource-packs"],
+                pages: []
+            },
+            "downloads/minecraft/maps": {
+                pages: ["kitpvp", "musical-blocks", "skywars"]
+            },
+            "downloads/minecraft/resource-packs": {
+                pages: ["mash-up", "herobrinenzk", "themed"]
             },
             "tools": {
                 subfolders: ["minecraft","hytale"],
-                pages: [],
-                "minecraft": {
-                    subfolders: ["api", "converters","generators"],
-                    pages: [],
-                    "api": {
-                        pages: ["player"]
-                    },
-                    "converters": {
-                        pages: ["coordinates"]
-                    },
-                    "generators": {
-                        pages: ["give", "summon"]
-                    }
-                },
-                "hytale": {
-                    subfolders: ["api"],
-                    pages: [],
-                    "api": {
-                        pages: ["blog"]
-                    }
-                }
+                pages: []
+            },
+            "tools/minecraft": {
+                subfolders: ["api", "converters","generators"],
+                pages: []
+            },
+            "tools/minecraft/api": {
+                pages: ["player"]
+            },
+            "tools/minecraft/converters": {
+                pages: ["coordinates"]
+            },
+            "tools/minecraft/generators": {
+                pages: ["give", "summon"]
+            },
+            "tools/hytale": {
+                subfolders: ["api"],
+                pages: []
+            },
+            "tools/hytale/api": {
+                pages: ["blog"]
             }
         }
-
+        
+        for (let folder of data[query].subfolders) {
+            $('main ul').append(`<li><strong><a href="/${query}/${folder}/">${page}</a></strong></li>`)
+        }
+        for (let page of data[query].pages) {
+            $('main ul').append(`<li><a href="/${query}/${page}">${page}</a></li>`)
+        }
         
 
-    </script>
+   </script>
     
     <header>
         <nav></nav>
@@ -66,7 +71,7 @@
     </header>
 
     <main>
-        <ul id="content">
+        <ul>
 
         </ul>
     </main>
