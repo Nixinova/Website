@@ -71,7 +71,7 @@
             $('#pages-text').empty();
 
             if (data[query].subfolders != []) {
-                $('#ubfolders-title').removeClass('hide');
+                $('#subfolders-title').removeClass('hide');
                 for (let folder of data[query].subfolders) {
                     $('#subfolders-text').append(`\n<li><strong><a href="/${query}/${folder}/">/${folder}</a></strong></li>`)
                 }
