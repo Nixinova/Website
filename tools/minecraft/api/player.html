@@ -58,6 +58,11 @@
                         $('#skin').html(`
                             <img src="${skinURL}" alt="${player}'s skin">
                         `);
+                        if (cape = decoded_data.textures.CAPE) {
+                            $('#skin').append(`
+                                <img src="${cape.url}" alt="${username}'s skin">
+                            `);
+                        }
                     });
                 } else {
                     $('#username_uuid').empty();
