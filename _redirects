@@ -1,7 +1,7 @@
 # Assets
-/css/*								/assets/css/:splat									307 
-/images/*							/assets/images/:splat								307 
-/imports/*							/assets/imports/:splat								307 
+/css/*								/assets/css/:splat									301 
+/images/*							/assets/images/:splat								301 
+/imports/*							/assets/imports/:splat								301 
 
 # Indexes
 /downloads							/subpages?downloads									308
