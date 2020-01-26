@@ -173,7 +173,7 @@ function summon() {
         
             if (name_obfus) {
                 CustomName.obfuscated = true;
-                preview.html('*'.repeat(name.length));
+                preview.html('#'.repeat(name.length));
             }
         
             nbt.CustomName = JSON.stringify(CustomName).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
