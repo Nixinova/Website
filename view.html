@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-NZ">
 <head>
-    <title>View Subpages</title>
+    <title>View Subsubpages</title>
     <meta charset="UTF-8">
-    <meta name="description" content="View subpages">
+    <meta name="description" content="View subsubpages">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -18,51 +18,51 @@
         var data = {
             "downloads": {
                 subfolders: ["minecraft"],
-                pages: []
+                subpages: []
             },
             "downloads/minecraft": {
                 subfolders: ["maps", "resource-packs"],
-                pages: []
+                subpages: []
             },
             "downloads/minecraft/maps": {
                 subfolders: [],
-                pages: ["kitpvp", "musical-blocks", "skywars"]
+                subpages: ["kitpvp", "musical-blocks", "skywars"]
             },
             "downloads/minecraft/resource-packs": {
                 subfolders: [],
-                pages: ["mash-up", "herobrinenzk", "themed"]
+                subpages: ["mash-up", "herobrinenzk", "themed"]
             },
             "tools": {
                 subfolders: ["minecraft","hytale"],
-                pages: []
+                subpages: []
             },
             "tools/minecraft": {
                 subfolders: ["api", "converters","generators"],
-                pages: []
+                subpages: []
             },
             "tools/minecraft/api": {
                 subfolders: [],
-                pages: ["player"]
+                subpages: ["player"]
             },
             "tools/minecraft/converters": {
                 subfolders: [],
-                pages: ["coordinates"]
+                subpages: ["coordinates"]
             },
-            "tools/minecraft/generators": {
+            "tools/minecraft/commands": {
                 subfolders: [],
-                pages: ["give", "summon"]
+                subpages: ["give", "summon"]
             },
             "tools/hytale": {
                 subfolders: ["api"],
-                pages: []
+                subpages: []
             },
             "tools/hytale/api": {
                 subfolders: [],
-                pages: ["blog"]
+                subpages: ["blog"]
             },
             "default": {
                 subfolders: ["downloads", "tools"],
-                pages: ["404", "index", "search", "view"]
+                subpages: ["404", "index", "search", "view"]
             }
         }
         if (data[query] === undefined) query = 'default';
@@ -70,7 +70,7 @@
         $(function() {
 
             $('#subfolders-text').empty();
-            $('#pages-text').empty();
+            $('#subpages-text').empty();
 
             if (data[query].subfolders.length > 0) {
                 let folder = '/' + (query === 'default' ? '' : query);
@@ -80,11 +80,11 @@
                 }
             }
 
-            if (data[query].pages.length > 0) {
-                let folder = (query === 'default') ? '' : query;
-                $('#pages-title').removeClass('hide');
-                for (let page of data[query].pages) {
-                    $('#pages-text').append(`\n<li><a href="${folder}/${page}">${page}</a></li>`)
+            if (data[query].subpages.length > 0) {
+                let folder = (query === 'default' ? '' : query);
+                $('#subpages-title').removeClass('hide');
+                for (let subpage of data[query].subpages) {
+                    $('#subpages-text').append(`\n<li><a href="${folder}/${subpage}">${subpage}</a></li>`)
                 }
             }
 
@@ -101,13 +101,14 @@
     <main style="display: flex;">
         <div id="content" style="margin: auto;">
 
-            <h1>Subpage index</h1>
+            <h1 style="border-bottom: solid;">Subpage index</h1>
+            <div height="50px"></div>
 
             <h2 id="subfolders-title" class="hide">Subfolders</h2>
             <ul id="subfolders-text"></ul>
 
-            <h2 id="pages-title" class="hide">Pages</h2>
-            <ul id="pages-text"></ul>
+            <h2 id="subpages-title" class="hide">Subpages</h2>
+            <ul id="subpages-text"></ul>
 
         </div>
     </main>
