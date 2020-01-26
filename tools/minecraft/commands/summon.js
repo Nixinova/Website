@@ -113,6 +113,7 @@ function summon() {
 
             var preview = $('#preview-text');
             $('#preview').removeClass('hide');
+            $('#expand-cname').removeClass('hide');
             preview.html(name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
             CustomName.text = name;
         
@@ -180,6 +181,7 @@ function summon() {
         } else {
             $('#customname_color').toggleClass('hide',true);
             $('#preview').addClass('hide');
+            $('#expand-cname').addClass('hide');
         }
         
         if (!no_ai) {nbt.NoAI = true;}

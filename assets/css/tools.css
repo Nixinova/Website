@@ -57,6 +57,10 @@ p.negative {margin-top: -15px;}
     label.short {margin-left: 15px; width: 100px;}
     label.long {width: 250px;}
 }
+        
+@media (max-width: 814px) {
+    .mobile-spacer {margin-left: 20px;}
+}
 
 /* Minecraft color codes */
 .§0 {color: #000; text-shadow: 1px 1px #000000;}

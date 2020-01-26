@@ -104,7 +104,7 @@
                 <input type="number" step="any" placeholder="~" id="input_y"> &nbsp;
                 <input type="number" step="any" placeholder="~" id="input_z"><br/>
             </p>
-            <p name="nbt">
+            <p data-name="NBT">
                 <label>NBT:</label><br/>
             
                 <label>Custom name:</label>
@@ -141,7 +141,7 @@
                     <button id="input_customname_o" class="off" onclick="toggleOnOff(this)">Obfuscated</button>
                     <br/>
                 </span>
-            
+
                 <label>Able to move?</label>
                 <button id="input_no_ai" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
@@ -531,12 +531,8 @@
                     </span><br/>
                 </span>
             </p>
-            <style>
-                @media (max-width: 814px) {
-                    .mobile-spacer {margin-left: 20px;}
-                }
-            </style>
-            <p name="Armour">
+
+            <p data-name="Armour">
                 <label>Equipment:</label><br/>
                 
                 <label class="indent">Head:</label><br class="mobileonly"/>

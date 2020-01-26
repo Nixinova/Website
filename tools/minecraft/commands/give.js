@@ -297,6 +297,7 @@ function give() {
     if (i_name) {
         var preview = $('#preview-text');
         $('#preview').removeClass('hide');
+        $('#expand-cname').removeClass('hide');
         preview.html(i_name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
         display.text = i_name;
 
@@ -363,6 +364,7 @@ function give() {
         nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
     } else {
         $('#preview').addClass('hide');
+        $('#expand-cname').addClass('hide');
     }
 
     // lore //
