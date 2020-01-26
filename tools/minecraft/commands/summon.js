@@ -301,10 +301,10 @@ function summon() {
         $('#cmd-note').removeClass('hide');
    }
     $('#generator-output').append(`
-        <span style="color: #aaa">/summon</span>
-        <span style="color: #5ff">${entity}</span>
-        <span style="color: #ff5">${X} ${Y} ${Z}</span>
-        <span style="color: #5f5">${NBT}</span>
+        <span class="§7">/summon</span>
+        <span class="§b">${entity}</span>
+        <span class="§e">${X} ${Y} ${Z}</span>
+        <span class="§a">${NBT}</span>
     `);
 
     // counter
