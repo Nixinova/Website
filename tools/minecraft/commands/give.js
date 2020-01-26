@@ -266,17 +266,17 @@ function give() {
     if (i_potion) {nbt.Potion = i_potion;}
 
     // head //
-    if (item_id.includes('head')) {
-        $('#head').removeClass('hide');
+    if (item_id === 'player_head' || item_id === 'player_wall_head') {
+        $('#player_head').removeClass('hide');
     } else {
-        $('#head').addClass('hide');
+        $('#player_head').addClass('hide');
         $('input_item_head').val('');
     }
     if (i_head) {nbt.SkullOwner = i_head;}
 
     // fireworks //
     if (item_id === 'firework_rocket') {
-        $('firework').removeClass('hide');
+        $('#firework').removeClass('hide');
     } else {
         $('#firework').addClass('hide');
     }
