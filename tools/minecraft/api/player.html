@@ -22,6 +22,9 @@
             $.ajax({
                 url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
             }).done(function(data) {
+                if (!data) {
+                    $('#username_uuid').html(`Error: ${error}`);
+                }
                 var username;
                 var uuid = data.id;
                 var uuidFormatted = [
@@ -54,14 +57,15 @@
                         let encoded_data = data.properties[0].value;
                         let decoded_data = JSON.parse(atob(encoded_data));
                         let skinURL = decoded_data.textures.SKIN.url.replace('http:','https:');
-                        if (username) skinURLs[username] = decoded_data.textures.SKIN.url;
+                        if (username) skinURLs[username] = skinURL;
                         $('#skin').html(`
                             <img src="${skinURL}" alt="${username}'s skin">
                         `);
                         if (cape = decoded_data.textures.CAPE) {
-                            if (username) capeURLs[username] = decoded_data.textures.CAPE.url;
+                            capeURL = cape.url.replace('http:','https:');
+                            if (username) capeURLs[username] = capeURL;
                             $('#skin').append(`
-                                <img src="${cape.url}" alt="${username}'s cape">
+                                <img src="${capeURL}" alt="${username}'s cape">
                             `);
                         }
                     }).fail(function(data, textStatus, error) {
@@ -75,7 +79,7 @@
                                 `);
                             }
                         } else {
-                            $('#skin').html(`Error: ${error}`);
+                            $('#skin').empty();
                         }
                     });
                 }).fail(function(data, textStatus, error) {
@@ -96,7 +100,7 @@
         <script id="load-nav">$("nav").load("/assets/imports/navigation"); $('#load-nav').remove();</script>
     </header>
 
-    <main class="content">
+    <main>
         <h1>Minecraft Player API</h1>
         <p style="text-align: center;">Get information about any Minecraft player.</p>
         <div>
