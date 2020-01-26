@@ -10,7 +10,11 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/tools.css">
+    <style data-name="Page styles">
+        img {width: 256px; image-rendering: pixelated;}
+    </style>
     <script data-name="Page scripts">
+        var skinURLs = {}, capeURLs = {};
         function getInfo(username) {
             $('#username-history').empty();
             $('#username_uuid').html('Loading...');
@@ -54,17 +58,29 @@
                     let encoded_data = data.properties[0].value;
                     let decoded_data = JSON.parse(atob(encoded_data));
                     let skinURL = decoded_data.textures.SKIN.url.replace('http:','https:');
+                    if (username) skinURLs[username] = decoded_data.textures.SKIN.url;
                     $('#skin').html(`
                         <img src="${skinURL}" alt="${username}'s skin">
                     `);
                     if (cape = decoded_data.textures.CAPE) {
-                        let alt = username ? `alt="${username}'s skin` : "";
+                        if (username) capeURLs[username] = decoded_data.textures.CAPE.url;
                         $('#skin').append(`
-                            <img src="${cape.url}" ${alt} style="width: 256px; image-rendering: pixelated;">
+                            <img src="${cape.url}" alt="${username}'s cape">
                         `);
                     }
                 }).fail(function(data, textStatus, error) {
-                    $('#skin').html(`Error: ${error}`);
+                    if (skinURLs[username] || capeURLs[username]) {
+                        $('#skin').append(`
+                            <img src="${skinURLs[username]}" alt="${username}'s skin">
+                        `);
+                        if (capeURLs[username]) {
+                            $('#skin').append(`
+                                <img src="${capeURLs[username]}" alt="${username}'s cape">
+                            `);
+                        }
+                    } else {
+                        $('#skin').html(`Error: ${error}`);
+                    }
                 });
             }).fail(function(data, textStatus, error) {
                 $('#username_uuid').html(`Error: ${error}`);
