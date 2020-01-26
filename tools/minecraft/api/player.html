@@ -37,7 +37,8 @@
             }).done(function(data) {
                 if (!data) error("PlayerNotFoundError");
                 var username;
-                var uuid = data.id;
+                var uuid;
+                if (data) uuid = data.id;
                 var uuidFormatted = [
                     uuid.substring(0,8),
                     uuid.substring(8,12), uuid.substring(12,17), uuid.substring(17,21),
@@ -118,7 +119,7 @@
                 <button id="get-info" onclick="getInfo($('#input-username').val());">Get info</button><br>
             </p>
         </div>
-        <output style="margin: 1em; display: block;">
+        <output>
             <p id="username_uuid"></p>
             <ul id="username-history"></ul>
             <div id="skin" style="text-align: center;"></div>
