@@ -6,10 +6,9 @@
     $('#import-into-header').remove();
 </script>
 <span id="move-to-header">
-    <!--<link name="FontAwesome import" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">-->
-    <script name="FontAwesome import" src="https://kit.fontawesome.com/2bdb0386a5.js" crossorigin="anonymous"></script>
-    <script name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
-    <script id="navigation-scripts">
+    <script data-name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
+    <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
+    <script data-name="Navigation scripts">
         if (window.location.href.includes('imports/navigation')){
             $('head').append('<meta name="robots" content="noindex">');
         }
@@ -32,7 +31,7 @@
           $('#scollbar') .css('width', (t / (d - h)) * 100);
         })
     </script>
-    <style id="navigation-styles">
+    <style data-name="Navigation styles">
 
         i {visibility: hidden;}
         nav * div {transition: 0.1s;}

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en-NZ">
 <head>
     <title>Minecraft Player API &ndash; Nixinova</title>
@@ -9,11 +10,7 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/tools.css">
-</head>
-<body>
-    <script>
-        var usernames = [];
-        
+    <script data-name="Page scripts">
         function getInfo(username) {
             $('#username-history').empty();
             $('#username_uuid').html('Loading...');
@@ -53,13 +50,13 @@
                 }).done(function(data) {
                     let encoded_data = data.properties[0].value;
                     let decoded_data = JSON.parse(atob(encoded_data));
-                    let skinURL = decoded_data.textures.SKIN.url;
+                    let skinURL = decoded_data.textures.SKIN.url.replace('http:','https:');
                     $('#skin').html(`
                         <img src="${skinURL}" alt="${username}'s skin">
                     `);
                     if (cape = decoded_data.textures.CAPE) {
                         $('#skin').append(`
-                            <img src="${cape.url}" alt="${username}'s skin">
+                            <img src="${cape.url}" width="256" alt="${username}'s skin">
                         `);
                     }
                 });
@@ -70,6 +67,8 @@
             });
         }
     </script>
+</head>
+<body>
     <header>
         <nav></nav>
         <script id="load-nav">$("nav").load("/assets/imports/navigation"); $('#load-nav').remove();</script>
