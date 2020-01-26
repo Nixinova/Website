@@ -24,9 +24,11 @@
                 pages: []
             },
             "downloads/minecraft/maps": {
+                subfolders: [],
                 pages: ["kitpvp", "musical-blocks", "skywars"]
             },
             "downloads/minecraft/resource-packs": {
+                subfolders: [],
                 pages: ["mash-up", "herobrinenzk", "themed"]
             },
             "tools": {
@@ -38,12 +40,15 @@
                 pages: []
             },
             "tools/minecraft/api": {
+                subfolders: [],
                 pages: ["player"]
             },
             "tools/minecraft/converters": {
+                subfolders: [],
                 pages: ["coordinates"]
             },
             "tools/minecraft/generators": {
+                subfolders: [],
                 pages: ["give", "summon"]
             },
             "tools/hytale": {
@@ -51,21 +56,27 @@
                 pages: []
             },
             "tools/hytale/api": {
+                subfolders: [],
                 pages: ["blog"]
             },
             undefined: {
+                subfolders: [],
                 pages: []
             }
         }
         
         $(function() {
-            $('#content').append('<h2>Subfolders</h2>\n<ul>');
-            for (let folder of data[query].subfolders) {
-                $('#content ul').append(`<li><strong><a href="/${query}/${folder}/">/${folder}</a></strong></li>`)
+            if (data[query].subfolders != []) {
+                $('#content').append('\n<h2>Subfolders</h2>\n<ul>');
+                for (let folder of data[query].subfolders) {
+                    $('#content ul').append(`\n<li><strong><a href="/${query}/${folder}/">/${folder}</a></strong></li>`)
+                }
             }
-            if (data[query].pages) $('#content').append('\n</ul>\n<h2>Pages</h2>\n<ul>');
-            for (let page of data[query].pages) {
-                $('#content ul').append(`\n<li><a href="/${query}/${page}">${page}</a></li>`)
+            if (data[query].pages != []) {
+                $('#content').append('\n</ul>\n<h2>Pages</h2>\n<ul>');
+                for (let page of data[query].pages) {
+                    $('#content ul').append(`\n<li><a href="/${query}/${page}">${page}</a></li>`)
+                }
             }
             $('#content').append('\n</ul>');
         });
