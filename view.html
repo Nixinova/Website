@@ -59,13 +59,16 @@
         }
         
         (function() {
+            $('#content').append('<h2>Subfolders</h2>\n<ul>');
             for (let folder of data[query].subfolders) {
-                $('main ul').append(`<li><strong><a href="/${query}/${folder}/">/${folder}</a></strong></li>`)
+                $('#content ul').append(`<li><strong><a href="/${query}/${folder}/">/${folder}</a></strong></li>`)
             }
+            $('#content').append('\n</ul>\n<h2>Pages</h2>\n<ul>');
             for (let page of data[query].pages) {
-                $('main ul').append(`<li><a href="/${query}/${page}">${page}</a></li>`)
+                $('#content ul').append(`\n<li><a href="/${query}/${page}">${page}</a></li>`)
             }
-        });
+            $('#content').append('\n</ul>');
+        })();
         
 
    </script>
@@ -76,9 +79,7 @@
     </header>
 
     <main style="display: flex;">
-        <div style="margin: auto;">
-            <ul></ul>
-        </div>
+        <div id="content" style="margin: auto;"></div>
     </main>
 
     <footer style="margin-top: 0;"></footer>
