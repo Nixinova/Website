@@ -65,6 +65,7 @@
                 pages: ["404", "index", "search", "view"]
             }
         }
+        if (data[query] === undefined) query = 'blank';
         
         $(function() {
 
@@ -72,7 +73,7 @@
             $('#pages-text').empty();
 
             if (data[query].subfolders.length > 0) {
-                ;let folder = (query === 'blank') ? '' : query;
+                let folder = (query === 'blank') ? '' : query;
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
                     $('#subfolders-text').append(`\n<li><strong><a href="/${folder}/${subfolder}/">/${subfolder}</a></strong></li>`)
