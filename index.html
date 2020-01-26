@@ -48,8 +48,9 @@
 </head>
 <body style="background: var(--blue); overflow-x: hidden;">
     <header>
-        <nav></nav>
-        <script id="load-nav">$('nav').load('/imports/navigation'); $('#load-nav').remove();</script>
+        <nav>
+            <script>$('nav').load('/imports/navigation');</script>
+        </nav>
     </header>
 
     <main>
@@ -112,7 +113,8 @@
 
     </main>
 
-    <footer style="margin-top: 0;"></footer>
-    <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
+    <footer style="margin-top: 0;">
+        <script>$("footer").load("/imports/footer");</script>
+    </footer>
 </body>
 </html>
