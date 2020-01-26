@@ -58,11 +58,11 @@
                         if (i == 0 && data.length == 1) {
                             $('#username-history').append(`<li>Current name: ${name}</li>`);
                         } else if (i == data.length-1) {
-                            $('#username-history').append(`<li>Name #${parseInt(i)+1} (current): ${name} (changed on ${date})</li>`);
+                            $('#username-history').append(`<li>Name #${parseInt(i)+1} (current): ${name}<br class="mobileonly"/>(changed on ${date})</li>`);
                         } else if (i == 0) {
                             $('#username-history').append(`<li>Name #1: ${name}</li>`);
                         } else {
-                            $('#username-history').append(`<li>Name #${parseInt(i)+1}: ${name} (changed on ${date})</li>`);
+                            $('#username-history').append(`<li>Name #${parseInt(i)+1}: ${name}<br class="mobileonly"/>(changed on ${date})</li>`);
                         }
                     }
                     $.ajax({
@@ -128,7 +128,7 @@
     </main>
 
     <footer>
-        <script>$("#footer").load("/assets/imports/footer");</script>
+        <script>$("footer").load("/assets/imports/footer");</script>
     </footer>
 </body>
 </html>
