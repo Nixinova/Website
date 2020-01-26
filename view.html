@@ -58,7 +58,7 @@
             }
         }
         
-        (function() {
+        function generate() {
             $('#content').append('<h2>Subfolders</h2>\n<ul>');
             for (let folder of data[query].subfolders) {
                 $('#content ul').append(`<li><strong><a href="/${query}/${folder}/">/${folder}</a></strong></li>`)
@@ -68,7 +68,7 @@
                 $('#content ul').append(`\n<li><a href="/${query}/${page}">${page}</a></li>`)
             }
             $('#content').append('\n</ul>');
-        })();
+        };
         
 
    </script>
@@ -78,7 +78,7 @@
         <script id="load-nav">$('nav').load('/imports/navigation'); $('#load-nav').remove();</script>
     </header>
 
-    <main style="display: flex;">
+    <main style="display: flex;" onload="generate();">
         <div id="content" style="margin: auto;"></div>
     </main>
 
