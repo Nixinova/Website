@@ -23,7 +23,7 @@
                 $.ajax({
                     url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
                 }).done(function(data) {
-                    if (!data) throw "PlayerNotFoundError";
+                    if (!data) throw {name: "PlayerNotFoundError"};
                     var username;
                     var uuid = data.id;
                     var uuidFormatted = [
@@ -78,23 +78,25 @@
                                     `);
                                 }
                             } else {
-                                throw "SkinNotFoundError";
+                                throw {name: "SkinNotFoundError"};
                             }
                         });
                     }).fail(function() {
-                        throw "PlayerNotFoundError";
+                        throw {name: "PlayerNotFoundError"};
                     });
                 }).fail(function() {
-                    throw "PlayerNotFoundError";
+                    throw {name: "PlayerNotFoundError"};
                 });
             }
             catch (err) {
-                if (err == "PlayerNotFoundError") {
+                if (err.name === "PlayerNotFoundError") {
                     $('#username_uuid').html(`Error: ${error}`);
                     $('#username-history').html("Could not find player " + username);
                     $('#skin').empty();
-                } else if (err == "SkinNotFoundError") {
+                } else if (err.name === "SkinNotFoundError") {
                     $('#skin').empty();
+                } else {
+                    console.log(e);
                 }
             }
         }
