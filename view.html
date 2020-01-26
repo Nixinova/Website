@@ -13,21 +13,63 @@
 <body>
 
     <script data-name="Page script">
-        (function() {
-            var query = location.href.split('?')[1];
-            $('template').load('/assets/content/' + query + '.json');
-        });
+
+        var query = location.href.split('?')[1];
+        var data = {
+            "downloads": {
+                subfolders: ["minecraft"],
+                pages: [],
+                "minecraft": {
+                    subfolders: ["maps", "resource-packs"],
+                    pages: [],
+                    "maps": {
+                        pages: ["kitpvp", "musical-blocks", "skywars"]
+                    },
+                    "resource-packs": {
+                        pages: ["mash-up", "herobrinenzk", "themed"]
+                    }
+                }
+            },
+            "tools": {
+                subfolders: ["minecraft","hytale"],
+                pages: [],
+                "minecraft": {
+                    subfolders: ["api", "converters","generators"],
+                    pages: [],
+                    "api": {
+                        pages: ["player"]
+                    },
+                    "converters": {
+                        pages: ["coordinates"]
+                    },
+                    "generators": {
+                        pages: ["give", "summon"]
+                    }
+                },
+                "hytale": {
+                    subfolders: ["api"],
+                    pages: [],
+                    "api": {
+                        pages: ["blog"]
+                    }
+                }
+            }
+        }
+
+        
+
     </script>
-
-    <template></template>
-
     
     <header>
         <nav></nav>
         <script id="load-nav">$('nav').load('/imports/navigation'); $('#load-nav').remove();</script>
     </header>
 
-    <main></main>
+    <main>
+        <ul id="content">
+
+        </ul>
+    </main>
 
     <footer style="margin-top: 0;"></footer>
     <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
