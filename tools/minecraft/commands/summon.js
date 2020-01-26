@@ -18,6 +18,7 @@ function summon() {
     var Y = value('input_y').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
     var Z = value('input_z').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
     var name = value('input_customname').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    var name_color = value('input_customname_color');
 
     var no_ai = hasClass('input_no_ai', 'on');
     var despawnable = hasClass('input_despawnable', 'on');
@@ -100,7 +101,13 @@ function summon() {
     // ENTITY NBT //
     {
         // all //
-        if (name) {nbt.CustomName = '"' + name.replace(/\\\\/g, '\\').replace(/\\"/g, '\"') + '"';}
+        if (name) {
+            if (name_color) {
+                nbt.CustomName = JSON.stringify({"text": name, "color": name_color});
+            } else {
+                nbt.CustomName = '"' + name + '"';
+            }
+        }
         if (!no_ai) {nbt.NoAI = true;}
         if (!despawnable) {nbt.PersistenceRequired = true;}
         if (invulnerable) {nbt.Invulnerable = true;}

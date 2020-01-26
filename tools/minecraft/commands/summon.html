@@ -108,7 +108,27 @@
                 <label>NBT:</label><br/>
             
                 <label class="indent">Name:</label>
-                <input type="text" size="13" id="input_customname"><br/>
+                <input type="text" size="13" id="input_customname"> &nbsp;<br class="mobileonly"/>
+                <label class="indent">Colour:</label>
+                <select id="input_customname_color" onchange="submit()">
+                    <option value="">White</option>
+                    <option>Orange</option>
+                    <option>Magenta</option>
+                    <option>Light blue</option>
+                    <option>Yellow</option>
+                    <option>Lime</option>
+                    <option>Pink</option>
+                    <option>Gray</option>
+                    <option>Light gray</option>
+                    <option>Cyan</option>
+                    <option>Purple</option>
+                    <option>Blue</option>
+                    <option>Brown</option>
+                    <option>Green</option>
+                    <option>Red</option>
+                    <option>Black</option>
+                </select>
+                <br/>
             
                 <label class="indent">Able to move?</label>
                 <button id="input_no_ai" class="on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
