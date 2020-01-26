@@ -3,24 +3,24 @@
 
 # Assets
 /css/*						/assets/css/:splat
+/images/*					/assets/images/:splat
 /imports/*					/assets/imports/:splat
 
 # Shortcuts
-/musical-blocks	 			/downloads/minecraft/maps/musical-blocks
-/kitpvp			 			/downloads/minecraft/maps/kitpvp
+/musical-blocks				/downloads/minecraft/maps/musical-blocks
+/kitpvp						/downloads/minecraft/maps/kitpvp
 /skywars					/downloads/minecraft/maps/skywars
 /herobrinenzk				/downloads/minecraft/resource-packs/herobrinenzk
 /mash-up					/downloads/minecraft/resource-packs/mash-up
-/themed			 			/downloads/minecraft/resource-packs/themed
+/themed						/downloads/minecraft/resource-packs/themed
 /give						/tools/minecraft/commands/give
-/summon			 			/tools/minecraft/commands/summon
+/summon						/tools/minecraft/commands/summon
 /coordinates				/tools/minecraft/converters/coordinates
 
 # Page moves
-/maps/*			 			/downloads/minecraft/maps/:splat
+/maps/*						/downloads/minecraft/maps/:splat
 /resource-packs/*			/downloads/minecraft/resource-packs/:splat
 /minecraft/maps/*			/downloads/minecraft/maps/:splat
 /minecraft/resource-packs/*	/downloads/minecraft/resource-packs/:splat
-/minecraft/tools/coordinates /tools/minecraft/converters/coordinates
 /minecraft/tools/*			/tools/minecraft/:splat
 /hytale/api/*				/tools/hytale/api/:splat
