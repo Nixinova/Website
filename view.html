@@ -13,8 +13,10 @@
 <body>
 
     <script data-name="Page script">
-        var query = location.href.split('?')[1];
-        $('template').load('/assets/content/' + query + '.json');
+        (function() {
+            var query = location.href.split('?')[1];
+            $('template').load('/assets/content/' + query + '.json');
+        });
     </script>
 
     <template></template>
