@@ -18,7 +18,7 @@
         function error(err) {
             if (err === "PlayerNotFoundError") {
                 $('#username_uuid').empty();
-                $('#username-history').html("Could not find player " + username);
+                $('#username-history').html("Could not find player");
                 $('#skin').empty();
             } else if (err === "SkinNotFoundError") {
                 $('#skin').empty();
