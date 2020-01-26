@@ -297,10 +297,10 @@ function summon() {
         $('#cmd-note').removeClass('hide');
    }
     $('#generator-output').append(`
-        <span style="color: lightgray">/summon</span>
+        <span style="color: #aaa">/summon</span>
         <span style="color: #5ff">${entity}</span>
         <span style="color: #ff5">${X} ${Y} ${Z}</span>
-        <span style="color: lightgreen">${NBT}</span>
+        <span style="color: #5f5">${NBT}</span>
     `);
 
     // counter
