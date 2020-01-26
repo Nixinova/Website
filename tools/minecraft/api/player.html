@@ -36,7 +36,7 @@
                     $('#username_uuid').html(`<strong>${username} (UUID ${uuidFormatted})</strong>`);
                     for (i in data) {
                         let name = data[i].name;
-                        let date = moment.unix(data[i].changedToAt).format('DD MMM YYYY [at] HH:mm:ss [UTC]');
+                        let date = moment(data[i].changedToAt).format('DD MMM YYYY [at] HH:mm:ss [UTC]');
                         if (i == 0 && data.length == 1) {
                             $('#username-history').append(`<li>Current name: ${name}</li>`);
                         } else if (i == data.length-1) {
@@ -88,7 +88,7 @@
         <output style="margin: 1em; display: block;">
             <p id="username_uuid"></p>
             <ul id="username-history"></ul>
-            <div id="skin"></div>
+            <div id="skin" style="text-align: center;"></div>
         </output>
     </main>
 
