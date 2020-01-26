@@ -80,7 +80,7 @@ function give() {
     var i_firework_flight = value('input_item_firework_flight', 'int');
     var i_firework_type = value('input_item_firework_type', 'int');
     var i_firework_trail = hasClass('input_item_firework_trail', 'on');
-    var i_name = value('input_item_name').replace(/\\/g, "\\\\\\\\").replace(/\"/g, '\\\\\\"');
+    var i_name = value('input_item_name').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
     var i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
     var i_bold = hasClass('input_item_b', 'on');
     var i_italic = hasClass('input_item_i', 'on');
@@ -297,32 +297,31 @@ function give() {
     if (i_name) {
         var preview = $('#preview-text');
         $('#preview').removeClass('hide');
-        preview.html(i_name.replace(/\\\\\\\\/g, '\\').replace(/\\\\\\"/g, '"'));
+        preview.html(i_name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
         display.text = i_name;
 
-        let colour, shadow;
+        let className;
         switch (i_colour) {
-            case 'aqua'         : colour = '#5ff'; shadow = '#00002a'; break;
-            case 'black'        : colour = '#000'; shadow = '#002a00'; break;
-            case 'blue'         : colour = '#55f'; shadow = '#002a2a'; break;
-            case 'dark_aqua'    : colour = '#0aa'; shadow = '#2a0000'; break;
-            case 'dark_blue'    : colour = '#00a'; shadow = '#2a002a'; break;
-            case 'dark_gray'    : colour = '#555'; shadow = '#2a2a00'; break;
-            case 'dark_green'   : colour = '#0a0'; shadow = '#2a2a2a'; break;
-            case 'dark_purple'  : colour = '#a0a'; shadow = '#151515'; break;
-            case 'dark_red'     : colour = '#a00'; shadow = '#15153f'; break;
-            case 'gold'         : colour = '#fa0'; shadow = '#153f15'; break;
-            case 'gray'         : colour = '#aaa'; shadow = '#153f3f'; break;
-            case 'green'        : colour = '#5f5'; shadow = '#3f1515'; break;
-            case 'light_purple' : colour = '#f5f'; shadow = '#3f153f'; break;
-            case 'red'          : colour = '#f55'; shadow = '#3f3f15'; break;
-            case 'yellow'       : colour = '#ff5'; shadow = '#3f3f3f'; break;
-            default             : colour = '#fff'; shadow = '#000000';
+            case 'aqua'         : className="§b"; break;
+            case 'black'        : className="§0"; break;
+            case 'blue'         : className="§9"; break;
+            case 'dark_aqua'    : className="§3"; break;
+            case 'dark_blue'    : className="§1"; break;
+            case 'dark_gray'    : className="§8"; break;
+            case 'dark_green'   : className="§2"; break;
+            case 'dark_purple'  : className="§5"; break;
+            case 'dark_red'     : className="§4"; break;
+            case 'gold'         : className="§6"; break;
+            case 'gray'         : className="§7"; break;
+            case 'green'        : className="§a"; break;
+            case 'light_purple' : className="§d"; break;
+            case 'red'          : className="§c"; break;
+            case 'yellow'       : className="§e"; break;
+            default             : className="§f";
         }
 
         if (i_colour) {display.color = i_colour;}
-        preview.css('color', colour);
-        preview.css('text-shadow', '2px 2px' + shadow);
+        preview.addClass(className);
 
         if (i_bold) {
             display.bold = true;
@@ -361,7 +360,7 @@ function give() {
             preview.html('*'.repeat(i_name.length));
         }
 
-        nbt.display.Name = JSON.stringify(display).replace(/\\\\\\\\\\\\\\\\/g, '\\\\').replace(/\\\\\\\\\\\\\\"/g, '\\"');
+        nbt.display.Name = JSON.stringify(display);
     } else {
         $('#preview').addClass('hide');
     }
