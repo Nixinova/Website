@@ -14,7 +14,7 @@
     <script data-name="Page script">
 
         var query = location.href.split('?')[1];
-        if (!query) query = "blank";
+        if (!query) query = "default";
         var data = {
             "downloads": {
                 subfolders: ["minecraft"],
@@ -60,12 +60,12 @@
                 subfolders: [],
                 pages: ["blog"]
             },
-            "blank": {
+            "default": {
                 subfolders: ["downloads", "tools"],
                 pages: ["404", "index", "search", "view"]
             }
         }
-        if (data[query] === undefined) query = 'blank';
+        if (data[query] === undefined) query = 'default';
         
         $(function() {
 
@@ -73,18 +73,18 @@
             $('#pages-text').empty();
 
             if (data[query].subfolders.length > 0) {
-                let folder = (query === 'blank') ? '' : query;
+                let folder = '/' + (query === 'default') ? '' : query;
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
-                    $('#subfolders-text').append(`\n<li><strong><a href="/${folder}/${subfolder}/">/${subfolder}</a></strong></li>`)
+                    $('#subfolders-text').append(`\n<li><strong><a href="${folder}/${subfolder}/">/${subfolder}</a></strong></li>`)
                 }
             }
 
             if (data[query].pages.length > 0) {
-                let folder = (query === 'blank') ? '' : query;
+                let folder = (query === 'default') ? '' : query;
                 $('#pages-title').removeClass('hide');
                 for (let page of data[query].pages) {
-                    $('#pages-text').append(`\n<li><a href="/${folder}/${page}">${page}</a></li>`)
+                    $('#pages-text').append(`\n<li><a href="${folder}/${page}">${page}</a></li>`)
                 }
             }
 
