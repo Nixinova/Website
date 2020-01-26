@@ -20,6 +20,8 @@
             $('#skin').empty();
             $.ajax({
                 url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
+            }).error(function(xhr, textStatus, error) {
+                $('#username_uuid').html(`Error ${textStatus}: "${error}`);
             }).done(function(data) {
                 if (data) {
                     var username;
@@ -56,7 +58,7 @@
                         let decoded_data = JSON.parse(atob(encoded_data));
                         let skinURL = decoded_data.textures.SKIN.url;
                         $('#skin').html(`
-                            <img src="${skinURL}" alt="${player}'s skin">
+                            <img src="${skinURL}" alt="${username}'s skin">
                         `);
                         if (cape = decoded_data.textures.CAPE) {
                             $('#skin').append(`
