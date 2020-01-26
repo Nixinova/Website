@@ -72,6 +72,8 @@
             $('#subfolders-text').empty();
             $('#subpages-text').empty();
 
+            $('#go-up').append(`\n<li><em><a href="${location.href.replace(/(.+\/)[a-z]+$/, '$1')}">../</a></em></li>`);
+
             if (data[query].subfolders.length > 0) {
                 let folder = query === 'default' ? '' : '/'+query;
                 $('#subfolders-title').removeClass('hide');
@@ -102,6 +104,7 @@
         <div id="content" style="margin: auto;">
 
             <h1 style="border-bottom: solid;">Subpage index</h1>
+            <ul id="go-up"></ul>
             <br/>
 
             <h2 id="subfolders-title" class="hide">Subfolders</h2>
