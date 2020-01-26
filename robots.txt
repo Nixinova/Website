@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /assets/imports
 Disallow: /subpages
 
 Sitemap: https://nixinova.com/sitemap.txt
