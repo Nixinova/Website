@@ -521,7 +521,7 @@ function give() {
     }
     
     $('#generator-output').html(`
-        <span style="color: #5f5">/give</span>
+        <span style="color: #aaa">/give</span>
         <span style="color: #5ff">${target_text + selector}</span>
         <span style="color: #ff5">${item + NBT.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</span>
         <span style="color: #5f5">${count}</span>

@@ -102,12 +102,9 @@ function summon() {
     {
         // all //
         if (name) {
-            if (name_color) {
-                nbt.CustomName = JSON.stringify({"text": name, "color": name_color});
-            } else {
-                nbt.CustomName = '"' + name + '"';
-            }
-        }
+            $('#customname_color').removeClass('hide');
+            JSON.stringify(name_color ? {"text": name, "color": name_color} : name);
+        } else $('#customname_color').toggleClass('hide',true);
         if (!no_ai) {nbt.NoAI = true;}
         if (!despawnable) {nbt.PersistenceRequired = true;}
         if (invulnerable) {nbt.Invulnerable = true;}
