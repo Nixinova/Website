@@ -19,6 +19,11 @@ function summon() {
     var Z = value('input_z').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
     var name = value('input_customname').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
     var name_color = value('input_customname_color').toLowerCase().replace(/ /g, '_');
+    var name_bold = hasClass('input_customname_b', 'on');
+    var name_italic = hasClass('input_customname_i', 'on');
+    var name_underline = hasClass('input_customname_u', 'on');
+    var name_strike = hasClass('input_customname_s', 'on');
+    var name_obfus = hasClass('input_customname_o', 'on');
 
     var no_ai = hasClass('input_no_ai', 'on');
     var despawnable = hasClass('input_despawnable', 'on');
@@ -101,7 +106,7 @@ function summon() {
     // ENTITY NBT //
     {
         // all //
-        let CustomName = {};
+        let display = {};
         if (name) {
             $('#customname_color').removeClass('hide');
             JSON.stringify(name_color ? {"text": name, "color": name_color} : name);
@@ -112,7 +117,7 @@ function summon() {
             CustomName.text = name;
         
             let className;
-            switch (name_colour) {
+            switch (name_color) {
                 case 'aqua'         : className="§b"; break;
                 case 'black'        : className="§0"; break;
                 case 'blue'         : className="§9"; break;
@@ -131,47 +136,47 @@ function summon() {
                 default             : className="§f";
             }
         
-            if (i_colour) {display.color = i_colour;}
+            if (name_colour) {display.color = name_color;}
             preview.addClass(className);
         
-            if (i_bold) {
+            if (name_bold) {
                 display.bold = true;
                 preview.css('font-weight', 'bold');
             } else {
                 preview.css('font-weight', 'inherit');
             }
         
-            if (!i_italic) {
+            if (!name_italic) {
                 display.italic = false;
                 preview.css('font-style', 'inherit');
             } else {
                 preview.css('font-style', 'italic');
             }
         
-            if (i_underline) {
+            if (name_underline) {
                 display.underlined = true;
                 preview.css('text-decoration', 'underline');
             } else if (!i_strike) {
                 preview.css('text-decoration', 'inherit');
             }
         
-            if (i_strike) {
+            if (name_strike) {
                 display.strikethrough = true;
                 preview.css('text-decoration', 'line-through');
             } else if (!i_underline) {
                 preview.css('text-decoration', 'inherit');
             }
         
-            if (i_strike && i_underline) {
+            if (name_strike && name_underline) {
                 preview.css('text-decoration', 'underline line-through');
             }
         
-            if (i_obfus) {
+            if (name_obfus) {
                 display.obfuscated = true;
-                preview.html('*'.repeat(i_name.length));
+                preview.html('*'.repeat(name.length));
             }
         
-            nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
+            nbt.CustomName = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
         } else {
             $('#customname_color').toggleClass('hide',true);
             $('#preview').addClass('hide');
