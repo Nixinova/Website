@@ -10,6 +10,8 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/tools.css">
+</head>
+<body>
     <script data-name="Page scripts">
         var blogs = {titles: [], urls: [], dates: [], excerpts: [], authors: [], images: []};
         $.ajax({
@@ -56,8 +58,6 @@
             `);
         }
     </script>
-</head>
-<body>
     <header>
         <nav></nav>
         <script id="load-nav">$("nav").load("/assets/imports/navigation"); $('#load-nav').remove();</script>
