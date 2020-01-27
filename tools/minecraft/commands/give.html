@@ -18,7 +18,7 @@
             stylesheets: ["tools.css"],
             scripts: ["tool-functions.js","./give.js"]
         }
-        $(loadData(PAGE_DATA));
+        $(document).ready(function() {loadData(PAGE_DATA);});
         $('footer').append(`&bull;&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>`);
     </script>
 

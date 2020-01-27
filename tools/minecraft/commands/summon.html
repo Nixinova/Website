@@ -19,7 +19,7 @@
             stylesheets: ["tools.css"],
             scripts: ["tool-functions.js","./summon.js"]
         }
-        $(loadData(PAGE_DATA));
+        $(document).ready(function() {loadData(PAGE_DATA);});
         $('footer').append(`&bull;&nbsp;<a href="summon.js" title="summon.js" target="_blank">View code</a>`);
     </script>
 

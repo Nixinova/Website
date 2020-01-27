@@ -15,7 +15,7 @@
             stylesheets: ["tools.css"],
             scripts: ["tool-functions.js","./coordinates.js"],
         }
-        $(loadData(PAGE_DATA));
+        $(document).ready(function() {loadData(PAGE_DATA);});
         $('footer').append(`•&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>`);
     </script>
 
