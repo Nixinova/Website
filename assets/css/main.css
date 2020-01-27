@@ -6,7 +6,7 @@
 :root {--body-color: #313131; --header-color: #222;}
 
 /* Base elements */
-* {box-sizing: border-box; transition: 0.5s;}
+* {box-sizing: border-box;/*transition: 0.5s;*/}
 body {font: normal 15px 'Montserrat', sans-serif; background: var(--body-color); margin: 0; color: #eee; line-height: 1.8;}
 main {min-height: calc(100vh - 142px);}
 nav {background: var(--header-color);}

@@ -43,5 +43,6 @@ function loadData(data) {
     $('main').html($('#page-loader-content').html());
 
     $('#page-loader-script').remove();
+    $('[src="/loader.js"]').remove();
 
 }
