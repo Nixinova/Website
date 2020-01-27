@@ -2,6 +2,7 @@
 <html>
 <head>
     <style data-name="Page styles">
+        output {display: block;}
         output img {width: 256px; image-rendering: pixelated;}
     </style>
 </head>
@@ -21,9 +22,11 @@
         }
         
         var query = location.href.split('?')[1];
-        $('#input-username').val(query);
         $(function() {
-            if (query) getInfo(query);}
+            if (query) {
+                getInfo(query);}
+                $('#input-username').val(query);
+            }
         );
 
         var skinURLs = {}, capeURLs = {};
