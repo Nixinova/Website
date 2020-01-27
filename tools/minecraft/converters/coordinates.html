@@ -1,29 +1,25 @@
-<html lang="en-NZ">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Minecraft Coordinate Tools &ndash; Nixinova</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Converts Minecraft coordinates between block, nether, chunk, and region coordinates.">
-    <meta name="keywords" content="nixinova,nixi,nova,coordinates,minecraft,coordinates generator,minecraft coordinates generator">
-    <meta name="author" content="Nixinova">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/tools.css">
-    <script src="/assets/js/tool-functions.js"></script>
-    <script src="coordinates.js"></script>
-    <style>
+    <style data-name="Page styles">
         input {width: 100px; padding-left: 20px; text-align: center;}
         .form-item.long {width: 250px;}
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <script>$("nav").load("/assets/imports/navigation");</script>
-        </nav>
-    </header>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "Minecraft Coordinates Converter",
+            description: "Converts Minecraft coordinates between block, nether, chunk, and region coordinates.",
+            keywords: "nixinova,coordinates,minecraft,coordinates converter,minecraft coordinates converter",
+            stylesheets: ["tools.css"],
+            scripts: ["tool-functions.js","./coordinates.js"],
+        }
+        $(loadData(PAGE_DATA));
+        $('footer').append(`•&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>`);
+    </script>
 
-    <main>
+    <template id="page-loader-content">
         <h1>Coordinate Tools</h1>
         <p>Translates overworld coordinates into nether, chunk and region coordinates.</p>
         <form action="javascript:submit()" id="input_form">
@@ -66,14 +62,7 @@
                 </p>
             </div>
         </form>
-        <script>$(document).ready(function(){submit()});</script>
-    </main>
-
-    <footer class="bottom">
-        <span id="footer">
-            <script>$("#footer").load("/assets/imports/footer");</script>
-        </span>
-        •&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>
-    </footer>
+        <script>$(submit());</script>
+    </template>
 </body>
 </html>

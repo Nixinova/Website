@@ -5,8 +5,7 @@ function loadData(input) {
         description: input.description || input.title,
         keywords: input.keywords || input.description.replace(/ /g, ','),
         stylesheets: input.stylesheets || [],
-        scripts: input.scripts || [],
-        sticky_footer: input.sticky_footer || false
+        scripts: input.scripts || []
     }
 
     //$('html').attr('lang','en-NZ');
@@ -29,10 +28,10 @@ function loadData(input) {
     $('head').prepend(`
         <title>${data.title} – Nixinova</title>
         <head charset="UTF-8">
-        <head name="description" content="${data.description}">
-        <head name="keywords" content="${data.keywords}">
-        <head name="author" content="Nixinova">
-        <head name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="${data.description}">
+        <meta name="keywords" content="${data.keywords}">
+        <meta name="author" content="Nixinova">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="/favicon.ico">
         <link rel="stylesheet" href="/assets/css/main.css">
     `);
@@ -52,10 +51,6 @@ function loadData(input) {
 
     $('nav').load('/assets/imports/navigation');
     $('footer').load('/assets/imports/footer');
-
-    if (data.sticky_footer) {
-        $('footer').addClass('bottom');
-    }
 
     $('main').html($('#page-loader-content').html());
 

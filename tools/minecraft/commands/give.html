@@ -1,35 +1,30 @@
-<html lang="en-NZ">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>/give generator &ndash; Nixinova</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="A generator which creates /give commands for Minecraft 1.13 and above.">
-    <meta name="keywords" content="nixinova,nixinova website,give,minecraft,give generator, minecraft /give generator,minecraft command generator,command generator">
-    <meta name="author" content="Nixinova">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/tools.css">
-    <script src="/assets/js/tool-functions.js"></script>
-    <script src="give.js"></script>
-    <script>
-        var function_count = 0;
-    </script>
-    <style>
+    <script>var function_count = 0;</script>
+    <style data-name="Page styles">
         @media (max-width: 814px) {
             label.short {margin-left: 1em;}
         }
     </style>
 </head>
 <body onload="submit()">
-    <header>
-        <nav>
-            <script>$("nav").load("/assets/imports/navigation");</script>
-        </nav>
-    </header>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "/give generator",
+            description: "A generator which creates /give commands for Minecraft versions 1.13 through 1.15.",
+            keywords: "nixinova,nixinova website,give,minecraft,give generator, minecraft give generator,\
+                give command,minecraft give command,give command generator,minecraft command generator,command generator",
+            stylesheets: ["tools.css"],
+            scripts: ["tool-functions.js","./give.js"]
+        }
+        $(loadData(PAGE_DATA));
+        $('footer').append(`&bull;&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>`);
+    </script>
 
-    <main>
+    <template id="page-loader-content">
         <h2>/give</h2>
-        <p>Generates /give commands for Minecraft 1.13 to 1.15.</p>
+        <p>Generates <samp>/give</samp> commands for Minecraft 1.13 to 1.15.</p>
         <noscript><p><strong>This tool needs JavaScript to work!</strong></p></noscript>
         <form action="javascript:submit()" id="input_form">
             <!-- target -->
@@ -507,13 +502,6 @@
         <p style="text-align: center;">
             <button onclick="copyCommand()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
         </p>
-    </main>
-
-    <footer>
-        <span id="footer">
-            <script>$("#footer").load("/assets/imports/footer");</script>
-        </span>
-        &bull;&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>
-    </footer>
+    </template>
 </body>
 </html>

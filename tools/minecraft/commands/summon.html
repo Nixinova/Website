@@ -1,33 +1,31 @@
-<html lang="en-NZ">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>/summon generator &ndash; Nixinova</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="A generator which creates /summon commands for Minecraft 1.13 and above.">
-    <meta name="keywords" content="nixinova,nixi,nova,nixinova website,summon,minecraft,summon generator,minecraft summon,minecraft summon generator,minecraft /summon generator,minecraft command generator">
-    <meta name="author" content="Nixinova">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/tools.css">
-    <script src="/assets/js/tool-functions.js"></script>
-    <script src="summon.js"></script>
-    <style>
+    <script>var function_count = 0;</script>
+    <style data-name="Page styles">
         button.notext {width: 70px; text-align: center;}
         .on.notext::before {content: 'True';}
         .off.notext::after {content: 'False';}
     </style>
-    <script>var function_count = 0;</script>
 </head>
 <body>
-    <header>
-        <nav>
-            <script>$('nav').load('/assets/imports/navigation');</script>
-        </nav>
-    </header>
-    
-    <main>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "/summon generator",
+            description: "A generator for creating /summon commands for Minecraft versions 1.13 through 1.15.",
+            keywords: "nixinova,summon,minecraft,summon generator,minecraft summon,minecraft summon generator,\
+                minecraft summon generator,summon command generator,minecraft summon command,summon minecraft,minecraft\
+                command generator",
+            stylesheets: ["tools.css"],
+            scripts: ["tool-functions.js","./summon.js"]
+        }
+        $(loadData(PAGE_DATA));
+        $('footer').append(`&bull;&nbsp;<a href="summon.js" title="summon.js" target="_blank">View code</a>`);
+    </script>
+
+    <template id="page-loader-content">
         <h2>/summon</h2>
-        <p>Generates /summon commands for Minecraft 1.13 to 1.15.</p>
+        <p>Generates <samp>/summon</samp> commands for Minecraft 1.13 to 1.15.</p>
         <form action="javascript:submit()" id="input_form">
             <p>
                 <label>Mob:</label>
@@ -601,14 +599,6 @@
         </p>
     
         <script>$(submit());</script>
-    </main>
-    
-    <footer>
-        <span id="footer">
-            <script>$("#footer").load("/assets/imports/footer");</script>
-        </span>
-        &bull;&nbsp;<a href="summon.js" title="summon.js" target="_blank">View code</a>
-    </footer>
-
+    </template>
 </body>
 </html>
