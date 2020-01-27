@@ -43,18 +43,22 @@
             let query = page || location.href.split('#')[1];
             if (!query || data[query] === undefined) query = "index";
 
+            $('#subfolders-title').addClass('hide');
+            $('#subpages-title').addClass('hide');
             $('#subfolders-text').empty();
             $('#subpages-text').empty();
 
             if (location.href.split('/')[3] !== 'subpages#') {
                 if (location.href.split('/')[3] && location.href.split('/')[4] === undefined) {
-                    $('#go-up').html(`\n<a href="/subpages#" onclick="generateSubpages();">← Go back</a>`);
+                    $('#go-up').html(`\n<a href="/subpages#" onclick="generateSubpages('index');">← Go back</a>`);
                 } else {
                     let newLink = location.href.replace(/(.+)\/[a-z]+$/, '$1');
                     let newAnchor = newLink.split('#')[1];
                     $('#go-up').html(`\n<a href="${newLink}" onclick="generateSubpages('${newAnchor}');">← Go back</a>`);
                 }
-            } 
+            } else {
+                $('#go-up').empty();
+            }
 
             if (data[query].subfolders && data[query].subfolders.length > 0) {
                 let folder = query === 'index' ? '' : query + '/';
