@@ -46,7 +46,7 @@ function loadData(data) {
     $('nav').load('/assets/imports/navigation');
     $('footer').load('/assets/imports/footer');
 
-    $('main').html($('#page-loader-content'));
+    $('main').html($('#page-loader-content').html());
 
     $('#page-loader-script').remove();
 
