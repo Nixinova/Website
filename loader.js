@@ -1,6 +1,6 @@
 function loadData(data) {
 
-    $('html').attr('lang','en-NZ');
+    //$('html').attr('lang','en-NZ');
 
     // HEAD //
     $('head').append(`
@@ -24,8 +24,8 @@ function loadData(data) {
         }
     }
 
-    $('head').append($('style'));
-    $('style').remove();
+    $('head').append($('style.page-styles'));
+    $('style.page-styles').remove();
 
     $('head').append($('script.page-script'));
     $('script.page-script').remove();
