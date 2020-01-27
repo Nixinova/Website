@@ -39,8 +39,8 @@
             "tools/hytale/api": {subpages: ["blog"]}
         }
         
-        function generateSubpages() {
-            let query = location.href.split('#')[1];
+        function generateSubpages(page) {
+            let query = page || location.href.split('#')[1];
             if (!query || data[query] === undefined) query = "index";
 
             $('#subfolders-text').empty();
@@ -50,7 +50,8 @@
                 if (location.href.split('/')[3] && location.href.split('/')[4] === undefined) {
                     $('#go-up').html(`\n<a href="/subpages#" onclick="generateSubpages();">← Go back</a>`);
                 } else {
-                    $('#go-up').html(`\n<a href="${location.href.replace(/(.+)\/[a-z]+$/, '$1')}" onclick="generateSubpages();">← Go back</a>`);
+                    let newAnchor = location.href.replace(/(.+)\/[a-z]+$/, '$1');
+                    $('#go-up').html(`\n<a href="${newAnchor}" onclick="generateSubpages(newAnchor);">← Go back</a>`);
                 }
             } 
 
@@ -58,7 +59,8 @@
                 let folder = query === 'index' ? '' : query + '/';
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
-                    $('#subfolders-text').append(`\n<li><strong><a href="#${folder}${subfolder}" onclick="generateSubpages();">/${subfolder}</a></strong></li>`)
+                    let newAnchor = folder + subfolder;
+                    $('#subfolders-text').append(`\n<li><strong><a href="#${newAnchor}" onclick="generateSubpages(${newAnchor});">/${subfolder}</a></strong></li>`)
                 }
             }
 
