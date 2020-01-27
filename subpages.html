@@ -44,6 +44,9 @@
         
         $(function() {
 
+            if (!data[query].subfolders) data[query].subfolders = [];
+            if (!data[query].subpages) data[query].subp = [];
+
             $('#subfolders-text').empty();
             $('#subpages-text').empty();
 
