@@ -1,5 +1,6 @@
-/* Font */
+/* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
 
 /* Variabels */
 :root {--body-color: #313131; --header-color: #222;}

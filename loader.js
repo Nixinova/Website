@@ -3,7 +3,7 @@ function loadData(data) {
     $('html').attr('lang','en-NZ');
 
     // HEAD //
-    $('html').append(`\n<head>
+    $('head').append(`
         <title>${data.head.title}</title>
         <head charset="UTF-8">
         <head name="description" content="${data.head.description}">
@@ -13,27 +13,25 @@ function loadData(data) {
     `);
 
     for (var stylesheet of data.head.stylesheets) {
-        $('html').append(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
+        $('head').append(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
     }
 
     for (var script of data.head.stylesheets) {
         if (script.startsWith('./')) {
-            $('html').append(`\n\t<script src="${script}">`);
+            $('head').append(`\n\t<script src="${script}">`);
         } else {
-            $('html').append(`\n\t<script src="/assets/js/${script}">`);
+            $('head').append(`\n\t<script src="/assets/js/${script}">`);
         }
     }
 
-    $('html').append($('style'));
+    $('head').append($('style'));
     $('style').remove();
 
-    $('html').append($('script:not(#page-loader-script)'));
+    $('head').append($('script:not(#page-loader-script)'));
     $('script:not(#page-loader-script)').remove();
 
-    $('html').append(`\n</head>`);
-
     // BODY //
-    $('html').append(`\n<body>
+    $('body').append(`
         <header>
             <nav></nav>
         </header>
@@ -43,7 +41,7 @@ function loadData(data) {
 
         <footer>
         </footer>
-    </body>`);
+    `);
 
     $('nav').load('/assets/imports/navigation');
     $('footer').load('/assets/imports/footer');
