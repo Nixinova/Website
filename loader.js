@@ -3,7 +3,7 @@ function loadData(data) {
     //$('html').attr('lang','en-NZ');
 
     // HEAD //
-    $('head').append(`
+    $('head').prepend(`
         <title>${data.title}</title>
         <head charset="UTF-8">
         <head name="description" content="${data.description}">
@@ -16,7 +16,7 @@ function loadData(data) {
         $('head').append(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
     }
 
-    for (var script of data.stylesheets) {
+    for (var script of data.scripts) {
         if (script.startsWith('./')) {
             $('head').append(`\n\t<script src="${script}">`);
         } else {
