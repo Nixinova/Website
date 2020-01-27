@@ -52,7 +52,7 @@
                 } else {
                     let newLink = location.href.replace(/(.+)\/[a-z]+$/, '$1');
                     let newAnchor = newLink.split('#')[1];
-                    $('#go-up').html(`\n<a href="'${newLink}'" onclick="generateSubpages('${newAnchor}');">← Go back</a>`);
+                    $('#go-up').html(`\n<a href="${newLink}" onclick="generateSubpages('${newAnchor}');">← Go back</a>`);
                 }
             } 
 
@@ -61,7 +61,7 @@
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
                     let newAnchor = folder + subfolder;
-                    $('#subfolders-text').append(`\n<li><strong><a href="#'${newAnchor}'" onclick="generateSubpages('${newAnchor}');">/${subfolder}</a></strong></li>`)
+                    $('#subfolders-text').append(`\n<li><strong><a href="#${newAnchor}" onclick="generateSubpages('${newAnchor}');">/${subfolder}</a></strong></li>`)
                 }
             }
 
