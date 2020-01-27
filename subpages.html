@@ -15,8 +15,6 @@
     <style>main {display: flex;}</style>
     <script data-name="Page script">
 
-        var query = location.href.split('#')[1];
-        if (!query) query = "index";
         var data = {
             "assets": {subfolders: ["css", "fonts", "images", "imports", "js"]},
             "assets/css": {subpages: ["main.css", "resource-packs.css","tools.css"]},
@@ -40,9 +38,10 @@
             "tools/hytale": {subfolders: ["api"]},
             "tools/hytale/api": {subpages: ["blog"]}
         }
-        if (data[query] === undefined) query = 'index';
         
         function generateSubpages() {
+            let query = location.href.split('#')[1];
+            if (!query || data[query] === undefined) query = "index";
 
             $('#subfolders-text').empty();
             $('#subpages-text').empty();
@@ -55,15 +54,15 @@
                 }
             } 
 
-            if (data[query].subfolders.length > 0) {
+            if (data[query] && data[query].subfolders.length > 0) {
                 let folder = query === 'index' ? '' : '/'+query;
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
-                    $('#subfolders-text').append(`\n<li><strong><a href="#${folder}/${subfolder}/" onclick="generateSubpages();">/${subfolder}</a></strong></li>`)
+                    $('#subfolders-text').append(`\n<li><strong><a href="#${folder}/${subfolder}" onclick="generateSubpages();">/${subfolder}</a></strong></li>`)
                 }
             }
 
-            if (data[query].subpages.length > 0) {
+            if (data[query] && data[query].subpages.length > 0) {
                 let folder = query === 'index' ? '' : '/'+query;
                 $('#subpages-title').removeClass('hide');
                 for (let subpage of data[query].subpages) {
@@ -73,7 +72,6 @@
         }
 
         $(document).ready(function() {generateSubpages();});
-        
 
    </script>
 
