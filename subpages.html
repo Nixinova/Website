@@ -51,7 +51,7 @@
                     $('#go-up').html(`\n<a href="/subpages#" onclick="generateSubpages();">← Go back</a>`);
                 } else {
                     let newAnchor = location.href.replace(/(.+)\/[a-z]+$/, '$1');
-                    $('#go-up').html(`\n<a href="${newAnchor}" onclick="generateSubpages(newAnchor);">← Go back</a>`);
+                    $('#go-up').html(`\n<a href="${newAnchor}" onclick="generateSubpages(${newAnchor});">← Go back</a>`);
                 }
             } 
 
