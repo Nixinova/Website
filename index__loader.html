@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <script src="loader.js"></script>
     <script id="page-loader-script">
         var PAGE_DATA = {
             head: {
@@ -14,6 +15,7 @@
 
             }
         }
+        document.ready(function() {loadData(PAGE_DATA);})
     </script>
     <style data-name="Page styles">
         @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
