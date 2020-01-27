@@ -50,7 +50,7 @@
                 if (location.href.split('/')[3] && location.href.split('/')[4] === undefined) {
                     $('#go-up').html(`\n<a href="/subpages#" onclick="generateSubpages();">← Go back</a>`);
                 } else {
-                    $('#go-up').append(`\n<a href="${location.href.replace(/(.+)\/[a-z]+$/, '$1')}" onclick="generateSubpages();">← Go back</a>`);
+                    $('#go-up').html(`\n<a href="${location.href.replace(/(.+)\/[a-z]+$/, '$1')}" onclick="generateSubpages();">← Go back</a>`);
                 }
             } 
 
@@ -63,7 +63,7 @@
             }
 
             if (data[query] && data[query].subpages.length > 0) {
-                let folder = query === 'index' ? '' : query;
+                let folder = query === 'index' ? '' : '/'+query;
                 $('#subpages-title').removeClass('hide');
                 for (let subpage of data[query].subpages) {
                     $('#subpages-text').append(`\n<li><a href="${folder}/${subpage}">${subpage}</a></li>`)
