@@ -18,54 +18,27 @@
         var query = location.href.split('?')[1];
         if (!query) query = "default";
         var data = {
-            "downloads": {
-                subfolders: ["minecraft"],
-                subpages: []
-            },
-            "downloads/minecraft": {
-                subfolders: ["maps", "resource-packs"],
-                subpages: []
-            },
-            "downloads/minecraft/maps": {
-                subfolders: [],
-                subpages: ["kitpvp", "musical-blocks", "skywars"]
-            },
-            "downloads/minecraft/resource-packs": {
-                subfolders: [],
-                subpages: ["mash-up", "herobrinenzk", "themed"]
-            },
-            "tools": {
-                subfolders: ["minecraft","hytale"],
-                subpages: []
-            },
-            "tools/minecraft": {
-                subfolders: ["api", "converters","commands"],
-                subpages: []
-            },
-            "tools/minecraft/api": {
-                subfolders: [],
-                subpages: ["player"]
-            },
-            "tools/minecraft/converters": {
-                subfolders: [],
-                subpages: ["coordinates"]
-            },
-            "tools/minecraft/commands": {
-                subfolders: [],
-                subpages: ["give", "summon"]
-            },
-            "tools/hytale": {
-                subfolders: ["api"],
-                subpages: []
-            },
-            "tools/hytale/api": {
-                subfolders: [],
-                subpages: ["blog"]
-            },
-            "default": {
-                subfolders: ["downloads", "tools"],
-                subpages: ["404", "index", "search", "subpages"]
-            }
+            "assets": {subfolders: ["css", "fonts", "images", "imports", "js"]},
+            "assets/css": {subpages: ["main.css", "resource-packs.css","tools.css"]},
+            "assets/fonts": {subpages: ["minecraft.ttf", "valken.ttf"]},
+            "assets/images": {subfolders: ["minecraft"], subpages: ["n.png", "nixinova.png"]},
+            "assets/images/minecraft": {subfolders: ["maps", "resource-packs"]},
+            "assets/images/minecraft/maps": {subpages: ["kitpvp.png"]},
+            "assets/images/minecraft/resource-packs": {subpages: ["easter-mash-up.jpg", "endercreeper.jpg", "nixinova-mash-up.jpg"]},
+            "assets/imports": {subpages: ["footer.html", "navigation.html"]},
+            "assets/js": {subpages: ["loader.js", "tool-functions.js"]},
+            "downloads": {subfolders: ["minecraft"]},
+            "downloads/minecraft": {subfolders: ["maps", "resource-packs"]},
+            "downloads/minecraft/maps": {subpages: ["kitpvp", "musical-blocks", "skywars"]},
+            "downloads/minecraft/resource-packs": {subpages: ["mash-up", "herobrinenzk", "themed"]},
+            "tools": {subfolders: ["minecraft","hytale"]},
+            "tools/minecraft": {subfolders: ["api", "converters","commands"]},
+            "tools/minecraft/api": {subpages: ["player"]},
+            "tools/minecraft/converters": {subpages: ["coordinates"]},
+            "tools/minecraft/commands": {subpages: ["give", "summon"]},
+            "tools/hytale": {subfolders: ["api"]},
+            "tools/hytale/api": {subpages: ["blog"]},
+            "default": {subfolders: ["assets", "downloads", "tools"], subpages: ["404", "index", "search", "subpages"]}
         }
         if (data[query] === undefined) query = 'default';
         
