@@ -1,20 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-NZ">
+<html>
 <head>
-    <title>Nixinova</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="The personal website of Nixinova, containing command generation and coordinate tools for
-        Minecraft, APIs for generation information from Hytale blog posts, and downloads of Minecraft maos abd resource packs
-        created by Nixinova.">
-    <meta name="author" content="Nixinova">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <style data-name="Page styles">
-        @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
+    <script src="/loader.js"></script>
+    <style class="page-styles">
         
         :root {--blue: #33b; scroll-behavior: smooth;}
+        body {background: var(--blue); overflow-x: hidden;}
         main {margin-top: 0;}
+        footer {margin-top: -3px;}
         
         /* Image */
         #image-container {padding: calc(50vh - 62px) 0; height: 100vh; margin-top: -82px;}
@@ -46,14 +39,20 @@
 
     </style>
 </head>
-<body style="background: var(--blue); overflow-x: hidden;">
-    <header>
-        <nav>
-            <script>$('nav').load('/assets/imports/navigation');</script>
-        </nav>
-    </header>
+<body>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "",
+            description: "The personal website of Nixinova, containing command generation and coordinate tools for \
+                Minecraft, APIs for generation information from Hytale blog posts, and downloads of Minecraft maps and \
+                resource packs created by Nixinova.",
+            stylesheets: ["main.css"],
+            scripts: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
 
-    <main>
+    <template id="page-loader-content">
 
         <div id="image-container" class="section">
             <img src="/assets/images/nixinova.png" alt="&thinsp;NIXINOVA" onmousedown="return false;">
@@ -111,10 +110,6 @@
 
         </div>
 
-    </main>
-
-    <footer style="margin-top: -3px;">
-        <script>$("footer").load("/assets/imports/footer");</script>
-    </footer>
+    </template>
 </body>
 </html>

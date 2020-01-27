@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en-NZ">
+<html>
 <head>
-    <title>Subpage Index</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="View subpages">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="/loader.js"></script>
 </head>
-
 <body>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "Subpage Index",
+            description: "View subpages",
+            stylesheets: ["main.css"],
+            scripts: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
 
     <script data-name="Page script">
 
@@ -100,15 +103,9 @@
         
 
    </script>
-    
-    <header>
-        <nav></nav>
-        <script id="load-nav">$('nav').load('/imports/navigation'); $('#load-nav').remove();</script>
-    </header>
 
-    <main style="display: flex;">
+    <template id="page-loader-content">
         <div id="content" style="margin: auto;">
-
             <h1 style="border-bottom: solid;">Subpage index</h1>
             <span id="go-up"></span>
             <br/>
@@ -118,12 +115,7 @@
 
             <h2 id="subpages-title" class="hide">Subpages</h2>
             <ul id="subpages-text"></ul>
-
         </div>
-    </main>
-
-    <footer style="margin-top: 0;"></footer>
-    <script id="load-footer">$("footer").load("/imports/footer"); $('#load-footer').remove();</script>
-
+    </template>
 </body>
 </html>

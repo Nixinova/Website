@@ -1,15 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-NZ">
+<html>
 <head>
-    <title>Search – Nixinova</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Search this website.">
-    <meta name="keywords" content="nixinova,nixinova website,nixinova search">
-    <meta name="author" content="Nixinova">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <style name="Search modifications">
+    <script src="/loader.js"></script>
+    <style data-name="Search modifications">
         #search {padding: 10px 5%;}
         
         div.gsc-thumbnail-inside > div.gs-title {font-size: 18px;}
@@ -40,12 +33,17 @@
     </style>
 </head>
 <body>
-    <header style="background-color: #333;">
-        <nav></nav>
-        <script id="load-nav">$('nav').load('imports/navigation'); $('#load-nav').remove();</script>
-    </header>
-    
-    <main>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "Search",
+            description: "Search this website.",
+            stylesheets: ["main.css"],
+            scripts: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
+
+    <template id="page-loader-content">
         <div id="search">
             <h2>Search this website</h2>
             <script>
@@ -62,9 +60,6 @@
             <gcse:search></gcse:search>
         </div>
         <script id="search-placeholder">$("#gsc-i-id1").attr("placeholder","Search..."); $('#search-placeholder').remove();</script>
-
-    </main>
-
-    <footer></footer>
-    <script id="load-footer">$("footer").load("imports/footer"); $('#load-footer').remove();</script>
+    </template>
 </body>
+</html>
