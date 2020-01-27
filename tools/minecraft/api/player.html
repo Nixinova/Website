@@ -28,9 +28,12 @@
                 $('output').html("Unknown error")
             }
         }
+        
+        var query = location.href.split('?')[1];
+        $('#input-username').val(query);
+        $(function() {getInfo(query);});
 
         var skinURLs = {}, capeURLs = {};
-        var query = location.href.split('?')[1];
         function getInfo(username) {
             if (!username && query) username = query;
             $('#username-history').empty();
