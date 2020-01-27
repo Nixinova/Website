@@ -4,31 +4,25 @@ function loadData(data) {
 
     // HEAD //
     $('head').append(`
-        <title>${data.head.title}</title>
+        <title>${data.title}</title>
         <head charset="UTF-8">
-        <head name="description" content="${data.head.description}">
+        <head name="description" content="${data.description}">
         <head name="author" content="Nixinova">
         <head name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="/favicon.ico">
     `);
 
-    for (var stylesheet of data.head.stylesheets) {
+    for (var stylesheet of data.stylesheets) {
         $('head').append(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
     }
 
-    for (var script of data.head.stylesheets) {
+    for (var script of data.stylesheets) {
         if (script.startsWith('./')) {
             $('head').append(`\n\t<script src="${script}">`);
         } else {
             $('head').append(`\n\t<script src="/assets/js/${script}">`);
         }
     }
-
-    $('head').append($('style.page-styles'));
-    $('style.page-styles').remove();
-
-    $('head').append($('script.page-script'));
-    $('script.page-script').remove();
 
     // BODY //
     $('body').append(`

@@ -1,25 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-</head>
-<body>
     <script src="loader.js"></script>
-    <script id="page-loader-script">
-        var PAGE_DATA = {
-            head: {
-                title: "Nixinova",
-                description: "The personal website of Nixinova, containing command generation and coordinate tools for \
-                    Minecraft, APIs for generation information from Hytale blog posts, and downloads of Minecraft maps and \
-                    resource packs created by Nixinova.",
-                stylesheets: ["main.css"],
-                scripts: []
-            },
-            body: {
-
-            }
-        }
-        $(document).ready(function() {loadData(PAGE_DATA);});
-    </script>
     <style class="page-styles">
         
         :root {--blue: #33b; scroll-behavior: smooth;}
@@ -54,6 +36,19 @@
         }
 
     </style>
+</head>
+<body>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "Nixinova",
+            description: "The personal website of Nixinova, containing command generation and coordinate tools for \
+                Minecraft, APIs for generation information from Hytale blog posts, and downloads of Minecraft maps and \
+                resource packs created by Nixinova.",
+            stylesheets: ["main.css"],
+            scripts: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
 
     <template id="page-loader-content">
 
