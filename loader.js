@@ -27,8 +27,8 @@ function loadData(data) {
     $('head').append($('style'));
     $('style').remove();
 
-    $('head').append($('script:not(#page-loader-script)'));
-    $('script:not(#page-loader-script)').remove();
+    $('head').append($('script.page-script'));
+    $('script.page-script').remove();
 
     // BODY //
     $('body').append(`
