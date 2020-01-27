@@ -56,10 +56,12 @@
             } 
 
             if (data[query].subfolders.length > 0) {
-                let folder = query === 'default' ? '' : '/'+query;
+                let folder = query === 'default' ? '' : query;
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
-                    $('#subfolders-text').append(`\n<li><strong><a href="?${folder}/${subfolder}/">/${subfolder}</a></strong></li>`)
+                    $('#subfolders-text').append(`
+                        \n<li><strong><a href="?${folder ? folder+'/' : ''}${subfolder}/">/${subfolder}</a></strong></li>
+                    `);
                 }
             }
 
