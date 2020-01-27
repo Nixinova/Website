@@ -15,6 +15,8 @@
     <style>main {display: flex;}</style>
     <script data-name="Page script">
 
+        var query = location.href.split('?')[1];
+        if (!query) query = "default";
         var data = {
             "assets": {subfolders: ["css", "fonts", "images", "imports", "js"]},
             "assets/css": {subpages: ["main.css", "resource-packs.css","tools.css"]},
@@ -29,56 +31,48 @@
             "downloads/minecraft": {subfolders: ["maps", "resource-packs"]},
             "downloads/minecraft/maps": {subpages: ["kitpvp", "musical-blocks", "skywars"]},
             "downloads/minecraft/resource-packs": {subpages: ["mash-up", "herobrinenzk", "themed"]},
-            "index": {subfolders: ["assets", "downloads", "tools"], subpages: ["404", "index", "search", "subpages"]},
             "tools": {subfolders: ["minecraft","hytale"]},
             "tools/minecraft": {subfolders: ["api", "converters","commands"]},
             "tools/minecraft/api": {subpages: ["player"]},
             "tools/minecraft/converters": {subpages: ["coordinates"]},
             "tools/minecraft/commands": {subpages: ["give", "summon"]},
             "tools/hytale": {subfolders: ["api"]},
-            "tools/hytale/api": {subpages: ["blog"]}
+            "tools/hytale/api": {subpages: ["blog"]},
+            "default": {subfolders: ["assets", "downloads", "tools"], subpages: ["404", "index", "search", "subpages"]}
         }
+        if (data[query] === undefined) query = 'default';
         
-        function generateSubpages(page) {
-            let query = page || location.href.split('#')[1];
-            if (!query || data[query] === undefined) query = "index";
+        $(function() {
 
-            $('#subfolders-title').addClass('hide');
-            $('#subpages-title').addClass('hide');
             $('#subfolders-text').empty();
             $('#subpages-text').empty();
 
-            if (location.href.split('/')[3] !== 'subpages#') {
+            if (location.href.split('/')[3] !== 'subpages?') {
                 if (location.href.split('/')[3] && location.href.split('/')[4] === undefined) {
-                    $('#go-up').html(`\n<a href="/subpages#" onclick="generateSubpages('index');">← Go back</a>`);
+                    $('#go-up').append(`\n<a href="/subpages?">← Go back</a>`);
                 } else {
-                    let newLink = location.href.replace(/(.+)\/[a-z]+$/, '$1');
-                    let newAnchor = newLink.split('#')[1];
-                    $('#go-up').html(`\n<a href="${newLink}" onclick="generateSubpages('${newAnchor}');">← Go back</a>`);
+                    $('#go-up').append(`\n<a href="${location.href.replace(/(.+)\/[a-z]+$/, '$1')}">← Go back</a>`);
                 }
-            } else {
-                $('#go-up').empty();
-            }
+            } 
 
-            if (data[query].subfolders && data[query].subfolders.length > 0) {
-                let folder = query === 'index' ? '' : query + '/';
+            if (data[query].subfolders.length > 0) {
+                let folder = query === 'default' ? '' : '/'+query;
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
-                    let newAnchor = folder + subfolder;
-                    $('#subfolders-text').append(`\n<li><strong><a href="#${newAnchor}" onclick="generateSubpages('${newAnchor}');">/${subfolder}</a></strong></li>`)
+                    $('#subfolders-text').append(`\n<li><strong><a href="${folder}/${subfolder}/">/${subfolder}</a></strong></li>`)
                 }
             }
 
-            if (data[query].subpages && data[query].subpages.length > 0) {
-                let folder = query === 'index' ? '' : '/'+query;
+            if (data[query].subpages.length > 0) {
+                let folder = query === 'default' ? '' : '/'+query;
                 $('#subpages-title').removeClass('hide');
                 for (let subpage of data[query].subpages) {
                     $('#subpages-text').append(`\n<li><a href="${folder}/${subpage}">${subpage}</a></li>`)
                 }
             }
-        }
 
-        $(document).ready(function() {generateSubpages();});
+        });
+        
 
    </script>
 
