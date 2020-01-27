@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Themed Mash-Up Packs &ndash; Nixinova</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Download special-edition holiday-themed resource packs by Nixinova for Minecraft 1.8–1.14.">
-    <meta name="keywords" content="nixinova,nixi,nova,nixynova,resource pack,resource packs,minecraft,texture pack,texture packs,Easter resource packs,Christmas resource packs,Minecraft Easter pack,Minecraft Christmas pack">
-    <meta name="author" content="Nixinova">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/resource-packs.css">
-    <script>
+    <script src="/loader.js"></script>
+    <script data-name="Table generator">
         function createTable(id, arr) {
             var table = $('#'+id);
 
@@ -28,15 +20,20 @@
     </script>
 </head>
 <body>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "Themed Mash-Up Packs",
+            description: "Download special-edition holiday-themed resource packs by Nixinova for Minecraft 1.8–1.14.",
+            keywords: "nixinova,nixi,nova,nixynova,resource pack,resource packs,minecraft,texture pack,texture packs,\
+                Easter resource packs,Christmas resource packs,Minecraft Easter pack,Minecraft Christmas pack",
+            stylesheets: ["resource-packs.css"],
+            scripts: [],
+            footer_classes: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
 
-    <header>
-        <nav>
-            <script>$("nav").load("/assets/imports/navigation");</script>
-        </nav>
-    </header>
-
-    <main>
-        
+    <template id="page-loader-content">
         <div id="gallery">
             <div class="screenshot" style="background-image: url('/assets/images/minecraft/resource-packs/easter-mash-up.jpg');"></div>
         </div>
@@ -84,12 +81,6 @@
                 {mcver: '1.8.9    ', packver: 'v1.0.1', dl: 'je6lak3g2ep0sbx', date: '2018-03-19'}
             ]);</script>
         </div>
-    
-    </main>
-    
-    <footer>
-        <script>$("footer").load("/assets/imports/footer");</script>
-    </footer>
-
+    </template>
 </body>
 </html>

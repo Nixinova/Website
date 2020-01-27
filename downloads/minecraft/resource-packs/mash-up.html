@@ -1,16 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-NZ">
+<html>
 <head>
-    <title>Nixinova Mash-Up Pack &ndash; Nixinova</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Download versions of Nixinova's Mash-Up resource pack for Minecraft versions 1.9 trough 1.15.">
-    <meta name="keywords" content="nixinova,nixi,nova,resource pack,resource packs,minecraft,texture pack,texture packs,
-        Nixinova mash-up,Nixinova mash-up pack,Minecraft resource pack,nixinova v1,nixinova v2,nixinova v3">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/resource-packs.css">
-    <script>
+    <script src="/loader.js"></script>
+    <script data-name="Table creator">
         function createTable(id, arr) {
             var table = $('#'+id);
 
@@ -38,15 +30,21 @@
     </script>
 </head>
 <body>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "Nixinova Mash-Up Pack",
+            description: "Download versions of Nixinova's Mash-Up resource pack for Minecraft versions 1.9 trough 1.15.",
+            keywords:
+                "nixinova,nixi,nova,resource pack,resource packs,minecraft,texture pack,texture packs,\
+                Nixinova mash-up,Nixinova mash-up pack,Minecraft resource pack,nixinova v1,nixinova v2,nixinova v3",
+            stylesheets: ["resource-packs.css"],
+            scripts: [],
+            footer_classes: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
 
-    <header>
-        <nav>
-            <script>$("nav").load("/assets/imports/navigation");</script>
-        </nav>
-    </header>
-
-    <main>
-
+    <template id="page-loader-content">
         <div id="gallery">
             <div class="screenshot" style="background-image: url('/images/minecraft/resource-packs/nixinova-mash-up.jpg')"></div>
         </div>
@@ -234,10 +232,6 @@
                 {mcver: '1.9.4 ',                 packver: 'v1.3.1  ', dl: 'ugbuqlf7fg3aoui', date: '2016-06-28', unzip: true}
             ]); $('#createTable-v1').remove();</script>
         </div>
-    </main>
-
-    <footer>
-        <script>$("footer").load("/imports/footer");</script>
-    </footer>
+    </template>
 </body>
 </html>

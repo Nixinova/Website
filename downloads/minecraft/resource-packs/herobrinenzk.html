@@ -1,16 +1,8 @@
 <!DOCTYPE html>
-<html lang="en-NZ">
+<html>
 <head>
-    <title>HeroBrineNZK Resource Packs &ndash; Nixinova</title>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/resource-packs.css">
-    <meta name="description" content="Download HeroBrineNZK and Endercreeper Resource Packs by Nixinova, for Minecraft 1.8">
-    <meta name="keywords" content="nixinova,nixi,nova,nixynova,resource pack,resource packs,minecraft,texture pack,texture packs,HeroBrineNZK texture pack,herobrinenzk rp,endercreeper,endercreeper resource pack">
-    <meta name="author" content="Nixinova">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
+    <script src="/loader.js"></script>
+    <script data-name="Table generator">
         function createTable(id, arr) {
         var table = $('#'+id);
 
@@ -30,14 +22,20 @@
     </script>
 </head>
 <body>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "HeroBrineNZK Resource Packs",
+            description: "Download HeroBrineNZK and Endercreeper Resource Packs by Nixinova, for Minecraft 1.8",
+            keywords: "nixinova,nixi,nova,nixynova,resource pack,resource packs,minecraft,texture pack,texture packs,\
+                HeroBrineNZK texture pack,herobrinenzk rp,endercreeper,endercreeper resource pack",
+            stylesheets: ["resource-packs.css"],
+            scripts: [],
+            footer_classes: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
 
-    <header>
-        <nav>
-            <script>$("nav").load("/assets/imports/navigation");</script>
-        </nav>
-    </header>
-
-    <main>
+    <template id="page-loader-content">
         <div id="gallery">
             <div class="screenshot" style="background-image: url('/assets/images/minecraft/resource-packs/endercreeper.jpg');"></div>
         </div>
@@ -79,11 +77,6 @@
                 {mcver: '1.7.4', name: 'Endercreeper RP (BoxCraft)', dl: 'dj5beckqr7yfvaf', date: '2014-05-14'}
             ]);</script>
         </div>
-    </main>
-    
-    <footer>
-        <script>$("footer").load("/assets/imports/footer");</script>
-    </footer>
-
+    </template>
 </body>
 </html>

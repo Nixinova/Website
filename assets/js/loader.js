@@ -13,6 +13,7 @@ function loadData(input) {
 
     // HEAD //
     for (let stylesheet of data.stylesheets) {
+        if (stylesheet === 'main.css') continue; // added in post-processing
         $('head').prepend(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
     }
 
