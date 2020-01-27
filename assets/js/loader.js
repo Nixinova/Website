@@ -3,7 +3,7 @@ function loadData(input) {
     let data = {
         title: input.title || "Nixinova",
         description: input.description || this.title,
-        keywords: input.keywords || this.description.replace(/ /g, ',');
+        keywords: input.keywords || this.description.replace(/ /g, ','),
         stylesheets: input.stylesheets || [],
         scripts: input.scripts || [],
         sticky_footer: input.sticky_footer || false
