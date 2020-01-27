@@ -65,7 +65,7 @@
                 }
             }
 
-            if (data[query].subfolders && data[query].subpages.length > 0) {
+            if (data[query].subpages && data[query].subpages.length > 0) {
                 let folder = query === 'index' ? '' : '/'+query;
                 $('#subpages-title').removeClass('hide');
                 for (let subpage of data[query].subpages) {
