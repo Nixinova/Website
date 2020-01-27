@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en-NZ">
+<html>
 <head>
-    <title>Hytale Blog API &ndash; Nixinova</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Get information about any Hytale blog post. Automatically updates for any new blog posts released.">
-    <meta name="keywords" content="nixinova,hytale,hytale api,hytale blog api,hytale blog info,hytale blog dates">
-    <meta name="author" content="Nixinova">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/tools.css">
 </head>
 <body>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "Hytale Blog API",
+            description: "Get information about any Hytale blog post. Automatically updates for any new blog posts released.",
+            keywords: "nixinova,hytale,hytale api,hytale blog api,hytale blog info,hytale blog dates",
+            stylesheets: ["tools.css"],
+            scripts: [],
+            footer_classes: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
     <script data-name="Page scripts">
         var blogs = {titles: [], urls: [], dates: [], excerpts: [], authors: [], images: []};
         $.ajax({
@@ -58,13 +60,8 @@
             `);
         }
     </script>
-    <header>
-        <nav>
-            <script>$("nav").load("/assets/imports/navigation");</script>
-        </nav>
-    </header>
 
-    <main>
+    <template id="page-loader-content">
         <h1>Hytale Blog API</h1>
         <p style="text-align: center;">Get information about any Hytale blog post.</p>
         <div>
@@ -77,10 +74,6 @@
             </p>
         </div>
         <output style="margin: 1em; display: block;"></output>
-    </main>
-
-    <footer>
-        <script>$("footer").load("/assets/imports/footer");</script>
-    </footer>
+    </template>
 </body>
 </html>

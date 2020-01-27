@@ -1,20 +1,11 @@
 <!DOCTYPE html>
-<html lang="en-NZ">
+<html>
 <head>
-    <title>Minecraft Player API &ndash; Nixinova</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Get information about Minecraft player.">
-    <meta name="keywords" content="nixinova,minecraft,minecraft api,minecraft blog api,minecraft blog info,minecraft blog dates">
-    <meta name="author" content="Nixinova">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/tools.css">
     <style data-name="Page styles">
         output img {width: 256px; image-rendering: pixelated;}
     </style>
 </head>
-<body>
+<body onload="getInfo();">
     <script data-name="Page scripts">
 
         function error(err) {
@@ -109,13 +100,19 @@
             });
         }
     </script>
-    <header>
-        <nav>
-            <script>$("nav").load("/assets/imports/navigation");</script>
-        </nav>
-    </header>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "Minecraft Player API",
+            description: "Get information about Minecraft player, including UUID, username history, skins, and capes.",
+            keywords: "nixinova,minecraft,minecraft api,minecraft player info,minecraft player api,minecraft player lookup",
+            stylesheets: ["tools.css"],
+            scripts: [],
+            footer_classes: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
 
-    <main onload="getInfo();">
+    <template id="page-loader-content">
         <h1>Minecraft Player API</h1>
         <p style="text-align: center;">Get information about any Minecraft player.</p>
         <div>
@@ -130,10 +127,6 @@
             <ul id="username-history"></ul>
             <div id="skin" style="text-align: center;"></div>
         </output>
-    </main>
-
-    <footer>
-        <script>$("footer").load("/assets/imports/footer");</script>
-    </footer>
+    </template>
 </body>
 </html>
