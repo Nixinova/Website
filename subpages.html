@@ -55,7 +55,7 @@
                 }
             } 
 
-            if (data[query] && data[query].subfolders.length > 0) {
+            if (data[query].subfolders && data[query].subfolders.length > 0) {
                 let folder = query === 'index' ? '' : query + '/';
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
@@ -64,7 +64,7 @@
                 }
             }
 
-            if (data[query] && data[query].subpages.length > 0) {
+            if (data[query].subfolders && data[query].subpages.length > 0) {
                 let folder = query === 'index' ? '' : '/'+query;
                 $('#subpages-title').removeClass('hide');
                 for (let subpage of data[query].subpages) {
