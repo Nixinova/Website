@@ -12,6 +12,7 @@ function loadData(input) {
     //$('html').attr('lang','en-NZ');
 
     // HEAD //
+    $('[href="/assets/css/main.css"]').remove();
     for (let stylesheet of data.stylesheets) {
         if (stylesheet === 'main.css') continue; // added in post-processing
         $('head').prepend(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
@@ -33,6 +34,7 @@ function loadData(input) {
         <head name="author" content="Nixinova">
         <head name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/assets/css/main.css">
     `);
 
     // BODY //

@@ -22,7 +22,9 @@
         
         var query = location.href.split('?')[1];
         $('#input-username').val(query);
-        $(function() {getInfo(query);});
+        $(function() {
+            if (query) getInfo(query);}
+        );
 
         var skinURLs = {}, capeURLs = {};
         function getInfo(username) {
