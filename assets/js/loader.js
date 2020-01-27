@@ -2,8 +2,8 @@ function loadData(input) {
 
     let data = {
         title: input.title || "Nixinova",
-        description: input.description || data.title,
-        keywords: input.keywords || data.description.replace(/ /g, ','),
+        description: input.description || input.title,
+        keywords: input.keywords || input.description.replace(/ /g, ','),
         stylesheets: input.stylesheets || [],
         scripts: input.scripts || [],
         sticky_footer: input.sticky_footer || false
