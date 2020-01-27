@@ -60,7 +60,7 @@
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
                     $('#subfolders-text').append(`
-                        \n<li><strong><a href="?${folder ? folder+'/' : ''}${subfolder}/">/${subfolder}</a></strong></li>
+                        \n<li><strong><a href="?${folder ? folder+'/' : ''}${subfolder}">/${subfolder}</a></strong></li>
                     `);
                 }
             }
