@@ -3,6 +3,18 @@ function loadData(data) {
     //$('html').attr('lang','en-NZ');
 
     // HEAD //
+    for (var stylesheet of data.stylesheets) {
+        $('head').prepend(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
+    }
+
+    for (var script of data.scripts) {
+        if (script.startsWith('./')) {
+            $('head').prepend(`\n\t<script src="${script}">`);
+        } else {
+            $('head').prepend(`\n\t<script src="/assets/js/${script}">`);
+        }
+    }
+    
     $('head').prepend(`
         <title>${data.title}</title>
         <head charset="UTF-8">
@@ -11,18 +23,6 @@ function loadData(data) {
         <head name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="/favicon.ico">
     `);
-
-    for (var stylesheet of data.stylesheets) {
-        $('head').append(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
-    }
-
-    for (var script of data.scripts) {
-        if (script.startsWith('./')) {
-            $('head').append(`\n\t<script src="${script}">`);
-        } else {
-            $('head').append(`\n\t<script src="/assets/js/${script}">`);
-        }
-    }
 
     // BODY //
     $('body').append(`
