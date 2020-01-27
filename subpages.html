@@ -50,8 +50,9 @@
                 if (location.href.split('/')[3] && location.href.split('/')[4] === undefined) {
                     $('#go-up').html(`\n<a href="/subpages#" onclick="generateSubpages();">← Go back</a>`);
                 } else {
-                    let newAnchor = location.href.replace(/(.+)\/[a-z]+$/, '$1');
-                    $('#go-up').html(`\n<a href="${newAnchor}" onclick="generateSubpages(${newAnchor});">← Go back</a>`);
+                    let newLink = location.href.replace(/(.+)\/[a-z]+$/, '$1');
+                    let newAnchor = newLink.split('#')[1];
+                    $('#go-up').html(`\n<a href="'${newLink}'" onclick="generateSubpages('${newAnchor}');">← Go back</a>`);
                 }
             } 
 
@@ -60,7 +61,7 @@
                 $('#subfolders-title').removeClass('hide');
                 for (let subfolder of data[query].subfolders) {
                     let newAnchor = folder + subfolder;
-                    $('#subfolders-text').append(`\n<li><strong><a href="#${newAnchor}" onclick="generateSubpages(${newAnchor});">/${subfolder}</a></strong></li>`)
+                    $('#subfolders-text').append(`\n<li><strong><a href="#'${newAnchor}'" onclick="generateSubpages('${newAnchor}');">/${subfolder}</a></strong></li>`)
                 }
             }
 
