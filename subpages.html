@@ -13,7 +13,7 @@
         }
         $(document).ready(function() {loadData(PAGE_DATA);});
     </script>
-
+    <style>main {display: flex;}</style>
     <script data-name="Page script">
 
         var query = location.href.split('?')[1];
@@ -65,7 +65,7 @@
             },
             "default": {
                 subfolders: ["downloads", "tools"],
-                subpages: ["404", "index", "search", "view"]
+                subpages: ["404", "index", "search", "subpages"]
             }
         }
         if (data[query] === undefined) query = 'default';

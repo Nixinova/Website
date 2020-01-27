@@ -1,26 +1,24 @@
-<html lang="en-NZ">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>KitPvP – Nixinova</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="The minigame KitPvP in vanilla Minecraft 1.14. Pick one of the 10 kits and fight to the death!">
-    <meta name="keywords" content="nixinova,minecraft,download,downloads,kitpvp,pvp,kitpvp map,kitpvp download,kitpvp arena,
-    minecraft kitpvp,minecraft kitpvp map,pvp map">
-    <meta name="author" content="Nixinova">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <style>
-        .spacing {height: 10px; display: block;}
-    </style>
+    <script src="/loader.js"></script>
+    <style>.spacing {height: 10px; display: block;}</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <script>$("nav").load("/assets/imports/navigation");</script>
-        </nav>
-    </header>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "KitPvP",
+            description: "The minigame KitPvP in vanilla Minecraft 1.14. Pick one of the 10 kits and fight to the death!",
+            keywords: "nixinova,minecraft,download,downloads,kitpvp,pvp,kitpvp map,kitpvp download,kitpvp arena,\
+                minecraft kitpvp,minecraft kitpvp map,pvp map",
+            stylesheets: ["main.css"],
+            scripts: [],
+            footer_classes: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
 
-    <main>
+    <template id="page-loader-content">
         <div id="gallery">
             <div class="screenshot" style="background-image: url('/assets/images/minecraft/maps/kitpvp.png')"></div>
         </div>
@@ -56,9 +54,6 @@
                 </a>
             </p>
         </div>
-    </main>
-    
-    <footer></footer>
-    <script id="load-footer">$("footer").load("/assets/imports/footer"); $('#load-footer').remove();</script>
+    </template>
 </body>
 </html>
