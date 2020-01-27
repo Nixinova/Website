@@ -1,7 +1,7 @@
 function loadData(input) {
 
     let data = {
-        title: input.title || "Nixinova",
+        title: input.title ? input.title + ' – Nixinova' : "Nixinova",
         description: input.description || input.title,
         keywords: input.keywords || input.description.replace(/ /g, ','),
         stylesheets: input.stylesheets || [],
@@ -26,7 +26,7 @@ function loadData(input) {
     }
     
     $('head').prepend(`
-        <title>${data.title} – Nixinova</title>
+        <title>${data.title}</title>
         <head charset="UTF-8">
         <meta name="description" content="${data.description}">
         <meta name="keywords" content="${data.keywords}">
