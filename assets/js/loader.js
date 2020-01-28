@@ -37,9 +37,9 @@ function loadData(input) {
         <meta name="keywords" content="${data.keywords}">
         <meta name="author" content="Nixinova">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="og:title">${data.og.title}</meta>
-        <meta name="og:description">${data.og.description}</meta>
-        <meta name="og:image">https://nixinova.com/assets/images/${data.og.image}</meta>
+        <meta name="og:title" content="${data.og.title}">
+        <meta name="og:description" content="${data.og.description}">
+        <meta name="og:image" content="https://nixinova.com/assets/images/${data.og.image}">
         <link rel="icon" href="/favicon.ico">
         <link rel="stylesheet" href="/assets/css/main.css">
     `);
