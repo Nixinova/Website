@@ -32,7 +32,7 @@ function loadData(input) {
     let og_desc = data.og_description ? `\n<meta property="og:description" content="${data.og_description}">` : '';
     
     $('head').prepend(`
-        <title>${data.title === 'Nixinova' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
+        <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
         <meta charset="UTF-8">
         <meta name="description" content="${data.description}">
         <meta name="keywords" content="${data.keywords}">
