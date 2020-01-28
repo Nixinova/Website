@@ -6,11 +6,9 @@ function loadData(input) {
         keywords: input.keywords || input.description.replace(/ /g, ','),
         stylesheets: input.stylesheets || [],
         scripts: input.scripts || [],
-        og: {
-            title: input.og.title || null,
-            description: input.og.description || null,
-            image: input.og.image || 'nixinova.png'
-        }
+        og_title: input.og_title || null,
+        og_description: input.og_description || null,
+        og_image: input.og_image || 'nixinova.png'
     }
 
     //$('html').attr('lang','en-NZ');
@@ -32,7 +30,6 @@ function loadData(input) {
 
     let og_title = data.og.title ? `<meta property="og:title" content="${data.og.title}">` : '';
     let og_desc = data.og.description ? `\n<meta property="og:description" content="${data.og.description}">` : '';
-    let og_img = data.og.image ? `\n<meta property="og:image" content="https://nixinova.com/assets/images/${data.og.image}">` : '';
     
     $('head').prepend(`
         <title>${data.title === 'Nixinova' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
@@ -41,7 +38,8 @@ function loadData(input) {
         <meta name="keywords" content="${data.keywords}">
         <meta name="author" content="Nixinova">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        ${og_title}${og_desc}${og_img}
+        ${og_title}${og_desc}
+        <meta property="og:image" content="https://nixinova.com/assets/images/${data.og.image}">
         <link rel="icon" href="/favicon.ico">
         <link rel="stylesheet" href="/assets/css/main.css">
     `);
