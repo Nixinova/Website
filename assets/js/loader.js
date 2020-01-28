@@ -6,7 +6,7 @@ function loadData(input) {
         keywords: input.keywords || input.description.replace(/ /g, ','),
         stylesheets: input.stylesheets || [],
         scripts: input.scripts || [],
-        og: input.og || {
+        og: {
             title: input.og.title || input.title,
             description: input.og.description || input.description,
             image: input.og.image || 'nixinova.png'
