@@ -19,7 +19,6 @@
 
         /* Showcase */
         #showcase {background: #222; text-align: center;}
-        #showcase div {padding: calc(25vw - var(--height)) 0;}
         #showcase ul {padding-left: 0; list-style-type: none;}
         #showcase a {border-bottom: solid; color: #222;}
         #showcase .title {background: #222; color: #eee;}
@@ -27,7 +26,7 @@
 
         @media (min-width: 1051px) {
             #showcase {display: grid; font-size: 4em;}
-            #showcase div {width: 50vw; height: 50vw;}
+            #showcase div {width: 50vw; height: 50vw; padding: calc(25vw - var(--height)) 0;}
         }
 
         @media (max-width: 1050px) {
