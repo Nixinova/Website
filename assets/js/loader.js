@@ -28,8 +28,8 @@ function loadData(input) {
         }
     }
 
-    let og_title = data.og.title ? `<meta property="og:title" content="${data.og.title}">` : '';
-    let og_desc = data.og.description ? `\n<meta property="og:description" content="${data.og.description}">` : '';
+    let og_title = data.og_title ? `<meta property="og:title" content="${data.og.title}">` : '';
+    let og_desc = data.og_description ? `\n<meta property="og:description" content="${data.og.description}">` : '';
     
     $('head').prepend(`
         <title>${data.title === 'Nixinova' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
