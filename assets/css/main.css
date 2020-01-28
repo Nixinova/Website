@@ -3,12 +3,12 @@
 @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
 
 /* Variabels */
-:root {--body-color: #313131; --header-color: #222;}
+:root {--body-color: #313131; --header-color: #222; --header-height: 82px; --footer-height: 60px;}
 
 /* Base elements */
 * {box-sizing: border-box;/*transition: 0.5s;*/}
 body {font: normal 15px 'Montserrat', sans-serif; background: var(--body-color); margin: 0; color: #eee; line-height: 1.8;}
-main {min-height: calc(100vh - 142px);}
+main {min-height: calc(100vh - var(--header-height) - var(--footer-height));}
 nav {background: var(--header-color);}
 p {text-align: center;}
 code {font-size: 1.1em;}
