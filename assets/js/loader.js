@@ -1,11 +1,16 @@
 function loadData(input) {
 
     let data = {
-        title: input.title ? input.title + ' – Nixinova' : "Nixinova",
+        title: input.title,
         description: input.description || input.title,
         keywords: input.keywords || input.description.replace(/ /g, ','),
         stylesheets: input.stylesheets || [],
-        scripts: input.scripts || []
+        scripts: input.scripts || [],
+        og: input.og || {
+            title: input.og.title || input.title,
+            description: input.og.description || input.description,
+            image: input.og.image || 'nixinova.png'
+        }
     }
 
     //$('html').attr('lang','en-NZ');
@@ -26,12 +31,15 @@ function loadData(input) {
     }
     
     $('head').prepend(`
-        <title>${data.title}</title>
-        <head charset="UTF-8">
+        <title>${data.title === 'Nixinova' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
+        <meta charset="UTF-8">
         <meta name="description" content="${data.description}">
         <meta name="keywords" content="${data.keywords}">
         <meta name="author" content="Nixinova">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="og:title">${data.og.title}</meta>
+        <meta name="og:description">${data.og.description}</meta>
+        <meta name="og:image">https://nixinova.com/assets/images/${data.og.image}</meta>
         <link rel="icon" href="/favicon.ico">
         <link rel="stylesheet" href="/assets/css/main.css">
     `);
