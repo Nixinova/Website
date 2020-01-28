@@ -28,8 +28,8 @@ function loadData(input) {
         }
     }
 
-    let og_title = data.og_title ? `<meta property="og:title" content="${data.og.title}">` : '';
-    let og_desc = data.og_description ? `\n<meta property="og:description" content="${data.og.description}">` : '';
+    let og_title = data.og_title ? `<meta property="og:title" content="${data.og_title}">` : '';
+    let og_desc = data.og_description ? `\n<meta property="og:description" content="${data.og_description}">` : '';
     
     $('head').prepend(`
         <title>${data.title === 'Nixinova' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
@@ -39,7 +39,7 @@ function loadData(input) {
         <meta name="author" content="Nixinova">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}
-        <meta property="og:image" content="https://nixinova.com/assets/images/${data.og.image}">
+        <meta property="og:image" content="https://nixinova.com/assets/images/${data.og_image}">
         <link rel="icon" href="/favicon.ico">
         <link rel="stylesheet" href="/assets/css/main.css">
     `);
