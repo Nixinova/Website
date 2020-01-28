@@ -10,7 +10,7 @@
         
         /* Image */
         #image-container {display: flex; height: 100vh; width: 100vw; margin-top: calc(var(--header-height)*-1); text-align: center;}
-        #image-container img {max-width: 50%; margin-left: 25%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
+        #image-container img {max-width: 50%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
         
         /* Down arrow */
         #down-arrow {position: absolute; bottom: 0; width: 100%; text-align: center; font-size: 5em;}
@@ -52,7 +52,7 @@
     <template id="page-loader-content">
 
         <div id="image-container" class="section">
-            <div style="margin: auto;">
+            <div style="margin: auto 0;">
                 <img src="/assets/images/nixinova.png" alt="&thinsp;NIXINOVA" onmousedown="return false;">
                 <div id="down-arrow">
                     <a href="#showcase" onclick="$(this).addClass('hide')" onscroll="$(this).addClass('hide')">
