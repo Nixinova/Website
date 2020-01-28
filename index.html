@@ -26,9 +26,7 @@
 
         @media (min-width: 1051px) {
             #showcase {display: grid; font-size: 4em;}
-            #showcase div {width: 50vw; height: 50vw;}
-            #showcase .title { padding: calc(25vw - 110px) 0;}
-            #showcase .contents { padding: calc(25vw - 220px) 0;}
+            #showcase div {width: 50vw; height: 50vw; padding: calc(25vw - var(--height)) 0;}
         }
 
         @media (max-width: 1050px) {
@@ -66,10 +64,10 @@
 
         <div id="showcase">
             
-            <div class="title" style="grid-row: 1; grid-column: 1;">
+            <div class="title" style="grid-row: 1; grid-column: 1; --height: 136px;">
                 <strong>Minecraft<br>Maps</strong>
             </div>
-            <div class="contents" style="grid-row: 1; grid-column: 2;">
+            <div class="contents" style="grid-row: 1; grid-column: 2; --height: 243px;">
                 <ul>
                     <li><a href="/downloads/minecraft/maps/skywars">SkyWars</a></li>
                     <li><a href="/downloads/minecraft/maps/kitpvp">KitPvP</a></li>
@@ -77,10 +75,10 @@
                 </ul>
             </div>
 
-            <div class="title" style="grid-row: 2; grid-column: 2;">
+            <div class="title" style="grid-row: 2; grid-column: 2; --height: 136px;">
                 <strong>Minecraft<br>Tools</strong>
             </div>
-            <div class="contents" style="grid-row: 2; grid-column: 1;">
+            <div class="contents" style="grid-row: 2; grid-column: 1; --height: 243px;">
                 <ul>
                     <li><a href="/tools/minecraft/commands/give">/give</a></li>
                     <li><a href="/tools/minecraft/commands/summon">/summon</a></li>
@@ -88,10 +86,10 @@
                 </ul>
             </div>
 
-            <div class="title" style="grid-row: 3; grid-column: 1;">
+            <div class="title" style="grid-row: 3; grid-column: 1; --height: 136px;">
                 <strong>Minecraft<br>Resource Packs</strong>
             </div>
-            <div class="contents" style="grid-row: 3; grid-column: 2;">
+            <div class="contents" style="grid-row: 3; grid-column: 2; --height: 243px;">
                 <ul>
                     <li><a href="/downloads/minecraft/resource-packs/mash-up">Mash-Up</a></li>
                     <li><a href="/downloads/minecraft/resource-packs/themed">Themed</a></li>
@@ -99,10 +97,10 @@
                 </ul>
             </div>
 
-            <div class="title" style="grid-row: 4; grid-column: 2;">
+            <div class="title" style="grid-row: 4; grid-column: 2; --height: 55px;">
                 <strong>APIs</strong>
             </div>
-            <div class="contents" style="grid-row: 4; grid-column: 1;">
+            <div class="contents" style="grid-row: 4; grid-column: 1; --height: 162px;">
                 <ul class="mobile-nomargin">
                     <li><a href="/tools/hytale/api/blog">Hytale Blog</a></li>
                     <li><a href="/tools/minecraft/api/player">Minecraft Player</a></li>
