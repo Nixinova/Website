@@ -579,7 +579,9 @@
         </form>
         
         <h3 onclick="submit()">
-            Output <i class="fas fa-sync-alt"></i>
+            Output
+            &nbsp;<i class="fas fa-sync-alt"></i>
+            &nbsp;<i class="fas fa-copy" id="copyCommand" onclick="copyCommand()"></i>
         </h3>
         <div id="cmd-note" class="hide">
             <p>
@@ -593,10 +595,6 @@
             </p>
         </div>
         <output id="generator-output" class="command"></output>
-    
-        <p style="text-align: center;">
-            <button id="copyCommand" onclick="copyCommand()" style="font-size: 1.2em; padding: 10px 20px;">Copy Command</button>
-        </p>
     
         <script>$(submit());</script>
     </template>
