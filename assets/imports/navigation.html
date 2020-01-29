@@ -44,9 +44,13 @@
         #menu {background-color: var(--body-color); position: absolute; z-index: 100; height: var(--main-height); padding: 1em; border-right: 2px solid white;}
         #menu ul {margin: 0 0 0.5em; list-style-type: none; padding-left: 0.5em;}
         #menu-logo {margin: auto;}
-        .menu-section {margin: 0 auto auto;}
-        .menu-header {display: block; text-align: center;}
+        .menu-section {margin: 0 auto 1em;}
+        .menu-header {display: block; border-bottom: 1px solid;}
         .desktop-flex {display: flex;}
+
+        @media (max-width: 600px) {
+            #menu {width: 100%;}
+        }
 
     </style>
 </span>
