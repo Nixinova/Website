@@ -5,7 +5,7 @@
 /* Variabels */
 :root {
     --body-color: #313131; --header-color: #222;
-    --header-height: 82px; --footer-height: 60px; --main-height: calc(100% - var(--footer-height) - var(--header-height));
+    --header-height: 82px; --footer-height: 60px; --main-height: calc(100vh - var(--footer-height) - var(--header-height));
 }
 
 /* Base elements */
