@@ -41,11 +41,11 @@
         #header-search, #menu-icon {width: 80px; padding: 25px; color: white; cursor: pointer; z-index: 10;}
         #header-search a, #menu-icon a {color: white;}
 
-        #menu {background-color: var(--body-color); position: absolute; width: 100%; z-index: 100;}
+        #menu {background-color: var(--body-color); position: absolute; z-index: 100; height: var(--main-height); padding: 1em;}
         #menu ul {margin: 0 0 0.5em; list-style-type: none; padding-left: 0.5em;}
         #menu-logo {margin: auto;}
         .menu-section {margin: 0 auto auto;}
-        .menu-header {display: block; font-size: 2em; text-align: center;}
+        .menu-header {display: block; text-align: center;}
         .desktop-flex {display: flex;}
 
     </style>
@@ -77,53 +77,43 @@
 
 <div id="menu" class="hide">
 
-    <div class="desktop-flex">
-
-        <div class="desktoponly menu-section"></div>
-
-        <div class="menu-section">
-            <strong class="menu-header">Downloads</strong>
-            <div>
-                <strong>Minecraft Maps</strong>
-                <ul>
-                    <li><a href="/downloads/minecraft/maps/kitpvp">KitPvP</a></li>
-                    <li><a href="/downloads/minecraft/maps/skywars">SkyWars</a></li>
-                    <li><a href="/downloads/minecraft/maps/musical-blocks">Musical Blocks</a></li>
-                </ul>
-                <strong>Minecraft Resource Packs</strong>
-                <ul>
-                    <li><a href="/downloads/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
-                    <li><a href="/downloads/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
-                    <li><a href="/downloads/minecraft/resource-packs/herobrinenzk">HeroBrineNZK RP</a></li>
-                </ul>
-            </div>
+    <div class="menu-section">
+        <strong class="menu-header">Downloads</strong>
+        <div>
+            <span>Minecraft Maps</span>
+            <ul>
+                <li><a href="/downloads/minecraft/maps/kitpvp">KitPvP</a></li>
+                <li><a href="/downloads/minecraft/maps/skywars">SkyWars</a></li>
+                <li><a href="/downloads/minecraft/maps/musical-blocks">Musical Blocks</a></li>
+            </ul>
+            <span>Minecraft Resource Packs</span>
+            <ul>
+                <li><a href="/downloads/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
+                <li><a href="/downloads/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
+                <li><a href="/downloads/minecraft/resource-packs/herobrinenzk">HeroBrineNZK RP</a></li>
+            </ul>
         </div>
-
-        <div class="menu-section">
-            <strong class="menu-header">Tools</strong class="menu-header">
-            <div>
-                <strong>Minecraft Commands</strong>
-                <ul>
-                    <li><a href="/tools/minecraft/commands/give">/give</a></li>
-                    <li><a href="/tools/minecraft/commands/summon">/summon</a></li>
-                </ul>
-                <strong>Minecraft Converters</strong>
-                <ul>
-                    <li><a href="/tools/minecraft/converters/coordinates">Coordinates</a></li>
-                </ul>
-                <strong>APIs</strong>
-                <ul>
-                    <li><a href="/tools/hytale/api/blog">Hytale Blog</a></li>
-                    <li><a href="/tools/minecraft/api/player">Minecraft Player</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="desktoponly menu-section"></div>
     </div>
 
-    <hr style="margin: 0;"/>
-
+    <div class="menu-section">
+        <strong class="menu-header">Tools</strong class="menu-header">
+        <div>
+            <span>Minecraft Commands</span>
+            <ul>
+                <li><a href="/tools/minecraft/commands/give">/give</a></li>
+                <li><a href="/tools/minecraft/commands/summon">/summon</a></li>
+            </ul>
+            <span>Minecraft Converters</span>
+            <ul>
+                <li><a href="/tools/minecraft/converters/coordinates">Coordinates</a></li>
+            </ul>
+            <span>APIs</span>
+            <ul>
+                <li><a href="/tools/hytale/api/blog">Hytale Blog</a></li>
+                <li><a href="/tools/minecraft/api/player">Minecraft Player</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 <script id="footer-script">
     $(document).ready(function() {
