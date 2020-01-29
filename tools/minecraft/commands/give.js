@@ -154,7 +154,7 @@ function give() {
     }
 
     var selector = [];
-    var target_text = (target === '--') ? (player ? player : '@s') : target;
+    var target_text = (target === '--') ? (player || '@s') : target;
 
     if (player) {
         selector = '';
@@ -193,17 +193,17 @@ function give() {
         if (limit) {selector.push('limit=' + limit);}
 
         if (team) {
-            let not = team_invert ? '!' : ''; 
+            let not = team_invert && '!'; 
             selector.push('team=' + not + team);
         }
 
         if (tag) {
-            let not = tag_invert ? '!' : '';
+            let not = tag_invert && '!';
             selector.push('tag=' + not + tag);
         }
 
         if (gamemode) {
-            let not = gamemode_invert ? '!' : '';
+            let not = gamemode_invert && '!';
             selector.push('gamemode=' + not + gamemode);
         }
 
@@ -243,7 +243,7 @@ function give() {
             selector.push('scores={' + JSON.stringify(score_text).replace(/[\[\]]/g, '') + '}');
         }
 
-        selector = (selector.length !== 0) ? JSON.stringify(selector).replace(/"/g, '').replace(/\\/g, '') : '';
+        selector = selector.length !== 0 && JSON.stringify(selector).replace(/"/g, '').replace(/\\/g, '');
     }
 
     // select item //

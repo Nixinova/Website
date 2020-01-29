@@ -10,7 +10,7 @@
 body {font: normal 15px 'Montserrat', sans-serif; background: var(--body-color); margin: 0; color: #eee; line-height: 1.8;}
 main {min-height: calc(100vh - var(--header-height) - var(--footer-height));}
 nav {background: var(--header-color);}
-p {text-align: center;}
+p {margin: 1em; text-align: center;}
 code {font-size: 1.1em;}
 kbd {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
 img {max-width: 100%; vertical-align: middle; border: 0;}
@@ -52,12 +52,9 @@ hr.divider {width: 90%;}
 /* Videos */
 iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 
-/* Icons */
-.fas {cursor: pointer;}
-
 /* Galleries */
 #gallery {width: 100%;}
-#gallery .screenshot {height: calc(75vh/16*10); background-position: center; background-size: cover; border: 5px solid #444;}
+#gallery .screenshot {height: calc(75vh/16*10); background-position: center; background-size: cover; border-bottom: 2px solid white;}
 
 /* Buttons */
 button {background: #19f; color: #fff; padding: 12px 30px; cursor: pointer; font-size: 20px; border: none; border-radius: 0.5em; transition: 0.25s;}
