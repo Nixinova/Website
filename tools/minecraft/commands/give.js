@@ -518,7 +518,10 @@ function give() {
     window.output = `/give ${target_text + selector} ${item + NBT} ${count}`;
     if (window.output.length > 255) {
         $('#cmd-note').removeClass('hide');
-        if (target === '@s') {target = '@p';}
+        if (target_text === '@s') {
+            target_text = '@p';
+            $('#input_selector_target').val('@p')
+        }
     }
     
     $('#generator-output').html(`
