@@ -12,7 +12,7 @@
                 let dl_text = pack.dl ? 'Download' : 'Unavailable';
                 let dl_title = `Download ${packver} for Minecraft ${pack.snap || pack.mcver}`;
 
-                let unzip = pack.unzip && '<small class="desktoponly" title="Unzip this file in your resource packs folder.">*</small>';
+                let unzip = pack.unzip ? '<small class="desktoponly" title="Unzip this file in your resource packs folder.">*</small>' : '';
 
                 table.append(`
                     <tr>
