@@ -5,13 +5,13 @@
 /* Variabels */
 :root {
     --body-color: #313131; --header-color: #222;
-    --header-height: 82px; --footer-height: 60px; --main-height: calc(100vh - var(--footer-height));
+    --header-height: 82px; --footer-height: 72px; --main-height: calc(100vh - var(--footer-height));
 }
 
 /* Base elements */
 * {box-sizing: border-box;/*transition: 0.5s;*/}
 body {font: normal 15px 'Montserrat', sans-serif; background: var(--body-color); margin: 0; color: #eee; line-height: 1.8;}
-header {position: fixed; width: 100%;}
+header {position: fixed; width: 100%; z-index: 100;}
 main {padding-top: var(--header-height); min-height: var(--main-height);}
 nav {background: var(--header-color);}
 p {margin: 1em; text-align: center;}
@@ -21,7 +21,7 @@ img {max-width: 100%; vertical-align: middle; border: 0;}
 abbr {cursor: help;}
 
 /* Footer */
-footer {width: 100%; padding: 15px; background: var(--header-color); border-top: 2px solid #fff; text-align: center;}
+footer {width: 100%; padding: 15px; background: var(--header-color); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}
 footer span {white-space: nowrap;}
 
 /* Headings */
