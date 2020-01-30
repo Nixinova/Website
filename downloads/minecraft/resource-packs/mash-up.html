@@ -5,23 +5,29 @@
         function createTable(id, arr) {
             var table = $('#'+id);
 
-            for (i in arr) {
-                let mcver = arr[i].snap ? `${arr[i].mcver} (${$.trim(arr[i].snap)})` : arr[i].mcver;
-                let packver = $.trim(arr[i].packver);
-                let dl = arr[i].dl ? 'https://mediafire.com?' + arr[i].dl : '';
-                let date = arr[i].date ? arr[i].date : '(TBC)';
+            for (pack of arr) {
+                let mcver = pack.snap ? `${pack.mcver} (${$.trim(pack.snap)})` : pack.mcver;
+                let packver = $.trim(pack.packver);
 
-                let dl_text = arr[i].dl ? 'Download' : 'Unavailable';
-                let dl_title = `Download ${packver} for Minecraft ${arr[i].snap ? arr[i].snap : arr[i].mcver}`;
+                let dl_text = pack.dl ? 'Download' : 'Unavailable';
+                let dl_title = `Download ${packver} for Minecraft ${pack.snap || pack.mcver}`;
 
-                let unzip = arr[i].unzip ? '<small class="desktoponly" title="Unzip this file in your resource packs folder.">*</small>' : '';
+                let unzip = pack.unzip && '<small class="desktoponly" title="Unzip this file in your resource packs folder.">*</small>';
 
                 table.append(`
                     <tr>
-                        <td><span class="desktoponly">Nixinova Mash-Up</span> ${mcver}</td>
-                        <td>${packver}</td>
-                        <td><a href="${dl}" target="_blank" title="${dl_title}">Download</a>${unzip}</td>
-                        <td><samp><time datetime="${date.replace(/-/g,'')}+12:00">${date}</time></samp></td>
+                        <td>
+                            <span class="desktoponly">Nixinova Mash-Up</span> ${mcver}
+                        </td>
+                        <td>
+                            ${packver}
+                        </td>
+                        <td class="desktoponly">
+                            <a href="https://mediafire.com?${pack.dl}" target="_blank" title="${dl_title}">Download</a>${unzip}
+                        </td>
+                        <td>
+                            <samp><time datetime="${pack.date.replace(/-/g,'')}+12:00">${pack.date}</time></samp>
+                        </td>
                     </tr>
                 `);
             }

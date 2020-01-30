@@ -5,13 +5,22 @@
         function createTable(id, arr) {
             var table = $('#'+id);
 
-            for (i in arr) {
+            for (pack of arr) {
+                let dl_title = `Download ${id} ${pack.packver} for Minecraft ${pack.mcver}`;
                 table.append(`
                     <tr>
-                        <td width="320px"><span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span> ${arr[i].mcver}</td>
-                        <td width="075px">${arr[i].packver}</td>
-                        <td width="100px"><a href="https://mediafire.com?${arr[i].dl}" target="_blank">Download</a></td>
-                        <td width="100px"><samp><time datetime="${arr[i].date.replace(/-/g,'')}+12:00">${arr[i].date}</time></samp></td>
+                        <td width="320px">
+                            <span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span> ${pack.mcver}
+                        </td>
+                        <td width="75px">
+                            ${pack.packver}
+                        </td>
+                        <td width="100px" class="desktoponly">
+                            <a href="https://mediafire.com?${pack.dl}" target="_blank">Download</a>
+                        </td>
+                        <td width="100px">
+                            <samp><time datetime="${pack.date.replace(/-/g,'')}+12:00">${pack.date}</time></samp>
+                        </td>
                     </tr>
                 `);
             }
