@@ -96,12 +96,18 @@ function getInfo(username) {
                 } else {
                     error("SkinNotFoundError");
                 }
+                progress(1);
+                $('#loading').addClass('hide');
             });
         }).fail(function() {
             error("PlayerNotFoundError");
+            progress(1);
+            $('#loading').addClass('hide');
         });
     }).fail(function() {
         error("PlayerNotFoundError");
+        progress(1);
+        $('#loading').addClass('hide');
     });
 }
 
