@@ -34,7 +34,7 @@ var skinURLs = {}, capeURLs = {};
 function getInfo(username) {
     $('#loading').removeClass('hide');
     $('output').addClass('hide');
-    progress(0.0);
+    progress(0);
     if (!username && query) username = query;
     $('#username-history').empty();
     $('#username_uuid').empty();
@@ -42,7 +42,7 @@ function getInfo(username) {
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
     }).done(function(data) {
-        progress(0.3);
+        progress(0.33);
         if (!data) error("PlayerNotFoundError");
         var username;
         var uuid;
@@ -55,7 +55,7 @@ function getInfo(username) {
         $.ajax({
             url: `https://cors-anywhere.herokuapp.com/https://api.mojang.com/user/profiles/${uuid}/names`
         }).done(function(data) {
-            progress(0.6);
+            progress(0.66);
             $('#username-history').empty();
             username = data[data.length-1].name;
             $('#username_uuid').html(`<strong style="font-size: 1.5em;">${username} (UUID ${uuidFormatted})</strong>`);
@@ -75,7 +75,6 @@ function getInfo(username) {
             $.ajax({
                 url: 'https://cors-anywhere.herokuapp.com/https://sessionserver.mojang.com/session/minecraft/profile/' + uuid
             }).done(function(data) {
-                progress(0.9);
                 let encoded_data = data.properties[0].value;
                 let decoded_data = JSON.parse(atob(encoded_data));
                 let skinURL = decoded_data.textures.SKIN.url.replace('http:','https:');
