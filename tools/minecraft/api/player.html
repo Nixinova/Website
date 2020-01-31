@@ -19,6 +19,8 @@
             footer_classes: []
         }
         $(document).ready(function() {loadData(PAGE_DATA);});
+
+        var sections = ['username', 'uuid', 'username-history', 'skin', 'cape'];
     </script>
 
     <template id="page-loader-content">
@@ -33,7 +35,10 @@
             Loading... <progress value="0.00"></progress>
         </p>
         <output class="hide">
-            <p id="username_uuid"></p>
+            <p id="username_uuid">
+                <strong id="username" style="font-size: 1.5em;"></strong>
+                <span id="uuid" style="font-style: italic;"></span>
+            </p>
             <ul id="username-history"></ul>
             <p>
                 <span id="skin"></span>

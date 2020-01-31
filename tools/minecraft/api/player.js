@@ -1,6 +1,7 @@
 function error(err) {
     if (err === "PlayerNotFoundError") {
-        $('#username_uuid').empty();
+        $('#username').empty();
+        $('#uuid').empty();
         $('#username-history').html("Could not find player");
         $('#skin').empty();
     } else if (err === "SkinNotFoundError") {
@@ -36,9 +37,9 @@ function getInfo(username) {
     $('output').addClass('hide');
     progress(0);
     if (!username && query) username = query;
-    $('#username-history').empty();
-    $('#username_uuid').empty();
-    $('#skin').empty();
+    for (let id of sections) {
+        $('#' + id).empty();
+    }
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
     }).done(function(data) {
@@ -58,7 +59,8 @@ function getInfo(username) {
             progress(0.66);
             $('#username-history').empty();
             username = data[data.length-1].name;
-            $('#username_uuid').html(`<strong style="font-size: 1.5em;">${username} (UUID ${uuidFormatted})</strong>`);
+            $('#username').html(username);
+            $('#uuid').html(uuidFormatted);
             for (i in data) {
                 let name = data[i].name;
                 let date = moment(data[i].changedToAt).format('DD MMM YYYY [at] HH:mm:ss [UTC]');
