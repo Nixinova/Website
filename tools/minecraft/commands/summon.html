@@ -3,9 +3,6 @@
 <head>
     <script>var function_count = 0;</script>
     <style data-name="Page styles">
-        button.notext {width: 70px; text-align: center;}
-        .on.notext::before {content: 'True';}
-        .off.notext::after {content: 'False';}
         main {display: flex; flex-direction: column;}
     </style>
 </head>
@@ -29,74 +26,74 @@
         <p>Generates <samp>/summon</samp> commands for Minecraft 1.13 to 1.15.</p>
         <form action="javascript:submit()" id="input_form" style="margin: auto;">
             <p>
-                <label>Mob:</label>
-                <input list="entities-list" id="input_entity" value="bat" onchange="submit()">
+                <label for="input_entity">Mob:</label>
+                <input list="entities-list" id="input_entity" value="bat" onclick="$(this).val('')" onchange="submit()">
                 <datalist id="entities-list">
-                    <option value="Bat">
-                    <option value="Bee">
-                    <option value="Blaze">
-                    <option value="Cat">
-                    <option value="Cave Spider">
-                    <option value="Chicken">
-                    <option value="Creeper">
-                    <option value="Cod">
-                    <option value="Cow">
-                    <option value="Drowned">
-                    <option value="Dolphin">
-                    <option value="Donkey">
-                    <option value="Elder Guardian">
-                    <option value="Ender Dragon">
-                    <option value="Enderman">
-                    <option value="Endermite">
-                    <option value="Evoker">
-                    <option value="Fox">
-                    <option value="Ghast">
-                    <option value="Giant">
-                    <option value="Guardian">
-                    <option value="Horse">
-                    <option value="Husk">
-                    <option value="Illusioner">
-                    <option value="Iron Golem">
-                    <option value="Llama">
-                    <option value="Magma Cube">
-                    <option value="Mooshroom">
-                    <option value="Mule">
-                    <option value="Ocelot">
-                    <option value="Panda">
-                    <option value="Parrot">
-                    <option value="Phantom">
-                    <option value="Pig">
-                    <option value="Pillager">
-                    <option value="Polar Bear">
-                    <option value="Pufferfish">
-                    <option value="Rabbit">
-                    <option value="Ravager">
-                    <option value="Salmon">
-                    <option value="Sheep">
-                    <option value="Shulker">
-                    <option value="Silverfish">
-                    <option value="Skeleton">
-                    <option value="Skeleton Horse">
-                    <option value="Slime">
-                    <option value="Snow Golem">
-                    <option value="Stray">
-                    <option value="Spider">
-                    <option value="Squid">
-                    <option value="Turtle">
-                    <option value="Trader Llama">
-                    <option value="Tropical Fish">
-                    <option value="Vex">
-                    <option value="Villager">
-                    <option value="Vindicator">
-                    <option value="Wandering Trader">
-                    <option value="Witch">
-                    <option value="Wither">
-                    <option value="Wither Skeleton">
-                    <option value="Wolf">
-                    <option value="Zombie">
-                    <option value="Zombie Horse">
-                    <option value="Zombie Pigman">
-                    <option value="Zombie Villager">
+                    <option>Bat</option>
+                    <option>Bee</option>
+                    <option>Blaze</option>
+                    <option>Cat</option>
+                    <option>Cave Spider</option>
+                    <option>Chicken</option>
+                    <option>Creeper</option>
+                    <option>Cod</option>
+                    <option>Cow</option>
+                    <option>Drowned</option>
+                    <option>Dolphin</option>
+                    <option>Donkey</option>
+                    <option>Elder Guardian</option>
+                    <option>Ender Dragon</option>
+                    <option>Enderman</option>
+                    <option>Endermite</option>
+                    <option>Evoker</option>
+                    <option>Fox</option>
+                    <option>Ghast</option>
+                    <option>Giant</option>
+                    <option>Guardian</option>
+                    <option>Horse</option>
+                    <option>Husk</option>
+                    <option>Illusioner</option>
+                    <option>Iron Golem</option>
+                    <option>Llama</option>
+                    <option>Magma Cube</option>
+                    <option>Mooshroom</option>
+                    <option>Mule</option>
+                    <option>Ocelot</option>
+                    <option>Panda</option>
+                    <option>Parrot</option>
+                    <option>Phantom</option>
+                    <option>Pig</option>
+                    <option>Pillager</option>
+                    <option>Polar Bear</option>
+                    <option>Pufferfish</option>
+                    <option>Rabbit</option>
+                    <option>Ravager</option>
+                    <option>Salmon</option>
+                    <option>Sheep</option>
+                    <option>Shulker</option>
+                    <option>Silverfish</option>
+                    <option>Skeleton</option>
+                    <option>Skeleton Horse</option>
+                    <option>Slime</option>
+                    <option>Snow Golem</option>
+                    <option>Stray</option>
+                    <option>Spider</option>
+                    <option>Squid</option>
+                    <option>Turtle</option>
+                    <option>Trader Llama</option>
+                    <option>Tropical Fish</option>
+                    <option>Vex</option>
+                    <option>Villager</option>
+                    <option>Vindicator</option>
+                    <option>Wandering Trader</option>
+                    <option>Witch</option>
+                    <option>Wither</option>
+                    <option>Wither Skeleton</option>
+                    <option>Wolf</option>
+                    <option>Zombie</option>
+                    <option>Zombie Horse</option>
+                    <option>Zombie Pigman</option>
+                    <option>Zombie Villager</option>
                 </datalist><br/>
             
                 <label>Coordinates:</label>
@@ -107,14 +104,14 @@
             <p data-name="NBT">
                 <label>NBT:</label><br/>
             
-                <label>Custom name:</label>
+                <label for="input_customname">Custom name:</label>
                 <input type="text" size="13" id="input_customname">  
                  <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
                 
                 <span id="preview" class="hide">&nbsp; Preview: &nbsp; <span id="preview-text"></span></span><br/>
 
                 <span id="cname-content" class="hide">
-                    <label class="indent">Colour:</label>
+                    <label class="indent" for="input_customname_color">Colour:</label>
                     <select id="input_customname_color" onchange="submit()">
                         <option value="">White</option>
                         <option>Aqua</option>
@@ -142,43 +139,44 @@
                     <br/>
                 </span>
 
-                <label>Able to move?</label>
+                <label for="input_no_ai">Able to move?</label>
                 <button id="input_no_ai" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label>Despawnable?</label>
+                <label for="input_despawnable">Despawnable?</label>
                 <button id="input_despawnable" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label>Invulnerable?</label>
+                <label for="input_invulnerable">Invulnerable?</label>
                 <button id="input_invulnerable" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label>Silent?</label>
+                <label for="input_silent">Silent?</label>
                 <button id="input_silent" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label>Pick up items?</label>
+                <label for="input_pickup">Pick up items?</label>
                 <button id="input_pickup" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <span class="tame_mobs only">
-                    <label>Tame?</label>
+                    <label for="input_horse_tame">Tame?</label>
                     <button id="input_horse_tame" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
 
                 <span class="owner_mobs only">
-                    <span>Owner UUID</span>
-                    <input type="text" size="36" id="input_owner_uuid"><br/>
+                    <span for="input_owner_uuid">Owner UUID</span>
+                    <input id="input_owner_uuid" type="text" size="36"><br/>
                 </span>
             
                 <span class="bee only">
-                    <label>Has nectar?</label>
+                    <label for="input_bee_nectar">Has nectar?</label>
                     <button id="input_bee_nectar" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
-                    <label>Has stung?</label>
+                    
+                    <label for="input_bee_stung">Has stung?</label>
                     <button id="input_bee_stung" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                     
-                    <label>Angry?</label>
+                    <label for="input_bee_angry">Angry?</label>
                     <button id="input_bee_angry" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
                 
                     <span class="angry-bee only"> &ensp;
-                        <span>Time until peaceful:</span> &nbsp;
-                        <input type="number" value="1000" min="0" id="input_bee_angry_time_value">
+                        <span for="input_bee_angry_time_value">Time until peaceful:</span> &nbsp;
+                        <input id="input_bee_angry_time_value" type="number" value="1000" min="0">
                         <select id="input_bee_angry_time" onchange="submit()">
                             <option value="t">Ticks</option>
                             <option value="s">Seconds</option>
@@ -189,7 +187,7 @@
                 </span>
             
                 <span class="cat only">
-                     <label>Type:</label>
+                     <label for="input_cat_type">Type:</label>
                      <select id="input_cat_type" onchange="submit()">
                         <option value="">Default</option>
                         <option value="0">Tabby</option>
@@ -205,7 +203,7 @@
                         <option value="10">Black</option>
                      </select><br/>
                  
-                     <label>Collar colour:</label>
+                     <label for="input_cat_collar">Collar colour:</label>
                      <select id="input_cat_collar" onchange="submit()">
                         <option value="">Default</option>
                         <option value="0">White</option>
@@ -228,12 +226,12 @@
                 </span>
             
                 <span class="creeper only">
-                    <label>Powered?</label>
+                    <label for="input_creeper_powered">Powered?</label>
                     <button id="input_creeper_powered" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             
                 <span class="ender_dragon only">
-                    <label>State:</label>
+                    <label for="input_enderdragon_state">State:</label>
                     <select id="input_enderdragon_state" onchange="submit()">
                         <option value="10">Hovering</option>
                         <option value="0">Circling</option>
@@ -250,10 +248,10 @@
                 </span>
             
                 <span class="endermite only">
-                    <label>Life length:</label>
+                    <label for="input_endermite_life">Life length:</label>
                     <input id="input_endermite_life" type="number" min="1" max="2400"><br/>
                 
-                    <label style="letter-spacing: -1.2;">Anger endermen?</label>
+                    <label for="input_endermite_attackable" style="letter-spacing: -1.2;">Anger endermen?</label>
                     <button id="input_endermite_attackable" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             
@@ -265,18 +263,18 @@
                         .fox.snow::after {content: 'Snow';}
                     </style>
                     <script>var foxCount = 0;</script>
-                    <label>Type:</label>
+                    <label for="input_fox_type">Type:</label>
                     <button id="input_fox_type" class="notext red fox" onclick="$(this).toggleClass('snow').toggleClass('red');foxCount++;">
                     </button><br/>
                 </span>
             
                 <span class="ghast only">
-                    <label>Fireball power:</label>
-                    <input type="number" min="1" id="input_ghast_explosion_power"><br/>
+                    <label for="input_ghast_explosion_power">Fireball power:</label>
+                    <input id="input_ghast_explosion_power" type="number" min="1"><br/>
                 </span>
             
                 <span class="llama only">
-                    <label>Type:</label>
+                    <label for="input_llama_type">Type:</label>
                     <select id="input_llama_type" onchange="submit()">
                         <option value=" ">Creamy</option>
                         <option value="1">White</option>
@@ -284,7 +282,7 @@
                         <option value="3">Gray</option>
                     </select><br/>
 
-                    <label>Carpet:</label>
+                    <label for="input_llama_carpet">Carpet:</label>
                     <select id="input_llama_carpet" onchange="submit()">
                         <option value="">None</option>
                         <option>White</option>
@@ -305,12 +303,12 @@
                         <option>Black</option>
                     </select><br/>
                 
-                    <label>Temper:</label>
-                    <input type="number" min="1" max="100" id="input_llama_temper"><br/>
+                    <label for="input_llama_temper">Temper:</label>
+                    <input id="input_llama_temper" type="number" min="1" max="100"><br/>
                 </span>
             
                 <span class="mooshroom only">
-                    <label>Type:</label>
+                    <label for="input_mooshroom_type">Type:</label>
                     <select id="input_mooshroom_type" onchange="submit()">
                         <option value="">Red</option>
                         <option>Brown</option>
@@ -318,7 +316,7 @@
                 </span>
             
                 <span class="panda only">
-                    <label>Main gene:</label>
+                    <label for="input_panda_gene_1">Main gene:</label>
                     <select id="input_panda_gene_1" onchange="submit()">
                         <option>Normal</option>
                         <option>Lazy</option>
@@ -329,7 +327,7 @@
                         <option>Brown</option>
                     </select><br/>
                     
-                    <label>Hidden gene:</label>
+                    <label for="input_panda_gene_2">Hidden gene:</label>
                     <select id="input_panda_gene_2" onchange="submit()">
                         <option>Normal</option>
                         <option>Lazy</option>
@@ -342,7 +340,7 @@
                 </span>
             
                 <span class="rabbit only">
-                    <label>Type:</label>
+                    <label for="input_rabbit_type">Type:</label>
                     <select id="input_rabbit_type" onchange="submit()">
                         <option value="">Default</option>
                         <option value="0">Brown</option>
@@ -356,7 +354,7 @@
                 </span>
             
                 <span class="sheep shulker only">
-                    <label>Colour:</label>
+                    <label for="input_mob_color">Colour:</label>
                     <select id="input_mob_color" onblur="onchange()">
                         <option value="">Default</option>
                         <option value="0">White</option>
@@ -379,18 +377,18 @@
                 </span>
             
                 <span class="slime only">
-                    <label>Size:</label>
-                    <input type="number" min="0" id="input_slime_size">
+                    <label for="input_slime_size">Size:</label>
+                    <input id="input_slime_size" type="number" min="0">
                 </span>
             
                 <span class="tropical_fish only">
-                    <label>Size:</label>
+                    <label for="input_tropical_fish_size">Size:</label>
                     <select id="input_tropical_fish_size" onchange="submit()">
                         <option value="0">Small</option>
                         <option value="1">Large</option>
                     </select><br/>
                     
-                    <label>Pattern:</label>
+                    <label for="input_tropical_fish_pattern">Pattern:</label>
                     <select id="input_tropical_fish_pattern" onchange="submit()">
                         <option value="0" class="small-fish">Kob</option>
                         <option value="1" class="small-fish">Sunstreak</option>
@@ -407,7 +405,7 @@
                         <option value="5" class="large-fish">Clayfish</option>
                     </select><br/>
                 
-                    <label>Base colour:</label>
+                    <label for="input_tropical_fish_base_color">Base colour:</label>
                     <select id="input_tropical_fish_base_color" onchange="submit()">
                         <option value="0">White</option>
                         <option value="1">Orange</option>
@@ -426,7 +424,7 @@
                         <option value="14">Red</option>
                     </select><br/>
                 
-                    <label>Pattern colour:</label>
+                    <label for="input_tropical_fish_pattern_color">Pattern colour:</label>
                     <select id="input_tropical_fish_pattern_color" onchange="submit()">
                         <option value="0">White</option>
                         <option value="1">Orange</option>
@@ -448,7 +446,7 @@
                 </span>
             
                 <span class="villager zombie_villager only">
-                    <label>Type:</label>
+                    <label for="input_villager_type">Type:</label>
                     <select id="input_villager_type" onchange="submit()">
                         <option></option>
                         <option>Desert</option>
@@ -460,7 +458,7 @@
                         <option>Taiga</option>
                     </select><br/>
                 
-                    <label>Profession:</label>
+                    <label for="input_villager_profession">Profession:</label>
                     <select id="input_villager_profession" onchange="submit()">
                         <option>None</option>
                         <option>Armorer</option>
@@ -479,13 +477,13 @@
                         <option>Weaponsmith</option>
                     </select><br/>
                 
-                    <label>Level:</label>
-                    <input type="number" value="1" min="1" max="5" id="input_villager_level">
+                    <label for="input_villager_level">Level:</label>
+                    <input id="input_villager_level" type="number" value="1" min="1" max="5">
                     <br/>
                 </span>
             
                 <span class="wolf only">
-                    <label>Collar colour:</label>
+                    <label for="input_wolf_collar">Collar colour:</label>
                     <select id="input_wolf_collar" onchange="submit()">
                         <option value="">Default</option>
                         <option value="0">White</option>
@@ -506,22 +504,22 @@
                         <option value="15">Black</option>
                     </select><br/>
                 
-                    <label>Sitting?</label>
+                    <label for="input_wolf_sitting">Sitting?</label>
                     <button id="input_wolf_sitting" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             
                 <span class="zombies only">
-                    <label>Breaks doors?</label>
+                    <label for="input_zombies_canbreak_doors">Breaks doors?</label>
                     <button id="input_zombies_canbreak_doors" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             
                 <span class="baby_mobs only">
-                    <label>Baby?</label>
+                    <label for="input_is_baby">Baby?</label>
                     <button id="input_is_baby" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
                 
                     <span class="baby_living_mobs only"> &ensp;
-                        <span>Time until adulthood:</span> &nbsp;
-                        <input type="number" value="1000" min="0" id="input_baby_time_value">
+                        <span for="input_baby_time_value">Time until adulthood:</span> &nbsp;
+                        <input id="input_baby_time_value" type="number" value="1000" min="0">
                         <select id="input_baby_time" onchange="submit()">
                             <option value="t">Ticks</option>
                             <option value="s">Seconds</option>

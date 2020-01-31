@@ -13,6 +13,9 @@ h2:not(.upper) {text-transform: lowercase;}
 button {padding: 7px 10px; font-size: inherit; border-radius: 5px;}
 button.on  {background: #5c5;}
 button.off {background: #f55;}
+button.notext {width: 70px; text-align: center;}
+button.notext.on::before {content: 'True';}
+button.notext.off::after {content: 'False';}
 button.reset {padding: 20px; margin: 0 50px; border: none; border-radius: 5em; cursor: pointer; font: 2em 'Passion One';}
 
 /* Inputs */

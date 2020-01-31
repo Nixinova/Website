@@ -30,14 +30,14 @@
         <form action="javascript:submit()" id="input_form">
             <!-- target -->
             <p onchange="submit()">
-                <label>Target:</label>
-                    <select id="input_selector_target">
-                        <option value="@s">Yourself</option>
-                        <option value="@p">Nearest player</option>
-                        <option value="@r">Random player</option>
-                        <option value="@a">All players</option>
-                        <option value="--">Specific player</option>
-                    </select>
+                <label for="input_selector_target">Target:</label>
+                <select id="input_selector_target">
+                    <option value="@s">Yourself</option>
+                    <option value="@p">Nearest player</option>
+                    <option value="@r">Random player</option>
+                    <option value="@a">All players</option>
+                    <option value="--">Specific player</option>
+                </select>
                  <a href="javascript:void(0)" id="expand-target" class="elipsis" onclick="show_more('expand-target','target-content',false)"></a>
             </p>
             <!-- target (expanded content) -->
@@ -47,8 +47,6 @@
                     <input type="number" step="any" placeholder="x" id="input_selector_x"> &nbsp;
                     <input type="number" step="any" placeholder="y" id="input_selector_y"> &nbsp;
                     <input type="number" step="any" placeholder="z" id="input_selector_z"><br/>
-
-                    <label>Selection Area:</label>
 
                     <style>
                         .radius::after {content: 'Radius';}
@@ -61,7 +59,8 @@
                             $('#volume').toggleClass('hide')
                         }
                     </script>
-                    <button class="radius" id="input_selection_area" onchange="submit()" onclick="toggleVolumeRadius(this);"></button> &nbsp;
+                    <label for="input_selection_area">Selection Area:</label>
+                    <button id="input_selection_area" class="radius" onchange="submit()" onclick="toggleVolumeRadius(this);"></button> &nbsp;
 
                     <span id="radius">
                         <span>Distance:</span> &nbsp;
@@ -84,19 +83,19 @@
                     <input type="number" step="any" placeholder="min" min="-180" max="179.9" size="3" id="input_selector_yrot_min"> &nbsp;
                     <input type="number" step="any" placeholder="max" min="-180" max="179.9" size="3" id="input_selector_yrot_max"><br/>
                     
-                    <label>Limit:</label>
+                    <label for="input_selector_limit">Limit:</label>
                     <input type="number" min="0" size="8" id="input_selector_limit"><br/>
                     
-                    <label>Team:</label>
-                    <input type="text" size="8" id="input_selector_team"> &nbsp;
-                    <button class="off" id="input_selector_team_i" onclick="toggleOnOff(this)">Invert</button><br/>
+                    <label for="input_selector_team">Team:</label>
+                    <input id="input_selector_team" type="text" size="8"> &nbsp;
+                    <button id="input_selector_team_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
                     
-                    <label>Tag:</label>
-                    <input type="text" size="8" id="input_selector_tag"> &nbsp;
-                    <button class="off" id="input_selector_tag_i" onclick="toggleOnOff(this)">Invert</button><br/>
+                    <label for="input_selector_tag">Tag:</label>
+                    <input id="input_selector_tag" type="text" size="8"> &nbsp;
+                    <button id="input_selector_tag_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
 
                     <span class="player_only">
-                        <label>Gamemode:</label>
+                        <label for="input_selector_gm">Gamemode:</label>
                         <select id="input_selector_gm" onchange="submit()">
                             <option>&nbsp;</option>
                             <option>Survival</option>
@@ -104,7 +103,7 @@
                             <option>Adventure</option>
                             <option>Spectator</option>
                         </select> &nbsp;
-                        <button class="off" id="input_selector_gm_i" onclick="toggleOnOff(this)">Invert</button><br/>
+                        <button id="input_selector_gm_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
                     </span>
 
                     <span class="player_only">
@@ -118,55 +117,64 @@
                         var scores_min = [];
                         var scores_max = [];
                     </script>
-                
                     <label>Score:</label>
-                    <input type="text" placeholder="objective" size="10" id="input_selector_score_objective"> &ensp;
-                    <input type="number" placeholder="min" size="3" id="input_selector_score_min"> &nbsp;
-                    <input type="number" placeholder="max" size="3" id="input_selector_score_max">
-                     <a href="javascript:void(0)" onclick="submit()" id="add-score" class="plus"></a>
+                    <input id="input_selector_score_objective" type="text" placeholder="objective" size="10"> &ensp;
+                    <input id="input_selector_score_min" type="number" placeholder="min" size="3"> &nbsp;
+                    <input id="input_selector_score_max" type="number" placeholder="max" size="3">
+                    <a href="javascript:void(0)" onclick="submit()" id="add-score" class="plus"></a>
                 </p>
             </div>
             <!-- target (username) -->
             <p class="negative hide" id="select-username">
-                <label>Username:</label>
-                <input type="text" size="13" maxlength="16" id="input_selector_player">
+                <label for="input_selector_player">Username:</label>
+                <input id="input_selector_player" type="text" size="13" maxlength="16">
             </p>
             <!-- item -->
             <p onblur="submit()">
-                <label>Item:</label>
-                <input type="text" placeholder="minecraft:stone" onclick="$(this).value=''" size="13" id="input_item"><br/>
+                <label for="input_item">Item:</label>
+                <input id="input_item" type="text" placeholder="minecraft:stone" size="13" onclick="$(this).value=''" onchange="submit()"><br/>
                 
                 <span class="hide" id="potion">
-                    <label>Potion:</label> <input type="text" size="13" id="input_item_potion"><br/>
+                    <label for="input_item_potion" class="indent">Potion:</label>
+                    <input id="input_item_potion" type="text" size="13"><br/>
                 </span>
 
                 <span class="hide" id="player_head">
-                    <label>Player name:</label> <input type="text" size="13" id="input_item_head"><br/>
+                    <label for="input_item_head" class="indent">Player name:</label>
+                    <input id="input_item_head" type="text" size="13"><br/>
                 </span>
 
                 <span class="hide" id="firework">
-                    <label>Firework effects:</label><br/>
+                    <label for="input_item_firework_type" class="indent">Firework effects:</label><br/>
                     <select id="input_item_firework_type" onchange="submit()">
                         <option value="0">Small Ball</option>
                         <option value="1">Large Ball</option>
                         <option value="2">Creeper</option>
                         <option value="3">Star</option>
                         <option value="4">Burst</option>
-                    </select>
-                    <button id="input_item_firework_flicker" class="off" onclick="toggleOnOff(this); submit();">Flicker</button> &nbsp;
-                    <button id="input_item_firework_trail" class="off" onclick="toggleOnOff(this); submit();">Trail</button> &nbsp;
-                    <span>Flight time:</span> <input type="number" min="-127" max="128" id="input_item_firework_flight">
-                    <br/>
+                    </select><br/>
+
+                    <label for="input_item_firework_flicker" class="indent">Flicker:</label>
+                    <button id="input_item_firework_flicker" class="notext off" onclick="toggleOnOff(this); submit();"></button><br/>
+                    
+                    <label for="input_item_firework_trail" class="indent">Trail:</label>
+                    <button id="input_item_firework_trail" class="notext off" onclick="toggleOnOff(this); submit();"></button><br/>
+                    
+                    <label for="input_item_firework_flight" class="indent">Flight time:</label>
+                    <input id="input_item_firework_flight" type="number" min="-127" max="128"><br/>
                 </span>
 
                 <label>Custom name:</label>
                 <input type="text" size="13" id="input_item_name">  
-                 <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
+                <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
                 
-                 <span id="preview" class="hide">&nbsp; Preview: &nbsp; <span id="preview-text"></span></span><br/>
+                <span id="preview" class="hide">
+                    &nbsp; Preview: &nbsp;
+                    <span id="preview-text"></span>
+                </span><br/>
 
                 <span id="cname-content" class="hide">
-                    <label class="indent">Colour:</label>
+                    <label for="input_item_colour" class="indent">Colour:</label>
                     <select id="input_item_colour" onchange="submit()">
                         <option value="">White</option>
                         <option>Aqua</option>
@@ -202,23 +210,26 @@
                     var loreAdded = 0;
                     var enchAdded = 0;
                 </script>
-
                 <style>
                     @media (min-width: 815px) {
                         #input_item_lore {margin-left: 9.6em;}
                     }
                 </style>
-                <label style="position: absolute;">Description:</label><br class="mobileonly"/>
+                <label for="input_item_lore" style="position: absolute;">Description:</label><br class="mobileonly"/>
                 <textarea id="input_item_lore" rows="6" cols="40"></textarea><br/>
 
                 <span class="tool">
-                    <label>Durability:</label>
-                    <input type="number" id="input_item_durability"> &nbsp;
-                    <button id="input_item_unbreakable" class="off" onclick="toggleOnOff(this)">Unbreakable</button><br/>
+                    <label>Unbreakable:</label>
+                    <button id="input_item_unbreakable" class="notext off" onclick="toggleOnOff(this); $('#durability').toggleClass('hide');"></button><br/>
+
+                    <span id="durability">
+                        <label for="input_item_durability">Durability:</label>
+                        <input id="input_item_durability" type="number"><br/>
+                    </span>
                 </span>
 
                 <label>Enchantments:</label><br class="mobileonly"/>
-                <label class="short">Name:</label>
+                <label for="input_item_ench" class="short">Name:</label>
                 <input list="ench-data" id="input_item_ench" onclick="$(this).val('');" onchange="submit()">
                 <datalist id="ench-data">
                     <option></option>
@@ -261,8 +272,8 @@
                     <option>Unbreaking</option>
                 </datalist><br class="mobileonly"/>
                 &nbsp;
-                <label class="short">Level:</label>
-                <input class="long lvl" type="number" value="1" min="1" max="2147483647" id="input_item_ench_lvl" onchange="submit()">
+                <label for="input_item_ench_lvl" class="short">Level:</label>
+                <input id="input_item_ench_lvl" class="long lvl" type="number" value="1" min="1" max="2147483647" onchange="submit()">
                 <a href="javascript:void(0)" id="clear-ench" class="clear" onclick="$('#input_item_ench').val('');e=[];elvl=[];submit();"></a>
                 <br/>
             
@@ -328,14 +339,14 @@
                 </datalist>
 
                 <label>Can destroy:</label><br class="mobileonly"/>
-                <label class="short">Block:</label>
-                <input list="placeon_destroy-data" type="text" size="13" id="input_item_destroy" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
+                <label for="input_item_destroy" class="short">Block:</label>
+                <input list="placeon_destroy-data" id="input_item_destroy" type="text" size="13" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
                 <a href="javascript:void(0)" class="plus" onclick="submit()"></a>
                 <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="$('#input_item_destroy').val('');CanDestroy=[];submit();"></a><br/>
                 
                 <label>Can place on:</label><br class="mobileonly"/>
-                <label class="short">Block:</label>
-                <input list="placeon_destroy-data" type="text" size="13" id="input_item_place_on" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
+                <label for="input_item_place_on" class="short">Block:</label>
+                <input list="placeon_destroy-data" id="input_item_place_on" type="text" size="13" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
                 <a href="javascript:void(0)" class="plus" onclick="submit()"></a>
                 <a href="javascript:void(0)" id="clear-canPlaceOn" class="clear" onclick="$('#input_item_place_on').val('');CanPlaceOn=[];submit();"></a><br/>
 
@@ -356,10 +367,9 @@
                     };
                     var Attributes = {Names:[], Values:[]};
                 </script>
-
                 <span>
                     <label>Attributes:</label><br class="mobileonly"/>
-                    <label class="short">Name:</label>
+                    <label for="input_item_mod" class="short">Name:</label>
                     <select id="input_item_mod" onchange="submit()">
                         <option></option>
                         <option value="armor">Armour Defense</option>
@@ -373,8 +383,8 @@
                         <option value="maxHealth">Max Health</option>
                         <option value="movementSpeed">Movement Speed</option>
                     </select> &nbsp;<br class="mobileonly"/>
-                    <label class="short">Amount:</label>
-                    <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
+                    <label for="input_item_mod_value" class="short">Amount:</label>
+                    <input id="input_item_mod_value" type="number" step="any" value="1" onchange="submit()">
 
                     <a href="javascript:void(0)" id="clear-mods" class="clear" onclick="$('#input_item_mod').val('');modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
                     <a href="javascript:void(0)" id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a>
@@ -383,13 +393,14 @@
 
                 <span id="mods-content" class="hide">
                     <label></label>
-                    <label class="short">Operation:</label>
+                    <label for="input_item_mod_operation" class="short">Operation:</label>
                     <select id="input_item_mod_operation" onchange="submit()">
                         <option value="0">Addition</option>
                         <option value="1">Percentage</option>
                         <option value="2">Multiply</option>
                     </select> &nbsp;
-                    <label class="short">Slot:</label>
+
+                    <label for="input_item_mod_slot" class="short">Slot:</label>
                     <select id="input_item_mod_slot" onchange="submit()">
                         <option value="">Any</option>
                         <option>Main Hand</option>
@@ -403,8 +414,8 @@
 
                     <label></label>
                     <label class="short">Modifier IDs:</label>
-                    <input type="number" id="input_item_mod_uuid_least" min="1" onchange="submit()"> &nbsp;&nbsp;&nbsp;
-                    <input type="number" id="input_item_mod_uuid_most" min="1" onchange="submit()">
+                    <input type="number" id="input_item_mod_uuid_least" min="1" onchange="submit()"> &ensp;
+                    <input type="number" id="input_item_mod_uuid_most " min="1" onchange="submit()">
                     <br/>
                 </span>
 
@@ -420,8 +431,8 @@
             </p>
             <!-- count -->
             <p>
-                <label>Amount:</label>
-                <input type="number" value="1" min="1" id="input_count" onchange="submit()">
+                <label for="input_count">Amount:</label>
+                <input id="input_count" type="number" value="1" min="1" onchange="submit()">
             </p>
         </form>
         
