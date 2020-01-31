@@ -24,6 +24,7 @@ $(function() {
 
 var skinURLs = {}, capeURLs = {};
 function getInfo(username) {
+    $('#loading').removeClass('hide');
     progress(0.0);
     if (!username && query) username = query;
     $('#username-history').empty();
@@ -80,6 +81,8 @@ function getInfo(username) {
                         <img src="${capeURL}" alt="${username}'s cape">
                     `);
                 }
+                progress(1);
+                $('#loading').addClass('hide');
             }).fail(function(data, textStatus, error) {
                 if (skinURLs[username] || capeURLs[username]) {
                     $('#skin').append(`
@@ -100,7 +103,6 @@ function getInfo(username) {
     }).fail(function() {
         error("PlayerNotFoundError");
     });
-    progress(1);
 }
 
 /* Copyright © Nixinova 2020 */
