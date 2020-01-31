@@ -92,10 +92,8 @@ function give() {
     var i_ench_lvl = value('input_item_ench_lvl', 1);
     var i_unbreakable = hasClass('input_item_unbreakable', 'on');
     var i_durability = value('input_item_durability', 1);
-    var i_destroy = value('input_item_destroy').toLowerCase().replace(/[ \-]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_destroy_tag = value('input_item_destroy_tags');
-    var i_place_on = value('input_item_place_on').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_place_on_tag = value('input_item_place_on_tags');
+    var i_destroy = value('input_item_destroy').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
+    var i_place_on = value('input_item_place_on').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
     var i_mod = value('input_item_mod');
     var i_mod_amount = value('input_item_mod_value', 'int');
     var i_mod_op = value('input_item_mod_operation', 'num');
@@ -423,28 +421,10 @@ function give() {
         }
         nbt.CanDestroy = rvDupes(CanDestroy);
     }
-    if (i_destroy_tag) {
-        CanDestroy.push('#' + i_destroy_tag)
-        for (i in CanDestroy) {
-            for (tag of tags) {
-                if (CanDestroy[i] == tag) {CanDestroy[i] = '#' + tag;}
-            }
-        }
-        nbt.CanDestroy = rvDupes(CanDestroy);
-    }
 
     // CanPlaceOn //
     if (i_place_on) {
         CanPlaceOn.push(i_place_on)
-        for (i in CanPlaceOn) {
-            for (tag of tags) {
-                if (CanPlaceOn[i] == tag) {CanPlaceOn[i] = '#' + tag;}
-            }
-        }
-        nbt.CanPlaceOn = rvDupes(CanPlaceOn);
-    }
-    if (i_place_on_tag) {
-        CanPlaceOn.push('#' + i_place_on_tag)
         for (i in CanPlaceOn) {
             for (tag of tags) {
                 if (CanPlaceOn[i] == tag) {CanPlaceOn[i] = '#' + tag;}
