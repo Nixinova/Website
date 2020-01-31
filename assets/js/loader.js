@@ -28,9 +28,9 @@ function loadData(input) {
         }
     }
 
-    let og_title = data.og_title && `<meta property="og:title" content="${data.og_title}">`;
-    let og_desc = data.og_description && `\n<meta property="og:description" content="${data.og_description}">`;
-    let og_image = data.og_description && `\n<meta property="og:image" content="https://nixinova.com/assets/images/${data.og_image}">`;
+    let og_title = data.og_title ? `<meta property="og:title" content="${data.og_title}">` : '';
+    let og_desc = data.og_description ? `\n<meta property="og:description" content="${data.og_description}">` : '';
+    let og_image = data.og_description ? `\n<meta property="og:image" content="https://nixinova.com/assets/images/${data.og_image}">` : '';
     
     $('head').prepend(`
         <meta charset="UTF-8">
