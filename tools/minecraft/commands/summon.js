@@ -34,7 +34,7 @@ function summon() {
     var pickup = hasClass('input_pickup', 'on');
     var gravity = hasClass('input_gravity', 'off');
     var glowing = hasClass('input_glowing', 'on');
-    var mainhand = hasClass('input_main_hand', 'left');
+    var lefthanded = hasClass('input_main_hand', 'left');
 
     var baby = hasClass('input_is_baby', 'on');
     var baby_time = value('input_baby_time');
@@ -201,7 +201,7 @@ function summon() {
         if (pickup) nbt.CanPickUpLoot = true;
         if (gravity) nbt.NoGravity = true;
         if (glowing) nbt.Glowing = true;
-        if (mainhand) nbt.LeftHanded = true;
+        if (lefthanded) nbt.LeftHanded = true;
 
         // tame mobs //
         if (tame_mobs.includes(entity)) {
