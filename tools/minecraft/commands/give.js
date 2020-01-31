@@ -279,13 +279,12 @@ function give() {
         $('#firework').addClass('hide');
     }
     if (i_firework_type || i_firework_trail || i_firework_flicker || i_firework_flight) {
-        let explosions = [];
-        if (i_firework_type) {explosions.push({"Type": i_firework_type});}
-        if (i_firework_flicker) {explosions.push({"Flicker": i_firework_flicker});}
-        if (i_firework_trail) {explosions.push({"Trail": i_firework_trail});}
-        nbt.Fireworks = {};
-        nbt.Fireworks.Explosions = explosions;
-        if (i_firework_flight) {nbt.Fireworks.Flight = i_firework_flight;}
+        if (i_firework_flight) nbt.Fireworks.Flight = i_firework_flight;
+        let explosions = [{}];
+        if (i_firework_type) explosions[0].Type = i_firework_type;
+        if (i_firework_flicker) explosions[0].Flicker = i_firework_flicker;
+        if (i_firework_trail) explosions[0].Trail = i_firework_trail;
+        nbt.Fireworks = {"Explosions": explosions};
     }
 
     // display //
