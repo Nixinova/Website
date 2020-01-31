@@ -9,7 +9,7 @@
         main {display: flex; flex-direction: column;}
     </style>
 </head>
-<body>
+<body onload="submit()">
     <script id="page-loader-script">
         var PAGE_DATA = {
             title: "/summon generator",
@@ -601,5 +601,5 @@
         <output id="generator-output" class="command"></output>
 
     </template>
-</body>
+</body onload="submit()">
 </html>
