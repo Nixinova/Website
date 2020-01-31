@@ -26,7 +26,7 @@ function summon() {
     var name_obfus = hasClass('input_customname_o', 'on');
 
     var name_visible = hasClass('input_customname_visible','on');
-    var health = value('input_baby_time', 'num');
+    var health = value('input_health', 'num');
     var no_ai = hasClass('input_no_ai', 'on');
     var despawnable = hasClass('input_despawnable', 'on');
     var invulnerable = hasClass('input_invulnerable', 'on');
