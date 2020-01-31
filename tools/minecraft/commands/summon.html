@@ -103,7 +103,7 @@
             <p data-name="NBT">
                 <label>NBT:</label><br/>
             
-                <label for="input_customname">Custom name:</label>
+                <label for="input_customname" class="indent">Custom name:</label>
                 <input type="text" size="13" id="input_customname" onkeyup="submit()">  
                 <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
                 
@@ -138,59 +138,59 @@
                     <br/>
                 </span>
 
-                <label for="input_customname_visible" title="Always show name">Static nametag?</label>
+                <label for="input_customname_visible" class="indent" title="Always show name">Static nametag?</label>
                 <button id="input_customname_visible" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
-                <span for="input_health" style="letter-spacing: -.44px;">Additional health:</span>
+                <label for="input_health" class="indent" style="letter-spacing: -.44px;">Additional health:</label>
                 <input id="input_health" type="number" step="any" min="0" onchange="submit()"><br/>
 
-                <label for="input_no_ai">Able to move?</label>
+                <label for="input_no_ai" class="indent">Able to move?</label>
                 <button id="input_no_ai" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label for="input_despawnable">Despawnable?</label>
+                <label for="input_despawnable" class="indent">Despawnable?</label>
                 <button id="input_despawnable" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label for="input_invulnerable">Invulnerable?</label>
+                <label for="input_invulnerable" class="indent">Invulnerable?</label>
                 <button id="input_invulnerable" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label for="input_silent">Silent?</label>
+                <label for="input_silent" class="indent">Silent?</label>
                 <button id="input_silent" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label for="input_pickup">Pick up items?</label>
+                <label for="input_pickup" class="indent">Pick up items?</label>
                 <button id="input_pickup" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label for="input_gravity">Obeys gravity?</label>
+                <label for="input_gravity" class="indent">Obeys gravity?</label>
                 <button id="input_gravity" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label for="input_glowing">Glowing?</label>
+                <label for="input_glowing" class="indent">Glowing?</label>
                 <button id="input_glowing" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 
                 <style>.right::before {content: 'Right'} .left::before {content: 'Left'}</style>
-                <label for="input_main_hand">Main hand:</label>
+                <label for="input_main_hand" class="indent">Main hand:</label>
                 <button id="input_main_hand" class="notext right" onclick="$(this).toggleClass('right').toggleClass('left')"></button><br/>
             
                 <span class="tame_mobs only">
-                    <label for="input_horse_tame">Tame?</label>
+                    <label for="input_horse_tame" class="indent">Tame?</label>
                     <button id="input_horse_tame" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
 
                 <span class="owner_mobs only">
-                    <span for="input_owner_uuid">Owner UUID:</span>
+                    <label forr="input_owner_uuid" class="indent">Owner UUID:</label>
                     <input id="input_owner_uuid" type="text" size="36" onchange="submit()"><br/>
                 </span>
             
                 <span class="bee only">
-                    <label for="input_bee_nectar">Has nectar?</label>
+                    <label for="input_bee_nectar" class="indent">Has nectar?</label>
                     <button id="input_bee_nectar" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                     
-                    <label for="input_bee_stung">Has stung?</label>
+                    <label for="input_bee_stung" class="indent">Has stung?</label>
                     <button id="input_bee_stung" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                     
-                    <label for="input_bee_angry">Angry?</label>
+                    <label for="input_bee_angry" class="indent">Angry?</label>
                     <button id="input_bee_angry" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
                 
                     <span class="angry-bee only"> &ensp;
-                        <label for="input_bee_angry_time_value" style="width: 160px;">Time until peaceful:</label> &nbsp;
+                        <label for="input_bee_angry_time_value" class="indent" style="width: 160px;">Time until peaceful:</label> &nbsp;
                         <input id="input_bee_angry_time_value" type="number" value="1000" min="0" onchange="submit()">
                         <select id="input_bee_angry_time" onchange="submit()">
                             <option value="t">Ticks</option>
@@ -202,7 +202,7 @@
                 </span>
             
                 <span class="cat only">
-                     <label for="input_cat_type">Type:</label>
+                     <label for="input_cat_type" class="indent">Type:</label>
                      <select id="input_cat_type" onchange="submit()">
                         <option value="">Default</option>
                         <option value="0">Tabby</option>
@@ -218,7 +218,7 @@
                         <option value="10">Black</option>
                      </select><br/>
                  
-                     <label for="input_cat_collar">Collar colour:</label>
+                     <label for="input_cat_collar" class="indent">Collar colour:</label>
                      <select id="input_cat_collar" onchange="submit()">
                         <option value="">Default</option>
                         <option value="0">White</option>
@@ -241,21 +241,21 @@
                 </span>
             
                 <span class="creeper only">
-                    <label for="input_creeper_powered">Powered?</label>
+                    <label for="input_creeper_powered" class="indent">Powered?</label>
                     <button id="input_creeper_powered" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
-                    <label for="input_creeper_ignited">Ignited?</label>
+                    <label for="input_creeper_ignited" class="indent">Ignited?</label>
                     <button id="input_creeper_ignited" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 
-                    <label for="input_creeper_radius" style="letter-spacing: -0.1px;">Explosion radius:</label>
+                    <label for="input_creeper_radius" class="indent" style="letter-spacing: -0.1px;">Explosion radius:</label>
                     <input id="input_creeper_radius" type="number" value="3" min="0" max="127" onchange="submit()"></button><br/>
                 
-                    <label for="input_creeper_fuse">Fuse:</label>
+                    <label for="input_creeper_fuse" class="indent">Fuse:</label>
                     <input id="input_creeper_fuse" type="number" value="30" min="0" max="32767" onchange="submit()"></button><br/>
                 </span>
             
                 <span class="ender_dragon only">
-                    <label for="input_enderdragon_state">State:</label>
+                    <label for="input_enderdragon_state" class="indent">State:</label>
                     <select id="input_enderdragon_state" onchange="submit()">
                         <option value="10">Hovering</option>
                         <option value="0">Circling</option>
@@ -272,7 +272,7 @@
                 </span>
             
                 <span class="endermite only">
-                    <label for="input_endermite_life">Life length:</label>
+                    <label for="input_endermite_life" class="indent">Life length:</label>
                     <input id="input_endermite_life" type="number" min="1" max="2400" onchange="submit()"><br/>
                 
                     <label for="input_endermite_attackable" style="letter-spacing: -1.2;">Anger endermen?</label>
@@ -287,18 +287,18 @@
                         .fox.snow::after {content: 'Snow';}
                     </style>
                     <script>var foxCount = 0;</script>
-                    <label for="input_fox_type">Type:</label>
+                    <label for="input_fox_type" class="indent">Type:</label>
                     <button id="input_fox_type" class="notext red fox" onclick="$(this).toggleClass('snow').toggleClass('red');foxCount++;">
                     </button><br/>
                 </span>
             
                 <span class="ghast only">
-                    <label for="input_ghast_explosion_power">Fireball power:</label>
+                    <label for="input_ghast_explosion_power" class="indent">Fireball power:</label>
                     <input id="input_ghast_explosion_power" type="number" min="1" onchange="submit()"><br/>
                 </span>
             
                 <span class="llama only">
-                    <label for="input_llama_type">Type:</label>
+                    <label for="input_llama_type" class="indent">Type:</label>
                     <select id="input_llama_type" onchange="submit()">
                         <option value=" ">Creamy</option>
                         <option value="1">White</option>
@@ -306,7 +306,7 @@
                         <option value="3">Gray</option>
                     </select><br/>
 
-                    <label for="input_llama_carpet">Carpet:</label>
+                    <label for="input_llama_carpet" class="indent">Carpet:</label>
                     <select id="input_llama_carpet" onchange="submit()">
                         <option value="">None</option>
                         <option>White</option>
@@ -327,12 +327,12 @@
                         <option>Black</option>
                     </select><br/>
                 
-                    <label for="input_llama_temper">Temper:</label>
+                    <label for="input_llama_temper" class="indent">Temper:</label>
                     <input id="input_llama_temper" type="number" min="1" max="100" onchange="submit()"><br/>
                 </span>
             
                 <span class="mooshroom only">
-                    <label for="input_mooshroom_type">Type:</label>
+                    <label for="input_mooshroom_type" class="indent">Type:</label>
                     <select id="input_mooshroom_type" onchange="submit()">
                         <option value="">Red</option>
                         <option>Brown</option>
@@ -340,7 +340,7 @@
                 </span>
             
                 <span class="panda only">
-                    <label for="input_panda_gene_1">Main gene:</label>
+                    <label for="input_panda_gene_1" class="indent">Main gene:</label>
                     <select id="input_panda_gene_1" onchange="submit()">
                         <option>Normal</option>
                         <option>Lazy</option>
@@ -351,7 +351,7 @@
                         <option>Brown</option>
                     </select><br/>
                     
-                    <label for="input_panda_gene_2">Hidden gene:</label>
+                    <label for="input_panda_gene_2" class="indent">Hidden gene:</label>
                     <select id="input_panda_gene_2" onchange="submit()">
                         <option>Normal</option>
                         <option>Lazy</option>
@@ -364,7 +364,7 @@
                 </span>
             
                 <span class="rabbit only">
-                    <label for="input_rabbit_type">Type:</label>
+                    <label for="input_rabbit_type" class="indent">Type:</label>
                     <select id="input_rabbit_type" onchange="submit()">
                         <option value="">Default</option>
                         <option value="0">Brown</option>
@@ -378,7 +378,7 @@
                 </span>
             
                 <span class="sheep shulker only">
-                    <label for="input_mob_color">Colour:</label>
+                    <label for="input_mob_color" class="indent">Colour:</label>
                     <select id="input_mob_color" onchange="submit()">
                         <option value="">Default</option>
                         <option value="0">White</option>
@@ -401,18 +401,18 @@
                 </span>
             
                 <span class="slime only">
-                    <label for="input_slime_size">Size:</label>
+                    <label for="input_slime_size" class="indent">Size:</label>
                     <input id="input_slime_size" type="number" min="0" onchange="submit()">
                 </span>
             
                 <span class="tropical_fish only">
-                    <label for="input_tropical_fish_size">Size:</label>
+                    <label for="input_tropical_fish_size" class="indent">Size:</label>
                     <select id="input_tropical_fish_size" onchange="submit()">
                         <option value="0">Small</option>
                         <option value="1">Large</option>
                     </select><br/>
                     
-                    <label for="input_tropical_fish_pattern">Pattern:</label>
+                    <label for="input_tropical_fish_pattern" class="indent">Pattern:</label>
                     <select id="input_tropical_fish_pattern" onchange="submit()">
                         <option value="0" class="small-fish">Kob</option>
                         <option value="1" class="small-fish">Sunstreak</option>
@@ -429,7 +429,7 @@
                         <option value="5" class="large-fish">Clayfish</option>
                     </select><br/>
                 
-                    <label for="input_tropical_fish_base_color">Base colour:</label>
+                    <label for="input_tropical_fish_base_color" class="indent">Base colour:</label>
                     <select id="input_tropical_fish_base_color" onchange="submit()">
                         <option value="0">White</option>
                         <option value="1">Orange</option>
@@ -448,7 +448,7 @@
                         <option value="14">Red</option>
                     </select><br/>
                 
-                    <label for="input_tropical_fish_pattern_color">Pattern colour:</label>
+                    <label for="input_tropical_fish_pattern_color" class="indent">Pattern colour:</label>
                     <select id="input_tropical_fish_pattern_color" onchange="submit()">
                         <option value="0">White</option>
                         <option value="1">Orange</option>
@@ -470,7 +470,7 @@
                 </span>
             
                 <span class="villager zombie_villager only">
-                    <label for="input_villager_type">Type:</label>
+                    <label for="input_villager_type" class="indent">Type:</label>
                     <select id="input_villager_type" onchange="submit()">
                         <option></option>
                         <option>Desert</option>
@@ -482,7 +482,7 @@
                         <option>Taiga</option>
                     </select><br/>
                 
-                    <label for="input_villager_profession">Profession:</label>
+                    <label for="input_villager_profession" class="indent">Profession:</label>
                     <select id="input_villager_profession" onchange="submit()">
                         <option>None</option>
                         <option>Armorer</option>
@@ -501,13 +501,13 @@
                         <option>Weaponsmith</option>
                     </select><br/>
                 
-                    <label for="input_villager_level">Level:</label>
+                    <label for="input_villager_level" class="indent">Level:</label>
                     <input id="input_villager_level" type="number" value="1" min="1" max="5" onchange="submit()">
                     <br/>
                 </span>
             
                 <span class="wolf only">
-                    <label for="input_wolf_collar">Collar colour:</label>
+                    <label for="input_wolf_collar" class="indent">Collar colour:</label>
                     <select id="input_wolf_collar" onchange="submit()">
                         <option value="">Default</option>
                         <option value="0">White</option>
@@ -528,17 +528,17 @@
                         <option value="15">Black</option>
                     </select><br/>
                 
-                    <label for="input_wolf_sitting">Sitting?</label>
+                    <label for="input_wolf_sitting" class="indent">Sitting?</label>
                     <button id="input_wolf_sitting" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             
                 <span class="zombies only">
-                    <label for="input_zombies_canbreak_doors">Breaks doors?</label>
+                    <label for="input_zombies_canbreak_doors" class="indent">Breaks doors?</label>
                     <button id="input_zombies_canbreak_doors" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             
                 <span class="baby_mobs only">
-                    <label for="input_is_baby">Baby?</label>
+                    <label for="input_is_baby" class="indent">Baby?</label>
                     <button id="input_is_baby" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
                 
                     <span class="baby_living_mobs only"> &ensp;
