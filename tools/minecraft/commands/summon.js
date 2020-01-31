@@ -25,11 +25,16 @@ function summon() {
     var name_strike = hasClass('input_customname_s', 'on');
     var name_obfus = hasClass('input_customname_o', 'on');
 
+    var name_visible = hasClass('input_customname_visible','on');
+    var health = alue('input_baby_time', 'num');
     var no_ai = hasClass('input_no_ai', 'on');
     var despawnable = hasClass('input_despawnable', 'on');
     var invulnerable = hasClass('input_invulnerable', 'on');
     var silent = hasClass('input_silent', 'on');
     var pickup = hasClass('input_pickup', 'on');
+    var gravity = hasClass('input_gravity', 'off');
+    var glowing = hasClass('input_glowing', 'on');
+    var mainhand = hasClass('input_main_hand', 'left');
 
     var baby = hasClass('input_is_baby', 'on');
     var baby_time = value('input_baby_time');
@@ -42,6 +47,9 @@ function summon() {
     var cat_type = value('input_cat_type', 'int')
     var cat_collar = value('input_cat_collar', 'int')
     var creeper_powered = hasClass('input_creeper_powered', 'on');
+    var creeper_radius = value('input_creeper_radius', 'int')
+    var creeper_fuse = value('input_creeper_fuse', 'int')
+    var creeper_ignited = hasClass('input_creeper_ignited', 'on');
     var endermite_life = value('input_endermite_life', 'int')
     var endermite_attackable = hasClass('input_endermite_attackable', 'off');
     var enderdragon_state = value('input_enderdragon_state', 'int')
@@ -184,22 +192,27 @@ function summon() {
             $('#expand-cname').addClass('hide');
         }
         
-        if (!no_ai) {nbt.NoAI = true;}
-        if (!despawnable) {nbt.PersistenceRequired = true;}
-        if (invulnerable) {nbt.Invulnerable = true;}
-        if (silent) {nbt.Silent = true;}
-        if (pickup) {nbt.CanPickUpLoot = true;}
+        if (name_visible) nbt.CustomNameVisible = true;
+        if (health) nbt.AbsorptionAmount = health;
+        if (!no_ai) nbt.NoAI = true;
+        if (!despawnable) nbt.PersistenceRequired = true;
+        if (invulnerable) nbt.Invulnerable = true;
+        if (silent) nbt.Silent = true;
+        if (pickup) nbt.CanPickUpLoot = true;
+        if (gravity) nbt.NoGravity = true;
+        if (glowing) nbt.Glowing = true;
+        if (mainhand) nbt.LeftHanded = true;
 
         // tame mobs //
         if (tame_mobs.includes(entity)) {
             $('.tame_mobs.only').removeClass('hide');
-            if (owner_uuid) {nbt.OwnerUUID = owner_uuid;}
+            if (owner_uuid) nbt.OwnerUUID = owner_uuid;
        }
 
        // owned mobs //
        if (owned_mobs.includes(entity)) {
            $('.owned_mobs.only').removeClass('hide');
-           if (horse_tame) {nbt.Tame = true;}
+           if (horse_tame) nbt.Tame = true;
       }
 
         // bee //
@@ -220,68 +233,71 @@ function summon() {
 
         // cat //
         if (entity === 'cat') {
-            if (cat_type !== null) {nbt.CatType = cat_type;}
-            if (cat_collar) {nbt.CollarColor = cat_collar;}
+            if (cat_type !== null) nbt.CatType = cat_type;
+            if (cat_collar) nbt.CollarColor = cat_collar;
        }
 
         // coloured mobs //
         if (entity === 'sheep' || entity === 'shulker') {
-            if (mob_color) {nbt.Color = mob_color;}
+            if (mob_color) nbt.Color = mob_color;
        }
 
         // creeper //
         if (entity === 'creeper') {
-            if (creeper_powered) {nbt.powered = true;}
+            if (creeper_powered) nbt.powered = true;
+            if (creeper_ignited) nbt.ignited = true;
+            if (creeper_radius && creeper_radius !== 3) nbt.ExplosionRadius = creeper_radius;
+            if (creeper_fuse && creeper_fuse !== 30) nbt.Fuse = creeper_fuse;
        }
 
         // endermite //
         if (entity === 'endermite') {
-            if (endermite_life) {nbt.Lifetime = 2400 - endermite_life;}
-            if (endermite_attackable) {nbt.PlayerSpawned = true;}
+            if (endermite_life) nbt.Lifetime = 2400 - endermite_life;
+            if (endermite_attackable) nbt.PlayerSpawned = true;
        }
 
        // ender_dragon //
        if (entity === 'ender_dragon') {
-           if (enderdragon_state != 10) {nbt.DragonPhase = enderdragon_state;}
+           if (enderdragon_state != 10) nbt.DragonPhase = enderdragon_state;
       }
 
         // fox //
         if (entity === 'fox') {
-            if ($fox_type.hasClass('red') && foxCount > 0) {nbt.Type = 'red';}
-            if ($fox_type.hasClass('snow')) {nbt.Type = 'snow';}
+            if ($fox_type.hasClass('red') && foxCount > 0) nbt.Type = 'red';
+            if ($fox_type.hasClass('snow')) nbt.Type = 'snow';
        }
 
         // ghast //
         if (entity === 'ghast') {
-            if (ghast_explosion_power) {nbt.ExplosionPower = ghast_explosion_power;}
+            if (ghast_explosion_power) nbt.ExplosionPower = ghast_explosion_power;
        }
 
         // llama //
         if (entity === 'llama') {
-            if (llama_type) {nbt.Variant = llama_type;}
-            if (llama_carpet) {nbt.DecorItem = {id: llama_carpet + "_carpet", Count: 1};}
-            if (llama_temper) {nbt.Temper = llama_temper;}
+            if (llama_type) nbt.Variant = llama_type;
+            if (llama_carpet) nbt.DecorItem = {id: llama_carpet + "_carpet", Count: 1};
+            if (llama_temper) nbt.Temper = llama_temper;
        }
 
         // mooshroom //
         if (entity === 'mooshroom') {
-            if (mooshroom_type) {nbt.Type = mooshroom_type;}
+            if (mooshroom_type) nbt.Type = mooshroom_type;
        }
 
         // panda //
         if (entity === 'panda') {
-            if (panda_dominant_gene) {nbt.MainGene = panda_dominant_gene;}
-            if (panda_recessive_gene) {nbt.HiddenGene = panda_recessive_gene;}
+            if (panda_dominant_gene) nbt.MainGene = panda_dominant_gene;
+            if (panda_recessive_gene) nbt.HiddenGene = panda_recessive_gene;
        }
 
         // rabbit //
         if (entity === 'rabbit') {
-            if (rabbit_type !== null) {nbt.RabbitType = rabbit_type;}
+            if (rabbit_type !== null) nbt.RabbitType = rabbit_type;
        }
 
         // slime //
         if (entity === 'slime') {
-            if (slime_size !== null) {nbt.Size = slime_size;}
+            if (slime_size !== null) nbt.Size = slime_size;
        }
 
         // tropical fish //
@@ -298,21 +314,21 @@ function summon() {
         // villager //
         if (entity === 'villager') {
             nbt.VillagerData = {};
-            if (villager_type) {nbt.VillagerData.type = villager_type;}
-            if (villager_profession) {nbt.VillagerData.profession = villager_profession;}
-            if (villager_level) {nbt.VillagerData.level = villager_level;}
+            if (villager_type) nbt.VillagerData.type = villager_type;
+            if (villager_profession) nbt.VillagerData.profession = villager_profession;
+            if (villager_level) nbt.VillagerData.level = villager_level;
        }
 
         // wolf //
         if (entity === 'wolf') {
-            if (wolf_collar) {nbt.CollarColor = wolf_collar;}
-            if (wolf_sitting) {nbt.Sitting = wolf_sitting;}
+            if (wolf_collar) nbt.CollarColor = wolf_collar;
+            if (wolf_sitting) nbt.Sitting = wolf_sitting;
        }
 
         // zombies //
         if (zombies.indexOf(entity) > -1) {
             $('.zombies').removeClass('hide');
-            if (zombies_canbreak_doors) {nbt.CanBreakDoors = true;}
+            if (zombies_canbreak_doors) nbt.CanBreakDoors = true;
        }
 
         // babies //
@@ -323,10 +339,10 @@ function summon() {
         if (neg_age_mobs.indexOf(entity) > -1) {
             $('.baby_mobs').removeClass('hide');
             if (baby && baby_time_value) {
-                /**/ if (baby_time === 't') {nbt.Age = 0 - baby_time_value;}
-                else if (baby_time === 's') {nbt.Age = 0 - baby_time_value * 20;}
-                else if (baby_time === 'm') {nbt.Age = 0 - baby_time_value * 1200;}
-                else if (baby_time === 'h') {nbt.Age = 0 - baby_time_value * 72000;}
+                /**/ if (baby_time === 't') nbt.Age = 0 - baby_time_value;
+                else if (baby_time === 's') nbt.Age = 0 - baby_time_value * 20;
+                else if (baby_time === 'm') nbt.Age = 0 - baby_time_value * 1200;
+                else if (baby_time === 'h') nbt.Age = 0 - baby_time_value * 72000;
                 $('.baby_living_mobs').removeClass('hide');
            }
        }

@@ -138,6 +138,12 @@
                     <br/>
                 </span>
 
+                <label for="input_customname_visible">Always show name?</label>
+                <button id="input_customname_visible" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+
+                <span for="input_health">Additional health:</span>
+                <input id="input_health" type="number" step="any" min="0" onchange="submit()"><br/>
+
                 <label for="input_no_ai">Able to move?</label>
                 <button id="input_no_ai" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
@@ -153,13 +159,23 @@
                 <label for="input_pickup">Pick up items?</label>
                 <button id="input_pickup" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
+                <label for="input_gravity">Obeys gravity?</label>
+                <button id="input_gravity" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+            
+                <label for="input_glowing">Glowing?</label>
+                <button id="input_glowing" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                
+                <style>.right::before {content: 'Right'} .left::before {content: 'Left'}</style>
+                <label for="input_main_hand">Main hand:</label>
+                <button id="input_main_hand" class="notext right" onclick="$(this).toggleClass('right').toggleClass('left')"></button><br/>
+            
                 <span class="tame_mobs only">
                     <label for="input_horse_tame">Tame?</label>
                     <button id="input_horse_tame" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
 
                 <span class="owner_mobs only">
-                    <span for="input_owner_uuid">Owner UUID</span>
+                    <span for="input_owner_uuid">Owner UUID:</span>
                     <input id="input_owner_uuid" type="text" size="36" onchange="submit()"><br/>
                 </span>
             
@@ -227,6 +243,15 @@
                 <span class="creeper only">
                     <label for="input_creeper_powered">Powered?</label>
                     <button id="input_creeper_powered" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+
+                    <label for="input_creeper_ignited">Ignited?</label>
+                    <button id="input_creeper_ignited" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                
+                    <label for="input_creeper_radius" style="letter-spacing: -0.1px;">Explosion radius:</label>
+                    <input id="input_creeper_radius" type="number" value="3" min="0" max="127" onchange="submit()"></button><br/>
+                
+                    <label for="input_creeper_fuse">Fuse:</label>
+                    <input id="input_creeper_fuse" type="number" value="30" min="0" max="32767" onchange="submit()"></button><br/>
                 </span>
             
                 <span class="ender_dragon only">
