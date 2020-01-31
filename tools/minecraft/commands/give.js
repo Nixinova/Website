@@ -193,17 +193,17 @@ function give() {
         if (limit) {selector.push('limit=' + limit);}
 
         if (team) {
-            let not = team_invert && '!'; 
+            let not = team_invert ? '!' : ''; 
             selector.push('team=' + not + team);
         }
 
         if (tag) {
-            let not = tag_invert && '!';
+            let not = tag_invert ? '!' : '';
             selector.push('tag=' + not + tag);
         }
 
         if (gamemode) {
-            let not = gamemode_invert && '!';
+            let not = gamemode_invert ? '!' : '';
             selector.push('gamemode=' + not + gamemode);
         }
 

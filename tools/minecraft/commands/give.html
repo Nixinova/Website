@@ -218,7 +218,7 @@
                 </span>
 
                 <label>Enchantments:</label><br class="mobileonly"/>
-                <label class="short"></label><br class="mobileonly"/>
+                <label class="short">Name:</label>
                 <select id="input_item_ench" onchange="submit()">
                     <option></option>
                     <option>Aqua Affinity</option>
@@ -258,11 +258,10 @@
                     <option>Sweeping Edge</option>
                     <option>Thorns</option>
                     <option>Unbreaking</option>
-                </select> &nbsp;
+                </select><br class="mobileonly"/>
+                &nbsp;
                 <label class="short">Level:</label>
-                <span class="set-width" style="--width: 160px;">
-                    <input class="lvl" type="number" value="1" min="1" max="2147483647" id="input_item_ench_lvl" onchange="submit()">
-                </span>
+                <input class="long lvl" type="number" value="1" min="1" max="2147483647" id="input_item_ench_lvl" onchange="submit()">
                 <a href="javascript:void(0)" id="clear-ench" class="clear" onclick="$('#input_item_ench').val('');e=[];elvl=[];submit();"></a>
                 <br/>
             
@@ -412,9 +411,9 @@
                     var Attributes = {Names:[], Values:[]};
                 </script>
 
-                <span id="modifiers">
-                    <label>Modifiers:</label><br class="mobileonly"/>
-                    <label class="short">Attribute:</label>
+                <span>
+                    <label>Attributes:</label><br class="mobileonly"/>
+                    <label class="short">Name:</label>
                     <select id="input_item_mod" onchange="submit()">
                         <option></option>
                         <option value="armor">Armour Defense</option>
@@ -469,7 +468,7 @@
                 <label>Show attributes:</label>
                 <span id="hideflags" onchange="submit()">
                     <button id="ench" class="on" onclick="toggleOnOff(this)">Enchantments</button> &nbsp;
-                    <button id="mods" class="on" onclick="toggleOnOff(this)">Modifiers   </button> &nbsp;
+                    <button id="mods" class="on" onclick="toggleOnOff(this)">Attributes  </button> &nbsp;
                     <button id="unbr" class="on" onclick="toggleOnOff(this)">Unbreakable </button> &nbsp;
                     <button id="dstr" class="on" onclick="toggleOnOff(this)">CanDestroy  </button> &nbsp;
                     <button id="plon" class="on" onclick="toggleOnOff(this)">CanPlaceOn  </button> &nbsp;
@@ -479,7 +478,7 @@
             <!-- count -->
             <p>
                 <label>Amount:</label>
-                <input type="number" value="1" min="1" id="input_count">
+                <input type="number" value="1" min="1" id="input_count" onchange="submit()">
             </p>
         </form>
         
