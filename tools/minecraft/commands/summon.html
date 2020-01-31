@@ -6,6 +6,7 @@
         button.notext {width: 70px; text-align: center;}
         .on.notext::before {content: 'True';}
         .off.notext::after {content: 'False';}
+        main {display: flex; flex-direction: column;}
     </style>
 </head>
 <body>
@@ -26,7 +27,7 @@
     <template id="page-loader-content">
         <h2>/summon</h2>
         <p>Generates <samp>/summon</samp> commands for Minecraft 1.13 to 1.15.</p>
-        <form action="javascript:submit()" id="input_form">
+        <form action="javascript:submit()" id="input_form" style="margin: auto;">
             <p>
                 <label>Mob:</label>
                 <select id="input_entity" onchange="submit()">

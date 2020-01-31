@@ -243,7 +243,7 @@ function give() {
             selector.push('scores={' + JSON.stringify(score_text).replace(/[\[\]]/g, '') + '}');
         }
 
-        selector = selector.length !== 0 && JSON.stringify(selector).replace(/"/g, '').replace(/\\/g, '');
+        selector = selector.length !== 0 ? JSON.stringify(selector).replace(/"/g, '').replace(/\\/g, '') : '';
     }
 
     // select item //
