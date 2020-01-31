@@ -127,21 +127,21 @@
             <!-- target (username) -->
             <p class="negative hide" id="select-username">
                 <label for="input_selector_player">Username:</label>
-                <input id="input_selector_player" type="text" size="13" maxlength="16">
+                <input id="input_selector_player" type="text" size="13" maxlength="16" onkeyup="submit()">
             </p>
             <!-- item -->
             <p onblur="submit()">
                 <label for="input_item">Item:</label>
-                <input id="input_item" type="text" placeholder="minecraft:stone" size="13" onclick="$(this).value=''" onchange="submit()"><br/>
+                <input id="input_item" type="text" placeholder="minecraft:stone" size="13" onclick="$(this).value=''" onkeyup="submit()"><br/>
                 
                 <span class="hide" id="potion">
                     <label for="input_item_potion" class="indent">Potion:</label>
-                    <input id="input_item_potion" type="text" size="13"><br/>
+                    <input id="input_item_potion" type="text" size="13" onkeyup="submit()"><br/>
                 </span>
 
                 <span class="hide" id="player_head">
                     <label for="input_item_head" class="indent">Player name:</label>
-                    <input id="input_item_head" type="text" size="13"><br/>
+                    <input id="input_item_head" type="text" size="13" onkeyup="submit()"><br/>
                 </span>
 
                 <span class="hide" id="firework">
@@ -169,7 +169,7 @@
                 </span>
 
                 <label>Custom name:</label>
-                <input type="text" size="13" id="input_item_name">  
+                <input type="text" size="13" id="input_item_name" onkeyup="submit()">  
                 <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
                 
                 <span id="preview" class="hide">
@@ -220,7 +220,7 @@
                     }
                 </style>
                 <label for="input_item_lore" style="position: absolute;">Description:</label><br class="mobileonly"/>
-                <textarea id="input_item_lore" rows="6" cols="40"></textarea><br/>
+                <textarea id="input_item_lore" rows="6" cols="40" onkeyup="submit()"></textarea><br/>
 
                 <span class="tool">
                     <label>Unbreakable:</label>
@@ -228,14 +228,13 @@
 
                     <span id="durability">
                         <label for="input_item_durability">Durability:</label>
-                        <input id="input_item_durability" type="number"><br/>
+                        <input id="input_item_durability" type="number" onkeyup="submit()"><br/>
                     </span>
                 </span>
 
                 <label>Enchantments:</label><br class="mobileonly"/>
                 <label for="input_item_ench" class="short">Name:</label>
-                <input list="ench-data" id="input_item_ench" onclick="$(this).val('');" onchange="submit()">
-                <datalist id="ench-data">
+                <select id="input_item_ench" onclick="$(this).val('');" onchange="submit()">
                     <option></option>
                     <option>Aqua Affinity</option>
                     <option>Bane of Arthropods</option>
@@ -274,7 +273,7 @@
                     <option>Sweeping Edge</option>
                     <option>Thorns</option>
                     <option>Unbreaking</option>
-                </datalist><br class="mobileonly"/>
+                </select><br class="mobileonly"/>
                 &nbsp;
                 <label for="input_item_ench_lvl" class="short">Level:</label>
                 <input id="input_item_ench_lvl" class="long lvl" type="number" value="1" min="1" max="2147483647" onchange="submit()">
@@ -436,19 +435,19 @@
             <!-- count -->
             <p>
                 <label for="input_count">Amount:</label>
-                <input id="input_count" type="number" value="1" min="1" onchange="submit()">
+                <input id="input_count" type="number" value="1" min="1" onkeyup="submit()">
             </p>
         </form>
         
         <!-- OUTPUT -->
-        <h3 onclick="submit()">
+        <h3 onmouseover="submit()">
             Output
             <span style="font-size: 90%;">
                 &nbsp;<i class="fas fa-sync-alt"></i>
                 &nbsp;<i class="fas fa-copy" id="copyCommand" onclick="copyCommand()"></i>
             </span>
         </h3>
-        <div id="cmd-note" class="hide">
+        <div id="cmd-note" class="hide" onmouseover="submit()">
             <p>
                 <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
                 <output class="command">
