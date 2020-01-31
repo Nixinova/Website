@@ -65,7 +65,7 @@ function getInfo(username) {
                 if (i == 0 && data.length == 1) {
                     $('#username-history').append(`<li>Current name: ${name}</li>`);
                 } else if (i == data.length-1) {
-                    $('#username-history').append(`<li>Name #${parseInt(i)+1} (current): ${name}<br class="mobileonly"/>(changed on ${date})</li>`);
+                    $('#username-history').append(`<li>Name #${parseInt(i)+1} (current): ${name} <br class="mobileonly"/>(changed on ${date})</li>`);
                 } else if (i == 0) {
                     $('#username-history').append(`<li>Name #1: ${name}</li>`);
                 } else {
@@ -85,18 +85,18 @@ function getInfo(username) {
                 if (cape = decoded_data.textures.CAPE) {
                     capeURL = cape.url.replace('http:','https:');
                     if (username) capeURLs[username] = capeURL;
-                    $('#skin').append(`
+                    $('#cape').html(`
                         <img src="${capeURL}" alt="${username}'s cape">
                     `);
                 }
                 complete();
             }).fail(function() {
                 if (skinURLs[username] || capeURLs[username]) {
-                    $('#skin').append(`
+                    $('#skin').html(`
                         <img src="${skinURLs[username]}" alt="${username}'s skin">
                     `);
                     if (capeURLs[username]) {
-                        $('#skin').append(`
+                        $('#cape').html(`
                             <img src="${capeURLs[username]}" alt="${username}'s cape">
                         `);
                     }
