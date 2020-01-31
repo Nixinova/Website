@@ -30,73 +30,74 @@
         <form action="javascript:submit()" id="input_form" style="margin: auto;">
             <p>
                 <label>Mob:</label>
-                <select id="input_entity" onchange="submit()">
-                    <option>Bat</option>
-                    <option>Bee</option>
-                    <option>Blaze</option>
-                    <option>Cat</option>
-                    <option>Cave Spider</option>
-                    <option>Chicken</option>
-                    <option>Creeper</option>
-                    <option>Cod</option>
-                    <option>Cow</option>
-                    <option>Drowned</option>
-                    <option>Dolphin</option>
-                    <option>Donkey</option>
-                    <option>Elder Guardian</option>
-                    <option>Ender Dragon</option>
-                    <option>Enderman</option>
-                    <option>Endermite</option>
-                    <option>Evoker</option>
-                    <option>Fox</option>
-                    <option>Ghast</option>
-                    <option>Giant</option>
-                    <option>Guardian</option>
-                    <option>Horse</option>
-                    <option>Husk</option>
-                    <option>Illusioner</option>
-                    <option>Iron Golem</option>
-                    <option>Llama</option>
-                    <option>Magma Cube</option>
-                    <option>Mooshroom</option>
-                    <option>Mule</option>
-                    <option>Ocelot</option>
-                    <option>Panda</option>
-                    <option>Parrot</option>
-                    <option>Phantom</option>
-                    <option>Pig</option>
-                    <option>Pillager</option>
-                    <option>Polar Bear</option>
-                    <option>Pufferfish</option>
-                    <option>Rabbit</option>
-                    <option>Ravager</option>
-                    <option>Salmon</option>
-                    <option>Sheep</option>
-                    <option>Shulker</option>
-                    <option>Silverfish</option>
-                    <option>Skeleton</option>
-                    <option>Skeleton Horse</option>
-                    <option>Slime</option>
-                    <option>Snow Golem</option>
-                    <option>Stray</option>
-                    <option>Spider</option>
-                    <option>Squid</option>
-                    <option>Turtle</option>
-                    <option>Trader Llama</option>
-                    <option>Tropical Fish</option>
-                    <option>Vex</option>
-                    <option>Villager</option>
-                    <option>Vindicator</option>
-                    <option>Wandering Trader</option>
-                    <option>Witch</option>
-                    <option>Wither</option>
-                    <option>Wither Skeleton</option>
-                    <option>Wolf</option>
-                    <option>Zombie</option>
-                    <option>Zombie Horse</option>
-                    <option>Zombie Pigman</option>
-                    <option>Zombie Villager</option>
-                </select><br/>
+                <input list="entities-list" id="input_entity" onchange="submit()">
+                <datalist id="entities-list">
+                    <option value="Bat">
+                    <option value="Bee">
+                    <option value="Blaze">
+                    <option value="Cat">
+                    <option value="Cave Spider">
+                    <option value="Chicken">
+                    <option value="Creeper">
+                    <option value="Cod">
+                    <option value="Cow">
+                    <option value="Drowned">
+                    <option value="Dolphin">
+                    <option value="Donkey">
+                    <option value="Elder Guardian">
+                    <option value="Ender Dragon">
+                    <option value="Enderman">
+                    <option value="Endermite">
+                    <option value="Evoker">
+                    <option value="Fox">
+                    <option value="Ghast">
+                    <option value="Giant">
+                    <option value="Guardian">
+                    <option value="Horse">
+                    <option value="Husk">
+                    <option value="Illusioner">
+                    <option value="Iron Golem">
+                    <option value="Llama">
+                    <option value="Magma Cube">
+                    <option value="Mooshroom">
+                    <option value="Mule">
+                    <option value="Ocelot">
+                    <option value="Panda">
+                    <option value="Parrot">
+                    <option value="Phantom">
+                    <option value="Pig">
+                    <option value="Pillager">
+                    <option value="Polar Bear">
+                    <option value="Pufferfish">
+                    <option value="Rabbit">
+                    <option value="Ravager">
+                    <option value="Salmon">
+                    <option value="Sheep">
+                    <option value="Shulker">
+                    <option value="Silverfish">
+                    <option value="Skeleton">
+                    <option value="Skeleton Horse">
+                    <option value="Slime">
+                    <option value="Snow Golem">
+                    <option value="Stray">
+                    <option value="Spider">
+                    <option value="Squid">
+                    <option value="Turtle">
+                    <option value="Trader Llama">
+                    <option value="Tropical Fish">
+                    <option value="Vex">
+                    <option value="Villager">
+                    <option value="Vindicator">
+                    <option value="Wandering Trader">
+                    <option value="Witch">
+                    <option value="Wither">
+                    <option value="Wither Skeleton">
+                    <option value="Wolf">
+                    <option value="Zombie">
+                    <option value="Zombie Horse">
+                    <option value="Zombie Pigman">
+                    <option value="Zombie Villager">
+                </datalist><br/>
             
                 <label>Coordinates:</label>
                 <input type="number" step="any" placeholder="~" id="input_x"> &nbsp;
