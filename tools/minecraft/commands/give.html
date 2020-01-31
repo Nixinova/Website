@@ -329,13 +329,13 @@
 
                 <label>Can destroy:</label><br class="mobileonly"/>
                 <label class="short">Block:</label>
-                <input list="placeon_destroy-data" type="text" size="13" id="input_item_destroy"> &nbsp;<br class="mobileonly"/>
+                <input list="placeon_destroy-data" type="text" size="13" id="input_item_destroy" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
                 <a href="javascript:void(0)" class="plus" onclick="submit()"></a>
                 <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="$('#input_item_destroy').val('');CanDestroy=[];submit();"></a><br/>
                 
                 <label>Can place on:</label><br class="mobileonly"/>
                 <label class="short">Block:</label>
-                <input list="placeon_destroy-data" type="text" size="13" id="input_item_place_on"> &nbsp;<br class="mobileonly"/>
+                <input list="placeon_destroy-data" type="text" size="13" id="input_item_place_on" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
                 <a href="javascript:void(0)" class="plus" onclick="submit()"></a>
                 <a href="javascript:void(0)" id="clear-canPlaceOn" class="clear" onclick="$('#input_item_place_on').val('');CanPlaceOn=[];submit();"></a><br/>
 
@@ -374,12 +374,9 @@
                         <option value="movementSpeed">Movement Speed</option>
                     </select> &nbsp;<br class="mobileonly"/>
                     <label class="short">Amount:</label>
-                    <span class="set-width" style="--width: 160px;">
-                        <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
-                    </span>
+                    <input type="number" step="any" value="1" id="input_item_mod_value" onchange="submit()">
 
                     <a href="javascript:void(0)" id="clear-mods" class="clear" onclick="$('#input_item_mod').val('');modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
-                    &nbsp;
                     <a href="javascript:void(0)" id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a>
                     <br/>
                 </span>
