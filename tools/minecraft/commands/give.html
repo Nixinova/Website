@@ -219,7 +219,7 @@
 
                 <label>Enchantments:</label><br class="mobileonly"/>
                 <label class="short">Name:</label>
-                <input list="ench-data" id="input_item_ench" onchange="submit()">
+                <input list="ench-data" id="input_item_ench" onclick="$(this).val('');" onchange="submit()">
                 <datalist id="ench-data">
                     <option></option>
                     <option>Aqua Affinity</option>
@@ -330,12 +330,14 @@
                 <label>Can destroy:</label><br class="mobileonly"/>
                 <label class="short">Block:</label>
                 <input list="placeon_destroy-data" type="text" size="13" id="input_item_destroy"> &nbsp;<br class="mobileonly"/>
-                <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="$('#input_item_destroy_tags').val('');CanDestroy=[];submit();"></a><br/>
+                <a href="javascript:void(0)" class="plus" onclick="submit()"></a>
+                <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="$('#input_item_destroy').val('');CanDestroy=[];submit();"></a><br/>
                 
                 <label>Can place on:</label><br class="mobileonly"/>
                 <label class="short">Block:</label>
                 <input list="placeon_destroy-data" type="text" size="13" id="input_item_place_on"> &nbsp;<br class="mobileonly"/>
-                 <a href="javascript:void(0)" id="clear-canPlaceOn" class="clear" onclick="$('#input_item_place_on_tags').val('');CanPlaceOn=[];submit();"></a><br/>
+                <a href="javascript:void(0)" class="plus" onclick="submit()"></a>
+                <a href="javascript:void(0)" id="clear-canPlaceOn" class="clear" onclick="$('#input_item_place_on').val('');CanPlaceOn=[];submit();"></a><br/>
 
                 <script>
                     var uuid = 0;
