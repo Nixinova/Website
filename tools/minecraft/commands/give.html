@@ -219,7 +219,8 @@
 
                 <label>Enchantments:</label><br class="mobileonly"/>
                 <label class="short">Name:</label>
-                <select id="input_item_ench" onchange="submit()">
+                <input list="ench-data" id="input_item_ench" onchange="submit()">
+                <datalist id="ench-data">
                     <option></option>
                     <option>Aqua Affinity</option>
                     <option>Bane of Arthropods</option>
@@ -258,7 +259,7 @@
                     <option>Sweeping Edge</option>
                     <option>Thorns</option>
                     <option>Unbreaking</option>
-                </select><br class="mobileonly"/>
+                </datalist><br class="mobileonly"/>
                 &nbsp;
                 <label class="short">Level:</label>
                 <input class="long lvl" type="number" value="1" min="1" max="2147483647" id="input_item_ench_lvl" onchange="submit()">
@@ -275,7 +276,8 @@
                 <label class="short">Block:</label>
                 <input type="text" size="13" id="input_item_destroy"> &nbsp;<br class="mobileonly"/>
                 <label class="short">Group:</label>
-                <select id="input_item_destroy_tags" onchange="submit()">
+                <input list="CanDestroy-data" id="input_item_destroy_tags" onchange="submit()">
+                <datalist id="CanDestroy-data">
                     <option value="">&nbsp;</option>
                     <option value="anvil">Anvils</option>
                     <option value="bamboo_plantable_on">Bamboo-plantable</option>
@@ -329,14 +331,15 @@
                     <option value="jungle_logs">Wood (jungle)</option>
                     <option value="spruce_logs">Wood (spruce)</option>
                     <option value="wool">Wool</option>
-                </select>
+                </datalist>
                 <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="$('#input_item_destroy_tags').val('');CanDestroy=[];submit();"></a><br/>
                 
                 <label>Can place on:</label><br class="mobileonly"/>
                 <label class="short">Block:</label>
                 <input type="text" size="13" id="input_item_place_on"> &nbsp;<br class="mobileonly"/>
                 <label class="short">Group:</label>
-                <select id="input_item_place_on_tags" onchange="submit()">
+                <input list="CanPlaceOn-data" id="input_item_place_on_tags" onchange="submit()">
+                <datalist id="CanPlaceOn-data">
                     <option value="">&nbsp;</option>
                     <option value="anvil">Anvils</option>
                     <option value="bamboo_plantable_on">Bamboo-plantable</option>
@@ -390,7 +393,7 @@
                     <option value="jungle_logs">Wood (jungle)</option>
                     <option value="spruce_logs">Wood (spruce)</option>
                     <option value="wool">Wool</option>
-                </select>
+                </datalist>
                  <a href="javascript:void(0)" id="clear-canPlaceOn" class="clear" onclick="$('#input_item_place_on_tags').val('');CanPlaceOn=[];submit();"></a><br/>
 
                 <script>
