@@ -14,6 +14,14 @@ function progress(val) {
     $('progress').attr('value',val);
 }
 
+function complete() {
+    progress(1);
+    setTimeout(function() {
+        $('#loading').addClass('hide');
+        $('output').removeClass('hide');
+    }, 250);
+}
+
 var query = location.href.split('?')[1];
 $(function() {
     if (query) {
@@ -25,6 +33,7 @@ $(function() {
 var skinURLs = {}, capeURLs = {};
 function getInfo(username) {
     $('#loading').removeClass('hide');
+    $('output').addClass('hide');
     progress(0.0);
     if (!username && query) username = query;
     $('#username-history').empty();
@@ -81,8 +90,7 @@ function getInfo(username) {
                         <img src="${capeURL}" alt="${username}'s cape">
                     `);
                 }
-                progress(1);
-                setTimeout($('#loading').addClass('hide'),200);
+                complete();
             }).fail(function() {
                 if (skinURLs[username] || capeURLs[username]) {
                     $('#skin').append(`
@@ -96,18 +104,15 @@ function getInfo(username) {
                 } else {
                     error("SkinNotFoundError");
                 }
-                progress(1);
-                setTimeout($('#loading').addClass('hide'),200);
+                complete();
             });
         }).fail(function() {
             error("PlayerNotFoundError");
-            progress(1);
-            setTimeout($('#loading').addClass('hide'),200);
+            complete();
         });
     }).fail(function() {
         error("PlayerNotFoundError");
-        progress(1);
-        $('#loading').addClass('hide');
+        complete();
     });
 }
 
