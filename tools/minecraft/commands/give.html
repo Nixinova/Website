@@ -44,9 +44,9 @@
             <div id="target-content" class="hide indent">
                 <p onblur="submit()">
                     <label>Coordinates:</label>
-                    <input type="number" step="any" placeholder="x" id="input_selector_x"> &nbsp;
-                    <input type="number" step="any" placeholder="y" id="input_selector_y"> &nbsp;
-                    <input type="number" step="any" placeholder="z" id="input_selector_z"><br/>
+                    <input id="input_selector_x" type="number" step="any" placeholder="x" onchange="submit()"> &nbsp;
+                    <input id="input_selector_y" type="number" step="any" placeholder="y" onchange="submit()"> &nbsp;
+                    <input id="input_selector_z" type="number" step="any" placeholder="z" onchange="submit()"><br/>
 
                     <style>
                         .radius::after {content: 'Radius';}
@@ -59,39 +59,39 @@
                             $('#volume').toggleClass('hide')
                         }
                     </script>
-                    <label for="input_selection_area">Selection Area:</label>
+                    <label for="input_selection_area">Selection area:</label>
                     <button id="input_selection_area" class="radius" onchange="submit()" onclick="toggleVolumeRadius(this);"></button> &nbsp;
 
                     <span id="radius">
                         <span>Distance:</span> &nbsp;
-                        <input type="number" step="any" placeholder="min" size="3" id="input_selector_dist_min"> &nbsp;
-                        <input type="number" step="any" placeholder="max" size="3" id="input_selector_dist_max"><br/>
+                        <input id="input_selector_dist_min" type="number" step="any" placeholder="min" size="3" onchange="submit()"> &nbsp;
+                        <input id="input_selector_dist_max" type="number" step="any" placeholder="max" size="3" onchange="submit()"><br/>
                     </span>
 
                     <span id="volume" class="hide">
                         <span>Size:</span> &nbsp;
-                        <input type="number" step="any" placeholder="x" size="3" id="input_selector_vol_x"> &nbsp;
-                        <input type="number" step="any" placeholder="y" size="3" id="input_selector_vol_y"> &nbsp;
-                        <input type="number" step="any" placeholder="z" size="3" id="input_selector_vol_z"><br/>
+                        <input id="input_selector_vol_x" type="number" step="any" placeholder="x" size="3" onchange="submit()"> &nbsp;
+                        <input id="input_selector_vol_y" type="number" step="any" placeholder="y" size="3" onchange="submit()"> &nbsp;
+                        <input id="input_selector_vol_z" type="number" step="any" placeholder="z" size="3" onchange="submit()"><br/>
                     </span>
                     
-                    <label>Vert. Rotation:</label>
-                    <input type="number" step="any" placeholder="min" min="-90" max="90" size="3" id="input_selector_xrot_min"> &nbsp;
-                    <input type="number" step="any" placeholder="max" min="-90" max="90" size="3" id="input_selector_xrot_max"><br/>
+                    <label>Vert. rotation:</label>
+                    <input id="input_selector_xrot_min" type="number" step="any" placeholder="min" min="-90" max="90" size="3" onchange="submit()"> &nbsp;
+                    <input id="input_selector_xrot_max" type="number" step="any" placeholder="max" min="-90" max="90" size="3" onchange="submit()"><br/>
                     
-                    <label>Horiz. Rotation:</label>
-                    <input type="number" step="any" placeholder="min" min="-180" max="179.9" size="3" id="input_selector_yrot_min"> &nbsp;
-                    <input type="number" step="any" placeholder="max" min="-180" max="179.9" size="3" id="input_selector_yrot_max"><br/>
+                    <label>Horiz. rotation:</label>
+                    <input id="input_selector_yrot_min" type="number" step="any" placeholder="min" min="-180" max="179.9" size="3" onchange="submit()"> &nbsp;
+                    <input id="input_selector_yrot_max" type="number" step="any" placeholder="max" min="-180" max="179.9" size="3" onchange="submit()"><br/>
                     
                     <label for="input_selector_limit">Limit:</label>
-                    <input type="number" min="0" size="8" id="input_selector_limit"><br/>
+                    <input id="input_selector_limit" type="number" min="0" size="8" onchange="submit()"><br/>
                     
                     <label for="input_selector_team">Team:</label>
-                    <input id="input_selector_team" type="text" size="8"> &nbsp;
+                    <input id="input_selector_team" type="text" size="8" onkeyup="submit()"> &nbsp;
                     <button id="input_selector_team_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
                     
                     <label for="input_selector_tag">Tag:</label>
-                    <input id="input_selector_tag" type="text" size="8"> &nbsp;
+                    <input id="input_selector_tag" type="text" size="8" onkeyup="submit()"> &nbsp;
                     <button id="input_selector_tag_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
 
                     <span class="player_only">
@@ -107,9 +107,9 @@
                     </span>
 
                     <span class="player_only">
-                        <label>XP Level:</label>
-                        <input type="number" placeholder="min" min="0" max="24790" size="3" id="input_selector_xp_min"> &nbsp;
-                        <input type="number" placeholder="max" min="0" max="24791" size="3" id="input_selector_xp_max"><br/>
+                        <label>XP level:</label>
+                        <input id="input_selector_xp_min" type="number" placeholder="min" min="0" size="3" onchange="submit()"> &nbsp;
+                        <input id="input_selector_xp_max" type="number" placeholder="max" min="0" size="3" onchange="submit()"><br/>
                     </span>
 
                     <script>
@@ -228,13 +228,13 @@
 
                     <span id="durability">
                         <label for="input_item_durability">Durability:</label>
-                        <input id="input_item_durability" type="number" onkeyup="submit()"><br/>
+                        <input id="input_item_durability" type="number" onchange="submit()"><br/>
                     </span>
                 </span>
 
                 <label>Enchantments:</label><br class="mobileonly"/>
                 <label for="input_item_ench" class="short">Name:</label>
-                <select id="input_item_ench" onclick="$(this).val('');" onchange="submit()">
+                <select id="input_item_ench" onchange="submit()">
                     <option></option>
                     <option>Aqua Affinity</option>
                     <option>Bane of Arthropods</option>

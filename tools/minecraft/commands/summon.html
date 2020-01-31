@@ -27,8 +27,7 @@
         <form action="javascript:submit()" id="input_form" style="margin: auto;">
             <p>
                 <label for="input_entity">Mob:</label>
-                <input list="entities-list" id="input_entity" value="bat" onclick="$(this).val('')" onchange="submit()">
-                <datalist id="entities-list">
+                <select id="input_entity" value="bat" onclick="$(this).val('')" onchange="submit()">
                     <option>Bat</option>
                     <option>Bee</option>
                     <option>Blaze</option>
@@ -94,7 +93,7 @@
                     <option>Zombie Horse</option>
                     <option>Zombie Pigman</option>
                     <option>Zombie Villager</option>
-                </datalist><br/>
+                </select><br/>
             
                 <label>Coordinates:</label>
                 <input type="number" step="any" placeholder="~" id="input_x"> &nbsp;
@@ -105,8 +104,8 @@
                 <label>NBT:</label><br/>
             
                 <label for="input_customname">Custom name:</label>
-                <input type="text" size="13" id="input_customname">  
-                 <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
+                <input type="text" size="13" id="input_customname" onkeyup="submit()">  
+                <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
                 
                 <span id="preview" class="hide">&nbsp; Preview: &nbsp; <span id="preview-text"></span></span><br/>
 
@@ -161,7 +160,7 @@
 
                 <span class="owner_mobs only">
                     <span for="input_owner_uuid">Owner UUID</span>
-                    <input id="input_owner_uuid" type="text" size="36"><br/>
+                    <input id="input_owner_uuid" type="text" size="36" onchange="submit()"><br/>
                 </span>
             
                 <span class="bee only">
@@ -176,7 +175,7 @@
                 
                     <span class="angry-bee only"> &ensp;
                         <span for="input_bee_angry_time_value">Time until peaceful:</span> &nbsp;
-                        <input id="input_bee_angry_time_value" type="number" value="1000" min="0">
+                        <input id="input_bee_angry_time_value" type="number" value="1000" min="0" onchange="submit()">
                         <select id="input_bee_angry_time" onchange="submit()">
                             <option value="t">Ticks</option>
                             <option value="s">Seconds</option>
@@ -249,7 +248,7 @@
             
                 <span class="endermite only">
                     <label for="input_endermite_life">Life length:</label>
-                    <input id="input_endermite_life" type="number" min="1" max="2400"><br/>
+                    <input id="input_endermite_life" type="number" min="1" max="2400" onchange="submit()"><br/>
                 
                     <label for="input_endermite_attackable" style="letter-spacing: -1.2;">Anger endermen?</label>
                     <button id="input_endermite_attackable" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
@@ -270,7 +269,7 @@
             
                 <span class="ghast only">
                     <label for="input_ghast_explosion_power">Fireball power:</label>
-                    <input id="input_ghast_explosion_power" type="number" min="1"><br/>
+                    <input id="input_ghast_explosion_power" type="number" min="1" onchange="submit()"><br/>
                 </span>
             
                 <span class="llama only">
@@ -304,7 +303,7 @@
                     </select><br/>
                 
                     <label for="input_llama_temper">Temper:</label>
-                    <input id="input_llama_temper" type="number" min="1" max="100"><br/>
+                    <input id="input_llama_temper" type="number" min="1" max="100" onchange="submit()"><br/>
                 </span>
             
                 <span class="mooshroom only">
@@ -355,7 +354,7 @@
             
                 <span class="sheep shulker only">
                     <label for="input_mob_color">Colour:</label>
-                    <select id="input_mob_color" onblur="onchange()">
+                    <select id="input_mob_color" onchange="submit()">
                         <option value="">Default</option>
                         <option value="0">White</option>
                         <option value="1">Orange</option>
@@ -378,7 +377,7 @@
             
                 <span class="slime only">
                     <label for="input_slime_size">Size:</label>
-                    <input id="input_slime_size" type="number" min="0">
+                    <input id="input_slime_size" type="number" min="0" onchange="submit()">
                 </span>
             
                 <span class="tropical_fish only">
@@ -478,7 +477,7 @@
                     </select><br/>
                 
                     <label for="input_villager_level">Level:</label>
-                    <input id="input_villager_level" type="number" value="1" min="1" max="5">
+                    <input id="input_villager_level" type="number" value="1" min="1" max="5" onchange="submit()">
                     <br/>
                 </span>
             
@@ -519,7 +518,7 @@
                 
                     <span class="baby_living_mobs only"> &ensp;
                         <span for="input_baby_time_value">Time until adulthood:</span> &nbsp;
-                        <input id="input_baby_time_value" type="number" value="1000" min="0">
+                        <input id="input_baby_time_value" type="number" value="1000" min="0" onchange="submit()">
                         <select id="input_baby_time" onchange="submit()">
                             <option value="t">Ticks</option>
                             <option value="s">Seconds</option>
@@ -533,48 +532,48 @@
             <p data-name="Armour">
                 <label>Equipment:</label><br/>
                 
-                <label class="indent">Head:</label><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><input type="text" size="13" id="input_armour_head"> &nbsp;<br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_armour_head_num"><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
-                <input type="number" min="1" max="100" id="input_armour_head_count">&ensp;%<br/>
+                <label class="indent">Head:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <input type="text" size="13" id="input_armour_head" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_armour_head_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Drop chance:</span> &nbsp;
+                <input type="number" min="1" max="100" id="input_armour_head_count" onchange="submit()">&ensp;%<br/>
             
-                <label class="indent">Chest:</label><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><input type="text" size="13" id="input_armour_chest"> &nbsp;<br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_armour_chest_num"><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
-                <input type="number" min="1" max="100" id="input_armour_chest_count">&ensp;%<br/>
+                <label class="indent">Chest:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <input type="text" size="13" id="input_armour_chest" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_armour_chest_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Drop chance:</span> &nbsp;
+                <input type="number" min="1" max="100" id="input_armour_chest_count" onchange="submit()">&ensp;%<br/>
             
-                <label class="indent">Legs:</label><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><input type="text" size="13" id="input_armour_legs"> &nbsp;<br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_armour_legs_num"><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
-                <input type="number" min="1" max="100" id="input_armour_legs_count">&ensp;%<br/>
+                <label class="indent">Legs:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <input type="text" size="13" id="input_armour_legs" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_armour_legs_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Drop chance:</span> &nbsp;
+                <input type="number" min="1" max="100" id="input_armour_legs_count" onchange="submit()">&ensp;%<br/>
             
-                <label class="indent">Feet:</label><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><input type="text" size="13" id="input_armour_feet"> &nbsp;<br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_armour_feet_num"><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
-                <input type="number" min="1" max="100" id="input_armour_feet_count">&ensp;%<br/>
+                <label class="indent">Feet:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <input type="text" size="13" id="input_armour_feet" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_armour_feet_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Drop chance:</span> &nbsp;
+                <input type="number" min="1" max="100" id="input_armour_feet_count" onchange="submit()">&ensp;%<br/>
                 
             
-                <label class="indent">Main hand:</label><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><input type="text" size="13" id="input_held_item"> &nbsp;<br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_held_item_num"><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
-                <input type="number" min="1" max="100" id="input_held_item_count">&ensp;%<br/>
+                <label class="indent">Main hand:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <input type="text" size="13" id="input_held_item" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_held_item_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Drop chance:</span> &nbsp;
+                <input type="number" min="1" max="100" id="input_held_item_count" onchange="submit()">&ensp;%<br/>
             
-                <label class="indent">Offhand:</label><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><input type="text" size="13" id="input_offhand_item"> &nbsp;<br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Count:</span> &nbsp;
-                <input type="number" value="1" min="1" max="64" id="input_offhand_item_num"><br class="mobileonly"/>
-                <i class="mobile-spacer"></i><span class="indent">Drop chance:</span> &nbsp;
-                <input type="number" min="1" max="100" id="input_offhand_item_count">&ensp;%<br/>
+                <label class="indent">Offhand:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <input type="text" size="13" id="input_offhand_item" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Count:</span> &nbsp;
+                <input type="number" value="1" min="1" max="64" id="input_offhand_item_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
+                <span class="indent">Drop chance:</span> &nbsp;
+                <input type="number" min="1" max="100" id="input_offhand_item_count" onchange="submit()">&ensp;%<br/>
             </p>
         </form>
         
