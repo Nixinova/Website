@@ -82,7 +82,7 @@ function getInfo(username) {
                     `);
                 }
                 progress(1);
-                $('#loading').addClass('hide');
+                setTimeout($('#loading').addClass('hide'),200);
             }).fail(function() {
                 if (skinURLs[username] || capeURLs[username]) {
                     $('#skin').append(`
@@ -97,12 +97,12 @@ function getInfo(username) {
                     error("SkinNotFoundError");
                 }
                 progress(1);
-                $('#loading').addClass('hide');
+                setTimeout($('#loading').addClass('hide'),200);
             });
         }).fail(function() {
             error("PlayerNotFoundError");
             progress(1);
-            $('#loading').addClass('hide');
+            setTimeout($('#loading').addClass('hide'),200);
         });
     }).fail(function() {
         error("PlayerNotFoundError");
