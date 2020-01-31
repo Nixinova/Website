@@ -33,8 +33,8 @@ function loadData(input) {
     let og_image = data.og_description && `\n<meta property="og:image" content="https://nixinova.com/assets/images/${data.og_image}">`;
     
     $('head').prepend(`
-        <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
         <meta charset="UTF-8">
+        <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
         <meta name="description" content="${data.description}">
         <meta name="keywords" content="${data.keywords}">
         <meta name="author" content="Nixinova">
