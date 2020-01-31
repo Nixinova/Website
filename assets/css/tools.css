@@ -68,21 +68,21 @@ p.negative {margin-top: -15px;}
 }
 
 /* Minecraft color codes */
-.§0 {color: #000; text-shadow: 1px 1px #000000;}
-.§1 {color: #00a; text-shadow: 1px 1px #00002a;}
-.§2 {color: #0a0; text-shadow: 1px 1px #002a00;}
-.§3 {color: #0aa; text-shadow: 1px 1px #002a2a;}
-.§4 {color: #a00; text-shadow: 1px 1px #2a0000;}
-.§5 {color: #a0a; text-shadow: 1px 1px #2a002a;}
-.§6 {color: #fa0; text-shadow: 1px 1px #2a2a00;}
-.§7 {color: #aaa; text-shadow: 1px 1px #2a2a2a;}
-.§8 {color: #555; text-shadow: 1px 1px #151515;}
-.§9 {color: #55f; text-shadow: 1px 1px #15153f;}
-.§a {color: #5f5; text-shadow: 1px 1px #153f15;}
-.§b {color: #5ff; text-shadow: 1px 1px #153f3f;}
-.§c {color: #f55; text-shadow: 1px 1px #3f1515;}
-.§d {color: #f5f; text-shadow: 1px 1px #3f153f;}
-.§e {color: #ff5; text-shadow: 1px 1px #3f3f15;}
-.§f {color: #fff; text-shadow: 1px 1px #3f3f3f;}
+.§0 {color: #000; text-shadow: 2px 2px #000000;}
+.§1 {color: #00a; text-shadow: 2px 2px #00002a;}
+.§2 {color: #0a0; text-shadow: 2px 2px #002a00;}
+.§3 {color: #0aa; text-shadow: 2px 2px #002a2a;}
+.§4 {color: #a00; text-shadow: 2px 2px #2a0000;}
+.§5 {color: #a0a; text-shadow: 2px 2px #2a002a;}
+.§6 {color: #fa0; text-shadow: 2px 2px #2a2a00;}
+.§7 {color: #aaa; text-shadow: 2px 2px #2a2a2a;}
+.§8 {color: #555; text-shadow: 2px 2px #151515;}
+.§9 {color: #55f; text-shadow: 2px 2px #15153f;}
+.§a {color: #5f5; text-shadow: 2px 2px #153f15;}
+.§b {color: #5ff; text-shadow: 2px 2px #153f3f;}
+.§c {color: #f55; text-shadow: 2px 2px #3f1515;}
+.§d {color: #f5f; text-shadow: 2px 2px #3f153f;}
+.§e {color: #ff5; text-shadow: 2px 2px #3f3f15;}
+.§f {color: #fff; text-shadow: 2px 2px #3f3f3f;}
 
 /* Copyright © Nixinova 2020 */
