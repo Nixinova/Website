@@ -28,7 +28,7 @@ function getInfo(username) {
     progress(0.0);
     if (!username && query) username = query;
     $('#username-history').empty();
-    $('#username_uuid').html('Loading...');
+    $('#username_uuid').empty();
     $('#skin').empty();
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/' + username
@@ -83,7 +83,7 @@ function getInfo(username) {
                 }
                 progress(1);
                 $('#loading').addClass('hide');
-            }).fail(function(data, textStatus, error) {
+            }).fail(function() {
                 if (skinURLs[username] || capeURLs[username]) {
                     $('#skin').append(`
                         <img src="${skinURLs[username]}" alt="${username}'s skin">
