@@ -89,7 +89,7 @@ function rvDupes(array) {
 
 function randomString(length) {
     let chars = [], output = '';
-    for (let i = 32; i < 127; i ++) {
+    for (let i = 0; i < 32767; i ++) {
         chars.push(String.fromCharCode(i));
     }
     for (let i = 0; i < length; i ++) {
