@@ -313,10 +313,11 @@ function summon() {
 
         // villager //
         if (entity === 'villager' || entity === 'zombie_villager') {
-            nbt.VillagerData = {};
-            if (villager_type) nbt.VillagerData.type = villager_type;
-            if (villager_profession) nbt.VillagerData.profession = villager_profession;
-            if (villager_level && villager_level !== 1) nbt.VillagerData.level = villager_level;
+            villager_data = {};
+            if (villager_type) villager_data.type = villager_type;
+            if (villager_profession) villager_data.profession = villager_profession;
+            if (villager_level && villager_level !== 1) villager_data.level = villager_level;
+            if (villager_data) nbt.VillagerData = villager_data;
        }
 
         // wolf //
@@ -334,7 +335,7 @@ function summon() {
         // babies //
         if (zombies.indexOf(entity) > -1) {
             $('.baby_mobs').removeClass('hide');
-            if (baby) {nbt.IsBaby = true;}
+            if (baby) nbt.IsBaby = true;
        }
         if (neg_age_mobs.indexOf(entity) > -1) {
             $('.baby_mobs').removeClass('hide');
