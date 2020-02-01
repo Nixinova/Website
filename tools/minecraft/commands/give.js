@@ -292,10 +292,10 @@ function give() {
     let display = {};
 
     if (i_name) {
-        var preview = $('#preview-text');
+        var $preview = $('#preview-text');
         $('#preview').removeClass('hide');
         $('#expand-cname').removeClass('hide');
-        preview.html(i_name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
+        $preview.html(i_name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
         display.text = i_name;
 
         let className;
@@ -319,43 +319,43 @@ function give() {
         }
 
         if (i_colour) {display.color = i_colour;}
-        preview.addClass(className);
+        $preview.addClass(className);
 
         if (i_bold) {
             display.bold = true;
-            preview.css('font-weight', 'bold');
+            $preview.css('font-weight', 'bold');
         } else {
-            preview.css('font-weight', 'inherit');
+            $preview.css('font-weight', 'inherit');
         }
 
         if (!i_italic) {
             display.italic = false;
-            preview.css('font-style', 'inherit');
+            $preview.css('font-style', 'inherit');
         } else {
-            preview.css('font-style', 'italic');
+            $preview.css('font-style', 'italic');
         }
 
         if (i_underline) {
             display.underlined = true;
-            preview.css('text-decoration', 'underline');
+            $preview.css('text-decoration', 'underline');
         } else if (!i_strike) {
-            preview.css('text-decoration', 'inherit');
+            $preview.css('text-decoration', 'inherit');
         }
 
         if (i_strike) {
             display.strikethrough = true;
-            preview.css('text-decoration', 'line-through');
+            $preview.css('text-decoration', 'line-through');
         } else if (!i_underline) {
-            preview.css('text-decoration', 'inherit');
+            $preview.css('text-decoration', 'inherit');
         }
 
         if (i_strike && i_underline) {
-            preview.css('text-decoration', 'underline line-through');
+            $preview.css('text-decoration', 'underline line-through');
         }
 
         if (i_obfus) {
             display.obfuscated = true;
-            preview.html('#'.repeat(i_name.length));
+            obfuscate(i_name,$preview);
         }
 
         nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
