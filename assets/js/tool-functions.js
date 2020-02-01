@@ -89,7 +89,9 @@ function randomString(length) {
 
 function obfuscate(input, element) {
     if (element) {
-        $(element).text(randomString(input.length));
+        setInternal(function() {
+            $(element).text(randomString(input.length));
+        },100);
     } else return randomString(input.length);
 
 }
