@@ -1,3 +1,7 @@
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+  
 function show_more(sourceId, targetId, rvcols) {
     var source = $('#' + sourceId);
     var target = $('#' + targetId);
@@ -84,7 +88,15 @@ function rvDupes(array) {
 }
 
 function randomString(length) {
-    return Math.random().toString(36).substring(2, 14).repeat(length).substr(0,length);
+    let chars = [], output = '';
+    for (let i = 32; i < 127; i ++) {
+        chars.push(String.fromCharCode(i));
+    }
+    for (let i = 0; i < length; i ++) {
+        output += chars[random(0,chars.length)];
+    }
+    return output;
+   // Math.random().toString(36).substring(2, 14).repeat(length).substr(0,length);
 }
 
 function obfuscate(input, element) {
