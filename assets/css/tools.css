@@ -84,7 +84,7 @@ p.negative {margin-top: -15px;}
 .§d {color: #f5f; text-shadow: 2px 2px #3f153f;}
 .§e {color: #ff5; text-shadow: 2px 2px #3f3f15;}
 .§f {color: #fff; text-shadow: 2px 2px #3f3f3f;}
-.§k {}
+.§k {color:inherit;}
 .§l {font-weight: bold;}
 .§m {text-decoration: line-through;}
 .§n {text-decoration: underline;}
