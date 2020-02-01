@@ -501,13 +501,13 @@ function give() {
     let styled_NBT = NBT
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
-        .replace(/\\\\u00A7([0-9a-fkl-o])/g, '</span><span class="§$1">\\\\u00A7$1')
-        .replace(/(\\"")/g, '</span>$1')
-        .replace(/(Lore:\[")(\\".+\\")("\])/g,'$1<span class="§5 §o">$2</span>$3');
+        //.replace(/\\\\u00A7([0-9a-fkl-or])/g, '</span><span class="§$1">\\\\u00A7$1')
+        //.replace(/(Lore:\[")(\\".+\\")("\])/g,'$1<span class="§5 §o">$2</span>$3')
+        //.replace(/(\\"")/g, '</span>$1');
     $('#generator-output').html(`
         <span class="§7">/give</span>
         <span class="§b">${target_text + selector}</span>
-        <span class="§e">${item} <span>${styled_NBT}</span> </span>
+        <span class="§e">${item} <span>${styled_NBT}</span>
         <span class="§a">${count}</span>
     `);
 
