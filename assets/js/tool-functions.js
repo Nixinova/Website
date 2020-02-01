@@ -88,7 +88,7 @@ function rvDupes(array) {
 }
 
 function randomString(length) {
-    if (length > 100 ) length = 100
+    if (length > 100) length = 100;
     let chars = [], output = '';
     for (let i = 32; i <= 591; i ++) {
         chars.push(String.fromCharCode(i));
@@ -101,8 +101,7 @@ function randomString(length) {
 
 function obfuscate(input, element) {
     if (element) {
-        $(element).empty();
-        $(element).html(randomString(input.length));
+        $(element).text(randomString(input.length));
     } else return randomString(input.length);
 
 }
