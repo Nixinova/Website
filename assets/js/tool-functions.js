@@ -90,9 +90,7 @@ function randomString(length) {
 function obfuscate(input, element) {
     if (element) {
         while (true) {
-            setTimeout(function() {
-                $(element).text(randomString(input.length));
-            },100);
+            $(element).text(randomString(input.length));
         }
     } else return randomString(input.length);
 
