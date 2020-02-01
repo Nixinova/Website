@@ -95,8 +95,8 @@ function randomString(length) {
     for (let i = 0; i < length; i ++) {
         output += chars[random(0,chars.length-1)];
     }
+    console.log(output);
     return output;
-   // Math.random().toString(36).substring(2, 14).repeat(length).substr(0,length);
 }
 
 function obfuscate(input, element) {
