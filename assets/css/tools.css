@@ -68,21 +68,27 @@ p.negative {margin-top: -15px;}
 }
 
 /* Minecraft color codes */
-.§0 {color: #000; text-shadow: 2px 2px #000000;}
-.§1 {color: #00a; text-shadow: 2px 2px #00002a;}
-.§2 {color: #0a0; text-shadow: 2px 2px #002a00;}
-.§3 {color: #0aa; text-shadow: 2px 2px #002a2a;}
-.§4 {color: #a00; text-shadow: 2px 2px #2a0000;}
-.§5 {color: #a0a; text-shadow: 2px 2px #2a002a;}
-.§6 {color: #fa0; text-shadow: 2px 2px #2a2a00;}
-.§7 {color: #aaa; text-shadow: 2px 2px #2a2a2a;}
-.§8 {color: #555; text-shadow: 2px 2px #151515;}
-.§9 {color: #55f; text-shadow: 2px 2px #15153f;}
-.§a {color: #5f5; text-shadow: 2px 2px #153f15;}
-.§b {color: #5ff; text-shadow: 2px 2px #153f3f;}
-.§c {color: #f55; text-shadow: 2px 2px #3f1515;}
-.§d {color: #f5f; text-shadow: 2px 2px #3f153f;}
-.§e {color: #ff5; text-shadow: 2px 2px #3f3f15;}
-.§f {color: #fff; text-shadow: 2px 2px #3f3f3f;}
+.§0 {font-family: Minecraft; color: #000; text-shadow: 2px 2px #000000;}
+.§1 {font-family: Minecraft; color: #00a; text-shadow: 2px 2px #00002a;}
+.§2 {font-family: Minecraft; color: #0a0; text-shadow: 2px 2px #002a00;}
+.§3 {font-family: Minecraft; color: #0aa; text-shadow: 2px 2px #002a2a;}
+.§4 {font-family: Minecraft; color: #a00; text-shadow: 2px 2px #2a0000;}
+.§5 {font-family: Minecraft; color: #a0a; text-shadow: 2px 2px #2a002a;}
+.§6 {font-family: Minecraft; color: #fa0; text-shadow: 2px 2px #2a2a00;}
+.§7 {font-family: Minecraft; color: #aaa; text-shadow: 2px 2px #2a2a2a;}
+.§8 {font-family: Minecraft; color: #555; text-shadow: 2px 2px #151515;}
+.§9 {font-family: Minecraft; color: #55f; text-shadow: 2px 2px #15153f;}
+.§a {font-family: Minecraft; color: #5f5; text-shadow: 2px 2px #153f15;}
+.§b {font-family: Minecraft; color: #5ff; text-shadow: 2px 2px #153f3f;}
+.§c {font-family: Minecraft; color: #f55; text-shadow: 2px 2px #3f1515;}
+.§d {font-family: Minecraft; color: #f5f; text-shadow: 2px 2px #3f153f;}
+.§e {font-family: Minecraft; color: #ff5; text-shadow: 2px 2px #3f3f15;}
+.§f {font-family: Minecraft; color: #fff; text-shadow: 2px 2px #3f3f3f;}
+.§k {font-family: Minecraft;}
+.§l {font-family: Minecraft; font-weight: bold;}
+.§m {font-family: Minecraft; text-decoration: line-through;}
+.§n {font-family: Minecraft; text-decoration: underline;}
+.§o {font-family: Minecraft; font-style: italic;}
+.§r {font-family: Minecraft; color: #fff; text-shadow: 2px 2px #3f3f3f; font-weight: normal; text-decoration: none; font-style: normal;}
 
 /* Copyright © Nixinova 2020 */
