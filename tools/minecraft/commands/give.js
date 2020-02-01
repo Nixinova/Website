@@ -367,8 +367,8 @@ function give() {
     // lore //
     if (i_lore) {
         let lore = i_lore.split('\n');
-        for (let i of lore) lore[i] = JSON.stringify(JSON.stringify(lore[i]));
-        nbt.display.lore = lore;
+        for (let i of lore) lore[i] = JSON.stringify('"'+JSON.stringify(lore[i])+'"');
+        nbt.display.Lore = lore;
     }
 
     // enchantments //
