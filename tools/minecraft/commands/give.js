@@ -355,6 +355,7 @@ function give() {
 
         if (i_obfus) {
             display.obfuscated = true;
+            window.obfuscated = true;
             window.previewText = i_name;
         }
 
