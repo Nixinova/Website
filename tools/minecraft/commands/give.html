@@ -21,7 +21,8 @@
         }
         $(document).ready(function() {
             loadData(PAGE_DATA);
-            obfuscate('k','#§k','continuous');
+            obfuscate('k','#§k');
+            obfuscate(window.previewText,'#preview-text');
         });
         $('footer').append(`&bull;&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>`);
     </script>

@@ -87,15 +87,11 @@ function randomString(length) {
     return Math.random().toString(36).substring(2, 14).repeat(length).substr(0,length);
 }
 
-function obfuscate(input, element, continuous) {
+function obfuscate(input, element) {
     if (element) {
-        if (continuous) {
-            setInterval(function() {
-                $(element).html(`<span class="§k" style="font-family: monospace;">${randomString(input.length)}</span>`);
-            },50);
-        } else {
+        setInterval(function() {
             $(element).html(`<span class="§k" style="font-family: monospace;">${randomString(input.length)}</span>`);
-        }
+        },50);
     } else return randomString(input.length);
 
 }

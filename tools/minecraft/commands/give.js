@@ -355,7 +355,7 @@ function give() {
 
         if (i_obfus) {
             display.obfuscated = true;
-            obfuscate(i_name,'#preview-text');
+            window.previewText = i_name;
         }
 
         nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
