@@ -84,14 +84,14 @@ function rvDupes(array) {
 }
 
 function randomString(length) {
-    return Math.random().toString(36).substring(2, 14).repeat(Math.floor(length)).substr(0,length);
+    return Math.random().toString(36).substring(2, 14).repeat(length-1).substr(0,length);
 }
 
 function obfuscate(input, element) {
     if (element) {
         setInterval(function() {
             $(element).text(randomString(input.length));
-        },100);
+        },50);
     } else return randomString(input.length);
 
 }
