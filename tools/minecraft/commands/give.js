@@ -498,10 +498,14 @@ function give() {
         }
     }
     
+    let styled_NBT = NBT
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/\\\\u00A7([0-9a-f])/g, '<span class="§$1">§$1');
     $('#generator-output').html(`
         <span class="§7">/give</span>
         <span class="§b">${target_text + selector}</span>
-        <span class="§e">${item + NBT.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</span>
+        <span class="§e">${item + styled_NBT}</span>
         <span class="§a">${count}</span>
     `);
 
