@@ -312,11 +312,11 @@ function summon() {
        }
 
         // villager //
-        if (entity === 'villager') {
+        if (entity === 'villager' || entity === 'zombie_villager') {
             nbt.VillagerData = {};
             if (villager_type) nbt.VillagerData.type = villager_type;
             if (villager_profession) nbt.VillagerData.profession = villager_profession;
-            if (villager_level) nbt.VillagerData.level = villager_level;
+            if (villager_level && villager_level !== 1) nbt.VillagerData.level = villager_level;
        }
 
         // wolf //
@@ -352,10 +352,10 @@ function summon() {
     {
         // armor //
         var armor_items = [];
-        if (feet)  {armor_items.push({id: feet , Count: feet_n });} else {armor_items.push({});}
-        if (legs)  {armor_items.push({id: legs , Count: legs_n });} else {armor_items.push({});}
-        if (chest) {armor_items.push({id: chest, Count: chest_n});} else {armor_items.push({});}
-        if (head)  {armor_items.push({id: head , Count: head_n });} else {armor_items.push({});}
+        if (feet)  armor_items.push({id: feet , Count: feet_n });
+        if (legs)  armor_items.push({id: legs , Count: legs_n });
+        if (chest) armor_items.push({id: chest, Count: chest_n});
+        if (head)  armor_items.push({id: head , Count: head_n });
         if (head || chest || legs || feet) {
             nbt.ArmorItems = armor_items;
             var armor_drop_chances;
@@ -371,8 +371,8 @@ function summon() {
 
         // held //
         var held_items = [];
-        if (mainhand) {held_items.push({id: mainhand, Count: mainhand_n});} else {held_items.push({});}
-        if (offhand)  {held_items.push({id: offhand,  Count: offhand_n });} else {held_items.push({});}
+        if (mainhand) held_items.push({id: mainhand, Count: mainhand_n});
+        if (offhand)  held_items.push({id: offhand,  Count: offhand_n });
         if (mainhand || offhand) {
             nbt.HandItems = held_items;
             var hand_drop_chances;

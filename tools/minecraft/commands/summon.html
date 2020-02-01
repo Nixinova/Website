@@ -155,7 +155,7 @@
                 <label for="input_silent" class="indent">Silent?</label>
                 <button id="input_silent" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
-                <label for="input_pickup" class="indent">Pick up items?</label>
+                <label for="input_pickup" class="indent">Picks up items?</label>
                 <button id="input_pickup" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label for="input_gravity" class="indent">Obeys gravity?</label>
@@ -471,10 +471,9 @@
                 <span class="villager zombie_villager only">
                     <label for="input_villager_type" class="indent">Type:</label>
                     <select id="input_villager_type" onchange="submit()">
-                        <option></option>
                         <option>Desert</option>
                         <option>Jungle</option>
-                        <option>Plains</option>
+                        <option selected>Plains</option>
                         <option>Savanna</option>
                         <option>Snow</option>
                         <option>Swamp</option>
@@ -483,7 +482,7 @@
                 
                     <label for="input_villager_profession" class="indent">Profession:</label>
                     <select id="input_villager_profession" onchange="submit()">
-                        <option>None</option>
+                        <option value="">None</option>
                         <option>Armorer</option>
                         <option>Butcher</option>
                         <option>Cartographer</option>
