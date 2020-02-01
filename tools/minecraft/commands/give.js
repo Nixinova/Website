@@ -297,7 +297,7 @@ function give() {
         $('#expand-cname').removeClass('hide');
         $preview.html(i_name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
         display.text = i_name;
-        window.previewText = i_name;
+        window.previewText = i_name.replace(/ /g, '\u00a0');
 
         let className;
         switch (i_colour) {
