@@ -297,6 +297,7 @@ function give() {
         $('#expand-cname').removeClass('hide');
         $preview.html(i_name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
         display.text = i_name;
+        window.previewText = i_name;
 
         let className;
         switch (i_colour) {
@@ -356,7 +357,8 @@ function give() {
         if (i_obfus) {
             display.obfuscated = true;
             window.obfuscated = true;
-            window.previewText = i_name;
+        } else {
+            window.obfuscated = false;
         }
 
         nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');

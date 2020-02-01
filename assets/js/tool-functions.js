@@ -87,15 +87,9 @@ function randomString(length) {
     return Math.random().toString(36).substring(2, 14).repeat(length).substr(0,length);
 }
 
-function obfuscate(input, element, test) {
-    if (element && test && test == true) {
-        setInterval(function() {
-            $(element).html(`<span class="§k" style="font-family: monospace;">${randomString(input.length)}</span>`);
-        },50);
-    } else if (element) {
-        setInterval(function() {
-            $(element).html(`<span class="§k" style="font-family: monospace;">${randomString(input.length)}</span>`);
-        },50);
-    } return randomString(input.length);
+function obfuscate(input, elementt) {
+    if (element) {
+        $(element).html(`<span class="§k" style="font-family: monospace;">${randomString(input.length)}</span>`);
+    } else return randomString(input.length);
 
 }
