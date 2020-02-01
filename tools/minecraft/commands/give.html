@@ -22,7 +22,7 @@
         $(document).ready(function() {
             loadData(PAGE_DATA);
             setInterval(function() {
-                obfuscate($('.§k').text(),'.§k');
+                for (let element of $('.§k')) obfuscate(element.text(),'.§k');
             },50);
         });
         $('footer').append(`&bull;&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>`);
