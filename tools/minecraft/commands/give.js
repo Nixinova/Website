@@ -362,6 +362,7 @@ function give() {
     } else {
         $('#preview').addClass('hide');
         $('#expand-cname').addClass('hide');
+        $('#cname-content').addClass('hide');
     }
 
     // lore //
