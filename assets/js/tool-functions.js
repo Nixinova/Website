@@ -92,7 +92,7 @@ function obfuscate(input, element) {
         while (true) {
             setTimeout(function() {
                 $(element).text(randomString(input.length));
-            },10);
+            },100);
         }
     } else return randomString(input.length);
 
