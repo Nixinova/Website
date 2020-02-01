@@ -505,7 +505,7 @@ function give() {
     $('#generator-output').html(`
         <span class="§7">/give</span>
         <span class="§b">${target_text + selector}</span>
-        <span class="§e">${item + styled_NBT}</span>
+        <span class="§e">${item} <span>${styled_NBT}</span> </span>
         <span class="§a">${count}</span>
     `);
 
