@@ -88,7 +88,6 @@ function rvDupes(array) {
 }
 
 function randomString(length) {
-    if (length > 100) length = 100;
     let chars = [], output = '';
     for (let i = 32; i <= 591; i ++) {
         chars.push(String.fromCharCode(i));

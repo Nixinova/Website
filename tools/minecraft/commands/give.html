@@ -22,7 +22,8 @@
         $(document).ready(function() {
             loadData(PAGE_DATA);
             setInterval(function() {
-                for (let element of $('.§k')) obfuscate(element.text(),'.§k');
+                obfuscate($('[class="§k#1"]').text(),'§k#1');
+                obfuscate($('[class="§k#2"]').text(),'§k#2');
             },50);
         });
         $('footer').append(`&bull;&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>`);
@@ -245,7 +246,7 @@
                         <span class="§d">§dd</span>
                         <span class="§e">§ee</span>
                         <span class="§f">§ff</span>
-                        §k<span class="§k">k</span>
+                        §k<span class="§k §k#1">k</span>
                         <span class="§l">§ll</span>
                         <span class="§m">§mm</span>
                         <span class="§n">§nn</span>
