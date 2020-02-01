@@ -313,11 +313,11 @@ function summon() {
 
         // villager //
         if (entity === 'villager' || entity === 'zombie_villager') {
-            villager_data = {};
+            let villager_data = {};
             if (villager_type) villager_data.type = villager_type;
             if (villager_profession) villager_data.profession = villager_profession;
             if (villager_level && villager_level !== 1) villager_data.level = villager_level;
-            if (villager_data) nbt.VillagerData = villager_data;
+            if (Object.entries(villager_data).length > 0) nbt.VillagerData = villager_data;
        }
 
         // wolf //
@@ -359,14 +359,12 @@ function summon() {
         if (head)  {armor_items.push({id: head , Count: head_n });} else {armor_items.push({});}
         if (head || chest || legs || feet) {
             nbt.ArmorItems = armor_items;
-            var armor_drop_chances;
             if (head_c || chest_c || legs_c || feet_c) {
                 head_c  = head_c  ? head_c  / 100 + 'f' : '1f';
                 chest_c = chest_c ? chest_c / 100 + 'f' : '1f';
                 legs_c  = legs_c  ? legs_c  / 100 + 'f' : '1f';
                 feet_c  = feet_c  ? feet_c  / 100 + 'f' : '1f';
-                armor_drop_chances = [feet_c, legs_c, chest_c, head_c];
-                nbt.ArmorDropChances = armor_drop_chances;
+                nbt.ArmorDropChances = [feet_c, legs_c, chest_c, head_c];
            }
        }
 
@@ -376,19 +374,17 @@ function summon() {
         if (offhand)  {held_items.push({id: offhand,  Count: offhand_n });} else {held_items.push({});}
         if (mainhand || offhand) {
             nbt.HandItems = held_items;
-            var hand_drop_chances;
             if (mainhand_c || offhand_c) {
                 mainhand_c = mainhand_c ? mainhand_c / 100 + 'f' : '1f';
                 offhand_c  = offhand_c  ? offhand_c  / 100 + 'f' : '1f';
-                hand_drop_chances = [mainhand_c, offhand_c];
-                nbt.HandDropChances = hand_drop_chances;
+                nbt.HandDropChances = [mainhand_c, offhand_c];
            }
        }
    }
 
     // CONVERT TO NBT //
     if (!isEmpty(nbt)) {//                    Removes quotes on IDs             Show int types as plain ints
-        var NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/"([0-9.]+[bdfLs])"/g, '$1');
+        var NBT = JSON.stringify(nbt)//.replace(/"([^(")\\]+)":/g, '$1:').replace(/"([0-9.]+[bdfLs])"/g, '$1');
    } else NBT = '';
 
     /// OUTPUT ///
