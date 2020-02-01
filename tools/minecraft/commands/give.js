@@ -324,34 +324,30 @@ function give() {
 
         if (i_bold) {
             display.bold = true;
-            $preview.css('font-weight', 'bold');
+            $preview.addClass('§l');
         } else {
-            $preview.css('font-weight', 'inherit');
+            $preview.removeClass('§l');
         }
 
         if (!i_italic) {
             display.italic = false;
-            $preview.css('font-style', 'inherit');
+            $preview.addClass('§o');
         } else {
-            $preview.css('font-style', 'italic');
+            $preview.removeClass('§o');
         }
 
         if (i_underline) {
             display.underlined = true;
-            $preview.css('text-decoration', 'underline');
-        } else if (!i_strike) {
-            $preview.css('text-decoration', 'inherit');
+            $preview.addClass('§n');
+        } else {
+            $preview.removeClass('§n');
         }
 
         if (i_strike) {
             display.strikethrough = true;
-            $preview.css('text-decoration', 'line-through');
-        } else if (!i_underline) {
-            $preview.css('text-decoration', 'inherit');
-        }
-
-        if (i_strike && i_underline) {
-            $preview.css('text-decoration', 'underline line-through');
+            $preview.addClass('§m');
+        } else {
+            $preview.removeClass('§m');
         }
 
         if (i_obfus) {
