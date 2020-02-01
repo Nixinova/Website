@@ -68,22 +68,22 @@ p.negative {margin-top: -15px;}
 }
 
 /* Minecraft color codes */
-.§0 {color: #000; text-shadow: 1px 1px #000000;}
-.§1 {color: #00a; text-shadow: 1px 1px #00002a;}
-.§2 {color: #0a0; text-shadow: 1px 1px #002a00;}
-.§3 {color: #0aa; text-shadow: 1px 1px #002a2a;}
-.§4 {color: #a00; text-shadow: 1px 1px #2a0000;}
-.§5 {color: #a0a; text-shadow: 1px 1px #2a002a;}
-.§6 {color: #fa0; text-shadow: 1px 1px #2a2a00;}
-.§7 {color: #aaa; text-shadow: 1px 1px #2a2a2a;}
-.§8 {color: #555; text-shadow: 1px 1px #151515;}
-.§9 {color: #55f; text-shadow: 1px 1px #15153f;}
-.§a {color: #5f5; text-shadow: 1px 1px #153f15;}
-.§b {color: #5ff; text-shadow: 1px 1px #153f3f;}
-.§c {color: #f55; text-shadow: 1px 1px #3f1515;}
-.§d {color: #f5f; text-shadow: 1px 1px #3f153f;}
-.§e {color: #ff5; text-shadow: 1px 1px #3f3f15;}
-.§f {color: #fff; text-shadow: 1px 1px #3f3f3f;}
+.§0 {color: #000; text-shadow: 1px 1px #000000; font-weight: normal; text-decoration: none; font-style: normal;}
+.§1 {color: #00a; text-shadow: 1px 1px #00002a; font-weight: normal; text-decoration: none; font-style: normal;}
+.§2 {color: #0a0; text-shadow: 1px 1px #002a00; font-weight: normal; text-decoration: none; font-style: normal;}
+.§3 {color: #0aa; text-shadow: 1px 1px #002a2a; font-weight: normal; text-decoration: none; font-style: normal;}
+.§4 {color: #a00; text-shadow: 1px 1px #2a0000; font-weight: normal; text-decoration: none; font-style: normal;}
+.§5 {color: #a0a; text-shadow: 1px 1px #2a002a; font-weight: normal; text-decoration: none; font-style: normal;}
+.§6 {color: #fa0; text-shadow: 1px 1px #2a2a00; font-weight: normal; text-decoration: none; font-style: normal;}
+.§7 {color: #aaa; text-shadow: 1px 1px #2a2a2a; font-weight: normal; text-decoration: none; font-style: normal;}
+.§8 {color: #555; text-shadow: 1px 1px #151515; font-weight: normal; text-decoration: none; font-style: normal;}
+.§9 {color: #55f; text-shadow: 1px 1px #15153f; font-weight: normal; text-decoration: none; font-style: normal;}
+.§a {color: #5f5; text-shadow: 1px 1px #153f15; font-weight: normal; text-decoration: none; font-style: normal;}
+.§b {color: #5ff; text-shadow: 1px 1px #153f3f; font-weight: normal; text-decoration: none; font-style: normal;}
+.§c {color: #f55; text-shadow: 1px 1px #3f1515; font-weight: normal; text-decoration: none; font-style: normal;}
+.§d {color: #f5f; text-shadow: 1px 1px #3f153f; font-weight: normal; text-decoration: none; font-style: normal;}
+.§e {color: #ff5; text-shadow: 1px 1px #3f3f15; font-weight: normal; text-decoration: none; font-style: normal;}
+.§f {color: #fff; text-shadow: 1px 1px #3f3f3f; font-weight: normal; text-decoration: none; font-style: normal;}
 .§k {color:inherit;}
 .§l {font-weight: bold;}
 .§m {text-decoration: line-through;}
