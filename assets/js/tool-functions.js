@@ -84,7 +84,7 @@ function rvDupes(array) {
 }
 
 function randomString(length) {
-    return Math.random().toString(36).substring(2, 14).repeat(length-1).substr(0,length);
+    return Math.random().toString(36).substring(2, 14).repeat(length).substr(0,length);
 }
 
 function obfuscate(input, element) {
