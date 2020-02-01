@@ -100,6 +100,7 @@ function randomString(length) {
 
 function obfuscate(input, element) {
     if (element) {
+        $(element).empty();
         $(element).html(randomString(input.length));
     } else return randomString(input.length);
 
