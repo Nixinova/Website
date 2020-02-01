@@ -322,25 +322,18 @@ function give() {
         if (i_colour) {display.color = i_colour;}
         $preview.addClass(className);
 
+        if (i_obfus) {
+            display.obfuscated = true;
+            $preview.addClass('§k');
+        } else {
+            $preview.removeClass('§k');
+        }
+
         if (i_bold) {
             display.bold = true;
             $preview.addClass('§l');
         } else {
             $preview.removeClass('§l');
-        }
-
-        if (!i_italic) {
-            display.italic = false;
-            $preview.addClass('§o');
-        } else {
-            $preview.removeClass('§o');
-        }
-
-        if (i_underline) {
-            display.underlined = true;
-            $preview.addClass('§n');
-        } else {
-            $preview.removeClass('§n');
         }
 
         if (i_strike) {
@@ -350,11 +343,18 @@ function give() {
             $preview.removeClass('§m');
         }
 
-        if (i_obfus) {
-            display.obfuscated = true;
-            window.obfuscated = true;
+        if (i_underline) {
+            display.underlined = true;
+            $preview.addClass('§n');
         } else {
-            window.obfuscated = false;
+            $preview.removeClass('§n');
+        }
+
+        if (!i_italic) {
+            display.italic = false;
+            $preview.addClass('§o');
+        } else {
+            $preview.removeClass('§o');
         }
 
         nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
