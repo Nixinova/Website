@@ -83,12 +83,17 @@ function rvDupes(array) {
     return newArray;
 }
 
+function randomString(length) {
+    Math.random().toString(36).substring(2, 14).repeat(Math.floor(input.length/10)).substr(0,length);
+}
+
 function obfuscate(input, element) {
-    while (true) {
-        setTimeout(function() {
-            let random_string = Math.random().toString(36).substring(2, 14).repeat(Math.floor(input.length/10)).substr(0,input.length);
-            $(element).text(random_string);
-        },10);
-    }
+    if (element) {
+        while (true) {
+            setTimeout(function() {
+                $(element).text(randomString(input.length));
+            },10);
+        }
+    } else return randomString(input.length);
 
 }
