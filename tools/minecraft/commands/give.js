@@ -324,7 +324,7 @@ function give() {
 
         if (i_obfus) {
             display.obfuscated = true;
-            $preview.toggleClass('§k',true);
+            $preview.addClass('§k');
         } else {
             $preview.removeClass('§k');
         }
