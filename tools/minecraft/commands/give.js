@@ -366,7 +366,7 @@ function give() {
 
     // lore //
     if (i_lore) {
-        let lore = JSON.stringify(i_lore.split('\n'));
+        let lore = i_lore.split('\n');
         for (let i of lore) {
             lore[i] = JSON.stringify(lore[i]);
         }
