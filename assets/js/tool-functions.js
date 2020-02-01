@@ -1,4 +1,4 @@
-function random(min, max) {
+function random(min=0, max=100) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
   
@@ -93,7 +93,7 @@ function randomString(length) {
         chars.push(String.fromCharCode(i));
     }
     for (let i = 0; i < length; i ++) {
-        output += chars[random(0,chars.length)];
+        output += chars[random(0,chars.length-1)];
     }
     return output;
    // Math.random().toString(36).substring(2, 14).repeat(length).substr(0,length);
