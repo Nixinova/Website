@@ -366,8 +366,8 @@ function give() {
 
     // lore //
     if (i_lore) {
-        let lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace(/,/g, '&comma;').split('\n');
-        nbt.display.Lore = JSON.stringify(lore).replace(/^\[|\]$/g, '').split(',');
+        let lore = i_lore.replace(/\\\\/g, '\\').replace(/\\"/g, '\"').replace('\n','\u0000');
+        nbt.display.Lore = JSON.stringify(lore).replace(/^\[|\]$/g, '').split('\u0000');
     }
 
     // enchantments //
@@ -480,14 +480,8 @@ function give() {
 
     // nbt //
     var NBT = '';
-    if (!isEmpty(nbt)) {
-        NBT = JSON.stringify(nbt);let foo = "a"
-            .replace(/"([^(")\\]+)":/g, '$1:')
-            .replace(/\\",lvl:/g, '",lvl:')
-            .replace(/}"]/g, '}]')
-            .replace(/"{id:\\/g, "{id:")
-            .replace(/}",{id:/g, "},{id:")
-            .replace(/&comma;/g, ',');
+    if (!isEmpty(nbt)) {//                Remove quotes from tags
+        NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:');
     }
 
     // count //

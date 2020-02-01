@@ -383,7 +383,7 @@ function summon() {
    }
 
     // CONVERT TO NBT //
-    if (!isEmpty(nbt)) {//                    Removes quotes on IDs    ;//         Show num types as ints
+    if (!isEmpty(nbt)) {//                    Removes quotes from tags ;//         Show num types as ints
         var NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:');//.replace(/"([0-9.]+[bdfLs])"/g, '$1');
    } else NBT = '';
 
