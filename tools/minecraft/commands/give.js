@@ -501,7 +501,7 @@ function give() {
     let styled_NBT = NBT
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
-        .replace(/\\\\u00A7([0-9a-fkl-o])/g, '</span><span class="§$1">\\\\u00A7$1').replace(/(\\\")/, '</span>$1');
+        .replace(/\\\\u00A7([0-9a-fkl-o])/g, '</span><span class="§$1">\\\\u00A7$1').replace(/(\\"")/, '</span>$1');
     $('#generator-output').html(`
         <span class="§7">/give</span>
         <span class="§b">${target_text + selector}</span>
