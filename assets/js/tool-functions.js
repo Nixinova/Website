@@ -95,8 +95,7 @@ function randomString(length) {
     for (let i = 0; i < length; i ++) {
         output += chars[random(0,chars.length-1)];
     }
-    if (length > 1) console.log(output);
-    return output;
+    return output.replace(/ /g, '\u00a0');
 }
 
 function obfuscate(input, element) {
