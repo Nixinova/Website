@@ -100,7 +100,7 @@ function randomString(length) {
 
 function obfuscate(input, element) {
     if (element) {
-        $(element).html(`<span class="§k" style="font-family: monospace;">${randomString(input.length)}</span>`);
+        $(element).text(randomString(input.length));
     } else return randomString(input.length);
 
 }
