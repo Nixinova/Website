@@ -367,7 +367,7 @@ function give() {
     // lore //
     if (i_lore) {
         let lore = i_lore.split('\n');
-        for (let i of lore) lore[i] = '"'+lore[i]+'"';
+        for (let i in lore) lore[i] = '"'+lore[i]+'"';
         nbt.display.Lore = lore;
     }
 
