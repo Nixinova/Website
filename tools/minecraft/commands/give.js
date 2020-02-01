@@ -481,7 +481,7 @@ function give() {
     // nbt //
     var NBT = '';
     if (!isEmpty(nbt)) {
-        NBT = JSON.stringify(nbt)
+        NBT = JSON.stringify(nbt);let foo = "a"
             .replace(/"([^(")\\]+)":/g, '$1:')
             .replace(/\\",lvl:/g, '",lvl:')
             .replace(/}"]/g, '}]')
