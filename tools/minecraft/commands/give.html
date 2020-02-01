@@ -221,9 +221,9 @@
                 </style>
                 <label for="input_item_lore" style="position: absolute;">Description:</label><br class="mobileonly"/>
                 <textarea id="input_item_lore" rows="6" cols="40" onkeyup="submit()"></textarea> &nbsp; <br class="mobileonly"/>
-                <span style="position: absolute; line-height: 1.8; max-width: 28ch;">
+                <span style="position: absolute; line-height: 1.8; max-width: 250px;">
                     Tip: allows "§" codes. Copy &amp; paste:<br>
-                    <span style="font-size: 80%;">
+                    <span>
                         <span class="§0">§0</span>
                         <span class="§1">§1</span>
                         <span class="§2">§2</span>
@@ -240,7 +240,7 @@
                         <span class="§d">§d</span>
                         <span class="§e">§e</span>
                         <span class="§f">§f</span>
-                        <span class="§k">§k</span>
+                        <span class="§k" id="§k" onload="obfuscate('§k','#§k')">§k</span>
                         <span class="§l">§l</span>
                         <span class="§m">§m</span>
                         <span class="§n">§n</span>
