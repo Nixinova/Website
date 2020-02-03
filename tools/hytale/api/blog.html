@@ -9,8 +9,7 @@
             description: "Get information about any Hytale blog post. Automatically updates for any new blog posts released.",
             keywords: "nixinova,hytale,hytale api,hytale blog api,hytale blog info,hytale blog dates",
             stylesheets: ["tools.css"],
-            scripts: [],
-            footer_classes: []
+            scripts: []
         }
         $(document).ready(function() {loadData(PAGE_DATA);});
     </script>
@@ -35,9 +34,6 @@
         function getInfo() {
             let selected_blog = $('#titles').val();
             let index = blogs.urls.indexOf(selected_blog);
-
-            const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-            const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
             let date = moment.utc(blogs.dates[index]);
             let image = 'https://cdn.hytale.com/variants/blog_cover_' + blogs.images[index];
