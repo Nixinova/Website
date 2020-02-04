@@ -130,47 +130,47 @@
                         <option>Yellow</option>
                     </select><br/>
                     <label class="indent" style="margin-left: 40px;">Styles:</label>
-                    <button id="input_customname_b" class="off" onclick="toggleOnOff(this)">Bold</button> &nbsp;
-                    <button id="input_customname_i" class="on " onclick="toggleOnOff(this)">Italic</button> &nbsp;
-                    <button id="input_customname_u" class="off" onclick="toggleOnOff(this)">Underlined</button> &nbsp;
-                    <button id="input_customname_s" class="off" onclick="toggleOnOff(this)">Strikethrough</button> &nbsp;
-                    <button id="input_customname_o" class="off" onclick="toggleOnOff(this)">Obfuscated</button><br/>
+                    <button type="button" id="input_customname_b" class="off" onclick="toggleOnOff(this)">Bold</button> &nbsp;
+                    <button type="button" id="input_customname_i" class="on " onclick="toggleOnOff(this)">Italic</button> &nbsp;
+                    <button type="button" id="input_customname_u" class="off" onclick="toggleOnOff(this)">Underlined</button> &nbsp;
+                    <button type="button" id="input_customname_s" class="off" onclick="toggleOnOff(this)">Strikethrough</button> &nbsp;
+                    <button type="button" id="input_customname_o" class="off" onclick="toggleOnOff(this)">Obfuscated</button><br/>
                 </span>
 
                 <label for="input_customname_visible" class="indent" title="Always show name">Static nametag?</label>
-                <button id="input_customname_visible" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button type="button" id="input_customname_visible" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
                 <label for="input_health" class="indent" style="letter-spacing: -.44px;">Additional health:</label>
                 <input id="input_health" type="number" step="any" min="0" onchange="submit()"><br/>
 
                 <label for="input_no_ai" class="indent">Able to move?</label>
-                <button id="input_no_ai" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button type="button" id="input_no_ai" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label for="input_despawnable" class="indent">Despawnable?</label>
-                <button id="input_despawnable" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button type="button" id="input_despawnable" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label for="input_invulnerable" class="indent">Invulnerable?</label>
-                <button id="input_invulnerable" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button type="button" id="input_invulnerable" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label for="input_silent" class="indent">Silent?</label>
-                <button id="input_silent" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button type="button" id="input_silent" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label for="input_pickup" class="indent">Picks up items?</label>
-                <button id="input_pickup" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button type="button" id="input_pickup" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label for="input_gravity" class="indent">Obeys gravity?</label>
-                <button id="input_gravity" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button type="button" id="input_gravity" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
             
                 <label for="input_glowing" class="indent">Glowing?</label>
-                <button id="input_glowing" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                <button type="button" id="input_glowing" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 
                 <style>.right::before {content: 'Right'} .left::before {content: 'Left'}</style>
                 <label for="input_main_hand" class="indent">Main hand:</label>
-                <button id="input_main_hand" class="notext right" onclick="$(this).toggleClass('right').toggleClass('left')"></button><br/>
+                <button type="button" id="input_main_hand" class="notext right" onclick="$(this).toggleClass('right').toggleClass('left')"></button><br/>
             
                 <span class="tame_mobs only">
                     <label for="input_horse_tame" class="indent">Tame?</label>
-                    <button id="input_horse_tame" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                    <button type="button" id="input_horse_tame" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
 
                 <span class="owner_mobs only">
@@ -180,13 +180,13 @@
             
                 <span class="bee only">
                     <label for="input_bee_nectar" class="indent">Has nectar?</label>
-                    <button id="input_bee_nectar" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                    <button type="button" id="input_bee_nectar" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                     
                     <label for="input_bee_stung" class="indent">Has stung?</label>
-                    <button id="input_bee_stung" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                    <button type="button" id="input_bee_stung" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                     
                     <label for="input_bee_angry" class="indent">Angry?</label>
-                    <button id="input_bee_angry" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
+                    <button type="button" id="input_bee_angry" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
                 
                     <span class="angry-bee only"> &ensp;
                         <label for="input_bee_angry_time_value" class="indent" style="width: 170px;">Time until peaceful:</label>
@@ -241,10 +241,10 @@
             
                 <span class="creeper only">
                     <label for="input_creeper_powered" class="indent">Powered?</label>
-                    <button id="input_creeper_powered" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                    <button type="button" id="input_creeper_powered" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
 
                     <label for="input_creeper_ignited" class="indent">Ignited?</label>
-                    <button id="input_creeper_ignited" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                    <button type="button" id="input_creeper_ignited" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 
                     <label for="input_creeper_radius" class="indent" style="letter-spacing: -0.1px;">Explosion radius:</label>
                     <input id="input_creeper_radius" type="number" value="3" min="0" max="127" onchange="submit()"></button><br/>
@@ -275,7 +275,7 @@
                     <input id="input_endermite_life" type="number" min="1" max="2400" onchange="submit()"><br/>
                 
                     <label for="input_endermite_attackable" style="letter-spacing: -1.2;">Anger endermen?</label>
-                    <button id="input_endermite_attackable" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                    <button type="button" id="input_endermite_attackable" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             
                 <span class="fox only">
@@ -287,7 +287,7 @@
                     </style>
                     <script>var foxCount = 0;</script>
                     <label for="input_fox_type" class="indent">Type:</label>
-                    <button id="input_fox_type" class="notext red fox" onclick="$(this).toggleClass('snow').toggleClass('red');foxCount++;">
+                    <button type="button" id="input_fox_type" class="notext red fox" onclick="$(this).toggleClass('snow').toggleClass('red');foxCount++;">
                     </button><br/>
                 </span>
             
@@ -527,17 +527,17 @@
                     </select><br/>
                 
                     <label for="input_wolf_sitting" class="indent">Sitting?</label>
-                    <button id="input_wolf_sitting" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                    <button type="button" id="input_wolf_sitting" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             
                 <span class="zombies only">
                     <label for="input_zombies_canbreak_doors" class="indent">Breaks doors?</label>
-                    <button id="input_zombies_canbreak_doors" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+                    <button type="button" id="input_zombies_canbreak_doors" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
                 </span>
             
                 <span class="baby_mobs only">
                     <label for="input_is_baby" class="indent">Baby?</label>
-                    <button id="input_is_baby" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
+                    <button type="button" id="input_is_baby" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button>
                 
                     <span class="baby_living_mobs only"> &ensp;
                         <label for="input_baby_time_value" class="indent" style="width: 170px;">Time until adulthood:</label>

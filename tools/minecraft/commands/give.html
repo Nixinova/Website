@@ -66,7 +66,7 @@
                         }
                     </script>
                     <label for="input_selection_area">Selection area:</label>
-                    <button id="input_selection_area" class="radius" onchange="submit()" onclick="toggleVolumeRadius(this);"></button> &nbsp;
+                    <button type="button" id="input_selection_area" class="radius" onchange="submit()" onclick="toggleVolumeRadius(this);"></button> &nbsp;
 
                     <span id="radius">
                         <span>Distance:</span> &nbsp;
@@ -94,11 +94,11 @@
                     
                     <label for="input_selector_team">Team:</label>
                     <input id="input_selector_team" type="text" size="8" onkeyup="submit()"> &nbsp;
-                    <button id="input_selector_team_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
+                    <button type="button" id="input_selector_team_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
                     
                     <label for="input_selector_tag">Tag:</label>
                     <input id="input_selector_tag" type="text" size="8" onkeyup="submit()"> &nbsp;
-                    <button id="input_selector_tag_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
+                    <button type="button" id="input_selector_tag_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
 
                     <span class="player_only">
                         <label for="input_selector_gm">Gamemode:</label>
@@ -109,7 +109,7 @@
                             <option>Adventure</option>
                             <option>Spectator</option>
                         </select> &nbsp;
-                        <button id="input_selector_gm_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
+                        <button type="button" id="input_selector_gm_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
                     </span>
 
                     <span class="player_only">
@@ -161,10 +161,10 @@
                     </select><br/>
 
                     <label for="input_item_firework_flicker" class="indent">Flicker:</label>
-                    <button id="input_item_firework_flicker" class="notext off" onclick="toggleOnOff(this); submit();"></button><br/>
+                    <button type="button" id="input_item_firework_flicker" class="notext off" onclick="toggleOnOff(this); submit();"></button><br/>
                     
                     <label for="input_item_firework_trail" class="indent">Trail:</label>
-                    <button id="input_item_firework_trail" class="notext off" onclick="toggleOnOff(this); submit();"></button><br/>
+                    <button type="button" id="input_item_firework_trail" class="notext off" onclick="toggleOnOff(this); submit();"></button><br/>
                     
                     <label for="input_item_firework_flight" class="indent">Flight time:</label>
                     <input id="input_item_firework_flight" type="number" min="-127" max="128"><br/>
@@ -204,11 +204,11 @@
                         <option>Yellow</option>
                     </select><br/>
                     <label class="indent">Styles:</label>
-                    <button id="input_item_b" class="off" onclick="toggleOnOff(this)">Bold</button> &nbsp;
-                    <button id="input_item_i" class="on " onclick="toggleOnOff(this)">Italic</button> &nbsp;
-                    <button id="input_item_u" class="off" onclick="toggleOnOff(this)">Underlined</button> &nbsp;
-                    <button id="input_item_s" class="off" onclick="toggleOnOff(this)">Strikethrough</button> &nbsp;
-                    <button id="input_item_o" class="off" onclick="toggleOnOff(this)">Obfuscated</button> &nbsp;
+                    <button type="button" id="input_item_b" class="off" onclick="toggleOnOff(this)">Bold</button> &nbsp;
+                    <button type="button" id="input_item_i" class="on " onclick="toggleOnOff(this)">Italic</button> &nbsp;
+                    <button type="button" id="input_item_u" class="off" onclick="toggleOnOff(this)">Underlined</button> &nbsp;
+                    <button type="button" id="input_item_s" class="off" onclick="toggleOnOff(this)">Strikethrough</button> &nbsp;
+                    <button type="button" id="input_item_o" class="off" onclick="toggleOnOff(this)">Obfuscated</button> &nbsp;
                     <br/>
                 </span>
 
@@ -257,7 +257,7 @@
 
                 <span class="tool">
                     <label>Unbreakable:</label>
-                    <button id="input_item_unbreakable" class="notext off" onclick="toggleOnOff(this); $('#durability').toggleClass('hide');"></button><br/>
+                    <button type="button" id="input_item_unbreakable" class="notext off" onclick="toggleOnOff(this); $('#durability').toggleClass('hide');"></button><br/>
 
                     <span id="durability">
                         <label for="input_item_durability">Durability:</label>
@@ -457,12 +457,12 @@
 
                 <label>Show attributes:</label>
                 <span id="hideflags" onchange="submit()">
-                    <button id="ench" class="on" onclick="toggleOnOff(this)">Enchantments</button> &nbsp;
-                    <button id="mods" class="on" onclick="toggleOnOff(this)">Attributes  </button> &nbsp;
-                    <button id="unbr" class="on" onclick="toggleOnOff(this)">Unbreakable </button> &nbsp;
-                    <button id="dstr" class="on" onclick="toggleOnOff(this)">CanDestroy  </button> &nbsp;
-                    <button id="plon" class="on" onclick="toggleOnOff(this)">CanPlaceOn  </button> &nbsp;
-                    <button id="othr" class="on" onclick="toggleOnOff(this)">Other       </button> &nbsp;
+                    <button type="button" id="ench" class="on" onclick="toggleOnOff(this)">Enchantments</button> &nbsp;
+                    <button type="button" id="mods" class="on" onclick="toggleOnOff(this)">Attributes  </button> &nbsp;
+                    <button type="button" id="unbr" class="on" onclick="toggleOnOff(this)">Unbreakable </button> &nbsp;
+                    <button type="button" id="dstr" class="on" onclick="toggleOnOff(this)">CanDestroy  </button> &nbsp;
+                    <button type="button" id="plon" class="on" onclick="toggleOnOff(this)">CanPlaceOn  </button> &nbsp;
+                    <button type="button" id="othr" class="on" onclick="toggleOnOff(this)">Other       </button> &nbsp;
                 </span>
             </p>
             <!-- count -->
