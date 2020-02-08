@@ -1,4 +1,7 @@
+var loadCount = 0;
 function loadData(input) {
+
+    if (loadCount > 0) return;
 
     let data = {
         title: input.title,
@@ -65,5 +68,7 @@ function loadData(input) {
     $('#page-loader-content').remove();
     $('#page-loader-script').remove();
     $('[src="/loader.js"]').remove();
+
+    loadCount++;
 
 }
