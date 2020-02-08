@@ -26,12 +26,12 @@ function loadData(input) {
 
     $('head').prepend(`
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-2"></script>
+    <script data-name="Google Analytics script">
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
+      gtag('config', 'UA-83550713-2');
     </script>
     `);
 
