@@ -13,8 +13,10 @@ function coords() {
     var nether_chunk_x     = value('nether_chunk_x');
     var nether_chunk_y     = value('nether_chunk_y');
     var nether_chunk_z     = value('nether_chunk_z');
-    var overworld_region_x = value('region_x');
-    var overworld_region_z = value('region_z');
+    var overworld_region_x = value('overworld_region_x');
+    var overworld_region_z = value('overworld_region_z');
+    var nether_region_x    = value('nether_region_x');
+    var nether_region_z    = value('nether_region_z');
 
     /// GENERATOR ///
 
@@ -128,17 +130,17 @@ function coords() {
 
     $('#overworld_region_info').text(`
         This region contains
-        blocks ${[overworld_region_x*512, 0, overworld_region_x*512].join(',')}
-        to ${[overworld_region_x*512+511, 255, overworld_region_x*512+511].join(',')}
-        and chunks ${[overworld_region_x*32, 0, overworld_region_x*32].join(',')}
-        to ${[overworld_region_x*32+31, 15, overworld_region_x*32+31].join(',')}
+        blocks ${[overworld_region_x*512, 0, overworld_region_z*512].join(',')}
+        to ${[overworld_region_x*512+511, 255, overworld_region_z*512+511].join(',')}
+        and chunks ${[overworld_region_x*32, 0, overworld_region_z*32].join(',')}
+        to ${[overworld_region_x*32+31, 15, overworld_region_z*32+31].join(',')}
     `);
     $('#nether_region_info').text(`
         This region contains
-        blocks ${[nether_region_x*512, 0, nether_region_x*512].join(',')}
-        to ${[nether_region_x*512+511, 255, nether_region_x*512+511].join(',')}
-        and chunks ${[nether_region_x*32, 0, nether_region_x*32].join(',')}
-        to ${[nether_region_x*32+31, 15, nether_region_x*32+31].join(',')}
+        blocks ${[nether_region_x*512, 0, nether_region_z*512].join(',')}
+        to ${[nether_region_x*512+511, 255, nether_region_z*512+511].join(',')}
+        and chunks ${[nether_region_x*32, 0, nether_region_z*32].join(',')}
+        to ${[nether_region_x*32+31, 15, nether_region_z*32+31].join(',')}
     `);
 }
 
