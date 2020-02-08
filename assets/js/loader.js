@@ -26,7 +26,7 @@ function loadData(input) {
 
     for (let script of data.scripts) {
         if (script.startsWith('./')) {
-            $('head').prepend(`\n\t<script src="${script}">`);
+            $('head').prepend(`\n\t<script src="${script.substr(2)}">`);
         } else {
             $('head').prepend(`\n\t<script src="/assets/js/${script}">`);
         }
