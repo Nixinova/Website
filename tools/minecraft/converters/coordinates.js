@@ -109,13 +109,11 @@ function copyChunk() {
 }
 
 function submit(type) {
-    console.log('[112]type='+ type)
+    console.log('type='+type)
     try {
         coord(type);
-        console.log('[tried]type='+ type)
     }
     catch (error) {
-        console.log('[err]type='+ type)
         "An unknown error has occurred. Please try again or reload the page.";
         console.error(error.stack);
     }
