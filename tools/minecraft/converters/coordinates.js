@@ -128,17 +128,17 @@ function coords() {
 
     $('#overworld_region_info').text(`
         This region contains
-        blocks ${[overworld_region_x*512, 0, overworld_region_x*512].join(' ')}
-        to ${[overworld_region_x*512+511, 255, overworld_region_x*512+511].join(' ')}
-        and chunks ${[overworld_region_x*32, 0, overworld_region_x*32].join(' ')}
-        to ${[overworld_region_x*32+31, 15, overworld_region_x*32+31].join(' ')}
+        blocks ${[overworld_region_x*512, 0, overworld_region_x*512].join(',')}
+        to ${[overworld_region_x*512+511, 255, overworld_region_x*512+511].join(',')}
+        and chunks ${[overworld_region_x*32, 0, overworld_region_x*32].join(',')}
+        to ${[overworld_region_x*32+31, 15, overworld_region_x*32+31].join(',')}
     `);
     $('#nether_region_info').text(`
         This region contains
-        blocks ${[nether_region_x*512, 0, nether_region_x*512].join(' ')}
-        to ${[nether_region_x*512+511, 255, nether_region_x*512+511].join(' ')}
-        and chunks ${[nether_region_x*32, 0, nether_region_x*32].join(' ')}
-        to ${[nether_region_x*32+31, 15, nether_region_x*32+31].join(' ')}
+        blocks ${[nether_region_x*512, 0, nether_region_x*512].join(',')}
+        to ${[nether_region_x*512+511, 255, nether_region_x*512+511].join(',')}
+        and chunks ${[nether_region_x*32, 0, nether_region_x*32].join(',')}
+        to ${[nether_region_x*32+31, 15, nether_region_x*32+31].join(',')}
     `);
 }
 
