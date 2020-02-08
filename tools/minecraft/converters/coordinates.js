@@ -20,7 +20,7 @@ function coords() {
 
     /// GENERATOR ///
 
-    if (type === 'overworld_block') {
+    if (contentType === 'overworld_block') {
         nether_block_x     = Math.floor(overworld_block_x / 8);
         nether_block_y     = overworld_block_y;
         nether_block_z     = Math.floor(overworld_block_z / 8);
@@ -35,7 +35,7 @@ function coords() {
         nether_region_x    = Math.floor(overworld_region_x / 8);
         nether_region_z    = Math.floor(overworld_region_z / 8);
     }
-    else if (type === 'overworld_chunk') {
+    else if (contentType === 'overworld_chunk') {
         overworld_block_x  = overworld_chunk_x * 16;
         overworld_block_y  = overworld_chunk_y * 16;
         overworld_block_z  = overworld_chunk_z * 16;
@@ -47,7 +47,7 @@ function coords() {
         nether_region_x    = Math.floor(overworld_region_x / 8);
         nether_region_z    = Math.floor(overworld_region_z / 8);
     }
-    else if (type === 'nether_block') {
+    else if (contentType === 'nether_block') {
         overworld_block_x  = nether_block_x * 8;
         overworld_block_y  = nether_block_y;
         overworld_block_z  = nether_block_z * 8;
@@ -62,7 +62,7 @@ function coords() {
         nether_region_x    = Math.floor(overworld_region_x / 8);
         nether_region_z    = Math.floor(overworld_region_z / 8);
     }
-    else if (type === 'nether_chunk') {
+    else if (contentType === 'nether_chunk') {
         overworld_block_x  = nether_chunk_x * 128;
         overworld_block_y  = nether_block_y;
         overworld_block_z  = nether_chunk_z * 128;
@@ -77,7 +77,7 @@ function coords() {
         nether_region_x    = Math.floor(overworld_region_x / 8);
         nether_region_z    = Math.floor(overworld_region_z / 8);
     }
-    else if (type === 'overworld_region') {
+    else if (contentType === 'overworld_region') {
         overworld_block_x  = overworld_region_x * 128;
         overworld_block_y  = 0;
         overworld_block_z  = overworld_region_x * 128;
@@ -93,7 +93,7 @@ function coords() {
         nether_region_x    = Math.floor(overworld_region_x / 8);
         nether_region_z    = Math.floor(overworld_region_z / 8);
     }
-    else if (type === 'nether_region') {
+    else if (contentType === 'nether_region') {
         overworld_region_x = nether_region_x * 8;
         overworld_region_z = nether_region_x * 8;
         overworld_block_x  = overworld_region_x * 128;
