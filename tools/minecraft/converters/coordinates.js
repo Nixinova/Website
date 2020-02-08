@@ -109,20 +109,37 @@ function coords() {
     }
 
     /// OUTPUT ///
-    $('#overworld_block_x').val(overworld_block_x);
-    $('#overworld_block_y').val(overworld_block_y);
-    $('#overworld_block_z').val(overworld_block_z);
-    $('#overworld_chunk_x').val(overworld_chunk_x);
-    $('#overworld_chunk_y').val(overworld_chunk_y);
-    $('#overworld_chunk_z').val(overworld_chunk_z);
-    $('#nether_block_x'   ).val(nether_block_x);
-    $('#nether_block_y'   ).val(nether_block_y);
-    $('#nether_block_z'   ).val(nether_block_z);
-    $('#nether_chunk_x'   ).val(nether_chunk_x);
-    $('#nether_chunk_y'   ).val(nether_chunk_y);
-    $('#nether_chunk_z'   ).val(nether_chunk_z);
-    $('#region_x'         ).val(region_x);
-    $('#region_z'         ).val(region_z);
+    $('#overworld_block_x' ).val(overworld_block_x );
+    $('#overworld_block_y' ).val(overworld_block_y );
+    $('#overworld_block_z' ).val(overworld_block_z );
+    $('#overworld_chunk_x' ).val(overworld_chunk_x );
+    $('#overworld_chunk_y' ).val(overworld_chunk_y );
+    $('#overworld_chunk_z' ).val(overworld_chunk_z );
+    $('#nether_block_x'    ).val(nether_block_x    );
+    $('#nether_block_y'    ).val(nether_block_y    );
+    $('#nether_block_z'    ).val(nether_block_z    );
+    $('#nether_chunk_x'    ).val(nether_chunk_x    );
+    $('#nether_chunk_y'    ).val(nether_chunk_y    );
+    $('#nether_chunk_z'    ).val(nether_chunk_z    );
+    $('#overworld_region_x').val(overworld_region_x);
+    $('#overworld_region_z').val(overworld_region_z);
+    $('#nether_region_x'   ).val(nether_region_x   );
+    $('#nether_region_z'   ).val(nether_region_z   );
+
+    $('#overworld_region_info').text(`
+        This region contains
+        blocks ${[overworld_region_x*512, 0, overworld_region_x*512].join(' ')}
+        to ${[overworld_region_x*512+511, 255, overworld_region_x*512+511].join(' ')}
+        and chunks ${[overworld_region_x*32, 0, overworld_region_x*32].join(' ')}
+        to ${[overworld_region_x*32+31, 15, overworld_region_x*32+31].join(' ')}
+    `);
+    $('#nether_region_info').text(`
+        This region contains
+        blocks ${[nether_region_x*512, 0, nether_region_x*512].join(' ')}
+        to ${[nether_region_x*512+511, 255, nether_region_x*512+511].join(' ')}
+        and chunks ${[nether_region_x*32, 0, nether_region_x*32].join(' ')}
+        to ${[nether_region_x*32+31, 15, nether_region_x*32+31].join(' ')}
+    `);
 }
 
 function copy(text) {
