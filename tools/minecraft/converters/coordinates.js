@@ -1,4 +1,5 @@
 function coord(type) {
+    console.log('type='+ type)
 
     /// VARIABLES ///
     // call from input form //
@@ -20,7 +21,6 @@ function coord(type) {
     /// GENERATOR ///
 
     if (type === 'overworld block') {
-        console.log(type+'23> overworld_block!')
         nether_block_x    = Math.floor(overworld_block_x / 8);
         nether_block_y    = overworld_block_y;
         nether_block_z    = Math.floor(overworld_block_z / 8);
@@ -35,7 +35,6 @@ function coord(type) {
     }
 
     if (type === 'overworld chunk') {
-        console.log(type+'38> overworld chunk!')
         overworld_block_x   = Math.floor(overworld_chunk_x / 16);
         overworld_block_y   = Math.floor(overworld_chunk_y / 16);
         overworld_block_z   = Math.floor(overworld_chunk_z / 16);
@@ -47,7 +46,6 @@ function coord(type) {
     }
 
     if (type === 'nether block') {
-        console.log(type+'50> nether_block!')
         overworld_block_x   = Math.floor(nether_block_x * 8);
         overworld_block_y   = nether_block_y;
         overworld_block_z   = Math.floor(nether_block_z * 8);
@@ -59,7 +57,6 @@ function coord(type) {
     }
 
     if (type === 'nether chunk') {
-        console.log(type+'50> nether_block!')
         overworld_block_x   = Math.floor(nether_chunk_x * 128);
         overworld_block_y   = nether_block_y;
         overworld_block_z   = Math.floor(nether_chunk_x * 128);
@@ -71,7 +68,6 @@ function coord(type) {
     }
 
     /// OUTPUT ///
-    console.log(type+'62> output!')
     $('#overworld_block_x').val(overworld_block_x);
     $('#overworld_block_y').val(overworld_block_y);
     $('#overworld_block_z').val(overworld_block_z);
@@ -112,11 +108,14 @@ function copyChunk() {
     copy([value('overworld_chunk_x'), value('overworld_chunk_y'), value('overworld_chunk_z')].join(' '));
 }
 
-function submit(id) {
+function submit(type) {
+    console.log('[112]type='+ type)
     try {
-        coord(id);
+        coord(type);
+        console.log('[tried]type='+ type)
     }
     catch (error) {
+        console.log('[err]type='+ type)
         "An unknown error has occurred. Please try again or reload the page.";
         console.error(error.stack);
     }
