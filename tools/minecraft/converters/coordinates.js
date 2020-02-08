@@ -11,15 +11,15 @@ function coord(type) {
     var nether_block_x = value('nether_block_x');
     var nether_block_y = value('nether_block_y');
     var nether_block_z = value('nether_block_z');
-    var nether_chunk_x = value('nether_block_x');
-    var nether_chunk_y = value('nether_block_y');
-    var nether_chunk_z = value('nether_block_z');
+    var nether_chunk_x = value('nether_chunk_x');
+    var nether_chunk_y = value('nether_chunk_y');
+    var nether_chunk_z = value('nether_chunk_z');
     var region_x = value('region_x');
     var region_z = value('region_z');
 
     /// GENERATOR ///
 
-    if (type === 'overworld_block') {
+    if (type === 'overworld block') {
         console.log(type+'23> overworld_block!')
         nether_block_x    = Math.floor(overworld_block_x / 8);
         nether_block_y    = overworld_block_y;
@@ -34,7 +34,7 @@ function coord(type) {
         region_z          = Math.floor(overworld_block_z / 512);
     }
 
-    if (type === 'overworld_chunk') {
+    if (type === 'overworld chunk') {
         console.log(type+'38> overworld chunk!')
         overworld_block_x   = Math.floor(overworld_chunk_x / 16);
         overworld_block_y   = Math.floor(overworld_chunk_y / 16);
@@ -46,7 +46,7 @@ function coord(type) {
         region_z            = Math.floor(overworld_chunk_z / 32);
     }
 
-    if (type === 'nether_block') {
+    if (type === 'nether block') {
         console.log(type+'50> nether_block!')
         overworld_block_x   = Math.floor(nether_block_x * 8);
         overworld_block_y   = nether_block_y;
@@ -56,6 +56,18 @@ function coord(type) {
         overworld_chunk_z   = Math.floor(nether_block_z / 16);
         region_x            = Math.floor(nether_block_x / 512);
         region_z            = Math.floor(nether_block_z / 512);
+    }
+
+    if (type === 'nether chunk') {
+        console.log(type+'50> nether_block!')
+        overworld_block_x   = Math.floor(nether_chunk_x * 128);
+        overworld_block_y   = nether_block_y;
+        overworld_block_z   = Math.floor(nether_chunk_x * 128);
+        nether_block_x      = Math.floor(nether_chunk_x * 8);
+        nether_block_y      = Math.floor(nether_chunk_y * 8);
+        nether_block_z      = Math.floor(nether_chunk_z * 8);
+        region_x            = Math.floor(nether_chunk_x / 32);
+        region_z            = Math.floor(nether_chunk_x / 32);
     }
 
     /// OUTPUT ///
