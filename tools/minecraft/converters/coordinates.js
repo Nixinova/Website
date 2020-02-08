@@ -127,7 +127,7 @@ function coords() {
     $('#overworld_region_z').val(overworld_region_z);
     $('#nether_region_x'   ).val(nether_region_x   );
     $('#nether_region_z'   ).val(nether_region_z   );
-
+/*
     $('#overworld_region_info').text(`
         This region contains
         blocks ${[overworld_region_x*512, 0, overworld_region_z*512].join(',')}
@@ -141,7 +141,7 @@ function coords() {
         to ${[nether_region_x*512+511, 255, nether_region_z*512+511].join(',')}
         and chunks ${[nether_region_x*32, 0, nether_region_z*32].join(',')}
         to ${[nether_region_x*32+31, 15, nether_region_z*32+31].join(',')}
-    `);
+    `);//*/
 }
 
 function copy(text) {
@@ -173,7 +173,6 @@ function copyNetherChunk() {
     copy([value('nether_chunk_x'), value('nether_chunk_y'), value('nether_chunk_z')].join(' '));
 }
 
-
 function submit() {
     try {
         coords();
@@ -182,6 +181,6 @@ function submit() {
         "An unknown error has occurred. Please try again or reload the page.";
         console.error(error.stack);
     }
-}//*/
+}
 
 /* Copyright © Nixinova 2020 */
