@@ -2,8 +2,7 @@
 <html>
 <head>
     <style data-name="Page styles">
-        input {width: 100px !important; text-align: center;}
-        .form-item.long {width: 250px;}
+        input {width: 100px !important; padding-left: 25px; text-align: center;}
     </style>
 </head>
 <body>
@@ -16,14 +15,14 @@
             scripts: ["tool-functions.js", "./coordinates.js"],
             footer_content: `•&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>`
         }
-        $(document).ready(function() {loadData(PAGE_DATA);});
+        $(document).ready(function() {loadData(PAGE_DATA);submit();});
     </script>
-    <script>window.type = '';</script>
+    <script data-name="Page script">window.type = '';</script>
 
     <main>
         <h1>Coordinate Tools</h1>
         <p>Translates overworld coordinates into nether, chunk and region coordinates.</p>
-        <form action="javascript:submit()">
+        <div class="content">
             <label class="long">Overworld block coordinates</label><br class="mobileonly"/>
             X: <input type="number" id="overworld_block_x" value="0" onchange="type='overworld_block';submit();"> &nbsp;
             Y: <input type="number" id="overworld_block_y" value="0" onchange="type='overworld_block';submit();" min="0" max="255"> &nbsp;
@@ -61,8 +60,7 @@
               -->.<input type="number" id="nether_region_z" value="0" onchange="type='nether_region';submit();">.mca
             </code><br/>
             <span class="indent" id="nether_region_info"></span>
-        </form>
-        <script>$(submit());</script>
+        </div>
     </main>
 </body>
 </html>
