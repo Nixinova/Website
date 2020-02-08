@@ -31,37 +31,47 @@
                 <button type="button" onclick="copyOverworldBlock()">Copy</button><br/>
             </span>
 
-            <label class="long">Overworld chunk coordinates</label><br class="mobileonly"/>
-            X: <input type="number" id="overworld_chunk_x" value="0" onchange="coordsType='overworld_chunk';submit();"> &nbsp;
-            Y: <input type="number" id="overworld_chunk_y" value="0" onchange="coordsType='overworld_chunk';submit();" min="0" max="15"> &nbsp;
-            Z: <input type="number" id="overworld_chunk_z" value="0" onchange="coordsType='overworld_chunk';submit();"> &nbsp;
-            <button type="button" onclick="copyOverworldChunk()">Copy</button><br/>
-            
-            <label class="long">Nether block coordinates</label><br class="mobileonly"/>
-            X: <input type="number" id="nether_block_x" value="0" onchange="coordsType='nether_block';submit();"> &nbsp;
-            Y: <input type="number" id="nether_block_y" value="0" onchange="coordsType='nether_block';submit();" min="0" max="255"> &nbsp;
-            Z: <input type="number" id="nether_block_z" value="0" onchange="coordsType='nether_block';submit();"> &nbsp;
-            <button type="button" onclick="copyNetherBlock()">Copy</button><br/>
-            
-            <label class="long">Nether chunk coordinates</label><br class="mobileonly"/>
-            X: <input type="number" id="nether_chunk_x" value="0" onchange="coordsType='nether_chunk';submit();"> &nbsp;
-            Y: <input type="number" id="nether_chunk_y" value="0" onchange="coordsType='nether_chunk';submit();" min="0" max="15"> &nbsp;
-            Z: <input type="number" id="nether_chunk_z" value="0" onchange="coordsType='nether_chunk';submit();"> &nbsp;
-            <button type="button" onclick="copyNetherChunk()">Copy</button><br/>
-            
-            <label class="long">Overworld Region file name</label>
-            <code>
-                r.<input type="number" id="overworld_region_x" value="0" onchange="coordsType='overworld_region';submit();"><!--
-              -->.<input type="number" id="overworld_region_z" value="0" onchange="coordsType='overworld_region';submit();">.mca
-            </code><br/>
-            <span class="indent" id="overworld_region_info"></span><br/>
-            
-            <label class="long">Nether Region file name</label>
-            <code>
-                r.<input type="number" id="nether_region_x" value="0" onchange="coordsType='nether_region';submit();"><!--
-              -->.<input type="number" id="nether_region_z" value="0" onchange="coordsType='nether_region';submit();">.mca
-            </code><br/>
-            <span class="indent" id="nether_region_info"></span>
+            <span onclick="coordsType='overworld_chunk';">
+                <label class="long">Overworld chunk coordinates</label><br class="mobileonly"/>
+                X: <input type="number" id="overworld_chunk_x" value="0" onchange="submit();"> &nbsp;
+                Y: <input type="number" id="overworld_chunk_y" value="0" onchange="submit();" min="0" max="15"> &nbsp;
+                Z: <input type="number" id="overworld_chunk_z" value="0" onchange="submit();"> &nbsp;
+                <button type="button" onclick="copyOverworldChunk()">Copy</button><br/>
+            </span>
+
+            <span onclick="coordsType='nether_block';">
+                <label class="long">Nether block coordinates</label><br class="mobileonly"/>
+                X: <input type="number" id="nether_block_x" value="0" onchange="submit();"> &nbsp;
+                Y: <input type="number" id="nether_block_y" value="0" onchange="submit();" min="0" max="255"> &nbsp;
+                Z: <input type="number" id="nether_block_z" value="0" onchange="submit();"> &nbsp;
+                <button type="button" onclick="copyNetherBlock()">Copy</button><br/>
+            </span>
+
+            <span onclick="coordsType='nether_chunk';">
+                <label class="long">Nether chunk coordinates</label><br class="mobileonly"/>
+                X: <input type="number" id="nether_chunk_x" value="0" onchange="submit();"> &nbsp;
+                Y: <input type="number" id="nether_chunk_y" value="0" onchange="submit();" min="0" max="15"> &nbsp;
+                Z: <input type="number" id="nether_chunk_z" value="0" onchange="submit();"> &nbsp;
+                <button type="button" onclick="copyNetherChunk()">Copy</button><br/>
+            </span>
+
+            <span onclick="coordsType='overworld_region';">
+                <label class="long">Overworld Region file name</label>
+                <code>
+                    r.<input type="number" id="overworld_region_x" value="0" onchange="submit();"><!--
+                  -->.<input type="number" id="overworld_region_z" value="0" onchange="submit();">.mca
+                </code><br/>
+                <span class="indent" id="overworld_region_info"></span><br/>
+            </span>
+
+            <span onclick="coordsType='nether_region';">
+                <label class="long">Nether Region file name</label>
+                <code>
+                    r.<input type="number" id="nether_region_x" value="0" onchange="coordsType='nether_region';submit();"><!--
+                  -->.<input type="number" id="nether_region_z" value="0" onchange="coordsType='nether_region';submit();">.mca
+                </code><br/>
+                <span class="indent" id="nether_region_info"></span>
+            </span>
         </div>
     </main>
 </body>
