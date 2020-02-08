@@ -60,20 +60,20 @@ function coord(type) {
 
     /// OUTPUT ///
     console.log('62> output!')
-    $('overworld_block_x').val(overworld_block_x);
-    $('overworld_block_y').val(overworld_block_y);
-    $('overworld_block_z').val(overworld_block_z);
-    $('overworld_chunk_x').val(overworld_chunk_x);
-    $('overworld_chunk_y').val(overworld_chunk_y);
-    $('overworld_chunk_z').val(overworld_chunk_z);
-    $('nether_block_x'   ).val(nether_block_x);
-    $('nether_block_y'   ).val(nether_block_y);
-    $('nether_block_z'   ).val(nether_block_z);
-    $('nether_chunk_x'   ).val(nether_chunk_x);
-    $('nether_chunk_y'   ).val(nether_chunk_y);
-    $('nether_chunk_z'   ).val(nether_chunk_z);
-    $('region_x'         ).val(region_x);
-    $('region_z'         ).val(region_z);
+    $('#overworld_block_x').val(overworld_block_x);
+    $('#overworld_block_y').val(overworld_block_y);
+    $('#overworld_block_z').val(overworld_block_z);
+    $('#overworld_chunk_x').val(overworld_chunk_x);
+    $('#overworld_chunk_y').val(overworld_chunk_y);
+    $('#overworld_chunk_z').val(overworld_chunk_z);
+    $('#nether_block_x'   ).val(nether_block_x);
+    $('#nether_block_y'   ).val(nether_block_y);
+    $('#nether_block_z'   ).val(nether_block_z);
+    $('#nether_chunk_x'   ).val(nether_chunk_x);
+    $('#nether_chunk_y'   ).val(nether_chunk_y);
+    $('#nether_chunk_z'   ).val(nether_chunk_z);
+    $('#region_x'         ).val(region_x);
+    $('#region_z'         ).val(region_z);
 }
 
 function copy(text) {
@@ -87,17 +87,17 @@ function copy(text) {
 
 function copyBlock() {
     submit();
-    copy([$('#overworld_block_x').val(), $('#overworld_block_y').val(), $('overworld_block_z').val()].join(' '));
+    copy([value('overworld_block_x'), value('overworld_block_y'), value('overworld_block_z')].join(' '));
 }
 
 function copyNether() {
     submit();
-    copy([$('nether_block_x').val(), $('nether_block_y').val(), $('nether_block_z').val()].join(' '));
+    copy([value('nether_block_x'), value('nether_block_y'), value('nether_block_z')].join(' '));
 }
 
 function copyChunk() {
     submit();
-    copy([$('overworld_chunk_x').val(), $('overworld_chunk_y').val(), $('overworld_chunk_z').val()].join(' '));
+    copy([value('overworld_chunk_x'), value('overworld_chunk_y'), value('overworld_chunk_z')].join(' '));
 }
 
 function submit(id) {
