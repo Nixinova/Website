@@ -79,16 +79,12 @@ function coords() {
     }
     else if (coordsType === 'overworld_region') {
         overworld_block_x  = overworld_region_x * 128;
-        overworld_block_y  = 0;
         overworld_block_z  = overworld_region_x * 128;
         overworld_chunk_x  = overworld_region_x * 32;
-        overworld_chunk_y  = 0;
         overworld_chunk_z  = overworld_region_z * 32;
         nether_block_x     = overworld_region_x * 8;
-        nether_block_y     = 0;
         nether_block_z     = overworld_region_z * 8;
         nether_chunk_x     = overworld_region_x * 4;
-        nether_chunk_y     = 0;
         nether_chunk_z     = overworld_region_z * 4;
         nether_region_x    = Math.floor(overworld_region_x / 8);
         nether_region_z    = Math.floor(overworld_region_z / 8);
@@ -97,16 +93,12 @@ function coords() {
         overworld_region_x = nether_region_x * 8;
         overworld_region_z = nether_region_x * 8;
         overworld_block_x  = overworld_region_x * 128;
-        overworld_block_y  = 0;
         overworld_block_z  = overworld_region_x * 128;
         overworld_chunk_x  = overworld_region_x * 32;
-        overworld_chunk_y  = 0;
         overworld_chunk_z  = overworld_region_z * 32;
         nether_block_x     = overworld_region_x * 8;
-        nether_block_y     = 0;
         nether_block_z     = overworld_region_z * 8;
         nether_chunk_x     = overworld_region_x * 4;
-        nether_chunk_y     = 0;
         nether_chunk_z     = overworld_region_z * 4;
     }
 

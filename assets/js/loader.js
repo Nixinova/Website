@@ -24,6 +24,17 @@ function loadData(input) {
         $('head').prepend(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
     }
 
+    $('head').prepend(`
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    `);
+
     for (let script of data.scripts) {
         if (script.startsWith('./')) {
             $('head').prepend(`\n\t<script src="${script.substr(2)}">`);
