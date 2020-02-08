@@ -18,45 +18,54 @@
         }
         $(document).ready(function() {loadData(PAGE_DATA);});
     </script>
+    <script>window.coordsType = '';</script>
 
     <main>
         <h1>Coordinate Tools</h1>
         <p>Translates overworld coordinates into nether, chunk and region coordinates.</p>
-        <form action="javascript:submit()" id="input_form">
-            <p>
+        <p>
+            <span onclick="coordsType='overworld_block';">
                 <label class="long">Overworld block coordinates</label><br class="mobileonly"/>
-                X: <input type="number" id="overworld_block_x" class="long" value="0" onchange="submit('overworld block')"> &nbsp;
-                Y: <input type="number" id="overworld_block_y" class="long" value="0" onchange="submit('overworld block')" min="0" max="255"> &nbsp;
-                Z: <input type="number" id="overworld_block_z" class="long" value="0" onchange="submit('overworld block')"> &nbsp;
-                <button type="button" onclick="copyBlock()">Copy</button>
+                X: <input type="number" id="overworld_block_x" class="long" value="0" onchange="submit()"> &nbsp;
+                Y: <input type="number" id="overworld_block_y" class="long" value="0" onchange="submit()" min="0" max="255"> &nbsp;
+                Z: <input type="number" id="overworld_block_z" class="long" value="0" onchange="submit()"> &nbsp;
+                <button type="button" onclick="copyOverworldBlock()">Copy</button><br/>
+            </span>
 
+            <span onclick="coordsType='overworld_chunk';">
                 <label class="long">Overworld chunk coordinates</label><br class="mobileonly"/>
-                X: <input type="number" id="overworld_chunk_x" class="long" value="0" onchange="submit('overworld chunk')"> &nbsp;
-                Y: <input type="number" id="overworld_chunk_y" class="long" value="0" onchange="submit('overworld chunk')"> &nbsp;
-                Z: <input type="number" id="overworld_chunk_z" class="long" value="0" onchange="submit('overworld chunk')"> &nbsp;
-                <button type="button" onclick="copyChunk()">Copy</button><br/>
-                
+                X: <input type="number" id="overworld_chunk_x" class="long" value="0" onchange="submit()"> &nbsp;
+                Y: <input type="number" id="overworld_chunk_y" class="long" value="0" onchange="submit()" min="0" max="15"> &nbsp;
+                Z: <input type="number" id="overworld_chunk_z" class="long" value="0" onchange="submit()"> &nbsp;
+                <button type="button" onclick="copyOverworldChunk()">Copy</button><br/>
+            </span>
+
+            <span onclick="coordsType='nether_block';">
                 <label class="long">Nether block coordinates</label><br class="mobileonly"/>
-                X: <input type="number" id="nether_block_x" class="long" value="0" onchange="submit('nether block')"> &nbsp;
-                Y: <input type="number" id="nether_block_y" class="long" value="0" onchange="submit('nether block')"> &nbsp;
-                Z: <input type="number" id="nether_block_z" class="long" value="0" onchange="submit('nether block')"> &nbsp;
-                <button type="button" onclick="copyNether()">Copy</button><br/>
+                X: <input type="number" id="nether_block_x" class="long" value="0" onchange="submit()"> &nbsp;
+                Y: <input type="number" id="nether_block_y" class="long" value="0" onchange="submit()" min="0" max="255"> &nbsp;
+                Z: <input type="number" id="nether_block_z" class="long" value="0" onchange="submit()"> &nbsp;
+                <button type="button" onclick="copyNetherBlock()">Copy</button><br/>
+            </span>
 
+            <span onclick="coordsType='nether_chunk';">
                 <label class="long">Nether chunk coordinates</label><br class="mobileonly"/>
-                X: <input type="number" id="nether_chunk_x" class="long" value="0" onchange="submit('nether chunk')"> &nbsp;
-                Y: <input type="number" id="nether_chunk_y" class="long" value="0" onchange="submit('nether chunk')"> &nbsp;
-                Z: <input type="number" id="nether_chunk_z" class="long" value="0" onchange="submit('nether chunk')"> &nbsp;
-                <button type="button" onclick="copyChunk()">Copy</button><br/>
+                X: <input type="number" id="nether_chunk_x" class="long" value="0" onchange="submit()"> &nbsp;
+                Y: <input type="number" id="nether_chunk_y" class="long" value="0" onchange="submit()" min="0" max="15"> &nbsp;
+                Z: <input type="number" id="nether_chunk_z" class="long" value="0" onchange="submit()"> &nbsp;
+                <button type="button" onclick="copyNetherChunk()">Copy</button><br/>
+            </span>
 
+            <span onclick="coordsType='region';">
                 <label class="long">Region file name</label>
                 <code>
                     r.<input type="number" id="region_x" value="0" onchange="submit('region')"><!--
                   -->.<input type="number" id="region_z" value="0" onchange="submit('region')">.mca
                 </code>
+            </span>
 
-                <button type="button" onclick="submit('nether!');">Submit</button>
-            </p>
-        </form>
+            <button type="button" onclick="submit('nether!');">Submit</button>
+        </p>
     </main>
 </body>
 </html>

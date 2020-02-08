@@ -1,5 +1,4 @@
-function submit(type) {
-    console.log('Type='+type)
+function coords() {
     /// VARIABLES ///
     // call from input form //
     var overworld_block_x = value('overworld_block_x');
@@ -19,7 +18,7 @@ function submit(type) {
 
     /// GENERATOR ///
 
-    if (type === 'overworld block') {
+    if (coordsType === 'overworld_block') {
         nether_block_x    = Math.floor(overworld_block_x / 8);
         nether_block_y    = overworld_block_y;
         nether_block_z    = Math.floor(overworld_block_z / 8);
@@ -32,8 +31,7 @@ function submit(type) {
         region_x          = Math.floor(overworld_block_x / 512);
         region_z          = Math.floor(overworld_block_z / 512);
     }
-
-    if (type === 'overworld chunk') {
+    else if (coordsType === 'overworld_chunk') {
         overworld_block_x   = Math.floor(overworld_chunk_x / 16);
         overworld_block_y   = Math.floor(overworld_chunk_y / 16);
         overworld_block_z   = Math.floor(overworld_chunk_z / 16);
@@ -43,8 +41,7 @@ function submit(type) {
         region_x            = Math.floor(overworld_chunk_x / 32);
         region_z            = Math.floor(overworld_chunk_z / 32);
     }
-
-    if (type === 'nether block') {
+    else if (coordsType === 'nether_block') {
         overworld_block_x   = Math.floor(nether_block_x * 8);
         overworld_block_y   = nether_block_y;
         overworld_block_z   = Math.floor(nether_block_z * 8);
@@ -54,8 +51,7 @@ function submit(type) {
         region_x            = Math.floor(nether_block_x / 512);
         region_z            = Math.floor(nether_block_z / 512);
     }
-
-    if (type === 'nether chunk') {
+    else if (coordsType === 'nether_chunk') {
         overworld_block_x   = Math.floor(nether_chunk_x * 128);
         overworld_block_y   = nether_block_y;
         overworld_block_z   = Math.floor(nether_chunk_x * 128);
@@ -92,24 +88,30 @@ function copy(text) {
     document.body.removeChild(box);
 }
 
-function copyBlock() {
+function copyOverworldBlock() {
     submit();
     copy([value('overworld_block_x'), value('overworld_block_y'), value('overworld_block_z')].join(' '));
 }
 
-function copyNether() {
+function copyOverworldChunk() {
+    submit();
+    copy([value('overworld_chunk_x'), value('overworld_chunk_y'), value('overworld_chunk_z')].join(' '));
+}
+
+function copyNetherBlock() {
     submit();
     copy([value('nether_block_x'), value('nether_block_y'), value('nether_block_z')].join(' '));
 }
 
-function copyChunk() {
+function copyNetherChunk() {
     submit();
-    copy([value('overworld_chunk_x'), value('overworld_chunk_y'), value('overworld_chunk_z')].join(' '));
+    copy([value('nether_chunk_x'), value('nether_chunk_y'), value('nether_chunk_z')].join(' '));
 }
-/*
-function submit(type) {
+
+
+function submit() {
     try {
-        coord(type);
+        coords();
     }
     catch (error) {
         "An unknown error has occurred. Please try again or reload the page.";
