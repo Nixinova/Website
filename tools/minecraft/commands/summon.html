@@ -15,10 +15,10 @@
                 minecraft summon generator,summon command generator,minecraft summon command,summon minecraft,minecraft\
                 command generator",
             stylesheets: ["tools.css"],
-            scripts: ["tool-functions.js","./summon.js"]
+            scripts: ["tool-functions.js","./summon.js"],
+            footer_content: `&bull;&nbsp;<a href="summon.js" title="summon.js" target="_blank">View code</a>`
         }
         $(document).ready(function() {loadData(PAGE_DATA);});
-        $('footer').append(`&bull;&nbsp;<a href="summon.js" title="summon.js" target="_blank">View code</a>`);
     </script>
 
     <template id="page-loader-content">
@@ -49,6 +49,7 @@
                     <option>Ghast</option>
                     <option>Giant</option>
                     <option>Guardian</option>
+                    <option>Hoglin</option>
                     <option>Horse</option>
                     <option>Husk</option>
                     <option>Illusioner</option>

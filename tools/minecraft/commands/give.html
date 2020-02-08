@@ -17,7 +17,8 @@
             keywords: "nixinova,nixinova website,give,minecraft,give generator, minecraft give generator,\
                 give command,minecraft give command,give command generator,minecraft command generator,command generator",
             stylesheets: ["tools.css"],
-            scripts: ["tool-functions.js","./give.js"]
+            scripts: ["tool-functions.js","./give.js"],
+            footer_content: `&bull;&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>`
         }
         $(document).ready(function() {
             loadData(PAGE_DATA);
@@ -26,7 +27,6 @@
                 obfuscate($('.§k_2').text(),'.§k_2');
             },50);
         });
-        $('footer').append(`&bull;&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>`);
     </script>
 
     <template id="page-loader-content">
