@@ -1,6 +1,4 @@
 function coord(type) {
-    console.log('type='+ type)
-
     /// VARIABLES ///
     // call from input form //
     var overworld_block_x = value('overworld_block_x');
