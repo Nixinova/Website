@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="coordinates.js"></script>
     <style data-name="Page styles">
         input {width: 100px; padding-left: 20px; text-align: center;}
         .form-item.long {width: 250px;}
@@ -14,7 +13,7 @@
             description: "Converts Minecraft coordinates between block, nether, chunk, and region coordinates.",
             keywords: "nixinova,coordinates,minecraft,coordinates converter,minecraft coordinates converter",
             stylesheets: ["tools.css"],
-            scripts: ["tool-functions.js"],
+            scripts: ["tool-functions.js", "./coordinates.js"],
             footer_content: `•&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>`
         }
         $(document).ready(function() {loadData(PAGE_DATA);});
