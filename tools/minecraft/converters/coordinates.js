@@ -1,5 +1,5 @@
 function submit(type) {
-    console.log('Type'=type)
+    console.log('Type='+type)
     /// VARIABLES ///
     // call from input form //
     var overworld_block_x = value('overworld_block_x');
