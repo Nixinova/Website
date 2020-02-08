@@ -23,7 +23,7 @@
     <main>
         <h1>Coordinate Tools</h1>
         <p>Translates overworld coordinates into nether, chunk and region coordinates.</p>
-        <p>
+        <form action="javascript:submit()">
             <span onclick="coordsType='overworld_block';">
                 <label class="long">Overworld block coordinates</label><br class="mobileonly"/>
                 X: <input type="number" id="overworld_block_x" class="long" value="0" onchange="submit()"> &nbsp;
@@ -56,16 +56,14 @@
                 <button type="button" onclick="copyNetherChunk()">Copy</button><br/>
             </span>
 
-            <span onclick="coordsType='region';">
-                <label class="long">Region file name</label>
+            <span onclick="coordsType='overworld_region';">
+                <label class="long">Overworld Region file name</label>
                 <code>
                     r.<input type="number" id="region_x" value="0" onchange="submit('region')"><!--
                   -->.<input type="number" id="region_z" value="0" onchange="submit('region')">.mca
                 </code>
             </span>
-
-            <button type="button" onclick="submit('nether!');">Submit</button>
-        </p>
+        </form>
     </main>
 </body>
 </html>
