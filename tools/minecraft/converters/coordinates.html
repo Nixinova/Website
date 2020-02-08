@@ -13,54 +13,48 @@
             description: "Converts Minecraft coordinates between block, nether, chunk, and region coordinates.",
             keywords: "nixinova,coordinates,minecraft,coordinates converter,minecraft coordinates converter",
             stylesheets: ["tools.css"],
-            scripts: ["tool-functions.js","./coordinates.js"],
+            scripts: ["tool-functions.js", "./coordinates.js"],
+            footer_content: `•&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>`
         }
         $(document).ready(function() {loadData(PAGE_DATA);});
-        $('footer').append(`•&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>`);
     </script>
 
     <template id="page-loader-content">
         <h1>Coordinate Tools</h1>
         <p>Translates overworld coordinates into nether, chunk and region coordinates.</p>
         <form action="javascript:submit()" id="input_form">
-            <div>
-                <p>
-                    <label class="long">Overworld block coordinates</label><br class="mobileonly"/>
-                    X: <input type="number" id="overworld_block_x" value="0" onblur="submit()"> &nbsp;
-                    Y: <input type="number" id="overworld_block_y" value="0" onblur="submit()" min="0" max="255"> &nbsp;
-                    Z: <input type="number" id="overworld_block_z" value="0" onblur="submit()"> &nbsp;
-                    <button type="button" onclick="copyBlock()">Copy</button>
-                </p>
-            </div>
-            <hr>
-            <div>
-                <p>
-                    <label class="long">Nether block coordinates</label><br class="mobileonly"/>
-                    X: <input type="number" id="nether_block_x" value="0" readonly> &nbsp;
-                    Y: <input type="number" id="nether_block_y" value="0" readonly> &nbsp;
-                    Z: <input type="number" id="nether_block_z" value="0" readonly> &nbsp;
-                    <button type="button" onclick="copyNether()">Copy</button><br/>
+            <p>
+                <label class="long">Overworld block coordinates</label><br class="mobileonly"/>
+                X: <input type="number" id="overworld_block_x" value="0" onblur="submit('overworld_block')"> &nbsp;
+                Y: <input type="number" id="overworld_block_y" value="0" onblur="submit('overworld_block')" min="0" max="255"> &nbsp;
+                Z: <input type="number" id="overworld_block_z" value="0" onblur="submit('overworld_block')"> &nbsp;
+                <button type="button" onclick="copyBlock()">Copy</button>
 
-                    <label class="long">Overworld chunk coordinates</label><br class="mobileonly"/>
-                    X: <input type="number" id="overworld_chunk_x" value="0" readonly> &nbsp;
-                    Y: <input type="number" id="overworld_chunk_y" value="0" readonly> &nbsp;
-                    Z: <input type="number" id="overworld_chunk_z" value="0" readonly> &nbsp;
-                    <button type="button" onclick="copyChunk()">Copy</button><br/>
+                <label class="long">Overworld chunk coordinates</label><br class="mobileonly"/>
+                X: <input type="number" id="overworld_chunk_x" value="0" onblur="submit('overworld_chunk')"> &nbsp;
+                Y: <input type="number" id="overworld_chunk_y" value="0" onblur="submit('overworld_chunk')"> &nbsp;
+                Z: <input type="number" id="overworld_chunk_z" value="0" onblur="submit('overworld_chunk')"> &nbsp;
+                <button type="button" onclick="copyChunk()">Copy</button><br/>
+                
+                <label class="long">Nether block coordinates</label><br class="mobileonly"/>
+                X: <input type="number" id="nether_block_x" value="0" onblur="submit('nether_block')"> &nbsp;
+                Y: <input type="number" id="nether_block_y" value="0" onblur="submit('nether_block')"> &nbsp;
+                Z: <input type="number" id="nether_block_z" value="0" onblur="submit('nether_block')"> &nbsp;
+                <button type="button" onclick="copyNether()">Copy</button><br/>
 
-                    <label class="long">Nether chunk coordinates</label><br class="mobileonly"/>
-                    X: <input type="number" id="nether_chunk_x" value="0" readonly> &nbsp;
-                    Y: <input type="number" id="nether_chunk_y" value="0" readonly> &nbsp;
-                    Z: <input type="number" id="nether_chunk_z" value="0" readonly> &nbsp;
-                    <button type="button" onclick="copyChunk()">Copy</button><br/>
+                <label class="long">Nether chunk coordinates</label><br class="mobileonly"/>
+                X: <input type="number" id="nether_chunk_x" value="0" onblur="submit('nether_chunk')"> &nbsp;
+                Y: <input type="number" id="nether_chunk_y" value="0" onblur="submit('nether_chunk')"> &nbsp;
+                Z: <input type="number" id="nether_chunk_z" value="0" onblur="submit('nether_chunk')"> &nbsp;
+                <button type="button" onclick="copyChunk()">Copy</button><br/>
 
-                    <label class="long">Region file name</label>
-                    <code>
-                        r.<span style='margin-left: -1ex'></span>
-                        <input type="number" id="region_x" value="0" readonly>.<span style='margin-left: -1ex'></span>
-                        <input type="number" id="region_z" value="0" readonly>.mca
-                    </code>
-                </p>
-            </div>
+                <label class="long">Region file name</label>
+                <code>
+                    r.<span style='margin-left: -1ex'></span>
+                    <input type="number" id="region_x" value="0" onblur="submit('region')">.<span style='margin-left: -1ex'></span>
+                    <input type="number" id="region_z" value="0" onblur="submit('region')">.mca
+                </code>
+            </p>
         </form>
         <script>$(submit());</script>
     </template>

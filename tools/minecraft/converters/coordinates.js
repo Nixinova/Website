@@ -1,15 +1,3 @@
-/// FUNCTIONS ///
-
-function value(id, n) {
-    if (n == 'int') {return parseInt(document.getElementById(id).value, 10);}
-    if (n == 'num') {return parseFloat(document.getElementById(id).value, 10);}
-    else {return $.trim(document.getElementById(id).value);}
-}
-
-function id(id) {
-    return document.getElementById(id);
-}
-
 function coord(type) {
 
     /// VARIABLES ///
@@ -31,7 +19,7 @@ function coord(type) {
 
     /// GENERATOR ///
 
-    if (!type && (overworld_block_x || overworld_block_y || overworld_block_z)) {
+    if (type === 'overworld_block') {
         nether_block_x    = Math.floor(overworld_block_x / 8);
         nether_block_y    = overworld_block_y;
         nether_block_z    = Math.floor(overworld_block_z / 8);
@@ -45,18 +33,7 @@ function coord(type) {
         region_z          = Math.floor(overworld_block_z / 512);
     }
 
-    if (type == 'nether' && (nether_block_x || nether_block_y || nether_block_z)) {
-        overworld_block_x   = Math.floor(nether_block_x * 8);
-        overworld_block_y   = nether_block_y;
-        overworld_block_z   = Math.floor(nether_block_z * 8);
-        overworld_chunk_x   = Math.floor(nether_block_x / 16);
-        overworld_chunk_y   = Math.floor(nether_block_y / 16);
-        overworld_chunk_z   = Math.floor(nether_block_z / 16);
-        region_x            = Math.floor(nether_block_x / 512);
-        region_z            = Math.floor(nether_block_z / 512);
-    }
-
-    if (type == 'chunk' && (overworld_chunk_x || overworld_chunk_y || overworld_chunk_z)) {
+    if (type === 'overworld_chunk') {
         overworld_block_x   = Math.floor(overworld_chunk_x / 16);
         overworld_block_y   = Math.floor(overworld_chunk_y / 16);
         overworld_block_z   = Math.floor(overworld_chunk_z / 16);
@@ -67,21 +44,32 @@ function coord(type) {
         region_z            = Math.floor(overworld_chunk_z / 32);
     }
 
+    if (type === 'nether_block') {
+        overworld_block_x   = Math.floor(nether_block_x * 8);
+        overworld_block_y   = nether_block_y;
+        overworld_block_z   = Math.floor(nether_block_z * 8);
+        overworld_chunk_x   = Math.floor(nether_block_x / 16);
+        overworld_chunk_y   = Math.floor(nether_block_y / 16);
+        overworld_chunk_z   = Math.floor(nether_block_z / 16);
+        region_x            = Math.floor(nether_block_x / 512);
+        region_z            = Math.floor(nether_block_z / 512);
+    }
+
     /// OUTPUT ///
-    id('overworld_block_x').value = overworld_block_x;
-    id('overworld_block_y').value = overworld_block_y;
-    id('overworld_block_z').value = overworld_block_z;
-    id('overworld_chunk_x').value = overworld_chunk_x;
-    id('overworld_chunk_y').value = overworld_chunk_y;
-    id('overworld_chunk_z').value = overworld_chunk_z;
-    id('nether_block_x'   ).value = nether_block_x;
-    id('nether_block_y'   ).value = nether_block_y;
-    id('nether_block_z'   ).value = nether_block_z;
-    id('nether_chunk_x'   ).value = nether_chunk_x;
-    id('nether_chunk_y'   ).value = nether_chunk_y;
-    id('nether_chunk_z'   ).value = nether_chunk_z;
-    id('region_x'         ).value = region_x;
-    id('region_z'         ).value = region_z;
+    $('overworld_block_x').val(overworld_block_x);
+    $('overworld_block_y').val(overworld_block_y);
+    $('overworld_block_z').val(overworld_block_z);
+    $('overworld_chunk_x').val(overworld_chunk_x);
+    $('overworld_chunk_y').val(overworld_chunk_y);
+    $('overworld_chunk_z').val(overworld_chunk_z);
+    $('nether_block_x'   ).val(nether_block_x);
+    $('nether_block_y'   ).val(nether_block_y);
+    $('nether_block_z'   ).val(nether_block_z);
+    $('nether_chunk_x'   ).val(nether_chunk_x);
+    $('nether_chunk_y'   ).val(nether_chunk_y);
+    $('nether_chunk_z'   ).val(nether_chunk_z);
+    $('region_x'         ).val(region_x);
+    $('region_z'         ).val(region_z);
 }
 
 function copy(text) {
@@ -95,17 +83,17 @@ function copy(text) {
 
 function copyBlock() {
     submit();
-    copy(id('overworld_block_x').value + ' ' + id('overworld_block_y').value + ' ' + id('overworld_block_z').value);
+    copy([$('#overworld_block_x').val(), $('#overworld_block_y').val(), $('overworld_block_z').val()].join(' '));
 }
 
 function copyNether() {
     submit();
-    copy(id('nether_block_x').value + ' ' + id('nether_block_y').value + ' ' + id('nether_block_z').value);
+    copy([$('nether_block_x').val(), $('nether_block_y').val(), $('nether_block_z').val()].join(' '));
 }
 
 function copyChunk() {
     submit();
-    copy(id('overworld_chunk_x').value + ' ' + id('overworld_chunk_y').value + ' ' + id('overworld_chunk_z').value);
+    copy([$('overworld_chunk_x').val(), $('overworld_chunk_y').val(), $('overworld_chunk_z').val()].join(' '));
 }
 
 function submit(id) {
@@ -113,7 +101,8 @@ function submit(id) {
         coord(id);
     }
     catch (error) {
-        alert('Error on submit: ' + error + '.');
+        "An unknown error has occurred. Please try again or reload the page.";
+        console.error(error.stack);
     }
 }
 
