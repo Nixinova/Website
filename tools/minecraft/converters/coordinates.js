@@ -1,4 +1,5 @@
-function coord(type) {
+function submit(type) {
+    console.log('Type'=type)
     /// VARIABLES ///
     // call from input form //
     var overworld_block_x = value('overworld_block_x');
@@ -105,9 +106,8 @@ function copyChunk() {
     submit();
     copy([value('overworld_chunk_x'), value('overworld_chunk_y'), value('overworld_chunk_z')].join(' '));
 }
-
+/*
 function submit(type) {
-    console.log('type='+type)
     try {
         coord(type);
     }
@@ -115,6 +115,6 @@ function submit(type) {
         "An unknown error has occurred. Please try again or reload the page.";
         console.error(error.stack);
     }
-}
+}//*/
 
 /* Copyright © Nixinova 2020 */
