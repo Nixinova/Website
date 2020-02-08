@@ -49,17 +49,8 @@ function loadData(input) {
     `);
 
     // BODY //
-    $('body').append(`
-        <header>
-            <nav></nav>
-        </header>
-
-        <main>
-        </main>
-
-        <footer>
-        </footer>
-    `);
+    $('body').prepend(`\n<header>\n\t<nav>\n\t</nav>\n</header>\n`);
+    $('body').append(`\n<footer>\n</footer>\n`);
 
     $('nav').load('/assets/imports/navigation');
     $('footer').load('/assets/imports/footer');
