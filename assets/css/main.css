@@ -23,6 +23,7 @@ abbr {cursor: help;}
 
 /* Footer */
 footer {width: 100%; padding: 15px; background: var(--header-color); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}
+footer ul {margin: 0;}
 footer li {display: inline; white-space: nowrap;}
 footer li:not(:empty):not(:first-child)::before {content:' • ';}
 
