@@ -18,7 +18,6 @@
                 give command,minecraft give command,give command generator,minecraft command generator,command generator",
             stylesheets: ["tools.css"],
             scripts: ["tool-functions.js","./give.js"],
-            footer_content: `&bull;&nbsp;<a href="give.js" title="give.js" target="_blank">View code</a>`
         }
         $(document).ready(function() {
             loadData(PAGE_DATA);
@@ -26,6 +25,7 @@
                 obfuscate($('.§k_1').text(),'.§k_1');
                 obfuscate($('.§k_2').text(),'.§k_2');
             },50);
+            $('#footer-other').html('<a href="give.js" title="give.js" target="_blank">View code</a>');
         });
     </script>
 

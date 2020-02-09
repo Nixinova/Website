@@ -16,9 +16,11 @@
                 command generator",
             stylesheets: ["tools.css"],
             scripts: ["tool-functions.js","./summon.js"],
-            footer_content: `&bull;&nbsp;<a href="summon.js" title="summon.js" target="_blank">View code</a>`
         }
-        $(document).ready(function() {loadData(PAGE_DATA);});
+        $(document).ready(function() {
+            loadData(PAGE_DATA);
+            $('#footer-other').html('<a href="summon.js" title="summon.js" target="_blank">View code</a>');
+        });
     </script>
 
     <main>

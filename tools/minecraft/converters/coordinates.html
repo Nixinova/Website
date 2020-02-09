@@ -13,9 +13,12 @@
             keywords: "nixinova,coordinates,minecraft,coordinates converter,minecraft coordinates converter",
             stylesheets: ["tools.css"],
             scripts: ["tool-functions.js", "./coordinates.js"],
-            footer_content: `•&nbsp;<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>`
         }
-        $(document).ready(function() {loadData(PAGE_DATA);submit();});
+        $(document).ready(function() {
+            loadData(PAGE_DATA);
+            submit();
+            $('#footer-other').append('<a href="coordinates.js" title="coordinates.js" target="_blank">View code</a>');
+        });
     </script>
     <script data-name="Page script">window.coordsType = '';</script>
 

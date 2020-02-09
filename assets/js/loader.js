@@ -12,7 +12,6 @@ function loadData(input) {
         og_title: input.og_title || null,
         og_description: input.og_description || null,
         og_image: input.og_image || null,
-        footer_content: input.footer_content || ''
     }
 
     //$('html').attr('lang','en-NZ');
@@ -65,7 +64,6 @@ function loadData(input) {
 
     $('nav').load('/assets/imports/navigation');
     $('footer').load('/assets/imports/footer');
-    $('footer').append(data.footer_content)
 
     $('main').html($('#page-loader-content').html());
 
