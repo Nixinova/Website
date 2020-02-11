@@ -30,6 +30,16 @@
 
         $('main').attr('onclick', 'hideNav()');
 
+        function getUrlParam(name) {
+	        let results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	        return results[1] || 0;
+        }
+
+        $('a').each(function() {
+            let href = $(this).attr('href');
+            $(this).attr('href', href + window.location.search)
+        });
+
     </script>
     <style data-name="Navigation styles">
 
