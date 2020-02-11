@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
 
-/* Variabels */
+/* Variables */
 :root {
     --body-color: #313131; --header-color: #222;
     --header-height: 82px; --footer-height: 72px; --main-height: calc(100vh - var(--footer-height));
@@ -79,10 +79,11 @@ a:hover button {background: #46e; font-size: 21px;}
     .aligned {margin: 0 calc(50% - var(--margin)/2);}
 }
 
-@media (min-width: 801px) {
+@media (min-width: 801px) { /* Mobile */
     .mobileonly {display: none !important;}
+    p.description {max-width: 66%; margin: auto;}
 }
-@media (max-width: 800px) {
+@media (max-width: 800px) { /* Desktop */
     .desktoponly {display: none !important;}
 }
 
