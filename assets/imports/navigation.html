@@ -37,7 +37,7 @@
 
         $('a').each(function() {
             let href = $(this).attr('href');
-            $(this).attr('href', href + window.location.search)
+            if (href.startsWith('/')) $(this).attr('href', href + window.location.search)
         });
 
     </script>
