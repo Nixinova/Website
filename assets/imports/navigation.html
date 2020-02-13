@@ -10,35 +10,16 @@
     <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
     <script data-name="Navigation scripts">
 
-        if (window.location.href.includes('imports/navigation')){
+        if (window.location.href.split('?')[0].includes('/imports/')){
             $('head').append('<meta name="robots" content="noindex">');
-        }
-
-        function hideNav() {
-            $('#menu').addClass('hide');
-            nav_visible = false;
-        }
-        function showNav() {
-            $('#menu').removeClass('hide');
-            nav_visible = true;
         }
 
         var nav_visible = false;
         function toggleNav() {
-            if (nav_visible) hideNav(); else showNav();
+            $('#menu').toggleClass('hide', nav_visible);
+            nav_visible = !nav_visible;
         }
-
         $('main').attr('onclick', 'hideNav()');
-
-        function getUrlParam(name) {
-	        let results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-	        return results[1] || 0;
-        }
-
-        $('a').each(function() {
-            let href = $(this).attr('href');
-            if (href.startsWith('/')) $(this).attr('href', href + window.location.search)
-        });
 
     </script>
     <style data-name="Navigation styles">
@@ -133,10 +114,10 @@
     </div>
 </div>
 <script id="footer-script">
-    $(document).ready(function() {
+    $(document).ready(setTimeout(function() {
         $("nav").css("opacity", 0).animate({"opacity": 1}, 1000);
         $("i").css("visibility", "visible");
         $('#footer-script').remove();
-    },1000);
+    },1000));
 </script>
 
