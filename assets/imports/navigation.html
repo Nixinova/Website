@@ -25,6 +25,7 @@
     <style data-name="Navigation styles">
 
         nav * div {transition: 0.1s;}
+        nav {opacity: 0;}
         #scrollbar {position: fixed; top: 0px; left: 0px; height: 3px; background-color: #50c878;}
 
         #header {height: var(--header-height); display: flex; border-bottom: 2px solid white;}
@@ -114,10 +115,10 @@
     </div>
 </div>
 <script id="footer-script">
-    setTimeout(() => {
+    document.ready(_ => {
         $("nav").css("opacity", 0).animate({"opacity": 1}, 1000);
         $("i").css("visibility", "visible");
         $('#footer-script').remove();
-    },1000);
+    });
 </script>
 
