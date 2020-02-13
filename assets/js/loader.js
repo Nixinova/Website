@@ -14,7 +14,7 @@ function loadData(input) {
         og_image: input.og_image || null,
     }
 
-    //$('html').attr('lang','en-NZ');
+    $('html').attr('lang','en-NZ');
 
     // HEAD //
     $('[href="/assets/css/main.css"]').remove();

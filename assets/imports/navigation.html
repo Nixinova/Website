@@ -114,10 +114,10 @@
     </div>
 </div>
 <script id="footer-script">
-    $(document).ready(setTimeout(function() {
+    setTimeout(() => {
         $("nav").css("opacity", 0).animate({"opacity": 1}, 1000);
         $("i").css("visibility", "visible");
         $('#footer-script').remove();
-    },1000));
+    },1000);
 </script>
 
