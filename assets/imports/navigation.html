@@ -15,7 +15,10 @@
         }
 
         var nav_visible = false;
-        function hideNav() {toggleNav(false);}
+        function hideNav() {
+            $('#menu').addClass('hide');
+            nav_visible = false;
+        }
         function toggleNav() {
             $('#menu').toggleClass('hide', nav_visible);
             nav_visible = !nav_visible;
