@@ -24,9 +24,8 @@ function loadData(input) {
     }
 
     $('head').prepend(`
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-2"></script>
-    <script data-name="Google Analytics script">
+    <script data-name="Google Analytics import" async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-2"></script>
+    <script data-name="Google Analytics setup">
       window.dataLayer = window.dataLayer || [];
       function gtag() {dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -49,8 +48,8 @@ function loadData(input) {
     $('head').prepend(`
         <meta charset="UTF-8">
         <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
-        <meta name="description" content="${data.description}">
-        <meta name="keywords" content="${data.keywords}">
+        <meta name="description" content="${data.description}.replace(/\n +/,' ');">
+        <meta name="keywords" content="${data.keywords}.replace(/\n +/,' ').replace(/,+/,',')">
         <meta name="author" content="Nixinova">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
