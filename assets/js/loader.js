@@ -64,9 +64,6 @@ function loadData(input) {
     $('nav').load('/assets/imports/navigation');
     $('footer').load('/assets/imports/footer');
 
-    $('main').html($('#page-loader-content').html());
-
-    $('#page-loader-content').remove();
     $('#page-loader-script').remove();
     $('[src="/loader.js"]').remove();
 
