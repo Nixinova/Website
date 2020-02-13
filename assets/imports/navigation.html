@@ -15,15 +15,11 @@
         }
 
         var nav_visible = false;
-        function hideNav() {
-            $('#menu').addClass('hide');
-            nav_visible = false;
+        function toggleNav(bool = nav_visible) {
+            $('#menu').toggleClass('hide', bool);
+            nav_visible = bool || !nav_visible;
         }
-        function toggleNav() {
-            $('#menu').toggleClass('hide', nav_visible);
-            nav_visible = !nav_visible;
-        }
-        $('main').attr('onclick', 'hideNav()');
+        $('main').attr('onclick', 'toggleNav(false)');
 
     </script>
     <style data-name="Navigation styles">
