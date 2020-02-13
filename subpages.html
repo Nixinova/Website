@@ -54,7 +54,7 @@
                 if (location.href.split('/')[3] && location.href.split('/')[4] === undefined) {
                     $('#go-up').append(`\n<a href="/subpages?">← Go back</a>`);
                 } else {
-                    $('#go-up').append(`\n<a href="${location.href.replace(/(.+)\/[a-z]+$/, '$1')}">← Go back</a>`);
+                    $('#go-up').append(`\n<a href="${location.href.replace(/(.+)\/(.+)$/, '$1')}">← Go back</a>`);
                 }
             } 
 
