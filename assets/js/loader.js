@@ -20,8 +20,7 @@ function loadData(input) {
     $('[href="/assets/css/main.css"]').remove();
     for (let stylesheet of data.stylesheets) {
         if (stylesheet === 'main.css') continue; // already added in post-processing
-        let rel = "stylesheet";
-        $('head').prepend(`\n\t<link rel="stylesheet/less" href="/assets/css/${stylesheet}">`);
+        $('head').prepend(`\n\t<link rel="stylesheet/less" href="/assets/css/${stylesheet.replace('.css','.less')}">`);
     }
 
     $('head').prepend(`
