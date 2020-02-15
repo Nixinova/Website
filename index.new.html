@@ -35,7 +35,13 @@
             stylesheets: ["main.css"],
             scripts: []
         }
-        $(document).ready(function() {loadData(PAGE_DATA);});
+        $(document).ready(function() {
+            loadData(PAGE_DATA);
+            $('[data-image]').each((i, val) => {
+                $(this).css('background-image',`url("/assets/images/${$(this).attr('data-image')}");`);
+                $(this).removeAttr('data-image');
+            });
+        });
     </script>
 
     <main>
@@ -48,7 +54,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" style="background-image: url('/assets/images/minecraft/maps/kitpvp.png');">
+        <div class="showcase-container image-background" data-image="minecraft/maps/kitpvp.png">
             <div class="content-container">
                 <div class="title">
                     <h2>Maps</h2>
@@ -65,7 +71,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" style="background-image: url('/assets/images/minecraft/resource-packs/nixinova-mash-up.jpg');">
+        <div class="showcase-container image-background" data-image="minecraft/resource-packs/nixinova-mash-up.jpg">
             <div class="content-container">
                 <div class="title">
                     <h2>Resource Packs</h2>
@@ -82,7 +88,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" style="background-image: url('/assets/images/minecraft/resource-packs/endercreeper.jpg');">
+        <div class="showcase-container image-background" data-image="minecraft/resource-packs/endercreeper.jpg">
             <div class="content-container">
                 <div class="title">
                     <h2>Tools</h2>
@@ -99,7 +105,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" style="background-image: url('/assets/images/minecraft/resource-packs/easter-mash-up.jpg');">
+        <div class="showcase-container image-background" data-image="minecraft/resource-packs/easter-mash-up.jpg">
             <div class="content-container">
                 <div class="title">
                     <h2>APIs</h2>
