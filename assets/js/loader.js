@@ -20,7 +20,6 @@ function loadData(input) {
 
     $('head').prepend(`
     <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
-    <script data-name="Less.js import" src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
     <script data-name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
     <script data-name="Google Analytics import" async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-2"></script>
     <script data-name="Google Analytics setup">
@@ -62,7 +61,8 @@ function loadData(input) {
 
     // BODY //
     $('body').prepend(`\n<header>\n\t<nav>\n\t</nav>\n</header>\n`);
-    $('body').append(`\n<footer>\n</footer>\n`);
+    $('body').append(`\n<footer>\n</footer>\n
+    <script data-name="Less.js import" src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>`);
 
     $('nav').load('/assets/imports/navigation');
     $('footer').load('/assets/imports/footer');
