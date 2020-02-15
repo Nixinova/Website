@@ -21,8 +21,7 @@ function loadData(input) {
     for (let stylesheet of data.stylesheets) {
         if (stylesheet === 'main.css') continue; // already added in post-processing
         let rel = "stylesheet";
-        if (stylesheet.includes('.less')) rel += '/less'
-        $('head').prepend(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
+        $('head').prepend(`\n\t<link rel="stylesheet/less" href="/assets/css/${stylesheet}">`);
     }
 
     $('head').prepend(`
