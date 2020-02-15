@@ -32,7 +32,7 @@ function loadData(input) {
 
     for (let stylesheet of data.stylesheets) {
         if (stylesheet === 'main.less') continue; // already added in post-processing
-        $('head').prepend(`\n\t<link rel="stylesheet/less" href="/assets/css/${stylesheet.replace('.css','.less')}">`);
+        $('head').prepend(`\n\t<link rel="stylesheet/less" href="/assets/css/${stylesheet}">`);
     }
 
     for (let script of data.scripts) {
