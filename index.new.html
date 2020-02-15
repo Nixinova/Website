@@ -24,6 +24,16 @@
         .content-container .title {width: 50vw;}
         .content-container .contents {width: 30vw; text-align: left;}
     </style>
+    <link data-name="fullPage.js import" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.8fullpage.min.css">	
+    <script data-name="fullPage.js import" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.8/fullpage.min.js"></script>
+    <script data-name="Full page scrolling script">
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', function() {
+          // scroll down
+            window.scrollBy(0, window.innerHeight);
+        });
+    </script>
 </head>
 <body>
     <script id="page-loader-script">
