@@ -56,7 +56,7 @@ function loadData(input) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
         <link rel="icon" href="/favicon.ico">
-        <link rel="stylesheet" href="/assets/css/main.css">
+        <link rel="stylesheet/less" href="/assets/css/main.css">
     `);
 
     // BODY //
