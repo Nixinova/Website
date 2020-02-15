@@ -30,10 +30,12 @@
             if (lastScroll < window.pageYOffset) {
                 window.scrollBy(0, window.innerHeight);
                 lastScroll = window.pageYOffset;
+                console.debug("<")
             }
             else if (lastScroll > window.pageYOffset) {
                 window.scrollBy(0, -window.innerHeight);
                 lastScroll = window.pageYOffset;
+                console.debug(">")
             }
         });
     </script>
