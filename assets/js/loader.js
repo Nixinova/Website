@@ -14,6 +14,10 @@ function loadData(input) {
         og_image: input.og_image || null,
     }
 
+    let og_title = data.og_title ? `<meta property="og:title" content="${data.og_title}">` : '';
+    let og_desc = data.og_description ? `\n<meta property="og:description" content="${data.og_description}">` : '';
+    let og_image = data.og_description ? `\n<meta property="og:image" content="https://nixinova.com/assets/images/${data.og_image}">` : '';
+
     $('html').attr('lang','en-NZ');
 
     // HEAD //
@@ -30,9 +34,12 @@ function loadData(input) {
     </script>
     `);
 
+    $('[href*="css/main"]').remove(); // will be readded later
     for (let stylesheet of data.stylesheets) {
-        if (stylesheet === 'main.less') continue; // already added in post-processing
-        $('head').prepend(`\n\t<link rel="stylesheet/less" href="/assets/css/${stylesheet}">`);
+        if (stylesheet.startsWith('main.')) continue; // already added in post-processing
+        let rel = "stylesheet";
+        if (stylesheet.includes('.less')) rel += '/less';
+        $('head').prepend(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
     }
 
     for (let script of data.scripts) {
@@ -42,10 +49,6 @@ function loadData(input) {
             $('head').prepend(`\n\t<script src="/assets/js/${script}">`);
         }
     }
-
-    let og_title = data.og_title ? `<meta property="og:title" content="${data.og_title}">` : '';
-    let og_desc = data.og_description ? `\n<meta property="og:description" content="${data.og_description}">` : '';
-    let og_image = data.og_description ? `\n<meta property="og:image" content="https://nixinova.com/assets/images/${data.og_image}">` : '';
     
     $('head').prepend(`
         <meta charset="UTF-8">
@@ -56,13 +59,14 @@ function loadData(input) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
         <link rel="icon" href="/favicon.ico">
-        <link rel="stylesheet/less" href="/assets/css/main.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
     `);
+
+    $('head').append('<script data-name="Less.js import" src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>');
 
     // BODY //
     $('body').prepend(`\n<header>\n\t<nav>\n\t</nav>\n</header>\n`);
-    $('body').append(`\n<footer>\n</footer>\n
-    <script data-name="Less.js import" src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>`);
+    $('body').append(`\n<footer>\n</footer>\n`);
 
     $('nav').load('/assets/imports/navigation');
     $('footer').load('/assets/imports/footer');
