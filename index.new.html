@@ -24,17 +24,6 @@
         .content-container .title {width: 50vw;}
         .content-container .contents {width: 30vw; text-align: left;}
     </style>
-    <script data-name="Full page scrolling script">
-        let lastScroll = 0;
-        window.addEventListener('scroll', function() {
-            if (lastScroll < window.pageYOffset) {
-                window.scrollBy(0, 1);
-            } else if (lastScroll > window.pageYOffset) {
-                window.scrollBy(0, -1);
-            }
-            lastScroll = window.pageYOffset;
-        });
-    </script>
 </head>
 <body>
     <script id="page-loader-script">
