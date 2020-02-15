@@ -36,7 +36,7 @@ function loadData(input) {
 
     $('[href*="css/main"]').remove(); // will be readded later
     for (let stylesheet of data.stylesheets) {
-        if (stylesheet.startsWith('main.')) continue; // already added in post-processing
+        if (stylesheet === 'main.css') continue; // already added in post-processing
         let rel = "stylesheet";
         if (stylesheet.includes('.less')) rel += '/less';
         $('head').prepend(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
@@ -53,8 +53,8 @@ function loadData(input) {
     $('head').prepend(`
         <meta charset="UTF-8">
         <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
-        <meta name="description" content="${data.description.replace(/ +/,' ')}">
-        <meta name="keywords" content="${data.keywords.replace(/ +/,' ').replace(/,+/,',')}">
+        <meta name="description" content="${data.description.replace(/  +/,' ')}">
+        <meta name="keywords" content="${data.keywords.replace(/  +/,' ').replace(/,+/,',')}">
         <meta name="author" content="Nixinova">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
