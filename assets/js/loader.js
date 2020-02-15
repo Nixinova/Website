@@ -51,8 +51,8 @@ function loadData(input) {
     $('head').prepend(`
         <meta charset="UTF-8">
         <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
-        <meta name="description" content="${data.description}.replace(/\n +/,' ');">
-        <meta name="keywords" content="${data.keywords}.replace(/\n +/,' ').replace(/,+/,',')">
+        <meta name="description" content="${data.description.replace(/\n +/,' ')}">
+        <meta name="keywords" content="${data.keywords.replace(/\n +/,' ').replace(/,+/,',')}">
         <meta name="author" content="Nixinova">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
