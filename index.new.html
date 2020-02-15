@@ -7,10 +7,8 @@
         :root {--blue: linear-gradient(#08e, #15c); scroll-behavior: smooth;}
 
         body {background: var(--blue); overflow-x: hidden;}
-        main {margin-top: 0; padding-top: calc(var(--header-height)*-1); }
-        footer {margin-top: -3px;}
+        main {padding-top: 0;}
         
-        /* Showcase */
         .showcase-container {display: flex; height: 100vh; width: 100vw; border-top: 1px solid; text-align: center;}
         .showcase-container div {margin: auto;}
         .showcase-container p {max-width: 80%; margin: auto; font-size: 1.2em;}
@@ -20,10 +18,10 @@
         .showcase-container ul {padding-left: 0; list-style-type: none; font-size: 2.5em;}
         .showcase-container ul li {padding-left: 0; list-style-type: none;}
         .showcase-container ul li a {color: #eee;}
-        .image-background {background-position: fixed; background-blend-mode: overlay; background-color: var(--body-color);}
+        .image-background {background-attachment: fixed; background-blend-mode: overlay; background-position: center; background-color: #151515;}
         .content-container {display: flex;}
         .content-container .title {width: 50vw;}
-        .content-container .contents {width: 25vw; text-align: left;}
+        .content-container .contents {width: 30vw; text-align: left;}
     </style>
 </head>
 <body>
@@ -84,7 +82,7 @@
             </div>
         </div>
 
-        <div class="showcase-container" style="background-image: url('/assets/images/minecraft/resource-packs/endercreeper.jpg');">
+        <div class="showcase-container image-background" style="background-image: url('/assets/images/minecraft/resource-packs/endercreeper.jpg');">
             <div class="content-container">
                 <div class="title">
                     <h2>Tools</h2>
@@ -101,7 +99,7 @@
             </div>
         </div>
 
-        <div class="showcase-container" style="background-image: url('/assets/images/minecraft/resource-packs/easter-mash-up.jpg');">
+        <div class="showcase-container image-background" style="background-image: url('/assets/images/minecraft/resource-packs/easter-mash-up.jpg');">
             <div class="content-container">
                 <div class="title">
                     <h2>APIs</h2>
