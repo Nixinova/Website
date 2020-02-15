@@ -41,6 +41,9 @@ function loadData(input) {
         if (stylesheet.includes('.less')) rel += '/less';
         $('head').prepend(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
     }
+    $(document).ready(() => {
+        $('[id^="less:]').html($(this).html().replace(/\n */g, ''));
+    })
 
     for (let script of data.scripts) {
         if (script.startsWith('./')) {
