@@ -45,13 +45,6 @@
                 imageData.eq(i).attr('style',`background-image: url("/assets/images/${imageData.eq(i).attr('data-image')}");`);
                 imageData.eq(i).removeAttr('data-image');
             }
-            $('#fullpage').fullpage({
-	        	autoScrolling: true,
-	        	scrollHorizontally: true
-	        });
-        
-	        //methods
-	        $.fn.fullpage.setAllowScrolling(false);
         });
     </script>
 
@@ -133,5 +126,6 @@
         </div>
 
     </main>
+    <script>new fullpage('#fullpage', {autoScrolling: true, scrollHorizontally: true});</script>
 </body>
 </html>
