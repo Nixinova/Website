@@ -17,13 +17,16 @@ function loadData(input) {
     $('html').attr('lang','en-NZ');
 
     // HEAD //
-    $('[href="/assets/css/main.css"]').remove();
+    $('[href*="css/main"]').remove();
     for (let stylesheet of data.stylesheets) {
         if (stylesheet === 'main.css') continue; // already added in post-processing
         $('head').prepend(`\n\t<link rel="stylesheet/less" href="/assets/css/${stylesheet.replace('.css','.less')}">`);
     }
 
     $('head').prepend(`
+    <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
+    <script data-name="Less.js import" src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+    <script data-name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
     <script data-name="Google Analytics import" async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-2"></script>
     <script data-name="Google Analytics setup">
       window.dataLayer = window.dataLayer || [];
@@ -55,9 +58,6 @@ function loadData(input) {
         ${og_title}${og_desc}${og_image}
         <link rel="icon" href="/favicon.ico">
         <link rel="stylesheet" href="/assets/css/main.css">
-        <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
-        <script data-name="Less.js import" src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
-        <script data-name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
     `);
 
     // BODY //
