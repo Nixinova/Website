@@ -44,7 +44,7 @@ function loadData(input) {
     $(document).ready(setTimeout(_ => {
         let $less = $('[id^="less:"]')
         console.log($less);
-        $less.html($less.html().replace(/\n */g, ''));
+        $less.html($less.html().replace(/\n */g, '')).attr('data-name', 'Converted Less styles');
     }, 1000));
 
     for (let script of data.scripts) {
@@ -55,8 +55,8 @@ function loadData(input) {
     $('head').prepend(`
         <meta charset="UTF-8">
         <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
-        <meta name="description" content="${data.description.replace(/  +/g, ' ')}">
-        <meta name="keywords" content="${data.keywords.replace(/  +/g, ' ').replace(/,+/g, ',')}">
+        <meta name="description" content="${data.description.replace(/\n|  +/g, ' ')}">
+        <meta name="keywords" content="${data.keywords.replace(/\n|  +/g, ' ').replace(/,+/g, ',')}">
         <meta name="author" content="Nixinova">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
