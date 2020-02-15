@@ -17,11 +17,6 @@ function loadData(input) {
     $('html').attr('lang','en-NZ');
 
     // HEAD //
-    $('[href*="css/main"]').remove();
-    for (let stylesheet of data.stylesheets) {
-        if (stylesheet === 'main.css') continue; // already added in post-processing
-        $('head').prepend(`\n\t<link rel="stylesheet/less" href="/assets/css/${stylesheet.replace('.css','.less')}">`);
-    }
 
     $('head').prepend(`
     <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
@@ -35,6 +30,11 @@ function loadData(input) {
       gtag('config', 'UA-83550713-2');
     </script>
     `);
+
+    for (let stylesheet of data.stylesheets) {
+        if (stylesheet === 'main.less') continue; // already added in post-processing
+        $('head').prepend(`\n\t<link rel="stylesheet/less" href="/assets/css/${stylesheet.replace('.css','.less')}">`);
+    }
 
     for (let script of data.scripts) {
         if (script.startsWith('./')) {
