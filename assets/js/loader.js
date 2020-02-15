@@ -41,7 +41,7 @@ function loadData(input) {
         if (stylesheet.includes('.less')) rel += '/less';
         $('head').prepend(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
     }
-    $(document).ready(setTimeout(() => {
+    $(document).ready(setTimeout(_ => {
         let $less = $('[id^="less:"]')
         console.log($less);
         $less.html($less.html().replace(/\n */g, ''));
@@ -55,8 +55,8 @@ function loadData(input) {
     $('head').prepend(`
         <meta charset="UTF-8">
         <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
-        <meta name="description" content="${data.description.replace(/  +/, ' ')}">
-        <meta name="keywords" content="${data.keywords.replace(/  +/, ' ').replace(/,+/, ',')}">
+        <meta name="description" content="${data.description.replace(/  +/g, ' ')}">
+        <meta name="keywords" content="${data.keywords.replace(/  +/g, ' ').replace(/,+/g, ',')}">
         <meta name="author" content="Nixinova">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
