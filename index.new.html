@@ -28,11 +28,10 @@
         let lastScroll = 0;
         window.addEventListener('scroll', function() {
             if (lastScroll < window.pageYOffset) {
-                window.pageYOffset += window.innerHeight;
+                window.scrollBy(0, window.innerHeight);
             } else if (lastScroll > window.pageYOffset) {
-                window.pageYOffset -= window.innerHeight;
+                window.scrollBy(0, -window.innerHeight);
             }
-            window.pageYOffset += 0;
             lastScroll = window.pageYOffset;
         });
     </script>
