@@ -37,10 +37,11 @@
         }
         $(document).ready(function() {
             loadData(PAGE_DATA);
-            $('[data-image]').each((i, val) => {
-                $(this).css('background-image',`url("/assets/images/${$(this).attr('data-image')}");`);
-                $(this).removeAttr('data-image');
-            });
+            let imageData = $('[data-image]');
+            for (let i = 0; i < imageData.length; i ++) {
+                imageData.eq(i).attr('style',`background-image: url("/assets/images/${imageData.eq(i).attr('data-image')}");`);
+                imageData.eq(i).removeAttr('data-image');
+            }
         });
     </script>
 

@@ -42,9 +42,10 @@ function loadData(input) {
         $('head').prepend(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
     }
     $(document).ready(setTimeout(_ => {
-        let $less = $('[id^="less:"]')
-        console.log($less);
-        $less.html($less.html().replace(/\n */g, ' ')).attr('data-name', 'Converted Less styles');
+        let $less = $('[id^="less:"]');
+        for (let i = 0; i < $less.length; i ++) {
+            $less.eq(i).html($less.eq(i).html().replace(/\n */g, ' ')).attr('data-name', 'Converted Less styles');
+        }
     }, 1000));
 
     for (let script of data.scripts) {
