@@ -18,7 +18,7 @@ function loadData(input) {
     let og_desc = data.og_description ? `\n<meta property="og:description" content="${data.og_description}">` : '';
     let og_image = data.og_description ? `\n<meta property="og:image" content="https://nixinova.com/assets/images/${data.og_image}">` : '';
 
-    $('html').attr('lang','en-NZ');
+    $('html').attr('lang', 'en-NZ');
 
     // HEAD //
 
@@ -43,19 +43,20 @@ function loadData(input) {
     }
     $(document).ready(setTimeout(() => {
         let $less = $('[id^="less:"]')
+        console.log($less);
         $less.html($less.html().replace(/\n */g, ''));
-    }),1000);
+    }, 1000));
 
     for (let script of data.scripts) {
         let src = script.startsWith('./') ? script.substr(2) : script;
         $('head').prepend(`\n\t<script src="${src}">`);
     }
-    
+
     $('head').prepend(`
         <meta charset="UTF-8">
         <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
-        <meta name="description" content="${data.description.replace(/  +/,' ')}">
-        <meta name="keywords" content="${data.keywords.replace(/  +/,' ').replace(/,+/,',')}">
+        <meta name="description" content="${data.description.replace(/  +/, ' ')}">
+        <meta name="keywords" content="${data.keywords.replace(/  +/, ' ').replace(/,+/, ',')}">
         <meta name="author" content="Nixinova">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
