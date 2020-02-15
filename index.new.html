@@ -28,9 +28,9 @@
         let lastScroll = 0;
         window.addEventListener('scroll', function() {
             if (lastScroll < window.pageYOffset) {
-                window.scrollBy(0, window.innerHeight);
+                window.scrollBy(0, 1);
             } else if (lastScroll > window.pageYOffset) {
-                window.scrollBy(0, -window.innerHeight);
+                window.scrollBy(0, -1);
             }
             lastScroll = window.pageYOffset;
         });
