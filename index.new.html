@@ -15,15 +15,17 @@
         .showcase-container p {max-width: 80%; margin: auto; font-size: 1.2em;}
         .showcase-container img {max-width: 50%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
         .showcase-container hr {width: 15%;}
-        .showcase-container h2 {font-size: 10vh; line-height: 1.3;}
+        .showcase-container h2 {font-size: 8vh; line-height: 1.3;}
         .showcase-container ul {padding-left: 0; list-style-type: none; font-size: 2.5em;}
         .showcase-container ul li {padding-left: 0; list-style-type: none;}
         .showcase-container ul li a {border-bottom: 2px solid; color: #eee;}
-        .image-background {background-attachment: fixed; background-blend-mode: overlay; background-position: center; background-color: #151515;}
+        .image-background {background-attachment: fixed; background-blend-mode: overlay; background-position: center; background-color: #333;}
         .content-container {display: flex;}
         .content-container .title {width: 50vw;}
         .content-container .contents {width: 30vw; text-align: left;}
     </style>
+    <link data-name="fullPage.js import" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.8/fullpage.min.css">
+    <script data-name="fullPage.js import" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.8/fullpage.min.js"></script>
 </head>
 <body>
     <script id="page-loader-script">
@@ -43,12 +45,19 @@
                 imageData.eq(i).attr('style',`background-image: url("/assets/images/${imageData.eq(i).attr('data-image')}");`);
                 imageData.eq(i).removeAttr('data-image');
             }
+            $('#fullpage').fullpage({
+	        	autoScrolling: true,
+	        	scrollHorizontally: true
+	        });
+        
+	        //methods
+	        $.fn.fullpage.setAllowScrolling(false);
         });
     </script>
 
-    <main>
+    <main id="fullpage">
 
-        <div class="showcase-container" style="background-color: var(--blue);">
+        <div class="section showcase-container" style="background-color: var(--blue);">
             <div>
                 <img src="/assets/images/logos/nixinova.png" alt="&thinsp;NIXINOVA" onmousedown="return false;">
                 <hr>
@@ -56,7 +65,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" data-image="minecraft/maps/kitpvp.png">
+        <div class="section showcase-container image-background" data-image="minecraft/maps/kitpvp.png">
             <div class="content-container">
                 <div class="title">
                     <h2>Maps</h2>
@@ -73,7 +82,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" data-image="minecraft/tools-background.jpg">
+        <div class="section showcase-container image-background" data-image="minecraft/tools-background.jpg">
             <div class="content-container">
                 <div class="title">
                     <h2>Tools</h2>
@@ -90,7 +99,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" data-image="minecraft/resource-packs/nixinova-mash-up.jpg">
+        <div class="section showcase-container image-background" data-image="minecraft/resource-packs/nixinova-mash-up.jpg">
             <div class="content-container">
                 <div class="title">
                     <h2>Resource Packs</h2>
@@ -107,7 +116,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" data-image="minecraft/apis-background.jpg">
+        <div class="section showcase-container image-background" data-image="minecraft/apis-background.jpg">
             <div class="content-container">
                 <div class="title">
                     <h2>APIs</h2>
