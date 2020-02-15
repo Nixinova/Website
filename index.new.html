@@ -27,9 +27,14 @@
     <script data-name="Full page scrolling script">
         let lastScroll = 0;
         window.addEventListener('scroll', function() {
-            if (lastScroll < window.pageYOffset) window.scrollBy(0, window.innerHeight);
-            else if (lastScroll > window.pageYOffset) window.scrollBy(0, window.innerHeight * -1);
-            lastScroll = window.pageYOffset;
+            if (lastScroll < window.pageYOffset) {
+                window.scrollBy(0, window.innerHeight);
+                lastScroll = window.pageYOffset;
+            }
+            else if (lastScroll > window.pageYOffset) {
+                window.scrollBy(0, -window.innerHeight);
+                lastScroll = window.pageYOffset;
+            }
         });
     </script>
 </head>
