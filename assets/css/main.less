@@ -1,0 +1,91 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
+
+/* Variables */
+@body-color: #313131; @header-color: #222;
+@header-height: 82px; @footer-height: 72px; @main-height: calc(100vh - @footer-height);
+
+
+/* Base elements */
+* {box-sizing: border-box;/*transition: 0.5s;*/}
+body {font: normal 15px 'Montserrat', sans-serif; background: var(--body-color); margin: 0; color: #eee; line-height: 1.8;}
+header {position: fixed; width: 100%; z-index: 100;}
+main {padding-top: var(--header-height); min-height: var(--main-height);}
+main:not([onclick]) {visibility: hidden;}
+nav {background: var(--header-color);}
+p {margin: 1em; text-align: center;}
+i:not(.noclick) {cursor: pointer;}
+code {font-size: 1.1em;}
+kbd {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
+img {max-width: 100%; vertical-align: middle; border: 0;}
+abbr {cursor: help;}
+
+/* Footer */
+footer {width: 100%; padding: 15px; background: var(--header-color); margin-top: 12px; border-top: 2px solid #fff; text-align: center;
+ ul {margin: 0;}
+ li {display: inline; white-space: nowrap;}
+ li:not(:empty):not(:first-child)::before {content:' • ';}
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {color: #eee; margin: 0; font-weight: bold; text-align: center; width: 100%;}
+h1, h2, h3, h4 {text-transform: uppercase;}
+h4, h5, h6 {font-weight: bold;}
+h1 {font-size: 2.6em;}
+h2 {font-size: 2.1em;}
+h3 {font-size: 1.6em;}
+h4 {font-size: 1.4em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1.1em; text-align: center; margin-top: 1em; margin-bottom: -1em;}
+
+/* Links */
+a {text-decoration: none; cursor: pointer;}
+a:link, a:visited {color: #acf;}
+a:link:hover {opacity: 0.65; transition: 0.2s;}
+
+/* Lists */
+ul.plain {list-style-type: none; text-align: center;}
+
+/* Tables */
+table.styled tr th, table.styled tr td {border: 1px solid #555; padding: 0.2em 0.4em;}
+
+/* Dividers */
+hr.half {width: 50%;}
+hr.divider {width: 90%;}
+
+/* Videos */
+iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
+
+/* Galleries */
+#gallery {width: 100%;}
+#gallery .screenshot {height: calc(75vh/16*10); background-position: center; background-size: cover; border-bottom: 2px solid white;}
+
+/* Buttons */
+button {background: #19f; color: #fff; padding: 12px 30px; cursor: pointer; font-size: 20px; border: none; border-radius: 0.5em; transition: 0.25s;}
+div.download {text-align: center;}
+div.download button {margin: 0; border-radius: 2em;}
+a button, a:visited button {color: #fff; text-decoration: none;}
+a:hover button {background: #46e; font-size: 21px;}
+
+/* Hiding */
+.hide {display: none !important;}
+
+/* Responsive */
+@media (min-width: 1000px) {
+    .row {display: flex;}
+    .row>div {margin: 0 10px;}
+    .flex {width: var(--width);}
+    .centered {margin-left: calc(50% - var(--width)/2);}
+    .aligned {margin: 0 calc(50% - var(--margin)/2);}
+}
+
+@media (min-width: 801px) { /* Mobile */
+    .mobileonly {display: none !important;}
+    p.description {max-width: 66%; margin: auto;}
+}
+@media (max-width: 800px) { /* Desktop */
+    .desktoponly {display: none !important;}
+}
+
+/* Copyright © Nixinova 2020 */

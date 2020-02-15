@@ -19,7 +19,10 @@ function loadData(input) {
     // HEAD //
     $('[href="/assets/css/main.css"]').remove();
     for (let stylesheet of data.stylesheets) {
-        if (stylesheet === 'main.css') continue; // added in post-processing
+        if (stylesheet === 'main.css') continue; // already added in post-processing
+        let rel = "stylesheet";
+        if (stylesheet.contains('.less')) rel += '/less'
+        }
         $('head').prepend(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
     }
 
@@ -55,6 +58,9 @@ function loadData(input) {
         ${og_title}${og_desc}${og_image}
         <link rel="icon" href="/favicon.ico">
         <link rel="stylesheet" href="/assets/css/main.css">
+        <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
+        <script data-name="Less.js import" src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+        <script data-name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
     `);
 
     // BODY //
