@@ -42,7 +42,7 @@ function loadData(input) {
         $('head').prepend(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
     }
     $(document).ready(() => {
-        $('[id^="less:]').html($(this).html().replace(/\n */g, ''));
+        $('[id^="less:"]').html($(this).html().replace(/\n */g, ''));
     })
 
     for (let script of data.scripts) {
