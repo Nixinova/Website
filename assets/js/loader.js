@@ -34,7 +34,7 @@ function loadData(input) {
     </script>
     `);
 
-    $('[href*="css/main"]').remove(); // will be readded later
+    $('[href="/assets/css/main.css"]').remove(); // will be readded later
     for (let stylesheet of data.stylesheets) {
         if (stylesheet === 'main.css') continue; // already added in post-processing
         let rel = "stylesheet";
@@ -59,7 +59,8 @@ function loadData(input) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
         <link rel="icon" href="/favicon.ico">
-        <link rel="stylesheet" href="/assets/css/main.css">
+        <link data-name="Default styles" rel="stylesheet" href="/assets/css/main.css">
+        <link data-name="Fonts import" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     `);
 
     $('head').append('<script data-name="Less.js import" src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>');
