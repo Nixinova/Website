@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style data-name="Page styles">
+        @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
+        
+        :root {--blue: linear-gradient(#08e, #15c); scroll-behavior: smooth;}
+
+        body {background: var(--blue); overflow-x: hidden;}
+        main {margin-top: 0; padding-top: calc(var(--header-height)*-1); }
+        footer {margin-top: -3px;}
+        
+        /* Showcase */
+        .showcase-container {display: flex; height: 100vh; width: 100vw; background-blend-mode: overlay; border-top: 1px solid; text-align: center;}
+        .showcase-container div {margin: auto;}
+        .showcase-container p {max-width: 80%; margin: auto; font-size: 1.2em;}
+        .showcase-container img {max-width: 50%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
+        .showcase-container hr {width: 15%;}
+        .showcase-container h2 {font-size: 10vh; line-height: 1.3;}
+        .showcase-container ul {padding-left: 0; list-style-type: none; font-size: 2.5em;}
+        .showcase-container ul li {padding-left: 0; list-style-type: none;}
+        .showcase-container ul li a {color: #eee;}
+        .content-container {display: flex;}
+        .content-container .title {width: 50vw;}
+        .content-container .contents {width: 25vw; text-align: left;}
+        
+        /* Down arrow */
+        #down-arrow {position: absolute; bottom: 0; width: 100%; text-align: center; font-size: 5em;}
+        #down-arrow a {color: #eee;}
+        #down-arrow a i {font-size: 1em; visibility: hidden;}
+
+        /* Showcase */
+        #showcase {background: #222; text-align: center;}
+        #showcase ul {padding-left: 0; list-style-type: none;}
+        #showcase a {border-bottom: solid; color: #222;}
+        #showcase .title {background: #222; color: #eee;}
+        #showcase .contents {background: #eee; color: #222;}
+
+        @media (min-width: 1051px) {
+            #showcase {display: grid; font-size: 4em; grid-template-areas: "maps-title maps-contents"
+                "tools-contents tools-title" "rp-title rp-contents" "apis-contents apis-title";}
+            #showcase div {padding: calc(25vw - var(--height)) 0;}
+        }
+
+        @media (max-width: 1050px) {
+            #showcase {font-size: 3em;}
+            #showcase div {padding: 1em 0;}
+            #showcase ul {margin-block-start: 0; margin-block-end: 0;}
+        }
+
+    </style>
+</head>
+<body>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "",
+            description: `The personal website of Nixinova, containing command generation and coordinate tools for
+                Minecraft, APIs for generation information from Hytale blog posts, and downloads of Minecraft maps and
+                resource packs created by Nixinova.`,
+            keywords: "nixinova,herobrinenzk,nixinova website,nixinova.com",
+            stylesheets: ["main.css"],
+            scripts: []
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+    </script>
+
+    <main>
+
+        <section>
+
+            <div class="showcase-container" style="background: fixed var(--blue);">
+                <div>
+                    <img src="/assets/images/nixinova.png" alt="&thinsp;NIXINOVA" onmousedown="return false;">
+                    <hr>
+                    <p>Welcome to my website!</p>
+                </div>
+            </div>
+
+            <div class="showcase-container" style="background: fixed url('/assets/images/minecraft/maps/kitpvp.png');">
+                <div class="content-container">
+                    <div class="title">
+                        <h2>Maps</h2>
+                        <hr>
+                        <p>Download Minecraft minigame maps for you to play!</p>
+                    </div>
+                    <div class="contents">
+                        <ul>
+                            <li><a href="/downloads/minecraft/maps/skywars">SkyWars</a></li>
+                            <li><a href="/downloads/minecraft/maps/kitpvp">KitPvP</a></li>
+                            <li><a href="/downloads/minecraft/maps/musical-blocks">Musical&nbsp;Blocks</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-container" style="background: fixed url('/assets/images/minecraft/resource-packs/nixinova-mash-up.jpg');">
+                <div class="content-container">
+                    <div class="title">
+                        <h2>Resource Packs</h2>
+                        <hr>
+                        <p>A collection of resource packs to improve the look of your Minecraft world!</p>
+                    </div>
+                    <div class="contents">
+                        <ul>
+                            <li><a href="/downloads/minecraft/resource-packs/mash-up">Mash-Up</a></li>
+                            <li><a href="/downloads/minecraft/resource-packs/themed">Themed</a></li>
+                            <li><a href="/downloads/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-container" style="background: fixed;">
+                <div class="content-container">
+                    <div class="title">
+                        <h2>Tools</h2>
+                        <hr>
+                        <p>Useful Minecraft tools such as command generators and coordinate converters!</p>
+                    </div>
+                    <div class="contents">
+                        <ul>
+                            <li><a href="/tools/minecraft/commands/give">/give</a></li>
+                            <li><a href="/tools/minecraft/commands/summon">/summon</a></li>
+                            <li><a href="/tools/minecraft/converters/coordinates">Coordinates</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-container" style="background: fixed;">
+                <div class="content-container">
+                    <div class="title">
+                        <h2>APIs</h2>
+                        <hr>
+                        <p>Use Minecraft and Hytale's built-in web API to fetch useful information!</p>
+                    </div>
+                    <div class="contents">
+                        <ul>
+                            <li><a href="/tools/hytale/api/blog">Hytale Blog</a></li>
+                            <li><a href="/tools/minecraft/api/player">Minecraft Player</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</body>
+</html>

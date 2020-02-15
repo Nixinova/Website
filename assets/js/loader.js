@@ -44,7 +44,7 @@ function loadData(input) {
     $(document).ready(setTimeout(_ => {
         let $less = $('[id^="less:"]')
         console.log($less);
-        $less.html($less.html().replace(/\n */g, '')).attr('data-name', 'Converted Less styles');
+        $less.html($less.html().replace(/\n */g, ' ')).attr('data-name', 'Converted Less styles');
     }, 1000));
 
     for (let script of data.scripts) {
