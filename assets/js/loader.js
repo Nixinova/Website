@@ -41,17 +41,14 @@ function loadData(input) {
         if (stylesheet.includes('.less')) rel += '/less';
         $('head').prepend(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
     }
-    $(document).ready(() => {
+    $(document).ready(setTimeout(() => {
         let $less = $('[id^="less:"]')
         $less.html($less.html().replace(/\n */g, ''));
-    })
+    }),1000);
 
     for (let script of data.scripts) {
-        if (script.startsWith('./')) {
-            $('head').prepend(`\n\t<script src="${script.substr(2)}">`);
-        } else {
-            $('head').prepend(`\n\t<script src="/assets/js/${script}">`);
-        }
+        let src = script.startsWith('./') ? script.substr(2) : script;
+        $('head').prepend(`\n\t<script src="${src}">`);
     }
     
     $('head').prepend(`
