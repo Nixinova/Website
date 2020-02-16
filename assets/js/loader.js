@@ -66,8 +66,7 @@ function loadData(input) {
     $('[src="/loader.js"]').remove();
 
     // Minify
-    $(document).ready(_ => {
-        console . log ( ' minifying ' ) ;
+    $(document).ready(setTimeout(_ => {
         for (let i = 0; i < $('style').length; i++) {
             let style = $('style').eq(i);
             style.html(style.html().replace(/\n */g, ' '));
@@ -76,7 +75,7 @@ function loadData(input) {
             let script = $('script').eq(i);
             script.html(script.html().replace(/\n */g, ' '));
         }
-    });
+    }, 1000));
 
     loadCount++;
 
