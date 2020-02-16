@@ -19,10 +19,8 @@ function loadData(input) {
     let og_image = data.og_description ? `\n<meta property="og:image" content="https://nixinova.com/assets/images/${data.og_image}">` : '';
 
     $('html').attr('lang', 'en-NZ');
-    $('[data-name="Temporary styles"]').remove();
 
     // HEAD //
-
     $('[data-name="Default styles"]').remove();
     let headContent = $('head').html();
     $('head').empty();
