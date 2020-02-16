@@ -39,24 +39,19 @@ function loadData(input) {
 
     for (let stylesheet of data.stylesheets) {
         if (stylesheet.includes('main')) continue; // already added in post-processing
-        $('head').append(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
+        $('head').append(`\n\t<link data-name="Imported stylesheet" rel="stylesheet" href="/assets/css/${stylesheet}">`);
     }
 
     for (let script of data.scripts) {
         let src = script.startsWith('./') ? script.substr(2) : script;
-        $('head').append(`\n\t<script src="${src}">`);
+        $('head').append(`\n\t<script data-name="Imported script" src="${src}">`);
     }
 
     $('head').append(`
         <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
         <script data-name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
         <script data-name="Google Analytics import" async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-2"></script>
-        <script data-name="Google Analytics setup">
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-83550713-2');
-        </script>
+        <script data-name="Google Analytics setup">if (!window.dataLayer) window.dataLayer = [['js', new Date()], ['config', 'UA-83550713-2']];</script>
         ${headContent}
     `);
 
