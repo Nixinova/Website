@@ -24,11 +24,13 @@
         .content-container .title {width: 50vw;}
         .content-container .contents {width: 30vw; text-align: left;}
     </style>
+</head>
+<body>
     <script data-name="Full page scrolling script">
         let href = location.href + '#';
         let height = window.innerHeight * 5;
         let lastScrollTop = 0;
-        window.addEventListener('scroll', function() {
+        $(window).scroll('scroll', function() {
             let scrollTop = $(this).scrollTop();
             if (scrollTop > lastScrollTop) {
                 /**/ if (window.pageYOffset < window.innerHeight*1) location.href = href + 'maps'
@@ -44,8 +46,6 @@
             lastScrollTop = scrollTop;
         });
     </script>
-</head>
-<body>
     <script id="page-loader-script">
         var PAGE_DATA = {
             title: "",
