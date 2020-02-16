@@ -29,7 +29,6 @@
     <script data-name="Full page scrolling script">
         let href = location.href.split('#')[0] + '#';
         let height = window.innerHeight * 5;
-        let lastScrollTop = 0;
         $(window).bind('mousewheel', function(event) {
             if (event.originalEvent.wheelDelta < 0) { // scroll down
                 /**/ if (window.pageYOffset < window.innerHeight*1) location.href = href + 'maps'
@@ -42,7 +41,7 @@
                 else if (window.pageYOffset < window.innerHeight*4) location.href = href + 'tools'
                 else if (window.pageYOffset < window.innerHeight*5) location.href = href + 'packs'
             }
-            lastScrollTop = scrollTop;
+            event.preventDefault()
         });
     </script>
     <script id="page-loader-script">
