@@ -40,10 +40,10 @@ function loadData(input) {
 
     $('[href="/assets/css/main.less"]').remove(); // will be readded later
     for (let stylesheet of data.stylesheets) {
-        if (stylesheet.includes('css/main')) continue; // already added in post-processing
+        if (stylesheet.includes('main')) continue; // already added in post-processing
         let rel = "stylesheet";
         if (stylesheet.includes('.less')) rel += '/less';
-        $('head').prepend(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
+        $('head').append(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
     }
     $(document).ready(setTimeout(_ => {
         let $less = $('[id^="less:"]');
