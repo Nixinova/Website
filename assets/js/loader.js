@@ -2,7 +2,6 @@ var loadCount = 0;
 function loadData(input) {
 
     if (loadCount > 0) return;
-    $('body').addClass('hide');
 
     let data = {
         title: input.title,
@@ -20,6 +19,7 @@ function loadData(input) {
     let og_image = data.og_description ? `\n<meta property="og:image" content="https://nixinova.com/assets/images/${data.og_image}">` : '';
 
     $('html').attr('lang', 'en-NZ');
+    $('[data-name="Temporary styles"]').remove();
 
     // HEAD //
 
@@ -28,7 +28,6 @@ function loadData(input) {
     $('head').empty();
 
     $('head').append(`
-        <meta charset="UTF-8">
         <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
         <meta name="description" content="${data.description.replace(/\n|  +/g, ' ')}">
         <meta name="keywords" content="${data.keywords.replace(/\n|  +/g, ' ').replace(/,+/g, ',')}">
@@ -84,8 +83,6 @@ function loadData(input) {
 
     $('#page-loader-script').remove();
     $('[src="/loader.js"]').remove();
-
-    $('body').removeClass('hide');
 
     loadCount++;
 
