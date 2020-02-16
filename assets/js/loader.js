@@ -51,7 +51,7 @@ function loadData(input) {
         <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
         <script data-name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
         <script data-name="Google Analytics import" async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-2"></script>
-        <script data-name="Google Analytics setup">if (!window.dataLayer) window.dataLayer = [['js', new Date()], ['config', 'UA-83550713-2']];</script>
+        <script data-name="Google Analytics setup">if (!window.dataLayer) window.dataLayer = []; function gtag() {dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-83550713-2');</script>
         ${headContent}
     `);
 
