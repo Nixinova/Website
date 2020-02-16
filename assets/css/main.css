@@ -1,14 +1,15 @@
 /* Variables */
-@body-color: #313131; @header-color: #222;
-@header-height: 82px; @footer-height: 72px; @main-height: 100vh - @footer-height;
-:root {--body-color: @body-color; --header-color: @header-color; --header-height: @header-height; --footer-height: @footer-height; --main-height: @main-height;}
+:root {
+    --body-color: #313131; --header-color: #222;
+    --header-height: 82px; --footer-height: 72px; --main-height: calc(100vh - var(--footer-height));
+}
 
 /* Base elements */
 * {box-sizing: border-box;/*transition: 0.5s;*/}
-body {font: normal 15px 'Montserrat', sans-serif; background: @body-color; margin: 0; color: #eee; line-height: 1.8;}
+body {font: normal 15px 'Montserrat', sans-serif; background: var(--body-color); margin: 0; color: #eee; line-height: 1.8;}
 header {position: fixed; width: 100%; z-index: 100;}
-main {padding-top: @header-height; min-height: @main-height;}
-nav {background: @header-color;}
+main {padding-top: var(--header-height); min-height: var(--main-height);}
+nav {background: var(--header-color);}
 p {margin: 1em; text-align: center;}
 i:not(.noclick) {cursor: pointer;}
 code {font-size: 1.1em;}
@@ -17,12 +18,10 @@ img {max-width: 100%; vertical-align: middle; border: 0;}
 abbr {cursor: help;}
 
 /* Footer */
-footer {
-    width: 100%; padding: 15px; background: @header-color; margin-top: 12px; border-top: 2px solid #fff; text-align: center;
-    ul {margin: 0;}
-    li {display: inline; white-space: nowrap;}
-    li:not(:empty):not(:first-child)::before {content:' • ';}
-}
+footer {width: 100%; padding: 15px; background: var(--header-color); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}
+footer ul {margin: 0;}
+footer li {display: inline; white-space: nowrap;}
+footer li:not(:empty):not(:first-child)::before {content:' • ';}
 
 /* Headings */
 h1, h2, h3, h4, h5 {color: #eee; margin: 0; font-weight: bold; text-align: center; width: 100%;}

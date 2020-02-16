@@ -33,25 +33,14 @@ function loadData(input) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
         <link rel="icon" href="/favicon.ico">
-        <link data-name="Main styles" rel="stylesheet/less" href="/assets/css/main.less">
+        <link data-name="Main styles" rel="stylesheet" href="/assets/css/main.css">
         <link data-name="Fonts import" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     `);
 
     for (let stylesheet of data.stylesheets) {
         if (stylesheet.includes('main')) continue; // already added in post-processing
-        let rel = "stylesheet";
-        if (stylesheet.includes('.less')) rel += '/less';
-        $('head').append(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
+        $('head').append(`\n\t<link rel="stylesheet" href="/assets/css/${stylesheet}">`);
     }
-    $(document).ready(setTimeout(_ => {
-        let $less = $('[id^="less:"]');
-        for (let i = 0; i < $less.length; i ++) {
-            $less.eq(i).html($less.eq(i).html().replace(/\n */g, ' ')).attr('data-name', 'Converted Less styles');
-            let newStyles = $less.eq(i);
-            $less.eq(i).remove();
-            $('head').append(newStyles);
-        }
-    }, 1000));
 
     for (let script of data.scripts) {
         let src = script.startsWith('./') ? script.substr(2) : script;
@@ -68,7 +57,6 @@ function loadData(input) {
           gtag('js', new Date());
           gtag('config', 'UA-83550713-2');
         </script>
-        <script data-name="Less.js import" src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
         ${headContent}
     `);
 
