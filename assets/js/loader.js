@@ -43,7 +43,7 @@ function loadData(input) {
     }
 
     for (let script of data.scripts) {
-        let src = script.startsWith('./') ? script.substr(2) : script;
+        let src = script.startsWith('./') ? script.substr(2) : "/assets/js/"+script;
         $('head').append(`\n\t<script data-name="Imported script" src="${src}">`);
     }
 
