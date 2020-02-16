@@ -28,7 +28,7 @@
 <body>
     <script data-name="Full page scrolling script">
         let lastScroll = 0;
-        $(window).scroll(function() {
+        $(window).bind('mousewheel', function() {
             console.log('scrolling')
             if (lastScroll < window.pageYOffset) {
                 window.scrollBy(0, window.innerHeight);
