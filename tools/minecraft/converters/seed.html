@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="/assets/css/tools.css">
     <style data-name="Page styles">
         output {display: block;}
         output img {width: 256px; image-rendering: pixelated;}
@@ -37,9 +38,11 @@
         <h1>Minecraft Seed Converter</h1>
         <p>Converts a string into a numeric world seed for Minecraft.</p>
         
-        <input type="text">
-        <button type="button" onclick="$('output').html($('input').val().toString().hashCode());">Convert</button>
-        <output></button>
+        <p>
+            <input type="text" id="seed"> &emsp;
+            <button type="button" onclick="$('#output').html($('#seed').val().toString().hashCode());">Convert</button>
+            <output>Output seed: <span id="output"></span></button>
+        </p>
     </main>
 </body>
 </html>
