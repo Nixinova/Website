@@ -28,7 +28,7 @@
 <body>
     <script data-name="Full page scrolling script">
         let lastScroll = 0;
-        window.addEventListener('scroll', function() {
+        $(window).scroll(function() {
             console.log('scrolling')
             if (lastScroll < window.pageYOffset) {
                 window.scrollBy(0, window.innerHeight);
