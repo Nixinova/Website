@@ -84,6 +84,8 @@ function loadData(input) {
     $('#page-loader-script').remove();
     $('[src="/loader.js"]').remove();
 
+    $('body').addClass('loaded');
+
     loadCount++;
 
 }

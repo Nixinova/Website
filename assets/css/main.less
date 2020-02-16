@@ -6,9 +6,9 @@
 /* Base elements */
 * {box-sizing: border-box;/*transition: 0.5s;*/}
 body {font: normal 15px 'Montserrat', sans-serif; background: @body-color; margin: 0; color: #eee; line-height: 1.8;}
+body:not(.loaded) {visibility: hidden;}
 header {position: fixed; width: 100%; z-index: 100;}
 main {padding-top: @header-height; min-height: @main-height;}
-main:not([onclick]) {visibility: hidden;}
 nav {background: @header-color;}
 p {margin: 1em; text-align: center;}
 i:not(.noclick) {cursor: pointer;}
