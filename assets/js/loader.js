@@ -67,6 +67,7 @@ function loadData(input) {
 
     // Minify
     $(document).ready(_ => {
+        console . log ( ' minifying ' ) ;
         for (let i = 0; i < $('style').length; i++) {
             let style = $('style').eq(i);
             style.html(style.html().replace(/\n */g, ' '));
