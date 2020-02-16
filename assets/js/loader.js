@@ -36,7 +36,7 @@ function loadData(input) {
 
     $('[href="/assets/css/main.css"]').remove(); // will be readded later
     for (let stylesheet of data.stylesheets) {
-        if (stylesheet === 'main.css') continue; // already added in post-processing
+        if (stylesheet.includes('css/main')) continue; // already added in post-processing
         let rel = "stylesheet";
         if (stylesheet.includes('.less')) rel += '/less';
         $('head').prepend(`\n\t<link rel="${rel}" href="/assets/css/${stylesheet}">`);
@@ -45,6 +45,8 @@ function loadData(input) {
         let $less = $('[id^="less:"]');
         for (let i = 0; i < $less.length; i ++) {
             $less.eq(i).html($less.eq(i).html().replace(/\n */g, ' ')).attr('data-name', 'Converted Less styles');
+            $('head').prepend($less.eq(i).html());
+            $less.eq(i).remove();
         }
     }, 1000));
 
@@ -62,7 +64,7 @@ function loadData(input) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ${og_title}${og_desc}${og_image}
         <link rel="icon" href="/favicon.ico">
-        <link data-name="Default styles" rel="stylesheet" href="/assets/css/main.css">
+        <link data-name="Main styles" rel="stylesheet/less" href="/assets/css/main.less">
         <link data-name="Fonts import" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     `);
 
