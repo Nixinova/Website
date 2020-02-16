@@ -65,6 +65,16 @@ function loadData(input) {
     $('#page-loader-script').remove();
     $('[src="/loader.js"]').remove();
 
+    // Minify
+    for (let i = 0; i < $('style').length; i++) {
+        let style = $('style').eq(i);
+        style.html(style.html().replace(/\n */g, ' '));
+    }
+    for (let i = 0; i < $('script').length; i++) {
+        let script = $('script').eq(i);
+        script.html(script.html().replace(/\n */g, ' '));
+    }
+
     loadCount++;
 
 }
