@@ -103,7 +103,7 @@
                 <input type="number" step="any" placeholder="~" id="input_y"> &nbsp;
                 <input type="number" step="any" placeholder="~" id="input_z"><br/>
             </p>
-            <p data-name="NBT">
+            <p data-name="NBT" onclick="submit()">
                 <label>NBT:</label><br/>
             
                 <label for="input_customname" class="indent">Custom name:</label>
@@ -610,7 +610,7 @@
                 &nbsp;<i class="fas fa-copy" id="copyCommand" onclick="copyCommand()"></i>
             </span>
         </h3>
-        <div id="cmd-note" class="hide">
+        <div id="cmd-note" class="hide" onmouseover="submit()">
             <p>
                 <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
                 <output class="command">
