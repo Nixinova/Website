@@ -24,6 +24,26 @@
         .content-container .title {width: 50vw;}
         .content-container .contents {width: 30vw; text-align: left;}
     </style>
+    <script data-name="Full page scrolling script">
+        let href = location.href + '#';
+        let height = window.innerHeight * 5;
+        let lastScrollTop = 0;
+        $(window).scroll(function() {
+            let scrollTop = $(this).scrollTop();
+            if (scrollTop > lastScrollTop) {
+                /**/ if (window.pageYOffset < window.innerHeight*1) location.href = href + 'maps'
+                else if (window.pageYOffset < window.innerHeight*2) location.href = href + 'tools'
+                else if (window.pageYOffset < window.innerHeight*3) location.href = href + 'packs'
+                else if (window.pageYOffset < window.innerHeight*4) location.href = href + 'apis'
+            } else {
+                /**/ if (window.pageYOffset < window.innerHeight*2) location.href = href + 'welcome'
+                else if (window.pageYOffset < window.innerHeight*3) location.href = href + 'maps'
+                else if (window.pageYOffset < window.innerHeight*4) location.href = href + 'tools'
+                else if (window.pageYOffset < window.innerHeight*5) location.href = href + 'packs'
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
 </head>
 <body>
     <script id="page-loader-script">
@@ -48,7 +68,7 @@
 
     <main>
 
-        <div class="showcase-container" style="background-color: var(--blue);">
+        <div id="welcome" class="showcase-container" style="background-color: var(--blue);">
             <div>
                 <img src="/assets/images/logos/nixinova.png" alt="&thinsp;NIXINOVA" onmousedown="return false;">
                 <hr>
@@ -56,7 +76,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" data-image="minecraft/maps/kitpvp.png">
+        <div id="maps" class="showcase-container image-background" data-image="minecraft/maps/kitpvp.png">
             <div class="content-container">
                 <div class="title">
                     <h2>Maps</h2>
@@ -73,7 +93,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" data-image="minecraft/tools-background.jpg">
+        <div id="tools" class="showcase-container image-background" data-image="minecraft/tools-background.jpg">
             <div class="content-container">
                 <div class="title">
                     <h2>Tools</h2>
@@ -90,7 +110,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" data-image="minecraft/resource-packs/nixinova-mash-up.jpg">
+        <div id="packs" class="showcase-container image-background" data-image="minecraft/resource-packs/nixinova-mash-up.jpg">
             <div class="content-container">
                 <div class="title">
                     <h2>Resource Packs</h2>
@@ -107,7 +127,7 @@
             </div>
         </div>
 
-        <div class="showcase-container image-background" data-image="minecraft/apis-background.jpg">
+        <div id="apis" class="showcase-container image-background" data-image="minecraft/apis-background.jpg">
             <div class="content-container">
                 <div class="title">
                     <h2>APIs</h2>
