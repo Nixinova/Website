@@ -17,6 +17,11 @@
             }
             return hash;
         }
+
+        function submit() {
+            let seed = $('#seed').val().toString().hashCode();
+            $('output').html('Output seed: ' + seed);
+        }
     </script>
 </head>
 <body>
@@ -40,8 +45,8 @@
 
             <p>
                 <input type="text" id="seed"> &emsp;
-                <button type="button" onclick="$('#output').html($('#seed').val().toString().hashCode());">Convert</button>
-                <output>Output seed: <span id="output"></span></button>
+                <button type="button" onclick="submit();">Convert</button>
+                <output></button>
             </p>
         </div>
     </main>
