@@ -22,6 +22,7 @@ function loadData(input) {
 
     // HEAD //
 
+    $('[data-name="Default styles"]').remove();
     let headContent = $('head').html();
     $('head').empty();
 
