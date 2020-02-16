@@ -28,7 +28,7 @@
 <body>
     <script data-name="Full page scrolling script">
         let lastScroll = 0;
-        $(window).bind('mousewheel', function() {
+        function scroll() {
             console.log('scrolling')
             if (lastScroll < window.pageYOffset) {
                 window.scrollBy(0, window.innerHeight);
@@ -37,7 +37,7 @@
                 window.scrollBy(0, -window.innerHeight);
             }
             lastScroll = window.pageYOffset;
-        });
+        }
     </script>
     <script id="page-loader-script">
         var PAGE_DATA = {
@@ -59,7 +59,7 @@
         });
     </script>
 
-    <main>
+    <main onscroll="scroll()">
 
         <div id="welcome" class="showcase-container" style="background-color: var(--blue);">
             <div>
