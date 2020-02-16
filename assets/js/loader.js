@@ -48,8 +48,9 @@ function loadData(input) {
         let $less = $('[id^="less:"]');
         for (let i = 0; i < $less.length; i ++) {
             $less.eq(i).html($less.eq(i).html().replace(/\n */g, ' ')).attr('data-name', 'Converted Less styles');
-            $('head').append($less.eq(i));
+            let newStyles = $less.eq(i);
             $less.eq(i).remove();
+            $('head').append(newStyles);
         }
     }, 1000));
 
