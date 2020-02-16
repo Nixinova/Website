@@ -30,17 +30,14 @@
         let lastScroll = 0;
 
         window.addEventListener('scroll', function() {
-            $(':root').css('scroll-behavior','smooth');
-          // scroll down
-          if (lastScroll < window.pageYOffset) {
-            window.scrollBy(0, window.innerHeight);
-          }
-          // scroll up
-          else if (lastScroll > window.pageYOffset) {
-            window.scrollBy(0, window.innerHeight * -1);
-          }
-          lastScroll = window.pageYOffset;
-            $(':root').css('scroll-behavior','initial');
+            console.debug('scrolling')
+            if (lastScroll < window.pageYOffset) {
+                window.scrollBy(0, window.innerHeight);
+            }
+            else if (lastScroll > window.pageYOffset) {
+                window.scrollBy(0, -window.innerHeight);
+            }
+            lastScroll = window.pageYOffset;
         });
     </script>
     <script id="page-loader-script">
