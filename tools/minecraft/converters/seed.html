@@ -7,7 +7,8 @@
         p {text-align: center;}
     </style>
     <script data-name="Page script">
-        String.prototype.hashCode = function(){
+        String.prototype.hashCode = function() {
+            if (this.matches(/0-9/)) return this;
             var hash = 0;
             for (var i = 0; i < this.length; i++) {
                 var character = this.charCodeAt(i);
@@ -32,15 +33,17 @@
         var sections = ['username', 'uuid', 'username-history', 'skin', 'cape'];
     </script>
 
-    <main>
-        <h1>Minecraft Seed Converter</h1>
-        <p>Converts a string into a numeric world seed for Minecraft.</p>
-        
-        <p>
-            <input type="text" id="seed"> &emsp;
-            <button type="button" onclick="$('#output').html($('#seed').val().toString().hashCode());">Convert</button>
-            <output>Output seed: <span id="output"></span></button>
-        </p>
+    <main style="display: flex;">
+        <div style="margin: auto;">
+            <h1>Minecraft Seed Converter</h1>
+            <p>Converts a string into a numeric world seed for Minecraft.</p>
+
+            <p>
+                <input type="text" id="seed"> &emsp;
+                <button type="button" onclick="$('#output').html($('#seed').val().toString().hashCode());">Convert</button>
+                <output>Output seed: <span id="output"></span></button>
+            </p>
+        </div>
     </main>
 </body>
 </html>
