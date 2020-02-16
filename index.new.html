@@ -27,21 +27,20 @@
 </head>
 <body>
     <script data-name="Full page scrolling script">
-        let href = location.href.split('#')[0] + '#';
-        let height = window.innerHeight * 5;
-        $(window).bind('mousewheel', function(event) {
-            if (event.originalEvent.wheelDelta < 0) { // scroll down
-                /**/ if (window.pageYOffset < window.innerHeight*1) location.href = href + 'maps'
-                else if (window.pageYOffset < window.innerHeight*2) location.href = href + 'tools'
-                else if (window.pageYOffset < window.innerHeight*3) location.href = href + 'packs'
-                else if (window.pageYOffset < window.innerHeight*4) location.href = href + 'apis'
-            } else { // scroll up
-                /**/ if (window.pageYOffset < window.innerHeight*2) location.href = href + 'welcome'
-                else if (window.pageYOffset < window.innerHeight*3) location.href = href + 'maps'
-                else if (window.pageYOffset < window.innerHeight*4) location.href = href + 'tools'
-                else if (window.pageYOffset < window.innerHeight*5) location.href = href + 'packs'
-            }
-            event.preventDefault()
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', function() {
+            $(':root').css('scroll-behavior','smooth');
+          // scroll down
+          if (lastScroll < window.pageYOffset) {
+            window.scrollBy(0, window.innerHeight);
+          }
+          // scroll up
+          else if (lastScroll > window.pageYOffset) {
+            window.scrollBy(0, window.innerHeight * -1);
+          }
+          lastScroll = window.pageYOffset;
+            $(':root').css('scroll-behavior','initial');
         });
     </script>
     <script id="page-loader-script">
