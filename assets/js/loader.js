@@ -65,18 +65,6 @@ function loadData(input) {
     $('#page-loader-script').remove();
     $('[src="/loader.js"]').remove();
 
-    // Minify
-    $(document).ready(setTimeout(_ => {
-        for (let i = 0; i < $('style').length; i++) {
-            let style = $('style').eq(i);
-            style.html(style.html().replace(/\n */g, ' '));
-        }
-        for (let i = 0; i < $('script').length; i++) {
-            let script = $('script').eq(i);
-            script.html(script.html().replace(/\n */g, ' '));
-        }
-    }, 1000));
-
     loadCount++;
 
 }
