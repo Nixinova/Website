@@ -26,7 +26,7 @@ abbr {cursor: help;}
 footer {width: 100%; padding: 15px; background: var(--header-color); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}
 footer ul {margin: 0;}
 footer li {display: inline; white-space: nowrap;}
-footer li:not(:empty):not(:last-child)::after {content:' • ';}
+footer li:not(:empty):not(:first-child)::before {content:' • ';}
 
 /* Headings */
 h1, h2, h3, h4, h5 {color: #eee; margin: 0; font-weight: bold; text-align: center; width: 100%;}
