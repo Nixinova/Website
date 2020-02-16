@@ -22,7 +22,6 @@ function loadData(input) {
 
     // HEAD //
 
-    $('[href="/assets/css/main.less"]').remove(); // will be readded later
     let headContent = $('head').html();
     $('head').empty();
 
