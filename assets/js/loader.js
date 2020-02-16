@@ -24,6 +24,7 @@ function loadData(input) {
 
     let headContent = $('head').html();
     $('head').empty();
+    $('[href="/assets/css/main.less"]').remove(); // will be readded later
 
     $('head').append(`
         <meta charset="UTF-8">
@@ -38,7 +39,6 @@ function loadData(input) {
         <link data-name="Fonts import" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     `);
 
-    $('[href="/assets/css/main.less"]').remove(); // will be readded later
     for (let stylesheet of data.stylesheets) {
         if (stylesheet.includes('main')) continue; // already added in post-processing
         let rel = "stylesheet";
