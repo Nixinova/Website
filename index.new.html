@@ -27,17 +27,16 @@
 </head>
 <body>
     <script data-name="Full page scrolling script">
-        let href = location.href + '#';
+        let href = location.href.split('#')[0] + '#';
         let height = window.innerHeight * 5;
         let lastScrollTop = 0;
-        $(window).scroll('scroll', function() {
-            let scrollTop = $(this).scrollTop();
-            if (scrollTop > lastScrollTop) {
+        $(window).bind('mousewheel', function() {
+            if (event.originalEvent.wheelDelta < 0) { // scroll down
                 /**/ if (window.pageYOffset < window.innerHeight*1) location.href = href + 'maps'
                 else if (window.pageYOffset < window.innerHeight*2) location.href = href + 'tools'
                 else if (window.pageYOffset < window.innerHeight*3) location.href = href + 'packs'
                 else if (window.pageYOffset < window.innerHeight*4) location.href = href + 'apis'
-            } else {
+            } else { // scroll up
                 /**/ if (window.pageYOffset < window.innerHeight*2) location.href = href + 'welcome'
                 else if (window.pageYOffset < window.innerHeight*3) location.href = href + 'maps'
                 else if (window.pageYOffset < window.innerHeight*4) location.href = href + 'tools'
