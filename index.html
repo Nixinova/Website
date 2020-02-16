@@ -20,9 +20,12 @@
         .showcase-container ul li {padding-left: 0; list-style-type: none;}
         .showcase-container ul li a {border-bottom: 2px solid; color: #eee;}
         .image-background {background-attachment: fixed; background-blend-mode: overlay; background-position: center; background-size: cover; background-color: #333;}
-        .content-container {display: flex;}
-        .content-container .title {width: 50vw;}
-        .content-container .contents {width: 30vw; text-align: left;}
+
+        @media (min-width: 800px) {
+            .content-container {display: flex;}
+            .content-container .title {width: 50vw;}
+            .content-container .contents {width: 30vw; text-align: left;}
+        }
     </style>
 </head>
 <body>
