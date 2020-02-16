@@ -23,8 +23,14 @@ function loadData(input) {
     // HEAD //
 
     $('[data-name="Default styles"]').remove();
+    let pageStyles = $('style');
     let headContent = $('head').html();
     $('head').empty();
+    for (let i = 0; i < pageStyles.length; i ++) {
+        let newStyles = pageStyles.eq(i);
+        pageStyles.eq(i).remove();
+        headContent.append(newStyles);
+    }
 
     $('head').append(`
         <meta charset="UTF-8">
