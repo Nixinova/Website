@@ -3,6 +3,9 @@ function loadData(input) {
 
     if (loadCount > 0) return;
 
+    let headContent = $('head').html();
+    $('head').empty();
+
     let data = {
         title: input.title,
         description: input.description || input.title,
@@ -69,6 +72,8 @@ function loadData(input) {
     `);
 
     $('head').append('<script data-name="Less.js import" src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>');
+
+    $('head').append(headContent);
 
     // BODY //
     $('body').prepend(`\n<header>\n\t<nav>\n\t</nav>\n</header>\n`);
