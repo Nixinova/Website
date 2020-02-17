@@ -5,7 +5,7 @@
 }
 
 /* Base elements */
-* {box-sizing: border-box;/*transition: 0.5s;*/}
+* {box-sizing: border-box; /*transition: 0.5s;*/}
 body {font: normal 15px 'Montserrat', sans-serif; background: var(--body-color); margin: 0; color: #eee; line-height: 1.8;}
 header {position: fixed; width: 100%; z-index: 100;}
 main {padding-top: var(--header-height); min-height: var(--main-height);}
@@ -53,16 +53,14 @@ hr.divider {width: 90%;}
 iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 
 /* Galleries */
-#gallery {
-    width: 100%;
-    .screenshot {height: calc(75vh/16*10); background-position: center; background-size: cover; border-bottom: 2px solid white;}
-}
+#gallery {width: 100%;}
+#gallery .screenshot {height: calc(75vh/16*10); background-position: center; background-size: cover; border-bottom: 2px solid white;}
+
 /* Buttons */
 button {background: #19f; color: #fff; padding: 12px 30px; cursor: pointer; font-size: 20px; border: none; border-radius: 0.5em; transition: 0.25s;}
-div.download {
-    text-align: center;
-    button {margin: 0; border-radius: 2em;}
-}
+div.download {text-align: center;}
+div.download button {margin: 0; border-radius: 2em;}
+
 a button, a:visited button {color: #fff; text-decoration: none;}
 a:hover button {background: #46e; font-size: 21px;}
 
