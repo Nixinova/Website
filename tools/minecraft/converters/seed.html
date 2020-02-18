@@ -8,9 +8,9 @@
     </style>
     <script data-name="Page script">
         String.prototype.hashCode = function() {
-            if (/^[0-9]+$/.test(this)) return this;
+            if (/^[0-9]+$/.test(this) && this.length < 20) return this;
             var hash = 0;
-            for (var i = 0; i < this.length && i < 32; i++) {
+            for (var i = 0; i < this.length; i++) {
                 var character = this.charCodeAt(i);
                 hash = ((hash<<5)-hash)+character;
                 hash = hash & hash; // Convert to 32bit integer
@@ -44,7 +44,7 @@
             <p>Converts a string into a numeric Minecraft world seed.</p>
 
             <p>
-                <input type="text" id="seed"> &emsp;
+                <input type="text" id="seed" maxlength="32"> &emsp;
                 <button type="button" onclick="submit();">Convert</button>
                 <output style="margin: 2em;"></button>
             </p>
