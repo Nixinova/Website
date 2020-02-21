@@ -63,8 +63,16 @@ function loadData(input) {
     $('nav').load('/assets/imports/navigation');
     $('footer').load('/assets/imports/footer');
 
+    // Cleanup //
     $('#page-loader-script').remove();
     $('[src="/loader.js"]').remove();
+
+    // CSS+ //
+    let hr = $('hr');
+    for (let i = 0; i < hr.length; i++) {
+        h.eq(i).prev()
+    }
+    $("#the_element").prev().css("background-color", "red")
 
     loadCount++;
 
