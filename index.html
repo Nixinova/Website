@@ -21,8 +21,8 @@
         .showcase-container ul li a {border-bottom: 2px solid; color: #eee;}
         .image-background {background: fixed #333 center; background-blend-mode: overlay; background-size: cover;}
 
-        h2::after, h2::before {content: ""; display: block; width: 20vw; height: 2px; margin-left: calc(50% - 20vw/2); background: #fff; transition: 1s;}
-        h2:hover::after, h2:hover::before {width: 30vw; margin-left: calc(50% - 30vw/2);}
+        h2::after, h2::before {content:""; display:block; width:50%; height:2px; margin-left:25%; background:#fff; transition: 1s;}
+        .showcase-container:hover h2::after, .showcase-container:hover h2::before {width: 100%; margin-left: 0;}
 
         @media (min-width: 900px) {
             .content-container {display: flex;}
