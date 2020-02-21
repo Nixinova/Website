@@ -41,10 +41,11 @@
         }
         $(document).ready(function() {
             loadData(PAGE_DATA);
-            let data_image = $('[data-image]');
-            for (let i = 0; i < data_image.length; i++) {
-                let imageData = data_image.eq(i).attr('data-image');
-                data_image.eq(i).attr('data-image', `url(/assets/images/${imageData})`);
+            let imageData = $('[data-image]');	
+            for (let i = 0; i < imageData.length; i++) {	
+                let style = imageData.eq(i).attr('style') || '';	
+                imageData.eq(i).attr('style',style+`background-image: url("/assets/images/${imageData.eq(i).attr('data-image')}");`);	
+                imageData.eq(i).removeAttr('data-image');	
             }
         });
     </script>
