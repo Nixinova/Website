@@ -24,8 +24,9 @@ footer li {display: inline; white-space: nowrap;}
 footer li:not(:empty):not(:first-child)::before {content:' • ';}
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {margin-bottom: 0; color: #eee; font-weight: bold; text-align: center;}
+h1, h2, h3, h4, h5, h6 {margin: 0; color: #eee; font-weight: bold; text-align: center;}
 h1, h2, h3, h4 {text-transform: uppercase;}
+h1~hr, h2~hr, h3~hr, h4~hr, h5~hr, h6~hr {margin-top: 1em;}
 h1+hr, h2+hr, h3+hr, h4+hr, h5+hr, h6+hr {width: 10%;}
 h1 {font-size: 2.6em;}
 h2 {font-size: 2.1em;}

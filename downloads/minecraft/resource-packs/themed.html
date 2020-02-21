@@ -10,11 +10,10 @@
                 table.append(`
                     <tr>
                         <td width="320px">
-                            <span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span> ${pack.mcver}
+                            <span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span>
+                            <span>${pack.mcver}</span>
                         </td>
-                        <td width="75px">
-                            ${pack.packver}
-                        </td>
+                        <td width="75px">${pack.packver}</td>
                         <td width="100px" class="desktoponly">
                             <a href="https://mediafire.com?${pack.dl}" target="_blank">Download</a>
                         </td>
@@ -22,7 +21,7 @@
                             <samp><time datetime="${pack.date}+12:00">${pack.date}</time></samp>
                         </td>
                     </tr>
-                `.replace(/  +/g, ' '));
+                `);
             }
         }
     </script>
@@ -43,10 +42,11 @@
 
     <main>
         <div id="gallery">
-            <div class="screenshot" style="background-image: url('/assets/images/minecraft/resource-packs/easter-mash-up.jpg');"></div>
+            <div class="screenshot" style="background-image: url('/assets/images/minecraft/resource-packs/easter-mash-up.jpg');">
+                <h1>Themed Mash-Up Packs</h1>
+            </div>
         </div>
     
-        <h1>Themed Mash-Up Packs</h2>
         <p>
             These packs are themed holiday packs, which only change a few textures.<br/>
             Use in addition to my <a href="mash-up">regular Mash-Up Pack</a> for the best experience!<br/>
