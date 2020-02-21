@@ -19,7 +19,7 @@
         .showcase-container ul {padding-left: 0; list-style-type: none; font-size: 2.5em;}
         .showcase-container ul li {padding-left: 0; list-style-type: none;}
         .showcase-container ul li a {border-bottom: 2px solid; color: #eee;}
-        .image-background {background: fixed #333 center; background-blend-mode: overlay; background-size: cover;}
+        .image-background {background: attr(data-image) fixed #333 center; background-blend-mode: overlay; background-size: cover;}
 
         @media (min-width: 900px) {
             .content-container {display: flex;}
@@ -39,15 +39,7 @@
             stylesheets: ["main.css"],
             scripts: []
         }
-        $(document).ready(function() {
-            loadData(PAGE_DATA);
-            let imageData = $('[data-image]');
-            for (let i = 0; i < imageData.length; i++) {
-                let style = imageData.eq(i).attr('style') || '';
-                imageData.eq(i).attr('style',style+`background-image: url("/assets/images/${imageData.eq(i).attr('data-image')}");`);
-                imageData.eq(i).removeAttr('data-image');
-            }
-        });
+        $(document).ready(function() {loadData(PAGE_DATA);});
     </script>
 
     <main>
