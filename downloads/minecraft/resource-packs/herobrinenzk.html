@@ -9,18 +9,12 @@
             let dl_title = `Download ${pack.name} for Minecraft ${pack.mcver}`;
             table.append(`
                 <tr>
-                    <td width="200px">
-                        ${pack.name}
-                    </td>
-                    <td width="50px">
-                        ${pack.mcver}
-                    </td>
+                    <td width="200px">${pack.name}</td>
+                    <td width="50px">${pack.mcver}</td>
                     <td width="100px" class="desktoponly">
                         <a href="https://mediafire.com?${pack.dl}" target="_blank" title="${dl_title}">Download</a>
                     </td>
-                    <td width="120px">
-                        <samp><time datetime="${pack.date}+12:00">${pack.date}</time></samp>
-                    </td>
+                    <td width="120px"><samp><time datetime="${pack.date}+12:00">${pack.date}</time></samp></td>
                 </tr>
             `);
         }
