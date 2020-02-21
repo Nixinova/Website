@@ -39,7 +39,14 @@
             stylesheets: ["main.css"],
             scripts: []
         }
-        $(document).ready(function() {loadData(PAGE_DATA);});
+        $(document).ready(function() {
+            loadData(PAGE_DATA);
+            let data_image = $('[data-image]');
+            for (let i = 0; i < data_image.length; i++) {
+                let imageData - imageData.eq(i).attr('data-image');
+                data_image.eq(i).attr('data-image', `url(/assets/images/${imageData})`);
+            }
+        });
     </script>
 
     <main>
