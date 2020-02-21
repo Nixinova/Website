@@ -21,6 +21,9 @@
         .showcase-container ul li a {border-bottom: 2px solid; color: #eee;}
         .image-background {background: fixed #333 center; background-blend-mode: overlay; background-size: cover;}
 
+        h2::after, h2::before {content: ""; display: block; width: 20vw; height: 2px; margin-left: calc(50% - 20vw/2); background: #fff; transition: 1s;}
+        h2:hover::after, h2:hover::before {width: 30vw; margin-left: calc(50% - 30vw/2);}
+
         @media (min-width: 900px) {
             .content-container {display: flex;}
             .content-container .title {width: 50vw;}
@@ -53,9 +56,7 @@
         <div id="maps" class="showcase-container image-background" style="background-image: url(/assets/images/minecraft/maps/kitpvp.jpg)">
             <div class="content-container">
                 <div class="title">
-                    <hr>
                     <h2>Maps</h2>
-                    <hr>
                 </div>
                 <div class="contents">
                     <ul>
@@ -70,9 +71,7 @@
         <div id="tools" class="showcase-container image-background" style="background-image: url(/assets/images/minecraft/tools-background.jpg);">
             <div class="content-container">
                 <div class="title">
-                    <hr>
                     <h2>Tools</h2>
-                    <hr>
                 </div>
                 <div class="contents">
                     <ul>
@@ -88,9 +87,7 @@
         <div id="packs" class="showcase-container image-background" style="background-image: url(/assets/images/minecraft/resource-packs/nixinova-mash-up.jpg);">
             <div class="content-container">
                 <div class="title">
-                    <hr>
                     <h2>Resource Packs</h2>
-                    <hr>
                 </div>
                 <div class="contents">
                     <ul>
@@ -105,9 +102,7 @@
         <div id="apis" class="showcase-container image-background" style="background-image: url(/assets/images/minecraft/apis-background.jpg); background-color: #444;">
             <div class="content-container">
                 <div class="title">
-                    <hr>
                     <h2>APIs</h2>
-                    <hr>
                 </div>
                 <div class="contents">
                     <ul>
