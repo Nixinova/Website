@@ -5,7 +5,7 @@
 }
 
 /* Base elements */
-* {box-sizing: border-box; /*transition: 0.5s;*/}
+* {box-sizing: border-box; transition: 0.5s;}
 body {font: normal 15px 'Montserrat', sans-serif; background: var(--body-color); margin: 0; color: #eee; line-height: 1.8;}
 header {position: fixed; width: 100%; z-index: 100;}
 main {padding-top: var(--header-height); min-height: var(--main-height);}
@@ -21,7 +21,7 @@ abbr {cursor: help;}
 footer {width: 100%; padding: 15px; background: var(--header-color); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}
 footer ul {margin: 0;}
 footer li {display: inline; white-space: nowrap;}
-footer li:not(:empty):not(:first-child)::before {content:' • ';}
+footer li:not(:empty):not(:first-child)::before {content: ' • ';}
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {margin: 0; color: #eee; font-weight: bold; text-align: center;}
@@ -32,18 +32,16 @@ h3 {font-size: 1.6em;}
 h4 {font-size: 1.4em;}
 h5 {font-size: 1.2em;}
 h2.section-header {margin-top: 0.8em; margin-bottom: 0.5em;}
-h2.section-header::after {content: ""; display: block; width: 15vw; height: 2px; margin-left: calc(50% - 15vw/2); background: #fff;}
+h2.section-header::after {content: ""; display: block; width: 10vw; height: 2px; margin-left: calc(50% - 15vw/2); background: #fff;}
+h2.section-header:hover::after {width: 20vw; margin-left: calc(50% - 20vw/2); transition: 1s;}
 
 /* Links */
 a {text-decoration: none; cursor: pointer;}
 a[href] {color: #acf;}
 a[href]:hover {opacity: 0.65; transition: 0.2s;}
 
-/* Lists */
-ul.plain {list-style-type: none; text-align: center;}
-
 /* Tables */
-table.styled tr th, table.styled tr td {border: 1px solid #555; padding: 0.2em 0.4em;}
+table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
 
 /* Dividers */
 hr.half {width: 50%;}
@@ -55,15 +53,12 @@ iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 /* Galleries */
 #gallery {width: 100%; margin-bottom: 1em;}
 #gallery .screenshot {display: flex; height: calc(75vh/16*10); border-bottom: 2px solid white; background: #333 center/cover; background-blend-mode: overlay;}
-#gallery .screenshot h1 {margin: auto;}
+#gallery h1 {margin: auto;}
 
 /* Buttons */
-button {background: #19f; color: #fff; padding: 12px 30px; cursor: pointer; font-size: 20px; border: none; border-radius: 0.5em; transition: 0.25s;}
-div.download {text-align: center;}
-div.download button {margin: 0; border-radius: 2em;}
-
-a button, a:visited button {color: #fff; text-decoration: none;}
-a:hover button {background: #46e; font-size: 21px;}
+button {background: #19f; color: #fff; padding: 12px 30px; cursor: pointer; font-size: 20px; border: none; border-radius: 0.5em;}
+button:hover {background: #08f; transition: 0.25s;}
+button.download {margin: 0; border-radius: 2em;}
 
 /* Hiding */
 .hide {display: none !important;}
