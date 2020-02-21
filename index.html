@@ -9,6 +9,8 @@
         body {background: var(--blue); overflow-x: hidden;}
         main {padding-top: 0;}
         footer {margin-top: 0;}
+
+        h2::before, h2::after {content: ""; display: block; width: 40%; height: 2px; margin-left: 30%; background: #fff;}
         
         .showcase-container {display: flex; height: 100vh; width: 100vw; border-top: 2px solid; text-align: center;}
         .showcase-container div {margin: auto;}
@@ -20,10 +22,6 @@
         .showcase-container ul li {padding-left: 0; list-style-type: none;}
         .showcase-container ul li a {border-bottom: 2px solid; color: #eee;}
         .image-background {background: fixed #333 center; background-blend-mode: overlay; background-size: cover;}
-
-        ::after, ::before {transition: 1s;}
-        h2::after, h2::before {content: ""; display: block; width: 50%; height: 2px; margin-left: 25%; background: #fff;}
-        .showcase-container:hover h2::after, .showcase-container:hover h2::before {width: 75%; margin-left: 12.5%;}
 
         @media (min-width: 900px) {
             .content-container {display: flex;}
