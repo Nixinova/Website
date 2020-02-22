@@ -57,22 +57,15 @@ function loadData(input) {
     `);
 
     // BODY //
-    $('body').prepend(`\n<header>\n\t<nav>\n\t</nav>\n</header>\n`);
+    $('body').prepend(`\n<header>\n</header>\n`);
     $('body').append(`\n<footer>\n</footer>\n`);
 
-    $('nav').load('/assets/imports/navigation');
+    $('header').load('/assets/imports/header');
     $('footer').load('/assets/imports/footer');
 
     // Cleanup //
     $('#page-loader-script').remove();
     $('[src="/loader.js"]').remove();
-
-    // CSS+ //
-    let hr = $('hr');
-    for (let i = 0; i < hr.length; i++) {
-        h.eq(i).prev()
-    }
-    $("#the_element").prev().css("background-color", "red")
 
     loadCount++;
 
