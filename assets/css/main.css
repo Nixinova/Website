@@ -38,8 +38,9 @@ h2.section-header:hover::after {width: 20vw; margin-left: calc(50% - 20vw/2);}
 a {text-decoration: none; cursor: pointer;}
 a[href] {color: #acf; transition: 0.2s;}
 a[href]:hover {opacity: 0.5;}
-a[href].hover-underline::after {content: ""; display: block; width: 0; height: 2px; background: #fff; transition: 0.4s;}
-*:hover>a[href].hover-underline::after {width: 5em;}
+a.hover-underline {display: block;}
+a.hover-underline::after {content: ""; display: block; width: 0; height: 2px; background: #fff; color: #fff; transition: 0.4s;}
+:hover>a.hover-underline::after {width: 5em;}
 
 /* Tables */
 table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
