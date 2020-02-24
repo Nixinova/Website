@@ -357,7 +357,7 @@ function give() {
             $preview.removeClass('§o');
         }
 
-        nbt.display.Name = "'" + JSON.stringify(display) + "'";//.replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
+        nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
     } else {
         $('#preview').addClass('hide');
         $('#expand-cname').addClass('hide');
@@ -482,7 +482,7 @@ function give() {
     // nbt //
     var NBT = '';
     if (!isEmpty(nbt)) {//                Remove quotes from tags           Allow section symbol
-        NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7');
+        NBT = cassandraMAP.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7');
     }
 
     // count //
