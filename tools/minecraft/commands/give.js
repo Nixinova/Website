@@ -482,7 +482,7 @@ function give() {
     // nbt //
     var NBT = '';
     if (!isEmpty(nbt)) {//                Remove quotes from tags           Allow section symbol
-        NBT = cassandraMAP.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7');
+        NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7');
     }
 
     // count //
