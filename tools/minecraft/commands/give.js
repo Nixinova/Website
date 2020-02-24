@@ -352,9 +352,9 @@ function give() {
 
         if (!i_italic) {
             display.italic = false;
-            $preview.addClass('§o');
-        } else {
             $preview.removeClass('§o');
+        } else {
+            $preview.addClass('§o');
         }
 
         nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
