@@ -22,8 +22,12 @@
         $(document).ready(function() {
             loadData(PAGE_DATA);
             setInterval(function() {
-                obfuscate($('.§k_1').text(),'.§k_1');
-                obfuscate($('.§k_2').text(),'.§k_2');
+                let §s = $('.§k');
+                for (let i = 0; i < §s.length; i++) {
+                    obfuscate(§s.eq(i).t.text(),§s.eq(i));
+                }
+                //obfuscate($('.§k_1').text(),'.§k_1');
+                //obfuscate($('.§k_2').text(),'.§k_2');
             },50);
             $('#footer-other').html('<a href="give.js" title="give.js" target="_blank">View code</a>');
             submit();
@@ -247,7 +251,7 @@
                         <span class="§d">§dd</span>
                         <span class="§e">§ee</span>
                         <span class="§f">§ff</span>
-                        §k<span class="§k §k_1">k</span>
+                        §k<span class="§k">k</span>
                         <span class="§l">§ll</span>
                         <span class="§m">§mm</span>
                         <span class="§n">§nn</span>
