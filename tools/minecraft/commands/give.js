@@ -324,9 +324,9 @@ function give() {
 
         if (i_obfus) {
             display.obfuscated = true;
-            $preview.addClass('§k').addClass('§k_2');
+            $preview.addClass('§k');
         } else {
-            $preview.removeClass('§k').removeClass('§k_2');
+            $preview.removeClass('§k');
         }
 
         if (i_bold) {
