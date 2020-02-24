@@ -320,6 +320,7 @@ function give() {
         }
 
         if (i_colour) {display.color = i_colour;}
+        $preview.removeClass();
         $preview.addClass(className);
 
         if (i_obfus) {
