@@ -357,7 +357,7 @@ function give() {
             $preview.removeClass('§o');
         }
 
-        nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
+        nbt.display.Name = "'" + JSON.stringify(display) + "'";//.replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
     } else {
         $('#preview').addClass('hide');
         $('#expand-cname').addClass('hide');
