@@ -37,8 +37,8 @@ function getInfo(id) {
     }).done(function(data) { window.data1 = data; console.log(data1);
         progress(0.5);
         let url, type, date;
-        for (let i = 0; i < data.length; i++) {
-            let version = data[i];
+        for (let i = 0; i < data.versions.length; i++) {
+            let version = data.versions[i];
             date = moment(version.releaseTime).format('DD MMM YYYY, HH:mm:ss [UTC]');
             if (id === 'all') {
                 $('#version').addClass('hide');
