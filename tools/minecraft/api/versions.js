@@ -13,7 +13,7 @@ function complete() {
     }, 250);
 }
 
-document.ready(_ => {
+$(document).ready(_ => {
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
     }).done(function(data) {
@@ -67,6 +67,9 @@ function getInfo(id) {
                         <td><a href="${download.client_mappings.url}" target="_blank">Client</a></td>
                         <td><a href="${download.server_mappings.url}" target="_blank">Server</a></td>
                     `);
+                }).fail(function() {
+                    console.err(version.url + " did not work")
+                    complete();
                 });
             }
         }
