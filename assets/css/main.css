@@ -89,6 +89,6 @@ button.download {margin: 0; border-radius: 2em;}
 }
 
 /* Debug */
-style[contenteditable] {display: block; background: #333; padding: 2em; white-space: pre; font-family: monospace;}
+style[contenteditable] {display: block; background: #333; color: #fff; white-space: pre; font-family: monospace;}
 
 /* Copyright © Nixinova 2020 */
