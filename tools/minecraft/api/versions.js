@@ -23,6 +23,21 @@ function initial() {
     });
 };
 
+function phase(phase, version) {
+    switch (phase) {
+        case "release": return "Release";
+        case "snapshot": return "Snapshot";
+        case "old_beta": return "Beta";
+        case "old_alpha": {
+            if (version.startsWith('a')) return "Alpha";
+            else if (version.startsWith('inf')) return "Infdev";
+            else if (version.startsWith('c')) return "Classic";
+            else if (version.startsWith('rd')) return "Pre-Classic"
+            else return phase;
+        }
+    }
+}
+
 function getInfo(id) {
     $('#loading').removeClass('hide');
     progress(0);
@@ -37,7 +52,7 @@ function getInfo(id) {
         for (let i = 0; i < data.versions.length; i++) {
             let version = data.versions[i];
             date = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss');
-            let versionType = version.type.charAt(0).toUpperCase() + version.type.slice(1);
+            let versionType = phase(version.type, version.id);
             if (id === 'all') {
                 $('#version').addClass('hide');
                 $('#list').removeClass('hide');
@@ -47,7 +62,7 @@ function getInfo(id) {
                     <td>${date}</td>
                     <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
                 </tr>`);
-            } else if (version.id == id){
+            } else if (version.id == id) {console.log(version)
                 url = version.url;
                 type = versionType;
             }
