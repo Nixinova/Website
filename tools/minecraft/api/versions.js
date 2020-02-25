@@ -36,10 +36,10 @@ function getInfo(id) {
     }).done(function(data) { console.log(data);
         progress(0.5);
         let url, type, date;
-        if (id === 'all') {
-            for (let i = 0; i < data.length; i++) {
-                let version = data[i];
-                date = moment(version.releaseTime).format('DD MMM YYYY, HH:mm:ss [UTC]');
+        for (let i = 0; i < data.length; i++) {
+            let version = data[i];
+            date = moment(version.releaseTime).format('DD MMM YYYY, HH:mm:ss [UTC]');
+            if (id === 'all') {
                 $('#version').addClass('hide');
                 $('#list').removeClass('hide');
                 $('#list').append(`<tr>
@@ -48,12 +48,16 @@ function getInfo(id) {
                     <td>${date}</td>
                     <td><a href="javascript:getInfo(${version.id})">Generate</a></td>
                 </tr>`);
-                if (version.id == id){
-                    url = version.url;
-                    type = version.type;
-                }
+            } else if (version.id == id){
+                url = version.url;
+                type = version.type;
             }
-        } else {
+        }
+        if (id === 'all') {
+            for (let i = 0; i < data.length; i++) {
+            }
+        } 
+        if (id !== 'all') {
             $('#list').addClass('hide');
             $('#version').removeClass('hide');
             $('#title').html(id);
@@ -73,7 +77,7 @@ function getInfo(id) {
                     <td><a href="${download.server_mappings.url}" target="_blank">Server</a></td>
                 `);
             }).fail(function() {
-                console.err(url + " did not work")
+                console.error(url + " did not work")
                 complete();
             });
         }
