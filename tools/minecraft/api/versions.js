@@ -48,9 +48,9 @@ function getInfo(id) {
         url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
     }).done(function(data) { window.data1 = data;
         progress(0.5);
-        var url, type, date;
+        let url, type, date;
         for (let i = 0; i < data.versions.length; i++) {
-            let version = data.versions[i]; console.log(version)
+            let version = data.versions[i];
             date = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss');
             let versionType = phase(version.type, version.id);
             if (id === 'all') {
@@ -62,12 +62,12 @@ function getInfo(id) {
                     <td>${date}</td>
                     <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
                 </tr>`);
-            } else if (version.id == id) {console.log(version, id, version.id == id, version.url);
+            } else if (version.id == id) {
                 url = version.url;
                 type = versionType;
             }
         }
-        if (id !== 'all') {
+        if (id !== 'all' && url) {
             $('#list').addClass('hide');
             $('#version').removeClass('hide');
             $('#title').html(id);
