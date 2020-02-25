@@ -83,9 +83,9 @@ function getInfo(id) {
                     <td><samp><time datetime="${date || ''}">${date || ''}</time></samp></td>
                     <td><a href="${download.client.url}" target="_blank">Client</a></td>
                     <td><a href="${url}" target="_blank">JSON</a></td>
-                    <td>${server ? `<a href="${server.url}" target="_blank">Server</a>` : 'N.A'}</td>
-                    <td>${client_mappings ? `<a href="${client_mappings.url}" target="_blank">Client</a>` : 'N.A'}</td>
-                    <td>${server_mappings ? `<a href="${server_mappings.url}" target="_blank">Server</a>` : 'N.A'}</td>
+                    <td>${server ? `<a href="${server.url}" target="_blank">Server</a>` : 'N/A'}</td>
+                    <td>${client_mappings ? `<a href="${client_mappings.url}" target="_blank">Client</a>` : 'N/A'}</td>
+                    <td>${server_mappings ? `<a href="${server_mappings.url}" target="_blank">Server</a>` : 'N/A'}</td>
                 </tr>`);
                 progress(1);
                 complete();
