@@ -28,18 +28,19 @@ function getInfo(id) {
     $('#loading').removeClass('hide');
     $('#output').addClass('hide');
     progress(0);
-    //for (let id of sections) {
-    //    $('#' + id).empty();
-    //}
-    console.log('id='+id);
+    for (let id of sections) {
+        $('#' + id).empty();
+    }
+    $('#list').html(listContent);
+    $('#version').html(versionContent);
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
-    }).done(function(data) { window.data1 = data; console.log(data1);
+    }).done(function(data) { window.data1 = data;
         progress(0.5);
         let url, type, date;
         for (let i = 0; i < data.versions.length; i++) {
             let version = data.versions[i];
-            date = moment(version.releaseTime).format('DD MMM YYYY, HH:mm:ss [UTC]');
+            date = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss [UTC]');
             if (id === 'all') {
                 $('#version').addClass('hide');
                 $('#list').removeClass('hide');
@@ -64,7 +65,7 @@ function getInfo(id) {
             `);
             $.ajax({
                 url: 'https://cors-anywhere.herokuapp.com/' + url
-            }).done(function(data) { window.data2 = data; console.log(data2);
+            }).done(function(data) { window.data2 = data;
                 let download = data.downloads;
                 $('#version').append(`
                     <td><a href="${download.client.url}" target="_blank">Client</a></td>
@@ -73,15 +74,11 @@ function getInfo(id) {
                     <td><a href="${download.client_mappings.url}" target="_blank">Client</a></td>
                     <td><a href="${download.server_mappings.url}" target="_blank">Server</a></td>
                 `);
-            }).fail(function() {
-                console.error(url + " did not work")
-                complete();
-            });
+            })
         }
         progress(1);
-    }).fail(function() {
-        complete();
     });
+    complete();
 }
 
 /* Copyright © Nixinova 2020 */
