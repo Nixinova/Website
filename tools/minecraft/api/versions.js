@@ -13,7 +13,7 @@ function complete() {
     }, 250);
 }
 
-$(document).ready(_ => {
+$(_ => {
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
     }).done(function(data) {
@@ -37,7 +37,8 @@ function getInfo(id) {
         progress(0.5);
         for (let i = 0; i < data.length; i++) {
             let version = data[i];
-            let date = moment(version.releaseTime).format('DD MMM YYYY, HH:mm:ss [UTC]')
+            let date = moment(version.releaseTime).format('DD MMM YYYY, HH:mm:ss [UTC]');
+            let url = version.url;
             if (id === 'all') {
                 $('#version').addClass('hide');
                 $('#list').removeClass('hide');
@@ -47,7 +48,7 @@ function getInfo(id) {
                     <td>${date}</td>
                     <td><a href="javascript:getInfo(${version.id})">Generate</a></td>
                 </tr>`);
-            } else {
+            } else if (id === version.id) {
                 $('#list').addClass('hide');
                 $('#version').removeClass('hide');
                 $('#title').html(version.id);
@@ -58,7 +59,6 @@ function getInfo(id) {
                 $.ajax({
                     url: 'https://cors-anywhere.herokuapp.com/' + version.url
                 }).done(function(data) { console.log(data);
-                    progress(1);
                     let download = data.downloads;
                     $('#version').append(`
                         <td><a href="${download.client.url}" target="_blank">Client</a></td>
@@ -72,6 +72,7 @@ function getInfo(id) {
                     complete();
                 });
             }
+            progress(1);
         }
     }).fail(function() {
         complete();
