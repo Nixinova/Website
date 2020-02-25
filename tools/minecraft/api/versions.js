@@ -33,7 +33,7 @@ function initial() {
     }).done(function(data) {
         let versions = data.versions;
         for (let version of versions) {
-            $('#input-version').append(`<option>${version.id}</option>`);
+            $('#input-version').append(`\n<option>${version.id}</option>`);
         }
     });
 };
