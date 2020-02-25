@@ -8,15 +8,13 @@
     </style>
 </head>
 <body>
-    <script src="player.js"></script>
     <script id="page-loader-script">
         var PAGE_DATA = {
             title: "Minecraft Player API",
             description: "Get information about Minecraft player, including UUID, username history, skins, and capes.",
             keywords: "nixinova,minecraft,minecraft api,minecraft player info,minecraft player api,minecraft player lookup",
             stylesheets: ["tools.css"],
-            scripts: [],
-            footer_classes: []
+            scripts: ["./player.js"]
         }
         $(document).ready(function() {loadData(PAGE_DATA);});
 

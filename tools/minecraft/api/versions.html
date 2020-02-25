@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style data-name="Page styles">
+        output {display: block;}
+        output img {width: 256px; image-rendering: pixelated;}
+        p {text-align: center;}
+    </style>
+</head>
+<body>
+    <script id="page-loader-script">
+        var PAGE_DATA = {
+            title: "Minecraft Versions Manifest",
+            description: "Get information about Versions Manifest, including release date and download links.",
+            keywords: "nixinova,minecraft,minecraft api,version manifest,minecraft version manifest,minecraft version lookup,lookup minecraft versions,minecraft version info",
+            stylesheets: ["tools.css"],
+            scripts: ["./versions.js"]
+        }
+        $(document).ready(function() {loadData(PAGE_DATA);});
+
+        var sections = ['username', 'uuid', 'username-history', 'skin', 'cape'];
+    </script>
+
+    <main>
+        <h1>Minecraft Versions Manifest</h1>
+        <p>Get information about any Minecraft version.</p>
+        <p>
+            <label>Username:</label>
+            <input type="text" id="input-version"> &nbsp;
+            <button type="button" id="get-info" onclick="getInfo($('#input-version').val());">Get info</button><br>
+        </p>
+        <p id="loading" class="hide">
+            Loading... <progress value="0.00"></progress>
+        </p>
+        <table id="output">
+            <tr>
+                <th>Version</th>
+                <th>Type</th>
+                <th>Released</th>
+                <th>JSON</th>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>
