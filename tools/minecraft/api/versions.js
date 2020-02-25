@@ -59,10 +59,11 @@ function getInfo(id) {
                 $('#list tbody').append(`<tr>
                     <td>${version.id}</td>
                     <td>${versionType}</td>
-                    <td>${date}</td>
+                    <td><samp><time datetime="${version.date}">${date}</time></samp></td>
                     <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
                 </tr>`);
             } else if (version.id == id) {
+                console.log(version);
                 url = version.url;
                 type = versionType;
             }
@@ -77,7 +78,7 @@ function getInfo(id) {
                 let download = data.downloads;
                 $('#version tbody').append(`<tr>
                     <td>${type || ''}</td>
-                    <td>${date || ''}</td>
+                    <td><samp><time datetime="${date || ''}">${date || ''}</time></samp></td>
                     <td><a href="${download.client.url}" target="_blank">Client</a></td>
                     <td><a href="${url}" target="_blank">JSON</a></td>
                     <td><a href="${download.server.url}" target="_blank">Server</a></td>
