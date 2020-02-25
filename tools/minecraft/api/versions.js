@@ -37,18 +37,19 @@ function getInfo(id) {
         for (let i = 0; i < data.versions.length; i++) {
             let version = data.versions[i];
             date = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss');
+            let versionType = version.type.charAt(0).toUpperCase() + version.type.slice(1);
             if (id === 'all') {
                 $('#version').addClass('hide');
                 $('#list').removeClass('hide');
                 $('#list tbody').append(`<tr>
                     <td>${version.id}</td>
-                    <td>${version.type}</td>
+                    <td>${versionType}</td>
                     <td>${date}</td>
-                    <td><a href="javascript:getInfo(${version.id})">Generate</a></td>
+                    <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
                 </tr>`);
             } else if (version.id == id){
                 url = version.url;
-                type = version.type;
+                type = versionType;
             }
         }
         if (id !== 'all') {
