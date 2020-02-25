@@ -67,13 +67,13 @@ function getInfo(id) {
                 url: 'https://cors-anywhere.herokuapp.com/' + url
             }).done(function(data) { window.data2 = data;
                 let download = data.downloads;
-                $('#version').append(`
+                $('#version').append(`<tr>
                     <td><a href="${download.client.url}" target="_blank">Client</a></td>
                     <td><a href="${url}" target="_blank">JSON</a></td>
                     <td><a href="${download.server.url}" target="_blank">Server</a></td>
                     <td><a href="${download.client_mappings.url}" target="_blank">Client</a></td>
                     <td><a href="${download.server_mappings.url}" target="_blank">Server</a></td>
-                `);
+                </tr>`);
             })
         }
         progress(1);
