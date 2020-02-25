@@ -53,7 +53,6 @@ function getInfo(id) {
             let version = data.versions[i];
             date = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss');
             let versionType = phase(version.type, version.id);
-            let versionUrl = version.url;
             if (id === 'all') {
                 $('#version').addClass('hide');
                 $('#list').removeClass('hide');
@@ -64,8 +63,7 @@ function getInfo(id) {
                     <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
                 </tr>`);
             } else if (version.id == id) {
-                console.log(version, versionUrl, version.url||'none');
-                url = versionUrl;
+                url = version.url;
                 type = versionType;
             }
         }
@@ -77,14 +75,19 @@ function getInfo(id) {
                 url: 'https://cors-anywhere.herokuapp.com/' + url
             }).done(function(data) { window.data2 = data;
                 let download = data.downloads;
+                let mappings = '';
+                if (download.client_mappings && download.server_mappings) {
+                    let client_mappings = `<td><a href="${download.client_mappings.url}" target="_blank">Client</a></td>`;
+                    let server_mappings = `<td><a href="${download.server_mappings.url}" target="_blank">Server</a></td>`;
+                    mappings = client_mappings + '\n' + server_mappings;
+                }
                 $('#version tbody').append(`<tr>
                     <td>${type || ''}</td>
                     <td><samp><time datetime="${date || ''}">${date || ''}</time></samp></td>
                     <td><a href="${download.client.url}" target="_blank">Client</a></td>
                     <td><a href="${url}" target="_blank">JSON</a></td>
                     <td><a href="${download.server.url}" target="_blank">Server</a></td>
-                    <td><a href="${download.client_mappings.url}" target="_blank">Client</a></td>
-                    <td><a href="${download.server_mappings.url}" target="_blank">Server</a></td>
+                    ${mappings}
                 </tr>`);
             })
         }
