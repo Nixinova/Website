@@ -12,17 +12,6 @@ function complete() {
     }, 250);
 }
 
-function initial() {
-    $.ajax({
-        url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
-    }).done(function(data) {
-        let versions = data.versions;
-        for (let version of versions) {
-            $('#input-version').append(`<option>${version.id}</option>`);
-        }
-    });
-};
-
 function phase(phase, version) {
     switch (phase) {
         case "release": return "Release";
@@ -38,8 +27,19 @@ function phase(phase, version) {
     }
 }
 
+function initial() {
+    $.ajax({
+        url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
+    }).done(function(data) {
+        let versions = data.versions;
+        for (let version of versions) {
+            $('#input-version').append(`<option>${version.id}</option>`);
+        }
+    });
+};
+
 function getInfo(id) {
-    $('#loading').removeClass('hide');
+    //$('#loading').removeClass('hide');
     progress(0);
     for (let id of sections) {
         $('#' + id).empty();
@@ -48,7 +48,7 @@ function getInfo(id) {
         url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
     }).done(function(data) { window.data1 = data;
         progress(0.5);
-        let url, type, date;
+        var url, type, date;
         for (let i = 0; i < data.versions.length; i++) {
             let version = data.versions[i];
             date = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss');
@@ -62,7 +62,7 @@ function getInfo(id) {
                     <td>${date}</td>
                     <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
                 </tr>`);
-            } else if (version.id == id) {console.log(version)
+            } else if (version.id == id) {console.log(version, id)
                 url = version.url;
                 type = versionType;
             }
