@@ -77,9 +77,11 @@ function getInfo(id) {
                 let download = data.downloads;
                 let mappings = '';
                 if (download.client_mappings && download.server_mappings) {
-                    let client_mappings = `<td><a href="${download.client_mappings.url}" target="_blank">Client</a></td>`;
-                    let server_mappings = `<td><a href="${download.server_mappings.url}" target="_blank">Server</a></td>`;
-                    mappings = client_mappings + '\n' + server_mappings;
+                    let client_mappings = `<a href="${download.client_mappings.url}" target="_blank">Client</a>`;
+                    let server_mappings = `<a href="${download.server_mappings.url}" target="_blank">Server</a>`;
+                    mappings = `<td>${client_mappings}</td>\n<td>${server_mappings}</td>`;
+                } else {
+                    mappings = `<td colspan=2>N/A</td>`;
                 }
                 $('#version tbody').append(`<tr>
                     <td>${type || ''}</td>
