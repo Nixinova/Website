@@ -13,7 +13,7 @@ function complete() {
     }, 250);
 }
 
-$(_ => {
+function initial() {
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
     }).done(function(data) {
@@ -22,7 +22,7 @@ $(_ => {
             $('#input-version').append(`<option>${version.id}</option>`);
         }
     });
-})();
+};
 
 function getInfo(id) {
     $('#loading').removeClass('hide');
@@ -35,11 +35,11 @@ function getInfo(id) {
         url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
     }).done(function(data) { console.log(data);
         progress(0.5);
-        for (let i = 0; i < data.length; i++) {
-            let version = data[i];
-            let date = moment(version.releaseTime).format('DD MMM YYYY, HH:mm:ss [UTC]');
-            let url = version.url;
-            if (id === 'all') {
+        let url, type, date;
+        if (id === 'all') {
+            for (let i = 0; i < data.length; i++) {
+                let version = data[i];
+                date = moment(version.releaseTime).format('DD MMM YYYY, HH:mm:ss [UTC]');
                 $('#version').addClass('hide');
                 $('#list').removeClass('hide');
                 $('#list').append(`<tr>
@@ -48,32 +48,36 @@ function getInfo(id) {
                     <td>${date}</td>
                     <td><a href="javascript:getInfo(${version.id})">Generate</a></td>
                 </tr>`);
-            } else if (id === version.id) {
-                $('#list').addClass('hide');
-                $('#version').removeClass('hide');
-                $('#title').html(version.id);
-                $('#version').append(`
-                    <td>${version.type}</td>
-                    <td>${date}</td>
-                `);
-                $.ajax({
-                    url: 'https://cors-anywhere.herokuapp.com/' + version.url
-                }).done(function(data) { console.log(data);
-                    let download = data.downloads;
-                    $('#version').append(`
-                        <td><a href="${download.client.url}" target="_blank">Client</a></td>
-                        <td><a href="${version.url}" target="_blank">JSON</a></td>
-                        <td><a href="${download.server.url}" target="_blank">Server</a></td>
-                        <td><a href="${download.client_mappings.url}" target="_blank">Client</a></td>
-                        <td><a href="${download.server_mappings.url}" target="_blank">Server</a></td>
-                    `);
-                }).fail(function() {
-                    console.err(version.url + " did not work")
-                    complete();
-                });
+                if (version.id == id){
+                    url = version.url;
+                    type = version.type;
+                }
             }
-            progress(1);
+        } else {
+            $('#list').addClass('hide');
+            $('#version').removeClass('hide');
+            $('#title').html(id);
+            $('#version').append(`
+                <td>${version.type || ''}</td>
+                <td>${date || ''}</td>
+            `);
+            $.ajax({
+                url: 'https://cors-anywhere.herokuapp.com/' + version.url
+            }).done(function(data) { console.log(data);
+                let download = data.downloads;
+                $('#version').append(`
+                    <td><a href="${download.client.url}" target="_blank">Client</a></td>
+                    <td><a href="${url}" target="_blank">JSON</a></td>
+                    <td><a href="${download.server.url}" target="_blank">Server</a></td>
+                    <td><a href="${download.client_mappings.url}" target="_blank">Client</a></td>
+                    <td><a href="${download.server_mappings.url}" target="_blank">Server</a></td>
+                `);
+            }).fail(function() {
+                console.err(version.url + " did not work")
+                complete();
+            });
         }
+        progress(1);
     }).fail(function() {
         complete();
     });

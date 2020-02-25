@@ -15,7 +15,10 @@
             stylesheets: ["tools.css"],
             scripts: ["./versions.js"]
         }
-        $(document).ready(function() {loadData(PAGE_DATA);});
+        $(document).ready(function() {
+            loadData(PAGE_DATA);
+            initial();
+        });
 
         var sections = ['username', 'uuid', 'username-history', 'skin', 'cape'];
     </script>
