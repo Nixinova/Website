@@ -39,7 +39,7 @@ function initial() {
 };
 
 function getInfo(id) {
-    //$('#loading').removeClass('hide');
+    $('#loading').removeClass('hide');
     progress(0);
     for (let id of sections) {
         $('#' + id).empty();
@@ -75,23 +75,23 @@ function getInfo(id) {
                 url: 'https://cors-anywhere.herokuapp.com/' + url
             }).done(function(data) { window.data2 = data;
                 let download = data.downloads;
-                let server = download.server.url;
-                let client_mappings = download.client_mappings.url;
-                let server_mappings = download.server_mappings.url;
+                let server = download.server;
+                let client_mappings = download.client_mappings;
+                let server_mappings = download.server_mappings;
                 $('#version tbody').append(`<tr>
                     <td>${type || ''}</td>
                     <td><samp><time datetime="${date || ''}">${date || ''}</time></samp></td>
                     <td><a href="${download.client.url}" target="_blank">Client</a></td>
                     <td><a href="${url}" target="_blank">JSON</a></td>
-                    <td>${server ? `<a href="${server}" target="_blank">Server</a>` : 'N.A'}</td>
-                    <td>${client_mappings ? `<a href="${client_mappings}" target="_blank">Client</a>` : 'N.A'}</td>
-                    <td>${server_mappings ? `<a href="${server_mappings}" target="_blank">Server</a>` : 'N.A'}</td>
+                    <td>${server ? `<a href="${server.url}" target="_blank">Server</a>` : 'N.A'}</td>
+                    <td>${client_mappings ? `<a href="${client_mappings.url}" target="_blank">Client</a>` : 'N.A'}</td>
+                    <td>${server_mappings ? `<a href="${server_mappings.url}" target="_blank">Server</a>` : 'N.A'}</td>
                 </tr>`);
+                progress(1);
+                complete();
             })
         }
-        progress(1);
     });
-    complete();
 }
 
 /* Copyright © Nixinova 2020 */
