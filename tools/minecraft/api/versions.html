@@ -2,8 +2,7 @@
 <html>
 <head>
     <style data-name="Page styles">
-        output {display: block;}
-        output img {width: 256px; image-rendering: pixelated;}
+        table {margin: auto;}
         p {text-align: center;}
     </style>
 </head>
@@ -26,18 +25,31 @@
         <p>Get information about any Minecraft version.</p>
         <p>
             <label>Username:</label>
-            <input type="text" id="input-version"> &nbsp;
+            <select type="text" id="input-version">
+                <option value="all">View all</option>
+            </select> &nbsp;
             <button type="button" id="get-info" onclick="getInfo($('#input-version').val());">Get info</button><br>
         </p>
         <p id="loading" class="hide">
             Loading... <progress value="0.00"></progress>
         </p>
-        <table id="output">
+        <table id="list" class="hide">
             <tr>
                 <th>Version</th>
                 <th>Type</th>
                 <th>Released</th>
                 <th>JSON</th>
+            </tr>
+        </table>
+        <table id="version" class="hide">
+            <tr>
+                <th colspan=5 id="title"></th>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <th>Released</th>
+                <th colspan=3>Download</th>
+                <th colspan=2>Mappings</th>
             </tr>
         </table>
     </main>
