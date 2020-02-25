@@ -58,11 +58,11 @@ function getInfo(id) {
             $('#version').removeClass('hide');
             $('#title').html(id);
             $('#version').append(`
-                <td>${version.type || ''}</td>
+                <td>${type || ''}</td>
                 <td>${date || ''}</td>
             `);
             $.ajax({
-                url: 'https://cors-anywhere.herokuapp.com/' + version.url
+                url: 'https://cors-anywhere.herokuapp.com/' + url
             }).done(function(data) { console.log(data);
                 let download = data.downloads;
                 $('#version').append(`
@@ -73,7 +73,7 @@ function getInfo(id) {
                     <td><a href="${download.server_mappings.url}" target="_blank">Server</a></td>
                 `);
             }).fail(function() {
-                console.err(version.url + " did not work")
+                console.err(url + " did not work")
                 complete();
             });
         }
