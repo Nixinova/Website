@@ -53,6 +53,7 @@ function getInfo(id) {
             let version = data.versions[i];
             date = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss');
             let versionType = phase(version.type, version.id);
+            let versionUrl = version.url;
             if (id === 'all') {
                 $('#version').addClass('hide');
                 $('#list').removeClass('hide');
@@ -63,8 +64,8 @@ function getInfo(id) {
                     <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
                 </tr>`);
             } else if (version.id == id) {
-                console.log(version);
-                url = version.url;
+                console.log(version, versionUrl, version.url||'none');
+                url = versionUrl;
                 type = versionType;
             }
         }
