@@ -75,21 +75,17 @@ function getInfo(id) {
                 url: 'https://cors-anywhere.herokuapp.com/' + url
             }).done(function(data) { window.data2 = data;
                 let download = data.downloads;
-                let mappings = '';
-                if (download.client_mappings && download.server_mappings) {
-                    let client_mappings = `<a href="${download.client_mappings.url}" target="_blank">Client</a>`;
-                    let server_mappings = `<a href="${download.server_mappings.url}" target="_blank">Server</a>`;
-                    mappings = `<td>${client_mappings}</td>\n<td>${server_mappings}</td>`;
-                } else {
-                    mappings = `<td colspan=2>N/A</td>`;
-                }
+                let server = download.server.url;
+                let client_mappings = download.client_mappings.url;
+                let server_mappings = download.server_mappings.url;
                 $('#version tbody').append(`<tr>
                     <td>${type || ''}</td>
                     <td><samp><time datetime="${date || ''}">${date || ''}</time></samp></td>
                     <td><a href="${download.client.url}" target="_blank">Client</a></td>
                     <td><a href="${url}" target="_blank">JSON</a></td>
-                    <td><a href="${download.server.url}" target="_blank">Server</a></td>
-                    ${mappings}
+                    <td>${server ? `<a href="${server}" target="_blank">Server</a>` : 'N.A'}</td>
+                    <td>${client_mappings ? `<a href="${client_mappings}" target="_blank">Client</a>` : 'N.A'}</td>
+                    <td>${server_mappings ? `<a href="${server_mappings}" target="_blank">Server</a>` : 'N.A'}</td>
                 </tr>`);
             })
         }
