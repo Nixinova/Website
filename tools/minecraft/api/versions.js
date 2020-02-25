@@ -90,6 +90,9 @@ function getInfo(id) {
                 progress(1);
                 complete();
             })
+        } else {
+            progress(1);
+            complete();
         }
     });
 }
