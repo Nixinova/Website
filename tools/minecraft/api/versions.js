@@ -50,7 +50,7 @@ function getInfo(id) {
         progress(0.5);
         var url, type, date;
         for (let i = 0; i < data.versions.length; i++) {
-            let version = data.versions[i];
+            let version = data.versions[i]; console.log(version)
             date = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss');
             let versionType = phase(version.type, version.id);
             if (id === 'all') {
