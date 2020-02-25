@@ -34,7 +34,8 @@ function getInfo(id) {
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
     }).done(function(data) {
-        for (let version of data) {
+        for (let i = 0; i < data.length; i++) {
+            let version = data[i];
             let date = moment(version.releaseTime).format('DD MMM YYYY, HH:mm:ss [UTC]')
             if (id === 'all') {
                 $('#version').addClass('hide');
