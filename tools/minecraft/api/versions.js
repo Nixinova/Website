@@ -44,7 +44,7 @@ function getInfo(id) {
             if (id === 'all') {
                 $('#version').addClass('hide');
                 $('#list').removeClass('hide');
-                $('#list').append(`<tr>
+                $('#list tbody').append(`<tr>
                     <td>${version.id}</td>
                     <td>${version.type}</td>
                     <td>${date}</td>
@@ -59,7 +59,7 @@ function getInfo(id) {
             $('#list').addClass('hide');
             $('#version').removeClass('hide');
             $('#title').html(id);
-            $('#version').append(`
+            $('#version tbody').append(`
                 <td>${type || ''}</td>
                 <td>${date || ''}</td>
             `);
@@ -67,7 +67,7 @@ function getInfo(id) {
                 url: 'https://cors-anywhere.herokuapp.com/' + url
             }).done(function(data) { window.data2 = data;
                 let download = data.downloads;
-                $('#version').append(`<tr>
+                $('#version tbody').append(`<tr>
                     <td><a href="${download.client.url}" target="_blank">Client</a></td>
                     <td><a href="${url}" target="_blank">JSON</a></td>
                     <td><a href="${download.server.url}" target="_blank">Server</a></td>
