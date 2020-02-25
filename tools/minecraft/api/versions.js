@@ -62,7 +62,7 @@ function getInfo(id) {
                     <td>${date}</td>
                     <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
                 </tr>`);
-            } else if (version.id == id) {console.log(version, id)
+            } else if (version.id == id) {console.log(version, id, version.id == id, version.url);
                 url = version.url;
                 type = versionType;
             }
