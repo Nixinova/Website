@@ -51,7 +51,7 @@ function getInfo(id) {
         let url, type, date;
         for (let i = 0; i < data.versions.length; i++) {
             let version = data.versions[i];
-            date = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss');
+            let versionDate = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss');
             let versionType = phase(version.type, version.id);
             if (id === 'all') {
                 $('#version').addClass('hide');
@@ -59,12 +59,13 @@ function getInfo(id) {
                 $('#list tbody').append(`<tr>
                     <td>${version.id}</td>
                     <td>${versionType}</td>
-                    <td><samp><time datetime="${version.date}">${date}</time></samp></td>
+                    <td><samp><time datetime="${version.date}">${versionDate}</time></samp></td>
                     <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
                 </tr>`);
             } else if (version.id == id) {
                 url = version.url;
                 type = versionType;
+                date = versionDate;
             }
         }
         if (id !== 'all' && url) {
