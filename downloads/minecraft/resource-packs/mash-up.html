@@ -6,11 +6,12 @@
             var table = $('#'+id);
 
             for (pack of arr) {
-                let mcver = pack.snap ? `${pack.mcver} (${$.trim(pack.snap)})` : pack.mcver;
+                let mcver = $.trim(pack.snap ? `${pack.mcver} (${pack.snap})` : pack.mcver);
                 let packver = $.trim(pack.packver);
 
+                let dl_title_version = mcver.startsWith('pre') ? `${pack.mcver}-${pack.snap}` : pack.mcver
                 let dl_text = pack.dl ? 'Download' : 'Unavailable';
-                let dl_title = `Download ${packver} for Minecraft ${pack.snap || pack.mcver}`;
+                let dl_title = `Download ${packver} for Minecraft ${dl_title_version}`;
 
                 let unzip = pack.unzip ? '<small class="desktoponly" title="Unzip this file in your resource packs folder.">*</small>' : '';
 

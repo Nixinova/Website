@@ -6,7 +6,7 @@
         var table = $('#'+id);
 
         for (pack of arr) {
-            let dl_title = `Download ${pack.name} for Minecraft ${pack.mcver}`;
+            let dl_title = `Download ${$.trim(pack.name)} for Minecraft ${pack.mcver}`;
             table.append(`
                 <tr>
                     <td width="200px">${pack.name}</td>
