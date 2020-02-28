@@ -53,8 +53,7 @@ function loadData(input) {
         <script data-name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
         <script data-name="Google Analytics import" async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-1"></script>
         <script data-name="Google Analytics setup">window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-83550713-1');</script>
-        <!--Adsense--><script data-ad-client="ca-pub-7730644887366759" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script>
-        ${headContent}<!--End header-->
+        ${headContent}
     `);
 
     // BODY //
