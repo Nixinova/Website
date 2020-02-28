@@ -26,7 +26,7 @@ function loadData(input) {
     $('head').empty();
 
     $('head').append(`
-        <title>${data.title === '' ? 'Nixinova' : data.title + ' – Nixinova'}</title>
+        <title>${data.title} ${!data.title ? 'Nixinova' : '– Nixinova'}</title>
         <meta name="description" content="${data.description.replace(/\n|  +/g, ' ')}">
         <meta name="keywords" content="${data.keywords.replace(/\n|  +/g, ' ').replace(/,+/g, ',')}">
         <meta name="author" content="Nixinova">
@@ -51,8 +51,8 @@ function loadData(input) {
     $('head').append(`
         <link data-name="FontAwesome styles" rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
         <script data-name="Moment.js import" src="https://momentjs.com/downloads/moment.js"></script>
-        <script data-name="Google Analytics import" async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-2"></script>
-        <script data-name="Google Analytics setup">if (!window.dataLayer) window.dataLayer = []; function gtag() {dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-83550713-2');</script>
+        <script data-name="Google Analytics import" async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-1"></script>
+        <script data-name="Google Analytics setup">window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-83550713-1');</script>
         ${headContent}
     `);
 
