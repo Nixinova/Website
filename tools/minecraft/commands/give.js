@@ -3,12 +3,13 @@
 function give() {
     /// LISTS ///
     const tags = [
-        'anvil', 'bamboo_plantable_on', 'banners', 'beds', 'beehives', 'bee_growables', 'buttons', 'wooden_buttons', 'carpets',
+        'anvil', 'bamboo_plantable_on', 'banners', 'beds', 'beehives', 'bee_growables', 'buttons', 'wooden_buttons', 'carpets', 'climbable'
         'corals', 'coral_blocks', 'wall_corals', 'crops', 'dirt_like', 'doors', 'wooden_doors', 'dragon_immune', 'enderman_holdable',
         'fences', 'wooden_fences', 'flowers', 'small_flowers', 'tall_flowers', 'flower_pots', 'impermeable', 'valid_spawn', 'ice',
         'leaves', 'logs', 'planks', 'wooden_pressure_plates', 'rails', 'sand', 'saplings', 'slabs', 'wooden_slabs', 'stairs',
         'wooden_stairs', 'signs', 'wall_signs', 'standing_signs', 'stone_bricks', 'wooden_trapdoors', 'walls', 'wither_immune',
-        'acacia_logs', 'birch_logs', 'dark_oak_logs', 'oak_logs', 'jungle_logs', 'spruce_logs', 'wool'
+        'acacia_logs', 'birch_logs', 'dark_oak_logs', 'oak_logs', 'jungle_logs', 'spruce_logs', 'wool',
+        'beacon_base_blocks', 'wall_post_override', 'wither_summon_base_blocks'
     ];
     const durable_items = [
         "diamond_sword", "diamond_pickaxe", "diamond_axe", "diamond_shovel", "diamond_hoe",
