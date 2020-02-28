@@ -26,7 +26,7 @@ function loadData(input) {
     $('head').empty();
 
     $('head').append(`
-        <title>${data.title} {!data.title ? 'Nixinova' : '– Nixinova'}</title>
+        <title>${data.title} ${!data.title ? 'Nixinova' : '– Nixinova'}</title>
         <meta name="description" content="${data.description.replace(/\n|  +/g, ' ')}">
         <meta name="keywords" content="${data.keywords.replace(/\n|  +/g, ' ').replace(/,+/g, ',')}">
         <meta name="author" content="Nixinova">
