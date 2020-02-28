@@ -40,6 +40,7 @@ function initial() {
 
 function getInfo(id) {
     $('#loading').removeClass('hide');
+    $('.timezone').html(moment().format('Z'));
     progress(0);
     for (let id of sections) {
         $('#' + id).empty();
