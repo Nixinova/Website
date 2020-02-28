@@ -40,7 +40,6 @@ function initial() {
 
 function getInfo(id) {
     $('#loading').removeClass('hide');
-    $('.timezone').html(moment().format('Z'));
     progress(0);
     for (let id of sections) {
         $('#' + id).empty();
@@ -52,7 +51,7 @@ function getInfo(id) {
         let url, type, date;
         for (let i = 0; i < data.versions.length; i++) {
             let version = data.versions[i];
-            let versionDate = moment(version.releaseTime).format('YYYY-MM-DD HH:mm:ss');
+            let versionDate = moment(version.releaseTime).utcOffset(0).format('YYYY-MM-DD HH:mm:ss');
             let versionType = phase(version.type, version.id);
             if (id === 'all') {
                 $('#version').addClass('hide');
