@@ -59,7 +59,7 @@ function getInfo(id) {
                 $('#list tbody').append(`<tr>
                     <td>${version.id}</td>
                     <td>${versionType}</td>
-                    <td><samp><time datetime="${version.date}">${versionDate}</time></samp></td>
+                    <td><samp><time datetime="${version.releaseTime}Z">${versionDate}</time></samp></td>
                     <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
                 </tr>`);
             } else if (version.id == id) {
