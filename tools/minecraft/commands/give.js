@@ -27,12 +27,14 @@ function give() {
         "trident", "bow", "flint_and_steel", "elytra", "shield", "carrot_on_a_stick", "fishing_rod", "shears"
     ];
     const durabilities = {
+        "netherite_sword": 2031, "netherite_pickaxe": 2031, "netherite_axe": 2031, "netherite_shovel": 2031, "netherite_hoe": 2031,
         "diamond_sword": 1561, "diamond_pickaxe": 1561, "diamond_axe": 1561, "diamond_shovel": 1561, "diamond_hoe": 1561,
         "iron_sword": 250, "iron_pickaxe": 250, "iron_axe": 250, "iron_shovel": 250, "iron_hoe": 250,
         "golden_sword": 32, "golden_pickaxe": 32, "golden_axe": 32, "golden_shovel": 32, "golden_hoe": 32,
         "stone_sword": 131, "stone_pickaxe": 131, "stone_axe": 131, "stone_shovel": 131, "stone_hoe": 131,
         "wooden_sword": 59, "wooden_pickaxe": 59, "wooden_axe": 59, "wooden_shovel": 59, "wooden_hoe": 59,
 
+        "netherite_helmet": 408, "netherite_chestplate": 592, "netherite_leggings": 556, "netherite_boots": 482,
         "diamond_helmet": 364, "diamond_chestplate": 529, "diamond_leggings": 496, "diamond_boots": 430,
         "iron_helmet": 166, "iron_chestplate": 241, "iron_leggings": 226, "iron_boots": 196,
         "chainmail_helmet": 166, "chainmail_chestplate": 241, "chainmail_leggings": 226, "chainmail_boots": 196,
