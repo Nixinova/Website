@@ -3,13 +3,13 @@
 function give() {
     /// LISTS ///
     const tags = [
-        'anvil', 'bamboo_plantable_on', 'banners', 'beds', 'beehives', 'bee_growables', 'buttons', 'wooden_buttons', 'carpets', 'climbable'
-        'corals', 'coral_blocks', 'wall_corals', 'crops', 'dirt_like', 'doors', 'wooden_doors', 'dragon_immune', 'enderman_holdable',
-        'fences', 'wooden_fences', 'flowers', 'small_flowers', 'tall_flowers', 'flower_pots', 'impermeable', 'valid_spawn', 'ice',
-        'leaves', 'logs', 'planks', 'wooden_pressure_plates', 'rails', 'sand', 'saplings', 'slabs', 'wooden_slabs', 'stairs',
-        'wooden_stairs', 'signs', 'wall_signs', 'standing_signs', 'stone_bricks', 'wooden_trapdoors', 'walls', 'wither_immune',
-        'acacia_logs', 'birch_logs', 'dark_oak_logs', 'oak_logs', 'jungle_logs', 'spruce_logs', 'wool',
-        'beacon_base_blocks', 'wall_post_override', 'wither_summon_base_blocks'
+        "acacia_logs", "anvil", "bamboo_plantable_on", "banners", "beacon_base_blocks", "beds", "bee_growables", "beehives",
+        "birch_logs", "buttons", "carpets", "climbable", "coral_blocks", "corals", "crops", "dark_oak_logs", "dirt_like", "doors",
+        "dragon_immune", "enderman_holdable", "fences", "flower_pots", "flowers", "ice", "impermeable", "jungle_logs", "leaves",
+        "logs", "oak_logs", "planks", "rails", "sand", "saplings", "signs", "slabs", "small_flowers", "spruce_logs", "stairs",
+        "standing_signs", "stone_bricks", "tall_flowers", "valid_spawn", "wall_corals", "wall_post_override", "wall_signs", "walls",
+        "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors", "wooden_fences", "wooden_pressure_plates",
+        "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
     ];
     const durable_items = [
         "diamond_sword", "diamond_pickaxe", "diamond_axe", "diamond_shovel", "diamond_hoe",
