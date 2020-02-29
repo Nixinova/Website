@@ -12,12 +12,14 @@ function give() {
         "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
     ];
     const durable_items = [
+        "netherite_sword", "netherite_pickaxe", "netherite_axe", "netherite_shovel", "netherite_hoe",
         "diamond_sword", "diamond_pickaxe", "diamond_axe", "diamond_shovel", "diamond_hoe",
         "iron_sword", "iron_pickaxe", "iron_axe", "iron_shovel", "iron_hoe",
         "golden_sword", "golden_pickaxe", "golden_axe", "golden_shovel", "golden_hoe",
         "stone_sword", "stone_pickaxe", "stone_axe", "stone_shovel", "stone_hoe",
         "wooden_sword", "wooden_pickaxe", "wooden_axe", "wooden_shovel", "wooden_hoe",
 
+        "netherite_helmet", "netherite_chestplate", "netherite_leggings", "netherite_boots",
         "diamond_helmet", "diamond_chestplate", "diamond_leggings", "diamond_boots",
         "iron_helmet", "iron_chestplate", "iron_leggings", "iron_boots",
         "chainmail_helmet", "chainmail_chestplate", "chainmail_leggings", "chainmail_boots",
