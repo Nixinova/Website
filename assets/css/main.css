@@ -63,32 +63,22 @@ button {background: #19f; color: #fff; padding: 12px 30px; cursor: pointer; font
 button:hover {background: #08f; transition: 0.25s;}
 button.download {margin: 0; border-radius: 2em;}
 
-/* Scrollbar */
-::-webkit-scrollbar {width: 1em;}
-::-webkit-scrollbar-track {background: #000d;}
-::-webkit-scrollbar-thumb {border-radius: 0px; background: #fff; -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);}
-
 /* Hiding */
 .hide {display: none !important;}
 
-/* Responsive */
-@media (min-width: 1000px) {
-    .row {display: flex;}
-    .row>div {margin: 0 10px;}
-    .flex {width: var(--width);}
-    .centered {margin-left: calc(50% - var(--width)/2);}
-    .aligned {margin: 0 calc(50% - var(--margin)/2);}
-}
-
-@media (min-width: 801px) { /* Mobile */
+/* Desktop */
+@media (hover: hover) {
     .mobileonly {display: none !important;}
     p.description {max-width: 66%; margin: auto;}
-}
-@media (max-width: 800px) { /* Desktop */
-    .desktoponly {display: none !important;}
+    /* Scrollbar */
+    ::-webkit-scrollbar {width: 1em;}
+    ::-webkit-scrollbar-track {background: #000d;}
+    ::-webkit-scrollbar-thumb {border-radius: 0px; background: #fff; -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);}
 }
 
-/* Debug */
-style[contenteditable] {display: block; background: #333; color: #fff; white-space: pre; font-family: monospace;}
+/* Mobile */
+@media (hover: none) {
+    .desktoponly {display: none !important;}
+}
 
 /* Copyright © Nixinova 2020 */
