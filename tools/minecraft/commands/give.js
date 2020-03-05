@@ -5,11 +5,11 @@ function give() {
     const tags = [
         "acacia_logs", "anvil", "bamboo_plantable_on", "banners", "beacon_base_blocks", "beds", "bee_growables", "beehives",
         "birch_logs", "buttons", "carpets", "climbable", "coral_blocks", "corals", "crops", "dark_oak_logs", "dirt_like", "doors",
-        "dragon_immune", "enderman_holdable", "fences", "flower_pots", "flowers", "ice", "impermeable", "jungle_logs", "leaves",
-        "logs", "oak_logs", "planks", "rails", "sand", "saplings", "signs", "slabs", "small_flowers", "spruce_logs", "stairs",
-        "standing_signs", "stone_bricks", "tall_flowers", "valid_spawn", "wall_corals", "wall_post_override", "wall_signs", "walls",
-        "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors", "wooden_fences", "wooden_pressure_plates",
-        "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
+        "dragon_immune", "enderman_holdable", "fences", "flower_pots", "flowers", "hoglin_repellents", "ice", "impermeable",
+        "jungle_logs", "leaves", "logs", "oak_logs", "piglin_repellents", "planks", "rails", "sand", "saplings", "signs", "slabs",
+        "small_flowers", "spruce_logs", "stairs", "standing_signs", "stone_bricks", "tall_flowers", "valid_spawn", "wall_corals",
+        "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors",
+        "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
     ];
     const durable_items = [
         "netherite_sword", "netherite_pickaxe", "netherite_axe", "netherite_shovel", "netherite_hoe",
