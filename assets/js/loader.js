@@ -1,4 +1,5 @@
 var loadCount = 0;
+
 function loadData(input) {
 
     if (loadCount > 0) return;
@@ -44,7 +45,7 @@ function loadData(input) {
 
     for (let script of data.scripts) {
         if (!script) continue;
-        let src = script.startsWith('./') ? script.substr(2) : "/assets/js/"+script;
+        let src = script.startsWith('./') ? script.substr(2) : "/assets/js/" + script;
         $('head').append(`\n\t<script data-name="Imported script" src="${src}">`);
     }
 
@@ -69,4 +70,13 @@ function loadData(input) {
 
     loadCount++;
 
+    setInterval(_ => {
+        screenSize();
+    }, 200);
+
+}
+
+function screenSize() {
+    if (window.screen.availWidth < 800) $('body').addClass('mobile').removeClass('desktop');
+    else $('body').addClass('desktop').removeClass('mobile');
 }
