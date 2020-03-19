@@ -59,9 +59,9 @@ function summon() {
     var llama_carpet = value('input_llama_carpet').toLowerCase().replace(/ /g, '_');
     var llama_temper = value('input_llama_temper', 'int')
     var horse_tame = hasClass('input_horse_tame', 'on');
-    var mob_color = value('input_mob_color', 'int')
+    var mob_color = value('input_mob_color', 'int');
     var mooshroom_type = cleanup(value('input_mooshroom_type'))
-    var owner_uuid = value('input_ghast_explosion_power');
+    var owner = value('input_owner_uuid');
     var panda_dominant_gene = cleanup(value('input_panda_gene_1'));
     var panda_recessive_gene = cleanup(value('input_panda_gene_2'));
     var piglin_zombifies = hasClass('input_piglin_zombify', 'off');
@@ -207,7 +207,7 @@ function summon() {
         // tame mobs //
         if (tame_mobs.includes(entity)) {
             $('.tame_mobs.only').removeClass('hide');
-            if (owner_uuid) nbt.OwnerUUID = owner_uuid;
+            if (owner) nbt.Owner = owner;
        }
 
        // owned mobs //
