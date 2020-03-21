@@ -1,0 +1,229 @@
+---
+layout: layouts/base.njk
+permalink: /downloads/minecraft/resource-packs/mash-up.html
+title: Nixinova Mash-Up Pack
+description: "Download versions of Nixinova's Mash-Up resource pack for Minecraft versions 1.9 through 1.16."
+keywords: "nixinova,nixinova mash-up,nixinova mash-up pack,nixinova resource pack"
+css: "resource-packs.css"
+og_image: "minecraft/resource-packs/nixinova-mash-up.jpg"
+---
+<script data-name="Table creator">
+    function createTable(id, arr) {
+        var table = $('#'+id);
+
+        for (pack of arr) {
+            let mcver = $.trim(pack.snap ? `${pack.mcver} (${pack.snap})` : pack.mcver);
+            let packver = $.trim(pack.packver);
+
+            let dl_title_version = mcver.startsWith('pre') ? `${pack.mcver}-${pack.snap}` : pack.mcver
+            let dl_text = pack.dl ? 'Download' : 'Unavailable';
+            let dl_title = `Download ${packver} for Minecraft ${dl_title_version}`;
+
+            let unzip = pack.unzip ? '<small class="desktoponly" title="Unzip this file in your resource packs folder.">*</small>' :        '';
+
+            table.append(`
+                <tr>
+                    <td><span class="desktoponly">Nixinova Mash-Up</span> ${mcver}</td>
+                    <td>${packver}</td>
+                    <td class="desktoponly">
+                        <a href="https://mediafire.com?${pack.dl}" target="_blank" title="${dl_title}">Download</a>${unzip}
+                    </td>
+                    <td><samp><time datetime="${pack.date}+12:30">${pack.date}</time></samp></td>
+                </tr>
+            `);
+        }
+    }
+</script>
+
+<div id="gallery">
+    <div class="screenshot" style="background-image: url('/assets/images/minecraft/resource-packs/nixinova-mash-up.jpg')">
+        <h1>Nixinova Mash-Up Pack</h1>
+    </div>
+</div>
+
+<p>
+    A collection of resource packs made up of textures from different packs.<br/>
+    <strong>These downloads are for the Java Edition of Minecraft only.</strong>
+</p>
+
+<hr class="divider">
+
+<!-- nixinova v3 -->
+<div>
+    <h2>Version 3</h2>
+    <p>
+        My current resource pack, updated for the 1.14 Texture Update, in use since 2019.<br/>
+        Based on Faithful 1.14 with textures from Defscape, Depixel, and more.<br/>
+        For Minecraft versions 1.14 to 1.16.
+    </p>
+
+    <table id="v3" class="flex"></table>
+    <script id="createTable-v3">createTable('v3', [
+        {mcver: '1.16  ', snap: '20w09a', packver: 'v3.6.1  ', dl: 'arb291aeznqtbys', date: '2020-02-29'},
+        {mcver: '1.16  ', snap: '20w06a', packver: 'v3.6.0  ', dl: '3tavend8b63rw3g', date: '2020-02-08'},
+        {mcver: '1.15.2',                 packver: 'v3.5.6  ', dl: '4yjpa9ixhv6o4hx', date: '2020-02-06'},
+        {mcver: '1.15.1',                 packver: 'v3.5.5  ', dl: '5n038wrtd2s3men', date: '2020-01-05'},
+        {mcver: '1.15  ',                 packver: 'v3.5.4  ', dl: '3olqt1r7ehudsh3', date: '2019-12-12'},
+        {mcver: '1.15  ', snap: '19w45a', packver: 'v3.5.3  ', dl: 'cf316vlsbqbzi7s', date: '2019-11-10'},
+        {mcver: '1.15  ', snap: '19w41a', packver: 'v3.5.2  ', dl: 'wt55wmxofm9uva8', date: '2019-10-10'},
+        {mcver: '1.15  ', snap: '19w37a', packver: 'v3.5.1  ', dl: 'i8i055pnb80xl3f', date: '2019-09-12'},
+        {mcver: '1.15  ', snap: '19w34a', packver: 'v3.5.0  ', dl: 'cug83ybfi2shksi', date: '2019-08-23'},
+        {mcver: '1.14.4',                 packver: 'v3.4.4  ', dl: 'emqa6f3s2vnfhuz', date: '2019-08-10'},
+        {mcver: '1.14.4', snap: 'pre6  ', packver: 'v3.4.3  ', dl: '8a0bpb1wpklnttt', date: '2019-07-18'},
+        {mcver: '1.14.4', snap: 'pre3  ', packver: 'v3.4.2  ', dl: 'r02tda547l64uia', date: '2019-07-10'},
+        {mcver: '1.14.4', snap: 'pre2  ', packver: 'v3.4.1  ', dl: 'et939t8w56bt7so', date: '2019-07-08'},
+        {mcver: '1.14.4', snap: 'pre2  ', packver: 'v3.4.0  ', dl: 'dbcvlt5l4xjlzvv', date: '2019-07-06'},
+        {mcver: '1.14.4', snap: 'pre2  ', packver: 'v3.3.5  ', dl: 'ag0fs2iu2ypapgb', date: '2019-07-06'},
+        {mcver: '1.14.3',                 packver: 'v3.3.4  ', dl: 'aia39d8xz092y78', date: '2019-07-02'},
+        {mcver: '1.14.3',                 packver: 'v3.3.3  ', dl: 'bupp1ujeyfitpjo', date: '2019-06-25'},
+        {mcver: '1.14.3', snap: 'pre4  ', packver: 'v3.3.2  ', dl: '039v1c2s6lunm03', date: '2019-06-22'},
+        {mcver: '1.14.3', snap: 'pre3  ', packver: 'v3.3.1  ', dl: 'n46s08vsyyu25x9', date: '2019-06-18'},
+        {mcver: '1.14.3', snap: 'pre3  ', packver: 'v3.3.0  ', dl: 'r394g7ieqomnv7j', date: '2019-06-16'},
+        {mcver: '1.14.3', snap: 'pre1  ', packver: 'v3.2.4  ', dl: 'k8k517a1j3caeac', date: '2019-06-04'},
+        {mcver: '1.14.2',                 packver: 'v3.2.3  ', dl: '9es4t15nt6b88f3', date: '2019-06-02'},
+        {mcver: '1.14.2',                 packver: 'v3.2.2_2', dl: 'kr7dpcc7tbhc47r', date: '2019-06-01'},
+        {mcver: '1.14.2',                 packver: 'v3.2.2_1', dl: 'yffe02gebvjlinb', date: '2019-06-01'},
+        {mcver: '1.14.2',                 packver: 'v3.2.2  ', dl: '6sb00qb5mwtnycm', date: '2019-06-01'},
+        {mcver: '1.14.2',                 packver: 'v3.2.1  ', dl: '5zr77xapv8bdpyu', date: '2019-05-30'},
+        {mcver: '1.14.2',                 packver: 'v3.2.0  ', dl: '7r6wpqfb7wq29z1', date: '2019-05-28'},
+        {mcver: '1.14.2', snap: 'pre4  ', packver: 'v3.1.1  ', dl: 'skyk2wik4j3e22j', date: '2019-05-25'},
+        {mcver: '1.14.2', snap: 'pre4  ', packver: 'v3.1.0  ', dl: '6d1dzp3istur2lf', date: '2019-05-25'},
+        {mcver: '1.14.2', snap: 'pre2  ', packver: 'v3.0.6  ', dl: '9ab9hl46dam6dy9', date: '2019-05-18'},
+        {mcver: '1.14.1', snap: 'pre2  ', packver: 'v3.0.5  ', dl: 'ykium5twm9ghx7g', date: '2019-05-11'},
+        {mcver: '1.14  ',                 packver: 'v3.0.4  ', dl: '2ce90iwszspnll2', date: '2019-05-03'},
+        {mcver: '1.14  ',                 packver: 'v3.0.3  ', dl: '7t4x82668z38ilo', date: '2019-04-27'},
+        {mcver: '1.14  ',                 packver: 'v3.0.2  ', dl: 'qpz6b49g8jt9ho0', date: '2019-04-27'},
+        {mcver: '1.14  ',                 packver: 'v3.0.1  ', dl: 'a2yl9r0qrgwn1iu', date: '2019-04-25'},
+        {mcver: '1.14  ',                 packver: 'v3.0.0  ', dl: 'n5todfmtp139dv5', date: '2019-04-24'},
+        {mcver: '1.14  ', snap: 'pre1  ', packver: 'v3-alpha', dl: 'wb1hhjt7i8wcs5i', date: '2019-04-12'}
+    ]); $('#createTable-v3').remove();</script>
+</div>
+
+<hr class="divider">
+
+<!-- nixinova v2 -->
+<div>
+    <h2>Version 2</h2>
+    <p>
+        The second iteration of my mash-up resource pack, used from 2017 to 2019.<br/>
+        Based on Faithful 1.12 with textures from Defscape, AciDicBliTzz, Default 32x and more.<br/>
+        For Minecraft versions 1.12 to 1.14.
+    </p>
+
+    <table id="v2" class="flex"></table>
+    <script id="createTable-v2">createTable('v2', [
+        {mcver: '1.14  ', snap: '19w14b', packver: 'v2.8.1  ', dl: 'hnxsg2nd103fdns', date: '2019-04-07'},
+        {mcver: '1.14  ', snap: '19w12b', packver: 'v2.8.0  ', dl: 'cmljbvkxhd6amx5', date: '2019-03-24'},
+        {mcver: '1.14  ', snap: '19w11b', packver: 'v2.7.7_1', dl: '9lhkfpc7i25ay1y', date: '2019-03-17'},
+        {mcver: '1.14  ', snap: '19w11b', packver: 'v2.7.7  ', dl: 'e06ngo3ezuodjwb', date: '2019-03-17'},
+        {mcver: '1.14  ', snap: '19w11b', packver: 'v2.7.6  ', dl: 'cqb187zcqjtcawm', date: '2019-03-17'},
+        {mcver: '1.14  ', snap: '19w11b', packver: 'v2.7.5  ', dl: 'z7bpb9aflpnzo3d', date: '2019-03-16'},
+        {mcver: '1.14  ', snap: '19w11a', packver: 'v2.7.4  ', dl: 'pv81k2jtvlmbkys', date: '2019-03-14'},
+        {mcver: '1.14  ', snap: '19w09a', packver: 'v2.7.3  ', dl: 'oenjred4emo29ul', date: '2019-03-12'},
+        {mcver: '1.14  ', snap: '19w09a', packver: 'v2.7.2  ', dl: '1nbfo6nb8wmqa2m', date: '2019-03-12'},
+        {mcver: '1.14  ', snap: '19w09a', packver: 'v2.7.1  ', dl: '7rbtivj68z7fbw1', date: '2019-03-09'},
+        {mcver: '1.14  ', snap: '19w09a', packver: 'v2.7.0  ', dl: 'pddclwwzum8319q', date: '2019-03-03'},
+        {mcver: '1.14  ', snap: '19w06a', packver: 'v2.6.4  ', dl: 'pcqr7h5fsfnqwzc', date: '2019-02-10'},
+        {mcver: '1.14  ', snap: '19w06a', packver: 'v2.6.3  ', dl: 'ubz5na2uz3f8637', date: '2019-02-10'},
+        {mcver: '1.14  ', snap: '19w05a', packver: 'v2.6.2  ', dl: 'vqo8hg1aze2okqy', date: '2019-02-02'},
+        {mcver: '1.14  ', snap: '19w05a', packver: 'v2.6.1  ', dl: '3w4jl242w24m4h6', date: '2019-02-01'},
+        {mcver: '1.14  ', snap: '19w04b', packver: 'v2.6.0_1', dl: 'ns6is7d0a9ty4za', date: '2019-01-30'},
+        {mcver: '1.14  ', snap: '19w04b', packver: 'v2.6.0  ', dl: 'swgjdtdaocns9yb', date: '2019-01-29'},
+        {mcver: '1.14  ', snap: '19w04b', packver: 'v2.5.7  ', dl: 'cykv3x3b8wvilyw', date: '2019-01-29'},
+        {mcver: '1.14  ', snap: '19w04b', packver: 'v2.5.6  ', dl: '0bcd0bwzxr5soho', date: '2019-01-29'},
+        {mcver: '1.14  ', snap: '19w04b', packver: 'v2.5.5  ', dl: '1ua4ra71bwv7tbb', date: '2019-01-27'},
+        {mcver: '1.14  ', snap: '19w04b', packver: 'v2.5.4  ', dl: 'zbl3o8abmp8cyq0', date: '2019-01-27'},
+        {mcver: '1.14  ', snap: '19w04a', packver: 'v2.5.3  ', dl: '1cpbf69tf4cfkav', date: '2019-01-25'},
+        {mcver: '1.14  ', snap: '19w03c', packver: 'v2.5.2  ', dl: 'g3dgw2yeycfxcac', date: '2019-01-21'},
+        {mcver: '1.14  ', snap: '19w02a', packver: 'v2.5.1  ', dl: '0b2l9n9t98132da', date: '2019-01-21'},
+        {mcver: '1.14  ', snap: '18w50a', packver: 'v2.5.0  ', dl: 'zcz03qki9k79sr7', date: '2019-01-08'},
+        {mcver: '1.14  ', snap: '18w50a', packver: 'v2.4.0  ', dl: 'xgeyt4ij9ax3dvi', date: '2018-12-20'},
+        {mcver: '1.14  ', snap: '18w50a', packver: 'v2.3.0_1', dl: 'wrbtvv0wp5admvp', date: '2018-12-19'},
+        {mcver: '1.14  ', snap: '18w50a', packver: 'v2.3.0  ', dl: '6f1vtyt7u0b4erx', date: '2018-12-19'},
+        {mcver: '1.13.1',                 packver: 'v2.2.1  ', dl: '89d4fo182r5dema', date: '2018-10-08'},
+        {mcver: '1.13.1',                 packver: 'v2.2.0  ', dl: 'cmedlg5hajh8vcu', date: '2018-10-06'},
+        {mcver: '1.13  ',                 packver: 'v2.1.3_2', dl: 'z4hbc3yccbcc3x5', date: '2018-07-20'},
+        {mcver: '1.13  ', snap: 'pre6  ', packver: 'v2.1.3_1', dl: 'inrzz8m368ta4xu', date: '2018-07-07'},
+        {mcver: '1.13  ', snap: 'pre3  ', packver: 'v2.1.3  ', dl: 'o1gbdudgobm6myr', date: '2018-07-06'},
+        {mcver: '1.13  ', snap: 'pre3  ', packver: 'v2.1.2_1', dl: 'ct575rtuk6rxl2i', date: '2018-07-01'},
+        {mcver: '1.13  ', snap: 'pre3  ', packver: 'v2.1.2  ', dl: '3bhefrbyvt3056h', date: '2018-07-01'},
+        {mcver: '1.13  ', snap: 'pre3  ', packver: 'v2.1.1  ', dl: '8824vxz9aw37m5m', date: '2018-07-01'},
+        {mcver: '1.13  ', snap: 'pre2  ', packver: 'v2.1.0  ', dl: 'iuhzn21afe2o11a', date: '2018-06-21'},
+        {mcver: '1.12.2',                 packver: 'v2.0.6  ', dl: 'x6a3gj2rauwgui6', date: '2018-02-04'},
+        {mcver: '1.12.2',                 packver: 'v2.0.5  ', dl: 'xxb553oc8h2eced', date: '2017-09-19'},
+        {mcver: '1.12.1',                 packver: 'v2.0.4  ', dl: '8ve0yg0vyah7824', date: '2017-08-26', modified: true},
+        {mcver: '1.12  ', snap: 'pre5  ', packver: 'v2.0.2  ', dl: '3nx2j85a9a6502e', date: '2017-05-27'},
+        {mcver: '1.12  ', snap: 'pre2  ', packver: 'v2.0.1  ', dl: '9lka054f1w0ldoq', date: '2017-05-13'},
+        {mcver: '1.12  ', snap: 'pre1  ', packver: 'v2.0.0  ', dl: 'bxs3spt5rk17i0j', date: '2017-05-10'}
+    ]); $('#createTable-v2').remove();</script>
+</div>
+
+<hr class="divider">
+
+<div>
+    <h2>Version 2 (PvP Pack)</h2>
+    <p>
+        A PvP resource pack for Minecraft 1.8.9.<br/>
+        Based on Faithful 1.8 with textures from Defscape and more.
+    </p>
+
+    <table id="v2-pvp" class="flex"></table>
+    <script id="createTable-v2-pvp">createTable('v2-pvp', [
+        {mcver: '1.8.9', packver: 'v2.3.0  ', dl: 'aa12f5wb4lrd7tj', date: '2020-02-29'},
+        {mcver: '1.8.9', packver: 'v2.2.8  ', dl: 'r4tjay0p46aij2n', date: '2019-07-08'},
+        {mcver: '1.8.9', packver: 'v2.2.7  ', dl: 'edy9pv5uj9s2v1g', date: '2019-06-22'},
+        {mcver: '1.8.9', packver: 'v2.2.6  ', dl: 'hyyyzpy4jbxkaa9', date: '2019-06-15'},
+        {mcver: '1.8.9', packver: 'v2.2.5  ', dl: '056v40rvd8m31qr', date: '2019-06-08'},
+        {mcver: '1.8.9', packver: 'v2.2.4  ', dl: '9tgvl873w86s6dz', date: '2019-03-17'},
+        {mcver: '1.8.9', packver: 'v2.2.3  ', dl: 'faee1gnu1h3pely', date: '2019-01-27'},
+        {mcver: '1.8.9', packver: 'v2.2.2  ', dl: 'q78du3sjd8yuusv', date: '2019-01-25'},
+        {mcver: '1.8.9', packver: 'v2.2.1_1', dl: 'ay3uh4vgv2vbiq3', date: '2019-01-25'},
+        {mcver: '1.8.9', packver: 'v2.2.1  ', dl: 'd790r4fcmyo037o', date: '2019-01-25'},
+        {mcver: '1.8.9', packver: 'v2.2.0  ', dl: '39lzc74j9v4z2at', date: '2019-01-08'},
+        {mcver: '1.8.9', packver: 'v2.1.8  ', dl: 'zjouiezzvqg4x6b', date: '2018-08-16'},
+        {mcver: '1.8.9', packver: 'v2.1.7  ', dl: '1pqeu5b031fth09', date: '2018-08-11'},
+        {mcver: '1.8.9', packver: 'v2.1.6  ', dl: 'lbr0b44c6f31qfh', date: '2018-07-06'},
+        {mcver: '1.8.9', packver: 'v2.1.5_1', dl: 'uzi22aevxne44zr', date: '2018-07-01'},
+        {mcver: '1.8.9', packver: 'v2.1.5  ', dl: 'b3bpke13jqaqoni', date: '2018-07-01'},
+        {mcver: '1.8.9', packver: 'v2.1.4  ', dl: 'qaq6ya8r321bvqd', date: '2018-04-08'},
+        {mcver: '1.8.9', packver: 'v2.1.3_1', dl: '6780crpwwcofsa4', date: '2017-12-26'},
+        {mcver: '1.8.9', packver: 'v2.1.3  ', dl: 'zk2bvjgfv4ftkeb', date: '2017-12-26'},
+        {mcver: '1.8.9', packver: 'v2.1.2  ', dl: '2s5ikj2161xsnt1', date: '2017-12-23'},
+        {mcver: '1.8.9', packver: 'v2.1.1  ', dl: '93fm3n3a298dsav', date: '2017-12-23'},
+        {mcver: '1.8.9', packver: 'v2.1.0  ', dl: '645scidol4lmo84', date: '2017-12-22'},
+        {mcver: '1.8.9', packver: 'v2.0.3  ', dl: '44hu5rctqqzeg87', date: '2017-12-10'},
+        {mcver: '1.8.9', packver: 'v2.0.1  ', dl: 'b9hpx6m29armagf', date: '2017-08-27'},
+        {mcver: '1.8.9', packver: 'v2.0.0  ', dl: 'u5pzo28i80xalcs', date: '2017-08-26'},
+    ]); $('#createTable-v2-pvp').remove();</script>
+</div>
+
+<hr class="divider">
+
+<!-- nixinova v1 -->
+<div>
+    <h2>Version 1</h2>
+    <p>
+        The first iteration of my mash-up resource pack, which I used in 2016 and 2017.<br/>
+        Early versions are based mostly on Defscape with a few modifications, while later versions are mostly Faithful.<br/>
+        For Minecraft versions 1.9 to 1.12.
+    </p>
+
+    <table id="v1" class="flex"></table>
+    <script id="createTable-v1">createTable('v1', [
+        {mcver: '1.12  ', snap: '17w15a', packver: 'v1.9.1  ', dl: 'xyljtkgpr2iiu11', date: '2017-04-21'},
+        {mcver: '1.12  ', snap: '17w13b', packver: 'v1.9.0  ', dl: '7k1x7h9n6fxabqr', date: '2017-04-03'},
+        {mcver: '1.11.2',                 packver: 'v1.8.0  ', dl: 'mx1e97tzs7oex9o', date: '2017-02-04'},
+        {mcver: '1.11  ',                 packver: 'v1.7.1  ', dl: 'tavs7omuvtutuza', date: '2016-12-11'},
+        {mcver: '1.11  ',                 packver: 'v1.7_1  ', dl: 'au86v2f555symrk', date: '2016-12-04'},
+        {mcver: '1.11  ',                 packver: 'v1.7.0  ', dl: '66g3qxnv6mlj4be', date: '2016-12-04', unzip: true},
+        {mcver: '1.11  ',                 packver: 'v1.6.7  ', dl: 'bi727ck5xel2vda', date: '2016-11-26'},
+        {mcver: '1.11  ',                 packver: 'v1.6.6  ', dl: 'g5euey0vnz4dven', date: '2016-11-15', unzip: true},
+        {mcver: '1.10.2',                 packver: 'v1.6.5_1', dl: 'al6c42m2a92fnmq', date: '2016-11-26'},
+        {mcver: '1.10.2',                 packver: 'v1.6.5  ', dl: 'mf8q3jfcjzgi06v', date: '2016-10-30', unzip: true},
+        {mcver: '1.10.2',                 packver: 'v1.6.4  ', dl: 'cuvk2tkrit15eg4', date: '2016-10-30', unzip: true},
+        {mcver: '1.10.2',                 packver: 'v1.6.3  ', dl: 'l13ze36i3z9yby6', date: '2016-09-18', unzip: true},
+        {mcver: '1.9.4 ',                 packver: 'v1.4.1  ', dl: 'jeb5at4sa9p7ubk', date: '2016-08-06'},
+        {mcver: '1.9.4 ',                 packver: 'v1.4.0  ', dl: 'e1y5xi3171kev14', date: '2016-08-06'},
+        {mcver: '1.9.4 ',                 packver: 'v1.3.1  ', dl: 'ugbuqlf7fg3aoui', date: '2016-06-28', unzip: true}
+    ]); $('#createTable-v1').remove();</script>
+</div>

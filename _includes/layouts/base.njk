@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+    <title>{{ title }} &ndash; Nixinova</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    {% if css %}<link rel="stylesheet" href="/assets/css/{{ css }}">{% endif %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    {% if js %}<script src="/assets/js/tool-functions.js"></script>
+    <script src="/assets/js/{{ js }}"></script>{% endif %}
+</head>
+
+<body>
+    <header>{% include "components/header.html" %}</header>
+    <main>{{ content | safe }}</main>
+    <footer>{% include "components/footer.html" %}</footer>
+</body>
+</html>
