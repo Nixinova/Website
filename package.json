@@ -1,22 +1,22 @@
 {
-  "name": "11ty-test-2",
-  "version": "1.0.0",
-  "description": "'# Page header'",
+  "name": "Nixinova",
+  "version": "5.0.0",
+  "description": "Personal website of Nixinova",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nixinova/11ty-test-2.git"
+    "url": "git+https://github.com/Nixinova/website.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "",
   "bugs": {
-    "url": "https://github.com/Nixinova/11ty-test-2/issues"
+    "url": "https://github.com/Nixinova/website/issues"
   },
-  "homepage": "https://github.com/Nixinova/11ty-test-2#readme",
+  "homepage": "https://nixinova.com",
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0"
   }
