@@ -5,13 +5,12 @@ sitemapIgnore: true
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/assets/styles/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{%- for item in collections.all | reverse %}
+{%- for item in collections.all %}
  {%- if not item.data.sitemapIgnore %}
   <url>
     <loc>https://nixinova.com{{ item.data.permalink | replace('.html', '') }}</loc>
-    {% if item.data.date %}<lastmod>{{ item.data.date | replace('+1300','+13:00') | replace('+1200','+12:00') }}</lastmod>{% endif %}
-    <changefreq>{{ item.data.title and "weekly" or "always" }}</changefreq>
-  </url>
+    <changefreq>{{ item.data.title and "monthly" or "always" }}</changefreq>
+    {% if item.data.date %}<lastmod>{{ item.data.date | replace('+1300','+13:00') | replace('+1200','+12:00') }}</lastmod>{% endif %}</url>
  {%- endif %}
 {%- endfor %}
 </urlset>
