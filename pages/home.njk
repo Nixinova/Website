@@ -1,0 +1,102 @@
+---
+layout: layouts/base.njk
+permalink: /
+title: Home
+description: "The personal website of Nixinova, containing command generation and coordinate tools for Minecraft, APIs for generation information from Hytale blog posts, and downloads of Minecraft maps and resource packs created by Nixinova."
+keywords: "nixinova,herobrinenzk,nixinova website,nixinova.com"
+---
+<style>
+    @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
+    
+    :root {--blue: linear-gradient(#08e, #15c); scroll-behavior: smooth;}
+
+    body {background: var(--blue); overflow-x: hidden;}
+    main {padding-top: 0;}
+    footer {margin-top: 0;}
+    a[href]:hover {opacity: 1;}
+
+    h2::before, h2::after {content: ""; display: block; width: 50%; height: 2px; margin-left: 25%; background: #fff;}
+    
+    .showcase-container {display: flex; height: 100vh; width: 100vw; border-top: 2px solid; text-align: center;}
+    .showcase-container div {margin: auto;}
+    .showcase-container p {max-width: 80%; margin: auto; font-size: 1.2em;}
+    .showcase-container img {max-width: 50%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
+    .showcase-container hr {width: 50%;}
+    .showcase-container h2 {font-size: 8vh; line-height: 1.3;}
+    .showcase-container ul {padding-left: 0; list-style-type: none; font-size: 2.5em;}
+    .showcase-container li a {color: #eee;}
+    .image-background {background: fixed #333 center; background-blend-mode: overlay; background-size: cover;}
+
+    @media (min-width: 900px) {
+        .content-container {display: flex;}
+        .content-container .title {width: 50vw;}
+        .content-container .contents {width: 40vw; text-align: left;}
+    }
+</style>
+
+<div id="welcome" class="showcase-container" style="background: var(--blue);">
+    <div>
+        <img src="/assets/images/logos/nixinova.png" alt="&thinsp;NIXINOVA" onmousedown="return false;">
+    </div>
+</div>
+
+<div id="maps" class="showcase-container image-background" style="background-image: url(/assets/images/minecraft/maps/kitpvp.jpg)">
+    <div class="content-container">
+        <div class="title">
+            <h2>Maps</h2>
+        </div>
+        <div class="contents">
+            <ul>
+                <li><a class="hover-underline" href="/downloads/minecraft/maps/skywars">SkyWars</a></li>
+                <li><a class="hover-underline" href="/downloads/minecraft/maps/kitpvp">KitPvP</a></li>
+                <li><a class="hover-underline" href="/downloads/minecraft/maps/musical-blocks">Musical&nbsp;Blocks</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="tools" class="showcase-container image-background" style="background-image: url(/assets/images/minecraft/tools-background.jpg);">
+    <div class="content-container">
+        <div class="title">
+            <h2>Tools</h2>
+        </div>
+        <div class="contents">
+            <ul>
+                <li><a class="hover-underline" href="/tools/minecraft/commands/give">/give</a></li>
+                <li><a class="hover-underline" href="/tools/minecraft/commands/summon">/summon</a></li>
+                <li><a class="hover-underline" href="/tools/minecraft/converters/coordinates">Coordinates</a></li>
+                <li><a class="hover-underline" href="/tools/minecraft/converters/seed">Seed Converter</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="packs" class="showcase-container image-background" style="background-image: url(/assets/images/minecraft/resource-packs/nixinova-mash-up.jpg);">
+    <div class="content-container">
+        <div class="title">
+            <h2>Resource Packs</h2>
+        </div>
+        <div class="contents">
+            <ul>
+                <li><a class="hover-underline" href="/downloads/minecraft/resource-packs/mash-up">Mash-Up</a></li>
+                <li><a class="hover-underline" href="/downloads/minecraft/resource-packs/themed">Themed</a></li>
+                <li><a class="hover-underline" href="/downloads/minecraft/resource-packs/herobrinenzk">HeroBrineNZK</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="apis" class="showcase-container image-background" style="background-image: url(/assets/images/minecraft/apis-background.jpg); background-color: #444;">
+    <div class="content-container">
+        <div class="title">
+            <h2>APIs</h2>
+        </div>
+        <div class="contents">
+            <ul>
+                <li><a class="hover-underline" href="/tools/hytale/api/blog">Hytale Blog</a></li>
+                <li><a class="hover-underline" href="/tools/minecraft/api/player">Minecraft Player</a></li>
+                <li><a class="hover-underline" href="/tools/minecraft/api/versions">Minecraft Versions</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
