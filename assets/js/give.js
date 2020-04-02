@@ -100,7 +100,7 @@ function give() {
     var i_durability = value('input_item_durability', 1);
     var i_destroy = value('input_item_destroy').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
     var i_place_on = value('input_item_place_on').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_mod = value('input_item_mod');
+    var i_mod = value('input_item_mod').toLowerCase().replace(/ /g, "_");
     var i_mod_amount = value('input_item_mod_value', 'int');
     var i_mod_op = value('input_item_mod_operation', 'num');
     var i_mod_slot = value('input_item_mod_slot').toLowerCase().replace(/ /g, '');
