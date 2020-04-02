@@ -341,12 +341,15 @@ js: "give.js"
             <option value="#flower_pots"></option>
             <option value="#flowers"></option>
             <option value="#fire"></option>
+            <option value="#gold_ores"></option>
             <option value="#hoglin_repellents">(Warped fungi)</option>
             <option value="#ice"></option>
             <option value="#impermeable">(Glass)</option>
             <option value="#jungle_logs"></option>
             <option value="#leaves"></option>
             <option value="#logs"></option>
+            <option value="#logs_that_burn"></option>
+            <option value="#non_flammable_wood"></option>
             <option value="#nylium"></option>
             <option value="#oak_logs"></option>
             <option value="#piglin_repellents">(Soul fire)</option>
@@ -358,10 +361,13 @@ js: "give.js"
             <option value="#signs"></option>
             <option value="#slabs"></option>
             <option value="#small_flowers"></option>
+            <option value="#soul_fire_base_blocks"></option>
+            <option value="#soul_speed_blocks"></option>
             <option value="#spruce_logs"></option>
             <option value="#stairs"></option>
             <option value="#standing_signs"></option>
             <option value="#stone_bricks"></option>
+            <option value="#strider_warm_blocks"></option>
             <option value="#tall_flowers"></option>
             <option value="#valid_spawn">(Grass and podzol)</option>
             <option value="#wall_corals"></option>
@@ -398,16 +404,16 @@ js: "give.js"
             var uuid = 0;
             var modifiers = [];
             var uuids = {
-                'attackDamage': [uuid++, uuid++],
+                'attack_damage': [uuid++, uuid++],
                 'armor': [uuid++, uuid++],
-                'armorToughness': [uuid++, uuid++],
-                'attackReach': [uuid++, uuid++],
-                'attackSpeed': [uuid++, uuid++],
-                'followRange': [uuid++, uuid++],
-                'knockbackResistance': [uuid++, uuid++],
+                'armor_toughness': [uuid++, uuid++],
+                'attack_reach': [uuid++, uuid++],
+                'attack_speed': [uuid++, uuid++],
+                'follow_range': [uuid++, uuid++],
+                'knockback_resistance': [uuid++, uuid++],
                 'luck': [uuid++, uuid++],
-                'maxHealth': [uuid++, uuid++],
-                'movementSpeed': [uuid++, uuid++]
+                'max_health': [uuid++, uuid++],
+                'movement_speed': [uuid++, uuid++]
             };
             var Attributes = {Names:[], Values:[]};
         </script>
@@ -417,15 +423,15 @@ js: "give.js"
             <select id="input_item_mod" onchange="submit()">
                 <option></option>
                 <option value="armor">Armour Defense</option>
-                <option value="armorToughness">Armour Toughness</option>
-                <option value="attackDamage">Attack Damage</option>
-                <option value="attackReach">Attack Reach</option>
-                <option value="attackSpeed">Attack Speed</option>
-                <option value="followRange">Follow Range</option>
-                <option value="knockbackResistance">Knockback Resistance</option>
-                <option value="luck">Luck</option>
-                <option value="maxHealth">Max Health</option>
-                <option value="movementSpeed">Movement Speed</option>
+                <option value="armor_toughness">Armour Toughness</option>
+                <option>Attack Damage</option>
+                <option>Attack Reach</option>
+                <option>Attack Speed</option>
+                <option>Follow Range</option>
+                <option>Knockback Resistance</option>
+                <option>Luck</option>
+                <option>Max Health</option>
+                <option>Movement Speed</option>
             </select> &nbsp;<br class="mobileonly"/>
             <label for="input_item_mod_value" class="short">Amount:</label>
             <input id="input_item_mod_value" type="number" step="any" value="1" onchange="submit()">
