@@ -9,7 +9,8 @@ function give() {
         "jungle_logs", "leaves", "logs", "oak_logs", "piglin_repellents", "planks", "rails", "sand", "saplings", "signs", "slabs",
         "small_flowers", "spruce_logs", "stairs", "standing_signs", "stone_bricks", "tall_flowers", "valid_spawn", "wall_corals",
         "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors",
-        "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
+        "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool",
+        "gold_ores", "soul_speed_blocks", "soul_fire_base_blocks", "logs_that_burn", "non_flammable_wood", "strider_warm_blocks"
     ];
     const durable_items = [
         "netherite_sword", "netherite_pickaxe", "netherite_axe", "netherite_shovel", "netherite_hoe",
@@ -26,7 +27,7 @@ function give() {
         "golden_helmet", "golden_chestplate", "golden_leggings", "golden_boots",
         "leather_helmet", "leather_chestplate", "leather_leggings", "leather_boots",
 
-        "trident", "bow", "flint_and_steel", "elytra", "shield", "carrot_on_a_stick", "fishing_rod", "shears"
+        "trident", "bow", "flint_and_steel", "elytra", "shield", "carrot_on_a_stick", "fishing_rod", "shears", "warped_fungus_on_a_stick"
     ];
     const durabilities = {
         "netherite_sword": 2031, "netherite_pickaxe": 2031, "netherite_axe": 2031, "netherite_shovel": 2031, "netherite_hoe": 2031,
@@ -44,7 +45,7 @@ function give() {
         "leather_helmet": 56, "leather_chestplate": 81, "leather_leggings": 76, "leather_boots": 66,
 
         "trident": 250, "bow": 384, "flint_and_steel": 63, "elytra": 431, "shield": 336,
-        "carrot_on_a_stick": 225, "fishing_rod": 64, "shears": 237
+        "carrot_on_a_stick": 225, "fishing_rod": 64, "shears": 237, "warped_fungus_on_a_stick": 100
     };
 
     /// VARIABLES ///
@@ -440,19 +441,19 @@ function give() {
     }
 
     // modifiers //
-    /**/ if (i_mod === 'armor'               && i_mod_amount >    30) {i_mod_amount =    30;}
-    else if (i_mod === 'armorToughness'      && i_mod_amount >    20) {i_mod_amount =    20;}
-    else if (i_mod === 'attackDamage'        && i_mod_amount >  2048) {i_mod_amount =  2048;}
-    else if (i_mod === 'attackSpeed'         && i_mod_amount >  1024) {i_mod_amount =  1024;}
-    else if (i_mod === 'attackRange'         && i_mod_amount >     6) {i_mod_amount =     6;}
-    else if (i_mod === 'attackRange'         && i_mod_amount <     0) {i_mod_amount =     0;}
-    else if (i_mod === 'followRange'         && i_mod_amount >  2048) {i_mod_amount =  2048;}
-    else if (i_mod === 'knockbackResistance' && i_mod_amount >     1) {i_mod_amount =     1;}
-    else if (i_mod === 'luck'                && i_mod_amount >  1024) {i_mod_amount =  1024;}
-    else if (i_mod === 'luck'                && i_mod_amount < -1024) {i_mod_amount = -1024;}
-    else if (i_mod !== 'luck'                && i_mod_amount <     0) {i_mod_amount =     0;}
-    else if (i_mod === 'maxHealth'           && i_mod_amount >  1024) {i_mod_amount =  1024;}
-    else if (i_mod === 'movementSpeed'       && i_mod_amount >  1024) {i_mod_amount =  1024;}
+    /**/ if (i_mod === 'armor'                && i_mod_amount >    30) {i_mod_amount =    30;}
+    else if (i_mod === 'armor_toughness'      && i_mod_amount >    20) {i_mod_amount =    20;}
+    else if (i_mod === 'attack_damage'        && i_mod_amount >  2048) {i_mod_amount =  2048;}
+    else if (i_mod === 'attack_speed'         && i_mod_amount >  1024) {i_mod_amount =  1024;}
+    else if (i_mod === 'attack_range'         && i_mod_amount >     6) {i_mod_amount =     6;}
+    else if (i_mod === 'attack_range'         && i_mod_amount <     0) {i_mod_amount =     0;}
+    else if (i_mod === 'follow_range'         && i_mod_amount >  2048) {i_mod_amount =  2048;}
+    else if (i_mod === 'knockback_resistance' && i_mod_amount >     1) {i_mod_amount =     1;}
+    else if (i_mod === 'luck'                 && i_mod_amount >  1024) {i_mod_amount =  1024;}
+    else if (i_mod === 'luck'                 && i_mod_amount < -1024) {i_mod_amount = -1024;}
+    else if (i_mod !== 'luck'                 && i_mod_amount <     0) {i_mod_amount =     0;}
+    else if (i_mod === 'max_health'           && i_mod_amount >  1024) {i_mod_amount =  1024;}
+    else if (i_mod === 'movement_speed'       && i_mod_amount >  1024) {i_mod_amount =  1024;}
 
     if (i_mod && i_mod_amount) {
 
