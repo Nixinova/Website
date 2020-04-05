@@ -261,7 +261,7 @@ function give() {
 
     // fireworks //
     $('#firework').toggleClass('hide', item_id === 'firework_rocket');
-    if (i_firework_type || i_firework_trail || i_firework_flicker || i_firework_flight) {
+    if (item === 'firework_rocket' && (i_firework_type || i_firework_trail || i_firework_flicker || i_firework_flight)) {
         nbt.Fireworks = {};
         if (i_firework_flight) nbt.Fireworks.Flight = i_firework_flight;
         let explosions = [{}];
