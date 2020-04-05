@@ -5,12 +5,12 @@ function give() {
     const tags = [
         "acacia_logs", "anvil", "bamboo_plantable_on", "banners", "beacon_base_blocks", "beds", "bee_growables", "beehives",
         "birch_logs", "buttons", "carpets", "climbable", "coral_blocks", "corals", "crops", "dark_oak_logs", "dirt_like", "doors",
-        "dragon_immune", "enderman_holdable", "fences", "flower_pots", "flowers", "hoglin_repellents", "ice", "impermeable",
-        "jungle_logs", "leaves", "logs", "oak_logs", "piglin_repellents", "planks", "rails", "sand", "saplings", "signs", "slabs",
-        "small_flowers", "spruce_logs", "stairs", "standing_signs", "stone_bricks", "tall_flowers", "valid_spawn", "wall_corals",
-        "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors",
-        "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool",
-        "gold_ores", "soul_speed_blocks", "soul_fire_base_blocks", "logs_that_burn", "non_flammable_wood", "strider_warm_blocks"
+        "dragon_immune", "enderman_holdable", "fences", "flower_pots", "flowers", "gold_ores", "hoglin_repellents", "ice",
+        "impermeable", "jungle_logs", "leaves", "logs", "logs_that_burn", "non_flammable_wood", "oak_logs", "piglin_repellents",
+        "planks", "rails", "sand", "saplings", "signs", "slabs", "small_flowers", "soul_fire_base_blocks", "soul_speed_blocks",
+        "spruce_logs", "stairs", "standing_signs", "stone_bricks", "strider_warm_blocks", "tall_flowers", "valid_spawn",
+        "wall_corals", "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons",
+        "wooden_doors", "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
     ];
     const durable_items = [
         "netherite_sword", "netherite_pickaxe", "netherite_axe", "netherite_shovel", "netherite_hoe",
@@ -51,94 +51,86 @@ function give() {
     /// VARIABLES ///
 
     // call from input form //
-    var target = value('input_selector_target');
-    var player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
-    var target_x = value('input_selector_x','num');
-    var target_y = value('input_selector_y','num');
-    var target_z = value('input_selector_z','num');
-    var dist_min = value('input_selector_dist_min', 'num');
-    var dist_max = value('input_selector_dist_max', 'num');
-    var selection_area = $('#input_selection_area').attr('class');
-    var vol_x = value('input_selector_vol_x', 'num');
-    var vol_y = value('input_selector_vol_y', 'num');
-    var vol_z = value('input_selector_vol_z', 'num');
-    var xrot_min = value('input_selector_xrot_min', 'num');
-    var xrot_max = value('input_selector_xrot_max', 'num');
-    var yrot_min = value('input_selector_yrot_min', 'num');
-    var yrot_max = value('input_selector_yrot_max', 'num');
-    var limit = value('input_selector_limit', 'int');
-    var team = value('input_selector_team').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
-    var team_invert = hasClass('input_selector_team_i', 'on');
-    var tag = value('input_selector_tag').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
-    var tag_invert = hasClass('input_selector_tag_i', 'on');
-    var gamemode = value('input_selector_gm').toLowerCase();
-    var gamemode_invert = hasClass('input_selector_gm_i', 'on');
-    var xp_min = value('input_selector_xp_min', 'int');
-    var xp_max = value('input_selector_xp_max', 'int');
-    var score = value('input_selector_score_objective').toLowerCase().replace(/[^a-z_:]/g, "");
-    var score_min = value('input_selector_score_min', 'int');
-    var score_max = value('input_selector_score_max', 'int');
+    const target = value('input_selector_target');
+    const player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
+    const target_x = value('input_selector_x', 'num');
+    const target_y = value('input_selector_y', 'num');
+    const target_z = value('input_selector_z', 'num');
+    const dist_min = value('input_selector_dist_min', 'num');
+    const dist_max = value('input_selector_dist_max', 'num');
+    const selection_area = $('#input_selection_area').attr('class');
+    const vol_x = value('input_selector_vol_x', 'num');
+    const vol_y = value('input_selector_vol_y', 'num');
+    const vol_z = value('input_selector_vol_z', 'num');
+    const xrot_min = value('input_selector_xrot_min', 'num');
+    const xrot_max = value('input_selector_xrot_max', 'num');
+    const yrot_min = value('input_selector_yrot_min', 'num');
+    const yrot_max = value('input_selector_yrot_max', 'num');
+    const limit = value('input_selector_limit', 'int');
+    const team = value('input_selector_team').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
+    const team_invert = hasClass('input_selector_team_i', 'on');
+    const tag = value('input_selector_tag').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
+    const tag_invert = hasClass('input_selector_tag_i', 'on');
+    const gamemode = value('input_selector_gm').toLowerCase();
+    const gamemode_invert = hasClass('input_selector_gm_i', 'on');
+    const xp_min = value('input_selector_xp_min', 'int');
+    const xp_max = value('input_selector_xp_max', 'int');
+    const score = value('input_selector_score_objective').toLowerCase().replace(/[^a-z_:]/g, "");
+    const score_min = value('input_selector_score_min', 'int');
+    const score_max = value('input_selector_score_max', 'int');
 
-    var item = value('input_item').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z0-9_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_");
-    var i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
-    var i_firework_flicker = hasClass('input_item_firework_flicker', 'on');
-    var i_firework_flight = value('input_item_firework_flight', 'int');
-    var i_firework_type = value('input_item_firework_type', 'int');
-    var i_firework_trail = hasClass('input_item_firework_trail', 'on');
-    var i_name = value('input_item_name').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-    var i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
-    var i_bold = hasClass('input_item_b', 'on');
-    var i_italic = hasClass('input_item_i', 'on');
-    var i_underline = hasClass('input_item_u', 'on');
-    var i_strike = hasClass('input_item_s', 'on');
-    var i_obfus = hasClass('input_item_o', 'on');
-    var i_lore = value('input_item_lore').replace(/\\/g, "\\\\").replace(/\"/g, '\\"');
-    var i_ench = value('input_item_ench').toLowerCase().replace(/ /g, '_');
-    var i_ench_lvl = value('input_item_ench_lvl', 1);
-    var i_unbreakable = hasClass('input_item_unbreakable', 'on');
-    var i_durability = value('input_item_durability', 1);
-    var i_destroy = value('input_item_destroy').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_place_on = value('input_item_place_on').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_mod = value('input_item_mod').toLowerCase().replace(/ /g, "_");
-    var i_mod_amount = value('input_item_mod_value', 'int');
-    var i_mod_op = value('input_item_mod_operation', 'num');
-    var i_mod_slot = value('input_item_mod_slot').toLowerCase().replace(/ /g, '');
-    var i_mod_uuid_least = value('input_item_mod_uuid_least', 'int');
-    var i_mod_uuid_most = value('input_item_mod_uuid_most', 'int');
+    const item = value('input_item').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z0-9_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
+    const i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_");
+    const i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
+    const i_firework_flicker = hasClass('input_item_firework_flicker', 'on');
+    const i_firework_flight = value('input_item_firework_flight', 'int');
+    const i_firework_type = value('input_item_firework_type', 'int');
+    const i_firework_trail = hasClass('input_item_firework_trail', 'on');
+    const i_name = value('input_item_name').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    const i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
+    const i_bold = hasClass('input_item_b', 'on');
+    const i_italic = hasClass('input_item_i', 'on');
+    const i_underline = hasClass('input_item_u', 'on');
+    const i_strike = hasClass('input_item_s', 'on');
+    const i_obfus = hasClass('input_item_o', 'on');
+    const i_lore = value('input_item_lore').replace(/\\/g, "\\\\").replace(/\"/g, '\\"');
+    const i_ench = value('input_item_ench').toLowerCase().replace(/ /g, '_');
+    const i_ench_lvl = value('input_item_ench_lvl', 1);
+    const i_unbreakable = hasClass('input_item_unbreakable', 'on');
+    const i_durability = value('input_item_durability', 1);
+    const i_destroy = value('input_item_destroy').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
+    const i_place_on = value('input_item_place_on').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
+    const i_mod = value('input_item_mod').toLowerCase().replace(/ /g, "_");
+    const i_mod_amount = value('input_item_mod_value', 'int');
+    const i_mod_op = value('input_item_mod_operation', 'num');
+    const i_mod_slot = value('input_item_mod_slot').toLowerCase().replace(/ /g, '');
+    const i_mod_uuid_least = value('input_item_mod_uuid_least', 'int');
+    const i_mod_uuid_most = value('input_item_mod_uuid_most', 'int');
 
-    var count = value('input_count');
+    const count = value('input_count');
 
     // fix values //
-    if ( dist_max &&  dist_min >  dist_max) {[ dist_min,  dist_max] = [ dist_max,  dist_min];}
-    if ( xrot_max &&  xrot_min >  xrot_max) {[ xrot_min,  xrot_max] = [ xrot_max,  xrot_min];}
-    if ( yrot_max &&  yrot_min >  yrot_max) {[ yrot_min,  yrot_max] = [ yrot_max,  yrot_min];}
-    if (   xp_max &&    xp_min >    xp_max) {[   xp_min,    xp_max] = [   xp_max,    xp_min];}
-    if (score_max && score_min > score_max) {[score_min, score_max] = [score_max, score_min];}
+    if (dist_max && dist_min > dist_max) [dist_min, dist_max] = [dist_max, dist_min];
+    if (xrot_max && xrot_min > xrot_max) [xrot_min, xrot_max] = [xrot_max, xrot_min];
+    if (yrot_max && yrot_min > yrot_max) [yrot_min, yrot_max] = [yrot_max, yrot_min];
+    if (xp_max && xp_min > xp_max) [xp_min, xp_max] = [xp_max, xp_min];
+    if (score_max && score_min > score_max) [score_min, score_max] = [score_max, score_min];
 
     // hide flags //
-    var hf = 0;
-    if ($('#ench').hasClass('off')) hf +=  1;
-    if ($('#mods').hasClass('off')) hf +=  2;
-    if ($('#unbr').hasClass('off')) hf +=  4;
-    if ($('#dstr').hasClass('off')) hf +=  8;
+    let hf = 0;
+    if ($('#ench').hasClass('off')) hf += 1;
+    if ($('#mods').hasClass('off')) hf += 2;
+    if ($('#unbr').hasClass('off')) hf += 4;
+    if ($('#dstr').hasClass('off')) hf += 8;
     if ($('#plon').hasClass('off')) hf += 16;
     if ($('#othr').hasClass('off')) hf += 32;
-
-
-    /// OTHER ///
-    if (target === '@e') {
-        $('.player_only').addClass('hide');
-    } else {
-        $('.player_only').removeClass('hide');
-    }
 
     /// GENERATOR ///
     $('#generator-output').empty();
     $('#cmd-note').addClass('hide');
 
     // select player //
-
+    $('.player_only').toggleClass('hide', target === '@e');
     if (target === '--') {
         $('#select-username').removeClass('hide');
         $('#expand-target').addClass('hide');
@@ -157,68 +149,57 @@ function give() {
         $('#input_selector_player').val('');
     }
 
-    var selector = [];
-    var target_text = (target === '--') ? (player || '@s') : target;
+    let selector = [];
+    let target_text = (target === '--') ? (player || '@s') : target;
 
     if (player) {
         selector = '';
     } else {
-        if (target_x) {selector.push('x=' + target_x);}
-        if (target_y) {selector.push('y=' + target_y);}
-        if (target_z) {selector.push('z=' + target_z);}
+        if (target_x) selector.push('x=' + target_x);
+        if (target_y) selector.push('y=' + target_y);
+        if (target_z) selector.push('z=' + target_z);
 
         if (selection_area === 'radius' && (dist_min || dist_max)) {
-            if (dist_min && !dist_max) {selector.push('distance=' + dist_min + '..');}
-            if (!dist_min && dist_max) {selector.push('distance=' + '..' + dist_max);}
-            if (dist_min && dist_max && dist_min != dist_max) {selector.push('distance=' + dist_min + '..' + dist_max);}
-            if (dist_min && dist_max && dist_min == dist_max) {selector.push('distance=' + dist_min);}
+            if (dist_min && !dist_max) { selector.push('distance=' + dist_min + '..'); }
+            if (!dist_min && dist_max) { selector.push('distance=' + '..' + dist_max); }
+            if (dist_min && dist_max && dist_min != dist_max) { selector.push('distance=' + dist_min + '..' + dist_max); }
+            if (dist_min && dist_max && dist_min == dist_max) { selector.push('distance=' + dist_min); }
         }
 
         if (selection_area === 'volume' && (vol_x || vol_y || vol_z)) {
-            if (vol_x) {selector.push('dx=' + vol_x);}
-            if (vol_y) {selector.push('dy=' + vol_y);}
-            if (vol_z) {selector.push('dz=' + vol_z);}
+            if (vol_x) { selector.push('dx=' + vol_x); }
+            if (vol_y) { selector.push('dy=' + vol_y); }
+            if (vol_z) { selector.push('dz=' + vol_z); }
         }
 
-        if (!isNaN(xrot_min) || !isNaN(xrot_max)) {
-            if (!isNaN(xrot_min) && isNaN(xrot_max)) {selector.push('x_rotation=' + xrot_min + '..');}
-            if (isNaN(xrot_min) && !isNaN(xrot_max)) {selector.push('x_rotation=' + '..' + xrot_max);}
-            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) {selector.push('x_rotation=' + xrot_min + '..' + xrot_max);}
-            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) {selector.push('x_rotation=' + xrot_min);}
+        if (xrot_min ?? xrot_max) {
+            if (!isNaN(xrot_min) && isNaN(xrot_max)) { selector.push('x_rotation=' + xrot_min + '..'); }
+            if (isNaN(xrot_min) && !isNaN(xrot_max)) { selector.push('x_rotation=' + '..' + xrot_max); }
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) { selector.push('x_rotation=' + xrot_min + '..' + xrot_max); }
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) { selector.push('x_rotation=' + xrot_min); }
         }
 
-        if (!isNaN(yrot_min) || !isNaN(yrot_max)) {
-            if (!isNaN(yrot_min) && isNaN(yrot_max)) {selector.push('y_rotation=' + yrot_min + '..');}
-            if (isNaN(yrot_min) && !isNaN(yrot_max)) {selector.push('y_rotation=' + '..' + yrot_max);}
-            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) {selector.push('y_rotation=' + yrot_min + '..' + yrot_max);}
-            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) {selector.push('y_rotation=' + yrot_min);}
+        if (yrot_min ?? yrot_max) {
+            if (!isNaN(yrot_min) && isNaN(yrot_max)) { selector.push('y_rotation=' + yrot_min + '..'); }
+            if (isNaN(yrot_min) && !isNaN(yrot_max)) { selector.push('y_rotation=' + '..' + yrot_max); }
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) { selector.push('y_rotation=' + yrot_min + '..' + yrot_max); }
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) { selector.push('y_rotation=' + yrot_min); }
         }
 
-        if (limit) {selector.push('limit=' + limit);}
+        if (limit) selector.push('limit=' + limit);
 
-        if (team) {
-            let not = team_invert ? '!' : ''; 
-            selector.push('team=' + not + team);
+        if (team) selector.push('team=' + (team_invert ? '!' : '') + team);
+        if (tag) selector.push('tag=' + (tag_invert ? '!' : '') + tag);
+        if (gamemode) selector.push('gamemode=' + (gamemode_invert ? '!' : '') + gamemode);
+
+        if (xp_min ?? xp_max) {
+            if (isNaN(xp_min) && !isNaN(xp_max)) selector.push('level=' + xp_min + '..');
+            else if (isNaN(xp_min) && !isNaN(xp_max)) selector.push('level=' + '..' + xp_max);
+            else if (!isNaN(xp_min) && !isNaN(xp_max) && xp_min != xp_max) selector.push('level=' + xp_min + '..' + xp_max);
+            else if (!isNaN(xp_min) && !isNaN(xp_max) && xp_min == xp_max) selector.push('level=' + xp_min);
         }
 
-        if (tag) {
-            let not = tag_invert ? '!' : '';
-            selector.push('tag=' + not + tag);
-        }
-
-        if (gamemode) {
-            let not = gamemode_invert ? '!' : '';
-            selector.push('gamemode=' + not + gamemode);
-        }
-
-        if (xp_min || xp_max) {
-            if (xp_min && !xp_max) {selector.push('level=' + xp_min + '..');}
-            else if (!xp_min && xp_max) {selector.push('level=' + '..' + xp_max);}
-            else if (xp_min && xp_max && xp_min != xp_max) {selector.push('level=' + xp_min + '..' + xp_max);}
-            else if (xp_min && xp_max && xp_min == xp_max) {selector.push('level=' + xp_min);}
-        }
-
-        if (score && (!isNaN(score_min) || !isNaN(score_max))) {
+        if (score && (score_min ?? score_max)) {
             scores.push(score);
             scores_min.push(score_min);
             scores_max.push(score_max);
@@ -227,7 +208,7 @@ function give() {
 
             let new_scores = [], new_min = [], new_max = [];
             for (a in scores) {
-                if (new_scores.indexOf(scores[a]) == -1) {
+                if (new_scores.indexOf(scores[a]) === -1) {
                     new_scores.push(scores[a]);
                     new_min.push(scores_min[a]);
                     new_max.push(scores_max[a]);
@@ -237,28 +218,28 @@ function give() {
 
             let score_text = [];
             for (i in scores) {
-                if (scores[i]) {
-                    if (scores_min[i] && !scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i] + '..');}
-                    else if (!scores_min[i] && scores_max[i]) {score_text.push(scores[i] + '=' + '..' + scores_max[i]);}
-                    else if (scores_min[i] && scores_max[i] && scores_min[i] != scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i] + '..' + scores_max[i]);}
-                    else if (scores_min[i] && scores_max[i] && scores_min[i] == scores_max[i]) {score_text.push(scores[i] + '=' + scores_min[i]);}
-                }
+                if (!scores[i]) continue;
+                if (isNaN(scores_max[i]) && !isNaN(scores_min[i])) score_text.push(scores[i] + '=' + scores_min[i] + '..');
+                else if (isNaN(scores_min[i]) && isNaN(scores_max[i])) score_text.push(scores[i] + '=' + '..' + scores_max[i]);
+                else if (!isNaN(scores_min[i]) && !isNaN(scores_max[i]) && scores_min[i] != scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i] + '..' + scores_max[i]);
+                else if (!isNaN(scores_min[i]) && !isNaN(scores_max[i]) && scores_min[i] == scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i]);
             }
             selector.push('scores={' + JSON.stringify(score_text).replace(/[\[\]]/g, '') + '}');
         }
 
-        selector = selector.length !== 0 ? JSON.stringify(selector).replace(/"/g, '').replace(/\\/g, '') : '';
+        selector = selector.length > 0 ? JSON.stringify(selector).replace(/"/g, '').replace(/\\/g, '') : '';
     }
 
     // select item //
     let colon_pos = item.search(':');
     let item_id = item.replace('minecraft:', '');
-    if (!item || item === 'minecraft:' || item === ':') {item = 'minecraft:stone';}
-    else if (colon_pos === item.length - 1) {item = 'minecraft:' + item.slice(0, -1);}
-    else if (colon_pos === -1) {item = 'minecraft:' + item;}
-    else if (colon_pos === 0) {item = 'minecraft' + item;}
+    if (!item || item === 'minecraft:' || item === ':') item = 'minecraft:stone';
+    else if (colon_pos === item.length - 1) item = 'minecraft:' + item.slice(0, -1);
+    else if (colon_pos === -1) item = 'minecraft:' + item;
+    else if (colon_pos === 0) item = 'minecraft' + item;
+
     // NBT //
-    var nbt = {};
+    let nbt = {};
 
     // potion //
     if (item_id.includes('potion')) {
@@ -267,7 +248,7 @@ function give() {
         $('#potion').addClass('hide');
         $('input_item_potion').val('');
     }
-    if (i_potion) {nbt.Potion = i_potion;}
+    if (i_potion) nbt.Potion = i_potion;
 
     // head //
     if (item_id === 'player_head' || item_id === 'player_wall_head') {
@@ -276,29 +257,26 @@ function give() {
         $('#player_head').addClass('hide');
         $('input_item_head').val('');
     }
-    if (i_head) {nbt.SkullOwner = i_head;}
+    if (i_head) nbt.SkullOwner = i_head;
 
     // fireworks //
-    if (item_id === 'firework_rocket') {
-        $('#firework').removeClass('hide');
-    } else {
-        $('#firework').addClass('hide');
-    }
+    $('#firework').toggleClass('hide', item_id === 'firework_rocket');
     if (i_firework_type || i_firework_trail || i_firework_flicker || i_firework_flight) {
+        nbt.Fireworks = {};
         if (i_firework_flight) nbt.Fireworks.Flight = i_firework_flight;
         let explosions = [{}];
         if (i_firework_type) explosions[0].Type = i_firework_type;
         if (i_firework_flicker) explosions[0].Flicker = i_firework_flicker;
         if (i_firework_trail) explosions[0].Trail = i_firework_trail;
-        nbt.Fireworks = {"Explosions": explosions};
+        nbt.Fireworks = { "Explosions": explosions };
     }
 
     // display //
-    if (i_name || i_lore) {nbt.display = {};}
+    if (i_name ?? i_lore) nbt.display = {};
     let display = {};
 
     if (i_name) {
-        var $preview = $('#preview-text');
+        const $preview = $('#preview-text');
         $('#preview').removeClass('hide');
         $('#expand-cname').removeClass('hide');
         $preview.html(i_name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
@@ -307,27 +285,26 @@ function give() {
 
         let className;
         switch (i_colour) {
-            case 'aqua'         : className="§b"; break;
-            case 'black'        : className="§0"; break;
-            case 'blue'         : className="§9"; break;
-            case 'dark_aqua'    : className="§3"; break;
-            case 'dark_blue'    : className="§1"; break;
-            case 'dark_gray'    : className="§8"; break;
-            case 'dark_green'   : className="§2"; break;
-            case 'dark_purple'  : className="§5"; break;
-            case 'dark_red'     : className="§4"; break;
-            case 'gold'         : className="§6"; break;
-            case 'gray'         : className="§7"; break;
-            case 'green'        : className="§a"; break;
-            case 'light_purple' : className="§d"; break;
-            case 'red'          : className="§c"; break;
-            case 'yellow'       : className="§e"; break;
-            default             : className="§f";
+            case 'aqua'         : className = "§b"; break;
+            case 'black'        : className = "§0"; break;
+            case 'blue'         : className = "§9"; break;
+            case 'dark_aqua'    : className = "§3"; break;
+            case 'dark_blue'    : className = "§1"; break;
+            case 'dark_gray'    : className = "§8"; break;
+            case 'dark_green'   : className = "§2"; break;
+            case 'dark_purple'  : className = "§5"; break;
+            case 'dark_red'     : className = "§4"; break;
+            case 'gold'         : className = "§6"; break;
+            case 'gray'         : className = "§7"; break;
+            case 'green'        : className = "§a"; break;
+            case 'light_purple' : className = "§d"; break;
+            case 'red'          : className = "§c"; break;
+            case 'yellow'       : className = "§e"; break;
+            default             : className = "§f";
         }
 
-        if (i_colour) {display.color = i_colour;}
-        $preview.removeClass();
-        $preview.addClass(className);
+        if (i_colour) display.color = i_colour;
+        $preview.removeClass().addClass(className);
 
         if (i_obfus) {
             display.obfuscated = true;
@@ -374,7 +351,7 @@ function give() {
     // lore //
     if (i_lore) {
         let lore = i_lore.split('\n');
-        for (let i in lore) lore[i] = '"'+lore[i]+'"';
+        for (let i in lore) lore[i] = '"' + lore[i] + '"';
         nbt.display.Lore = lore;
     }
 
@@ -397,7 +374,7 @@ function give() {
         nbt.Enchantments = [];
         for (i in e) {
             if (e[i]) {
-                nbt.Enchantments.push({id: e[i], lvl: parseInt(elvl[i])});
+                nbt.Enchantments.push({ id: e[i], lvl: parseInt(elvl[i]) });
             }
         }
     }
@@ -407,23 +384,23 @@ function give() {
         $('.tool').removeClass('hide');
     } else {
         $('.tool').addClass('hide');
-        $('input_item_unbreakable').prop('checked',false);
+        $('input_item_unbreakable').prop('checked', false);
         $('input_item_durability').val('');
     }
 
     // damage //
     var damage = durabilities[item_id] - i_durability;
-    if (i_durability && !i_unbreakable) {nbt.Damage = damage;}
+    if (i_durability && !i_unbreakable) { nbt.Damage = damage; }
 
     // unbreakable //
-    if (i_unbreakable) {nbt.Unbreakable = true;}
+    if (i_unbreakable) { nbt.Unbreakable = true; }
 
     // CanDestroy //
     if (i_destroy) {
         CanDestroy.push(i_destroy)
         for (i in CanDestroy) {
             for (tag of tags) {
-                if (CanDestroy[i] == tag) {CanDestroy[i] = '#' + tag;}
+                if (CanDestroy[i] == tag) CanDestroy[i] = '#' + tag;
             }
         }
         nbt.CanDestroy = rvDupes(CanDestroy);
@@ -434,31 +411,31 @@ function give() {
         CanPlaceOn.push(i_place_on)
         for (i in CanPlaceOn) {
             for (tag of tags) {
-                if (CanPlaceOn[i] == tag) {CanPlaceOn[i] = '#' + tag;}
+                if (CanPlaceOn[i] == tag) CanPlaceOn[i] = '#' + tag;
             }
         }
         nbt.CanPlaceOn = rvDupes(CanPlaceOn);
     }
 
     // modifiers //
-    /**/ if (i_mod === 'armor'                && i_mod_amount >    30) {i_mod_amount =    30;}
-    else if (i_mod === 'armor_toughness'      && i_mod_amount >    20) {i_mod_amount =    20;}
-    else if (i_mod === 'attack_damage'        && i_mod_amount >  2048) {i_mod_amount =  2048;}
-    else if (i_mod === 'attack_speed'         && i_mod_amount >  1024) {i_mod_amount =  1024;}
-    else if (i_mod === 'attack_range'         && i_mod_amount >     6) {i_mod_amount =     6;}
-    else if (i_mod === 'attack_range'         && i_mod_amount <     0) {i_mod_amount =     0;}
-    else if (i_mod === 'follow_range'         && i_mod_amount >  2048) {i_mod_amount =  2048;}
-    else if (i_mod === 'knockback_resistance' && i_mod_amount >     1) {i_mod_amount =     1;}
-    else if (i_mod === 'luck'                 && i_mod_amount >  1024) {i_mod_amount =  1024;}
-    else if (i_mod === 'luck'                 && i_mod_amount < -1024) {i_mod_amount = -1024;}
-    else if (i_mod !== 'luck'                 && i_mod_amount <     0) {i_mod_amount =     0;}
-    else if (i_mod === 'max_health'           && i_mod_amount >  1024) {i_mod_amount =  1024;}
-    else if (i_mod === 'movement_speed'       && i_mod_amount >  1024) {i_mod_amount =  1024;}
+    /**/ if (i_mod === 'armor'                && i_mod_amount >    30) i_mod_amount =    30;
+    else if (i_mod === 'armor_toughness'      && i_mod_amount >    20) i_mod_amount =    20;
+    else if (i_mod === 'attack_damage'        && i_mod_amount >  2048) i_mod_amount =  2048;
+    else if (i_mod === 'attack_speed'         && i_mod_amount >  1024) i_mod_amount =  1024;
+    else if (i_mod === 'attack_range'         && i_mod_amount >     6) i_mod_amount =     6;
+    else if (i_mod === 'attack_range'         && i_mod_amount <     0) i_mod_amount =     0;
+    else if (i_mod === 'follow_range'         && i_mod_amount >  2048) i_mod_amount =  2048;
+    else if (i_mod === 'knockback_resistance' && i_mod_amount >     1) i_mod_amount =     1;
+    else if (i_mod === 'luck'                 && i_mod_amount >  1024) i_mod_amount =  1024;
+    else if (i_mod === 'luck'                 && i_mod_amount < -1024) i_mod_amount = -1024;
+    else if (i_mod !== 'luck'                 && i_mod_amount <     0) i_mod_amount =     0;
+    else if (i_mod === 'max_health'           && i_mod_amount >  1024) i_mod_amount =  1024;
+    else if (i_mod === 'movement_speed'       && i_mod_amount >  1024) i_mod_amount =  1024;
 
     if (i_mod && i_mod_amount) {
 
-        if (!i_mod_uuid_least) {i_mod_uuid_least = uuids[i_mod][0];}
-        if (!i_mod_uuid_most)  {i_mod_uuid_most = uuids[i_mod][1];}
+        if (!i_mod_uuid_least) i_mod_uuid_least = uuids[i_mod][0];
+        if (!i_mod_uuid_most)  i_mod_uuid_most  = uuids[i_mod][1];
 
         for (i in modifiers) {
             if (modifiers[i].AttributeName == 'generic.' + i_mod) {
@@ -484,19 +461,18 @@ function give() {
     }
 
     // hide flags //
-    if (hf > 0) {nbt.HideFlags = hf;}
+    if (hf > 0) { nbt.HideFlags = hf; }
 
     // nbt //
-    var NBT = '';
     if (!isEmpty(nbt)) {//                Remove quotes from tags           Allow section symbol
-        NBT = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7');
+        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7');
     }
 
     // count //
-    if (!count) {count = '1';}
+    if (!count) { count = '1'; }
 
     /// OUTPUT ///
-    window.output = `/give ${target_text + selector} ${item + NBT} ${count}`;
+    window.output = `/give ${target_text + selector} ${item + nbt} ${count}`;
     if (window.output.length > 255) {
         $('#cmd-note').removeClass('hide');
         if (target_text === '@s') {
@@ -504,11 +480,11 @@ function give() {
             $('#input_selector_target').val('@p')
         }
     }
-    
+
     $('#generator-output').html(`
         <span class="§7">/give</span>
         <span class="§b">${target_text + selector}</span>
-        <span class="§e">${item}<span>${NBT.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</span>
+        <span class="§e">${item}<span>${nbt.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</span>
         <span class="§a">${count}</span>
     `);
 
