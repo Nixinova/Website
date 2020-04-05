@@ -116,11 +116,11 @@ function summon() {
     {
         // all //
         let CustomName = {};
+        let $preview = $('#preview-text');
         if (name) {
             $('#customname_color').removeClass('hide');
             JSON.stringify(name_color ? { "text": name, "color": name_color } : name);
 
-            let $preview = $('#preview-text');
             $('#preview').removeClass('hide');
             $('#expand-cname').removeClass('hide');
             $preview.html(name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
