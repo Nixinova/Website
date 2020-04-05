@@ -466,7 +466,7 @@ function give() {
     // nbt //
     if (!isEmpty(nbt)) {//                Remove quotes from tags           Allow section symbol
         nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7');
-    }
+    } else nbt = '';
 
     // count //
     if (!count) { count = '1'; }
