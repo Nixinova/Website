@@ -188,7 +188,7 @@ function summon() {
 
             nbt.CustomName = JSON.stringify(CustomName).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
         } else {
-            $('#customname_color').toggleClass('hide', true);
+            $('#customname_color').addClass('hide');
             $preview.addClass('hide');
             $('#expand-cname').addClass('hide');
         }

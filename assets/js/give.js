@@ -130,7 +130,7 @@ function give() {
     $('#cmd-note').addClass('hide');
 
     // select player //
-    $('.player_only').toggleClass('hide', target === '@e');
+    $('.player_only').toggleClass('hide', target !== '@e');
     if (target === '--') {
         $('#select-username').removeClass('hide');
         $('#expand-target').addClass('hide');
@@ -260,7 +260,7 @@ function give() {
     if (i_head) nbt.SkullOwner = i_head;
 
     // fireworks //
-    $('#firework').toggleClass('hide', item_id === 'firework_rocket');
+    $('#firework').toggleClass('hide', item_id !== 'firework_rocket');
     if (item === 'firework_rocket' && (i_firework_type || i_firework_trail || i_firework_flicker || i_firework_flight)) {
         nbt.Fireworks = {};
         if (i_firework_flight) nbt.Fireworks.Flight = i_firework_flight;
