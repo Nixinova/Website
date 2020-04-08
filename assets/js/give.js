@@ -2,7 +2,7 @@
 
 function give() {
     /// LISTS ///
-    const tags = [
+    window.tags = [
         "acacia_logs", "anvil", "bamboo_plantable_on", "banners", "beacon_base_blocks", "beds", "bee_growables", "beehives",
         "birch_logs", "buttons", "campfires", "carpets", "climbable", "coral_blocks", "corals", "crops", "dark_oak_logs",
         "dirt_like", "doors", "dragon_immune", "enderman_holdable", "fences", "flower_pots", "flowers", "gold_ores",
