@@ -314,89 +314,24 @@ js: "give.js"
         <script>
             var CanDestroy = [];
             var CanPlaceOn = [];
+            const explanations = {bee_growables: "Crops and berry bushes)", hoglin_repellents: "Warped fungi", impermeable: "Glass", piglin_repellents: "Soul fire", valid_spawn: "Grass and podzol", wither_summon_base_blocks: "Soul sand or soil"}
+            for (let i in tags) {
+                $('#placeon/destroy-data').append(`\n\t<option value="${tags[i]}">${explanations[tags[i]] || ''}</option>`)
+            }
         </script>
-        <datalist id="placeon_destroy-data">
+        <datalist id="placeon/destroy-data">
             <option value="">&nbsp;</option>
-            <option value="#acacia_logs"></option>
-            <option value="#anvil"></option>
-            <option value="#bamboo_plantable_on"></option>
-            <option value="#banners"></option>
-            <option value="#beacon_base_blocks"></option>
-            <option value="#beds"></option>
-            <option value="#bee_growables">(Crops and berry bushes)</option>
-            <option value="#beehives"></option>
-            <option value="#birch_logs"></option>
-            <option value="#buttons"></option>
-            <option value="#carpets"></option>
-            <option value="#climbable"></option>
-            <option value="#coral_blocks"></option>
-            <option value="#corals"></option>
-            <option value="#crimson_stems"></option>
-            <option value="#crops"></option>
-            <option value="#dark_oak_logs"></option>
-            <option value="#doors"></option>
-            <option value="#dragon_immune"></option>
-            <option value="#enderman_holdable"></option>
-            <option value="#fences"></option>
-            <option value="#flower_pots"></option>
-            <option value="#flowers"></option>
-            <option value="#fire"></option>
-            <option value="#gold_ores"></option>
-            <option value="#hoglin_repellents">(Warped fungi)</option>
-            <option value="#ice"></option>
-            <option value="#impermeable">(Glass)</option>
-            <option value="#jungle_logs"></option>
-            <option value="#leaves"></option>
-            <option value="#logs"></option>
-            <option value="#logs_that_burn"></option>
-            <option value="#non_flammable_wood"></option>
-            <option value="#nylium"></option>
-            <option value="#oak_logs"></option>
-            <option value="#piglin_repellents">(Soul fire)</option>
-            <option value="#planks"></option>
-            <option value="#rails"></option>
-            <option value="#sand"></option>
-            <option value="#saplings"></option>
-            <option value="#shulker_boxes"></option>
-            <option value="#signs"></option>
-            <option value="#slabs"></option>
-            <option value="#small_flowers"></option>
-            <option value="#soul_fire_base_blocks"></option>
-            <option value="#soul_speed_blocks"></option>
-            <option value="#spruce_logs"></option>
-            <option value="#stairs"></option>
-            <option value="#standing_signs"></option>
-            <option value="#stone_bricks"></option>
-            <option value="#strider_warm_blocks"></option>
-            <option value="#tall_flowers"></option>
-            <option value="#valid_spawn">(Grass and podzol)</option>
-            <option value="#wall_corals"></option>
-            <option value="#wall_post_override"></option>
-            <option value="#wall_signs"></option>
-            <option value="#walls"></option>
-            <option value="#warped_stems"></option>
-            <option value="#wart_blocks"></option>
-            <option value="#wither_immune"></option>
-            <option value="#wither_summon_base_blocks">(Soul sand and soil)</option>
-            <option value="#wooden_buttons"></option>
-            <option value="#wooden_doors"></option>
-            <option value="#wooden_fences"></option>
-            <option value="#wooden_pressure_plates"></option>
-            <option value="#wooden_slabs"></option>
-            <option value="#wooden_stairs"></option>
-            <option value="#wooden_trapdoors"></option>
-            <option value="#wool"></option>
         </datalist>
 
         <label>Can destroy:</label><br class="mobileonly"/>
         <label for="input_item_destroy" class="short">Block:</label>
-        <input list="placeon_destroy-data" id="input_item_destroy" type="text" size="13" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
+        <input list="placeon/destroy-data" id="input_item_destroy" type="text" size="13" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
         <a href="javascript:void(0)" class="plus" onclick="submit()"></a>
         <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="$('#input_item_destroy').val('');CanDestroy=[];submit();"></a><br/>
         
         <label>Can place on:</label><br class="mobileonly"/>
         <label for="input_item_place_on" class="short">Block:</label>
-        <input list="placeon_destroy-data" id="input_item_place_on" type="text" size="13" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
+        <input list="placeon/destroy-data" id="input_item_place_on" type="text" size="13" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
         <a href="javascript:void(0)" class="plus" onclick="submit()"></a>
         <a href="javascript:void(0)" id="clear-canPlaceOn" class="clear" onclick="$('#input_item_place_on').val('');CanPlaceOn=[];submit();"></a><br/>
 
