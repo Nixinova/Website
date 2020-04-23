@@ -7,11 +7,11 @@ function give() {
         "birch_logs", "buttons", "campfires", "carpets", "climbable", "coral_blocks", "corals", "crops", "dark_oak_logs",
         "dirt_like", "doors", "dragon_immune", "enderman_holdable", "fences", "flower_pots", "flowers", "gold_ores",
         "guarded_by_piglins", "hoglin_repellents", "ice", "impermeable", "jungle_logs", "leaves", "logs", "logs_that_burn",
-        "non_flammable_wood", "oak_logs", "piglin_repellents", "planks", "rails", "sand", "saplings", "signs", "slabs",
-        "small_flowers", "soul_fire_base_blocks", "soul_speed_blocks", "spruce_logs", "stairs", "standing_signs", "stone_bricks",
-        "strider_warm_blocks", "tall_flowers", "valid_spawn", "wall_corals", "wall_post_override", "wall_signs", "walls",
-        "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors", "wooden_fences", "wooden_pressure_plates",
-        "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
+        "non_flammable_wood", "oak_logs", "piglin_repellents", "planks", "pressure_plates", "rails", "sand", "saplings", "signs",
+        "slabs", "small_flowers", "soul_fire_base_blocks", "soul_speed_blocks", "spruce_logs", "stairs", "standing_signs",
+        "stone_bricks", "stone_pressure_plates", "strider_warm_blocks", "tall_flowers", "valid_spawn", "wall_corals",
+        "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors",
+        "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
     ];
     const durable_items = [
         "netherite_sword", "netherite_pickaxe", "netherite_axe", "netherite_shovel", "netherite_hoe",
@@ -273,7 +273,7 @@ function give() {
     }
 
     // display //
-    if (i_name ?? i_lore) nbt.display = {};
+    if (i_name || i_lore) nbt.display = {};
     let display = {};
 
     if (i_name) {

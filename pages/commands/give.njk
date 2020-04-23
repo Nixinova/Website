@@ -181,25 +181,26 @@ js: "give.js"
         </span><br/>
 
         <span id="cname-content" class="hide">
-            <label for="input_item_colour" class="indent">Colour:</label>
-            <select id="input_item_colour" onchange="submit()">
-                <option value="">White</option>
-                <option>Aqua</option>
-                <option>Black</option>
-                <option>Blue</option>
-                <option>Dark Aqua</option>
-                <option>Dark Blue</option>
-                <option>Dark Gray</option>
-                <option>Dark Green</option>
-                <option>Dark Purple</option>
-                <option>Dark Red</option>
-                <option>Gold</option>
-                <option>Gray</option>
-                <option>Green</option>
-                <option>Light Purple</option>
-                <option>Red</option>
-                <option>Yellow</option>
-            </select><br/>
+            <label class="indent">Colour:</label>
+            <datalist id="input_item_colours">
+                <option>white</option>
+                <option>aqua</option>
+                <option>black</option>
+                <option>blue</option>
+                <option>dark_aqua</option>
+                <option>dark_blue</option>
+                <option>dark_gray</option>
+                <option>dark_green</option>
+                <option>dark_purple</option>
+                <option>dark_red</option>
+                <option>gold</option>
+                <option>gray</option>
+                <option>green</option>
+                <option>light_purple</option>
+                <option>red</option>
+                <option>yellow</option>
+            </datalist>
+            <input type="text" list="input_item_colours" id="input_item_colour"> (colour name or hexadecimal value)<br/>
             <label class="indent">Styles:</label>
             <button type="button" id="input_item_b" class="off" onclick="toggleOnOff(this);submit();">Bold</button> &nbsp;
             <button type="button" id="input_item_i" class="on " onclick="toggleOnOff(this);submit();">Italic</button> &nbsp;
