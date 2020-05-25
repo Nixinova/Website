@@ -97,23 +97,19 @@ js: "give.js"
             <input id="input_selector_tag" type="text" size="8" onkeyup="submit()"> &nbsp;
             <button type="button" id="input_selector_tag_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
 
-            <span class="player_only">
-                <label for="input_selector_gm">Gamemode:</label>
-                <select id="input_selector_gm" onchange="submit()">
-                    <option>&nbsp;</option>
-                    <option>Survival</option>
-                    <option>Creative</option>
-                    <option>Adventure</option>
-                    <option>Spectator</option>
-                </select> &nbsp;
-                <button type="button" id="input_selector_gm_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
-            </span>
+            <label for="input_selector_gm">Gamemode:</label>
+            <select id="input_selector_gm" onchange="submit()">
+                <option>&nbsp;</option>
+                <option>Survival</option>
+                <option>Creative</option>
+                <option>Adventure</option>
+                <option>Spectator</option>
+            </select> &nbsp;
+            <button type="button" id="input_selector_gm_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
 
-            <span class="player_only">
-                <label>XP level:</label>
-                <input id="input_selector_xp_min" type="number" placeholder="min" min="0" size="3" onchange="submit()"> &nbsp;
-                <input id="input_selector_xp_max" type="number" placeholder="max" min="0" size="3" onchange="submit()"><br/>
-            </span>
+            <label>XP level:</label>
+            <input id="input_selector_xp_min" type="number" placeholder="min" min="0" size="3" onchange="submit()"> &nbsp;
+            <input id="input_selector_xp_max" type="number" placeholder="max" min="0" size="3" onchange="submit()"><br/>
 
             <script>
                 var scores = [];
