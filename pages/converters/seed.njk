@@ -14,7 +14,7 @@ css: "tools.css"
 </style>
 <script>
     String.prototype.hashCode = function() {
-        if (/^[0-9]+$/.test(this) && this.length < 20) return this;
+        if (/^[1-9][0-9]*$/.test(this) && this.length < 20) return this;
         var hash = 0;
         for (var i = 0; i < this.length; i++) {
             var character = this.charCodeAt(i);
