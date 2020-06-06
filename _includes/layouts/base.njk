@@ -7,10 +7,12 @@
     <meta name="description" content="{{ description }}">
     <meta name="keywords" content="{{ keywords }}">
     <link rel="icon" href="/assets/images/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="novasheet" href="/assets/css/main.nss">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="https://nixinova.github.io/NovaSheets/src/vers/novasheets-0.3.0.min.js"></script>
     <script data-ad-client="ca-pub-7730644887366759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     {% if css %}<link rel="stylesheet" href="/assets/css/{{ css }}">{% endif %}
+    {% if nss %}<link rel="novasheets" href="/assets/css/{{ nss }}">{% endif %}
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://momentjs.com/downloads/moment.js"></script>
     {% if js %}<script src="/assets/js/tool-functions.js"></script>
