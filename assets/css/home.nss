@@ -1,13 +1,15 @@
 @var blue
-    linear-gradient(#08e, #15c)
+    background: linear-gradient(#08e, #15c)l
 ---
 @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
 
 html {scroll-behavior: smooth;}
-body {background: $(blue); overflow-x: hidden;}
+body {$(bluebg); overflow-x: hidden;}
 main {padding-top: 0;}
 footer {margin-top: 0;}
 a[href]:hover {opacity: 1;}
+
+.shaded {$(bluebg);}
 
 h2::before, h2::after {content: ""; display: block; width: 50%; height: 2px; margin-left: 25%; background: #fff;}
 
