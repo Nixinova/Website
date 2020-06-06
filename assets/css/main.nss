@@ -11,7 +11,7 @@
 @var border | 1 | color
     border-$[1]: 2px solid $[color]
 @var vargen | 1
-    --$(@replace | $[1] | - |  ): $($[1]);
+    --$(@replace | $[1] | | - ): $($[1]);
 ---
 :root {$(vargen|1=body color) $(vargen|1=header color) $(vargen|1=header height) $(vargen|1=footer color) $(vargen|1=main height)}
 
