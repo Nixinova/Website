@@ -8,12 +8,12 @@
     72px
 @var main height
     calc( 100vh - $(footer height) )
-@var border | 1 | color
-    border-$[1]: 2px solid $[color]
+@var border | side | color
+    border-$[side]: 2px solid $[color];
 @var vargen | 1
-    --$(@replace | $[1] | | - ): $($[1]);
+    --$(@replace | $[1] |  | - ): $($[1]);
 ---
-:root {$(vargen|1=body color) $(vargen|1=header color) $(vargen|1=header height) $(vargen|1=footer color) $(vargen|1=main height)}
+:root {$(vargen|1=body color) $(vargen|1=header color) $(vargen|1=header height) $(vargen|1=footer height) $(vargen|1=main height)}
 
 // Base elements //
 * {box-sizing: border-box;}
@@ -28,7 +28,7 @@ img {max-width: 100%; vertical-align: middle; border: 0;}
 abbr {cursor: help;}
 
 // Footer //
-footer {width: 100%; padding: 15px; background: $(header color); margin-top: 12px; $(border|1=top|color=#fff); text-align: center;}
+footer {width: 100%; padding: 15px; background: $(header color); margin-top: 12px; $(border|side=top|color=#fff); text-align: center;}
 footer ul {margin: 0;}
 footer li {display: inline; white-space: nowrap;}
 footer li:not(:empty):not(:first-child)::before {content: ' • ';}
@@ -42,8 +42,8 @@ h3 {font-size: 1.6em;}
 h4 {font-size: 1.4em;}
 h5 {font-size: 1.2em;}
 h2.section-header {margin-top: 0.8em; margin-bottom: 0.5em;}
-h2.section-header::after {content: ""; display: block; width: 15vw; height: 2px; margin-left: calc(50% - 15vw/2); background: #fff; transition: 1s;}
-h2.section-header:hover::after {width: 20vw; margin-left: calc(50% - 20vw/2);}
+h2.section-header::after {content: ""; display: block; width: 15vw; height: 2px; margin-left: calc(50% - 7.5vw); background: #fff; transition: 1s;}
+h2.section-header:hover::after {width: 20vw; margin-left: calc(50% - 10vw);}
 
 // Links //
 a {text-decoration: none; cursor: pointer;}
@@ -65,7 +65,7 @@ iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 
 // Galleries //
 #gallery {width: 100%; margin-bottom: 1em;}
-#gallery .screenshot {display: flex; height: calc(75vh/16*10); $(border|1=bottom|color=#fff); background: #333 center/cover; background-blend-mode: overlay;}
+#gallery .screenshot {display: flex; height: 75/16*10vh; $(border|side=bottom|color=#fff); background: #333 center/cover; background-blend-mode: overlay;}
 #gallery .screenshot>* {margin: auto;}
 
 // Buttons //
@@ -79,7 +79,7 @@ button.download {margin: 0; border-radius: 2em;}
 // Responsive //
 @media (min-width: 801px) {
     .mobileonly {display: none !important;}
-    p.description {max-width: 2/3%; margin: auto;}
+    p.description {max-width: 0.666%; margin: auto;}
     ::-webkit-scrollbar {width: 1em;}
     ::-webkit-scrollbar-track {background: #111d;}
     ::-webkit-scrollbar-thumb {background: #fff; box-shadow: inset 0 0 6px #0004;}
