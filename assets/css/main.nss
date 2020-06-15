@@ -9,7 +9,7 @@
 @var main height
     calc( 100vh - $(footer height) )
 @var vargen | n
-    --$(@replace | $[n] |  | - ): $($[1]);
+    --$(@replace | $[n] |  | - ): $($[n]);
 @endvar
 
 :root {$(vargen|n=body color) $(vargen|n=header color) $(vargen|n=header height) $(vargen|n=footer height) $(vargen|n=main height)}
