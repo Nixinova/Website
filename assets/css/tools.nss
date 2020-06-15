@@ -1,6 +1,3 @@
-@var color code | color | bgcolor
-    color: $[color]; text-shadow: 1px 1px $[bgcolor];
----
 // Font //
 @font-face {font-family: 'Minecraft'; src: local('Minecraft'), url('/assets/fonts/minecraft.ttf') format('truetype');}
 
@@ -71,6 +68,9 @@ p.negative {margin-top: -15px;}
 }
 
 // Minecraft color codes //
+@var color code | color | bgcolor
+    color: $[color]; text-shadow: 1px 1px $[bgcolor];
+@endvar
 .§0 {$(color code|color=#000|bgcolor=#000000)}
 .§1 {$(color code|color=#00a|bgcolor=#00002a)}
 .§2 {$(color code|color=#0a0|bgcolor=#002a00)}

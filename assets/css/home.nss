@@ -1,6 +1,7 @@
 @var bluebg
     background: linear-gradient(#08e, #15c);
----
+@endvar
+
 @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
 
 html {scroll-behavior: smooth;}

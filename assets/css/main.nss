@@ -8,12 +8,11 @@
     72px
 @var main height
     calc( 100vh - $(footer height) )
-@var border | side | color
-    border-$[side]: 2px solid $[color];
-@var vargen | 1
-    --$(@replace | $[1] |  | - ): $($[1]);
----
-:root {$(vargen|1=body color) $(vargen|1=header color) $(vargen|1=header height) $(vargen|1=footer height) $(vargen|1=main height)}
+@var vargen | n
+    --$(@replace | $[n] |  | - ): $($[1]);
+@endvar
+
+:root {$(vargen|n=body color) $(vargen|n=header color) $(vargen|n=header height) $(vargen|n=footer height) $(vargen|n=main height)}
 
 // Base elements //
 * {box-sizing: border-box;}
@@ -28,7 +27,7 @@ img {max-width: 100%; vertical-align: middle; border: 0;}
 abbr {cursor: help;}
 
 // Footer //
-footer {width: 100%; padding: 15px; background: $(header color); margin-top: 12px; $(border|side=top|color=#fff); text-align: center;}
+footer {width: 100%; padding: 15px; background: $(header color); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}
 footer ul {margin: 0;}
 footer li {display: inline; white-space: nowrap;}
 footer li:not(:empty):not(:first-child)::before {content: ' • ';}
@@ -65,7 +64,7 @@ iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 
 // Galleries //
 #gallery {width: 100%; margin-bottom: 1em;}
-#gallery .screenshot {display: flex; height: 75/16*10vh; $(border|side=bottom|color=#fff); background: #333 center/cover; background-blend-mode: overlay;}
+#gallery .screenshot {display: flex; height: 75/16*10vh; border-bottom: 2px solid #fff; background: #333 center/cover; background-blend-mode: overlay;}
 #gallery .screenshot>* {margin: auto;}
 
 // Buttons //
