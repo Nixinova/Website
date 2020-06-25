@@ -69,7 +69,7 @@ function generateProject(project) {
     }).done(function (data) {
         //$('#information').html(data.description);
         $('table thead').prepend(`<tr><td colspan=4> <a href="javascript:generateAllProjects()">&larr; Back</a> </td></tr>`);
-        for (let version of data.versions) {
+        for (let version of data.versions.reverse()) {
             $('table tbody').append(`
                 <tr>
                     <td style="max-width: 300px">${version.name}</td>

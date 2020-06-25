@@ -88,6 +88,6 @@ button.download {margin: 0; border-radius: 2em;}
 }
 
 // Google //
-.adsbygoogle {margin-top: 3em 6px; max-width: 100%;}
+.adsbygoogle {margin-top: 3em; max-width: 100%;}
 
 /* Copyright © Nixinova 2020 */
