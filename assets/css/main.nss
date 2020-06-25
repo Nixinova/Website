@@ -12,8 +12,7 @@
     --$(@replace | $[1] |  | - ): $($[1]);
 @endvar
 
-//:root {$(vargen|body color) $(vargen|header color) $(vargen|header height) $(vargen|footer height) $(vargen|main height)}
-:root {--body-color: $(body color); --header-color: $(header-color); --header-height: $(header height); --footer-height: $(footer height); --main-height: $(main height);}
+:root {$(vargen|body color) $(vargen|header color) $(vargen|header height) $(vargen|footer height) $(vargen|main height)}
 
 // Base elements //
 * {box-sizing: border-box;}
