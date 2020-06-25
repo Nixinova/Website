@@ -9,6 +9,7 @@ js: "mojira.js"
 ---
 <style data-name="Page styles">
     table {margin: auto; max-width: 100vw;}
+    tr {scroll-margin-top: 90px;}
     p {text-align: center;}
     samp {font-size: 95%;}
 </style>
@@ -26,7 +27,9 @@ js: "mojira.js"
     Loading... <progress value="0.00"></progress>
 </p>
 
-<p id="information"></p>
+<p id="navigation" class="hide">
+    Jump to version: <select id="dropdown" onchange="location.hash = encodeURIComponent(this.value)"></select>
+</p>
 
 <table class="styled hide">
     <thead></thead>
