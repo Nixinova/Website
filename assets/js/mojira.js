@@ -4,6 +4,7 @@ function progress(val) {
 
 function start() {
     progress(0);
+    $('table').addClass('hide');
     $('#loading').removeClass('hide');
     $('#information').html('');
     $('table tbody').html('');
@@ -49,26 +50,35 @@ function generateAllProjects() {
     });
 }
 
+function bugsLink(type, version, project) {
+    return `https://bugs.mojang.com/issues/?jql=${type}+in+%28%22${version}%22%29+AND+project+%3D+${project}+ORDER+BY+key`
+}
+
 function generateProject(project) {
     start();
     $('table thead').html(`
         <tr>
-            <th>Version</th>
-            <th>Date</th>
+            <th style="max-width: 300px">Version</th>
+            <th style="width: 100px">Date</th>
             <th>Description</th>
+            <th>Quick Links</th>
         </tr>
     `);
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/' + project
     }).done(function (data) {
         //$('#information').html(data.description);
-        $('table thead').prepend(`<tr><td colspan=3> <a href="javascript:generateAllProjects()">&larr; Back</a> </td></tr>`);
+        $('table thead').prepend(`<tr><td colspan=4> <a href="javascript:generateAllProjects()">&larr; Back</a> </td></tr>`);
         for (let version of data.versions) {
             $('table tbody').append(`
                 <tr>
                     <td style="max-width: 300px">${version.name}</td>
-                    <td style="max-width: 100px"><samp>${version.released && version.releaseDate || ''}</samp></td>
+                    <td style="width: 100px"><samp>${version.released && version.releaseDate || ''}</samp></td>
                     <td>${version.description || ''}</td>
+                    <td>
+                        <a href="${bugsLink('affectedVersion', version.name, project)}">Bugs</a>,
+                        <a href="${bugsLink('fixVersion', version.name, project)}">Fixes</a>
+                    </td>
                 </tr>
             `);
         }
