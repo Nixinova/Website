@@ -1,13 +1,10 @@
-function error(err) {
-}
-
 function progress(val) {
-    $('progress').attr('value',val);
+    $('progress').attr('value', val);
 }
 
 function complete() {
     progress(1);
-    setTimeout(function() {
+    setTimeout(function () {
         $('#loading').addClass('hide');
     }, 250);
 }
@@ -30,11 +27,12 @@ function phase(phase, version) {
 function initial() {
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
-    }).done(function(data) {
+    }).done(function (data) {
         let versions = data.versions;
         for (let version of versions) {
             $('#input-version').append(`\n<option>${version.id}</option>`);
         }
+        getInfo('all');
     });
 };
 
@@ -46,7 +44,8 @@ function getInfo(id) {
     }
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://launchermeta.mojang.com/mc/game/version_manifest.json'
-    }).done(function(data) { window.data1 = data;
+    }).done(function (data) {
+        window.data1 = data;
         progress(0.5);
         let url, type, date;
         for (let i = 0; i < data.versions.length; i++) {
@@ -74,7 +73,8 @@ function getInfo(id) {
             $('#title').html(id);
             $.ajax({
                 url: 'https://cors-anywhere.herokuapp.com/' + url
-            }).done(function(data) { window.data2 = data;
+            }).done(function (data) {
+                window.data2 = data;
                 let download = data.downloads;
                 let server = download.server;
                 let client_mappings = download.client_mappings;

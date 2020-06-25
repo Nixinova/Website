@@ -1,0 +1,47 @@
+---
+layout: layouts/base.njk
+permalink: /tools/minecraft/api/mojira.html
+title: "Mojira API Navigation"
+description: ""
+keywords: "nixinova,minecraft,minecraft api,mojira api,mojira api endpoint"
+nss: "tools.nss"
+js: "mojira.js"
+---
+<style data-name="Page styles">
+    table {margin: auto; max-width: 100vw;}
+    p {text-align: center;}
+    samp {font-size: 95%;}
+</style>
+<script id="page-loader-script">
+    $(document).ready(x => initial());
+    var sections = ['list tbody', 'version tbody'];
+</script>
+
+<h1>Mojira API Navigation</h1>
+<p>
+    Get information about any <i>Minecraft</i> version from Mojang's bug tracker site <a href="https://bugs.mojang.com">Mojira</a>.
+</p>
+<!--
+<p>
+    <label>Version:</label>
+    <select type="text" id="input-version">
+        <option value="all">View all</option>
+    </select> &nbsp;
+    <button type="button" id="get-info" onclick="getInfo($('#input-version').val());">Get info</button><br>
+</p>-->
+
+<p id="loading" class="hide">
+    Loading... <progress value="0.00"></progress>
+</p>
+
+<p id="information"></p>
+
+<table class="styled hide">
+    <thead></thead>
+    <tbody></tbody>
+</table>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- In-article -->
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-7730644887366759" data-ad-slot="5486632061"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
