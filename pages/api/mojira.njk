@@ -8,10 +8,12 @@ nss: "tools.nss"
 js: "mojira.js"
 ---
 <style data-name="Page styles">
-    table {margin: auto; max-width: 100vw;}
+    table {margin: auto; padding: 8px; max-width: 100vw;}
     tr {scroll-margin-top: 90px;}
     p {text-align: center;}
     samp {font-size: 95%;}
+    select {padding: 3px 4px;}
+    small {font-size: 91%;}
 </style>
 <script id="page-loader-script">
     $(document).ready(x => initial());
@@ -28,7 +30,7 @@ js: "mojira.js"
 </p>
 
 <p id="navigation" class="hide">
-    Jump to version: <select id="dropdown" onchange="location.hash = encodeURIComponent(this.value)"></select>
+    Jump to version:&nbsp; <select id="dropdown" onchange="location.hash = encodeURIComponent(this.value)"></select>
 </p>
 
 <table class="styled hide">

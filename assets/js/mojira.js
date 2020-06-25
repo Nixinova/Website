@@ -6,7 +6,7 @@ function start() {
     progress(0);
     $('table').addClass('hide');
     $('#loading').removeClass('hide');
-    $('#information').html('');
+    $('#dropdown').html('<option></option>');
     $('table tbody').html('');
     location.hash = '';
 }
@@ -72,17 +72,17 @@ function generateProject(project) {
         //$('#information').html(data.description);
         $('table thead').prepend(`
             <tr><td colspan=4 style="text-align: center;">
-                <a href="javascript:generateAllProjects()" style="position: relative; right: 10%;">&larr; Back</a>
+                <a href="javascript:generateAllProjects()" style="position: relative; right: 8%;">&larr; Back</a>
                 <img src="${data.avatarUrls["48x48"]}"> ${data.name}
             </td></tr>
         `);
         for (let version of data.versions.reverse()) {
-            $('#dropdown').append(`\n<option>${version.name}</option>`)
+            $('#dropdown').append(`\n<option>${version.name}</option>`);
             $('table tbody').append(`
                 <tr id="${encodeURIComponent(version.name)}">
                     <td style="max-width: 300px;">${version.name}</td>
                     <td style="width: 100px;"><samp>${version.released && version.releaseDate || ''}</samp></td>
-                    <td>${version.description || ''}</td>
+                    <td><small>${version.description || ''}</small></td>
                     <td style="width: 100px;">
                         <a href="${bugsLink('affectedVersion', version.name, project)}">Bugs</a>,
                         <a href="${bugsLink('fixVersion', version.name, project)}">Fixes</a>
