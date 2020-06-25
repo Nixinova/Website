@@ -2,8 +2,8 @@
 
 This repository contains the source code for my website, [nixinova.com](https://nixinova.com).
 
-- Content pages are stored in [pages/](https://github.com/Nixinova/website/tree/main/pages).
-- Assets are stored in [assets/](https://github.com/Nixinova/website/tree/main/assets).
-- Templates are stored in [_includes](https://github.com/Nixinova/website/tree/main/_includes).
+- Content pages are stored in the [`pages`](https://github.com/Nixinova/website/tree/main/pages) folder.
+- Assets are stored in the [`assets`](https://github.com/Nixinova/website/tree/main/assets) folder.
+- Templates are stored in the [`_includes`](https://github.com/Nixinova/website/tree/main/_includes) folder.
 
-If you find any issues with a page, please create a [new issue](https://github.com/Nixinova/website/issues/new).
+If you find an issue with any page, please [create a new issue](https://github.com/Nixinova/website/issues/new).

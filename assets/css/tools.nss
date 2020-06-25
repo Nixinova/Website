@@ -68,9 +68,7 @@ p.negative {margin-top: -15px;}
 }
 
 // Minecraft color codes //
-@var color code | color | bgcolor
-    color: $[color]; text-shadow: 1px 1px $[bgcolor];
-@endvar
+@var color code | color | bgcolor = color: $[color]; text-shadow: 1px 1px $[bgcolor];
 .§0 {$(color code|color=#000|bgcolor=#000000)}
 .§1 {$(color code|color=#00a|bgcolor=#00002a)}
 .§2 {$(color code|color=#0a0|bgcolor=#002a00)}

@@ -8,11 +8,11 @@
     72px
 @var main height
     calc( 100vh - $(footer height) )
-@var vargen | n
-    --$(@replace | $[n] |  | - ): $($[n]);
+@var vargen | 1
+    --$(@replace | $[1] |  | - ): $($[1]);
 @endvar
 
-:root {$(vargen|n=body color) $(vargen|n=header color) $(vargen|n=header height) $(vargen|n=footer height) $(vargen|n=main height)}
+:root {$(vargen|body color) $(vargen|header color) $(vargen|header height) $(vargen|footer height) $(vargen|main height)}
 
 // Base elements //
 * {box-sizing: border-box;}
