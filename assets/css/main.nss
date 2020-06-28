@@ -1,15 +1,9 @@
-@var body color
-    #313131
-@var header color
-    #222
-@var header height
-    82px
-@var footer height
-    72px
-@var main height
-    calc( 100vh - $(footer height) )
-@var vargen | 1
-    --$(@replace | $[1] |  | - ): $($[1]);
+@var body color = #313131
+@var header color = #222
+@var header height = 82px
+@var footer height = 72px
+@var main height = calc( 100vh - $(footer height) )
+@var vargen | 1 = --$(@replace | $[1] |  | - ): $($[1]);
 @endvar
 
 :root {$(vargen|body color) $(vargen|header color) $(vargen|header height) $(vargen|footer height) $(vargen|main height)}
@@ -78,7 +72,7 @@ button.download {margin: 0; border-radius: 2em;}
 // Responsive //
 @media (min-width: 801px) {
     .mobileonly {display: none !important;}
-    p.description {max-width: 0.666%; margin: auto;}
+    p.description {max-width: 66.67%; margin: auto;}
     ::-webkit-scrollbar {width: 1em;}
     ::-webkit-scrollbar-track {background: #111d;}
     ::-webkit-scrollbar-thumb {background: #fff; box-shadow: inset 0 0 6px #0004;}
