@@ -80,7 +80,7 @@ function generateProject(project) {
         for (let version of data.versions.reverse()) {
             $('#dropdown').append(`\n<option>${version.name}</option>`);
             $('table tbody').append(`
-                <tr id="${encodeURIComponent(version.name)} ${encodeURIComponent(version.name.replace(/ /g, '_'))}">
+                <tr id="${version.name.replace(/ /g, '_')}">
                     <td style="max-width: 300px;">${version.name}</td>
                     <td style="width: 100px;"><samp>${version.released && version.releaseDate || ''}</samp></td>
                     <td><small>${version.description || ''}</small></td>
