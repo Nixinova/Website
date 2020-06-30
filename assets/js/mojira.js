@@ -84,8 +84,8 @@ function generateProject(project) {
                     <td style="width: 100px;"><samp>${version.released && version.releaseDate || ''}</samp></td>
                     <td><small>${version.description || ''}</small></td>
                     <td style="width: 100px;">
-                        <a href="${bugsLink('affectedVersion', version.name, project)}">Bugs</a>,
-                        <a href="${bugsLink('fixVersion', version.name, project)}">Fixes</a>
+                        <a href="${bugsLink('affectedVersion', encodeURIComponent(version.name), project)}">Bugs</a>,
+                        <a href="${bugsLink('fixVersion', encodeURIComponent(version.name), project)}">Fixes</a>
                     </td>
                 </tr>
             `);
