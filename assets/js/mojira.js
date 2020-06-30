@@ -54,7 +54,7 @@ function generateAllProjects() {
 }
 
 function generateProject(project) {
-    const bugsLink = (type, version, project) => `https://bugs.mojang.com/issues/?jql=${type}+in+%28%22${version}%22%29+AND+project+%3D+${project}+ORDER+BY+key`;
+    const bugsLink = (type, version, project) => 'https://bugs.mojang.com/issues/?jql=' + encodeURIComponent(`${type} in ("${version}") AND project = ${project} ORDER BY key`);
     start();
     $('table thead').html(`
         <tr>
@@ -81,8 +81,8 @@ function generateProject(project) {
                     <td style="width: 100px;"><samp>${version.released && version.releaseDate || ''}</samp></td>
                     <td><small>${version.description || ''}</small></td>
                     <td style="width: 100px;">
-                        <a href="${bugsLink('affectedVersion', encodeURIComponent(version.name), project)}">Bugs</a>,
-                        <a href="${bugsLink('fixVersion', encodeURIComponent(version.name), project)}">Fixes</a>
+                        <a href="${bugsLink('affectedVersion', version.name, project)}">Bugs</a>,
+                        <a href="${bugsLink('fixVersion', version.name, project)}">Fixes</a>
                     </td>
                 </tr>
             `);
