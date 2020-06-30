@@ -20,7 +20,8 @@ function complete() {
 }
 
 function initial() {
-    generateAllProjects()
+    if (location.search.includes('?project')) generateProject(location.search.replace(/.?project=/g, ''))
+    else generateAllProjects()
 }
 
 function generateAllProjects() {
