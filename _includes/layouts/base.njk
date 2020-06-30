@@ -22,7 +22,7 @@
 
 <body>
     <header>{% include "components/header.html" %}</header>
-    <main>{{ content | safe }}</main>
+    <main onclick="hideNav()">{{ content | safe }}</main>
     <footer>{% include "components/footer.html" %}</footer>
 </body>
 </html>

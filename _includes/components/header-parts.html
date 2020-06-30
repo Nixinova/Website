@@ -40,9 +40,8 @@
         if (nav_visible) hideNav(); else showNav();
     }
 
-    $(document).ready(_ => {
-        $('main').attr('onclick','hideNav()');
-        $('nav').css('opacity', 0).animate({'opacity': 1}, 1000);
+    $(document).ready(function() {
+        $('nav').css('opacity', 0).animate({opacity: 1}, 1000);
         $('i').css('visibility', 'visible');
     });
 </script>
