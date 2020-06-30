@@ -27,6 +27,7 @@ function initial() {
 }
 
 function generateAllProjects() {
+    $('title').html(title);
     $('#navigation').addClass('hide');
     start();
     $('table thead').html(`
@@ -47,7 +48,7 @@ function generateAllProjects() {
                     <td><img src="${project.avatarUrls["48x48"]}"></td>
                     <td>${project.key}</td>
                     <td>${project.name}</td>
-                    <td><a href="javascript:generateProject('${project.key}');history.pushState(null, 'Project ${project.key} – ${title}', '?project=${project.key}');">Generate</a>
+                    <td><a href="javascript:generateProject('${project.key}');history.pushState(null, null, '?project=${project.key}');">Generate</a>
                 </tr>
             `);
         }
@@ -56,6 +57,7 @@ function generateAllProjects() {
 }
 
 function generateProject(project) {
+    $('title').html(['Project', project, '–', title].join(' '));
     const bugsLink = (type, version, project) => 'https://bugs.mojang.com/issues/?jql=' + encodeURIComponent(`${type} in ("${version}") AND project = ${project} ORDER BY key`);
     start();
     $('table thead').html(`
@@ -71,7 +73,7 @@ function generateProject(project) {
     }).done(function (data) {
         $('table thead').prepend(`
             <tr><td colspan=4 style="text-align: center;">
-                <a href="javascript:generateAllProjects();history.pushState(null, '${title}', '?');" style="position: relative; right: 8%;">&larr; Back</a>
+                <a href="javascript:generateAllProjects();history.pushState(null, null, '?');" style="position: relative; right: 8%;">&larr; Back</a>
                 <img src="${data.avatarUrls["48x48"]}"> ${data.name}
             </td></tr>
         `);
