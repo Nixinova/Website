@@ -1,63 +1,3 @@
-
-<script id="import-into-header">
-    $('head').append($('#move-to-header').html());
-    $('#move-to-header').remove();
-    $('#import-into-header').remove();
-</script>
-<span id="move-to-header">
-    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
-    <script data-name="Navigation scripts">
-
-        if (window.location.href.split('?')[0].includes('/imports/')){
-            $('head').append('<meta name="robots" content="noindex">');
-        }
-
-        var nav_visible = false;
-        function hideNav() {
-            $('nav').addClass('hide');
-            nav_visible = false;
-        }
-        function showNav() {
-            $('nav').removeClass('hide');
-            nav_visible = true;
-        }
-        function toggleNav() {
-            if (nav_visible) hideNav(); else showNav();
-        }
-        $('main').attr('onclick','hideNav()');
-
-    </script>
-    <style data-name="Navigation styles">
-
-        nav * div {transition: 0.1s;}
-        nav {opacity: 0;}
-
-        #header {background: var(--header-color); height: var(--header-height); display: flex; border-bottom: 2px solid white;}
-        #header .fas {cursor: pointer;}
-        #header-search, #menu-icon {width: 80px; padding: 25px; color: white; cursor: pointer; z-index: 10;}
-        #header-search a, #menu-icon a {color: white;}
-        #menu-logo {margin: auto;}
-        #menu-logo img {max-height: 80px;}
-
-        nav {background-color: var(--body-color); opacity: .9; position: absolute; height: 100vh; padding: 1em; line-height: 2;}
-        nav ul {margin: 0; padding: 0; list-style-type: none;}
-        nav a[href] {color: #fff;}
-        nav a[href]:hover {opacity: 1;}
-        nav .menu-section {margin: 0 auto 1em;}
-        nav .menu-header {display: block; font-weight: bold; font-size: 1.4em; text-align: center; text-transform: uppercase;}
-        nav .menu-subheader {border-bottom: 1px solid; font-size: 1.1em; font-weight: bold;}
-
-        @media (max-width: 600px) {
-            nav {padding-bottom: 10em; width: 100%; overflow: scroll;}
-        }
-
-        @media (min-width: 601px) {
-            nav {border-right: 2px solid white;}
-        }
-
-    </style>
-</span>
-
 <div id="header">
 
     <div id="menu-icon">
@@ -125,11 +65,3 @@
         </div>
     </div>
 </nav>
-
-<script id="footer-script">
-    $(document).ready(_ => {
-        $("nav").css("opacity", 0).animate({"opacity": 1}, 1000);
-        $("i").css("visibility", "visible");
-        $('#footer-script').remove();
-    });
-</script>
