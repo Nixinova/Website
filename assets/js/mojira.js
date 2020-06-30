@@ -45,7 +45,7 @@ function generateAllProjects() {
                     <td><img src="${project.avatarUrls["48x48"]}"></td>
                     <td>${project.key}</td>
                     <td>${project.name}</td>
-                    <td><a href="javascript:generateProject('${project.key}');History.pushState(null, null, "?project=${project.key}");">Generate</a>
+                    <td><a href="javascript:generateProject('${project.key}');History.pushState(null, null, '?project=${project.key}');">Generate</a>
                 </tr>
             `);
         }
