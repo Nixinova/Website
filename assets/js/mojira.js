@@ -1,3 +1,5 @@
+window.title = "Mojira API Navigation – Nixinova";
+
 function progress(val) {
     $('progress').attr('value', val);
 }
@@ -45,7 +47,7 @@ function generateAllProjects() {
                     <td><img src="${project.avatarUrls["48x48"]}"></td>
                     <td>${project.key}</td>
                     <td>${project.name}</td>
-                    <td><a href="javascript:generateProject('${project.key}');history.pushState(null, null, '?project=${project.key}');">Generate</a>
+                    <td><a href="javascript:generateProject('${project.key}');history.pushState(null, "Project ${project.key} – ${title}", '?project=${project.key}');">Generate</a>
                 </tr>
             `);
         }
@@ -69,7 +71,7 @@ function generateProject(project) {
     }).done(function (data) {
         $('table thead').prepend(`
             <tr><td colspan=4 style="text-align: center;">
-                <a href="javascript:generateAllProjects();history.pushState(null, null, '?');" style="position: relative; right: 8%;">&larr; Back</a>
+                <a href="javascript:generateAllProjects();history.pushState(null, "${title}", '?');" style="position: relative; right: 8%;">&larr; Back</a>
                 <img src="${data.avatarUrls["48x48"]}"> ${data.name}
             </td></tr>
         `);
