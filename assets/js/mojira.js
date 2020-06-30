@@ -20,7 +20,7 @@ function complete() {
 }
 
 function initial() {
-    if (location.search.includes('?project')) generateProject(location.search.replace(/.?project=/g, ''))
+    if (location.search.includes('project=')) generateProject(location.search.replace(/.*project=([A-Z]+).*/g, '$1'))
     else generateAllProjects()
 }
 
@@ -53,11 +53,8 @@ function generateAllProjects() {
     });
 }
 
-function bugsLink(type, version, project) {
-    return `https://bugs.mojang.com/issues/?jql=${type}+in+%28%22${version}%22%29+AND+project+%3D+${project}+ORDER+BY+key`
-}
-
 function generateProject(project) {
+    const bugsLink = (type, version, project) => `https://bugs.mojang.com/issues/?jql=${type}+in+%28%22${version}%22%29+AND+project+%3D+${project}+ORDER+BY+key`;
     start();
     $('table thead').html(`
         <tr>
@@ -70,10 +67,9 @@ function generateProject(project) {
     $.ajax({
         url: 'https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/' + project
     }).done(function (data) {
-        //$('#information').html(data.description);
         $('table thead').prepend(`
             <tr><td colspan=4 style="text-align: center;">
-                <a href="javascript:generateAllProjects()" style="position: relative; right: 8%;">&larr; Back</a>
+                <a href="?" style="position: relative; right: 8%;">&larr; Back</a>
                 <img src="${data.avatarUrls["48x48"]}"> ${data.name}
             </td></tr>
         `);
