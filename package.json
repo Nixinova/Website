@@ -1,17 +1,13 @@
 {
-  "name": "Nixinova",
-  "version": "5.0.0",
-  "description": "Personal website of Nixinova",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "@nixinova/website",
+  "version": "",
+  "description": "Personal website of Nixinova, hosted via Netlify at Nixinova.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nixinova/website.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nixinova",
   "license": "",
   "bugs": {
     "url": "https://github.com/Nixinova/website/issues"
