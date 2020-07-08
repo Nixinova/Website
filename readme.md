@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dbba7c83-eef4-45d1-9abb-e8180f0bf0a0/deploy-status)](https://app.netlify.com/sites/nixinova/deploys)
+
 # Nixinova.com
 
 This repository contains the source code for my website, [nixinova.com](https://nixinova.com).
