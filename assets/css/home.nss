@@ -1,4 +1,4 @@
-@var bluebg = background: linear-gradient(#08e, #15c);
+@var bluebg = background: linear-gradient(135deg, #11a, #15c);
 
 @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
 
@@ -8,7 +8,7 @@ main {padding-top: 0;}
 footer {margin-top: 0;}
 a[href]:hover {opacity: 1;}
 
-.shaded {$(bluebg);}
+#welcome {$(bluebg);}
 
 h2::before, h2::after {content: ""; display: block; width: 50%; height: 2px; margin-left: 25%; background: #fff;}
 
