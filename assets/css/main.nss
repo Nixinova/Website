@@ -29,12 +29,12 @@ abbr {cursor: help;}
 
 nav {background-color: $(body color); opacity: .9; position: absolute; height: 100vh; padding: 1em; line-height: 2;}
     & * div {transition: 0.1s;}
-    & ul {margin: 0; padding: 0; list-style-type: none;}
+    & ul {margin-left: 1em; padding: 0; list-style-type: none;}
     & a[href] {color: #fff;}
         %:hover {opacity: 1;}
     & .menu-section {margin: 0 auto 1em;}
     & .menu-header {display: block; font-weight: bold; font-size: 1.4em; text-align: center; text-transform: uppercase;}
-    & .menu-subheader {border-bottom: 1px solid; font-size: 1.1em; font-weight: bold;}
+    & .menu-subheader {font-size: 1.1em; font-weight: bold;}
 $(@breakpoint | 600px | nav | padding-bottom: 10em; width: 100%; overflow: scroll; | border-right: 2px solid white; )
 
 // Footer //
