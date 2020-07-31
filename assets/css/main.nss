@@ -19,6 +19,24 @@ kbd {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-fam
 img {max-width: 100%; vertical-align: middle; border: 0;}
 abbr {cursor: help;}
 
+// Header //
+#header {background: $(header color); height: $(header height); display: flex; border-bottom: 2px solid white;}
+    & .fas {cursor: pointer;}
+    &-search, #menu-icon {width: 80px; padding: 25px; color: white; cursor: pointer; z-index: 10;}
+    &-search a, #menu-icon a {color: white;}
+    & #menu-logo {margin: auto;}
+        % img {max-height: 80px;}
+
+nav {background-color: $(body color); opacity: .9; position: absolute; height: 100vh; padding: 1em; line-height: 2;}
+    & * div {transition: 0.1s;}
+    & ul {margin: 0; padding: 0; list-style-type: none;}
+    & a[href] {color: #fff;}
+        %:hover {opacity: 1;}
+    & .menu-section {margin: 0 auto 1em;}
+    & .menu-header {display: block; font-weight: bold; font-size: 1.4em; text-align: center; text-transform: uppercase;}
+    & .menu-subheader {border-bottom: 1px solid; font-size: 1.1em; font-weight: bold;}
+$(@breakpoint | 600px | nav | padding-bottom: 10em; width: 100%; overflow: scroll; | border-right: 2px solid white; )
+
 // Footer //
 footer {width: 100%; padding: 15px; background: $(header color); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}
     & ul {margin: 0;}
