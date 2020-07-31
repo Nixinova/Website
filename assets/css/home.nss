@@ -1,4 +1,4 @@
-@var bluebg = background: linear-gradient(135deg, #13a, #15d);
+@var bluebg = background: linear-gradient(135deg, #14a, #15d);
 
 @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
 
