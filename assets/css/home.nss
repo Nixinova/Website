@@ -1,4 +1,4 @@
-@var bluebg = background: linear-gradient(135deg, #11a, #15c);
+@var bluebg = background: linear-gradient(135deg, #13a, #15d);
 
 @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
 
@@ -6,11 +6,10 @@ html {scroll-behavior: smooth;}
 body {$(bluebg); overflow-x: hidden;}
 main {padding-top: 0;}
 footer {margin-top: 0;}
-a[href]:hover {opacity: 1;}
-
 #welcome {$(bluebg);}
 
 h2::before, h2::after {content: ""; display: block; width: 50%; height: 2px; margin-left: 25%; background: #fff;}
+a[href]:hover {opacity: 1;}
 
 .showcase-container {display: flex; height: 100vh; width: 100vw; border-top: 2px solid; text-align: center;}
     & div {margin: auto;}
