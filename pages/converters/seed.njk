@@ -15,8 +15,8 @@ nss: "tools.nss"
 <script>
     function hash(a) {
         let str = a.toString();
-        if (/^0+$/.test(str)) return '<random seed>';
-        if (/^\d+$/.test(str) && str.length < 20) return str;
+        if (!str || /^0+$/.test(str)) return '[random]';
+        if (/^\d+$/.test(str) && str.length < 20) return str.replace(/^0+/, '');
         let hash = 0;
         for (let i = 0; i < str.length; i++) {
             let character = str.charCodeAt(i);
@@ -36,8 +36,8 @@ nss: "tools.nss"
     <p>Converts a string into a numeric Minecraft world seed.</p>
 
     <p>
-        <input type="text" id="seed" maxlength="32"> &emsp;
-        <button type="button" onclick="submit();">Convert</button>
+        <input type="text" id="seed" maxlength="32" onchange="submit()"> &emsp;
+        <button type="button" onclick="submit()">Convert</button>
         <output></output>
     </p>
 </div>
