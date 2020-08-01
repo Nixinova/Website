@@ -13,14 +13,14 @@ nss: "tools.nss"
     output {display: block; margin: 2em;}
 </style>
 <script>
-    function hash(a) = {
+    function hash(a) {
         let str = a.toString();
         if (/^0+$/.test(str)) return '<random seed>';
         if (/^\d+$/.test(str) && str.length < 20) return str;
         let hash = 0;
-        for (var i = 0; i < str.length; i++) {
+        for (let i = 0; i < str.length; i++) {
             let character = str.charCodeAt(i);
-            hash = ((hash<<5)-hash)+character;
+            hash = ((hash << 5 ) - hash) + character;
             hash = hash & hash; // Convert to 32bit integer
         }
         return hash;
@@ -38,7 +38,7 @@ nss: "tools.nss"
     <p>
         <input type="text" id="seed" maxlength="32"> &emsp;
         <button type="button" onclick="submit();">Convert</button>
-        <output></button>
+        <output></output>
     </p>
 </div>
 
