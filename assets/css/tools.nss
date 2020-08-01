@@ -29,8 +29,8 @@ input[type="color"] {padding: 1px;}
 textarea {transition: none; padding: 2px 6px; margin: 10px 0; border-radius: 4px;}
 
 // Dropdown icons //
-.elipsis, .plus, .minus, .clear {margin-left: 10px; font-size: 95%; background: #eee; border-radius: 20px; animation: none;}
-.elipsis, .clear {padding: 5px  8px;}
+.elipsis, .clear, .plus, .minus {margin-left: 10px; font-size: 95%; background: #eee; border-radius: 20px; animation: none;}
+.elipsis, .clear {padding: 5px 8px;}
 .plus, .minus {padding: 5px 10px;}
 .plus::before {content: '+';}
 .minus::before {content: '−';}

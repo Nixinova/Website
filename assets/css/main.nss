@@ -3,9 +3,6 @@
 @var header height = 82px
 @var footer height = 72px
 @var main height = calc( 100vh - $(footer height) )
-@var vargen = --$(@replace | $[1] |  | - ): $($[1]);
-
-:root {$(vargen|body color) $(vargen|header color) $(vargen|header height) $(vargen|footer height) $(vargen|main height)}
 
 // Base elements //
 * {box-sizing: border-box;}
@@ -57,7 +54,7 @@ a[href] {color: #acf; transition: 0.2s;}
 a:hover {opacity: 0.5;}
 a.hover-underline {display: block;}
     &::after {content: ""; display: block; width: 0; height: 2px; background: #fff; color: #fff; transition: 0.4s;}
-    :hover > % {width: 5em;}
+        :hover > % {width: 5em;}
 
 // Tables //
 table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
