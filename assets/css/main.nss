@@ -27,7 +27,7 @@ abbr {cursor: help;}
     & #menu-logo {margin: auto;}
         % img {max-height: 80px;}
 
-nav {background-color: $(body color); opacity: .9; position: absolute; height: 100vh; padding: 1em; line-height: 2;}
+nav {background-image: $(body color); opacity: .9; position: absolute; height: 100vh; padding: 1em; line-height: 2;}
     & * div {transition: 0.1s;}
     & ul {margin: 0 1em; padding: 0; list-style-type: none;}
     & a[href] {color: #fff;}

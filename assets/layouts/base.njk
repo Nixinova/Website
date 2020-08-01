@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }} &ndash; Nixinova</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <link rel="icon" href="/assets/images/favicon.ico">
+    <link rel="novasheet" href="/assets/css/main.nss">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
+    {% if nss %}<link rel="novasheets" href="/assets/css/{{ nss }}">{% endif %}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script data-ad-client="ca-pub-7730644887366759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://novasheets.netlify.app/src/0.6.1/min"></script>
+    {% if js %}<script src="/assets/js/tool-functions.js"></script>
+    <script src="/assets/js/{{ js }}"></script>{% endif %}
+    <script>
+        window.navIsVisible = false;
+        const hideNav = () => {$('nav').addClass('hide'); navIsVisible = false;}
+        const showNav = () => {$('nav').removeClass('hide'); navIsVisible = true;}
+        const toggleNav = () => navIsVisible ? hideNav() : showNav();
+        $(document).ready(() => {
+            $('nav').css('opacity', 0).animate({ opacity: 1 }, 1000);
+            $('i').css('visibility', 'visible');
+        });
+    </script>
+</head>
+
+<body>
+    <header>{% include "imports/header.html" %}</header>
+    <main onclick="hideNav()">{{ content | safe }}</main>
+    <footer>{% include "imports/footer.html" %}</footer>
+</body>
+</html>

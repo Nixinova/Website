@@ -2,6 +2,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("assets");
     eleventyConfig.addWatchTarget("assets");
     return {
-        passthroughFileCopy: true
+        passthroughFileCopy: true,
+        dir: {
+            includes: "assets"
+        }
     };
 }
