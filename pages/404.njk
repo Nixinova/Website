@@ -4,19 +4,56 @@ permalink: /404.html
 title: Page Not Found
 description: "Error: Page not found"
 keywords: "nixinova"
+noindex: true
 ---
-<meta name="robots" content="noindex">
-<style data-name="Page styles">
+<style>
     main {display: flex;}
     #wb404 {margin-left: 22%; width: 66%;}
+    #subpages-container {display: flex;}
+    #subpages {margin: auto;}
+    #subpages li {dispay: inline-block; font-size: 1.5em;}
 </style>
+<script>
+    const path = location.pathname;
+    const data = {
+        "/tools": ["minecraft", "hytale"],
+        "/tools/minecraft": ["commands", "converters", "api"],
+        "/tools/minecraft/commands": ["give", "summon"],
+        "/tools/minecraft/converters": ["coordinates", "seed"],
+        "/tools/minecraft/api": ["versions", "mojira", "player"],
+        "/tools/hytale": ["api"],
+        "/tools/hytale/api": ["blog"],
+        "/downloads": ["minecraft"],
+        "/downloads/minecraft": ["maps", "resource-packs"],
+        "/downloads/minecraft/maps": ["kitpvp", "musical-blocks", "skywars"],
+        "/downloads/minecraft/resource-packs": ["mash-up", "themed", "herobrinenzk"],
+    }
+    $(function() {
+        if (!data[path]) $('#subpages-header').addClass('hide');
+        for (let page of data[path]) {
+            $('#subpages').append(`
+                <li><a href="${page}">${page[0].toUpperCase() + page.substr(1)}</a></li>
+            `);
+        }
+    });
+</script>
 
 <div style="margin: auto;">
+
     <h1>Error <samp>404</samp>: Page Not Found</h1>
+
     <p style="font-size: 175%;">
         The page you are looking for cannot be found.<br/>
         Click <a href="/">here</a> to go back to the home page.
     </p>
+
     <div id="wb404"></div>
     <script src="https://archive.org/web/wb404.js"></script>
+
+    <h2 id="subpages-header">Navigate to subpages</h2>
+
+    <div id="subpages-container">
+        <ul id="subpages"></ul>
+    </div>
+
 </div>
