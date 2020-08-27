@@ -32,7 +32,7 @@ noindex: true
         if (!data[path]) $('#subpages-header').addClass('hide');
         for (let page of data[path]) {
             $('#subpages').append(`
-                <li><a href="${page}">${page[0].toUpperCase() + page.substr(1)}</a></li>
+                <li><a href="${path}/${page}">${page[0].toUpperCase() + page.substr(1)}</a></li>
             `);
         }
     });
