@@ -27,9 +27,13 @@ noindex: true
         "/downloads/minecraft": ["maps", "resource-packs"],
         "/downloads/minecraft/maps": ["kitpvp", "musical-blocks", "skywars"],
         "/downloads/minecraft/resource-packs": ["mash-up", "themed", "herobrinenzk"],
+        "/404": ['a']
     }
     $(function() {
         if (!data[path]) $('#subpages-header').addClass('hide');
+        $('#subpages').append(`
+            <li><a href="${path.replace(/\/[^/]+$/,'') || '../'}">Back</a></li>
+        `);
         for (let page of data[path]) {
             $('#subpages').append(`
                 <li><a href="${path}/${page}">${page[0].toUpperCase() + page.substr(1)}</a></li>
@@ -53,9 +57,7 @@ noindex: true
     <h2 id="subpages-header">Navigate to subpages</h2>
 
     <div id="subpages-container">
-        <ul id="subpages">
-            <li><a href="./">Back</a></li>
-        </ul>
+        <ul id="subpages"></ul>
     </div>
 
 </div>
