@@ -50,8 +50,8 @@ function getInfo(username) {
         if (data) uuid = data.id;
         var uuidFormatted = [
             uuid.substring(0,8),
-            uuid.substring(8,12), uuid.substring(12,17), uuid.substring(17,21),
-            uuid.substring(21,32)
+            uuid.substring(8,12), uuid.substring(12,16), uuid.substring(16,20),
+            uuid.substring(20,32)
         ].join('-');
         $.ajax({
             url: `https://cors-anywhere.herokuapp.com/https://api.mojang.com/user/profiles/${uuid}/names`
