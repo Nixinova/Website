@@ -122,7 +122,7 @@ function summon() {
             $('#customname_color').removeClass('hide');
             JSON.stringify(name_color ? { "text": name, "color": name_color } : name);
 
-            $('#preview, #expand-cname, preview-text').removeClass('hide');
+            $('#preview, #expand-cname, #preview-text').removeClass('hide');
             $preview.html(name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
             CustomName.text = name;
 
