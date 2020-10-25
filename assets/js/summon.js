@@ -123,28 +123,29 @@ function summon() {
             JSON.stringify(name_color ? { "text": name, "color": name_color } : name);
 
             $('#preview, #expand-cname, #preview-text').removeClass('hide');
-            $preview.html(name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
+            $preview.removeClass().html(name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
             CustomName.text = name;
 
             let className;
-            switch (name_color) {
-                case 'aqua'         : className = "§b"; break;
-                case 'black'        : className = "§0"; break;
-                case 'blue'         : className = "§9"; break;
-                case 'dark_aqua'    : className = "§3"; break;
-                case 'dark_blue'    : className = "§1"; break;
-                case 'dark_gray'    : className = "§8"; break;
-                case 'dark_green'   : className = "§2"; break;
-                case 'dark_purple'  : className = "§5"; break;
-                case 'dark_red'     : className = "§4"; break;
-                case 'gold'         : className = "§6"; break;
-                case 'gray'         : className = "§7"; break;
-                case 'green'        : className = "§a"; break;
-                case 'light_purple' : className = "§d"; break;
-                case 'red'          : className = "§c"; break;
-                case 'yellow'       : className = "§e"; break;
-                default             : className = "§f";
+            const name_colors = {
+                'black'        : "§0",
+                'blue'         : "§9",
+                'dark_aqua'    : "§3",
+                'dark_blue'    : "§1",
+                'dark_gray'    : "§8",
+                'dark_green'   : "§2",
+                'dark_purple'  : "§5",
+                'dark_red'     : "§4",
+                'gold'         : "§6",
+                'gray'         : "§7",
+                'green'        : "§a",
+                'aqua'         : "§b",
+                'red'          : "§c",
+                'light_purple' : "§d",
+                'yellow'       : "§e",
+                'default'      : "§f",
             }
+            className = name_colors[name_color || 'default'];
 
             if (name_color) { CustomName.color = name_color; }
             $preview.addClass(className);

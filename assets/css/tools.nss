@@ -39,7 +39,7 @@ textarea {transition: none; padding: 2px 6px; margin: 10px 0; border-radius: 4px
 a.elipsis, a.plus, a.minus, a.clear {color: #222; transition: 0s;}
 
 // Output //
-#preview-text {padding: 5px 10px; font-family: Minecraft; background-color: #100110e9; border: 3px solid #205e; border-radius: 5px;}
+#preview-text {padding: 5px 10px; font-family: Minecraft; background-color: #100110F9; border: 3px solid #205e; border-radius: 5px;}
 .command {
     display: block; margin: 0 auto 2em; padding: 5px 1em; width: 100%; border: solid #aaa 1px; border-radius: 5px;
     color: #aaa; font-family: monospace; word-break: break-all;
