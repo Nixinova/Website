@@ -67,6 +67,7 @@ function summon() {
     var piglin_zombifies = hasClass('input_piglin_zombify', 'off');
     var rabbit_type = value('input_rabbit_type', 'int');
     var slime_size = value('input_slime_size', 'int');
+    var strider_saddled = hasClass('input_strider_saddle', 'on');
     var tropical_fish_size = value('input_tropical_fish_size', 'int');
     var tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
     var tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
@@ -304,6 +305,11 @@ function summon() {
         // slime //
         if (entity === 'slime') {
             if (slime_size !== null) nbt.Size = slime_size;
+        }
+
+        // strider //
+        if (entity === 'strider') {
+            if (strider_saddled !== null) nbt.Saddle = strider_saddled;
         }
 
         // tropical fish //

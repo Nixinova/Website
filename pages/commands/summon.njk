@@ -60,6 +60,7 @@ js: "summon.js"
             <option>Phantom</option>
             <option>Pig</option>
             <option>Piglin</option>
+            <option>Piglin Brute</option>
             <option>Pillager</option>
             <option>Polar Bear</option>
             <option>Pufferfish</option>
@@ -74,6 +75,7 @@ js: "summon.js"
             <option>Slime</option>
             <option>Snow Golem</option>
             <option>Stray</option>
+            <option>Strider</option>
             <option>Spider</option>
             <option>Squid</option>
             <option>Turtle</option>
@@ -407,7 +409,12 @@ js: "summon.js"
             <label for="input_slime_size" class="indent">Size:</label>
             <input id="input_slime_size" type="number" min="0" onchange="submit()">
         </span>
-    
+
+        <span class="strider only">
+            <label for="input_strider_saddle">Saddled?</label>
+            <button type="button" id="input_strider_saddle" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+        </span>
+
         <span class="tropical_fish only">
             <label for="input_tropical_fish_size" class="indent">Size:</label>
             <select id="input_tropical_fish_size" onchange="submit()">
