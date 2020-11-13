@@ -65,12 +65,11 @@ js: "bundle.js"
     <!-- bundle contents creation -->
     <h3>Bundle Contents</h3>
     <p class="text">
-        Enter numbers in each cell which correspond to the blocks above.<br>
-        Note that the bundle must be roughly, but not exactly, a square for it to display exactly as specified.
+        Enter numbers in each cell which correspond to the blocks above.
     </p>
     <div class="centered" onmouseout="submit()">
         <p>
-            <label class="short" style="width: 50px;">Size:</label>
+            <label class="short" style="width: 50px;">Size:*</label>
             <input id="size_x" type="number" value="1" min="1" onchange="submit()"> &times;
             <input id="size_y" type="number" value="1" min="1" onchange="submit()">
         </p>
@@ -103,6 +102,15 @@ js: "bundle.js"
         </p>
     </div>
 </div>
+
 <output id="generator-output" class="command"></output>
+
+<div>
+    <p style="font-size: 90%;">
+        * Note that the bundle must be roughly, but not exactly, a square for it to display exactly<br>
+        as specified, since padding will be added to the right side of squares to display all the<br>
+        items in the specified positions correctly.
+    </p>
+</div>
 
 {% include "ad.html" %}
