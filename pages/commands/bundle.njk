@@ -68,13 +68,25 @@ js: "bundle.js"
         Enter numbers in each cell which correspond to the blocks above.
     </p>
     <div class="centered" onmouseout="submit()">
+
         <p>
-            <label class="short" style="width: 50px;">Size:*</label>
+            <label class="short" style="width: 50px;">Size:<a href="#fn-1">*</a></label>
             <input id="size_x" type="number" value="1" min="1" onchange="submit()"> &times;
             <input id="size_y" type="number" value="1" min="1" onchange="submit()">
+
+            <br>
+
+            <style>
+                .on::after {content: 'Enabled';}
+                .off::after {content: 'Disabled';}
+            </style>
+            <label for="padding" class="short">Padding:<a href="#fn-2">**</a></label>
+            <button type="button" id="padding" class="on" onclick="toggleOnOff(this);submit();"></button>
         </p>
+
         <table id="bundle_contents">
         </table>
+
     </div>
 
 </form>
@@ -105,11 +117,14 @@ js: "bundle.js"
 
 <output id="generator-output" class="command"></output>
 
-<div>
-    <p style="font-size: 90%;">
-        * Note that the bundle must be roughly, but not exactly, a square for it to display exactly<br>
-        as specified, since padding will be added to the right side of squares to display all the<br>
-        items in the specified positions correctly.
+<div class="centered" style="max-width: 60%; font-size: 95%;">
+    <p id="fn-1">
+        * Note that the bundle must be roughly a square for it to display exactly as specified.
+    </p>
+    <p id="fn-2">
+        ** When padding is enabled, the bundle will have the exact same layout as the inputted values, but with padding
+        on the bottom or side. When disabled, the bundle will not have any padding, but the output will not have the
+        same layout as the inputted values.
     </p>
 </div>
 

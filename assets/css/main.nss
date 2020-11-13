@@ -64,7 +64,7 @@ table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
 .columns-list li {margin-left: 2em;}
 
 // Centering //
-.centered {display: flex; flex-flow: column; align-items: center;}
+.centered {display: flex; flex-flow: column; align-self: center; align-items: center;}
 
 // Dividers //
 hr.half {width: 50%;}

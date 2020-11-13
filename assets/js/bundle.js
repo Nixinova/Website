@@ -8,6 +8,7 @@ function summon() {
     var player = value('input_player');
     var size_x = value('size_x');
     var size_y = value('size_y');
+    var padding = $('#padding').hasClass('on');
     var nbt = { Items: [] };
 
     // player //
@@ -51,14 +52,12 @@ function summon() {
         }
     }
 
+    if (size_y < size_x) size_y = size_x-1;
     for (let i = 0; i < size_y; i++) {
         for (let j = 0; j < size_x; j++) {
             let item = bundleItems[$(`#bundle_slot_${i}_${j}`).val()] || '';
-            //if (sizesToFix[size_x + 'x' + size_y]?.includes(i + ',' + j)) {
-            //    nbt.Items.push({ id: '', Count: 1 });
-            //}
-            nbt.Items.push({ id: item, Count: 1 });
-            if (size_x === size_y && j === size_x - 1) nbt.Items.push({ id: '', Count: 1 });
+            nbt.Items.push(item ? { id: item, Count: 1 } : {});
+            if (padding && size_x === size_y && size_x > 1 && j === size_x - 1) nbt.Items.push({});
         }
     }
 
