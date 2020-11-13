@@ -59,6 +59,13 @@ a.hover-underline {display: block;}
 // Tables //
 table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
 
+// Lists //
+.columns-list {display: flex; flex-wrap: wrap;}
+.columns-list li {margin-left: 2em;}
+
+// Centering //
+.centered {display: flex; flex-flow: column; align-items: center;}
+
 // Dividers //
 hr.half {width: 50%;}
 hr.divider {width: 90%;}

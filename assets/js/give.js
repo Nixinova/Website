@@ -493,15 +493,6 @@ function give() {
     ++function_count;
 }
 
-function copyCommand() {
-    let box = document.createElement('textarea');
-    box.value = window.output;
-    document.body.appendChild(box);
-    box.select();
-    document.execCommand('copy');
-    document.body.removeChild(box);
-}
-
 function submit() {
     try {
         give();

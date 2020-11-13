@@ -16,6 +16,15 @@ function toggleOnOff(id) {
     $(id).toggleClass('on').toggleClass('off');
 }
 
+function copyCommand() {
+    let box = document.createElement('textarea');
+    box.value = window.Output;
+    document.body.appendChild(box);
+    box.select();
+    document.execCommand('copy');
+    document.body.removeChild(box);
+}
+
 function getQueryString(val) {
     let href = window.location.href.split('#');
     let query = href[1] ? href[1].split('&') : '';

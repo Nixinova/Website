@@ -1,0 +1,108 @@
+---
+layout: layouts/base.njk
+permalink: /tools/minecraft/commands/bundle.html
+title: "Minecraft Bundle Generator"
+description: "A generator which creates bundles for Minecraft 1.17."
+keywords: "nixinova,bundle,minecraft,bundle generator,minecraft bundle,minecraft bundle generator,bundle
+minecraft,minecraft command generator"
+nss: "tools.nss"
+js: "bundle.js"
+---
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+<script>
+    var function_count = 0;
+    $(document).ready(function () {
+        $('#footer-other').html('<a href="/assets/js/bundle.js" title="bundle.js" target="_blank">View code</a>');
+        submit();
+    });
+</script>
+
+<h2 class="upper">Bundle Generator</h2>
+<p>Generates bundle contents for Minecraft 1.17.</p>
+<form action="javascript:submit()" id="input_form">
+    <!-- target -->
+    <p onchange="submit()">
+        <label for="input_target">Target:</label>
+        <select id="input_target">
+            <option value="@s">Yourself</option>
+            <option value="@p">Nearest player</option>
+            <option value="@r">Random player</option>
+            <option value="@a">All players</option>
+            <option value="--">Specific player</option>
+        </select>
+    </p>
+    <!-- target (username) -->
+    <p class="negative hide" id="select-username">
+        <label for="input_player">Username:</label>
+        <input id="input_player" type="text" size="13" maxlength="16" onkeyup="submit()">
+    </p>
+
+    <!-- bundle item ID creation -->
+    <h3>Bundle Items</h3>
+    <p class="text">
+        Attach a each item you want to put in the bundle to a specific number, and use that number in the table below to
+        refer to those items.
+    </p>
+    <div>
+        <a class="plus" href="javascript:void(0)" onclick="appendToItemList()" style="margin-left:3em;"></a>
+        <ol class="columns-list" id="bundle_item_list" style="width:825px;columns:3;"></ol>
+        <script>
+            window.bundleItemCount = 0;
+            function appendToItemList() {
+                $('#bundle_item_list').append(`
+                    <li><input id="item-id_${++bundleItemCount}" type="text" placeholder="minecraft:stone"></li>
+                `);
+            }
+            $(appendToItemList());
+        </script>
+    </div>
+
+    <!-- bundle contents creation -->
+    <h3>Bundle Contents</h3>
+    <p class="text">
+        Enter numbers in each cell which correspond to the blocks above.<br>
+        Note that the bundle must be roughly a square for it to display properly.
+    </p>
+    <div class="centered" onmouseout="submit()">
+        <p>
+            <label class="short" style="width: 50px;">Size:</label>
+            <input id="size_x" type="number" value="1" min="1" onchange="submit()"> &times;
+            <input id="size_y" type="number" value="1" min="1" onchange="submit()">
+        </p>
+        <table id="bundle_contents">
+        </table>
+    </div>
+
+</form>
+
+<br style="margin-top: 2em;">
+
+<div style="margin-top: auto;">
+
+    <h3 onclick="submit()">
+        Output
+        <span style="font-size: 90%;">
+            &nbsp;<i class="fas fa-sync-alt"></i>
+            &nbsp;<i class="fas fa-copy" id="copyCommand" onclick="copyCommand()"></i>
+        </span>
+    </h3>
+    <div id="cmd-note" class="hide" onmouseover="submit()">
+        <p>
+            <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
+            <output class="command">
+                <span class="§7">/give</span>
+                <span class="§b">@s</span>
+                <span class="§e">minecraft:command_block</span>
+                <span class="§a">1</span>
+            </output>
+        </p>
+    </div>
+</div>
+<output id="generator-output" class="command"></output>
+
+{% include "ad.html" %}

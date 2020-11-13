@@ -2,7 +2,7 @@
 @font-face {font-family: 'Minecraft'; src: local('Minecraft'), url('/assets/fonts/minecraft.ttf') format('truetype');}
 
 // Base styles //
-form p {text-align: left; line-height: 3;}
+form p:not(.text) {text-align: left; line-height: 3;}
 h2:not(.upper) {text-transform: lowercase;}
 $(@breakpoint | 900px | main | margin-left: 1em; )
 $(@breakpoint | 815px | form, output, .content || max-width: 825px; margin: 0 auto; )

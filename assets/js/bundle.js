@@ -1,0 +1,97 @@
+/// SUBMIT ///
+
+function summon() {
+
+    /// VARIABLES ///
+    const sizesToFix = { '2,2': ['0,1'] };
+
+    // call from input form //
+    var target = value('input_target');
+    var player = value('input_player');
+    var size_x = value('size_x');
+    var size_y = value('size_y');
+    var nbt = { Items: [] };
+
+    // player //
+    switch (target) {
+        case '@s': $('#select-username').addClass('hide'); break;
+        case '--': $('#select-username').removeClass('hide'); break;
+        default: {
+            $('#select-username').addClass('hide');
+            $('#input_player').val('');
+        }
+    }
+
+    /// GENERATOR ///
+    // OUTPUT //
+    $('#generator-output').empty();
+    $('#cmd-note').addClass('hide');
+
+    if (target === '--') target = player || '@s';
+
+    // BUNDLE DATA //
+
+    // create map of items with IDs
+    let bundleItems = [];
+    for (let i = 1; i <= window.bundleItemCount; i++) {
+        bundleItems[i] = $(`#item-id_${i}`).val() || 'minecraft:stone';
+    }
+
+
+    // create bundle slots
+    if (window.size_old !== size_x + ',' + size_y) {
+        window.size_old = size_x + ',' + size_y;
+        $('#bundle_contents').empty();
+        for (let i = 0; i < size_y; i++) {
+            $('#bundle_contents').append(`<tr>`);
+            for (let j = 0; j < size_x; j++) {
+                $('#bundle_contents').append(`<td>
+                <input id="bundle_slot_${i}_${j}" min="1" type="number">
+            </td>`);
+            }
+            $('#bundle_contents').append(`</tr>`);
+        }
+    }
+
+    for (let i = 0; i < size_y; i++) {
+        for (let j = 0; j < size_x; j++) {
+            let item = bundleItems[$(`#bundle_slot_${i}_${j}`).val()] || '';
+            if (sizesToFix[size_x + ',' + size_y]?.includes(i + ',' + j)) {
+                nbt.Items.push({ id: '', Count: 1 });
+            }
+            nbt.Items.push({ id: item, Count: 1 });
+        }
+    }
+
+    // CONVERT TO NBT //
+    if (!isEmpty(nbt)) {//                Removes quotes from tags ;//         Show num types as ints
+        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:');//.replace(/"([0-9.]+[bdfLs])"/g, '$1');
+    } else nbt = '';
+
+    /// OUTPUT ///
+    window.Output = `/give @s bundle${nbt}`;
+    if (window.Output.length > 256) {
+        window.Output = window.Output.replace(/^\/give @s/, '/give @p');
+        $('#cmd-note').removeClass('hide');
+    }
+    $('#generator-output').append(`
+        <span class="§7">/give</span>
+        <span class="§b">${target}</span>
+        <span class="§e">minecraft:bundle${nbt}</span>
+    `);
+
+    // counter //
+    ++function_count;
+}
+
+function submit() {
+    try {
+        summon();
+    }
+    catch (error) {
+        $('#generator-output').html("An unknown error has occurred. Please try again or reload the page.");
+        console.error(error.stack);
+    }
+}
+
+/* Copyright © Nixinova 2020 */
