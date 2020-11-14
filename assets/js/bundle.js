@@ -52,8 +52,10 @@ function summon() {
         }
     }
 
-    if (size_y < size_x) size_y = size_x-1;
-    if (size_x < size_y) size_x = size_y;
+    if (padding) {
+        if (size_y < size_x) size_y = size_x - 1;
+        else if (size_x < size_y) size_x = size_y;
+    }
     for (let i = 0; i < size_y; i++) {
         for (let j = 0; j < size_x; j++) {
             let item = bundleItems[$(`#bundle_slot_${i}_${j}`).val()] || '';
