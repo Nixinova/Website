@@ -5,16 +5,14 @@
     <title>{{ title }} &ndash; Nixinova</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <meta name="description" content="{{ description }}">
-    <meta name="keywords" content="{{ keywords }}">
-    {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+    <meta name="keywords" content="{{ keywords }}">{% if noindex %}
+    <meta name="robots" content="noindex">{% endif %}
     <link rel="icon" href="/assets/images/favicon.ico">
-    <link rel="novasheet" href="/assets/css/main.nss">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
-    {% if nss %}<link rel="novasheets" href="/assets/css/{{ nss }}">{% endif %}
+    <link rel="novasheet" href="/assets/css/main.nss">{% if nss %}
+    <link rel="novasheets" href="/assets/css/{{ nss }}">{% endif %}
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://novasheets.netlify.app/src/0.6.3/min"></script>
-    {% if js %}<script src="/assets/js/tool-functions.js"></script>
+    <script src="https://novasheets.netlify.app/src/0.6.3/min"></script>{% if js %}
+    <script src="/assets/js/tool-functions.js"></script>
     <script src="/assets/js/{{ js }}"></script>{% endif %}
     <script>
         window.navIsVisible = false;

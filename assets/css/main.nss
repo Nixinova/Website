@@ -98,6 +98,10 @@ button {background: #19f; color: #fff; padding: 12px 30px; cursor: pointer; font
         &-thumb {background: #fff; box-shadow: inset 0 0 6px #0004;}
 }
 
+// Deferred imports //
+@import url('https://fonts.googleapis.com/css?family=Montserrat')
+@import url('https://kit-free.fontawesome.com/releases/latest/css/free.min.css')
+
 // Google //
 .adsbygoogle {margin-top: 3em; max-width: 100%;}
 
