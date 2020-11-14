@@ -36,7 +36,6 @@ function summon() {
         bundleItems[i] = $(`#item-id_${i}`).val() || 'minecraft:stone';
     }
 
-
     // create bundle slots
     if (window.size_old !== size_x + 'x' + size_y) {
         window.size_old = size_x + 'x' + size_y;
@@ -45,7 +44,7 @@ function summon() {
             $('#bundle_contents').append(`<tr>`);
             for (let j = 0; j < size_x; j++) {
                 $('#bundle_contents').append(`<td>
-                <input id="bundle_slot_${i}_${j}" min="1" type="number" placeholder=" ">
+                <input id="bundle_slot_${i}_${j}" min="1" type="number" placeholder=" " onchange="submit()">
             </td>`);
             }
             $('#bundle_contents').append(`</tr>`);
@@ -62,6 +61,14 @@ function summon() {
             nbt.Items.push(item ? { id: item, Count: 1 } : {});
             if (padding && size_x === size_y && size_x > 1 && j === size_x - 1) nbt.Items.push({});
         }
+    }
+
+    // style bundle slots
+    $('td input').css('background', '');
+    for (let i = 1; i <= window.bundleItemCount; i++) {
+        $('td input').each(function () {
+            if (parseInt($(this).val()) == i) $(this).css('background', `hsl(${i*23+180}, 70%, 70%)`);
+        });
     }
 
     // CONVERT TO NBT //
