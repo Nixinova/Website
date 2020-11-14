@@ -45,7 +45,7 @@ function summon() {
             $('#bundle_contents').append(`<tr>`);
             for (let j = 0; j < size_x; j++) {
                 $('#bundle_contents').append(`<td>
-                <input id="bundle_slot_${i}_${j}" min="1" type="number">
+                <input id="bundle_slot_${i}_${j}" min="1" type="number" placeholder=" ">
             </td>`);
             }
             $('#bundle_contents').append(`</tr>`);
