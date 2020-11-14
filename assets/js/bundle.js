@@ -79,7 +79,8 @@ function summon() {
     /// OUTPUT ///
     window.Output = `/give @s bundle${nbt}`;
     if (window.Output.length > 256) {
-        window.Output = window.Output.replace(/^\/give @s/, '/give @p');
+        window.Output = Output.replace(/^\/give @s/, '/give @p');
+        if (target === '@s') target = '@p';
         $('#cmd-note').removeClass('hide');
     }
     $('#generator-output').append(`
