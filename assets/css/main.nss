@@ -21,7 +21,7 @@ abbr {cursor: help;}
 
 // Header //
 #header {background: $(header color); height: $(header height); display: flex; border-bottom: 2px solid white;}
-    & .fas {cursor: pointer;}
+    & [data-icon] img {cursor: pointer; height: 32px;}
     &-search, #menu-icon {width: 80px; align-self: center; text-align: center; color: white; cursor: pointer; z-index: 10;}
     &-search a, #menu-icon a {color: white;}
     & #menu-logo {margin: auto;}
@@ -65,6 +65,10 @@ table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
 // Lists //
 .columns-list {display: flex; flex-wrap: wrap;}
 .columns-list li {margin-left: 2em;}
+
+// Icons //
+[data-icon] {vertical-align: top;}
+    & img {height: 24px; filter: invert(1);}
 
 // Centering //
 .centered {display: flex; flex-flow: column; align-self: center; align-items: center;}
