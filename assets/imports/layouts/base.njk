@@ -14,15 +14,13 @@
     <script src="https://novasheets.netlify.app/src/vers/novasheets-0.6.3.min.js"></script>{% if js %}
     <script src="/assets/js/tool-functions.js"></script>
     <script src="/assets/js/{{ js }}"></script>{% endif %}
-    <link rel="stylesheet" class="deferred" disabled href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" class="deferred" disabled href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css">
+    <script async src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" data-auto-replace-svg="nest"></script>
     <script>
         window.navIsVisible = false;
         const hideNav = () => {$('nav').addClass('hide'); navIsVisible = false;}
         const showNav = () => {$('nav').removeClass('hide'); navIsVisible = true;}
         const toggleNav = () => navIsVisible ? hideNav() : showNav();
         $(document).ready(() => {
-            $('link.deferred').removeAttr('disabled');
             $('nav').css('opacity', 0).animate({ opacity: 1 }, 1000);
             $('i').css('visibility', 'visible');
         });

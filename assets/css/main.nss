@@ -4,6 +4,9 @@
 @var footer height = 72px
 @var main height = calc( 100vh - $(footer height) )
 
+// Font //
+@font-face {font-family: 'Montserrat'; src: local('Montserrat'), url('/assets/fonts/montserrat.ttf') format('truetype');}
+
 // Base elements //
 * {box-sizing: border-box;}
 body {font: normal 15px 'Montserrat', sans-serif; background: $(body color); margin: 0; color: #eee; line-height: 1.8;}
@@ -19,7 +22,7 @@ abbr {cursor: help;}
 // Header //
 #header {background: $(header color); height: $(header height); display: flex; border-bottom: 2px solid white;}
     & .fas {cursor: pointer;}
-    &-search, #menu-icon {width: 80px; padding: 25px; color: white; cursor: pointer; z-index: 10;}
+    &-search, #menu-icon {width: 80px; align-self: center; text-align: center; color: white; cursor: pointer; z-index: 10;}
     &-search a, #menu-icon a {color: white;}
     & #menu-logo {margin: auto;}
         % img {max-height: 80px;}
