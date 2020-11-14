@@ -3,13 +3,24 @@ layout: layouts/base.njk
 permalink: /tools/minecraft/commands/bundle.html
 title: "Minecraft Bundle Generator"
 description: "A generator which creates bundles for Minecraft 1.17."
-keywords: "nixinova,bundle,minecraft,bundle generator,minecraft bundle,minecraft bundle generator,minecraft bundle creator,bundle creator,bundle minecraft,minecraft command generator,create bundle minecraft"
+keywords: "nixinova,bundle,minecraft,bundle generator,minecraft bundle,minecraft bundle generator,minecraft bundle creator,bundle creator,bundle minecraft,minecraft command generator,create bundle minecraft,minecraft bundle art,minecraft bundle art creator,minecraft bundle art generator,bundle art minecraft,bundle art generator minecraft,bundle art"
 nss: "tools.nss"
 js: "bundle.js"
 ---
 <style>
-    main {display: flex; flex-direction: column;}
-    #bundle_contents :placeholder-shown {background: gray;}
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+    #bundle_contents :placeholder-shown {
+        background: gray;
+    }
+    @media (min-width: 800px) {
+        #bundle_contents_container {
+            margin-left: -3em;
+            margin-right: -3em;
+        }
+    }
 </style>
 <script>
     var function_count = 0;
@@ -52,7 +63,7 @@ js: "bundle.js"
             window.bundleItemCount = 0;
             function appendToItemList() {
                 $('#bundle_item_list').append(`
-                    <li><input id="item-id_${++bundleItemCount}" type="text" placeholder="minecraft:stone"></li>
+                    <li><input id="item-id_${++ bundleItemCount}" type="text" placeholder="minecraft:stone"></li>
                 `);
             }
             $(appendToItemList());
@@ -67,23 +78,30 @@ js: "bundle.js"
     <div class="centered" onmouseout="submit()">
 
         <p>
-            <label class="short" style="width: 50px;">Size:<a href="#fn-1">*</a></label>
+            <label class="short" style="width: 50px;">Size:<a href="#fn-1">*</a>
+            </label>
             <input id="size_x" type="number" value="1" min="1" onchange="submit()"> &times;
             <input id="size_y" type="number" value="1" min="1" onchange="submit()">
 
             <br>
 
             <style>
-                .on::after {content: 'Enabled';}
-                .off::after {content: 'Disabled';}
+                .on::after {
+                    content: 'Enabled';
+                }
+                .off::after {
+                    content: 'Disabled';
+                }
             </style>
-            <label for="padding" class="short">Padding:<a href="#fn-2">**</a></label>
+            <label for="padding" class="short">Padding:<a href="#fn-2">**</a>
+            </label>
             <button type="button" id="padding" class="on" onclick="toggleOnOff(this);submit();"></button>
         </p>
 
-        <table id="bundle_contents">
-        </table>
+    </div>
 
+    <div id="bundle_contents_container">
+        <table id="bundle_contents" style="margin: auto;"></table>
     </div>
 
 </form>

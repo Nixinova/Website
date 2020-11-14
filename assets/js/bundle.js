@@ -67,7 +67,7 @@ function summon() {
     $('td input').css('background', '');
     for (let i = 1; i <= window.bundleItemCount; i++) {
         $('td input').each(function () {
-            if (parseInt($(this).val()) == i) $(this).css('background', `hsl(${i*23+180}, 70%, 70%)`);
+            if (parseInt($(this).val()) == i) $(this).css('background', `hsl(${i*47+180}, 70%, 70%)`);
         });
     }
 
