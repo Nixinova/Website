@@ -242,6 +242,12 @@ function give() {
     // NBT //
     let nbt = {};
 
+    // bundle //
+    $('#bundle_info').remove();
+    if (item_id.includes('bundle')) {
+        $('#input_item').after(`<span id="bundle_info">&ensp;Try out the <a href="bundle">bundle creator</a>!</span>`);
+    }
+
     // potion //
     if (item_id.includes('potion')) {
         $('#potion').removeClass('hide');
