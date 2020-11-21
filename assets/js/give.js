@@ -2,7 +2,7 @@
 
 function give() {
     /// LISTS ///
-    window.tags = [
+    const tags = [
         "acacia_logs", "anvil", "bamboo_plantable_on", "banners", "beacon_base_blocks", "beds", "bee_growables", "beehives",
         "birch_logs", "buttons", "campfires", "carpets", "climbable", "coral_blocks", "corals", "crops", "dark_oak_logs",
         "dirt_like", "doors", "dragon_immune", "enderman_holdable", "fences", "flower_pots", "flowers", "gold_ores",
@@ -13,6 +13,14 @@ function give() {
         "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors",
         "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
     ];
+    const explanations = {
+        bee_growables: "Crops and berry bushes)",
+        hoglin_repellents: "Warped fungi",
+        impermeable: "Glass",
+        piglin_repellents: "Soul fire",
+        valid_spawn: "Grass and podzol",
+        wither_summon_base_blocks: "Soul sand or soil"
+    }
     const durable_items = [
         "netherite_sword", "netherite_pickaxe", "netherite_axe", "netherite_shovel", "netherite_hoe",
         "diamond_sword", "diamond_pickaxe", "diamond_axe", "diamond_shovel", "diamond_hoe",
@@ -401,6 +409,11 @@ function give() {
 
     // unbreakable //
     if (i_unbreakable) { nbt.Unbreakable = true; }
+
+    // tags
+    for (let i in tags) {
+        $('#placeon-destroy-data').append(`\n\t<option value="${tags[i]}">${explanations[tags[i]] || ''}</option>`)
+    }
 
     // CanDestroy //
     if (i_destroy) {
