@@ -3,14 +3,15 @@
 function summon() {
 
     /// VARIABLES ///
-    const zombies = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
-    const neg_age_mobs = [
+    const ZOMBIES = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
+    const BABY_MOBS = [...ZOMBIES, 'piglin', 'zoglin'];
+    const NEG_AGE_MOBS = [
         'bee', 'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot',
         'panda', 'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
     ];
-    const tame_mobs = ['llama', 'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'];
-    const owned_mobs = ['wolf', 'cat'];
+    const TAME_MOBS = ['llama', 'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'];
+    const OWNED_MOBS = ['wolf', 'cat'];
 
     // call from input form //
     var entity = value('input_entity').toLowerCase().replace(/ /g, '_');
@@ -65,6 +66,9 @@ function summon() {
     var panda_dominant_gene = cleanup(value('input_panda_gene_1'));
     var panda_recessive_gene = cleanup(value('input_panda_gene_2'));
     var piglin_zombifies = hasClass('input_piglin_zombify', 'off');
+    var piglin_age = value('input_piglin_age', 'int');
+    var piglin_hunting = hasClass('input_piglin_hunting', 'off');
+    var hoglin_hunted = hasClass('input_hoglin_hunted', 'off');
     var rabbit_type = value('input_rabbit_type', 'int');
     var slime_size = value('input_slime_size', 'int');
     var strider_saddled = hasClass('input_strider_saddle', 'on');
@@ -206,13 +210,13 @@ function summon() {
         if (lefthanded) nbt.LeftHanded = true;
 
         // tame mobs //
-        if (tame_mobs.includes(entity)) {
+        if (TAME_MOBS.includes(entity)) {
             $('.tame_mobs.only').removeClass('hide');
             if (owner) nbt.Owner = owner;
         }
 
         // owned mobs //
-        if (owned_mobs.includes(entity)) {
+        if (OWNED_MOBS.includes(entity)) {
             $('.owned_mobs.only').removeClass('hide');
             if (horse_tame) nbt.Tame = true;
         }
@@ -292,9 +296,12 @@ function summon() {
             if (panda_recessive_gene) nbt.HiddenGene = panda_recessive_gene;
         }
 
-        // piglin //
-        if (entity === 'piglin') {
+        // piglin and hoglin //
+        if (entity === 'piglin' || entity === 'hoglin') {
             if (piglin_zombifies) nbt.IsImmuneToZombification = true;
+            if (piglin_age) nbt.TimeInOverworld = 300 - piglin_age;
+            if (piglin_hunting) nbt.CannotHunt = true;
+            if (hoglin_hunted) nbt.CannotBeHunted = true;
         }
 
         // rabbit //
@@ -339,17 +346,17 @@ function summon() {
         }
 
         // zombies //
-        if (zombies.indexOf(entity) > -1) {
+        if (ZOMBIES.indexOf(entity) > -1) {
             $('.zombies').removeClass('hide');
             if (zombies_canbreak_doors) nbt.CanBreakDoors = true;
         }
 
         // babies //
-        if (zombies.indexOf(entity) > -1) {
+        if (BABY_MOBS.indexOf(entity) > -1) {
             $('.baby_mobs').removeClass('hide');
             if (baby) nbt.IsBaby = true;
         }
-        if (neg_age_mobs.indexOf(entity) > -1) {
+        if (NEG_AGE_MOBS.indexOf(entity) > -1) {
             $('.baby_mobs').removeClass('hide');
             if (baby && baby_time_value) {
                 /**/ if (baby_time === 't') nbt.Age = 0 - baby_time_value;

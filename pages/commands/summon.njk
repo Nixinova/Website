@@ -9,6 +9,9 @@ js: "summon.js"
 ---
 <style>
     main {display: flex; flex-direction: column;}
+    @media (min-width: 800px) {
+        .columns {column-width: 250px;}
+    }
 </style>
 <script>
     var function_count = 0;
@@ -19,7 +22,7 @@ js: "summon.js"
 </script>
 
 <h2>/summon</h2>
-<p>Generates <samp>/summon</samp> commands for Minecraft 1.13 to 1.15.</p>
+<p>Generates <samp>/summon</samp> commands for Minecraft 1.13 to 1.16.</p>
 <form action="javascript:submit()" id="input_form" style="margin: auto;">
     <p>
         <label for="input_entity">Mob:</label>
@@ -101,8 +104,12 @@ js: "summon.js"
         <input type="number" step="any" placeholder="~" id="input_y"> &nbsp;
         <input type="number" step="any" placeholder="~" id="input_z"><br/>
     </p>
-    <p data-name="NBT" onclick="submit()">
-        <label>NBT:</label><br/>
+
+    <p>
+        <label>NBT:</label>
+    </p>
+
+    <p data-name="NBT" onclick="submit()" class="columns">
     
         <label for="input_customname" class="indent">Custom name:</label>
         <input type="text" size="13" id="input_customname" onkeyup="submit()">  
@@ -363,11 +370,24 @@ js: "summon.js"
             </select><br/>
         </span>
 
-        <span class="piglin only">
+        <span class="piglin hoglin only">
             <label for="input_piglin_zombify" class="indent">Can zombify?</label>
             <button type="button" id="input_piglin_zombify" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+            
+            <label for="input_piglin_age" class="indent" style="letter-spacing: -0.8px;">Time until zombie</label>
+            <input id="input_piglin_age" type="number" onchange="submit()">
+        </span>
+
+        <span class="piglin only">
+            <label for="input_piglin_hunting" class="indent">Hunts hoglins?</label>
+            <button type="button" id="input_piglin_hunting" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
         </span>
     
+        <span class="hoglin only">
+            <label for="input_hoglin_hunted" class="indent">Can be hunted?</label>
+            <button type="button" id="input_hoglin_hunted" class="notext on" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
+        </span>
+
         <span class="rabbit only">
             <label for="input_rabbit_type" class="indent">Type:</label>
             <select id="input_rabbit_type" onchange="submit()">
@@ -411,7 +431,7 @@ js: "summon.js"
         </span>
 
         <span class="strider only">
-            <label for="input_strider_saddle">Saddled?</label>
+            <label for="input_strider_saddle" class="indent">Saddled?</label>
             <button type="button" id="input_strider_saddle" class="notext off" onclick="$(this).toggleClass('on').toggleClass('off')"></button><br/>
         </span>
 
