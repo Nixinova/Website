@@ -3,27 +3,18 @@
 function give() {
     /// LISTS ///
     const TAGS = [
-        "acacia_logs", "anvil", "bamboo_plantable_on", "banners", "beacon_base_blocks", "beds", "bee_growables", "beehives",
-        "birch_logs", "buttons", "campfires", "carpets", "climbable", "coral_blocks", "corals", "crops", "dark_oak_logs",
-        "dirt_like", "doors", "dragon_immune", "enderman_holdable", "fences", "flower_pots", "flowers", "gold_ores",
-        "guarded_by_piglins", "hoglin_repellents", "ice", "impermeable", "jungle_logs", "leaves", "logs", "logs_that_burn",
-        "non_flammable_wood", "oak_logs", "piglin_repellents", "planks", "pressure_plates", "rails", "sand", "saplings", "signs",
-        "slabs", "small_flowers", "soul_fire_base_blocks", "soul_speed_blocks", "spruce_logs", "stairs", "standing_signs",
-        "stone_bricks", "stone_pressure_plates", "strider_warm_blocks", "tall_flowers", "valid_spawn", "wall_corals",
-        "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors",
-        "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
-       ,"prevent_mob_spawning_inside", "fence_gates", "unstable_bottom_center", "infiniburn_end", "infiniburn_nether",
-        "infiniburn_overworld", "mushroom_grow_block", "base_stone_nether", "base_stone_overworld",
-        "candle_cakes", "candles", "cauldrons", "crystal_sound_block", "inside_step_sound_block"
-        // as of 20w48a
-    ];
+        "acacia_logs", "anvil", "bamboo_plantable_on", "banners", "base_stone_nether", "base_stone_overworld", "beacon_base_blocks", "beds", "bee_growables", "beehives", "birch_logs", "buttons", "campfires", "candle_cakes", "candles", "carpets", "cauldrons", "climbable", "coral_blocks", "corals", "crops", "crystal_sound_block", "dark_oak_logs", "dirt_like", "doors", "dragon_immune", "enderman_holdable", "fence_gates", "fences", "flower_pots", "flowers", "gold_ores", "guarded_by_piglins", "hoglin_repellents", "ice", "impermeable", "infiniburn_end", "infiniburn_nether", "infiniburn_overworld", "inside_step_sound_block", "jungle_logs", "leaves", "logs", "logs_that_burn", "mushroom_grow_block", "non_flammable_wood", "oak_logs", "piglin_repellents", "planks", "pressure_plates", "prevent_mob_spawning_inside", "rails", "sand", "saplings", "signs", "slabs", "small_flowers", "soul_fire_base_blocks", "soul_speed_blocks", "spruce_logs", "stairs", "standing_signs", "stone_bricks", "stone_pressure_plates", "strider_warm_blocks", "tall_flowers", "unstable_bottom_center", "valid_spawn", "wall_corals", "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors", "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
+    ]; // as of 20w48a
     const EXPLANATIONS = {
         bee_growables: "Crops and berry bushes)",
+        base_stone_nether: "Stone-like blocks in the Nether",
+        base_stone_overworld: "Stone-like blocks in the Overworld",
         hoglin_repellents: "Warped fungi",
         impermeable: "Glass",
         piglin_repellents: "Soul fire",
         valid_spawn: "Grass and podzol",
-        wither_summon_base_blocks: "Soul sand or soil"
+        wither_summon_base_blocks: "Soul sand or soil",
+        unstable_bottom_center: "Fence gates", // as of 20w48a
     }
     const DURABLE_ITEMS = [
         "netherite_sword", "netherite_pickaxe", "netherite_axe", "netherite_shovel", "netherite_hoe",
@@ -414,13 +405,14 @@ function give() {
     if (i_unbreakable) { nbt.Unbreakable = true; }
 
     // tags
+    $('#placeon-destroy-data').empty();
     for (let i in TAGS) {
         $('#placeon-destroy-data').append(`\n\t<option value="${TAGS[i]}">${EXPLANATIONS[TAGS[i]] || ''}</option>`)
     }
 
     // CanDestroy //
     if (i_destroy) {
-        CanDestroy.push(i_destroy)
+        CanDestroy.push(i_destroy);
         for (i in CanDestroy) {
             for (tag of TAGS) {
                 if (CanDestroy[i] == tag) CanDestroy[i] = '#' + tag;
@@ -431,7 +423,7 @@ function give() {
 
     // CanPlaceOn //
     if (i_place_on) {
-        CanPlaceOn.push(i_place_on)
+        CanPlaceOn.push(i_place_on);
         for (i in CanPlaceOn) {
             for (tag of TAGS) {
                 if (CanPlaceOn[i] == tag) CanPlaceOn[i] = '#' + tag;
