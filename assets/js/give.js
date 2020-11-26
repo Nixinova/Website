@@ -2,7 +2,7 @@
 
 function give() {
     /// LISTS ///
-    const tags = [
+    const TAGS = [
         "acacia_logs", "anvil", "bamboo_plantable_on", "banners", "beacon_base_blocks", "beds", "bee_growables", "beehives",
         "birch_logs", "buttons", "campfires", "carpets", "climbable", "coral_blocks", "corals", "crops", "dark_oak_logs",
         "dirt_like", "doors", "dragon_immune", "enderman_holdable", "fences", "flower_pots", "flowers", "gold_ores",
@@ -12,8 +12,12 @@ function give() {
         "stone_bricks", "stone_pressure_plates", "strider_warm_blocks", "tall_flowers", "valid_spawn", "wall_corals",
         "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors",
         "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
+       ,"prevent_mob_spawning_inside", "fence_gates", "unstable_bottom_center", "infiniburn_end", "infiniburn_nether",
+        "infiniburn_overworld", "mushroom_grow_block", "base_stone_nether", "base_stone_overworld",
+        "candle_cakes", "candles", "cauldrons", "crystal_sound_block", "inside_step_sound_block"
+        // as of 20w48a
     ];
-    const explanations = {
+    const EXPLANATIONS = {
         bee_growables: "Crops and berry bushes)",
         hoglin_repellents: "Warped fungi",
         impermeable: "Glass",
@@ -21,7 +25,7 @@ function give() {
         valid_spawn: "Grass and podzol",
         wither_summon_base_blocks: "Soul sand or soil"
     }
-    const durable_items = [
+    const DURABLE_ITEMS = [
         "netherite_sword", "netherite_pickaxe", "netherite_axe", "netherite_shovel", "netherite_hoe",
         "diamond_sword", "diamond_pickaxe", "diamond_axe", "diamond_shovel", "diamond_hoe",
         "iron_sword", "iron_pickaxe", "iron_axe", "iron_shovel", "iron_hoe",
@@ -38,7 +42,7 @@ function give() {
 
         "trident", "bow", "flint_and_steel", "elytra", "shield", "carrot_on_a_stick", "fishing_rod", "shears", "warped_fungus_on_a_stick"
     ];
-    const durabilities = {
+    const DURABILITIES = {
         "netherite_sword": 2031, "netherite_pickaxe": 2031, "netherite_axe": 2031, "netherite_shovel": 2031, "netherite_hoe": 2031,
         "diamond_sword": 1561, "diamond_pickaxe": 1561, "diamond_axe": 1561, "diamond_shovel": 1561, "diamond_hoe": 1561,
         "iron_sword": 250, "iron_pickaxe": 250, "iron_axe": 250, "iron_shovel": 250, "iron_hoe": 250,
@@ -56,6 +60,7 @@ function give() {
         "trident": 250, "bow": 384, "flint_and_steel": 63, "elytra": 431, "shield": 336,
         "carrot_on_a_stick": 225, "fishing_rod": 64, "shears": 237, "warped_fungus_on_a_stick": 100
     };
+    const ATTRIBUTES = ['attack_damage','armor','armor_toughness','attack_reach','attack_speed','follow_range','knockback_resistance','luck','max_health','movement_speed'];
 
     /// VARIABLES ///
 
@@ -113,8 +118,6 @@ function give() {
     var i_mod_amount = value('input_item_mod_value', 'int');
     var i_mod_op = value('input_item_mod_operation', 'num');
     var i_mod_slot = value('input_item_mod_slot').toLowerCase().replace(/ /g, '');
-    var i_mod_uuid_least = value('input_item_mod_uuid_least', 'int');
-    var i_mod_uuid_most = value('input_item_mod_uuid_most', 'int');
 
     var count = value('input_count');
 
@@ -395,7 +398,7 @@ function give() {
     }
 
     // tools & weapons items //
-    if (durable_items.includes(item_id)) {
+    if (DURABLE_ITEMS.includes(item_id)) {
         $('.tool').removeClass('hide');
     } else {
         $('.tool').addClass('hide');
@@ -404,22 +407,22 @@ function give() {
     }
 
     // damage //
-    var damage = durabilities[item_id] - i_durability;
+    var damage = DURABILITIES[item_id] - i_durability;
     if (i_durability && !i_unbreakable) { nbt.Damage = damage; }
 
     // unbreakable //
     if (i_unbreakable) { nbt.Unbreakable = true; }
 
     // tags
-    for (let i in tags) {
-        $('#placeon-destroy-data').append(`\n\t<option value="${tags[i]}">${explanations[tags[i]] || ''}</option>`)
+    for (let i in TAGS) {
+        $('#placeon-destroy-data').append(`\n\t<option value="${TAGS[i]}">${EXPLANATIONS[TAGS[i]] || ''}</option>`)
     }
 
     // CanDestroy //
     if (i_destroy) {
         CanDestroy.push(i_destroy)
         for (i in CanDestroy) {
-            for (tag of tags) {
+            for (tag of TAGS) {
                 if (CanDestroy[i] == tag) CanDestroy[i] = '#' + tag;
             }
         }
@@ -430,7 +433,7 @@ function give() {
     if (i_place_on) {
         CanPlaceOn.push(i_place_on)
         for (i in CanPlaceOn) {
-            for (tag of tags) {
+            for (tag of TAGS) {
                 if (CanPlaceOn[i] == tag) CanPlaceOn[i] = '#' + tag;
             }
         }
@@ -454,46 +457,43 @@ function give() {
 
     if (i_mod && i_mod_amount) {
 
-        if (!i_mod_uuid_least) i_mod_uuid_least = uuids[i_mod][0];
-        if (!i_mod_uuid_most)  i_mod_uuid_most  = uuids[i_mod][1];
+        let uuid = () => random(-1000,1000);
 
-        for (i in modifiers) {
-            if (modifiers[i].AttributeName == 'generic.' + i_mod) {
-                modifiers.splice(i, 1);
+        for (let i in ATTRIBUTES) {
+            if (!window.Uuids[ATTRIBUTES[i]]) Uuids[ATTRIBUTES[i]] = [uuid(), uuid(), uuid(), uuid()];
+        }
+
+        for (let i in Modifiers) {
+            if (Modifiers[i].AttributeName == 'generic.' + i_mod) {
+                Modifiers.splice(i, 1);
             }
         }
 
-        if (i_mod_slot) {
-            modifiers.push({
-                AttributeName: 'generic.' + i_mod, Name: 'generic.' + i_mod,
-                Amount: i_mod_amount, Operation: i_mod_op, Slot: i_mod_slot,
-                UUIDLeast: i_mod_uuid_least, UUIDMost: i_mod_uuid_most
-            });
-        } else {
-            modifiers.push({
-                AttributeName: 'generic.' + i_mod, Name: 'generic.' + i_mod,
-                Amount: i_mod_amount, Operation: i_mod_op,
-                UUIDLeast: i_mod_uuid_least, UUIDMost: i_mod_uuid_most
-            });
-        }
+        let uuids = window.Uuids[i_mod];
+        Modifiers.push({
+            AttributeName: 'generic.' + i_mod, Name: 'generic.' + i_mod,
+            Amount: i_mod_amount, Operation: i_mod_op,
+            UUID: ['I;', uuids[0], uuids[1], uuids[2], uuids[3]]
+        });
+        if (i_mod_slot) Modifiers[Modifiers.length-1].Slot = i_mod_slot;
 
-        nbt.AttributeModifiers = rvNestedDupes(modifiers);
+        nbt.AttributeModifiers = rvNestedDupes(Modifiers);
     }
 
     // hide flags //
     if (hf > 0) { nbt.HideFlags = hf; }
 
     // nbt //
-    if (!isEmpty(nbt)) {//                Remove quotes from tags           Allow section symbol
-        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7');
+    if (!isEmpty(nbt)) {//                Remove quotes from tags          Allow section symbol
+        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7').replace(/UUID:\["I;",/g, 'UUID:[I;');
     } else nbt = '';
 
     // count //
     if (!count) { count = '1'; }
 
     /// OUTPUT ///
-    window.output = `/give ${target_text + selector} ${item + nbt} ${count}`;
-    if (window.output.length > 255) {
+    window.Output = `/give ${target_text + selector} ${item + nbt} ${count}`;
+    if (window.Output.length > 255) {
         $('#cmd-note').removeClass('hide');
         if (target_text === '@s') {
             target_text = '@p';
