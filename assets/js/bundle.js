@@ -1,6 +1,6 @@
 /// SUBMIT ///
 
-function summon() {
+function bundle() {
 
     /// VARIABLES ///
     // call from input form //
@@ -77,7 +77,7 @@ function summon() {
     } else nbt = '';
 
     /// OUTPUT ///
-    window.Output = `/give @s bundle${nbt}`;
+    window.Output = `/give ${target} bundle${nbt}`;
     if (window.Output.length > 256) {
         window.Output = Output.replace(/^\/give @s/, '/give @p');
         if (target === '@s') target = '@p';
@@ -95,7 +95,7 @@ function summon() {
 
 function submit() {
     try {
-        summon();
+        bundle();
     }
     catch (error) {
         $('#generator-output').html("An unknown error has occurred. Please try again or reload the page.");
