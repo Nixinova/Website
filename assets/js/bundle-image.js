@@ -32,7 +32,7 @@ function generate() {
 
         prismarine_bricks: [82, 160, 150], purpur_block: [150, 104, 149],
 
-        quartz_block: [221, 218, 216], smooth_quartz_block: [217, 210, 203],
+        quartz_block: [221, 218, 216], smooth_quartz: [217, 210, 203],
 
         nether_wart_block: [84, 0, 0], warped_wart_block: [22, 101, 96],
 
@@ -49,7 +49,7 @@ function generate() {
         for (let j = 0; j < resolution; j++) {
             let rgba = getColor(img.width / resolution * j, img.height / resolution * i);
 
-            if (rgba[3] < 32) {
+            if (rgba[3] < 10) {
                 colorArray.push('air');
                 continue;
             }
@@ -79,7 +79,8 @@ function generate() {
 
     window.Output = `/give @p bundle${nbt}`;
     if (window.Output.length > 256) $('#cmd-note').removeClass('hide');
-    $('#generator-output').html(`
+    if (window.Output.length > 1e5) $('#generator-output').css('font-family','sans-serif').html('<span onclick="copyCommand()">Too long to display; click to copy.</span>');
+    else $('#generator-output').css('font-family', 'monospace').html(`
         <span class="§7">/give</span>
         <span class="§b">@p</span>
         <span class="§e">minecraft:bundle${nbt}</span>
@@ -94,7 +95,7 @@ function submit() {
         generate();
     }
     catch (error) {
-        $('#generator-output').html("An unknown error has occurred. Please try again or reload the page.");
+        $('#generator-output').css('font-family','sans-serif').html("An unknown error has occurred. Please try again or reload the page.");
         console.error(error.stack);
     }
 }
