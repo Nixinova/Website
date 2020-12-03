@@ -19,11 +19,16 @@ js: bundle-image.js
 
 <h2 class="upper">Image to Bundle Converter</h2>
 <p>Converts images into bundles for Minecraft 1.17.</p>
+<p style="font-size: 95%;">
+    GUI scale must be to 1 to view these bundles in full.<br>
+    Pictures must be roughly square to display properly.
+</p>
 <form action="javascript:submit()" id="input_form">
 
     <input id="input_image" type="file" accept="image/*" onchange="openFile(event)"><br>
-    <img id="output_image" style="height:250px;"><br>
-    <button onclick="submit()">Generate</button>
+    <img id="output_image" style="height:250px;width:250px;"><br>
+    <label for="resolution">Resolution<a href="#fn-1">*</a></label> <input id="resolution" type="number" value="20" min="0"><br>
+    <button onclick="$('#generator-output').empty();submit();">Generate</button>
 
 </form>
 
@@ -54,5 +59,11 @@ js: bundle-image.js
     <span class="§b">@p</span>
     <span class="§e">minecraft:bundle{}</span>
 </output>
+
+<div class="centered" style="font-size: 95%;">
+    <p id="fn-1">
+        * Resolutions above ~30 may create bundles with data too long to be placed into a command block.
+    </p>
+</div>
 
 {% include "ad.html" %}
