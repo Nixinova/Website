@@ -1,3 +1,5 @@
+@const DECIMAL_PLACES 5
+
 @var body color = linear-gradient(135deg, #333, #111)
 @var header color = #222
 @var header height = 82px
@@ -49,7 +51,7 @@ h1, h2, h3, h4 {text-transform: uppercase;}
 h2.section-header {margin-top: 0.8em; margin-bottom: 0.5em;}
     &::after {content: ""; display: block; width: 15vw; height: 2px; margin-left: calc(50% - 7.5vw); background: #fff; transition: 1s;}
     &:hover::after {width: 20vw; margin-left: calc(50% - 10vw);}
-$(@repeat | 5 | h$i {font-size: 3em - $i/3;})
+$(@repeat | 5 | h$i {font-size: 2.6em - ($i-1)/2.2;})
 
 // Links //
 a {text-decoration: none; cursor: pointer;}
