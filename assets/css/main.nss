@@ -1,5 +1,3 @@
-@const DECIMAL_PLACES 5
-
 @var body color = linear-gradient(135deg, #333, #111)
 @var header color = #222
 @var header height = 82px
