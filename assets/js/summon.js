@@ -224,7 +224,7 @@ function summon() {
 
         // axolotl //
         if (entity === 'axolotl') {
-            if (axolotl_variant) nbt.Variant = axolotl_variant;
+            if (axolotl_variant || axolotl_variant === 0) nbt.Variant = axolotl_variant;
         }
 
         // bee //
