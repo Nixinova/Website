@@ -37,6 +37,7 @@ function summon() {
     var glowing = hasClass('input_glowing', 'on');
     var lefthanded = hasClass('input_main_hand', 'left');
 
+    var axolotl_variant = value('input_axolotl_variant', 'int');
     var baby = hasClass('input_is_baby', 'on');
     var baby_time = value('input_baby_time');
     var baby_time_value = value('input_baby_time_value');
@@ -219,6 +220,11 @@ function summon() {
         if (OWNED_MOBS.includes(entity)) {
             $('.owned_mobs.only').removeClass('hide');
             if (horse_tame) nbt.Tame = true;
+        }
+
+        // axolotl //
+        if (entity === 'axolotl') {
+            if (axolotl_variant) nbt.Variant = axolotl_variant;
         }
 
         // bee //
