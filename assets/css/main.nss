@@ -69,9 +69,8 @@ table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
 [data-icon] {cursor: pointer; vertical-align: top;}
     & img {height: 24px; filter: invert(1);}
 
-// Centering // flex-direction: column;
-$(@breakpoint | 800px | .tile | height: calc(100vh - $(header height)); | padding: calc(25vw - $(header height)/2) 25vw;)
-.centered, .tile {display: flex; flex-flow: column; place-content: center; align-items: center;}
+// Centering //
+.centered {display: flex; flex-flow: column; place-content: center; align-items: center;}
 
 // Dividers //
 hr.half {width: 50%;}

@@ -18,6 +18,7 @@ a[href]:hover {opacity: 1;}
 .showcase-container {display: flex; height: 100vh; width: 100vw; border-top: 2px solid; text-align: center;}
     & hr {width: 50%;}
     & h2 {font-size: 8vh;}
+    & img {max-width: 50%;}
     & ul {padding-left: 0; list-style-type: none; font-size: 2.5em;}
     & li a {color: #eee;}
 .content-container div {margin: auto;}
