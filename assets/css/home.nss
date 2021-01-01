@@ -15,7 +15,7 @@ a[href]:hover {opacity: 1;}
 #nixinova-news img:hover {opacity: 0.6; transition: 0.2s;}
 #projects {background-image: linear-gradient(45deg, #4c60d0, #d967ec);}
 
-.showcase-container {display: flex; height: 100vh; width: 100vw; border-top: 2px solid; text-align: center;}
+.showcase-container {border-top: 2px solid; text-align: center;}
     & hr {width: 50%;}
     & h2 {font-size: 8vh;}
     & img {max-width: 50%;}
