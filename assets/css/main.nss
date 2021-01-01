@@ -13,7 +13,6 @@ body {font: normal 15px 'Montserrat', sans-serif; background: $(body color); mar
 header {position: fixed; width: 100vw; z-index: 100;}
 main {padding-top: $(header height); min-height: $(main height);}
 p {margin: 1em; text-align: center;}
-i:not(.noclick) {cursor: pointer;}
 code {font-size: 1.1em;}
 kbd {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
 img {max-width: 100%; vertical-align: middle; border: 0;}
@@ -27,7 +26,7 @@ abbr {cursor: help;}
     & #menu-logo {margin: auto;}
         % img {max-height: 80px;}
 
-nav {background: $(body color); opacity: .9; position: absolute; height: 100vh; padding: 1em 1em 5em; line-height: 2; overflow: auto;}
+nav {background: $(body color); padding: 1em 1em 5em; width: 100%; line-height: 2; border-bottom: 2px solid white;}
     & * div {transition: 0.1s;}
     & ul {margin: 0 1em; padding: 0; list-style-type: none;}
     & a[href] {color: #fff;}
@@ -35,7 +34,7 @@ nav {background: $(body color); opacity: .9; position: absolute; height: 100vh; 
     & .menu-section {margin: 0 auto 1em;}
     & .menu-header {display: block; font-weight: bold; font-size: 1.4em; text-align: center; text-transform: uppercase;}
     & .menu-subheader {margin-top: 6px; display: inline-block; font-size: 1.1em; font-weight: bold;}
-$(@breakpoint | 600px | nav | padding-bottom: 10em; width: 100%; overflow: scroll; | border-right: 2px solid white; )
+$(@breakpoint | 600px | nav || display: grid; grid-auto-flow: column;)
 
 // Footer //
 footer {width: 100%; padding: 15px; background: $(header color); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}
@@ -67,11 +66,12 @@ table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
 .columns-list li {margin-left: 2em;}
 
 // Icons //
-[data-icon] {vertical-align: top;}
+[data-icon] {cursor: pointer; vertical-align: top;}
     & img {height: 24px; filter: invert(1);}
 
-// Centering //
-.centered {display: flex; flex-flow: column; align-self: center; align-items: center;}
+// Centering // flex-direction: column;
+$(@breakpoint | 800px | .tile | height: calc(100vh - $(header height)); | padding: calc(25vw - $(header height)/2) 25vw;)
+.centered, .tile {display: flex; flex-flow: column; place-content: center; align-items: center;}
 
 // Dividers //
 hr.half {width: 50%;}
