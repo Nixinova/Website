@@ -48,7 +48,7 @@ h1, h2, h3, h4 {text-transform: uppercase;}
 h2.section-header {margin-top: 0.8em; margin-bottom: 0.5em;}
     &::after {content: ""; display: block; width: 15vw; height: 2px; margin-left: calc(50% - 7.5vw); background: #fff; transition: 1s;}
     &:hover::after {width: 20vw; margin-left: calc(50% - 10vw);}
-$(@repeat | 5 | h$i {font-size: 2.6em - ($i-1)/2.2;})
+$(@repeat | 5 || h$i {font-size: 2.6em - ($i-1)/2.2;})
 
 // Links //
 a {text-decoration: none; cursor: pointer;}
