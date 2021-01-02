@@ -12,7 +12,6 @@ a[href]:hover {opacity: 1;}
 #nixinova img {position: absolute; max-width: 50%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
 #nixinova-news {background: radial-gradient(#235d8e, #261b80);}
 #nixinova-news img:hover {opacity: 0.6; transition: 0.2s;}
-#projects {background-image: linear-gradient(45deg, #4c60d0, #d967ec);}
 
 .showcase-container {border-top: 2px solid; text-align: center;}
     & hr {width: 50%;}
