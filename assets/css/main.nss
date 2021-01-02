@@ -70,7 +70,7 @@ table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
     & img {height: 24px; filter: invert(1);}
 
 // Centering //
-.tile {display: flex; flex-flow: column; display: flex; height: $(main height); width: 100%; place-content: center; align-items: center;}
+.tile {display: flex; flex-flow: column; height: $(main height); width: 100%; place-content: center; align-items: center;}
 .centered {display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1ch;}
 
 // Dividers //

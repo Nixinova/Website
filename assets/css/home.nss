@@ -2,7 +2,6 @@
 
 html {scroll-behavior: smooth;}
 body {background: linear-gradient(135deg, #14a, #15d); overflow-x: hidden;}
-main {padding-top: 0;}
 footer {margin-top: 0;}
 
 h2::before, h2::after {content: ""; display: block; width: 50%; height: 2px; margin-left: 25%; background: #fff; transition: 0.7s;}
