@@ -27,6 +27,7 @@ abbr {cursor: help;}
         % img {max-height: 80px;}
 
 nav {background: $(body color); padding: 1em 1em 5em; width: 100%; line-height: 2; border-bottom: 2px solid white;}
+    & @ 600px {display: grid; grid-auto-flow: column;}
     & * div {transition: 0.1s;}
     & ul {margin: 0 1em; padding: 0; list-style-type: none;}
     & a[href] {color: #fff;}
@@ -34,7 +35,6 @@ nav {background: $(body color); padding: 1em 1em 5em; width: 100%; line-height: 
     & .menu-section {margin: 0 auto 1em;}
     & .menu-header {display: block; font-weight: bold; font-size: 1.4em; text-align: center; text-transform: uppercase;}
     & .menu-subheader {margin-top: 6px; display: inline-block; font-size: 1.1em; font-weight: bold;}
-$(@breakpoint | 600px | nav || display: grid; grid-auto-flow: column;)
 
 // Footer //
 footer {width: 100%; padding: 15px; background: $(header color); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}

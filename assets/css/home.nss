@@ -21,11 +21,9 @@ a[href]:hover {opacity: 1;}
     & img {max-width: 50%;}
     & ul {padding-left: 0; list-style-type: none; font-size: 2.5em;}
     & li a {color: #eee;}
-.content-container div {margin: auto;}
+.content-container {}
+    & @ 900px {display: flex;}
+    & div {margin: auto;}
+    & .title @ 900px {width: 50vw;}
+    & .contents @ 900px {width: 40vw; text-align: left;}
 .image-background {background: fixed #333 center; background-blend-mode: overlay; background-size: cover;}
-
-$(@breakpoint | 900px ||
-    .content-container {display: flex;}
-        & .title {width: 50vw;}
-        & .contents {width: 40vw; text-align: left;}
-)

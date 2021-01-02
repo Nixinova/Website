@@ -4,8 +4,8 @@
 // Base styles //
 form p:not(.text) {text-align: left; line-height: 3;}
 h2:not(.upper) {text-transform: lowercase;}
-$(@breakpoint | 900px | main | margin-left: 1em; )
-$(@breakpoint | 815px | form, output, .content || max-width: 825px; margin: 0 auto; )
+main @ ..900px {margin-left: 1em;}
+form, output, .content @ 815px {max-width: 825px; margin: 0 auto;}
 
 // Buttons //
 button {padding: 7px 10px; font-size: inherit; border-radius: 5px;}
