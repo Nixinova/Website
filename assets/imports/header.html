@@ -12,9 +12,23 @@
         </a>
     </div id="menu-logo">
 
+    <script>
+        function getSearchVal() {
+            return $('#header-search_bar').val().replace(/ /g, '+');
+        }
+        $(document).on('keypress', function(event) {
+            if ($('#header-search_bar').is(':focus') && event.which === 13) {
+                location.href = 'https://www.nixinova.com/search#gsc.q=' + getSearchVal();
+            }
+        });
+        function prepareSearch() {
+            $('#header-search_button').attr('href', '/search#gsc.q=' + getSearchVal());
+        }
+    </script>
     <div id="header-search">
-        <a href="/search#gsc.q=">
-            <i title="Search" data-icon="search" style="font-size: 2em;"></i>
+        <input id="header-search_bar" placeholder="Search...">
+        <a id="header-search_button" href="/search#gsc.q=" onmouseover="prepareSearch()">
+            <i title="Search" data-icon="search"></i>
         </a>
     </div>
 

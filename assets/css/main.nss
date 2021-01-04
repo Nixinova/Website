@@ -21,7 +21,13 @@ abbr {cursor: help;}
 // Header //
 #header {background: $(header color); height: $(header height); display: flex; border-bottom: 2px solid white;}
     & [data-icon] img {cursor: pointer; height: 32px;}
-    &-search, #menu-icon {width: 80px; align-self: center; text-align: center; color: white; cursor: pointer; z-index: 10;}
+    &-search {margin-right: 2em; background: #fffa; border: 1px solid #333d; border-radius: 1em;}
+    &-search [data-icon] img {margin-right: 8px; padding-bottom: 2px; height: 16px; filter: initial;}
+    &-search_bar {background: transparent; border: none; padding: 2px 6px; color: #111;}
+        % ..600px {display: none;}
+    &-search_bar:focus {outline: none;}
+    & #menu-icon {width: 80px;}
+    &-search, #menu-icon {align-self: center; text-align: center; color: white; cursor: pointer; z-index: 10;}
     &-search a, #menu-icon a {color: white;}
     & #menu-logo {margin: auto;}
         % img {max-height: 80px;}
