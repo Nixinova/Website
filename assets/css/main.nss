@@ -1,3 +1,4 @@
+@const DECIMAL_PLACES 4
 @var body color = linear-gradient(135deg, #333, #111)
 @var header color = #222
 @var header height = 82px
@@ -58,7 +59,7 @@ h1, h2, h3, h4 {text-transform: uppercase;}
 h2.section-header {margin-top: 0.8em; margin-bottom: 0.5em;}
     &::after {content: ""; display: block; width: 15vw; height: 2px; margin-left: calc(50% - 7.5vw); background: #fff; transition: 1s;}
     &:hover::after {width: 20vw; margin-left: calc(50% - 10vw);}
-$(@repeat | 5 || h$i {font-size: 2.6em - ($i-1)/2.2;})
+$(@repeat | 5 || h$i {font-size: 2.6em - ($i-1)/1.8;})
 
 // Links //
 a {text-decoration: none; cursor: pointer;}
@@ -98,7 +99,8 @@ iframe.youtube {width: 80vw; height: 45vw; max-width: 960px; max-height: 540px;}
 // Buttons //
 button {background: #19f; color: #fff; padding: 12px 30px; cursor: pointer; font-size: 20px; border: none; border-radius: 0.5em;}
     &:hover {background: #08f; transition: 0.25s;}
-    &.download {margin: 0; border-radius: 2em;}
+    &.download {margin: 0 0 1ex; border-radius: 2em;}
+        %.small {padding: 8px 12px; font-size: 95%;}
 
 // Hiding //
 .hide {display: none !important;}
