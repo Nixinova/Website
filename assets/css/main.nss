@@ -10,7 +10,7 @@
 // Base elements //
 * {box-sizing: border-box;}
 body {font: normal 15px 'Montserrat', sans-serif; background: $(body color); margin: 0; color: #eee; line-height: 1.8;}
-header {position: fixed; width: 100vw; z-index: 100;}
+header {position: fixed; width: 100%; z-index: 100;}
 main {padding-top: $(header height); min-height: $(main height);}
 p {margin: 1em; text-align: center;}
 code {font-size: 1.1em;}
@@ -21,16 +21,20 @@ abbr {cursor: help;}
 // Header //
 #header {background: $(header color); height: $(header height); display: flex; border-bottom: 2px solid white;}
     & [data-icon] img {cursor: pointer; height: 32px;}
-    &-search {margin-right: 2em; background: #fffa; border: 1px solid #333d; border-radius: 1em;}
-    &-search [data-icon] img {margin-right: 8px; padding-bottom: 2px; height: 16px; filter: initial;}
-    &-search_bar {background: transparent; border: none; padding: 2px 6px; color: #111;}
-        % ..600px {display: none;}
-    &-search_bar:focus {outline: none;}
     & #menu-icon {width: 80px;}
     &-search, #menu-icon {align-self: center; text-align: center; color: white; cursor: pointer; z-index: 10;}
     &-search a, #menu-icon a {color: white;}
     & #menu-logo {margin: auto;}
         % img {max-height: 80px;}
+$(@breakpoint | 600px |
+    #header-search {width: 80px;}
+    &_bar {display: none;}
+|
+    #header-search {margin-right: 2em; background: #fffa; border: 1px solid #333d; border-radius: 1em;}
+    & [data-icon] img {margin-right: 8px; padding-bottom: 2px; height: 16px; filter: initial;}
+    &_bar {background: transparent; border: none; padding: 2px 6px; color: #111;}
+    &_bar:focus {outline: none;}
+)
 
 nav {background: $(body color); padding: 1em 1em 5em; width: 100%; line-height: 2; border-bottom: 2px solid white;}
     & @ 600px {display: grid; grid-auto-flow: column;}
