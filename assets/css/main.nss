@@ -12,7 +12,7 @@
 * {box-sizing: border-box;}
 body {font: normal 15px 'Montserrat', sans-serif; background: $(body color); margin: 0; color: #eee; line-height: 1.8;}
 header @ ..600px {position: fixed; width: 100%; z-index: 100;}
-main {padding-top: $(header height); min-height: $(main height);}
+main {min-height: $(main height);}
 p {margin: 1em; text-align: center;}
 code {font-size: 1.1em;}
 kbd {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
