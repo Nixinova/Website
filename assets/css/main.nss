@@ -34,7 +34,7 @@ $(@breakpoint | 600px |
     #header-search {margin-right: 2em; background: #fffa; border: 1px solid #333d; border-radius: 1em;}
     & [data-icon] img {margin-right: 8px; padding-bottom: 2px; height: 16px; filter: initial;}
     &_bar {background: transparent; border: none; padding: 2px 6px; color: #111;}
-    &_bar:focus {outline: none;}
+        %:focus {outline: none;}
 )
 
 nav {background: $(body color); padding: 1em 1em 5em; width: 100%; line-height: 2; border-bottom: 2px solid white;}
@@ -65,8 +65,8 @@ $(@repeat | 5 || h$i {font-size: 2.6em - ($i-1)/1.8;})
 a {text-decoration: none; cursor: pointer;}
 a[href] {color: #acf; transition: 0.2s;}
 a:hover {opacity: 0.5;}
-a.hover-underline {display: block;}
-    &::after {content: ""; display: block; width: 0; height: 2px; background: #fff; color: #fff; transition: 0.4s;}
+    &-underline {display: block;}
+        %::after {content: ""; display: block; width: 0; height: 2px; background: #fff; color: #fff; transition: 0.4s;}
         :hover > % {width: 5em;}
 
 // Tables //
@@ -74,7 +74,7 @@ table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
 
 // Lists //
 .columns-list {display: flex; flex-wrap: wrap;}
-.columns-list li {margin-left: 2em;}
+    & li {margin-left: 2em;}
 
 // Icons //
 [data-icon] {cursor: pointer; vertical-align: top;}
@@ -106,16 +106,15 @@ button {background: #19f; color: #fff; padding: 12px 30px; cursor: pointer; font
 .hide {display: none !important;}
 
 // Responsive //
-@media (max-width: 800px) {
+$(@breakpoint | 800px |
     .desktoponly {display: none !important;}
-}
-@media (min-width: 801px) {
+|
     .mobileonly {display: none !important;}
     p.description {max-width: 66.67%; margin: auto;}
     ::-webkit-scrollbar {width: 1em;}
         &-track {background: #111d;}
         &-thumb {background: #fff; box-shadow: inset 0 0 6px #0004;}
-}
+)
 
 // Google //
 .adsbygoogle {margin-top: 3em; max-width: 100%;}
