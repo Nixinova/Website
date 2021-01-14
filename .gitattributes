@@ -1,3 +1,8 @@
 * text=auto
 
+# Linguist
 *.nss linguist-language=CSS
+*.xml.njk linguist-language=XML
+*.txt.njk linguist-language=Text
+_redirects.njk linguist-language=Text
+pages/**/*.md linguist-detectable=true
