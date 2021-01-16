@@ -6,3 +6,7 @@
 *.txt.njk linguist-language=Text
 _redirects.njk linguist-language=Text
 pages/**/*.md linguist-detectable=true
+
+# Git LFS
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
