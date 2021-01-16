@@ -1,5 +1,9 @@
 {
   "description": "Personal website of Nixinova, hosted via Netlify at Nixinova.com",
+  "scripts": {
+    "build": "eleventy",
+    "host": "eleventy --serve"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nixinova/website.git"
