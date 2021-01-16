@@ -1,4 +1,5 @@
 node_modules/
 _site/
+.netlify/
 Thumbs.db
 localhost.bat
