@@ -4,7 +4,8 @@ module.exports = function (eleventyConfig) {
     return {
         passthroughFileCopy: true,
         dir: {
-            includes: "assets/imports"
+            includes: "assets/imports",
+            layouts: "assets/imports/layouts"
         }
     };
 }

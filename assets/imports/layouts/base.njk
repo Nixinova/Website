@@ -8,12 +8,11 @@
     <meta name="keywords" content="{{ keywords }}">{% if noindex %}
     <meta name="robots" content="noindex">{% endif %}
     <link rel="icon" href="/assets/favicon.ico">
-    <link rel="novasheet" href="/assets/css/main.nss">{% if nss %}
-    <link rel="novasheets" href="/assets/css/{{ nss }}">{% endif %}{% if js %}
+    <link rel="stylesheet" href="/assets/css/main.css">
+    {% if css %}<link rel="stylesheet" href="/assets/css/{{ css }}.css">{% endif %}{% if js -%}
     <script src="/assets/js/tool-functions.js"></script>
     <script src="/assets/js/{{ js }}"></script>{% endif %}
-    <script src="/assets/js/external/jquery.min.js"></script>
-    <script src="/assets/js/external/novasheets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
     <script>
         window.navIsVisible = false;
         function hideNav() {$('nav').addClass('hide'); navIsVisible = false;}

@@ -25,3 +25,5 @@ a[href]:hover {opacity: 1;}
     & .title @ 900px {width: 50vw;}
     & .contents @ 900px {width: 40vw; text-align: left;}
 .image-background {background: fixed #333 center; background-blend-mode: overlay; background-size: cover;}
+
+/* Copyright © Nixinova 2021 */
