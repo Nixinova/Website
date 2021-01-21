@@ -45,7 +45,7 @@ function value(id, type) {
     switch (type) {
         case 'int': return parseInt($('#' + id).val(), 10);
         case 'num': return parseFloat($('#' + id).val(), 10);
-        default: return $.trim($('#' + id).val());
+        default: return $('#' + id).val().trim();
     }
 }
 
