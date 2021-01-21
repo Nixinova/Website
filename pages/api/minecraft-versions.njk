@@ -7,14 +7,17 @@ keywords: "nixinova,minecraft,minecraft api,version manifest,minecraft version m
 css: tools
 js: "versions.js"
 ---
-<script async src="https://momentjs.com/downloads/moment.js"></script>
+<script async src="https://momentjs.com/downloads/moment.min.js"></script>
 <style data-name="Page styles">
     table {margin: auto;}
     p {text-align: center;}
     samp {font-size: 95%;}
 </style>
 <script id="page-loader-script">
-    $(document).ready(x => initial());
+    $(document).ready(function(){
+        initial();
+        $('#footer-other').html('<a href="/assets/js/{{js}}" title="{{js}}" target="_blank">View code</a>');
+    });     
     var sections = ['list tbody', 'version tbody'];
 </script>
 
