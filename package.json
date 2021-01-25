@@ -15,7 +15,7 @@
   },
   "homepage": "https://nixinova.com",
   "devDependencies": {
-    "novasheets": "^0.6.7",
-    "@11ty/eleventy": "^0.11.1"
+    "@11ty/eleventy": "^0.11.1",
+    "novasheets": "^1.0.0-pre1"
   }
 }
