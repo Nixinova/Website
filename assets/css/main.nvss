@@ -1,4 +1,5 @@
-@const DECIMAL_PLACES 4
+@option DECIMAL_PLACES 4
+
 @var body color = linear-gradient(135deg, #333, #111)
 @var header color = #222
 @var header height = 82px
@@ -39,7 +40,7 @@ $(@breakpoint | 600px |
 
 nav {background: $(body color); padding: 1em 1em 5em; width: 100%; line-height: 2; border-bottom: 2px solid white;}
     & @ 600px {display: grid; grid-auto-flow: column;}
-    & * div {transition: 0.1s;}
+    & div {transition: 0.1s;}
     & ul {margin: 0 1em; padding: 0; list-style-type: none;}
     & a[href] {color: #fff;}
         %:hover {opacity: 1;}
@@ -117,6 +118,6 @@ $(@breakpoint | 800px |
 )
 
 // Google //
-.adsbygoogle {margin-top: 3em; max-width: 100%;}
+//.adsbygoogle {margin-top: 3em; max-width: 100%;}
 
 /* Copyright © Nixinova 2021 */
