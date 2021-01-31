@@ -1,13 +1,15 @@
 @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
 
+@var underline = {content: ""; display: block; width: 0; height: 2px; margin-left: 25%; background: #fff; transition: 0.7s;}
+
 // Elements
 html {scroll-behavior: smooth;}
 body {background: linear-gradient(135deg, #14a, #15d); overflow-x: hidden;}
 footer {margin-top: 0;}
 
 // Pseudo-elements
-h2::before, h2::after {content: ""; display: block; width: 50%; height: 2px; margin-left: 25%; background: #fff; transition: 0.7s;}
-h2:hover::before, h2:hover::after {width: 60%; margin-left: 20%;}
+h2::before, h2::after {$(underline)!; width: 50%;}
+h2:hover::before, h2:hover::after {width: 70%; margin-left: 20%;}
 a[href]:hover {opacity: 1;}
 
 // Top tile
@@ -23,7 +25,9 @@ a[href]:hover {opacity: 1;}
     & img {max-width: 50%;}
     & ul {padding-left: 0; list-style-type: none; font-size: 2.5em;}
     & li {padding: 0.4em;}
-    & li a {color: #eee;}
+    & li::after {$(underline)!}
+    & li:hover::after {width: 50%;}
+    & li a {display: inline-block; color: #eee;}
 .content-container {}
     & @ 900px {display: flex;}
     & div {margin: auto;}
