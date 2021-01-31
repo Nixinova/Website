@@ -15,12 +15,6 @@
         navVisible ? hideNav() : showNav()
     };
 
-    $(function () {
-        $('[data-icon]').each(function () {
-            $(this).html(`<img src="/assets/images/icons/${$(this).data('icon')}.png" data-credit="FontAwesome">`);
-        });
-    })
-
     function getSearchVal() {
         return $('#header-search_bar').val();
     }
