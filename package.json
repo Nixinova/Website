@@ -2,8 +2,8 @@
   "description": "Personal website of Nixinova, hosted via Netlify at Nixinova.com",
   "scripts": {
     "build": "eleventy",
-    "postbuild": "novasheets -c _site/**/*.nvss",
-    "serve": "eleventy --serve"
+    "serve": "eleventy --serve",
+    "novasheets": "novasheets -c _site/**/*.nvss"
   },
   "repository": {
     "type": "git",
