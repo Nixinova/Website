@@ -1,3 +1,40 @@
+<script>
+    window.navVisible = false;
+
+    function hideNav() {
+        $('nav').addClass('hide');
+        $('main').removeClass('desktoponly');
+        navVisible = false;
+    }
+    function showNav() {
+        $('nav').removeClass('hide');
+        $('main').addClass('desktoponly');
+        navVisible = true;
+    }
+    function toggleNav() {
+        navVisible ? hideNav() : showNav()
+    };
+
+    $(function () {
+        $('[data-icon]').each(function () {
+            $(this).html(`<img src="/assets/images/icons/${$(this).data('icon')}.png" data-credit="FontAwesome">`);
+        });
+    })
+
+    function getSearchVal() {
+        return $('#header-search_bar').val();
+    }
+    $(document).on('keypress', function (event) {
+        if ($('#header-search_bar').is(':focus') && event.which === 13) {
+            location.href = 'https://www.nixinova.com/search#gsc.q=' + getSearchVal();
+        }
+    });
+    function prepareSearch() {
+        $('#header-search_button').attr('href', '/search#gsc.q=' + getSearchVal());
+    }
+
+</script>
+
 <div id="header">
 
     <div id="menu-icon">
@@ -11,20 +48,6 @@
             <img src="/assets/images/logos/nixinova.png" alt="Nixinova"><span></span>
         </a>
     </div id="menu-logo">
-
-    <script>
-        function getSearchVal() {
-            return $('#header-search_bar').val();
-        }
-        $(document).on('keypress', function(event) {
-            if ($('#header-search_bar').is(':focus') && event.which === 13) {
-                location.href = 'https://www.nixinova.com/search#gsc.q=' + getSearchVal();
-            }
-        });
-        function prepareSearch() {
-            $('#header-search_button').attr('href', '/search#gsc.q=' + getSearchVal());
-        }
-    </script>
     <div id="header-search">
         <input id="header-search_bar" placeholder="Search...">
         <a id="header-search_button" href="/search#gsc.q=" onmouseover="prepareSearch()">
@@ -82,7 +105,7 @@
             </ul>
         </div>
     </div>
-    
+
     <div class="menu-section">
         <span class="menu-header">Downloads</span>
         <div>
@@ -94,9 +117,11 @@
             </ul>
             <span class="menu-subheader">Minecraft Resource Packs</span>
             <ul>
-                <li><a class="hover-underline" href="/downloads/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a></li>
+                <li><a class="hover-underline" href="/downloads/minecraft/resource-packs/mash-up">Nixinova Mash-Up</a>
+                </li>
                 <li><a class="hover-underline" href="/downloads/minecraft/resource-packs/themed">Themed Mash-Up</a></li>
-                <li><a class="hover-underline" href="/downloads/minecraft/resource-packs/herobrinenzk">HeroBrineNZK RP</a></li>
+                <li><a class="hover-underline" href="/downloads/minecraft/resource-packs/herobrinenzk">HeroBrineNZK
+                        RP</a></li>
             </ul>
         </div>
     </div>

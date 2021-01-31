@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-NZ">
+
 <head>
     <meta charset="utf-8">
     <title>{{ title }} &ndash; Nixinova</title>
@@ -9,32 +10,24 @@
     <meta name="robots" content="noindex">{% endif %}
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/css/main.css">
-    {% if css %}<link rel="stylesheet" href="/assets/css/{{ css }}.css">{% endif %}{% if js -%}
+    {% if css %}
+    <link rel="stylesheet" href="/assets/css/{{ css }}.css">{% endif %}{% if js -%}
     <script src="/assets/js/tool-functions.js"></script>
     <script src="/assets/js/{{ js }}"></script>{% endif %}
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        window.navIsVisible = false;
-        function hideNav() {$('nav').addClass('hide'); navIsVisible = false;}
-        function showNav() {$('nav').removeClass('hide'); navIsVisible = true;}
-        function toggleNav() {return navIsVisible ? hideNav() : showNav()};
-
-        $(function() {
-            $('[data-icon]').each(function() {
-                $(this).html(`<img src="/assets/images/icons/${$(this).data('icon')}.png" data-credit="FontAwesome">`);
-            });
-        })
-
-    </script>
 </head>
 
 <body>
-    <header>{% include "header.html" %}</header>
-    <main onclick="hideNav()">{{ content | safe }}</main>
-    <footer>{% include "footer.html" %}</footer>
+    <div id="content">
+        <header style="grid-area: header;">{% include "header.html" %}</header>
+        <main style="grid-area: main;" onclick="hideNav()">{{ content | safe }}</main>
+        <footer style="grid-area: footer;">{% include "footer.html" %}</footer>
+    </div>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83550713-1"></script>
-    <script>window.dataLayer=window.dataLayer||[];function T(){dataLayer.push(arguments)}T('js',new Date());T('config','UA-83550713-1');</script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" data-ad-client="ca-pub-7730644887366759"></script>
+    <script>window.dataLayer = window.dataLayer || []; function T() { dataLayer.push(arguments) } T('js', new Date()); T('config', 'UA-83550713-1');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        data-ad-client="ca-pub-7730644887366759"></script>
 </body>
+
 </html>
