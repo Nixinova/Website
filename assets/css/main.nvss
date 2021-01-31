@@ -117,4 +117,7 @@ $(@breakpoint | 600px |
         &-thumb {background: #fff; box-shadow: inset 0 0 6px #0004;}
 )
 
+// Ads //
+p ~ .adsbygoogle {margin: 3em auto;}
+
 /* Copyright © Nixinova 2021 */
