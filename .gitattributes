@@ -4,7 +4,6 @@ package-lock.json -diff
 
 # Linguist
 *.nvss linguist-language=CSS
-*.txt.njk linguist-language=Text
 
 # Git LFS
 *.png filter=lfs diff=lfs merge=lfs -text

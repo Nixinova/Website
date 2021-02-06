@@ -3,6 +3,7 @@ const { exec } = require('child_process');
 module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("assets");
+    eleventyConfig.addPassthroughCopy({"meta": "."});
     eleventyConfig.addWatchTarget("assets");
 
     eleventyConfig.on('afterBuild', () => {
