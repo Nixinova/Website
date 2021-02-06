@@ -4,10 +4,7 @@ package-lock.json -diff
 
 # Linguist
 *.nvss linguist-language=CSS
-*.xml.njk linguist-language=XML
 *.txt.njk linguist-language=Text
-_redirects.njk linguist-language=Text
-pages/**/*.md linguist-detectable=true
 
 # Git LFS
 *.png filter=lfs diff=lfs merge=lfs -text

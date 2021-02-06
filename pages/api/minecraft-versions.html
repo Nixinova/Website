@@ -1,0 +1,66 @@
+---
+layout: base.njk
+permalink: /tools/minecraft/api/versions.html
+title: "Minecraft Version Info"
+description: "Get information about any Minecraft version, including release date and download links."
+keywords: "nixinova,minecraft,minecraft api,version manifest,minecraft version manifest,minecraft version lookup,lookup minecraft versions,minecraft version info"
+css: tools
+js: "versions.js"
+---
+<script async src="https://momentjs.com/downloads/moment.min.js"></script>
+<style data-name="Page styles">
+    table {margin: auto;}
+    p {text-align: center;}
+    samp {font-size: 95%;}
+</style>
+<script id="page-loader-script">
+    $(function () {
+        initial();
+        $('#footer-other').html('<a href="/assets/js/{{js}}" title="{{js}}" target="_blank">View code</a>');
+    });
+    var sections = ['list tbody', 'version tbody'];
+</script>
+
+<h1>Minecraft Version Info</h1>
+<p>Get information about any <i>Minecraft</i> version that is available in the launcher.</p>
+
+<p>
+    <label>Version:</label>
+    <select type="text" id="input-version">
+        <option value="all">View all</option>
+    </select> &nbsp;
+    <button type="button" id="get-info" onclick="getInfo($('#input-version').val());">Get info</button><br>
+</p>
+
+<p id="loading" class="hide">
+    Loading... <progress value="0.00"></progress>
+</p>
+
+<table id="list" class="styled hide">
+    <thead>
+        <tr>
+            <th>Version</th>
+            <th>Type</th>
+            <th>Released (UTC)</th>
+            <th>JSON</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<table id="version" class="styled hide">
+    <thead>
+        <tr>
+            <th colspan=7 id="title"></th>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <th>Released (UTC)</th>
+            <th colspan=3>Download</th>
+            <th colspan=2>Mappings</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+{% include ad.html %}

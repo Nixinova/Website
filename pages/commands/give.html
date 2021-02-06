@@ -1,0 +1,421 @@
+---
+layout: base.njk
+permalink: /tools/minecraft/commands/give.html
+title: "Minecraft /give Generator"
+description: "A generator which creates /give commands for Minecraft 1.16."
+keywords: "nixinova,nixinova website,give,minecraft,give generator, minecraft give generator,give command,minecraft give command,give command generator,minecraft command generator,command generator"
+css: tools
+js: "give.js"
+---
+<style>
+    main {display: flex; flex-direction: column;}
+    @media (max-width: 814px) {
+        label.short {margin-left: 1em;}
+    }
+</style>
+<script>
+    var function_count = 0;
+    $(document).ready(function() {
+        setInterval(function() {
+            let obfuses = $('.§k');
+            for (let i = 0; i < obfuses.length; i++) {
+                obfuscate(obfuses.eq(i).text(),obfuses.eq(i));
+            }
+        }, 50);
+        $('#footer-other').html('<a href="/assets/js/give.js" title="give.js" target="_blank">View code</a>');
+        submit();
+    });
+</script>
+
+<h2>/give</h2>
+<p>Generates <samp>/give</samp> commands for Minecraft 1.16.</p>
+<noscript><p><strong>This tool needs JavaScript to work!</strong></p></noscript>
+<form action="javascript:submit()" id="input_form">
+    <!-- target -->
+    <p onchange="submit()">
+        <label for="input_selector_target">Target:</label>
+        <select id="input_selector_target">
+            <option value="@s">Yourself</option>
+            <option value="@p">Nearest player</option>
+            <option value="@r">Random player</option>
+            <option value="@a">All players</option>
+            <option value="--">Specific player</option>
+        </select>
+         <a href="javascript:void(0)" id="expand-target" class="elipsis" onclick="show_more('expand-target','target-content',false)"></a>
+    </p>
+    <!-- target (expanded content) -->
+    <div id="target-content" class="hide indent">
+        <p onblur="submit()">
+            <label>Coordinates:</label>
+            <input id="input_selector_x" type="number" step="any" placeholder="x" onchange="submit()"> &nbsp;
+            <input id="input_selector_y" type="number" step="any" placeholder="y" onchange="submit()"> &nbsp;
+            <input id="input_selector_z" type="number" step="any" placeholder="z" onchange="submit()"><br/>
+
+            <style>
+                .radius::after {content: 'Radius';}
+                .volume::after {content: 'Volume';}
+            </style>
+            <script>
+                function toggleVolumeRadius(id) {
+                    $(id).toggleClass('radius').toggleClass('volume');
+                    $('#radius').toggleClass('hide')
+                    $('#volume').toggleClass('hide')
+                }
+            </script>
+            <label for="input_selection_area">Selection area:</label>
+            <button type="button" id="input_selection_area" class="radius" onchange="submit()" onclick="toggleVolumeRadius(this);"></button> &nbsp;
+
+            <span id="radius">
+                <span>Distance:</span> &nbsp;
+                <input id="input_selector_dist_min" type="number" step="any" placeholder="min" size="3" onchange="submit()"> &nbsp;
+                <input id="input_selector_dist_max" type="number" step="any" placeholder="max" size="3" onchange="submit()"><br/>
+            </span>
+
+            <span id="volume" class="hide">
+                <span>Size:</span> &nbsp;
+                <input id="input_selector_vol_x" type="number" step="any" placeholder="x" size="3" onchange="submit()"> &nbsp;
+                <input id="input_selector_vol_y" type="number" step="any" placeholder="y" size="3" onchange="submit()"> &nbsp;
+                <input id="input_selector_vol_z" type="number" step="any" placeholder="z" size="3" onchange="submit()"><br/>
+            </span>
+            
+            <label>Vert. rotation:</label>
+            <input id="input_selector_xrot_min" type="number" step="any" placeholder="min" min="-90" max="90" size="3" onchange="submit()"> &nbsp;
+            <input id="input_selector_xrot_max" type="number" step="any" placeholder="max" min="-90" max="90" size="3" onchange="submit()"><br/>
+            
+            <label>Horiz. rotation:</label>
+            <input id="input_selector_yrot_min" type="number" step="any" placeholder="min" min="-180" max="179.9" size="3" onchange="submit()"> &nbsp;
+            <input id="input_selector_yrot_max" type="number" step="any" placeholder="max" min="-180" max="179.9" size="3" onchange="submit()"><br/>
+            
+            <label for="input_selector_limit">Limit:</label>
+            <input id="input_selector_limit" type="number" min="0" size="8" onchange="submit()"><br/>
+            
+            <label for="input_selector_team">Team:</label>
+            <input id="input_selector_team" type="text" size="8" onkeyup="submit()"> &nbsp;
+            <button type="button" id="input_selector_team_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
+            
+            <label for="input_selector_tag">Tag:</label>
+            <input id="input_selector_tag" type="text" size="8" onkeyup="submit()"> &nbsp;
+            <button type="button" id="input_selector_tag_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
+
+            <label for="input_selector_gm">Gamemode:</label>
+            <select id="input_selector_gm" onchange="submit()">
+                <option>&nbsp;</option>
+                <option>Survival</option>
+                <option>Creative</option>
+                <option>Adventure</option>
+                <option>Spectator</option>
+            </select> &nbsp;
+            <button type="button" id="input_selector_gm_i" class="off" onclick="toggleOnOff(this)">Invert</button><br/>
+
+            <label>XP level:</label>
+            <input id="input_selector_xp_min" type="number" placeholder="min" min="0" size="3" onchange="submit()"> &nbsp;
+            <input id="input_selector_xp_max" type="number" placeholder="max" min="0" size="3" onchange="submit()"><br/>
+
+            <script>
+                window.scores = [];
+                window.scores_min = [];
+                window.scores_max = [];
+            </script>
+            <label>Score:</label>
+            <input id="input_selector_score_objective" type="text" placeholder="objective" size="10"> &ensp;
+            <input id="input_selector_score_min" type="number" placeholder="min" size="3"> &nbsp;
+            <input id="input_selector_score_max" type="number" placeholder="max" size="3">
+            <a href="javascript:void(0)" onclick="submit()" id="add-score" class="plus"></a>
+        </p>
+    </div>
+    <!-- target (username) -->
+    <p class="negative hide" id="select-username">
+        <label for="input_selector_player">Username:</label>
+        <input id="input_selector_player" type="text" size="13" maxlength="16" onkeyup="submit()">
+    </p>
+    <!-- item -->
+    <p onblur="submit()">
+        <label for="input_item">Item:</label>
+        <input id="input_item" type="text" placeholder="minecraft:stone" size="13" onclick="$(this).value=''" onkeyup="submit()"><br/>
+        
+        <span class="hide" id="potion">
+            <label for="input_item_potion" class="indent">Potion:</label>
+            <input id="input_item_potion" type="text" size="13" onkeyup="submit()"><br/>
+        </span>
+
+        <span class="hide" id="player_head">
+            <label for="input_item_head" class="indent">Player name:</label>
+            <input id="input_item_head" type="text" size="13" onkeyup="submit()"><br/>
+        </span>
+
+        <span class="hide" id="firework">
+            <label for="input_item_firework_type" class="indent">Firework effects:</label>
+            <select id="input_item_firework_type" onchange="submit()">
+                <option value="0">Small Ball</option>
+                <option value="1">Large Ball</option>
+                <option value="2">Creeper</option>
+                <option value="3">Star</option>
+                <option value="4">Burst</option>
+            </select><br/>
+
+            <label for="input_item_firework_flicker" class="indent">Flicker:</label>
+            <button type="button" id="input_item_firework_flicker" class="notext off" onclick="toggleOnOff(this); submit();"></button><br/>
+            
+            <label for="input_item_firework_trail" class="indent">Trail:</label>
+            <button type="button" id="input_item_firework_trail" class="notext off" onclick="toggleOnOff(this); submit();"></button><br/>
+            
+            <label for="input_item_firework_flight" class="indent">Flight time:</label>
+            <input id="input_item_firework_flight" type="number" min="-127" max="128"><br/>
+
+            <!--<script>var firework_colors = [];</script>
+            <label for="input_item_firework_color" class="indent">Colors:</label>
+            <input id="input_item_firework_color"><br/>-->
+        </span>
+
+        <label>Custom name:</label>
+        <input type="text" size="13" id="input_item_name" onkeyup="submit()">  
+        <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
+        
+        <span id="preview" class="hide">
+            &nbsp; Preview: &nbsp;
+            <span id="preview-text"></span>
+        </span><br/>
+
+        <span id="cname-content" class="hide">
+            <label class="indent">Colour:</label>
+            <datalist id="input_item_colours">
+                <option>white</option>
+                <option>aqua</option>
+                <option>black</option>
+                <option>blue</option>
+                <option>dark_aqua</option>
+                <option>dark_blue</option>
+                <option>dark_gray</option>
+                <option>dark_green</option>
+                <option>dark_purple</option>
+                <option>dark_red</option>
+                <option>gold</option>
+                <option>gray</option>
+                <option>green</option>
+                <option>light_purple</option>
+                <option>red</option>
+                <option>yellow</option>
+            </datalist>
+            <input type="text" list="input_item_colours" id="input_item_colour"> (colour name or hexadecimal value)<br/>
+            <label class="indent">Styles:</label>
+            <button type="button" id="input_item_b" class="off" onclick="toggleOnOff(this);submit();">Bold</button> &nbsp;
+            <button type="button" id="input_item_i" class="on " onclick="toggleOnOff(this);submit();">Italic</button> &nbsp;
+            <button type="button" id="input_item_u" class="off" onclick="toggleOnOff(this);submit();">Underlined</button> &nbsp;
+            <button type="button" id="input_item_s" class="off" onclick="toggleOnOff(this);submit();">Strikethrough</button> &nbsp;
+            <button type="button" id="input_item_o" class="off" onclick="toggleOnOff(this);submit();">Obfuscated</button> &nbsp;
+            <br/>
+        </span>
+
+        <!-- desc and ench -->
+        <script>
+            window.lore = [];
+            window.e = [];
+            window.elvl = [];
+            window.loreAdded = 0;
+            window.enchAdded = 0;
+        </script>
+        <style>
+            @media (min-width: 815px) {
+                #color-codes {position: absolute; margin-top: 1em;}
+                #input_item_lore {margin-left: 15ex;}
+            }
+        </style>
+        <label for="input_item_lore" style="position: absolute;">Description:</label><br class="mobileonly"/>
+        <textarea id="input_item_lore" rows="6" cols="40" onkeyup="submit()"></textarea> &nbsp; <br class="mobileonly"/>
+        <span id="color-codes" style="line-height: 1.6;">
+            Tip: allows "§" codes. Copy &amp; paste:<br>
+            <span>
+                <span class="§0">§0</span>
+                <span class="§1">§1</span>
+                <span class="§2">§2</span>
+                <span class="§3">§3</span>
+                <span class="§4">§4</span>
+                <span class="§5">§5</span>
+                <span class="§6">§6</span>
+                <span class="§7">§7</span>
+                <span class="§8">§8</span>
+                <span class="§9">§9</span>
+                <span class="§a">§a</span>
+                <span class="§b">§b</span>
+                <span class="§c">§c</span>
+                <span class="§d">§d</span>
+                <span class="§e">§e</span>
+                <span class="§f">§f</span>
+                §k<code class="§k">k</code>
+                <span class="§l">§l</span>
+                <span class="§m">§m</span>
+                <span class="§n">§n</span>
+                <span class="§o">§o</span>
+                <span class="§r">§r</span>
+            </span>
+        </span><br/>
+
+        <span class="tool">
+            <label>Unbreakable:</label>
+            <button type="button" id="input_item_unbreakable" class="notext off" onclick="toggleOnOff(this); $('#durability').toggleClass('hide'); submit();"></button><br/>
+
+            <span id="durability">
+                <label for="input_item_durability">Durability:</label>
+                <input id="input_item_durability" type="number" onchange="submit()"><br/>
+            </span>
+        </span>
+
+        <label>Enchantments:</label><br class="mobileonly"/>
+        <label for="input_item_ench" class="short">Name:</label>
+        <select id="input_item_ench" onchange="submit()">
+            <option></option>
+            <option>Aqua Affinity</option>
+            <option>Bane of Arthropods</option>
+            <option>Blast Protection</option>
+            <option>Channeling</option>
+            <option>Curse of Binding</option>
+            <option>Curse of Vanishing</option>
+            <option>Depth Strider</option>
+            <option>Efficiency</option>
+            <option>Feather Falling</option>
+            <option>Fire Aspect</option>
+            <option>Fire Protection</option>
+            <option>Flame</option>
+            <option>Fortune</option>
+            <option>Frost Walker</option>
+            <option>Impaling</option>
+            <option>Infinity</option>
+            <option>Knockback</option>
+            <option>Looting</option>
+            <option>Loyalty</option>
+            <option>Luck of the Sea</option>
+            <option>Lure</option>
+            <option>Mending</option>
+            <option>Multishot</option>
+            <option>Piercing</option>
+            <option>Power</option>
+            <option>Projectile Protection</option>
+            <option>Protection</option>
+            <option>Punch</option>
+            <option>Quick Charge</option>
+            <option>Respiration</option>
+            <option>Riptide</option>
+            <option>Sharpness</option>
+            <option>Silk Touch</option>
+            <option>Smite</option>
+            <option>Sweeping Edge</option>
+            <option>Thorns</option>
+            <option>Unbreaking</option>
+        </select><br class="mobileonly"/>
+        &nbsp;
+        <label for="input_item_ench_lvl" class="short">Level:</label>
+        <input id="input_item_ench_lvl" class="long lvl" type="number" value="1" min="1" max="2147483647" onchange="submit()">
+        <a href="javascript:void(0)" id="clear-ench" class="clear" onclick="$('#input_item_ench').val('');e=[];elvl=[];submit();"></a>
+        <br/>
+    
+        <!-- other -->
+        <script>
+            window.CanDestroy = [];
+            window.CanPlaceOn = [];
+        </script>
+        <datalist id="placeon-destroy-data">
+            <option value="">&nbsp;</option>
+        </datalist>
+
+        <label>Can destroy:</label><br class="mobileonly"/>
+        <label for="input_item_destroy" class="short">Block:</label>
+        <input list="placeon-destroy-data" id="input_item_destroy" type="text" size="13" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
+        <a href="javascript:void(0)" class="plus" onclick="submit()"></a>
+        <a href="javascript:void(0)" id="clear-canDestroy" class="clear" onclick="$('#input_item_destroy').val('');CanDestroy=[];submit();"></a><br/>
+        
+        <label>Can place on:</label><br class="mobileonly"/>
+        <label for="input_item_place_on" class="short">Block:</label>
+        <input list="placeon-destroy-data" id="input_item_place_on" type="text" size="13" onclick="$(this).val('');"> &nbsp;<br class="mobileonly"/>
+        <a href="javascript:void(0)" class="plus" onclick="submit()"></a>
+        <a href="javascript:void(0)" id="clear-canPlaceOn" class="clear" onclick="$('#input_item_place_on').val('');CanPlaceOn=[];submit();"></a><br/>
+
+        <script>
+            window.Modifiers = [];
+            window.Attributes = {Names:[], Values:[]};
+            window.Uuids = {};
+        </script>
+        <span>
+            <label>Attributes:</label><br class="mobileonly"/>
+            <label for="input_item_mod" class="short">Name:</label>
+            <select id="input_item_mod" onchange="submit()">
+                <option></option>
+                <option value="armor">Armour Defense</option>
+                <option value="armor_toughness">Armour Toughness</option>
+                <option>Attack Damage</option>
+                <option>Attack Reach</option>
+                <option>Attack Speed</option>
+                <option>Follow Range</option>
+                <option>Knockback Resistance</option>
+                <option>Luck</option>
+                <option>Max Health</option>
+                <option>Movement Speed</option>
+            </select> &nbsp;<br class="mobileonly"/>
+            <label for="input_item_mod_value" class="short">Amount:</label>
+            <input id="input_item_mod_value" type="number" step="any" value="1" onchange="submit()">
+
+            <a href="javascript:void(0)" id="clear-mods" class="clear" onclick="$('#input_item_mod').val('');Modifiers=[];Attributes = {Names:[], Values:[]};submit();"></a>
+            <a href="javascript:void(0)" id="expand-mods" class="elipsis" onclick="show_more('expand-mods','mods-content',false)"></a>
+            <br/>
+        </span>
+
+        <span id="mods-content" class="hide">
+            <label></label>
+            <label for="input_item_mod_operation" class="short">Operation:</label>
+            <select id="input_item_mod_operation" onchange="submit()">
+                <option value="0">Addition</option>
+                <option value="1">Percentage</option>
+                <option value="2">Multiply</option>
+            </select> &nbsp;
+
+            <label for="input_item_mod_slot" class="short">Slot:</label>
+            <select id="input_item_mod_slot" onchange="submit()">
+                <option value="">Any</option>
+                <option>Main Hand</option>
+                <option>Off Hand</option>
+                <option>Head</option>
+                <option>Chest</option>
+                <option>Legs</option>
+                <option>Feet</option>
+            </select> &nbsp;
+            <br/>
+        </span>
+
+        <label>Show attributes:</label>
+        <span id="hideflags" onclick="submit()">
+            <button type="button" id="ench" class="on" onclick="toggleOnOff(this)">Enchantments</button> &nbsp;
+            <button type="button" id="mods" class="on" onclick="toggleOnOff(this)">Attributes  </button> &nbsp;
+            <button type="button" id="unbr" class="on" onclick="toggleOnOff(this)">Unbreakable </button> &nbsp;
+            <button type="button" id="dstr" class="on" onclick="toggleOnOff(this)">CanDestroy  </button> &nbsp;
+            <button type="button" id="plon" class="on" onclick="toggleOnOff(this)">CanPlaceOn  </button> &nbsp;
+            <button type="button" id="othr" class="on" onclick="toggleOnOff(this)">Other       </button> &nbsp;
+        </span>
+    </p>
+    <!-- count -->
+    <p>
+        <label for="input_count">Amount:</label>
+        <input id="input_count" type="number" value="1" min="1" onchange="submit()">
+    </p>
+</form>
+
+<!-- OUTPUT -->
+<h3 onmouseover="submit()">
+    Output
+    <span style="font-size: 90%;">
+        &nbsp;<i data-icon="sync"></i>
+        &nbsp;<i data-icon="copy" id="copyCommand" onclick="copyCommand()"></i>
+    </span>
+</h3>
+<div id="cmd-note" class="hide" onmouseover="submit()">
+    <p>
+        <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
+        <output class="command">
+            <span class="§7">/give</span>
+            <span class="§b">@s</span>
+            <span class="§e">minecraft:command_block</span>
+            <span class="§a">1</span>
+        </output>
+    </p>
+</div>
+<output id="generator-output" class="command"></output>
+
+{% include ad.html %}
