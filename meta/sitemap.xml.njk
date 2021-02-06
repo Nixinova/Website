@@ -9,8 +9,9 @@ sitemapIgnore: true
  {%- if not item.data.sitemapIgnore %}
   <url>
     <loc>https://nixinova.com{{ item.data.permalink | replace('.html', '') }}</loc>
-    <changefreq>{{ item.data.title and "monthly" or "always" }}</changefreq>
-    {% if item.data.date %}<lastmod>{{ item.data.date | replace('+1300','+13:00') | replace('+1200','+12:00') }}</lastmod>{% endif %}</url>
+    <changefreq>always</changefreq>
+    {% if item.data.date %}<lastmod>{{ item.data.date }}</lastmod>{% endif %}
+  </url>
  {%- endif %}
 {%- endfor %}
 </urlset>

@@ -2,6 +2,7 @@
 layout: base.njk
 permalink: /legal.html
 title: Copyright & Privacy
+sitemapIgnore: true
 ---
 
 # Legal
