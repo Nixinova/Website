@@ -1,0 +1,6 @@
+Copyright ©️ Nixinova 2018–2021
+
+All rights reserved
+
+Users agree to relinquish their copyright over any
+changes they make in a fork or pull request.
