@@ -19,7 +19,7 @@
     {% endif -%}
     <script>
         $(function () {
-            $('[data-icon]').each(() => {
+            $('[data-icon]').each(function(i) {
                 const icon = $(this).data('icon')
                 $(this).html(`<img src="/assets/images/icons/${icon}.png" alt="${icon}" data-credit="FontAwesome">`);
             });
