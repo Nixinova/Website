@@ -7,17 +7,16 @@ keywords: "nixinova,summon,minecraft,summon generator,minecraft summon,minecraft
 css: tools
 js: "summon.js"
 ---
-<style>
+<!--<style>
     main {display: flex; flex-direction: column;}
     @media (min-width: 800px) {
         .columns {column-width: 250px;}
     }
-</style>
+</style>-->
 <script>
-    var function_count = 0;
-        $(document).ready(function() {
-            $('#footer-other').html('<a href="/assets/js/summon.js" title="summon.js" target="_blank">View code</a>');
-            submit();
+    $(document).ready(function() {
+        $('#footer-other').html('<a href="/assets/js/summon.js" title="summon.js" target="_blank">View code</a>');
+        submit();
     });
 </script>
 
@@ -48,6 +47,7 @@ js: "summon.js"
             <option>Fox</option>
             <option>Ghast</option>
             <option>Giant</option>
+            <option>Glow Squid</option>
             <option>Guardian</option>
             <option>Hoglin</option>
             <option>Horse</option>
@@ -116,10 +116,10 @@ js: "summon.js"
         <input type="text" size="13" id="input_customname" onkeyup="submit()">  
         <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
         
-        <span id="preview" class="hide">&nbsp; Preview: &nbsp; <span id="preview-text"></span></span><br/>
+        <span id="preview" class="indent hide">&nbsp; Preview: &nbsp; <span id="preview-text"></span></span><br/>
 
         <span id="cname-content" class="hide">
-            <label class="indent" style="margin-left: 40px;" for="input_customname_color">Colour:</label>
+            <label class="indent inline" style="margin-left: 40px;" for="input_customname_color">Colour:</label>
             <select id="input_customname_color" onchange="submit()">
                 <option value="">White</option>
                 <option>Aqua</option>
@@ -138,7 +138,7 @@ js: "summon.js"
                 <option>Red</option>
                 <option>Yellow</option>
             </select><br/>
-            <label class="indent" style="margin-left: 40px;">Styles:</label>
+            <label class="indent inline" style="margin-left: 40px;">Styles:</label>
             <button type="button" id="input_customname_b" class="off" onclick="toggleOnOff(this)">Bold</button> &nbsp;
             <button type="button" id="input_customname_i" class="on " onclick="toggleOnOff(this)">Italic</button> &nbsp;
             <button type="button" id="input_customname_u" class="off" onclick="toggleOnOff(this)">Underlined</button> &nbsp;
@@ -306,15 +306,19 @@ js: "summon.js"
                 .fox.red::after {content: 'Red';}
                 .fox.snow::after {content: 'Snow';}
             </style>
-            <script>var foxCount = 0;</script>
             <label for="input_fox_type" class="indent">Type:</label>
-            <button type="button" id="input_fox_type" class="notext red fox" onclick="$(this).toggleClass('snow').toggleClass('red');foxCount++;">
+            <button type="button" id="input_fox_type" class="notext red fox" onclick="$(this).toggleClass('snow').toggleClass('red').data('clicked',true);">
             </button><br/>
         </span>
     
         <span class="ghast only">
             <label for="input_ghast_explosion_power" class="indent">Fireball power:</label>
             <input id="input_ghast_explosion_power" type="number" min="1" onchange="submit()"><br/>
+        </span>
+
+        <span class="glow_squid only">
+            <label for="input_glow_squid_timer" class="indent">Glowing cooldown:</label>
+            <input id="input_glow_squid_timer" type="number" min="0" onchange="submit()"><br/>
         </span>
     
         <span class="llama only">
@@ -508,8 +512,7 @@ js: "summon.js"
                 <option value="12">Brown</option>
                 <option value="13">Green</option>
                 <option value="14">Red</option>
-            </select>
-            <br/>
+            </select><br/>
         </span>
     
         <span class="villager zombie_villager only">
@@ -599,47 +602,47 @@ js: "summon.js"
     <p data-name="Armour">
         <label>Equipment:</label><br/>
         
-        <label class="indent">Head:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+        <label class="indent short">Head:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
         <input type="text" size="13" id="input_armour_head" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Count:</span> &nbsp;
+        <span class="indent short">Count:</span> &nbsp;
         <input type="number" value="1" min="1" id="input_armour_head_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Drop chance:</span> &nbsp;
+        <span class="indent short">Drop chance:</span> &nbsp;
         <input type="number" min="0" max="100" id="input_armour_head_count" onchange="submit()">&ensp;%<br/>
     
-        <label class="indent">Chest:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+        <label class="indent short">Chest:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
         <input type="text" size="13" id="input_armour_chest" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Count:</span> &nbsp;
+        <span class="indent short">Count:</span> &nbsp;
         <input type="number" value="1" min="1" id="input_armour_chest_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Drop chance:</span> &nbsp;
+        <span class="indent short">Drop chance:</span> &nbsp;
         <input type="number" min="0" max="100" id="input_armour_chest_count" onchange="submit()">&ensp;%<br/>
     
-        <label class="indent">Legs:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+        <label class="indent short">Legs:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
         <input type="text" size="13" id="input_armour_legs" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Count:</span> &nbsp;
+        <span class="indent short">Count:</span> &nbsp;
         <input type="number" value="1" min="1" id="input_armour_legs_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Drop chance:</span> &nbsp;
+        <span class="indent short">Drop chance:</span> &nbsp;
         <input type="number" min="0" max="100" id="input_armour_legs_count" onchange="submit()">&ensp;%<br/>
     
-        <label class="indent">Feet:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+        <label class="indent short">Feet:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
         <input type="text" size="13" id="input_armour_feet" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Count:</span> &nbsp;
+        <span class="indent short">Count:</span> &nbsp;
         <input type="number" value="1" min="1" id="input_armour_feet_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Drop chance:</span> &nbsp;
+        <span class="indent short">Drop chance:</span> &nbsp;
         <input type="number" min="0" max="100" id="input_armour_feet_count" onchange="submit()">&ensp;%<br/>
         
     
-        <label class="indent">Main hand:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+        <label class="indent short">Main hand:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
         <input type="text" size="13" id="input_held_item" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Count:</span> &nbsp;
+        <span class="indent short">Count:</span> &nbsp;
         <input type="number" value="1" min="1" id="input_held_item_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Drop chance:</span> &nbsp;
+        <span class="indent short">Drop chance:</span> &nbsp;
         <input type="number" min="0" max="100" id="input_held_item_count" onchange="submit()">&ensp;%<br/>
     
-        <label class="indent">Offhand:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
+        <label class="indent short">Offhand:</label><br class="mobileonly"/><i class="mobile-spacer"></i>
         <input type="text" size="13" id="input_offhand_item" onkeyup="submit()"> &nbsp;<br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Count:</span> &nbsp;
+        <span class="indent short">Count:</span> &nbsp;
         <input type="number" value="1" min="1" id="input_offhand_item_num" onchange="submit()"><br class="mobileonly"/><i class="mobile-spacer"></i>
-        <span class="indent">Drop chance:</span> &nbsp;
+        <span class="indent short">Drop chance:</span> &nbsp;
         <input type="number" min="0" max="100" id="input_offhand_item_count" onchange="submit()">&ensp;%<br/>
     </p>
 </form>
@@ -655,10 +658,10 @@ js: "summon.js"
     <p>
         <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
         <output class="command">
-            <span class="??7">/give</span>
-            <span class="??b">@s</span>
-            <span class="??e">minecraft:command_block</span>
-            <span class="??a">1</span>
+            <span class="§7">/give</span>
+            <span class="§b">@s</span>
+            <span class="§e">minecraft:command_block</span>
+            <span class="§a">1</span>
         </output>
     </p>
 </div>
