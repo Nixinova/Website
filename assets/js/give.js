@@ -3,18 +3,18 @@
 function give() {
     /// LISTS ///
     const TAGS = [
-        "acacia_logs", "anvil", "bamboo_plantable_on", "banners", "base_stone_nether", "base_stone_overworld", "beacon_base_blocks", "beds", "bee_growables", "beehives", "birch_logs", "buttons", "campfires", "candle_cakes", "candles", "carpets", "cauldrons", "climbable", "coral_blocks", "corals", "crops", "crystal_sound_block", "dark_oak_logs", "dirt_like", "doors", "dragon_immune", "enderman_holdable", "fence_gates", "fences", "flower_pots", "flowers", "gold_ores", "guarded_by_piglins", "hoglin_repellents", "ice", "impermeable", "infiniburn_end", "infiniburn_nether", "infiniburn_overworld", "inside_step_sound_block", "jungle_logs", "leaves", "logs", "logs_that_burn", "mushroom_grow_block", "non_flammable_wood", "oak_logs", "piglin_repellents", "planks", "pressure_plates", "prevent_mob_spawning_inside", "rails", "sand", "saplings", "signs", "slabs", "small_flowers", "soul_fire_base_blocks", "soul_speed_blocks", "spruce_logs", "stairs", "standing_signs", "stone_bricks", "stone_pressure_plates", "strider_warm_blocks", "tall_flowers", "unstable_bottom_center", "valid_spawn", "wall_corals", "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors", "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
-    ]; // as of 20w48a
+        "acacia_logs", "anvil", "azalea_log_replaceable", "bamboo_plantable_on", "banners", "base_stone_nether", "base_stone_overworld", "beacon_base_blocks", "beds", "bee_growables", "beehives", "birch_logs", "buttons", "campfires", "candle_cakes", "candles", "carpets", "cauldrons", "cave_vines", "climbable", "coral_blocks", "corals", "crops", "crystal_sound_block", "dark_oak_logs", "dirt_like", "doors", "dragon_immune", "dripstone_replaceable_blocks", "enderman_holdable", "fence_gates", "fences", "flower_pots", "flowers", "gold_ores", "guarded_by_piglins", "hoglin_repellents", "ice", "impermeable", "infiniburn_end", "infiniburn_nether", "infiniburn_overworld", "inside_step_sound_block", "jungle_logs", "leaves", "logs", "logs_that_burn", "lush_plants_replaceable", "mushroom_grow_block", "non_flammable_wood", "oak_logs", "occludes_vibration_signals", "piglin_repellents", "planks", "pressure_plates", "prevent_mob_spawning_inside", "rails", "sand", "saplings", "signs", "slabs", "small_flowers", "soul_fire_base_blocks", "soul_speed_blocks", "spruce_logs", "stairs", "standing_signs", "stone_bricks", "stone_pressure_plates", "strider_warm_blocks", "tall_flowers", "unstable_bottom_center", "valid_spawn", "wall_corals", "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors", "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
+    ]; // as of 21w05a
     const EXPLANATIONS = {
-        bee_growables: "Crops and berry bushes)",
+        bee_growables: "Crops and berry bushes",
         base_stone_nether: "Stone-like blocks in the Nether",
         base_stone_overworld: "Stone-like blocks in the Overworld",
         hoglin_repellents: "Warped fungi",
         impermeable: "Glass",
         piglin_repellents: "Soul fire",
         valid_spawn: "Grass and podzol",
-        wither_summon_base_blocks: "Soul sand or soil",
-        unstable_bottom_center: "Fence gates", // as of 20w48a
+        wither_summon_base_blocks: "Soul sand/soil",
+        unstable_bottom_center: "Fence gates",
     }
     const DURABLE_ITEMS = [
         "netherite_sword", "netherite_pickaxe", "netherite_axe", "netherite_shovel", "netherite_hoe",
@@ -51,7 +51,9 @@ function give() {
         "trident": 250, "bow": 384, "flint_and_steel": 63, "elytra": 431, "shield": 336,
         "carrot_on_a_stick": 225, "fishing_rod": 64, "shears": 237, "warped_fungus_on_a_stick": 100
     };
-    const ATTRIBUTES = ['attack_damage','armor','armor_toughness','attack_reach','attack_speed','follow_range','knockback_resistance','luck','max_health','movement_speed'];
+    const ATTRIBUTES = [
+        'attack_damage', 'armor', 'armor_toughness', 'attack_reach', 'attack_speed', 'follow_range', 'knockback_resistance', 'luck', 'max_health', 'movement_speed'
+    ];
 
     /// VARIABLES ///
 
@@ -315,40 +317,20 @@ function give() {
         if (i_colour) display.color = i_colour;
         $preview.removeClass().addClass(className);
 
-        if (i_obfus) {
-            display.obfuscated = true;
-            $preview.addClass('§k');
-        } else {
-            $preview.removeClass('§k');
-        }
+        if (i_obfus) display.obfuscated = true;
+        $preview.toggleClass('§k', i_obfus);
 
-        if (i_bold) {
-            display.bold = true;
-            $preview.addClass('§l');
-        } else {
-            $preview.removeClass('§l');
-        }
+        if (i_bold) display.bold = true;
+        $preview.toggleClass('§l', i_bold);
 
-        if (i_strike) {
-            display.strikethrough = true;
-            $preview.addClass('§m');
-        } else {
-            $preview.removeClass('§m');
-        }
+        if (i_strike) display.strikethrough = true;
+        $preview.toggleClass('§m', i_strike);
 
-        if (i_underline) {
-            display.underlined = true;
-            $preview.addClass('§n');
-        } else {
-            $preview.removeClass('§n');
-        }
+        if (i_underline) display.underlined = true;
+        $preview.toggleClass('§n', i_underline);
 
-        if (!i_italic) {
-            display.italic = false;
-            $preview.removeClass('§o');
-        } else {
-            $preview.addClass('§o');
-        }
+        if (!i_italic) display.italic = false;
+        $preview.toggleClass('§o', i_italic);
 
         nbt.display.Name = JSON.stringify(display).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
     } else {
@@ -377,8 +359,7 @@ function give() {
                 elvl2.push(elvl[i]);
             }
         }
-        e = e2;
-        elvl = elvl2;
+        e = e2, elvl = elvl2;
 
         nbt.Enchantments = [];
         for (i in e) {
@@ -399,10 +380,10 @@ function give() {
 
     // damage //
     var damage = DURABILITIES[item_id] - i_durability;
-    if (i_durability && !i_unbreakable) { nbt.Damage = damage; }
+    if (i_durability && !i_unbreakable) nbt.Damage = damage;
 
     // unbreakable //
-    if (i_unbreakable) { nbt.Unbreakable = true; }
+    if (i_unbreakable) nbt.Unbreakable = true;
 
     // tags
     $('#placeon-destroy-data').empty();
@@ -449,7 +430,7 @@ function give() {
 
     if (i_mod && i_mod_amount) {
 
-        let uuid = () => random(-1000,1000);
+        let uuid = () => random(-1000, 1000);
 
         for (let i in ATTRIBUTES) {
             if (!window.Uuids[ATTRIBUTES[i]]) Uuids[ATTRIBUTES[i]] = [uuid(), uuid(), uuid(), uuid()];
@@ -467,7 +448,7 @@ function give() {
             Amount: i_mod_amount, Operation: i_mod_op,
             UUID: ['I;', uuids[0], uuids[1], uuids[2], uuids[3]]
         });
-        if (i_mod_slot) Modifiers[Modifiers.length-1].Slot = i_mod_slot;
+        if (i_mod_slot) Modifiers[Modifiers.length - 1].Slot = i_mod_slot;
 
         nbt.AttributeModifiers = rvNestedDupes(Modifiers);
     }
@@ -477,7 +458,7 @@ function give() {
 
     // nbt //
     if (!isEmpty(nbt)) {//                Remove quotes from tags          Allow section symbol
-        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7').replace(/UUID:\["I;",/g, 'UUID:[I;');
+        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7').replace('UUID:["I;",', 'UUID:[I;');
     } else nbt = '';
 
     // count //
@@ -500,8 +481,6 @@ function give() {
         <span class="§a">${count}</span>
     `);
 
-    // counter
-    ++function_count;
 }
 
 function submit() {
@@ -514,4 +493,4 @@ function submit() {
     }
 }
 
-/* Copyright © Nixinova 2020 */
+/* Copyright © Nixinova 2021 */

@@ -31,6 +31,7 @@ js: "give.js"
 <p>Generates <samp>/give</samp> commands for Minecraft 1.16.</p>
 <noscript><p><strong>This tool needs JavaScript to work!</strong></p></noscript>
 <form action="javascript:submit()" id="input_form">
+
     <!-- target -->
     <p onchange="submit()">
         <label for="input_selector_target">Target:</label>
@@ -43,6 +44,7 @@ js: "give.js"
         </select>
          <a href="javascript:void(0)" id="expand-target" class="elipsis" onclick="show_more('expand-target','target-content',false)"></a>
     </p>
+
     <!-- target (expanded content) -->
     <div id="target-content" class="hide indent">
         <p onblur="submit()">
@@ -123,11 +125,13 @@ js: "give.js"
             <a href="javascript:void(0)" onclick="submit()" id="add-score" class="plus"></a>
         </p>
     </div>
+
     <!-- target (username) -->
     <p class="negative hide" id="select-username">
         <label for="input_selector_player">Username:</label>
         <input id="input_selector_player" type="text" size="13" maxlength="16" onkeyup="submit()">
     </p>
+
     <!-- item -->
     <p onblur="submit()">
         <label for="input_item">Item:</label>
@@ -390,11 +394,13 @@ js: "give.js"
             <button type="button" id="othr" class="on" onclick="toggleOnOff(this)">Other       </button> &nbsp;
         </span>
     </p>
+
     <!-- count -->
     <p>
         <label for="input_count">Amount:</label>
         <input id="input_count" type="number" value="1" min="1" onchange="submit()">
     </p>
+
 </form>
 
 <!-- OUTPUT -->
