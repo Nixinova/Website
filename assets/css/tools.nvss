@@ -20,8 +20,10 @@ button {padding: 7px 10px; font-size: inherit; border-radius: 5px;}
 input, select {width: 160px;}
     &, button {padding: 5px 10px; margin-top: 10px; display: inline-block; border: none; border-radius: 4px;}
 input:out-of-range {border: 2px solid red; background: #fdd;}
-input[type="submit"] {width: 100%; background: #94c0c4; padding: 14px 20px; margin: 8px 0px; border: none;
-    border-radius: 4px; cursor: pointer; color: #333; font: normal 2em 'Passion One'; text-align: center;}
+input[type="submit"] {
+    width: 100%; background: #94c0c4; padding: 14px 20px; margin: 8px 0px; border: none; border-radius: 4px;
+    cursor: pointer; color: #333; font: normal 2em 'Passion One'; text-align: center;
+}
     &:hover {box-shadow: 0px 10px 14px -5px #3338;}
 input[type="number"] {width: 70px;}
     &.long {width: 110px;}
@@ -42,19 +44,21 @@ a.elipsis, a.plus, a.minus, a.clear {color: #222; transition: 0s;}
 #preview-text {padding: 5px 10px; font-family: Minecraft; background-color: #100110F9; border: 3px solid #205e; border-radius: 5px;}
 .command {
     display: block; margin: 0 auto 2em; padding: 5px 1em; width: 100%; border: solid #aaa 1px; border-radius: 5px;
-    color: #aaa; font-family: monospace; word-break: break-all;
+    color: #aaa; font-family: monospace; line-height: 1.8; word-break: break-all;
 }
 
 // Indentation //
-.indent {margin: 0 20px;}
-p.indent, div.indent {margin: -13px 0 -13px 20px;}
+.indent {margin: 0 2em;}
+.indent.inline {margin: 0 0.4em;}
+p.indent, div.indent {margin: -1em 0 -1em 2em;}
 p.negative {margin-top: -15px;}
 
 $(@breakpoint | 815px |
-    .mobile-spacer {margin-left: 20px;}
+    .mobile-spacer {margin-left: 2em;}
 |
     span.set-width {display: inline-block; width: var(--width);}
-    label {display: inline-block; width: 125px;}
+    label {display: inline-block;}
+        &:not(.inline) {width: 125px;}
         &.short {margin-left: 15px; width: 100px;}
         &.long {width: 250px;}
 )
