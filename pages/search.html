@@ -24,25 +24,34 @@ sitemapIgnore: true
             }
         });
 
-        const query = location.search.match(/[?&]q=([^&+]*)/)?.[1];
+        const query = decodeURIComponent(location.search.match(/[?&]q=([^&]*)/)?.[1]);
         const matches = searcher.search(query);
         $('#search-box').val(query);
 
-        for (page of matches) {
+        if (query) for (page of matches) {
             const id = page.ref;
-            $('#results').append(`
+            let result = `
                 <div class="result">
-                    <div class="result_url">${id.replace(/^\/|.html$/g, '').replace(/\//g, ' › ')}</div>
+                    <div class="result_url">${id.replace('.html', '').replace(/\//g, ' › ')}</div>
                     <div class="result_title"><a href="${id}">${metadata[id].title}</a></div>
                     <div class="result_description">${metadata[id].description}</div>
                 </div>
-            `);
+            `;
+            for (let word of query.split(' ')) {
+                result = result.replace(RegExp(word, 'ig'), match => '<strong>' + match + '</strong>');
+            }
+            $('#results').append(result);
         }
 
     })();
+    $(document).on('keypress', event => {
+        if ($('#search-box').is(':focus') && event.which === 13) {
+            location.search = '?q=' + encodeURIComponent($('#search-box').val());
+        }
+    });
 </script>
 <style>
-    main {margin: auto 4em;}
+    main>div {margin: auto 4em;}
 
     #search-bar {display: grid; grid-template-columns: 1fr auto; margin: 2em auto; padding: 0.25em 0.5em; border: 2px solid;}
     #search-bar input {background: none; border: none; color: #eee; font-size: 1.1em;}
@@ -62,7 +71,7 @@ sitemapIgnore: true
 <div>
     <div id="search-bar">
         <input type="text" id="search-box">
-        <i data-icon="search" onclick="location.search = '?q=' + $('#search-box').val()"></i>
+        <i data-icon="search" onclick="location.search = '?q=' + encodeURIComponent($('#search-box').val())"></i>
     </div>
 
     <div id="results"></div>

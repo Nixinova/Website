@@ -16,7 +16,7 @@
     };
 
     function getSearchVal() {
-        return $('#header-search_bar').val();
+        return encodeURIComponent($('#header-search_bar').val());
     }
     $(document).on('keypress', function (event) {
         if ($('#header-search_bar').is(':focus') && event.which === 13) {
