@@ -1,0 +1,15 @@
+---
+permalink: /index.json
+---
+
+[
+{%- for page in collections.pages %}
+    {
+        "url": "{{ page.url }}",
+        "title": "{{ page.data.title }}",
+        "description": "{{ page.data.description }}",
+        "tags": "{{ page.data.keywords }}"
+    }
+    {%- if loop.last == false %},{% endif %}
+{%- endfor %}
+]

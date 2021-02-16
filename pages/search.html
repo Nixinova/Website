@@ -6,54 +6,64 @@ description: "Search this website"
 keywords: "nixinova"
 sitemapIgnore: true
 ---
-<style data-name="Search modifications">
-    #search {padding: 10px 5%;}
-        
-    div.gsc-thumbnail-inside > div.gs-title {font-size: 18px;}
-    div.gsc-control-cse {border-radius: 1em;}
-    div.gsq_a td span b {color: black;}
-    a.gs-title {font-family: 'Montserrat';}
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script>
+    (async () => {
+     
+        const index = await fetch('/index.json').then(data => data.json());
+        const metadata = {};
+        const searcher = lunr(function () {
+            this.ref('url');
+            this.field('title');
+            this.field('description');
+            this.field('tags');
 
-    .gs-snippet {color: #eee !important; padding: 5px !important; line-height: 1 !important; font-size: 1.15em !important; margin-left: 1em !important;}
-    .gs-no-results-result .gs-snippet {background-color: #222 !important; border: 1px solid #3390ff !important;}
-    .gsc-wrapper {font-family: 'Montserrat' !important;}
-    .gsc-results .gsc-imageResult {height: 155px; background-color: #222 !important;}
-    .gsc-adBlock {display: none !important;}
-    .gsc-imageResult:hover {background: #222 !important; border-color: #ddd !important;}
-    .gsc-expansionArea {margin-left: 3em; !important; max-width: 800px !important;}
-    .gs-image-box {float: right !important;}
-    .gs-imageResult .gs-text-box {height: auto !important; overflow: visible !important;}
-    .gs-imageResult .gs-text-box .gs-ellipsis {padding-left: 0.5em !important;}
-    .gs-visibleUrl {margin-top: -6px !important; color: #26d05f !important;}
-    .gs-title, a.gs-title *, a.gs-title:link, .gsc-cursor-page, .gcsc-find-more-on-google {color: #9ad5ff !important;}
-    .gs-promotion-text-cell-with-image .gs-snippet {margin-left: 4.4em;}
-    .gsc-input {background: transparent !important; color: white !important;}
-    .gsc-input-box {border-color: #555 !important; background: transparent !important;}
-    .gsc-control-cse {border-color: #222 !important; background-color: #333 !important;}
-    .gsc-webResult.gsc-result {border-color: transparent !important; background-color: transparent !important; padding: 5px !important;}
-    .gsc-cursor-page, .gs-bidi-start-align, .gsc-tabHeader {background: none !important;}
-    .gsc-tabHeader.gsc-tabhInactive {color: none !important;}
-    .gcsc-find-more-on-google-magnifier {display: none !important;}
-    .gsst_a {color: white !important;}
-    .gscb_a {padding: 0 !important; display: inline !important;}
+            for (let page of index) {
+                this.add(page);
+                metadata[page.url] = page;
+            }
+        });
 
-    .gsc-cursor-page::before {content: "(";}
-    .gsc-cursor-page::after  {content: ")";}
+        const query = location.search.match(/[?&]q=([^&+]*)/)?.[1];
+        const matches = searcher.search(query);
+        $('#search-box').val(query);
+
+        for (page of matches) {
+            const id = page.ref;
+            $('#results').append(`
+                <div class="result">
+                    <div class="result_url">${id.replace(/^\/|.html$/g, '').replace(/\//g, ' › ')}</div>
+                    <div class="result_title"><a href="${id}">${metadata[id].title}</a></div>
+                    <div class="result_description">${metadata[id].description}</div>
+                </div>
+            `);
+        }
+
+    })();
+</script>
+<style>
+    main {margin: auto 4em;}
+
+    #search-bar {display: grid; grid-template-columns: 1fr auto; margin: 2em auto; padding: 0.25em 0.5em; border: 2px solid;}
+    #search-bar input {background: none; border: none; color: #eee; font-size: 1.1em;}
+    #search-bar input:hover {outline: none;}
+    #search-bar img {height: 16px;}
+
+    .result {max-width: 800px; margin-left: 3em; padding: 0.75em 0.5em;}
+    .result_title {padding: 0.25em 0; color: #9ad5ff; font-size: 1.25em;}
+    .result_url {color: #d4d4d4; font-size: 90%;}
+    .result_description {color: #eee;}
+    .result a {transition: 0;}
+    .result a:hover {opacity: initial; text-decoration: underline;}
 </style>
-    
-<div id="search">
-    <h2>Search this website</h2>
-    <script>
-        (function() {
-          var cx = '017611964381392802268:0-ums2t3emi';
-          var gcse = document.createElement('script');
-          gcse.type = 'text/javascript';
-          gcse.async = true;
-          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(gcse, s);
-        })();
-    </script>
-    <gcse:search></gcse:search>
+
+<h1>Search this website</h1>
+
+<div>
+    <div id="search-bar">
+        <input type="text" id="search-box">
+        <i data-icon="search" onclick="location.search = '?q=' + $('#search-box').val()"></i>
+    </div>
+
+    <div id="results"></div>
 </div>
-<script id="search-placeholder">$("#gsc-i-id1").attr("placeholder","Search..."); $('#search-placeholder').remove();</script>

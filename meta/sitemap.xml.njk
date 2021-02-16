@@ -1,11 +1,10 @@
 ---
 permalink: /sitemap.xml
-sitemapIgnore: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/assets/styles/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{%- for item in collections.all %}
+{%- for item in collections.pages %}
  {%- if not item.data.sitemapIgnore %}
   <url>
     <loc>https://nixinova.com{{ item.data.permalink | replace('.html', '') }}</loc>
