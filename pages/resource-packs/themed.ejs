@@ -7,13 +7,14 @@ keywords: "nixinova,nixi,nova,nixynova,resource pack,resource packs,minecraft,te
 css: resource-packs
 og_image: "minecraft/resource-packs/easter-mash-up.jpg"
 ---
-<script data-name="Table generator">
+<% const includes = '../../assets/imports/' %>
+<%
     function createTable(id, arr) {
-        var table = $('#'+id);
+        let content = `<table id="${id}" class="flex">`;
     
         for (pack of arr) {
             let dl_title = `Download ${id} ${pack.packver} for Minecraft ${pack.mcver}`;
-            table.append(`
+            content += `
                 <tr>
                     <td width="320px">
                         <span class="desktoponly">Nixinova</span> ${id} <span class="desktoponly">Mash-Up</span>
@@ -27,17 +28,19 @@ og_image: "minecraft/resource-packs/easter-mash-up.jpg"
                         <samp><time datetime="${pack.date}+12:00">${pack.date}</time></samp>
                     </td>
                 </tr>
-            `);
+            `;
         }
+
+        return content + '</table>';
     }
-</script>
+%>
 
 <div id="gallery">
     <div class="screenshot" style="background-image: url('/assets/images/minecraft/resource-packs/easter-mash-up.jpg');">
         <h1>Themed Mash-Up Packs</h1>
     </div>
 </div>
-    
+
 <p>
     These packs are themed holiday packs, which only change a few textures.<br/>
     Use in addition to my <a href="mash-up">regular Mash-Up Pack</a> for the best experience!<br/>
@@ -47,25 +50,24 @@ og_image: "minecraft/resource-packs/easter-mash-up.jpg"
     </strong>
 </p>
 
-{% include ad.html %}
-    
+<% include(includes + 'ad.html') %>
+
 <hr class="half">
 
 <div>
     <h2>Christmas Packs</h2>
     <p>Special-edition Christmas texture packs.</p>
 
-    <table id="Christmas" class="flex"></table>
-    <script>createTable('Christmas', [
+    <%- createTable('Christmas', [
         {mcver: '1.15.1', packver: 'v2.2.0', dl: 'a8ejcda5iaw3rzj', date: '2019-12-24'},
         {mcver: '1.8.9 ', packver: 'v2.2.0', dl: 'g6b9nq8grrkoelv', date: '2019-12-24'},
         {mcver: '1.8.9 ', packver: 'v2.1.1', dl: 'eclwghi7at9198q', date: '2017-12-10'},
         {mcver: '1.8.9 ', packver: 'v2.1.0', dl: 'ut5cob9naoqva14', date: '2017-12-10'},
         {mcver: '1.11  ', packver: 'v1.7.0', dl: 'a1bcjguugldbi2m', date: '2016-12-06'}
-    ]);</script>
+    ]); %>
 </div>
 
-{% include ad.html %}
+<% include(includes + 'ad.html') %>
     
 <hr class="half">
     
@@ -73,8 +75,7 @@ og_image: "minecraft/resource-packs/easter-mash-up.jpg"
     <h2>Easter Packs</h2>
     <p>Special-edition Easter texture packs.</p>
     
-    <table id="Easter" class="flex"></table>
-    <script>createTable('Easter', [
+    <%- createTable('Easter', [
         {mcver: '1.14-pre2', packver: 'v1.2.1', dl: 'ow8ptqqupwuspp0', date: '2019-04-13'},
         {mcver: '1.14-pre2', packver: 'v1.2.0', dl: '5b5ob6zua09odsi', date: '2019-04-13'},
         {mcver: '1.8.9    ', packver: 'v1.1.2', dl: 'bidnu8g8942stdw', date: '2018-03-31'},
@@ -82,5 +83,5 @@ og_image: "minecraft/resource-packs/easter-mash-up.jpg"
         {mcver: '1.8.9    ', packver: 'v1.1.0', dl: 's52b5ycklmplndu', date: '2018-03-31'},
         {mcver: '1.8.9    ', packver: 'v1.0.2', dl: '6z8ed43gju9okyc', date: '2018-03-31'},
         {mcver: '1.8.9    ', packver: 'v1.0.1', dl: 'je6lak3g2ep0sbx', date: '2018-03-19'}
-    ]);</script>
+    ]); %>
 </div>
