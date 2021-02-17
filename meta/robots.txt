@@ -3,6 +3,5 @@ User-agent: Bingbot
 User-agent: Googlebot
 Disallow: /404
 Disallow: /search
-Disallow: /legal
 
 Sitemap: https://www.nixinova.com/sitemap.xml
