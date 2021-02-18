@@ -7,7 +7,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget("assets");
 
     eleventyConfig.addCollection("pages", collection => {
-        return collection.getFilteredByGlob("pages/*/*");
+        return collection.getFilteredByGlob("pages/**/*");
     });
 
     eleventyConfig.on('afterBuild', () => {
