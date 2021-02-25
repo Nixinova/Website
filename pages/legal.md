@@ -4,6 +4,7 @@ permalink: /legal.html
 title: Copyright & Privacy
 sitemapIgnore: true
 ---
+<div class="centered tile">
 
 # Legal
 
@@ -16,3 +17,5 @@ These links are functional and legitimate at the time of publishing but the cont
 
 This website does not collect nor store any first-party data or cookies, but does use external third-party services that may collect data, such as Google AdSense and Google Analytics.
 See [Google's policy](https://policies.google.com/technologies/partner-sites) for details about what information Google collects.
+
+</div>
