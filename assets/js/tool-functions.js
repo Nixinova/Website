@@ -42,10 +42,11 @@ function getQueryString(val) {
 }
 
 function value(id, type) {
+    let val = $('#' + id).val().trim();
     switch (type) {
-        case 'int': return parseInt($('#' + id).val(), 10);
-        case 'num': return parseFloat($('#' + id).val(), 10);
-        default: return $('#' + id).val().trim();
+        case 'int': return val ? parseInt(val, 10) : null;
+        case 'num': return val ? parseFloat(val, 10) : null;
+        default: return val;
     }
 }
 

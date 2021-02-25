@@ -3,8 +3,8 @@
 function give() {
     /// LISTS ///
     const TAGS = [
-        "acacia_logs", "anvil", "azalea_log_replaceable", "bamboo_plantable_on", "banners", "base_stone_nether", "base_stone_overworld", "beacon_base_blocks", "beds", "bee_growables", "beehives", "birch_logs", "buttons", "campfires", "candle_cakes", "candles", "carpets", "cauldrons", "cave_vines", "climbable", "coral_blocks", "corals", "crops", "crystal_sound_block", "dark_oak_logs", "dirt_like", "doors", "dragon_immune", "dripstone_replaceable_blocks", "enderman_holdable", "fence_gates", "fences", "flower_pots", "flowers", "gold_ores", "guarded_by_piglins", "hoglin_repellents", "ice", "impermeable", "infiniburn_end", "infiniburn_nether", "infiniburn_overworld", "inside_step_sound_block", "jungle_logs", "leaves", "logs", "logs_that_burn", "lush_plants_replaceable", "mushroom_grow_block", "non_flammable_wood", "oak_logs", "occludes_vibration_signals", "piglin_repellents", "planks", "pressure_plates", "prevent_mob_spawning_inside", "rails", "sand", "saplings", "signs", "slabs", "small_flowers", "soul_fire_base_blocks", "soul_speed_blocks", "spruce_logs", "stairs", "standing_signs", "stone_bricks", "stone_pressure_plates", "strider_warm_blocks", "tall_flowers", "unstable_bottom_center", "valid_spawn", "wall_corals", "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors", "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
-    ]; // as of 21w05a
+        "acacia_logs", "anvil", "azalea_log_replaceable", "bamboo_plantable_on", "banners", "base_stone_nether", "base_stone_overworld", "beacon_base_blocks", "beds", "bee_growables", "beehives", "birch_logs", "buttons", "campfires", "candle_cakes", "candles", "carpets", "cauldrons", "cave_vines", "climbable", "coral_blocks", "corals", "crops", "crystal_sound_block", "dark_oak_logs", "deepslate_ore_replaceables", "diamond_ores", "dirt_like", "doors", "dragon_immune", "dripstone_replaceable_blocks", "enderman_holdable", "fence_gates", "fences", "flower_pots", "flowers", "gold_ores", "guarded_by_piglins", "hoglin_repellents", "ice", "impermeable", "infiniburn_end", "infiniburn_nether", "infiniburn_overworld", "inside_step_sound_block", "iron_ores", "jungle_logs", "lapis_ores", "leaves", "logs", "logs_that_burn", "lush_plants_replaceable", "mushroom_grow_block", "non_flammable_wood", "oak_logs", "occludes_vibration_signals", "piglin_repellents", "planks", "pressure_plates", "prevent_mob_spawning_inside", "rails", "redstone_ores", "sand", "saplings", "signs", "slabs", "small_flowers", "soul_fire_base_blocks", "soul_speed_blocks", "spruce_logs", "stairs", "standing_signs", "stone_bricks", "stone_ore_replaceables", "stone_pressure_plates", "strider_warm_blocks", "tall_flowers", "unstable_bottom_center", "valid_spawn", "wall_corals", "wall_post_override", "wall_signs", "walls", "wither_immune", "wither_summon_base_blocks", "wooden_buttons", "wooden_doors", "wooden_fences", "wooden_pressure_plates", "wooden_slabs", "wooden_stairs", "wooden_trapdoors", "wool"
+    ]; // as of 21w08a
     const EXPLANATIONS = {
         bee_growables: "Crops and berry bushes",
         base_stone_nether: "Stone-like blocks in the Nether",
@@ -13,7 +13,6 @@ function give() {
         impermeable: "Glass",
         piglin_repellents: "Soul fire",
         valid_spawn: "Grass and podzol",
-        wither_summon_base_blocks: "Soul sand/soil",
         unstable_bottom_center: "Fence gates",
     }
     const DURABLE_ITEMS = [
@@ -58,70 +57,70 @@ function give() {
     /// VARIABLES ///
 
     // call from input form //
-    var target = value('input_selector_target');
-    var player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
-    var target_x = value('input_selector_x', 'num');
-    var target_y = value('input_selector_y', 'num');
-    var target_z = value('input_selector_z', 'num');
-    var dist_min = value('input_selector_dist_min', 'num');
-    var dist_max = value('input_selector_dist_max', 'num');
-    var selection_area = $('#input_selection_area').attr('class');
-    var vol_x = value('input_selector_vol_x', 'num');
-    var vol_y = value('input_selector_vol_y', 'num');
-    var vol_z = value('input_selector_vol_z', 'num');
-    var xrot_min = value('input_selector_xrot_min', 'num');
-    var xrot_max = value('input_selector_xrot_max', 'num');
-    var yrot_min = value('input_selector_yrot_min', 'num');
-    var yrot_max = value('input_selector_yrot_max', 'num');
-    var limit = value('input_selector_limit', 'int');
-    var team = value('input_selector_team').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
-    var team_invert = hasClass('input_selector_team_i', 'on');
-    var tag = value('input_selector_tag').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
-    var tag_invert = hasClass('input_selector_tag_i', 'on');
-    var gamemode = value('input_selector_gm').toLowerCase();
-    var gamemode_invert = hasClass('input_selector_gm_i', 'on');
-    var xp_min = value('input_selector_xp_min', 'int');
-    var xp_max = value('input_selector_xp_max', 'int');
-    var score = value('input_selector_score_objective').toLowerCase().replace(/[^a-z_:]/g, "");
-    var score_min = value('input_selector_score_min', 'int');
-    var score_max = value('input_selector_score_max', 'int');
+    let target = value('input_selector_target');
+    let player = value('input_selector_player').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
+    let target_x = value('input_selector_x', 'num');
+    let target_y = value('input_selector_y', 'num');
+    let target_z = value('input_selector_z', 'num');
+    let dist_min = value('input_selector_dist_min', 'num');
+    let dist_max = value('input_selector_dist_max', 'num');
+    let selection_area = $('#input_selection_area').attr('class');
+    let vol_x = value('input_selector_vol_x', 'num');
+    let vol_y = value('input_selector_vol_y', 'num');
+    let vol_z = value('input_selector_vol_z', 'num');
+    let xrot_min = value('input_selector_xrot_min', 'num');
+    let xrot_max = value('input_selector_xrot_max', 'num');
+    let yrot_min = value('input_selector_yrot_min', 'num');
+    let yrot_max = value('input_selector_yrot_max', 'num');
+    let limit = value('input_selector_limit', 'int');
+    let team = value('input_selector_team').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
+    let team_invert = hasClass('input_selector_team_i', 'on');
+    let tag = value('input_selector_tag').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
+    let tag_invert = hasClass('input_selector_tag_i', 'on');
+    let gamemode = value('input_selector_gm').toLowerCase();
+    let gamemode_invert = hasClass('input_selector_gm_i', 'on');
+    let xp_min = value('input_selector_xp_min', 'int');
+    let xp_max = value('input_selector_xp_max', 'int');
+    let score = value('input_selector_score_objective').toLowerCase().replace(/[^a-z_:]/g, "");
+    let score_min = value('input_selector_score_min', 'int');
+    let score_max = value('input_selector_score_max', 'int');
 
-    var item = value('input_item').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z0-9_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_");
-    var i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
-    var i_firework_flicker = hasClass('input_item_firework_flicker', 'on');
-    var i_firework_flight = value('input_item_firework_flight', 'int');
-    var i_firework_type = value('input_item_firework_type', 'int');
-    var i_firework_trail = hasClass('input_item_firework_trail', 'on');
-    var i_name = value('input_item_name').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-    var i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
-    var i_bold = hasClass('input_item_b', 'on');
-    var i_italic = hasClass('input_item_i', 'on');
-    var i_underline = hasClass('input_item_u', 'on');
-    var i_strike = hasClass('input_item_s', 'on');
-    var i_obfus = hasClass('input_item_o', 'on');
-    var i_lore = value('input_item_lore').replace(/\\/g, "\\\\").replace(/\"/g, '\\"');
-    var i_ench = value('input_item_ench').toLowerCase().replace(/ /g, '_');
-    var i_ench_lvl = value('input_item_ench_lvl', 1);
-    var i_unbreakable = hasClass('input_item_unbreakable', 'on');
-    var i_durability = value('input_item_durability', 1);
-    var i_destroy = value('input_item_destroy').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_place_on = value('input_item_place_on').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
-    var i_mod = value('input_item_mod').toLowerCase().replace(/ /g, "_");
-    var i_mod_amount = value('input_item_mod_value', 'int');
-    var i_mod_op = value('input_item_mod_operation', 'num');
-    var i_mod_slot = value('input_item_mod_slot').toLowerCase().replace(/ /g, '');
+    let item = value('input_item').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z0-9_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
+    let i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_");
+    let i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
+    let i_firework_flicker = hasClass('input_item_firework_flicker', 'on');
+    let i_firework_flight = value('input_item_firework_flight', 'int');
+    let i_firework_type = value('input_item_firework_type', 'int');
+    let i_firework_trail = hasClass('input_item_firework_trail', 'on');
+    let i_name = value('input_item_name').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    let i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
+    let i_bold = hasClass('input_item_b', 'on');
+    let i_italic = hasClass('input_item_i', 'on');
+    let i_underline = hasClass('input_item_u', 'on');
+    let i_strike = hasClass('input_item_s', 'on');
+    let i_obfus = hasClass('input_item_o', 'on');
+    let i_lore = value('input_item_lore').replace(/\\/g, "\\\\").replace(/\"/g, '\\"');
+    let i_ench = value('input_item_ench').toLowerCase().replace(/ /g, '_');
+    let i_ench_lvl = value('input_item_ench_lvl', 1);
+    let i_unbreakable = hasClass('input_item_unbreakable', 'on');
+    let i_durability = value('input_item_durability', 1);
+    let i_destroy = value('input_item_destroy').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
+    let i_place_on = value('input_item_place_on').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
+    let i_mod = value('input_item_mod').toLowerCase().replace(/ /g, "_");
+    let i_mod_amount = value('input_item_mod_value', 'int');
+    let i_mod_op = value('input_item_mod_operation', 'num');
+    let i_mod_slot = value('input_item_mod_slot').toLowerCase().replace(/ /g, '');
 
-    var count = value('input_count');
+    let count = value('input_count');
 
     // fix values //
-    if (dist_max && dist_min > dist_max) [dist_min, dist_max] = [dist_max, dist_min];
-    if (xrot_max && xrot_min > xrot_max) [xrot_min, xrot_max] = [xrot_max, xrot_min];
-    if (yrot_max && yrot_min > yrot_max) [yrot_min, yrot_max] = [yrot_max, yrot_min];
-    if (xp_max && xp_min > xp_max) [xp_min, xp_max] = [xp_max, xp_min];
-    if (score_max && score_min > score_max) [score_min, score_max] = [score_max, score_min];
+    if (dist_max!= null && dist_min > dist_max) [dist_min, dist_max] = [dist_max, dist_min];
+    if (xrot_max!= null && xrot_min > xrot_max) [xrot_min, xrot_max] = [xrot_max, xrot_min];
+    if (yrot_max!= null && yrot_min > yrot_max) [yrot_min, yrot_max] = [yrot_max, yrot_min];
+    if (xp_max!= null && xp_min > xp_max) [xp_min, xp_max] = [xp_max, xp_min];
+    if (score_max!= null && score_min > score_max) [score_min, score_max] = [score_max, score_min];
 
-    // hide flags //
+    // hideflags //
     let hf = 0;
     if ($('#ench').hasClass('off')) hf += 1;
     if ($('#mods').hasClass('off')) hf += 2;
@@ -160,51 +159,51 @@ function give() {
     if (player) {
         selector = '';
     } else {
-        if (target_x) selector.push('x=' + target_x);
-        if (target_y) selector.push('y=' + target_y);
-        if (target_z) selector.push('z=' + target_z);
+        if (target_x != null) selector.push('x=' + target_x);
+        if (target_y != null) selector.push('y=' + target_y);
+        if (target_z != null) selector.push('z=' + target_z);
 
-        if (selection_area === 'radius' && (dist_min || dist_max)) {
-            if (dist_min && !dist_max) { selector.push('distance=' + dist_min + '..'); }
-            if (!dist_min && dist_max) { selector.push('distance=' + '..' + dist_max); }
-            if (dist_min && dist_max && dist_min != dist_max) { selector.push('distance=' + dist_min + '..' + dist_max); }
-            if (dist_min && dist_max && dist_min == dist_max) { selector.push('distance=' + dist_min); }
+        if (selection_area === 'radius' && (dist_min != null || dist_max != null)) {
+            if (dist_min && !dist_max) selector.push('distance=' + dist_min + '..');
+            if (!dist_min && dist_max) selector.push('distance=' + '..' + dist_max);
+            if (dist_min && dist_max && dist_min != dist_max) selector.push('distance=' + dist_min + '..' + dist_max);
+            if (dist_min && dist_max && dist_min == dist_max) selector.push('distance=' + dist_min);
         }
 
-        if (selection_area === 'volume' && (vol_x || vol_y || vol_z)) {
-            if (vol_x) { selector.push('dx=' + vol_x); }
-            if (vol_y) { selector.push('dy=' + vol_y); }
-            if (vol_z) { selector.push('dz=' + vol_z); }
+        if (selection_area === 'volume' && (vol_x != null || vol_y != null || vol_z != null)) {
+            if (vol_x) selector.push('dx=' + vol_x);
+            if (vol_y) selector.push('dy=' + vol_y);
+            if (vol_z) selector.push('dz=' + vol_z);
         }
 
-        if (xrot_min ?? xrot_max) {
-            if (!isNaN(xrot_min) && isNaN(xrot_max)) { selector.push('x_rotation=' + xrot_min + '..'); }
-            if (isNaN(xrot_min) && !isNaN(xrot_max)) { selector.push('x_rotation=' + '..' + xrot_max); }
-            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) { selector.push('x_rotation=' + xrot_min + '..' + xrot_max); }
-            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) { selector.push('x_rotation=' + xrot_min); }
+        if (xrot_min != null && xrot_max != null) {
+            if (!isNaN(xrot_min) && isNaN(xrot_max)) selector.push('x_rotation=' + xrot_min + '..');
+            if (isNaN(xrot_min) && !isNaN(xrot_max)) selector.push('x_rotation=' + '..' + xrot_max);
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) selector.push('x_rotation=' + xrot_min + '..' + xrot_max);
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) selector.push('x_rotation=' + xrot_min);
         }
 
-        if (yrot_min ?? yrot_max) {
-            if (!isNaN(yrot_min) && isNaN(yrot_max)) { selector.push('y_rotation=' + yrot_min + '..'); }
-            if (isNaN(yrot_min) && !isNaN(yrot_max)) { selector.push('y_rotation=' + '..' + yrot_max); }
-            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) { selector.push('y_rotation=' + yrot_min + '..' + yrot_max); }
-            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) { selector.push('y_rotation=' + yrot_min); }
+        if (yrot_min != null && yrot_max != null) {
+            if (!isNaN(yrot_min) && isNaN(yrot_max)) selector.push('y_rotation=' + yrot_min + '..');
+            if (isNaN(yrot_min) && !isNaN(yrot_max)) selector.push('y_rotation=' + '..' + yrot_max);
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) selector.push('y_rotation=' + yrot_min + '..' + yrot_max);
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) selector.push('y_rotation=' + yrot_min);
         }
 
-        if (limit) selector.push('limit=' + limit);
+        if (limit != null) selector.push('limit=' + limit);
 
         if (team) selector.push('team=' + (team_invert ? '!' : '') + team);
         if (tag) selector.push('tag=' + (tag_invert ? '!' : '') + tag);
         if (gamemode) selector.push('gamemode=' + (gamemode_invert ? '!' : '') + gamemode);
 
-        if (xp_min ?? xp_max) {
+        if (xp_min != null && xp_max != null) {
             if (isNaN(xp_min) && !isNaN(xp_max)) selector.push('level=' + xp_min + '..');
             else if (isNaN(xp_min) && !isNaN(xp_max)) selector.push('level=' + '..' + xp_max);
             else if (!isNaN(xp_min) && !isNaN(xp_max) && xp_min != xp_max) selector.push('level=' + xp_min + '..' + xp_max);
             else if (!isNaN(xp_min) && !isNaN(xp_max) && xp_min == xp_max) selector.push('level=' + xp_min);
         }
 
-        if (score && (score_min ?? score_max)) {
+        if (score != null && (score_min != null && score_max != null)) {
             scores.push(score);
             scores_min.push(score_min);
             scores_max.push(score_max);
@@ -279,7 +278,7 @@ function give() {
         if (i_firework_type) explosions[0].Type = i_firework_type;
         if (i_firework_flicker) explosions[0].Flicker = i_firework_flicker;
         if (i_firework_trail) explosions[0].Trail = i_firework_trail;
-        nbt.Fireworks = { "Explosions": explosions };
+        nbt.Fireworks = {"Explosions": explosions};
     }
 
     // display //
@@ -294,25 +293,24 @@ function give() {
         display.text = i_name;
         window.previewText = i_name;
 
-        let className;
-        switch (i_colour) {
-            case 'aqua'         : className = "§b"; break;
-            case 'black'        : className = "§0"; break;
-            case 'blue'         : className = "§9"; break;
-            case 'dark_aqua'    : className = "§3"; break;
-            case 'dark_blue'    : className = "§1"; break;
-            case 'dark_gray'    : className = "§8"; break;
-            case 'dark_green'   : className = "§2"; break;
-            case 'dark_purple'  : className = "§5"; break;
-            case 'dark_red'     : className = "§4"; break;
-            case 'gold'         : className = "§6"; break;
-            case 'gray'         : className = "§7"; break;
-            case 'green'        : className = "§a"; break;
-            case 'light_purple' : className = "§d"; break;
-            case 'red'          : className = "§c"; break;
-            case 'yellow'       : className = "§e"; break;
-            default             : className = "§f";
-        }
+        let className = {
+            'aqua': "§b",
+            'black': "§0",
+            'blue': "§9",
+            'dark_aqua': "§3",
+            'dark_blue': "§1",
+            'dark_gray': "§8",
+            'dark_green': "§2",
+            'dark_purple': "§5",
+            'dark_red': "§4",
+            'gold': "§6",
+            'gray': "§7",
+            'green': "§a",
+            'light_purple': "§d",
+            'red': "§c",
+            'yellow': "§e",
+            'white': "§f",
+        }[i_colour || 'white'];
 
         if (i_colour) display.color = i_colour;
         $preview.removeClass().addClass(className);
@@ -379,7 +377,7 @@ function give() {
     }
 
     // damage //
-    var damage = DURABILITIES[item_id] - i_durability;
+    let damage = DURABILITIES[item_id] - i_durability;
     if (i_durability && !i_unbreakable) nbt.Damage = damage;
 
     // unbreakable //
@@ -414,59 +412,66 @@ function give() {
     }
 
     // modifiers //
-    /**/ if (i_mod === 'armor'                && i_mod_amount >    30) i_mod_amount =    30;
-    else if (i_mod === 'armor_toughness'      && i_mod_amount >    20) i_mod_amount =    20;
-    else if (i_mod === 'attack_damage'        && i_mod_amount >  2048) i_mod_amount =  2048;
-    else if (i_mod === 'attack_speed'         && i_mod_amount >  1024) i_mod_amount =  1024;
-    else if (i_mod === 'attack_range'         && i_mod_amount >     6) i_mod_amount =     6;
-    else if (i_mod === 'attack_range'         && i_mod_amount <     0) i_mod_amount =     0;
-    else if (i_mod === 'follow_range'         && i_mod_amount >  2048) i_mod_amount =  2048;
-    else if (i_mod === 'knockback_resistance' && i_mod_amount >     1) i_mod_amount =     1;
-    else if (i_mod === 'luck'                 && i_mod_amount >  1024) i_mod_amount =  1024;
-    else if (i_mod === 'luck'                 && i_mod_amount < -1024) i_mod_amount = -1024;
-    else if (i_mod !== 'luck'                 && i_mod_amount <     0) i_mod_amount =     0;
-    else if (i_mod === 'max_health'           && i_mod_amount >  1024) i_mod_amount =  1024;
-    else if (i_mod === 'movement_speed'       && i_mod_amount >  1024) i_mod_amount =  1024;
-
-    if (i_mod && i_mod_amount) {
-
-        let uuid = () => random(-1000, 1000);
-
-        for (let i in ATTRIBUTES) {
-            if (!window.Uuids[ATTRIBUTES[i]]) Uuids[ATTRIBUTES[i]] = [uuid(), uuid(), uuid(), uuid()];
+    if (i_mod) {
+        const clamp = (eq, val) => i_mod_amount = Math[eq === '>' ? 'min' : 'max'](i_mod_amount, val);
+        const clamper = {
+            'armor': ['>', 30],
+            'armor_toughness': ['>', 20],
+            'attack_damage': ['>', 2048],
+            'attack_speed': ['>', 1024],
+            'attack_range': ['>', 6],
+            'attack_range': ['<', 0],
+            'follow_range': ['>', 2048],
+            'knockback_resistance': ['>', 1],
+            'luck': ['>', 1024],
+            'luck': ['<', -1024],
+            'max_health': ['>', 1024],
+            'movement_speed': ['>', 1024],
         }
+        clamp(...clamper[i_mod]);
+        if (i_mod !== 'luck') clamp('<', 0);
 
-        for (let i in Modifiers) {
-            if (Modifiers[i].AttributeName == 'generic.' + i_mod) {
-                Modifiers.splice(i, 1);
+        if (i_mod_amount != null) {
+
+            const uuid = () => random(-1000, 1000);
+
+            for (let i in ATTRIBUTES) {
+                if (!Uuids[ATTRIBUTES[i]]) Uuids[ATTRIBUTES[i]] = [uuid(), uuid(), uuid(), uuid()];
             }
+
+            for (let i in Modifiers) {
+                if (Modifiers[i].AttributeName == 'generic.' + i_mod) {
+                    Modifiers.splice(i, 1);
+                }
+            }
+
+            const uuids = Uuids[i_mod];
+            Modifiers.push({
+                AttributeName: 'generic.' + i_mod, Name: 'generic.' + i_mod,
+                Amount: i_mod_amount, Operation: i_mod_op,
+                UUID: ['I;', uuids[0], uuids[1], uuids[2], uuids[3]]
+            });
+            if (i_mod_slot) Modifiers[Modifiers.length - 1].Slot = i_mod_slot;
+
+            nbt.AttributeModifiers = rvNestedDupes(Modifiers);
         }
-
-        let uuids = window.Uuids[i_mod];
-        Modifiers.push({
-            AttributeName: 'generic.' + i_mod, Name: 'generic.' + i_mod,
-            Amount: i_mod_amount, Operation: i_mod_op,
-            UUID: ['I;', uuids[0], uuids[1], uuids[2], uuids[3]]
-        });
-        if (i_mod_slot) Modifiers[Modifiers.length - 1].Slot = i_mod_slot;
-
-        nbt.AttributeModifiers = rvNestedDupes(Modifiers);
     }
 
     // hide flags //
-    if (hf > 0) { nbt.HideFlags = hf; }
+    if (hf > 0) nbt.HideFlags = hf;
 
     // nbt //
-    if (!isEmpty(nbt)) {//                Remove quotes from tags          Allow section symbol
+    if (!isEmpty(nbt)) {
+        //                                Remove quotes from tags          Allow section symbol            Format typed arrays
         nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7').replace('UUID:["I;",', 'UUID:[I;');
     } else nbt = '';
 
     // count //
-    if (!count) { count = '1'; }
+    if (!count) count = '1';
 
     /// OUTPUT ///
     window.Output = `/give ${target_text + selector} ${item + nbt} ${count}`;
-    if (window.Output.length > 255) {
+    if (Output.length > 255) {
         $('#cmd-note').removeClass('hide');
         if (target_text === '@s') {
             target_text = '@p';
