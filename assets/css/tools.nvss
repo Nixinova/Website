@@ -8,7 +8,7 @@ main @ ..900px {margin-left: 1em;}
 form, output, .content @ 815px {max-width: 825px; margin: 0 auto;}
 
 // Buttons //
-button {padding: 7px 10px; font-size: inherit; border-radius: 5px;}
+button {padding: 7px 10px; font-size: inherit; color: inherit; border-radius: 5px;}
     &.on  {background: #5c5;}
     &.off {background: #f55;}
     &.notext {width: 70px; text-align: center;}
@@ -58,7 +58,7 @@ $(@breakpoint | 815px |
 |
     span.set-width {display: inline-block; width: var(--width);}
     label {display: inline-block;}
-        &:not(.inline) {width: 125px;}
+        &:not(.inline) {width: 135px;}
         &.short {margin-left: 15px; width: 100px;}
         &.long {width: 250px;}
 )
