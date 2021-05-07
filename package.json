@@ -16,6 +16,6 @@
   "homepage": "https://nixinova.com",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
-    "novasheets": "^1.0.0-pre4"
+    "novasheets": "1.0.0-pre1"
   }
 }
