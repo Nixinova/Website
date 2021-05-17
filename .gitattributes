@@ -1,9 +1,11 @@
+# General
 * text=auto
 
+# Package
 package-lock.json -diff
 
 # Linguist
-*.nvss linguist-language=CSS
+*.nvss linguist-language=Less
 pages/**/*.md linguist-detectable=true
 
 # Git LFS
