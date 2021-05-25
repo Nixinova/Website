@@ -14,6 +14,7 @@
 /mineo/versions                     /projects/mineo/versions
 
 # Shortcuts
+/logo/*                             /assets/images/logos/:splat
 /musical-blocks                     /downloads/minecraft/maps/musical-blocks
 /kitpvp                             /downloads/minecraft/maps/kitpvp
 /skywars                            /downloads/minecraft/maps/skywars
