@@ -1,4 +1,4 @@
-----
+---
 layout: base.njk
 permalink: /
 title: Home
@@ -7,26 +7,26 @@ keywords: nixinova, nixinova website, nixinova.com, minecraft tools, minecraft a
 css: home
 ---
 
-<% function imageSection(title, bg, css, contents) {
-    return `<div
-        id="${title.toLowerCase()}"
+<% function imageSection(title, bg, css, contents) { %>
+    <div
+        id="<%= title.toLowerCase() %>"
         class="centered tile showcase-container image-background"
-        style="background-image: url(/assets/images/${bg}); ${css}"
+        style="background-image: url(/assets/images/<%= bg %>);<%= css %>"
     >
         <div class="content-container">
             <div class="title">
-                <h2>${title}</h2>
+                <h2><%= title %></h2>
             </div>
             <div class="contents">
                 <ul>
-                    ${contents.map(([link, name]) => {
-                        return `<li><a class="hover-underline" href="/${link}">${name}</a></li>`;
-                    })}
+                    <% contents.map( ([link, name]) => { %>
+                        <li><a class="hover-underline" href="/<%= link %>"><%= name %></a></li>
+                    <% } ) %>
                 </ul>
             </div>
         </div>
-    </div>`;
-} %>
+    </div>
+<% } %>
 
 <div id="nixinova" class="centered tile showcase-container">
     <img src="/assets/images/logos/nixinova.png" alt="NIXINOVA" onmousedown="return false;">
@@ -80,5 +80,11 @@ css: home
         ['downloads/minecraft/resource-packs/mash-up', 'Mash-Up'],
         ['downloads/minecraft/resource-packs/themed', 'Themed Mash-Up'],
         ['downloads/minecraft/resource-packs/herobrinenzk', 'HeroBrineNZK Pack'],
+    ]
+) %>
+
+<%= imageSection(
+    'About', 'backgrounds/self-background.jpg', '', [
+        ['about/pc-specs', 'PC Specs'],
     ]
 ) %>
