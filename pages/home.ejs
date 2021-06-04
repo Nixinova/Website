@@ -7,9 +7,9 @@ keywords: nixinova, nixinova website, nixinova.com, minecraft tools, minecraft a
 css: home
 ---
 
-<% function imageSection(name, bg, css = '', contents) {
+<% function imageSection(title, bg, css, contents) {
     return `<div
-        id="${name.toLowerCase()}"
+        id="${title.toLowerCase()}"
         class="centered tile showcase-container image-background"
         style="background-image: url(/assets/images/${bg}); ${css}"
     >
@@ -40,15 +40,15 @@ css: home
 </div>
 
 <%= imageSection(
-    'Projects', 'backgrounds/projects-background.jpg', [
+    'Projects', 'backgrounds/projects-background.jpg', '', [
         ['projects/novasheets', 'NovaSheets'],
         ['projects/resourcepacker', 'resourcepacker'],
         ['projects/mineo', 'Mineo'],
     ]
-)) %>
+) %>
 
 <%= imageSection(
-    'Tools', 'backgrounds/tools-background.jpg', [
+    'Tools', 'backgrounds/tools-background.jpg', '', [
         ['tools/minecraft/commands/give', '/give'],
         ['tools/minecraft/commands/summon', '/summon'],
         ['tools/minecraft/commands/bundle', 'Bundle Creator'],
@@ -56,29 +56,29 @@ css: home
         ['tools/minecraft/converters/coordinates', 'Coordinates'],
         ['tools/minecraft/converters/seed', 'Seed Converter'],
     ]
-)) %>
+) %>
 
 <%= imageSection(
-    'APIs', 'backgrounds/apis-background.jpg', [
+    'APIs', 'backgrounds/apis-background.jpg', 'background-color: #444;', [
         ['tools/minecraft/api/versions', 'Minecraft Versions'],
         ['tools/minecraft/api/mojira', 'Mojira Versions'],
         ['tools/minecraft/api/player', 'Minecraft Players'],
         ['tools/hytale/api/blog', 'Hytale Blog'],
     ]
-)) %>
+) %>
 
 <%= imageSection(
-    'Maps', 'minecraft/maps/kitpvp.jpg', [
+    'Maps', 'minecraft/maps/kitpvp.jpg', '', [
         ['downloads/minecraft/maps/skywars', 'SkyWars'],
         ['downloads/minecraft/maps/musical-blocks', 'Musical&nbsp;Blocks'],
         ['downloads/minecraft/maps/kitpvp', 'KitPvP'],
     ]
-)) %>
+) %>
 
 <%= imageSection(
-    'Resource Packs', 'minecraft/resource-packs/nixinova-mash-up.jpg', [
+    'Resource Packs', 'minecraft/resource-packs/nixinova-mash-up.jpg', '', [
         ['downloads/minecraft/resource-packs/mash-up', 'Mash-Up'],
         ['downloads/minecraft/resource-packs/themed', 'Themed Mash-Up'],
         ['downloads/minecraft/resource-packs/herobrinenzk', 'HeroBrineNZK Pack'],
     ]
-)) %>
+) %>

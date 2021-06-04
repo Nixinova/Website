@@ -24,7 +24,7 @@
     </div id="menu-logo">
 
     <form id="header-search">
-        <input id="header-search_bar" name="q" placeholder="Search...">
+        <input type="search" name="q" placeholder="Search..." id="header-search_bar">
         <button type="submit" id="header-search_button">
             <i title="Search" data-icon="search"></i>
         </button>
@@ -102,7 +102,7 @@
     <div class="menu-section">
         {{ head('About') }}
         <ul>
-                {{ entry('/about/pc-specs', 'PC Specs') }}
+            {{ entry('/about/pc-specs', 'PC Specs') }}
         </ul>
     </div>
 
