@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    const query = new URLSearchParams(location.href).get('q');
+    const query = new URL(location.href).searchParams.get('q');
     const matches = searcher.search(query);
     $('#search-box').val(query);
 
