@@ -50,7 +50,6 @@ nav {background: $(color1); padding: 1em 1em 5em; width: 100%; line-height: 2; b
 // Main //
 main @ 800px {padding-top: 82px;}
 #content {display: grid; grid-template-areas: "header" "main" "footer"; grid-template-rows: auto 1fr auto; min-height: 100vh;}
-.search-button {background: transparent;}
 
 // Footer //
 footer {width: 100%; padding: 15px; background: $(color2); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}
