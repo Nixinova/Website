@@ -32,7 +32,6 @@ $( @breakpoint | 600px |
 | 
     #header-search {margin-right: 2em; background: #fffa; border: 1px solid #333d; border-radius: 1em;}
     #header-search_bar {margin: 0.5em; background: transparent; border: none; outline: none;}
-    #header-search_button {background: transparent;}
     & [data-icon] img {margin-right: 8px; padding-bottom: 2px; height: 16px; filter: initial;}
     &_bar {background: transparent; border: none; padding: 2px 6px; color: #111;}
         %:focus {outline: none;}
@@ -51,6 +50,7 @@ nav {background: $(color1); padding: 1em 1em 5em; width: 100%; line-height: 2; b
 // Main //
 main @ 800px {padding-top: 82px;}
 #content {display: grid; grid-template-areas: "header" "main" "footer"; grid-template-rows: auto 1fr auto; min-height: 100vh;}
+.search-button {background: transparent;}
 
 // Footer //
 footer {width: 100%; padding: 15px; background: $(color2); margin-top: 12px; border-top: 2px solid #fff; text-align: center;}

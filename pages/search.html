@@ -5,74 +5,20 @@ title: Search
 description: "Search this website"
 keywords: "nixinova"
 sitemapIgnore: true
+js: search.js
+css: search
 ---
 <script src="https://unpkg.com/lunr/lunr.js"></script>
-<script>
-    (async () => {
-     
-        const index = await fetch('/index.json').then(data => data.json());
-        const metadata = {};
-        const searcher = lunr(function () {
-            this.ref('url');
-            this.field('title');
-            this.field('description');
-            this.field('tags');
-
-            for (let page of index) {
-                this.add(page);
-                metadata[page.url] = page;
-            }
-        });
-
-        const query = decodeURIComponent(location.search.match(/[?&]q=([^&]*)/)?.[1]);
-        const matches = searcher.search(query);
-        $('#search-box').val(query);
-
-        if (query) for (page of matches) {
-            const id = page.ref;
-            let result = `
-                <div class="result">
-                    <div class="result_url">${id.replace('.html', '').replace(/\//g, ' › ')}</div>
-                    <div class="result_title"><a href="${id}">${metadata[id].title}</a></div>
-                    <div class="result_description">${metadata[id].description}</div>
-                </div>
-            `;
-            for (let word of query.split(' ')) {
-                result = result.replace(RegExp(word, 'ig'), match => '<strong>' + match + '</strong>');
-            }
-            $('#results').append(result);
-        }
-
-    })();
-    $(document).on('keypress', event => {
-        if ($('#search-box').is(':focus') && event.which === 13) {
-            location.search = '?q=' + encodeURIComponent($('#search-box').val());
-        }
-    });
-</script>
-<style>
-    main>div {margin: auto 4em;}
-
-    #search-bar {display: grid; grid-template-columns: 1fr auto; margin: 2em auto; padding: 0.25em 0.5em; border: 2px solid;}
-    #search-bar input {background: none; border: none; color: #eee; font-size: 1.1em;}
-    #search-bar input:hover {outline: none;}
-    #search-bar img {height: 16px;}
-
-    .result {max-width: 800px; margin-left: 3em; padding: 0.75em 0.5em;}
-    .result_title {padding: 0.25em 0; color: #9ad5ff; font-size: 1.25em;}
-    .result_url {color: #d4d4d4; font-size: 90%;}
-    .result_description {color: #eee;}
-    .result a {transition: 0;}
-    .result a:hover {opacity: initial; text-decoration: underline;}
-</style>
 
 <h1>Search this website</h1>
 
 <div>
-    <div id="search-bar">
-        <input type="text" id="search-box">
-        <i data-icon="search" onclick="location.search = '?q=' + encodeURIComponent($('#search-box').val())"></i>
-    </div>
+    <form action="/search" id="search-bar">
+        <input type="search" id="search-box" name="q">
+        <button type="submit" class="search-button">
+            <i data-icon="search"></i>
+        </button>
+    </form>
 
     <div id="results"></div>
 </div>
