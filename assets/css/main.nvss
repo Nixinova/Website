@@ -90,7 +90,7 @@ table.styled th, table.styled td {border: 1px solid #555; padding: 0.2em 0.4em;}
 // Centering //
 .centered {display: flex; flex-direction: column; justify-content: center; align-items: center;}
     & p {display: inline-block; max-width: 50%;}
-.tile {height: 100%; width: 100%;}
+.tile {width: 100vw; height: 100vh;}
 
 // Dividers //
 hr.half {width: 50%;}
