@@ -31,6 +31,8 @@ $( @breakpoint | 600px |
     &_bar {display: none;}
 | 
     #header-search {margin-right: 2em; background: #fffa; border: 1px solid #333d; border-radius: 1em;}
+    #header-search_bar {margin: 0.5em; background: transparent; border: none; outline: none;}
+    #header-search_button {background: transparent;}
     & [data-icon] img {margin-right: 8px; padding-bottom: 2px; height: 16px; filter: initial;}
     &_bar {background: transparent; border: none; padding: 2px 6px; color: #111;}
         %:focus {outline: none;}

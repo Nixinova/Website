@@ -6,7 +6,6 @@ package-lock.json -diff
 
 # Linguist
 *.nvss linguist-language=Less
-pages/**/*.md linguist-detectable=true
 
 # Git LFS
 *.png filter=lfs diff=lfs merge=lfs -text

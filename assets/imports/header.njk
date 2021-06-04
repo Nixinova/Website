@@ -1,0 +1,102 @@
+{%- macro head(text) -%}
+    <span class="menu-header">{{ text }}</span>
+{%- endmacro -%}
+{%- macro subhead(text) -%}
+    <span class="menu-subheader">{{ text }}</span>
+{%- endmacro -%}
+
+{%- macro entry(href, name) -%}
+    <li><a class="hover-underline" href="{{ href }}">{{ name }}</a></li>
+{%- endmacro -%}
+
+<div id="header">
+
+    <div id="menu-icon">
+        <a href="javascript:toggleNav();">
+            <i title="Menu" data-icon="menu" style="font-size: 2em;"></i>
+        </a>
+    </div>
+
+    <div id="menu-logo">
+        <a href="/">
+            <img src="/assets/images/logos/nixinova.png" alt="Nixinova">
+        </a>
+    </div id="menu-logo">
+
+    <form id="header-search">
+        <input id="header-search_bar" name="q" placeholder="Search...">
+        <button type="submit" id="header-search_button">
+            <i title="Search" data-icon="search"></i>
+        </button>
+    </form>
+
+</div>
+
+<nav class="hide">
+
+    <div class="menu-section">
+        {{ head('Projects') }}
+        <div>
+            {{ subhead('Languages') }}
+            <ul>
+                {{ entry('/projects/novasheets', 'NovaSheets') }}
+            </ul>
+        </div>
+        <div>
+            {{ subhead('Minecraft') }}
+            <ul>
+                {{ entry('/projects/resourcepacker', 'resourcepacker') }}
+            </ul>
+        </div>
+        <div>
+            {{ subhead('Games') }}
+            <ul>
+                {{ entry('/projects/mineo', 'Mineo') }}
+            </ul>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        {{ head('Tools') }}
+        <div>
+            {{ subhead('Minecraft Commands') }}
+            <ul>
+                {{ entry('/tools/minecraft/commands/give', '/give') }}
+                {{ entry('/tools/minecraft/commands/summon', '/summon') }}
+                {{ entry('/tools/minecraft/commands/bundle', 'Bundle Creator') }}
+            </ul>
+            {{ subhead('Minecraft Converters') }}
+            <ul>
+                {{ entry('/tools/minecraft/converters/bundle', 'Image-to-Bundle') }}
+                {{ entry('/tools/minecraft/converters/coordinates', 'Coordinates') }}
+                {{ entry('/tools/minecraft/converters/seed', 'Seed') }}
+            </ul>
+            {{ subhead('APIs') }}
+            <ul>
+                {{ entry('/tools/minecraft/api/versions', 'Minecraft Versions') }}
+                {{ entry('/tools/minecraft/api/mojira', 'Mojira Versions') }}
+                {{ entry('/tools/minecraft/api/player', 'Minecraft Player') }}
+                {{ entry('/tools/hytale/api/blog', 'Hytale Blog') }}
+            </ul>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        {{ head('Downloads') }}
+        <div>
+            {{ subhead('Minecraft Maps') }}
+            <ul>
+                {{ entry('/downloads/minecraft/maps/kitpvp', 'KitPvP') }}
+                {{ entry('/downloads/minecraft/maps/skywars', 'SkyWars') }}
+                {{ entry('/downloads/minecraft/maps/musical-blocks', 'Musical Blocks') }}
+            </ul>
+            {{ subhead('Minecraft Resource Packs') }}
+            <ul>
+                {{ entry('/downloads/minecraft/resource-packs/mash-up', 'Nixinova Mash-Up') }}
+                {{ entry('/downloads/minecraft/resource-packs/themed', 'Themed Mash-Up') }}
+                {{ entry('/downloads/minecraft/resource-packs/herobrinenzk', 'HeroBrineNZK RP') }}
+            </ul>
+        </div>
+    </div>
+
+</nav>
