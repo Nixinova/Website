@@ -1,7 +1,7 @@
 const blogs = { titles: [], urls: [], dates: [], excerpts: [], authors: [], images: [] };
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const data = fetch('https://cors-anywhere.herokuapp.com/https://hytale.com/api/blog/post/published').then(data => data.json());
+    const data = await fetch('https://cors-anywhere.herokuapp.com/https://hytale.com/api/blog/post/published').then(data => data.json());
     $('#titles').html('');
     for (let i in data) {
         blogs.titles.push(data[i].title);
