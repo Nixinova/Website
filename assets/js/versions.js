@@ -90,7 +90,7 @@ function getInfo(id) {
                 </tr>`);
                 progress(1);
                 complete();
-            })
+            });
         } else {
             progress(1);
             complete();
@@ -98,4 +98,4 @@ function getInfo(id) {
     });
 }
 
-/* Copyright © Nixinova 2020 */
+/* Copyright © Nixinova 2021 */

@@ -170,9 +170,9 @@ function submit() {
         coords();
     }
     catch (error) {
-        "An unknown error has occurred. Please try again or reload the page.";
+        alert("An unknown error has occurred. Please try again or reload the page.");
         console.error(error.stack);
     }
 }
 
-/* Copyright © Nixinova 2020 */
+/* Copyright © Nixinova 2021 */

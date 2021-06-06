@@ -14,7 +14,7 @@ function give() {
         piglin_repellents: "Soul fire",
         valid_spawn: "Grass and podzol",
         unstable_bottom_center: "Fence gates",
-    }
+    };
     const DURABLE_ITEMS = [
         "netherite_sword", "netherite_pickaxe", "netherite_axe", "netherite_shovel", "netherite_hoe",
         "diamond_sword", "diamond_pickaxe", "diamond_axe", "diamond_shovel", "diamond_hoe",
@@ -114,11 +114,11 @@ function give() {
     let count = value('input_count');
 
     // fix values //
-    if (dist_max!= null && dist_min > dist_max) [dist_min, dist_max] = [dist_max, dist_min];
-    if (xrot_max!= null && xrot_min > xrot_max) [xrot_min, xrot_max] = [xrot_max, xrot_min];
-    if (yrot_max!= null && yrot_min > yrot_max) [yrot_min, yrot_max] = [yrot_max, yrot_min];
-    if (xp_max!= null && xp_min > xp_max) [xp_min, xp_max] = [xp_max, xp_min];
-    if (score_max!= null && score_min > score_max) [score_min, score_max] = [score_max, score_min];
+    if (dist_max != null && dist_min > dist_max) [dist_min, dist_max] = [dist_max, dist_min];
+    if (xrot_max != null && xrot_min > xrot_max) [xrot_min, xrot_max] = [xrot_max, xrot_min];
+    if (yrot_max != null && yrot_min > yrot_max) [yrot_min, yrot_max] = [yrot_max, yrot_min];
+    if (xp_max != null && xp_min > xp_max) [xp_min, xp_max] = [xp_max, xp_min];
+    if (score_max != null && score_min > score_max) [score_min, score_max] = [score_max, score_min];
 
     // hideflags //
     let hf = 0;
@@ -167,7 +167,7 @@ function give() {
             if (dist_min && !dist_max) selector.push('distance=' + dist_min + '..');
             if (!dist_min && dist_max) selector.push('distance=' + '..' + dist_max);
             if (dist_min && dist_max && dist_min != dist_max) selector.push('distance=' + dist_min + '..' + dist_max);
-            if (dist_min && dist_max && dist_min == dist_max) selector.push('distance=' + dist_min);
+            if (dist_min && dist_max && dist_min === dist_max) selector.push('distance=' + dist_min);
         }
 
         if (selection_area === 'volume' && (vol_x != null || vol_y != null || vol_z != null)) {
@@ -179,15 +179,15 @@ function give() {
         if (xrot_min != null && xrot_max != null) {
             if (!isNaN(xrot_min) && isNaN(xrot_max)) selector.push('x_rotation=' + xrot_min + '..');
             if (isNaN(xrot_min) && !isNaN(xrot_max)) selector.push('x_rotation=' + '..' + xrot_max);
-            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min != xrot_max) selector.push('x_rotation=' + xrot_min + '..' + xrot_max);
-            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min == xrot_max) selector.push('x_rotation=' + xrot_min);
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min !== xrot_max) selector.push('x_rotation=' + xrot_min + '..' + xrot_max);
+            if (!isNaN(xrot_min) && !isNaN(xrot_max) && xrot_min === xrot_max) selector.push('x_rotation=' + xrot_min);
         }
 
         if (yrot_min != null && yrot_max != null) {
             if (!isNaN(yrot_min) && isNaN(yrot_max)) selector.push('y_rotation=' + yrot_min + '..');
             if (isNaN(yrot_min) && !isNaN(yrot_max)) selector.push('y_rotation=' + '..' + yrot_max);
-            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min != yrot_max) selector.push('y_rotation=' + yrot_min + '..' + yrot_max);
-            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min == yrot_max) selector.push('y_rotation=' + yrot_min);
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min !== yrot_max) selector.push('y_rotation=' + yrot_min + '..' + yrot_max);
+            if (!isNaN(yrot_min) && !isNaN(yrot_max) && yrot_min === yrot_max) selector.push('y_rotation=' + yrot_min);
         }
 
         if (limit != null) selector.push('limit=' + limit);
@@ -197,10 +197,10 @@ function give() {
         if (gamemode) selector.push('gamemode=' + (gamemode_invert ? '!' : '') + gamemode);
 
         if (xp_min != null && xp_max != null) {
-            if (isNaN(xp_min) && !isNaN(xp_max)) selector.push('level=' + xp_min + '..');
+            if (!isNaN(xp_min) && isNaN(xp_max)) selector.push('level=' + xp_min + '..');
             else if (isNaN(xp_min) && !isNaN(xp_max)) selector.push('level=' + '..' + xp_max);
-            else if (!isNaN(xp_min) && !isNaN(xp_max) && xp_min != xp_max) selector.push('level=' + xp_min + '..' + xp_max);
-            else if (!isNaN(xp_min) && !isNaN(xp_max) && xp_min == xp_max) selector.push('level=' + xp_min);
+            else if (!isNaN(xp_min) && !isNaN(xp_max) && xp_min !== xp_max) selector.push('level=' + xp_min + '..' + xp_max);
+            else if (!isNaN(xp_min) && !isNaN(xp_max) && xp_min === xp_max) selector.push('level=' + xp_min);
         }
 
         if (score != null && (score_min != null && score_max != null)) {
@@ -211,7 +211,7 @@ function give() {
             scores_max[scores.indexOf(score)] = score_max;
 
             let new_scores = [], new_min = [], new_max = [];
-            for (a in scores) {
+            for (let a in scores) {
                 if (new_scores.indexOf(scores[a]) === -1) {
                     new_scores.push(scores[a]);
                     new_min.push(scores_min[a]);
@@ -221,12 +221,12 @@ function give() {
             scores = new_scores, scores_min = new_min, scores_max = new_max;
 
             let score_text = [];
-            for (i in scores) {
+            for (let i in scores) {
                 if (!scores[i]) continue;
                 if (isNaN(scores_max[i]) && !isNaN(scores_min[i])) score_text.push(scores[i] + '=' + scores_min[i] + '..');
                 else if (isNaN(scores_min[i]) && isNaN(scores_max[i])) score_text.push(scores[i] + '=' + '..' + scores_max[i]);
                 else if (!isNaN(scores_min[i]) && !isNaN(scores_max[i]) && scores_min[i] != scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i] + '..' + scores_max[i]);
-                else if (!isNaN(scores_min[i]) && !isNaN(scores_max[i]) && scores_min[i] == scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i]);
+                else if (!isNaN(scores_min[i]) && !isNaN(scores_max[i]) && scores_min[i] === scores_max[i]) score_text.push(scores[i] + '=' + scores_min[i]);
             }
             selector.push('scores={' + JSON.stringify(score_text).replace(/[\[\]]/g, '') + '}');
         }
@@ -278,7 +278,7 @@ function give() {
         if (i_firework_type) explosions[0].Type = i_firework_type;
         if (i_firework_flicker) explosions[0].Flicker = i_firework_flicker;
         if (i_firework_trail) explosions[0].Trail = i_firework_trail;
-        nbt.Fireworks = {"Explosions": explosions};
+        nbt.Fireworks = { "Explosions": explosions };
     }
 
     // display //
@@ -351,8 +351,8 @@ function give() {
         elvl[e.indexOf(i_ench)] = i_ench_lvl;
 
         let e2 = [], elvl2 = [];
-        for (i in e) {
-            if (e2.indexOf(e[i]) == -1) {
+        for (let i in e) {
+            if (!e2.includes(e[i])) {
                 e2.push(e[i]);
                 elvl2.push(elvl[i]);
             }
@@ -360,7 +360,7 @@ function give() {
         e = e2, elvl = elvl2;
 
         nbt.Enchantments = [];
-        for (i in e) {
+        for (let i in e) {
             if (e[i]) {
                 nbt.Enchantments.push({ id: e[i], lvl: parseInt(elvl[i]) });
             }
@@ -385,16 +385,16 @@ function give() {
 
     // tags
     $('#placeon-destroy-data').empty();
-    for (let i in TAGS) {
-        $('#placeon-destroy-data').append(`\n\t<option value="${TAGS[i]}">${EXPLANATIONS[TAGS[i]] || ''}</option>`)
+    for (const tag of TAGS) {
+        $('#placeon-destroy-data').append(`\n\t<option value="${tag}">${EXPLANATIONS[tag] || ''}</option>`);
     }
 
     // CanDestroy //
     if (i_destroy) {
         CanDestroy.push(i_destroy);
-        for (i in CanDestroy) {
-            for (tag of TAGS) {
-                if (CanDestroy[i] == tag) CanDestroy[i] = '#' + tag;
+        for (const i in CanDestroy) {
+            for (const tag of TAGS) {
+                if (CanDestroy[i] === tag) CanDestroy[i] = '#' + tag;
             }
         }
         nbt.CanDestroy = rvDupes(CanDestroy);
@@ -403,58 +403,50 @@ function give() {
     // CanPlaceOn //
     if (i_place_on) {
         CanPlaceOn.push(i_place_on);
-        for (i in CanPlaceOn) {
-            for (tag of TAGS) {
-                if (CanPlaceOn[i] == tag) CanPlaceOn[i] = '#' + tag;
+        for (const i in CanPlaceOn) {
+            for (const tag of TAGS) {
+                if (CanPlaceOn[i] === tag) CanPlaceOn[i] = '#' + tag;
             }
         }
         nbt.CanPlaceOn = rvDupes(CanPlaceOn);
     }
 
     // modifiers //
-    if (i_mod) {
-        const clamp = (eq, val) => i_mod_amount = Math[eq === '>' ? 'min' : 'max'](i_mod_amount, val);
-        const clamper = {
-            'armor': ['>', 30],
-            'armor_toughness': ['>', 20],
-            'attack_damage': ['>', 2048],
-            'attack_speed': ['>', 1024],
-            'attack_range': ['>', 6],
-            'attack_range': ['<', 0],
-            'follow_range': ['>', 2048],
-            'knockback_resistance': ['>', 1],
-            'luck': ['>', 1024],
-            'luck': ['<', -1024],
-            'max_health': ['>', 1024],
-            'movement_speed': ['>', 1024],
+    if (i_mod && i_mod_amount != null) {
+        const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+        i_mod_amount = {
+            'armor': clamp(i_mod_amount, 0, 30),
+            'armor_toughness': clamp(i_mod_amount, 0, 20),
+            'attack_damage': clamp(i_mod_amount, 0, 2048),
+            'attack_speed': clamp(i_mod_amount, 0, 1024),
+            'attack_range': clamp(i_mod_amount, 0, 6),
+            'follow_range': clamp(i_mod_amount, 0, 2048),
+            'knockback_resistance': clamp(i_mod_amount, 0, 1),
+            'luck': clamp(i_mod_amount, -1024, 1024),
+            'max_health': clamp(i_mod_amount, 0, 1024),
+            'movement_speed': clamp(i_mod_amount, 0, 1024),
+        }[i_mod];
+
+        const uuid = () => random(-1000, 1000);
+        for (let i in ATTRIBUTES) {
+            if (!Uuids[ATTRIBUTES[i]]) Uuids[ATTRIBUTES[i]] = [uuid(), uuid(), uuid(), uuid()];
         }
-        clamp(...clamper[i_mod]);
-        if (i_mod !== 'luck') clamp('<', 0);
 
-        if (i_mod_amount != null) {
-
-            const uuid = () => random(-1000, 1000);
-
-            for (let i in ATTRIBUTES) {
-                if (!Uuids[ATTRIBUTES[i]]) Uuids[ATTRIBUTES[i]] = [uuid(), uuid(), uuid(), uuid()];
+        for (let i in Modifiers) {
+            if (Modifiers[i].AttributeName === 'generic.' + i_mod) {
+                Modifiers.splice(i, 1);
             }
-
-            for (let i in Modifiers) {
-                if (Modifiers[i].AttributeName == 'generic.' + i_mod) {
-                    Modifiers.splice(i, 1);
-                }
-            }
-
-            const uuids = Uuids[i_mod];
-            Modifiers.push({
-                AttributeName: 'generic.' + i_mod, Name: 'generic.' + i_mod,
-                Amount: i_mod_amount, Operation: i_mod_op,
-                UUID: ['I;', uuids[0], uuids[1], uuids[2], uuids[3]]
-            });
-            if (i_mod_slot) Modifiers[Modifiers.length - 1].Slot = i_mod_slot;
-
-            nbt.AttributeModifiers = rvNestedDupes(Modifiers);
         }
+
+        const uuids = Uuids[i_mod];
+        Modifiers.push({
+            AttributeName: 'generic.' + i_mod, Name: 'generic.' + i_mod,
+            Amount: i_mod_amount, Operation: i_mod_op,
+            UUID: ['I;', uuids[0], uuids[1], uuids[2], uuids[3]]
+        });
+        if (i_mod_slot) Modifiers[Modifiers.length - 1].Slot = i_mod_slot;
+
+        nbt.AttributeModifiers = rvNestedDupes(Modifiers);
     }
 
     // hide flags //
@@ -475,7 +467,7 @@ function give() {
         $('#cmd-note').removeClass('hide');
         if (target_text === '@s') {
             target_text = '@p';
-            $('#input_selector_target').val('@p')
+            $('#input_selector_target').val('@p');
         }
     }
 

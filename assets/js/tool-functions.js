@@ -32,7 +32,7 @@ function getQueryString(val) {
         let regexMatch = new RegExp('(\\?|)' + RegExp.escape(val) + '=.+');
         let regexReplace = new RegExp('(\\?|)' + RegExp.escape(val) + '=');
         let times = 0;
-        for (var q of query) {
+        for (let q of query) {
             if (q.match(regexMatch)) {
                 return q.replace(regexReplace, '');
             } else ++times;
@@ -45,7 +45,7 @@ function value(id, type) {
     let val = $('#' + id).val().trim();
     switch (type) {
         case 'int': return val ? parseInt(val, 10) : null;
-        case 'num': return val ? parseFloat(val, 10) : null;
+        case 'num': return val ? parseFloat(val) : null;
         default: return val;
     }
 }
@@ -77,7 +77,7 @@ function isEmpty(object) {
 function rvNestedDupes(array) {
     let newArray = [];
     let itemsFound = {};
-    for (x of array) {
+    for (let x of array) {
         let str = JSON.stringify(x);
         if (itemsFound[str]) continue;
         newArray.push(x);
@@ -88,11 +88,13 @@ function rvNestedDupes(array) {
 
 function rvDupes(array) {
     let newArray = [];
-    for (a = 0; a < array.length; a++) {
+    for (let a = 0; a < array.length; a++) {
         if (newArray.indexOf(array[a]) == -1) {
             newArray.push(array[a]);
         }
-        if (newArray[a] === null) { newArray.splice(a, 1); }
+        if (newArray[a] == null) {
+            newArray.splice(a, 1);
+        }
     }
     return newArray;
 }
@@ -109,8 +111,9 @@ function randomString(length) {
 }
 
 function obfuscate(input, element) {
-    if (element) {
-        $(element).text(randomString(input.length));
-    } else return randomString(input.length);
-
+    const randString = randomString(input.length);
+    if (element) $(element).text(randString);
+    else return randString;
 }
+
+/* Copyright © Nixinova 2021 */

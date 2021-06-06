@@ -29,7 +29,7 @@ function summon() {
         'light_purple': "§d",
         'yellow': "§e",
         'default': "§f",
-    }
+    };
 
     // call from input form //
     let entity = value('input_entity').toLowerCase().replace(/ /g, '_');
@@ -64,23 +64,23 @@ function summon() {
     let bee_angry = hasClass('input_bee_angry', 'on');
     let bee_angry_time = value('input_bee_angry_time');
     let bee_angry_time_value = value('input_bee_angry_time_value');
-    let cat_type = value('input_cat_type', 'int')
-    let cat_collar = value('input_cat_collar', 'int')
+    let cat_type = value('input_cat_type', 'int');
+    let cat_collar = value('input_cat_collar', 'int');
     let creeper_powered = hasClass('input_creeper_powered', 'on');
-    let creeper_radius = value('input_creeper_radius', 'int')
-    let creeper_fuse = value('input_creeper_fuse', 'int')
+    let creeper_radius = value('input_creeper_radius', 'int');
+    let creeper_fuse = value('input_creeper_fuse', 'int');
     let creeper_ignited = hasClass('input_creeper_ignited', 'on');
-    let endermite_life = value('input_endermite_life', 'int')
+    let endermite_life = value('input_endermite_life', 'int');
     let endermite_attackable = hasClass('input_endermite_attackable', 'off');
-    let enderdragon_state = value('input_enderdragon_state', 'int')
+    let enderdragon_state = value('input_enderdragon_state', 'int');
     let ghast_explosion_power = value('input_ghast_explosion_power', 'int');
-    let glow_squid_timer = value('input_glow_squid_timer', 'int')
-    let llama_type = value('input_llama_type', 'int')
+    let glow_squid_timer = value('input_glow_squid_timer', 'int');
+    let llama_type = value('input_llama_type', 'int');
     let llama_carpet = value('input_llama_carpet').toLowerCase().replace(/ /g, '_');
-    let llama_temper = value('input_llama_temper', 'int')
+    let llama_temper = value('input_llama_temper', 'int');
     let horse_tame = hasClass('input_horse_tame', 'on');
     let mob_color = value('input_mob_color', 'int');
-    let mooshroom_type = cleanup(value('input_mooshroom_type'))
+    let mooshroom_type = cleanup(value('input_mooshroom_type'));
     let owner = value('input_owner_uuid');
     let panda_dominant_gene = cleanup(value('input_panda_gene_1'));
     let panda_recessive_gene = cleanup(value('input_panda_gene_2'));
@@ -122,7 +122,7 @@ function summon() {
     let offhand_n = value('input_offhand_item_num', 'int');
     let offhand_c = value('input_offhand_item_count', 'num');
 
-    let nbt = {}
+    let nbt = {};
 
     /// GENERATOR ///
     // OUTPUT //

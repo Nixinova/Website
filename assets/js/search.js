@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const matches = searcher.search(query);
     $('#search-box').val(query);
 
-    if (query) for (page of matches) {
+    if (query) for (const page of matches) {
         const id = page.ref;
         let result = `
             <div class="result">
@@ -31,3 +31,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         $('#results').append(result);
     }
 });
+
+/* Copyright © Nixinova 2021 */
