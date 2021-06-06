@@ -1,6 +1,6 @@
 @font-face {font-family: 'Valken'; src: local('Valken'), url('/assets/fonts/valken.ttf') format('truetype');}
 
-@var underline = {content: ""; display: block; width: 0; height: 2px; margin-left: 25%; background: #fff; transition: 0.7s;}
+@var underline = {content: ""; display: block; width: 0; height: 2px; background: #fff; transition: 0.7s;}
 
 // Elements
 html {scroll-behavior: smooth;}
@@ -21,7 +21,7 @@ a[href]:hover {opacity: 1;}
 // Tile containers
 .showcase-container {border-top: 2px solid; text-align: center;}
     & hr {width: 50%;}
-    & h2 {font-size: 8vh;}
+    & h2 {font-size: 8vh; line-height: 2;}
     & img {max-width: 50%;}
     & ul {padding-left: 0; list-style-type: none; font-size: 2.5em;}
     & li {padding: 0.4em;}
