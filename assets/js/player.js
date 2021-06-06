@@ -23,32 +23,30 @@ function complete() {
     }, 100);
 }
 
-let query = location.href.split('?')[1];
 $(function () {
+    let query = location.search.substr(1);
     if (query) getInfo(query);
     $('#input-username').val(query);
 });
 
 let skinURLs = {}, capeURLs = {};
-async function getInfo(username) {
+async function getInfo(playerName) {
     $('#loading').removeClass('hide');
     $('output').addClass('hide');
     progress(0);
+    sections.forEach(id => $('#' + id).empty());
 
-    if (!username && query) username = query;
-    for (let id of sections) {
-        $('#' + id).empty();
-    }
+    let query = location.search.substr(1);
+    if (!playerName && query) playerName = query;
 
     // Retrieve player data
-    const playerData = await fetch(`https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/${username}`).then(data => data.json()).catch(() => {
+    const playerData = await fetch(`https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/${playerName}`).then(data => data.json()).catch(() => {
         complete();
         throw error('PlayerNotFoundError');
     });
     progress(1 / 3);
-    if (!playerData) error('layerNotFoundError');
-    let username, uuid;
-    if (playerData) uuid = playerData.id;
+    if (!playerData) error('PlayerNotFoundError');
+    let username, uuid = playerData.id;
     let uuidFormatted = [
         uuid.substring(0, 8),
         uuid.substring(8, 12), uuid.substring(12, 16), uuid.substring(16, 20),
@@ -60,7 +58,7 @@ async function getInfo(username) {
         complete();
         throw error('PlayerNotFoundError');
     });
-    progress(0.66);
+    progress(2 / 3);
     $('#username-history').empty();
     username = usernameData[usernameData.length - 1].name;
     $('#username').html(username);
