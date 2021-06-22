@@ -13,28 +13,39 @@ h2:hover::before, h2:hover::after {width: 70%; margin-left: 15%;}
 a[href]:hover {opacity: 1;}
 
 // Specific sections
-#nixinova {background: $<body><background>;}
-    & img {position: absolute; max-width: 50%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
+#nixinova {
+    background: $<body><background>;
+    img {position: absolute; max-width: 50%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
     &-news img:hover {opacity: 0.6; transition: 0.2s;}
+}
 .tagline {margin-bottom: 1em; font-size: 1.1em;}
 #youtube-videos h2 {padding-top: 1em;}
 #youtube-videos_list {display: grid; grid-template-columns: repeat(2, min-content); grid-template-rows: repeat(3, min-content); padding-bottom: 4em;}
 
 // Tile containers
-.showcase-container {border-top: 2px solid; text-align: center;}
-    & hr {width: 50%;}
-    & h2 {font-size: 8vh; line-height: 2;}
-    & img {max-width: 50%;}
-    & ul {padding-left: 0; list-style-type: none; font-size: 2.5em;}
-    & li {padding: 0.4em;}
-    & li::after {$(underline)!}
-    & li:hover::after {width: 50%;}
-    & li a {display: inline-block; color: #eee;}
-.content-container {}
-    & @ 900px {display: flex;}
-    & div {margin: auto;}
-    & .title @ 900px {width: 50vw;}
-    & .contents @ 900px {width: 40vw; text-align: left;}
+.showcase-container {
+    border-top: 2px solid; text-align: center;
+    hr {width: 50%;}
+    h2 {font-size: 8vh; line-height: 2;}
+    img {max-width: 50%;}
+    ul {
+        padding-left: 0; list-style-type: none; font-size: 2.5em;
+        li {
+            padding: 0.4em;
+            &::after {$(underline)!}
+            &:hover::after {width: 50%;}
+            a {display: inline-block; color: #eee;}
+        }
+    }
+}
+.content-container {
+    div {margin: auto;}
+    @ 900px.. {
+        display: flex;
+        .title {width: 50vw;}
+        .contents {width: 40vw; text-align: left;}
+    }
+}
 .image-background {background: fixed #333 center; background-blend-mode: overlay; background-size: cover;}
 
 /* Copyright © Nixinova 2021 */
