@@ -19,7 +19,7 @@ abbr {cursor: help;}
 // Header //
 header {width: 100%; z-index: 100;}
     & @ $(desktop) {position: sticky;}
-#header {background: $(color2); display: flex; border-bottom: 2px solid white;}
+#header {display: grid; grid-template-columns: min-content auto min-content; background: $(color2); border-bottom: 2px solid white;}
     & [data-icon] img {cursor: pointer; height: 32px;}
     & #menu-icon {width: 80px; font-size: 3em;}
     &-search, #menu-icon {align-self: center; text-align: center; color: white; cursor: pointer; z-index: 10;}

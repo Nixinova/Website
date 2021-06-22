@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         blogs.images.push(data[i].coverImage.s3Key);
         $('#titles').append(`<option value="${blogs.urls[i]}">${blogs.titles[i]}</option>`);
     }
-    $('#get-info').css('display', 'initial');
+    $('#get-info').removeClass('hide');
 });
 
 function getInfo() {

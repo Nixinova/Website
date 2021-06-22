@@ -109,7 +109,7 @@ js: "summon.js"
         <label>NBT:</label>
     </p>
 
-    <p data-name="NBT" onclick="submit()" class="columns">
+    <p data-name="NBT" onclick="submit()">
     
         <label for="input_customname" class="indent">Custom name:</label>
         <input type="text" size="13" id="input_customname" onkeyup="submit()">  
@@ -209,7 +209,7 @@ js: "summon.js"
             <button type="button" id="input_bee_angry" class="notext off" onclick="toggle(this)"></button>
         
             <span class="angry-bee only"> &ensp;
-                <label for="input_bee_angry_time_value" class="indent" style="width: 170px;">Time until peaceful:</label>
+                <label for="input_bee_angry_time_value" class="indent inline">Time until peaceful:</label>
                 <input id="input_bee_angry_time_value" type="number" value="1000" min="0" onchange="submit()">
                 <select id="input_bee_angry_time" onchange="submit()">
                     <option value="t">Ticks</option>
@@ -586,7 +586,7 @@ js: "summon.js"
             <button type="button" id="input_is_baby" class="notext off" onclick="toggle(this)"></button>
         
             <span class="baby_living_mobs only"> &ensp;
-                <label for="input_baby_time_value" class="indent" style="width: 170px;">Time until adulthood:</label>
+                <label for="input_baby_time_value" class="indent inline">Time until adulthood:</label>
                 <input id="input_baby_time_value" type="number" value="1000" min="0" onchange="submit()">
                 <select id="input_baby_time" onchange="submit()">
                     <option value="t">Ticks</option>

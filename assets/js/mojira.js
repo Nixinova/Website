@@ -1,4 +1,4 @@
-window.title = "Mojira API Navigation – Nixinova";
+const title = 'Mojira API Navigation – Nixinova';
 
 function progress(val) {
     $('progress').attr('value', val);
@@ -26,7 +26,7 @@ function initial() {
     else generateAllProjects()
 }
 
-function generateAllProjects() {
+async function generateAllProjects() {
     $('title').html(title);
     $('#navigation').addClass('hide');
     start();
@@ -38,11 +38,11 @@ function generateAllProjects() {
             <th>Navigation</th>
         </tr>
     `);
-    $.ajax({
-        url: 'https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/'
-    }).done(function (data) {
+
+    try {
+        const projectsData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/').then(data => data.json());
         progress(0.5);
-        for (let project of data) {
+        for (const project of projectsData) {
             $('table tbody').append(`
                 <tr>
                     <td><img src="${project.avatarUrls["48x48"]}"></td>
@@ -53,11 +53,15 @@ function generateAllProjects() {
             `);
         }
         complete();
-    });
+    }
+    catch {
+        $('table tbody').html('An error occurred');
+        complete();
+    }
 }
 
-function generateProject(project) {
-    $('title').html(['Project', project, '–', title].join(' '));
+async function generateProject(project) {
+    $('title').html(`Project ${project} – ${title}`);
     const bugsLink = (type, version, project) => 'https://bugs.mojang.com/issues/?jql=' + encodeURIComponent(`${type} in ("${version}") AND project = ${project} ORDER BY key`);
     start();
     $('table thead').html(`
@@ -68,16 +72,16 @@ function generateProject(project) {
             <th style="width: 100px;">Quick Links</th>
         </tr>
     `);
-    $.ajax({
-        url: 'https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/' + project
-    }).done(function (data) {
+
+    try {
+        const projectData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/' + project).then(data => data.json());
         $('table thead').prepend(`
-            <tr><td colspan=4 style="text-align: center;">
+            <tr><td colspan="4" style="text-align: center;">
                 <a href="javascript:generateAllProjects();history.pushState(null, null, '?');" style="position: relative; right: 8%;">&larr; Back</a>
-                <img src="${data.avatarUrls["48x48"]}"> ${data.name}
+                <img src="${projectData.avatarUrls["48x48"]}"> ${projectData.name}
             </td></tr>
         `);
-        for (let version of data.versions.reverse()) {
+        for (let version of projectData.versions.reverse()) {
             $('#dropdown').append(`\n<option>${version.name}</option>`);
             $('table tbody').append(`
                 <tr id="${version.name.replace(/ /g, '_')}">
@@ -93,7 +97,11 @@ function generateProject(project) {
         }
         $('#navigation').removeClass('hide');
         complete();
-    });
+    }
+    catch {
+        $('table tbody').html('An error occurred');
+        complete();
+    }
 }
 
-/* Copyright © Nixinova 2020 */
+/* Copyright © Nixinova 2021 */

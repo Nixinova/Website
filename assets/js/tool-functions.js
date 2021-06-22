@@ -54,10 +54,6 @@ function checked(id) {
     return document.getElementById(id).checked;
 }
 
-function hasClass(id, class_) {
-    return $('#' + id).hasClass(class_);
-}
-
 function cleanup(id) {
     return id.toLowerCase()
         .replace(/[ -]/g, '_')

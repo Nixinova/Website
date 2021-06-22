@@ -74,11 +74,11 @@ function give() {
     let yrot_max = value('input_selector_yrot_max', 'num');
     let limit = value('input_selector_limit', 'int');
     let team = value('input_selector_team').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
-    let team_invert = hasClass('input_selector_team_i', 'on');
+    let team_invert = $('#input_selector_team_i').hasClass('on');
     let tag = value('input_selector_tag').toLowerCase().replace(/[\ -]/g, "_").replace(/[^a-z\_]/g, "");
-    let tag_invert = hasClass('input_selector_tag_i', 'on');
+    let tag_invert = $('#input_selector_tag_i').hasClass('on');
     let gamemode = value('input_selector_gm').toLowerCase();
-    let gamemode_invert = hasClass('input_selector_gm_i', 'on');
+    let gamemode_invert = $('#input_selector_gm_i').hasClass('on');
     let xp_min = value('input_selector_xp_min', 'int');
     let xp_max = value('input_selector_xp_max', 'int');
     let score = value('input_selector_score_objective').toLowerCase().replace(/[^a-z_:]/g, "");
@@ -88,21 +88,21 @@ function give() {
     let item = value('input_item').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z0-9_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
     let i_potion = value('input_item_potion').toLowerCase().replace(/[\ \-]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_");
     let i_head = value('input_item_head').replace(/[\ -]/g, "_").replace(/[^a-zA-Z0-9\_]/g, "");
-    let i_firework_flicker = hasClass('input_item_firework_flicker', 'on');
+    let i_firework_flicker = $('#input_item_firework_flicker').hasClass('on');
     let i_firework_flight = value('input_item_firework_flight', 'int');
     let i_firework_type = value('input_item_firework_type', 'int');
-    let i_firework_trail = hasClass('input_item_firework_trail', 'on');
+    let i_firework_trail = $('#input_item_firework_trail').hasClass('on');
     let i_name = value('input_item_name').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
     let i_colour = value('input_item_colour').toLowerCase().replace(' ', '_');
-    let i_bold = hasClass('input_item_b', 'on');
-    let i_italic = hasClass('input_item_i', 'on');
-    let i_underline = hasClass('input_item_u', 'on');
-    let i_strike = hasClass('input_item_s', 'on');
-    let i_obfus = hasClass('input_item_o', 'on');
+    let i_bold = $('#input_item_b').hasClass('on');
+    let i_italic = $('#input_item_i').hasClass('on');
+    let i_underline = $('#input_item_u').hasClass('on');
+    let i_strike = $('#input_item_s').hasClass('on');
+    let i_obfus = $('#input_item_o').hasClass('on');
     let i_lore = value('input_item_lore').replace(/\\/g, "\\\\").replace(/\"/g, '\\"');
     let i_ench = value('input_item_ench').toLowerCase().replace(/ /g, '_');
     let i_ench_lvl = value('input_item_ench_lvl', 1);
-    let i_unbreakable = hasClass('input_item_unbreakable', 'on');
+    let i_unbreakable = $('#input_item_unbreakable').hasClass('on');
     let i_durability = value('input_item_durability', 1);
     let i_destroy = value('input_item_destroy').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:#]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
     let i_place_on = value('input_item_place_on').toLowerCase().replace(/[ -]/g, "_").replace(/[^a-z_:]/g, "").replace(/_+/g, "_").replace(/:+/g, ":");
@@ -256,7 +256,7 @@ function give() {
         $('#potion').removeClass('hide');
     } else {
         $('#potion').addClass('hide');
-        $('input_item_potion').val('');
+        $('#input_item_potion').val('');
     }
     if (i_potion) nbt.Potion = i_potion;
 
@@ -265,7 +265,7 @@ function give() {
         $('#player_head').removeClass('hide');
     } else {
         $('#player_head').addClass('hide');
-        $('input_item_head').val('');
+        $('#input_item_head').val('');
     }
     if (i_head) nbt.SkullOwner = i_head;
 
@@ -372,8 +372,8 @@ function give() {
         $('.tool').removeClass('hide');
     } else {
         $('.tool').addClass('hide');
-        $('input_item_unbreakable').prop('checked', false);
-        $('input_item_durability').val('');
+        $('#input_item_unbreakable').prop('checked', false);
+        $('#input_item_durability').val('');
     }
 
     // damage //
@@ -393,9 +393,7 @@ function give() {
     if (i_destroy) {
         CanDestroy.push(i_destroy);
         for (const i in CanDestroy) {
-            for (const tag of TAGS) {
-                if (CanDestroy[i] === tag) CanDestroy[i] = '#' + tag;
-            }
+            if (!CanDestroy[i].startsWith('#')) CanDestroy[i] = '#' + CanDestroy[i];
         }
         nbt.CanDestroy = rvDupes(CanDestroy);
     }
@@ -404,9 +402,7 @@ function give() {
     if (i_place_on) {
         CanPlaceOn.push(i_place_on);
         for (const i in CanPlaceOn) {
-            for (const tag of TAGS) {
-                if (CanPlaceOn[i] === tag) CanPlaceOn[i] = '#' + tag;
-            }
+            if (!CanPlaceOn[i].startsWith('#')) CanPlaceOn[i] = '#' + CanPlaceOn[i];
         }
         nbt.CanPlaceOn = rvDupes(CanPlaceOn);
     }

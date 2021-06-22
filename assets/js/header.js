@@ -17,9 +17,9 @@ function toggleNav() {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    $('[data-icon]').each(i => {
-        const icon = $(this).data('icon');
-        $(this).html(`<img src="/assets/images/icons/${icon}.png" alt="${icon}" data-credit="FontAwesome">`);
+    $('[data-icon]').each(elem => {
+        const icon = $(elem).data('icon');
+        $(elem).html(`<img src="/assets/images/icons/${icon}.png" alt="${icon}" data-credit="FontAwesome">`);
     });
     $('a[href*="http"]').attr('rel', 'noreferrer');
 });

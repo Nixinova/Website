@@ -5,7 +5,7 @@
 form p:not(.text) {text-align: left; line-height: 3;}
 h2:not(.upper) {text-transform: lowercase;}
 main @ ..900px {margin-left: 1em;}
-form, output, .content @ 815px {max-width: 825px; margin: 0 auto;}
+form, output, .content @ 815px {max-width: 835px; margin: 0 auto;}
 
 // Buttons //
 button {padding: 7px 10px; font-size: inherit; color: inherit; border-radius: 5px;}

@@ -404,14 +404,14 @@ js: "give.js"
 </form>
 
 <!-- OUTPUT -->
-<h3 onmouseover="submit()">
+<h3>
     Output
     <span style="font-size: 90%;">
         &nbsp;<i data-icon="sync"></i>
         &nbsp;<i data-icon="copy" id="copyCommand" onclick="copyCommand()"></i>
     </span>
 </h3>
-<div id="cmd-note" class="hide" onmouseover="submit()">
+<div id="cmd-note" class="hide">
     <p>
         <strong>Note:</strong> This command is too long to be put in chat so it must be run from a command block:
         <output class="command">
@@ -422,6 +422,6 @@ js: "give.js"
         </output>
     </p>
 </div>
-<output id="generator-output" class="command"></output>
+<output id="generator-output" class="command" onclick="submit()"></output>
 
 {% include ad.html %}
