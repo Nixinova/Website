@@ -66,8 +66,8 @@ function bundle() {
     // style bundle slots
     $('td input').css('background', '');
     for (let i = 1; i <= window.bundleItemCount; i++) {
-        $('td input').each(function () {
-            if (parseInt($(this).val()) == i) $(this).css('background', `hsl(${i*47+180}, 70%, 70%)`);
+        $('td input').each(elem => {
+            if (parseInt($(elem).val()) === i) $(elem).css('background', `hsl(${i * 47 + 180}, 70%, 70%)`);
         });
     }
 

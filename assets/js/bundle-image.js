@@ -5,8 +5,7 @@ function openFile(file) {
     let reader = new FileReader();
     reader.onload = function () {
         let dataURL = reader.result;
-        let output = document.getElementById('output_image');
-        output.src = dataURL;
+        $('#output_image').prop('src', dataURL);
     };
     reader.readAsDataURL(input.files[0]);
 }
@@ -79,7 +78,7 @@ function generate() {
 
     window.Output = `/give @p bundle${nbt}`;
     if (window.Output.length > 256) $('#cmd-note').removeClass('hide');
-    if (window.Output.length > 1e5) $('#generator-output').css('font-family','sans-serif').html('<span onclick="copyCommand()">Too long to display; click to copy.</span>');
+    if (window.Output.length > 1e5) $('#generator-output').css('font-family', 'sans-serif').html('<span onclick="copyCommand()">Too long to display; click to copy.</span>');
     else $('#generator-output').css('font-family', 'monospace').html(`
         <span class="§7">/give</span>
         <span class="§b">@p</span>
@@ -95,7 +94,7 @@ function submit() {
         generate();
     }
     catch (error) {
-        $('#generator-output').css('font-family','sans-serif').html("An unknown error has occurred. Please try again or reload the page.");
+        $('#generator-output').css('font-family', 'sans-serif').html("An unknown error has occurred. Please try again or reload the page.");
         console.error(error.stack);
     }
 }
