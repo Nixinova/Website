@@ -65,6 +65,7 @@ $(@breakpoint | 815px |
 
 // Minecraft color codes //
 @var color code = color: $[1]; text-shadow: 1px 1px $[2];
+@endvar
 .§0 {$(color code|#000|#000000)}
 .§1 {$(color code|#00a|#00002a)}
 .§2 {$(color code|#0a0|#002a00)}

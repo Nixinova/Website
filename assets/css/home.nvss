@@ -8,15 +8,17 @@ body {background: linear-gradient(135deg, #14a, #15d); overflow-x: hidden;}
 footer {margin-top: 0;}
 
 // Pseudo-elements
-h2::before, h2::after {$(underline)!; width: 50%;}
-h2:hover::before, h2:hover::after {width: 70%; margin-left: 20%;}
+h2::before, h2::after {$(underline)!; width: 50%; margin-left: 25%;}
+h2:hover::before, h2:hover::after {width: 70%; margin-left: 15%;}
 a[href]:hover {opacity: 1;}
 
-// Top tiles
+// Specific sections
 #nixinova {background: $<body><background>;}
     & img {position: absolute; max-width: 50%; filter: brightness(0) invert(1); font-size: 10.4vw; font-family: 'Valken';}
     &-news img:hover {opacity: 0.6; transition: 0.2s;}
 .tagline {margin-bottom: 1em; font-size: 1.1em;}
+#youtube-videos h2 {padding-top: 1em;}
+#youtube-videos_list {display: grid; grid-template-columns: repeat(2, min-content); grid-template-rows: repeat(3, min-content); padding-bottom: 4em;}
 
 // Tile containers
 .showcase-container {border-top: 2px solid; text-align: center;}

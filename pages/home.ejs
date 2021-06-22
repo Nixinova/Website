@@ -39,6 +39,21 @@ css: home
     </a>
 </div>
 
+<div id="youtube-videos" class="showcase-container image-background" style="background-image: radial-gradient(white, black);">
+    <h2>Recent videos</h2>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const data = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=UCkBbTlppb8XHxI2rFryB1dQ').then(data => data.json());
+            for (const item of data.items.slice(0, 6)) {
+                document.querySelector('#youtube-videos_list').innerHTML += `
+                    <iframe src="https://youtube.com/embed/${item.guid.split(':')[2]}" width="360" style="aspect-ratio: 16/9;">
+                `;
+            }
+        });
+    </script>
+    <div id="youtube-videos_list" class="centered tile"></div>
+</div>
+
 <%= imageSection(
     'Projects', 'backgrounds/projects-background.jpg', '', [
         ['projects/novasheets', 'NovaSheets'],
@@ -70,7 +85,7 @@ css: home
 <%= imageSection(
     'Maps', 'minecraft/maps/kitpvp.jpg', '', [
         ['downloads/minecraft/maps/skywars', 'SkyWars'],
-        ['downloads/minecraft/maps/musical-blocks', 'Musical&nbsp;Blocks'],
+        ['downloads/minecraft/maps/musical-blocks', 'Musical Blocks'],
         ['downloads/minecraft/maps/kitpvp', 'KitPvP'],
     ]
 ) %>
