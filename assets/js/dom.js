@@ -10,7 +10,7 @@ class jQueryClass {
         else if (Object.is(selector, document)) this.elements = [document];
         else this.elements = document.querySelectorAll(selector);
         return this;
-    };
+    }
     addClass(name) {
         this.elements.forEach(elem => elem.classList.add(name));
         return this;
@@ -43,7 +43,7 @@ class jQueryClass {
     }
     val(val) {
         if (val == null) return this.elements[0].value;
-        this.elements[0].value = val;
+        this.elements.forEach(elem => elem.value = val);
         return this;
     }
     empty() {
@@ -56,16 +56,22 @@ class jQueryClass {
     }
     html(val) {
         if (val == null) return this.elements[0].innerHTML;
-        this.elements[0].innerHTML = val;
+        this.elements.forEach(elem => elem.innerHTML = val);
+        return this;
+    }
+    css(name, val) {
+        if (val == null) return this.elements[0].style[name];
+        this.elements.forEach(elem => elem.style[name] = val);
         return this;
     }
     text(val) {
         if (val == null) return this.elements[0].innerText;
-        this.elements[0].innerText = val;
+        this.elements.forEach(elem => elem.innerText = val);
         return this;
     }
     append(val) {
         this.elements.forEach(elem => elem.innerHTML += val);
+        return this;
     }
     each(func) {
         this.elements.forEach(func);
@@ -73,6 +79,7 @@ class jQueryClass {
     }
     ready(func) {
         this.elements.forEach(elem => elem.addEventListener('DOMContentLoaded', func));
+        return this;
     }
 
     // Convert to raw DOM elements //
