@@ -39,16 +39,17 @@ function bundle() {
     // create bundle slots
     if (window.size_old !== size_x + 'x' + size_y) {
         window.size_old = size_x + 'x' + size_y;
+        let tableContent = '<tbody>';
         $('#bundle_contents').empty();
         for (let i = 0; i < size_y; i++) {
-            $('#bundle_contents').append(`<tr>`);
+            tableContent += '<tr>';
             for (let j = 0; j < size_x; j++) {
-                $('#bundle_contents').append(`<td>
-                <input id="bundle_slot_${i}_${j}" min="1" type="number" placeholder=" " onchange="submit()">
-            </td>`);
+                tableContent += `<td><input id="bundle_slot_${i}_${j}" min="1" type="number" placeholder=" " onchange="submit()"></td>`;
             }
-            $('#bundle_contents').append(`</tr>`);
+            tableContent += '</tr>';
+            tableContent += '</tbody>';
         }
+        $('#bundle_contents').append(tableContent);
     }
 
     if (padding) {
@@ -57,7 +58,9 @@ function bundle() {
     }
     for (let i = 0; i < size_y; i++) {
         for (let j = 0; j < size_x; j++) {
-            let item = bundleItems[$(`#bundle_slot_${i}_${j}`).val()] || '';
+            const id = $(`#bundle_slot_${i}_${j}`)?.val();
+            if (!id) continue;
+            const item = bundleItems[id] || '';
             nbt.Items.push(item ? { id: item, Count: 1 } : {});
             if (padding && size_x === size_y && size_x > 1 && j === size_x - 1) nbt.Items.push({});
         }
