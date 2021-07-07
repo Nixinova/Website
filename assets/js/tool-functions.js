@@ -3,12 +3,10 @@ function random(min = 0, max = 100) {
 }
 
 function show_more(sourceId, targetId, rvcols) {
-    var source = $('#' + sourceId);
-    var target = $('#' + targetId);
-
+    const source = $('#' + sourceId);
+    const target = $('#' + targetId);
     source.toggleClass('minus').toggleClass('elipsis');
     target.toggleClass("hide");
-
     if (rvcols) target.toggleClass("row");
 }
 
@@ -25,24 +23,8 @@ function copyCommand() {
     document.body.removeChild(box);
 }
 
-function getQueryString(val) {
-    let href = window.location.href.split('#');
-    let query = href[1] ? href[1].split('&') : '';
-    if (query) {
-        let regexMatch = new RegExp('(\\?|)' + RegExp.escape(val) + '=.+');
-        let regexReplace = new RegExp('(\\?|)' + RegExp.escape(val) + '=');
-        let times = 0;
-        for (let q of query) {
-            if (q.match(regexMatch)) {
-                return q.replace(regexReplace, '');
-            } else ++times;
-        }
-        if (times === 0) return '';
-    }
-}
-
 function value(id, type) {
-    let val = $('#' + id).val().trim();
+    const val = $('#' + id).val().trim();
     switch (type) {
         case 'int': return val ? parseInt(val, 10) : null;
         case 'num': return val ? parseFloat(val) : null;
@@ -55,6 +37,7 @@ function checked(id) {
 }
 
 function cleanup(id) {
+    // Cleanup item ID
     return id.toLowerCase()
         .replace(/[ -]/g, '_')
         .replace(/[^a-z_:]/g, '')
@@ -64,9 +47,7 @@ function cleanup(id) {
 }
 
 function isEmpty(object) {
-    for (key in object) {
-        if (object.hasOwnProperty(key)) return false;
-    }
+    for (const key in object) return false;
     return true;
 }
 
@@ -84,8 +65,8 @@ function rvNestedDupes(array) {
 
 function rvDupes(array) {
     let newArray = [];
-    for (let a = 0; a < array.length; a++) {
-        if (newArray.indexOf(array[a]) == -1) {
+    for (const a in array) {
+        if (!newArray.includes(array[a])) {
             newArray.push(array[a]);
         }
         if (newArray[a] == null) {
