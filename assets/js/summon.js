@@ -337,7 +337,7 @@ function summon() {
             if (villager_type) villager_data.type = villager_type;
             if (villager_profession) villager_data.profession = villager_profession;
             if (villager_level && villager_level !== 1) villager_data.level = villager_level;
-            if (!$.isEmptyObject(villager_data)) nbt.VillagerData = villager_data;
+            if (!isEmpty(villager_data)) nbt.VillagerData = villager_data;
         }
 
         // wolf //
@@ -347,17 +347,17 @@ function summon() {
         }
 
         // zombies //
-        if (ZOMBIES.indexOf(entity) > -1) {
+        if (ZOMBIES.includes(entity)) {
             $('.zombies').removeClass('hide');
             if (zombies_canbreak_doors) nbt.CanBreakDoors = true;
         }
 
         // babies //
-        if (BABY_MOBS.indexOf(entity) > -1) {
+        if (BABY_MOBS.includes(entity)) {
             $('.baby_mobs').removeClass('hide');
             if (baby) nbt.IsBaby = true;
         }
-        if (NEG_AGE_MOBS.indexOf(entity) > -1) {
+        if (NEG_AGE_MOBS.includes(entity)) {
             $('.baby_mobs').removeClass('hide');
             if (baby && baby_time_value) {
                 let interval = 1;
