@@ -54,7 +54,8 @@ async function generateAllProjects() {
         }
         complete();
     }
-    catch {
+    catch(err) {
+        console.error(err);
         $('table tbody').html('An error occurred');
         complete();
     }
@@ -98,7 +99,8 @@ async function generateProject(project) {
         $('#navigation').removeClass('hide');
         complete();
     }
-    catch {
+    catch(err) {
+        console.error(err);
         $('table tbody').html('An error occurred');
         complete();
     }

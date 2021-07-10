@@ -69,6 +69,10 @@ class jQueryClass {
         this.elements.forEach(elem => elem.innerText = val);
         return this;
     }
+    prepend(val) {
+        this.elements.forEach(elem => elem.innerHTML = val + elem.innerHTML);
+        return this;
+    }
     append(val) {
         this.elements.forEach(elem => elem.innerHTML += val);
         return this;
