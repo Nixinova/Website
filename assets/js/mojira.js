@@ -88,12 +88,12 @@ async function generateProject(project) {
     try {
         const projectData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/' + project).then(data => data.json());
         $('table thead').prepend(`
-            <tr><td colspan="4" style="text-align: center;">
-                <a href="javascript:generateAllProjects();history.pushState(null, null, '?');" style="position: relative; right: 8%;">&larr; Back</a>
+            <tr><td colspan="5" style="text-align: center;">
+                <a href="javascript:generateAllProjects();history.pushState(null, null, '?');" id="back-button">&larr; Back</a>
                 <img src="${projectData.avatarUrls["48x48"]}"> ${projectData.name}
             </td></tr>
         `);
-        for (let i = projectData.versions.length; i > 0; i--) {
+        for (let i = projectData.versions.length - 1; i > 0; i--) {
             const version = projectData.versions[i];
             $('#dropdown').append(`\n<option>${version.name}</option>`);
             $('table tbody').append(`
@@ -106,8 +106,8 @@ async function generateProject(project) {
                         <a href="${bugsLink('fixVersion', version.name, project)}">Fixes</a>
                     </td>
                     <td style="width: 100px;">
-                        <a href="javascript:generateIssues('${bugsLink('affectedVersion', version.name, project)}')">Bugs</a>,
-                        <a href="javascript:generateIssues('${bugsLink('fixVersion', version.name, project)}')">Fixes</a>
+                        <a href="javascript:generateIssues('${project}', '${bugsLink('affectedVersion', version.name, project)}')">Bugs</a>,
+                        <a href="javascript:generateIssues('${project}', '${bugsLink('fixVersion', version.name, project)}')">Fixes</a>
                     </td>
                 </tr>
             `);
@@ -122,7 +122,7 @@ async function generateProject(project) {
     }
 }
 
-async function generateIssues(query) {
+async function generateIssues(project, query) {
     history.pushState(null, null, `?query=${query}`);
     $('title').text(`Query ${decodeURIComponent(query)} – ${title}`);
     $('#navigation-type').text('issue');
@@ -142,6 +142,11 @@ async function generateIssues(query) {
 
     try {
         const issuesData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/search?jql=' + query).then(data => data.json());
+        $('table thead').prepend(`
+            <tr><td colspan="6" style="text-align: center;">
+                <a href="javascript:generateProject('${project}');history.pushState(null, null, '?project=${project}');" id="back-button">&larr; Back</a>
+            </td></tr>
+        `);
         for (const issue of issuesData.issues) {
             const date = (new Date(issue.fields.created)).toISOString().replace('T', ' ').replace(/\.\d+Z/, '');
             $('#dropdown').append(`\n<option>${issue.key}</option>`);
