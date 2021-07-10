@@ -27,8 +27,11 @@ js: "mojira.js"
 </p>
 
 <p id="navigation" class="hide">
-    Jump to version:&nbsp; <select id="dropdown" onchange="location.hash = encodeURIComponent(this.value.replace(/ /g, '_'))"></select>
+    Jump to <span id="navigation-type">version</span>:
+    <select id="dropdown" onchange="location.hash = encodeURIComponent(this.value.replace(/ /g, '_'))"></select>
 </p>
+
+<p id="desc"></p>
 
 <table class="styled hide">
     <thead></thead>

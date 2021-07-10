@@ -22,14 +22,19 @@ function complete() {
 }
 
 function initial() {
-    if (location.search.includes('project=')) generateProject(location.search.replace(/.*project=([A-Z]+).*/i, '$1'))
-    else generateAllProjects()
+    const params = (new URL(location.href)).searchParams;
+    if (params.get('project')) generateProject(params.get('project'));
+    else if (params.get('query')) generateProject(params.get('query'));
+    else generateAllProjects();
 }
 
 async function generateAllProjects() {
     $('title').html(title);
     $('#navigation').addClass('hide');
+    $('#navigation-type').text('version');
+    $('#desc').text('');
     start();
+
     $('table thead').html(`
         <tr>
             <th>Icon</th>
@@ -54,7 +59,7 @@ async function generateAllProjects() {
         }
         complete();
     }
-    catch(err) {
+    catch (err) {
         console.error(err);
         $('table tbody').html('An error occurred');
         complete();
@@ -62,15 +67,21 @@ async function generateAllProjects() {
 }
 
 async function generateProject(project) {
-    $('title').html(`Project ${project} – ${title}`);
-    const bugsLink = (type, version, project) => 'https://bugs.mojang.com/issues/?jql=' + encodeURIComponent(`${type} in ("${version}") AND project = ${project} ORDER BY key`);
+    $('title').text(`Project ${project} – ${title}`);
+    $('#navigation-type').text('version');
+    $('#desc').text('');
+
+    const searchQuery = (type, version, project) => encodeURIComponent(`${type} in ("${version}") AND project = ${project} ORDER BY key`);
+    const bugsLink = (type, version, project) => 'https://bugs.mojang.com/issues/?jql=' + searchQuery(type, version, project);
     start();
+
     $('table thead').html(`
         <tr>
             <th style="max-width: 300px;">Version</th>
             <th style="width: 100px;">Date</th>
             <th>Description</th>
             <th style="width: 100px;">Quick Links</th>
+            <th style="width: 100px;">Load Issues</th>
         </tr>
     `);
 
@@ -82,7 +93,8 @@ async function generateProject(project) {
                 <img src="${projectData.avatarUrls["48x48"]}"> ${projectData.name}
             </td></tr>
         `);
-        for (let version of projectData.versions.reverse()) {
+        for (let i = projectData.versions.length; i > 0; i--) {
+            const version = projectData.versions[i];
             $('#dropdown').append(`\n<option>${version.name}</option>`);
             $('table tbody').append(`
                 <tr id="${version.name.replace(/ /g, '_')}">
@@ -93,13 +105,66 @@ async function generateProject(project) {
                         <a href="${bugsLink('affectedVersion', version.name, project)}">Bugs</a>,
                         <a href="${bugsLink('fixVersion', version.name, project)}">Fixes</a>
                     </td>
+                    <td style="width: 100px;">
+                        <a href="javascript:generateIssues('${bugsLink('affectedVersion', version.name, project)}')">Bugs</a>,
+                        <a href="javascript:generateIssues('${bugsLink('fixVersion', version.name, project)}')">Fixes</a>
+                    </td>
                 </tr>
             `);
         }
         $('#navigation').removeClass('hide');
         complete();
     }
-    catch(err) {
+    catch (err) {
+        console.error(err);
+        $('table tbody').html('An error occurred');
+        complete();
+    }
+}
+
+async function generateIssues(query) {
+    history.pushState(null, null, `?query=${query}`);
+    $('title').text(`Query ${decodeURIComponent(query)} – ${title}`);
+    $('#navigation-type').text('issue');
+    $('#desc').text(`Issues for query '${query}'`);
+
+    start();
+    $('table thead').html(`
+        <tr>
+            <th style="max-width: 300px;">Issue</th>
+            <th style="width: 100px;">Date</th>
+            <th style="width: 100px;">Popularity</th>
+            <th style="width: 100px;">Status</th>
+            <th style="width: 130px;">Affects</th>
+            <th style="width: 100px;">Fixed in</th>
+        </tr>
+    `);
+
+    try {
+        const issuesData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/search?jql=' + query).then(data => data.json());
+        for (const issue of issuesData.issues) {
+            const date = (new Date(issue.fields.created)).toISOString().replace('T', ' ').replace(/\.\d+Z/, '');
+            $('#dropdown').append(`\n<option>${issue.key}</option>`);
+            $('table tbody').append(`
+                <tr id="${issue.key}">
+                    <td style="max-width: 300px;"><a href="https://bugs.mojang.com/issue/${issue.key}">${issue.key}</a></td>
+                    <td style="width: 100px;"><samp>${date}</samp></td>
+                    <td style="width: 100px;">${issue.fields.votes.votes} ⇧ ${issue.fields.watches.watchCount} 👁</td>
+                    <td style="width: 100px;">${issue.fields.status.name}</td>
+                    <td style="width: 130px;">
+                        <details>
+                            <summary>${issue.fields.versions.length} versions</summary>
+                            ${issue.fields.versions.map(obj => obj.name).join(', ') || 'None'}
+                        </details>
+                    </td>
+                    <td style="width: 100px;"><small>${issue.fields.fixVersions.join(', ')}</small></td>
+                </tr>
+            `);
+        }
+        $('#navigation').removeClass('hide');
+        complete();
+    }
+    catch (err) {
         console.error(err);
         $('table tbody').html('An error occurred');
         complete();
