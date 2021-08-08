@@ -40,16 +40,15 @@ function bundle() {
     if (window.size_old !== size_x + 'x' + size_y) {
         window.size_old = size_x + 'x' + size_y;
         let tableContent = '<tbody>';
-        $('#bundle_contents').empty();
         for (let i = 0; i < size_y; i++) {
             tableContent += '<tr>';
             for (let j = 0; j < size_x; j++) {
                 tableContent += `<td><input id="bundle_slot_${i}_${j}" min="1" type="number" placeholder=" " onchange="submit()"></td>`;
             }
             tableContent += '</tr>';
-            tableContent += '</tbody>';
         }
-        $('#bundle_contents').append(tableContent);
+        tableContent += '</tbody>';
+        $('#bundle_contents').html(tableContent);
     }
 
     if (padding) {
@@ -75,8 +74,9 @@ function bundle() {
     }
 
     // CONVERT TO NBT //
-    if (!isEmpty(nbt)) {//                Removes quotes from tags ;//         Show num types as ints
-        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:');//.replace(/"([0-9.]+[bdfLs])"/g, '$1');
+    if (!isEmpty(nbt)) {
+        const quoteRemoverRegex = /"([^(")\\]+)":/g;
+        nbt = JSON.stringify(nbt).replace(quoteRemoverRegex, '$1:');
     } else nbt = '';
 
     /// OUTPUT ///
@@ -106,4 +106,4 @@ function submit() {
     }
 }
 
-/* Copyright © Nixinova 2020 */
+/* Copyright © Nixinova 2021 */
