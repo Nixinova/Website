@@ -1,9 +1,6 @@
 # General
 * text=auto
 
-# Package
-package-lock.json -diff
-
 # Linguist
 *.nvss linguist-language=Less
 
