@@ -60,18 +60,18 @@ async function getInfo(playerName) {
     const username = usernameData[usernameData.length - 1].name;
     $('#username').html(username);
     $('#uuid').html(uuidFormatted);
-    for (let i = 0; i < usernameDate.length; i++) {
+    for (let i = 0; i < usernameData.length; i++) {
         const name = usernameData[i].name;
-        const date = moment(usernameData[i].changedToAt).format('DD MMM YYYY [at] HH:mm:ss [UTC]');
+        const date = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'long' }).format(usernameData[i].changedToAt);
         let historyEntry;
         if (i === 0 && usernameData.length === 1) {
             historyEntry = `<li>Current name: <strong>${name}</strong></li>`;
         } else if (i === usernameData.length - 1) {
-            historyEntry = `<li><strong>${name}</strong> (current)<br class="mobileonly"/>(since ${date})</li>`;
+            historyEntry = `<li><strong>${name}</strong> (current)<br class="mobileonly"/> (from ${date})</li>`;
         } else if (i === 0) {
             historyEntry = `<li><strong>${name}</strong></li>`;
         } else {
-            historyEntry = `<li><strong>${name}</strong><br class="mobileonly"/>(since ${date})</li>`;
+            historyEntry = `<li><strong>${name}</strong><br class="mobileonly"/> (from ${date})</li>`;
         }
         $('#username-history').append(historyEntry);
     }

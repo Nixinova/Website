@@ -7,11 +7,9 @@ keywords: "nixinova,minecraft,minecraft api,minecraft player info,minecraft play
 css: tools
 js: "player.js"
 ---
-<script async src="https://momentjs.com/downloads/moment.js"></script>
 <style>
     output {display: block;}
     output img {width: 256px; image-rendering: pixelated;}
-    p {text-align: center;}
 </style>
 
 <h1>Minecraft Player API</h1>
@@ -33,10 +31,10 @@ js: "player.js"
         <span id="uuid" style="font-style: italic;"></span>
     </p>
     <ol id="username-history"></ol>
-    <p>
+    <div style="text-align: center;">
         <div id="skin"></div>
         <div id="cape"></div>
-    </p>
+    </div>
 </output>
 
 {% include ad.html %}
