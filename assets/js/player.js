@@ -33,7 +33,7 @@ async function getInfo(playerName) {
     progress(0);
     sections.forEach(id => $('#' + id).empty());
 
-    let query = location.search.substr(1);
+    const query = location.search.substr(1);
     if (!playerName && query) playerName = query;
 
     // Retrieve player data
@@ -63,15 +63,17 @@ async function getInfo(playerName) {
     for (let i = 0; i < usernameData.length; i++) {
         const name = usernameData[i].name;
         const date = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'long' }).format(usernameData[i].changedToAt);
+        const dateHtml = `<time datetime="${new Date(usernameData[i].changedToAt).toISOString()}">${date}</time>`
+        const nameHtml = `<strong>${name}</strong>`;
         let historyEntry;
         if (i === 0 && usernameData.length === 1) {
-            historyEntry = `<li>Current name: <strong>${name}</strong></li>`;
+            historyEntry = `<li>Current name: ${nameHtml}</li>`;
         } else if (i === usernameData.length - 1) {
-            historyEntry = `<li><strong>${name}</strong> (current)<br class="mobileonly"/> (from ${date})</li>`;
+            historyEntry = `<li>${nameHtml} (current)<br class="mobileonly"/> (from ${dateHtml})</li>`;
         } else if (i === 0) {
-            historyEntry = `<li><strong>${name}</strong></li>`;
+            historyEntry = `<li>${nameHtml}</li>`;
         } else {
-            historyEntry = `<li><strong>${name}</strong><br class="mobileonly"/> (from ${date})</li>`;
+            historyEntry = `<li>${nameHtml}<br class="mobileonly"/> (from ${dateHtml})</li>`;
         }
         $('#username-history').append(historyEntry);
     }
@@ -99,6 +101,7 @@ async function getInfo(playerName) {
     const skinURL = decoded_data.textures.SKIN.url.replace('http:', 'https:');
     if (username) skinURLs[username] = skinURL;
     $('#skin').html(`
+        <h3>Skin</h3>
         <img src="${skinURL}" alt="${username}'s skin">
     `);
     const cape = decoded_data.textures.CAPE;
@@ -106,6 +109,7 @@ async function getInfo(playerName) {
         const capeURL = cape.url.replace('http:', 'https:');
         if (username) capeURLs[username] = capeURL;
         $('#cape').html(`
+            <h3>Cape</h3>
             <img src="${capeURL}" alt="${username}'s cape">
         `);
     }
