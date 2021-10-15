@@ -62,8 +62,9 @@ async function getInfo(playerName) {
     $('#uuid').html(uuidFormatted);
     for (let i = 0; i < usernameData.length; i++) {
         const name = usernameData[i].name;
-        const date = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'long' }).format(usernameData[i].changedToAt);
-        const dateHtml = `<time datetime="${new Date(usernameData[i].changedToAt).toISOString()}">${date}</time>`
+        const datestamp = usernameData[i].changedToAt;
+        const date = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'long' }).format(datestamp);
+        const dateHtml = `<time datetime="${datestamp ? new Date(datestamp).toISOString() : ''}">${date}</time>`
         const nameHtml = `<strong>${name}</strong>`;
         let historyEntry;
         if (i === 0 && usernameData.length === 1) {
