@@ -13,9 +13,6 @@ js: "player.js"
     output img {width: 256px; image-rendering: pixelated;}
     p {text-align: center;}
 </style>
-<script>
-    var sections = ['username', 'uuid', 'username-history', 'skin', 'cape'];
-</script>
 
 <h1>Minecraft Player API</h1>
 <p>Get information about any Minecraft player.</p>
@@ -35,10 +32,10 @@ js: "player.js"
         <strong id="username" style="font-size: 1.5em;"></strong>
         <span id="uuid" style="font-style: italic;"></span>
     </p>
-    <ul id="username-history"></ul>
+    <ol id="username-history"></ol>
     <p>
-        <span id="skin"></span>
-        <span id="cape"></span>
+        <div id="skin"></div>
+        <div id="cape"></div>
     </p>
 </output>
 

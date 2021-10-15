@@ -1,3 +1,6 @@
+const sections = ['username', 'uuid', 'username-history', 'skin', 'cape'];
+const skinURLs = {}, capeURLs = {};
+
 function error(err) {
     if (err === 'PlayerNotFoundError') {
         $('#username').empty();
@@ -9,6 +12,7 @@ function error(err) {
     } else {
         $('output').html('Unknown error');
     }
+    throw err;
 }
 
 function progress(val) {
@@ -23,13 +27,6 @@ function complete() {
     }, 100);
 }
 
-$(function () {
-    let query = location.search.substr(1);
-    if (query) getInfo(query);
-    $('#input-username').val(query);
-});
-
-let skinURLs = {}, capeURLs = {};
 async function getInfo(playerName) {
     $('#loading').removeClass('hide');
     $('output').addClass('hide');
@@ -42,12 +39,12 @@ async function getInfo(playerName) {
     // Retrieve player data
     const playerData = await fetch(`https://cors-anywhere.herokuapp.com/https://api.mojang.com/users/profiles/minecraft/${playerName}`).then(data => data.json()).catch(() => {
         complete();
-        throw error('PlayerNotFoundError');
+        error('PlayerNotFoundError');
     });
     progress(1 / 3);
     if (!playerData) error('PlayerNotFoundError');
-    let username, uuid = playerData.id;
-    let uuidFormatted = [
+    const uuid = playerData.id;
+    const uuidFormatted = [
         uuid.substring(0, 8),
         uuid.substring(8, 12), uuid.substring(12, 16), uuid.substring(16, 20),
         uuid.substring(20, 32),
@@ -56,25 +53,25 @@ async function getInfo(playerName) {
     // Retrieve username data
     const usernameData = await fetch(`https://cors-anywhere.herokuapp.com/https://api.mojang.com/user/profiles/${uuid}/names`).then(data => data.json()).catch(() => {
         complete();
-        throw error('PlayerNotFoundError');
+        error('PlayerNotFoundError');
     });
     progress(2 / 3);
     $('#username-history').empty();
-    username = usernameData[usernameData.length - 1].name;
+    const username = usernameData[usernameData.length - 1].name;
     $('#username').html(username);
     $('#uuid').html(uuidFormatted);
-    for (let i in usernameData) {
-        let name = usernameData[i].name;
-        let date = moment(usernameData[i].changedToAt).format('DD MMM YYYY [at] HH:mm:ss [UTC]');
+    for (let i = 0; i < usernameDate.length; i++) {
+        const name = usernameData[i].name;
+        const date = moment(usernameData[i].changedToAt).format('DD MMM YYYY [at] HH:mm:ss [UTC]');
         let historyEntry;
         if (i === 0 && usernameData.length === 1) {
-            historyEntry = `<li>Current name: ${name}</li>`;
+            historyEntry = `<li>Current name: <strong>${name}</strong></li>`;
         } else if (i === usernameData.length - 1) {
-            historyEntry = `<li>Name #${parseInt(i) + 1} (current): ${name} <br class="mobileonly"/>(changed on ${date})</li>`;
+            historyEntry = `<li><strong>${name}</strong> (current)<br class="mobileonly"/>(since ${date})</li>`;
         } else if (i === 0) {
-            historyEntry = `<li>Name #1: ${name}</li>`;
+            historyEntry = `<li><strong>${name}</strong></li>`;
         } else {
-            historyEntry = `<li>Name #${parseInt(i) + 1}: ${name} <br class="mobileonly"/>(changed on ${date})</li>`;
+            historyEntry = `<li><strong>${name}</strong><br class="mobileonly"/>(since ${date})</li>`;
         }
         $('#username-history').append(historyEntry);
     }
@@ -83,27 +80,30 @@ async function getInfo(playerName) {
         complete();
         if (skinURLs[username] || capeURLs[username]) {
             $('#skin').html(`
+                <h3>Skin</h3>
                 <img src="${skinURLs[username]}" alt="${username}'s skin">
             `);
             if (capeURLs[username]) {
                 $('#cape').html(`
+                    <h3>Cape</h3>
                     <img src="${capeURLs[username]}" alt="${username}'s cape">
                 `);
             }
             throw 'Completed';
         } else {
-            throw error('SkinNotFoundError');
+            error('SkinNotFoundError');
         }
     });
     let encoded_data = skinData.properties[0].value;
     let decoded_data = JSON.parse(atob(encoded_data));
-    let skinURL = decoded_data.textures.SKIN.url.replace('http:', 'https:');
+    const skinURL = decoded_data.textures.SKIN.url.replace('http:', 'https:');
     if (username) skinURLs[username] = skinURL;
     $('#skin').html(`
         <img src="${skinURL}" alt="${username}'s skin">
     `);
-    if (cape = decoded_data.textures.CAPE) {
-        capeURL = cape.url.replace('http:', 'https:');
+    const cape = decoded_data.textures.CAPE;
+    if (cape) {
+        const capeURL = cape.url.replace('http:', 'https:');
         if (username) capeURLs[username] = capeURL;
         $('#cape').html(`
             <img src="${capeURL}" alt="${username}'s cape">
@@ -112,5 +112,11 @@ async function getInfo(playerName) {
     complete();
 
 }
+
+$(function () {
+    let query = location.search.substr(1);
+    if (query) getInfo(query);
+    $('#input-username').val(query);
+});
 
 /* Copyright © Nixinova 2021 */
