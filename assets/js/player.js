@@ -63,18 +63,19 @@ async function getInfo(playerName) {
     for (let i = 0; i < usernameData.length; i++) {
         const name = usernameData[i].name;
         const datestamp = usernameData[i].changedToAt;
-        const date = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'long' }).format(datestamp);
+        const date = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'long', timeZone: 'UTC' }).format(datestamp);
         const dateHtml = `<time datetime="${datestamp ? new Date(datestamp).toISOString() : ''}">${date}</time>`
         const nameHtml = `<strong>${name}</strong>`;
+        const daysDiff = i > 0 && (new Date(datestamp) - new Date(usernameData[i - 1].changedToAt)) / 1e3 / 86400;
         let historyEntry;
         if (i === 0 && usernameData.length === 1) {
             historyEntry = `<li>Current name: ${nameHtml}</li>`;
         } else if (i === usernameData.length - 1) {
-            historyEntry = `<li>${nameHtml} (current)<br class="mobileonly"/> (from ${dateHtml})</li>`;
+            historyEntry = `<li>${nameHtml} (current)<br class="mobileonly"/> (${daysDiff} days; changed ${dateHtml})</li>`;
         } else if (i === 0) {
             historyEntry = `<li>${nameHtml}</li>`;
         } else {
-            historyEntry = `<li>${nameHtml}<br class="mobileonly"/> (from ${dateHtml})</li>`;
+            historyEntry = `<li>${nameHtml}<br class="mobileonly"/> (${daysDiff} days; changed ${dateHtml})</li>`;
         }
         $('#username-history').append(historyEntry);
     }
