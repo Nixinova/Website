@@ -66,7 +66,7 @@ async function getInfo(playerName) {
         const date = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'long', timeZone: 'UTC' }).format(datestamp);
         const dateHtml = `<time datetime="${datestamp ? new Date(datestamp).toISOString() : ''}">${date}</time>`
         const nameHtml = `<strong>${name}</strong>`;
-        const daysDiff = i > 0 && (new Date(datestamp) - new Date(usernameData[i - 1].changedToAt)) / 1e3 / 86400;
+        const daysDiff = i > 1 && Math.round((new Date(datestamp) - new Date(usernameData[i - 1].changedToAt)) / 1e3 / 86400);
         let historyEntry;
         if (i === 0 && usernameData.length === 1) {
             historyEntry = `<li>Current name: ${nameHtml}</li>`;
