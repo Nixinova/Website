@@ -8,23 +8,23 @@ css: tools
 js: "player.js"
 ---
 <style>
+    main {text-align: center;}
     output {display: block;}
     output img {width: 256px; image-rendering: pixelated;}
-    table {margin: auto; border-collapse: collapse; text-align: center;}
+    table {margin: auto; border-collapse: collapse;}
     td {border: 2px solid; padding: 0.5em;}
     #username {font-size: 1.5em;}
     #uuid {font-style: italic;}
-    #error {text-align: center;}
 </style>
 
 <h1>Minecraft Player API</h1>
 <p>Get information about any Minecraft player.</p>
 
-<p>
-    <label>Username:</label>
+<form action="javascript:void(0)">
+    <label for="input-username">Username:</label>
     <input type="text" id="input-username"> &nbsp;
-    <button type="button" id="get-info" onclick="getInfo($('#input-username').val());">Get info</button><br>
-</p>
+    <button id="get-info" onclick="getInfo($('#input-username').val());">Get info</button>
+</form>
 
 <p id="loading" class="hide">
     Loading... <progress value="0.00"></progress>
@@ -39,11 +39,16 @@ js: "player.js"
     </p>
     <table id="username-table">
         <thead>
-            <th>#</th>
-            <th>Username</th>
-            <th>From (UTC)</th>
-            <th>To (UTC)</th>
-            <th>Duration</th>
+            <tr>
+                <th colspan="5"><h3>Usernames</h3></th>
+            </tr>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>From (UTC)</th>
+                <th>To (UTC)</th>
+                <th>Duration</th>
+            </tr>
         </thead>
         <tbody id="username-history" class="clearable"></tbody>
     </table>
