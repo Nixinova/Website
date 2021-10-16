@@ -10,6 +10,11 @@ js: "player.js"
 <style>
     output {display: block;}
     output img {width: 256px; image-rendering: pixelated;}
+    table {margin: auto; border-collapse: collapse; text-align: center;}
+    td {border: 2px solid; padding: 0.5em;}
+    #username {font-size: 1.5em;}
+    #uuid {font-style: italic;}
+    #error {text-align: center;}
 </style>
 
 <h1>Minecraft Player API</h1>
@@ -25,15 +30,26 @@ js: "player.js"
     Loading... <progress value="0.00"></progress>
 </p>
 
+<div id="error" class="clearable"></div>
+
 <output class="hide">
     <p id="username_uuid">
-        <strong id="username" style="font-size: 1.5em;"></strong>
-        <span id="uuid" style="font-style: italic;"></span>
+        <strong id="username" class="clearable"></strong>
+        <div id="uuid" class="clearable"></div>
     </p>
-    <ol id="username-history"></ol>
+    <table id="username-table">
+        <thead>
+            <th>#</th>
+            <th>Username</th>
+            <th>From (UTC)</th>
+            <th>To (UTC)</th>
+            <th>Duration</th>
+        </thead>
+        <tbody id="username-history" class="clearable"></tbody>
+    </table>
     <div style="text-align: center;">
-        <div id="skin"></div>
-        <div id="cape"></div>
+        <div id="skin" class="clearable"></div>
+        <div id="cape" class="clearable"></div>
     </div>
 </output>
 
