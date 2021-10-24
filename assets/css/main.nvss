@@ -48,7 +48,6 @@ header {
     }
     #menu-logo {
         margin: auto;
-        img {max-height: 80px;}
     }
 }
 

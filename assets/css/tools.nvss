@@ -3,7 +3,7 @@
 
 // Base styles //
 form p:not(.text) {text-align: left; line-height: 3;}
-h2:not(.upper) {text-transform: lowercase;}
+h2.lower {text-transform: lowercase;}
 main @ ..900px {margin-left: 1em;}
 form, output, .content @ 815px {max-width: 835px; margin: 0 auto;}
 
