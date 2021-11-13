@@ -93,4 +93,8 @@ function obfuscate(input, element) {
     else return randString;
 }
 
+function copy(text) {
+    navigator.clipboard.writeText(text);
+}
+
 /* Copyright © Nixinova 2021 */

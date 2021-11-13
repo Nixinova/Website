@@ -1,168 +1,122 @@
 function coords() {
     /// VARIABLES ///
     // call from input form //
-    var overworld_block_x  = value('overworld_block_x');
-    var overworld_block_y  = value('overworld_block_y');
-    var overworld_block_z  = value('overworld_block_z');
-    var overworld_chunk_x  = value('overworld_chunk_x');
-    var overworld_chunk_y  = value('overworld_chunk_y');
-    var overworld_chunk_z  = value('overworld_chunk_z');
-    var nether_block_x     = value('nether_block_x');
-    var nether_block_y     = value('nether_block_y');
-    var nether_block_z     = value('nether_block_z');
-    var nether_chunk_x     = value('nether_chunk_x');
-    var nether_chunk_y     = value('nether_chunk_y');
-    var nether_chunk_z     = value('nether_chunk_z');
-    var overworld_region_x = value('overworld_region_x');
-    var overworld_region_z = value('overworld_region_z');
-    var nether_region_x    = value('nether_region_x');
-    var nether_region_z    = value('nether_region_z');
+    const getXYZ = (text) => ({ x: value(`${text}_x`), y: value(`${text}_y`), z: value(`${text}_z`) });
+    const getXZ = (text) => ({ x: value(`${text}_x`), z: value(`${text}_z`) });
+    const overworld_block = getXYZ('overworld_block');
+    const overworld_chunk = getXYZ('overworld_chunk');
+    const nether_block = getXYZ('nether_block');
+    const nether_chunk = getXYZ('nether_chunk');
+    const overworld_region = getXZ('overworld_region');
+    const nether_region = getXZ('nether_region');
 
     /// GENERATOR ///
-
     if (coordsType === 'overworld_block') {
-        nether_block_x     = Math.floor(overworld_block_x / 8);
-        nether_block_y     = overworld_block_y;
-        nether_block_z     = Math.floor(overworld_block_z / 8);
-        nether_chunk_x     = Math.floor(nether_block_x / 16);
-        nether_chunk_y     = Math.floor(nether_block_y / 16);
-        nether_chunk_z     = Math.floor(nether_block_z / 16);
-        overworld_chunk_x  = nether_chunk_x * 8;
-        overworld_chunk_y  = nether_chunk_y * 8;
-        overworld_chunk_z  = nether_chunk_z * 8;
-        overworld_region_x = Math.floor(overworld_block_x / 512);
-        overworld_region_z = Math.floor(overworld_block_z / 512);
-        nether_region_x    = Math.floor(overworld_region_x / 8);
-        nether_region_z    = Math.floor(overworld_region_z / 8);
+        nether_block.x = Math.floor(overworld_block.x / 8);
+        nether_block.y = overworld_block.y;
+        nether_block.z = Math.floor(overworld_block.z / 8);
+        nether_chunk.x = Math.floor(nether_block.x / 16);
+        nether_chunk.y = Math.floor(nether_block.y / 16);
+        nether_chunk.z = Math.floor(nether_block.z / 16);
+        overworld_chunk.x = Math.floor(overworld_block.x / 16);
+        overworld_chunk.y = Math.floor(overworld_block.y / 16);
+        overworld_chunk.z = Math.floor(overworld_block.z / 16);
+        overworld_region.x = Math.floor(overworld_block.x / 512);
+        overworld_region.z = Math.floor(overworld_block.z / 512);
+        nether_region.x = Math.floor(overworld_region.x / 8);
+        nether_region.z = Math.floor(overworld_region.z / 8);
     }
     else if (coordsType === 'overworld_chunk') {
-        overworld_block_x  = overworld_chunk_x * 16;
-        overworld_block_y  = overworld_chunk_y * 16;
-        overworld_block_z  = overworld_chunk_z * 16;
-        nether_block_x     = overworld_block_z / 8;
-        nether_block_y     = overworld_block_z / 8;
-        nether_block_z     = overworld_block_z / 8;
-        overworld_region_x = Math.floor(overworld_block_x / 512);
-        overworld_region_z = Math.floor(overworld_block_z / 512);
-        nether_region_x    = Math.floor(overworld_region_x / 8);
-        nether_region_z    = Math.floor(overworld_region_z / 8);
+        overworld_block.x = overworld_chunk.x * 16;
+        overworld_block.y = overworld_chunk.y * 16;
+        overworld_block.z = overworld_chunk.z * 16;
+        nether_block.x = overworld_block.z / 8;
+        nether_block.y = overworld_block.z / 8;
+        nether_block.z = overworld_block.z / 8;
+        overworld_region.x = Math.floor(overworld_block.x / 512);
+        overworld_region.z = Math.floor(overworld_block.z / 512);
+        nether_region.x = Math.floor(overworld_region.x / 8);
+        nether_region.z = Math.floor(overworld_region.z / 8);
     }
     else if (coordsType === 'nether_block') {
-        overworld_block_x  = nether_block_x * 8;
-        overworld_block_y  = nether_block_y;
-        overworld_block_z  = nether_block_z * 8;
-        nether_chunk_x     = Math.floor(nether_block_x / 16);
-        nether_chunk_y     = Math.floor(nether_block_y / 16);
-        nether_chunk_z     = Math.floor(nether_block_z / 16);
-        overworld_chunk_x  = nether_chunk_x * 8;
-        overworld_chunk_y  = nether_chunk_y * 8;
-        overworld_chunk_z  = nether_chunk_z * 8;
-        overworld_region_x = Math.floor(overworld_block_x / 512);
-        overworld_region_z = Math.floor(overworld_block_z / 512);
-        nether_region_x    = Math.floor(overworld_region_x / 8);
-        nether_region_z    = Math.floor(overworld_region_z / 8);
+        overworld_block.x = nether_block.x * 8;
+        overworld_block.y = nether_block.y;
+        overworld_block.z = nether_block.z * 8;
+        nether_chunk.x = Math.floor(nether_block.x / 16);
+        nether_chunk.y = Math.floor(nether_block.y / 16);
+        nether_chunk.z = Math.floor(nether_block.z / 16);
+        overworld_chunk.x = Math.floor(overworld_block.x / 16);
+        overworld_chunk.y = Math.floor(overworld_block.y / 16);
+        overworld_chunk.z = Math.floor(overworld_block.z / 16);
+        overworld_region.x = Math.floor(overworld_block.x / 512);
+        overworld_region.z = Math.floor(overworld_block.z / 512);
+        nether_region.x = Math.floor(overworld_region.x / 8);
+        nether_region.z = Math.floor(overworld_region.z / 8);
     }
     else if (coordsType === 'nether_chunk') {
-        overworld_block_x  = nether_chunk_x * 128;
-        overworld_block_y  = nether_block_y;
-        overworld_block_z  = nether_chunk_z * 128;
-        nether_block_x     = Math.floor(nether_chunk_x / 16);
-        nether_block_y     = Math.floor(nether_chunk_y / 16);
-        nether_block_z     = Math.floor(nether_chunk_z / 16);
-        overworld_chunk_x  = nether_chunk_x * 8;
-        overworld_chunk_y  = nether_chunk_y * 8;
-        overworld_chunk_z  = nether_chunk_z * 8;
-        overworld_region_x = Math.floor(overworld_block_x / 512);
-        overworld_region_z = Math.floor(overworld_block_z / 512);
-        nether_region_x    = Math.floor(overworld_region_x / 8);
-        nether_region_z    = Math.floor(overworld_region_z / 8);
+        overworld_block.x = nether_chunk.x * 128;
+        overworld_block.y = nether_block.y;
+        overworld_block.z = nether_chunk.z * 128;
+        nether_block.x = Math.floor(nether_chunk.x / 16);
+        nether_block.y = Math.floor(nether_chunk.y / 16);
+        nether_block.z = Math.floor(nether_chunk.z / 16);
+        overworld_chunk.x = nether_chunk.x * 8;
+        overworld_chunk.y = nether_chunk.y;
+        overworld_chunk.z = nether_chunk.z * 8;
+        overworld_region.x = Math.floor(overworld_block.x / 512);
+        overworld_region.z = Math.floor(overworld_block.z / 512);
+        nether_region.x = Math.floor(overworld_region.x / 8);
+        nether_region.z = Math.floor(overworld_region.z / 8);
     }
     else if (coordsType === 'overworld_region') {
-        overworld_block_x  = overworld_region_x * 128;
-        overworld_block_z  = overworld_region_x * 128;
-        overworld_chunk_x  = overworld_region_x * 32;
-        overworld_chunk_z  = overworld_region_z * 32;
-        nether_block_x     = overworld_region_x * 8;
-        nether_block_z     = overworld_region_z * 8;
-        nether_chunk_x     = overworld_region_x * 4;
-        nether_chunk_z     = overworld_region_z * 4;
-        nether_region_x    = Math.floor(overworld_region_x / 8);
-        nether_region_z    = Math.floor(overworld_region_z / 8);
+        overworld_block.x = overworld_region.x * 128;
+        overworld_block.z = overworld_region.z * 128;
+        overworld_chunk.x = overworld_region.x * 32;
+        overworld_chunk.z = overworld_region.z * 32;
+        nether_block.x = overworld_region.x * 8;
+        nether_block.z = overworld_region.z * 8;
+        nether_chunk.x = overworld_region.x * 4;
+        nether_chunk.z = overworld_region.z * 4;
+        nether_region.x = Math.floor(overworld_region.x / 8);
+        nether_region.z = Math.floor(overworld_region.z / 8);
     }
     else if (coordsType === 'nether_region') {
-        overworld_region_x = nether_region_x * 8;
-        overworld_region_z = nether_region_x * 8;
-        overworld_block_x  = overworld_region_x * 128;
-        overworld_block_z  = overworld_region_x * 128;
-        overworld_chunk_x  = overworld_region_x * 32;
-        overworld_chunk_z  = overworld_region_z * 32;
-        nether_block_x     = overworld_region_x * 8;
-        nether_block_z     = overworld_region_z * 8;
-        nether_chunk_x     = overworld_region_x * 4;
-        nether_chunk_z     = overworld_region_z * 4;
+        overworld_region.x = nether_region.x * 8;
+        overworld_region.z = nether_region.z * 8;
+        overworld_block.x = overworld_region.x * 128;
+        overworld_block.z = overworld_region.x * 128;
+        overworld_chunk.x = overworld_region.x * 32;
+        overworld_chunk.z = overworld_region.z * 32;
+        nether_block.x = overworld_region.x * 8;
+        nether_block.z = overworld_region.z * 8;
+        nether_chunk.x = overworld_region.x * 4;
+        nether_chunk.z = overworld_region.z * 4;
     }
 
     /// OUTPUT ///
-    $('#overworld_block_x' ).val(overworld_block_x );
-    $('#overworld_block_y' ).val(overworld_block_y );
-    $('#overworld_block_z' ).val(overworld_block_z );
-    $('#overworld_chunk_x' ).val(overworld_chunk_x );
-    $('#overworld_chunk_y' ).val(overworld_chunk_y );
-    $('#overworld_chunk_z' ).val(overworld_chunk_z );
-    $('#nether_block_x'    ).val(nether_block_x    );
-    $('#nether_block_y'    ).val(nether_block_y    );
-    $('#nether_block_z'    ).val(nether_block_z    );
-    $('#nether_chunk_x'    ).val(nether_chunk_x    );
-    $('#nether_chunk_y'    ).val(nether_chunk_y    );
-    $('#nether_chunk_z'    ).val(nether_chunk_z    );
-    $('#overworld_region_x').val(overworld_region_x);
-    $('#overworld_region_z').val(overworld_region_z);
-    $('#nether_region_x'   ).val(nether_region_x   );
-    $('#nether_region_z'   ).val(nether_region_z   );
-/*
-    $('#overworld_region_info').text(`
-        This region contains
-        blocks ${[overworld_region_x*512, 0, overworld_region_z*512].join(',')}
-        to ${[overworld_region_x*512+511, 255, overworld_region_z*512+511].join(',')}
-        and chunks ${[overworld_region_x*32, 0, overworld_region_z*32].join(',')}
-        to ${[overworld_region_x*32+31, 15, overworld_region_z*32+31].join(',')}
-    `);
-    $('#nether_region_info').text(`
-        This region contains
-        blocks ${[nether_region_x*512, 0, nether_region_z*512].join(',')}
-        to ${[nether_region_x*512+511, 255, nether_region_z*512+511].join(',')}
-        and chunks ${[nether_region_x*32, 0, nether_region_z*32].join(',')}
-        to ${[nether_region_x*32+31, 15, nether_region_z*32+31].join(',')}
-    `);//*/
+    $('#overworld_block_x').val(overworld_block.x);
+    $('#overworld_block_y').val(overworld_block.y);
+    $('#overworld_block_z').val(overworld_block.z);
+    $('#overworld_chunk_x').val(overworld_chunk.x);
+    $('#overworld_chunk_y').val(overworld_chunk.y);
+    $('#overworld_chunk_z').val(overworld_chunk.z);
+    $('#nether_block_x').val(nether_block.x);
+    $('#nether_block_y').val(nether_block.y);
+    $('#nether_block_z').val(nether_block.z);
+    $('#nether_chunk_x').val(nether_chunk.x);
+    $('#nether_chunk_y').val(nether_chunk.y);
+    $('#nether_chunk_z').val(nether_chunk.z);
+    $('#overworld_region_x').val(overworld_region.x);
+    $('#overworld_region_z').val(overworld_region.z);
+    $('#nether_region_x').val(nether_region.x);
+    $('#nether_region_z').val(nether_region.z);
+
 }
 
-function copy(text) {
-    let box = document.createElement('textarea');
-    box.value = text;
-    document.body.appendChild(box);
-    box.select();
-    document.execCommand('copy');
-    document.body.removeChild(box);
-}
-
-function copyOverworldBlock() {
+function copyType(type) {
     submit();
-    copy([value('overworld_block_x'), value('overworld_block_y'), value('overworld_block_z')].join(' '));
-}
-
-function copyOverworldChunk() {
-    submit();
-    copy([value('overworld_chunk_x'), value('overworld_chunk_y'), value('overworld_chunk_z')].join(' '));
-}
-
-function copyNetherBlock() {
-    submit();
-    copy([value('nether_block_x'), value('nether_block_y'), value('nether_block_z')].join(' '));
-}
-
-function copyNetherChunk() {
-    submit();
-    copy([value('nether_chunk_x'), value('nether_chunk_y'), value('nether_chunk_z')].join(' '));
+    const values = [value(`${type}_x`), value(`${type}_y`), value(`${type}_z`)];
+    copy(values.join(' '));
 }
 
 function submit() {
