@@ -1,0 +1,9 @@
+#main-container {background: hsl(var(--hue), 60%, 30%);}
+
+h1 {font-size: 4em; letter-spacing: 4px; text-transform: initial;}
+
+button {margin: 1em 0; border: 1px solid #fff; background: #181818; border-radius: 0;}
+
+.block-link {display: block; text-align: center;}
+
+footer {margin-top: 0;}
