@@ -20,7 +20,7 @@ a[href]:hover {opacity: 1;}
 }
 .tagline {margin-bottom: 1em; font-size: 1.1em;}
 #youtube-videos h2 {padding-top: 1em;}
-#youtube-videos_list {display: grid; grid-template-columns: repeat(2, min-content); grid-template-rows: repeat(3, min-content); padding-bottom: 4em;}
+#youtube-videos_list @ 600px.. {display: grid; grid-template-columns: repeat(2, min-content); grid-template-rows: repeat(3, min-content); padding-bottom: 4em;}
 
 // Tile containers
 .showcase-container {
