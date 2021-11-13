@@ -132,10 +132,7 @@ table.styled :is(th, td) {border: 1px solid #555; padding: 0.2em 0.4em;}
     display: flex; flex-direction: column; place-content: center; justify-content: center; align-items: center;
     p {display: inline-block; max-width: 50%;}
 }
-.tile {
-    height: 100%;
-    @ $(desktop).. {max-height: 100vh;}
-}
+.tile {height: 100vh;}
 
 // Dividers //
 hr.half {width: 50%;}
