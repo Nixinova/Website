@@ -18,7 +18,7 @@ js: bundle-image.js
 </script>
 
 <h2>Image to Bundle Converter</h2>
-<p>Converts an image into bundle art for Minecraft 1.17.</p>
+<p>Converts an image into bundle art for Minecraft 1.17+.</p>
 <p style="font-size: 90%;">
     GUI scale must be set to 1 to view these bundles in full.<br>
     Pictures must be roughly square to display properly.
@@ -27,7 +27,10 @@ js: bundle-image.js
 
     <input id="input_image" type="file" accept="image/*" onchange="openFile(event)"><br>
     <img id="output_image" style="height:250px;width:250px;"><br>
-    <label for="resolution">Resolution<a href="#fn-1">*</a></label> <input id="resolution" type="number" value="20" min="0"><br>
+
+    <label for="resolution">Resolution<a href="#fn-1">*</a></label>
+    <input id="resolution" type="number" value="20" min="0" max="30"><br>
+
     <button onclick="$('#generator-output').empty();submit();">Generate</button>
 
 </form>
