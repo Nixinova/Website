@@ -155,7 +155,7 @@ button {
     background: #19f; color: #fff; padding: 12px 30px; cursor: pointer; font-size: 20px; border: none; border-radius: 0.5em;
     &:hover {background: #08f; transition: 0.25s;}
     &.download {
-        margin: 0 0 1ex; border-radius: 2em;
+        width: 250px; margin: 0 0 0.2em;
         &.small {padding: 8px 12px; font-size: 95%;}
     }
 }
