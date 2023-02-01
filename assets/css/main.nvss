@@ -97,7 +97,7 @@ $( @repeat | 5 | | h$i {font-size: 2.6em - (($i-1)/1.8);} )
 // Paragraphs //
 p {
     margin: 1em; text-align: center;
-    &.description @ ..$(desktop) {max-width: 66.67%; margin: auto;}
+    &.description {max-width: 800px; margin: auto; line-height: 1.8;}
 }
 
 // Links //
