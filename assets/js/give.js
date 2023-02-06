@@ -122,12 +122,9 @@ function give() {
 
     // hideflags //
     let hf = 0;
-    if ($('#ench').hasClass('off')) hf += 1;
-    if ($('#mods').hasClass('off')) hf += 2;
-    if ($('#unbr').hasClass('off')) hf += 4;
-    if ($('#dstr').hasClass('off')) hf += 8;
-    if ($('#plon').hasClass('off')) hf += 16;
-    if ($('#othr').hasClass('off')) hf += 32;
+    for (let i = 1; i <= 128; i *= 2) {
+        if ($(`#hideflags-${i}`).hasClass('off')) hf += i;
+    }
 
     /// GENERATOR ///
     $('#generator-output').empty();

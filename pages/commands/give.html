@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /tools/minecraft/commands/give.html
 title: "Minecraft /give Generator"
-description: "A generator which creates /give commands for Minecraft 1.16."
+description: "A generator which creates /give commands for Minecraft 1."
 keywords: "nixinova,nixinova website,give,minecraft,give generator, minecraft give generator,give command,minecraft give command,give command generator,minecraft command generator,command generator"
 css: tools
 js: "give.js"
@@ -28,7 +28,7 @@ js: "give.js"
 </script>
 
 <h2 class="lower">/give</h2>
-<p>Generates <samp>/give</samp> commands for Minecraft 1.16.</p>
+<p>Generates <samp>/give</samp> commands for Minecraft 1.16–1.20.</p>
 <noscript><p><strong>This tool needs JavaScript to work!</strong></p></noscript>
 <form action="javascript:submit()" id="input_form">
 
@@ -386,12 +386,14 @@ js: "give.js"
 
         <label>Show attributes:</label>
         <span id="hideflags" onclick="submit()">
-            <button type="button" id="ench" class="on" onclick="toggleOnOff(this)">Enchantments</button> &nbsp;
-            <button type="button" id="mods" class="on" onclick="toggleOnOff(this)">Attributes  </button> &nbsp;
-            <button type="button" id="unbr" class="on" onclick="toggleOnOff(this)">Unbreakable </button> &nbsp;
-            <button type="button" id="dstr" class="on" onclick="toggleOnOff(this)">CanDestroy  </button> &nbsp;
-            <button type="button" id="plon" class="on" onclick="toggleOnOff(this)">CanPlaceOn  </button> &nbsp;
-            <button type="button" id="othr" class="on" onclick="toggleOnOff(this)">Other       </button> &nbsp;
+            <button type="button" id="hideflags-1"   class="on" onclick="toggleOnOff(this)">Enchantments </button> &nbsp;
+            <button type="button" id="hideflags-2"   class="on" onclick="toggleOnOff(this)">Attributes   </button> &nbsp;
+            <button type="button" id="hideflags-4"   class="on" onclick="toggleOnOff(this)">Unbreakable  </button> &nbsp;
+            <button type="button" id="hideflags-8"   class="on" onclick="toggleOnOff(this)">Can Destroy  </button> &nbsp;
+            <button type="button" id="hideflags-16"  class="on" onclick="toggleOnOff(this)">Can Place On </button> &nbsp;
+            <button type="button" id="hideflags-32"  class="on" onclick="toggleOnOff(this)">Miscellaneous</button> &nbsp;
+            <button type="button" id="hideflags-64"  class="on" onclick="toggleOnOff(this)">Dyed Armor   </button> &nbsp;
+            <button type="button" id="hideflags-128" class="on" onclick="toggleOnOff(this)">Armor Trims  </button> &nbsp;
         </span>
     </p>
 
