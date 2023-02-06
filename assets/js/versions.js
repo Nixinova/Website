@@ -29,7 +29,6 @@ async function initial() {
     for (const version of data.versions) {
         $('#input-version').append(`\n<option>${version.id}</option>`);
     }
-    getInfo('all');
 };
 
 async function getInfo(id) {
