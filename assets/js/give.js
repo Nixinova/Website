@@ -448,7 +448,7 @@ function give() {
     // nbt //
     if (!isEmpty(nbt)) {
         //                                Remove quotes from tags          Allow section symbol            Format typed arrays
-        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7').replace(/UUID:\["I;",/, 'UUID:[I;');
+        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/§/g, '\\\\u00A7').replace(/UUID:\["I;",/g, 'UUID:[I;');
     } else nbt = '';
 
     // count //
