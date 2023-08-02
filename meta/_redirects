@@ -12,7 +12,6 @@
 /*/commands/bundle-image            /:splat/converters/bundle
 /mineo                              /projects/mineo
 /mineo/versions                     /projects/mineo/versions
-/about/specs                        /about/pc-specs
 
 # Shortcuts
 /logo/*                             /assets/images/logos/:splat
@@ -30,4 +29,3 @@
 /coordinates                        /tools/minecraft/converters/coordinates
 /novasheets                         /projects/novasheets
 /resourcepacker                     /projects/resourcepacker
-/specs                              /about/pc-specs
