@@ -111,6 +111,7 @@ a[href] {
         :hover > & {width: 5em;}
     }
 }
+a.external::after {content: ' 🡕';}
 
 // Tables //
 table.styled :is(th, td) {border: 1px solid #555; padding: 0.2em 0.4em;}
