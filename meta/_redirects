@@ -1,6 +1,9 @@
 # Subdomains
 /news                               https://news.nixinova.com
 
+# Redirecters
+/redirect/novasheets/*              https://novasheets.js.org/:splat
+
 # Page moves
 /maps/*                             /downloads/minecraft/maps/:splat
 /resource-packs/*                   /downloads/minecraft/resource-packs/:splat
@@ -27,5 +30,3 @@
 /bundle-image                       /tools/minecraft/converters/bundle
 /seed                               /tools/minecraft/converters/seed
 /coordinates                        /tools/minecraft/converters/coordinates
-/novasheets                         /projects/novasheets
-/resourcepacker                     /projects/resourcepacker
