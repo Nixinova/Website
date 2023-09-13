@@ -1,8 +1,8 @@
 function formatLastfmLink(trackStr) {
     const [artist, track] = trackStr.split('/_/');
     return [
-        `<a href="https://last.fm/music/${artist}">${artist}</a>`,
-        `<a href="https://last.fm/music/${artist}/_/${track}">${track}</a>`,
+        `<b><a href="https://last.fm/music/${encodeURIComponent(artist)}">${artist}</a></b>`,
+        `<a href="https://last.fm/music/${encodeURIComponent(trackStr)}">${track}</a>`,
     ].join(' - ');
 }
 
@@ -48,7 +48,8 @@ async function getFromForm() {
     const tags = $('#tags').val().split(/\s*,\s*/);
     const tracks = await getCommonTaggedTracks(username, ...tags);
     const formattedTracks = tracks.sort().map(formatLastfmLink);
-    $('output').html(`<ul>${formattedTracks.map(track => `<li>${track}</li>`).join('')}</ul>`);
+    const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(' & ')}`;
+    $('output').html(`<i>${desc}</i> <ul>${formattedTracks.map(track => `<li>${track}</li>`).join('')}</ul>`);
 }
 
 /* Copyright © Nixinova 2023 */
