@@ -9,7 +9,7 @@ function formatLastfmLink(trackStr) {
 
 async function getData(query) {
     const response = await fetch(`/.netlify/functions/lastfm-request?query=${encodeURIComponent(query)}`);
-    const { data } = await response.json();
+    const data = await response.json();
     return data;
 }
 

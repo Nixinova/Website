@@ -3,7 +3,7 @@ const WS = 'https://ws.audioscrobbler.com/2.0/';
 
 const handler = async (event) => {
     try {
-        const onlyApiKey = event.queryStringParameters.onlyApiKey === 'true';
+        const onlyApiKey = event.queryStringParameters.onlyApiKey;
         if (onlyApiKey) {
             return {
                 statusCode: 200,
@@ -17,13 +17,13 @@ const handler = async (event) => {
         const data = await response.json();
         return {
             statusCode: 200,
-            body: JSON.stringify({ data }),
+            body: JSON.stringify(data),
         };
     }
     catch (err) {
         return {
           statusCode: 500,
-          body: JSON.stringify({ error: err }),
+          body: err.toString(),
         };
     }
 };
