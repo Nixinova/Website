@@ -3,7 +3,7 @@ const WS = 'https://ws.audioscrobbler.com/2.0/';
 
 const handler = async (event) => {
     try {
-        const onlyApiKey = decodeURIComponent(event.queryStringParameters.onlyApiKey);
+        const onlyApiKey = event.queryStringParameters.onlyApiKey === 'true';
         if (onlyApiKey) {
             return {
                 statusCode: 200,
