@@ -1,9 +1,18 @@
+function formatLastfmLink(trackStr) {
+    const [artist, track] = trackStr.split('/_/');
+    return [
+        `<a href="https://last.fm/music/${artist}">${artist}</a>`,
+        `<a href="https://last.fm/music/${artist}/_/${track}">${track}</a>`,
+    ].join(' - ');
+}
+
 async function getData(query) {
     const response = await fetch(`/.netlify/functions/lastfm-request?query=${encodeURIComponent(query)}`);
     const { data } = await response.json();
     return data;
 }
 
+/** @returns Array<`${artist}/_/${name}`> */
 async function getTagTracks(username, tag) {
     try {
         const data = await getData(`method=user.getpersonaltags&taggingtype=track&user=${username}&tag=${tag}&format=json&limit=2000`);
@@ -21,10 +30,25 @@ async function getTagTracks(username, tag) {
     return [];
 }
 
-async function getDualTags(username, tag1, tag2) {
-    const tracks1 = await getTagTracks(username, tag1);
-    const tracks2 = await getTagTracks(username, tag2);
-    const commonTracks = tracks1.filter(track => tracks2.includes(track));
-    console.log(commonTracks);
-    return commonTracks;
+async function getCommonTaggedTracks(username, ...tags) {
+    const tracksCount = {};
+    for (const tag of tags) {
+        const tracks = await getTagTracks(username, tag);
+        for (const track of tracks) {
+            tracksCount[track] ??= 0;
+            tracksCount[track]++;
+        }
+    }
+    const common = Object.keys(tracksCount).filter(track => tracksCount[track] === tags.length);
+    return common;
 }
+
+async function getFromForm() {
+    const username = $('#username').value;
+    const tags = $('#tags').value.split(/\s*,\s*/);
+    const tracks = await getCommonTaggedTracks(username, ...tags);
+    const formattedTracks = tracks.map(formatLastfmLink);
+    $('output').innerHTML = `<ul>${formattedTracks.join('')}</ul>`;
+}
+
+/* Copyright © Nixinova 2023 */

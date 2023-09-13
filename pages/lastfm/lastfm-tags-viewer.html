@@ -1,0 +1,26 @@
+---
+layout: base.njk
+permalink: /tools/lastfm/tags.html
+title: Last.fm Tags Tools
+description: "Tools for viewing statistics of your tagged tracks on Last.fm"
+keywords: "nixinova,lastfm,lastfm tags,lastfm genre tags,lastfm view tags,lastfm my tags"
+css: tools
+js: lastfm.js
+---
+<h1>Last.fm Tags Tools</h1>
+
+<h2>Get Your Tagged Tracks</h2>
+
+<form action="javascript:getFromForm()">
+    <label>Username</label>
+    <br>
+    <input type="text" id="username">
+
+    <label>Match Tags (comma-separated)</label>
+    <br>
+    <input type="text" id="tags">
+
+    <button type="submit">Fetch</button>
+</form>
+
+<output></output>
