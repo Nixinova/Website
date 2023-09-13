@@ -1,4 +1,3 @@
-const ws = 'https://ws.audioscrobbler.com/2.0/';
 
 function formatLastfmLink(trackStr) {
     const [artist, track] = trackStr.split('/_/');
@@ -8,18 +7,19 @@ function formatLastfmLink(trackStr) {
     ].join(' - ');
 }
 
-async function getData(base, query) {
-    const response = await fetch(`/.netlify/functions/lastfm-request?base=${encodeURI(base)}&query=${encodeURIComponent(query)}`);
+async function getData(query) {
+    const response = await fetch(`/.netlify/functions/lastfm-request?query=${encodeURIComponent(query)}`);
     const { data } = await response.json();
     return data;
 }
 
 async function getRequestToken() {
     try {
-        const data = await getData(ws, 'method=auth.gettoken&format=json');
+        const data = await getData('method=auth.gettoken&format=json');
 
         if (data.token) {
-            const authorizationUrl = await getData('https://www.last.fm/api/auth/', `cb=${encodeURIComponent(location.href)}`);
+            const authUrl = await getData(`returnUrl=true`).then(url => url.split('?')[1]);
+            const authorizationUrl = 'https://www.last.fm/api/auth/' + authUrl + `&cb=${encodeURIComponent(location.href)}`;
             window.location.href = authorizationUrl;
         }
         else {
@@ -32,7 +32,7 @@ async function getRequestToken() {
 
 async function getSessionKey(token) {
     try {
-        const response = await getData(ws, `auth.getSession&token=${token}&format=json`);
+        const response = await getData(`auth.getSession&token=${token}&format=json`);
         const data = await response.json();
 
         if (data.session?.key) {
