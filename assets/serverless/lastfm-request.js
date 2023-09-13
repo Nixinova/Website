@@ -4,7 +4,7 @@ const handler = async (event) => {
     try {
         const urlBase = decodeURI(event.queryStringParameters.base);
         const query = decodeURIComponent(event.queryStringParameters.query);
-        const url = `${base}?api_key=${API_KEY}&${query}`;
+        const url = `${urlBase}?api_key=${API_KEY}&${query}`;
         const response = await fetch(url);
         const data = await response.json();
         const obj = {
@@ -16,7 +16,7 @@ const handler = async (event) => {
     catch (err) {
         const obj = {
           statusCode: 500,
-          body: JSON.stringify({ error: err.toString() }),
+          body: JSON.stringify({ error: err }),
         };
         return obj;
     }
