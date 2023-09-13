@@ -3,7 +3,7 @@ function formatLastfmLink(trackStr) {
     const [artist, track] = trackStr.split('/_/');
     return [
         `<b><a href="https://last.fm/music/${encodeURIComponent(artist)}">${artist}</a></b>`,
-        `<a href="https://last.fm/music/${encodeURIComponent(trackStr)}">${track}</a>`,
+        `<a href="https://last.fm/music/${encodeURIComponent(artist)}/_/${encodeURIComponent(track)}">${track}</a>`,
     ].join(' - ');
 }
 
