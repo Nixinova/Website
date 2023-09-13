@@ -2,8 +2,9 @@ const API_KEY = process.env.LASTFM_API_KEY;
 
 const handler = async (event) => {
     try {
+        const urlBase = decodeURI(event.queryStringParameters.base);
         const query = decodeURIComponent(event.queryStringParameters.query);
-        const url = `https://ws.audioscrobbler.com/2.0/?api_key=${API_KEY}&${query}`;
+        const url = `${base}?api_key=${API_KEY}&${query}`;
         const response = await fetch(url);
         const data = await response.json();
         const obj = {
