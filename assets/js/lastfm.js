@@ -12,6 +12,43 @@ async function getData(query) {
     return data;
 }
 
+async function getRequestToken() {
+    try {
+        const data = await getData('method=auth.gettoken&format=json');
+
+        if (data.token) {
+            // Redirect the user to Last.fm for authorization
+            const authorizationUrl = `https://www.last.fm/api/auth/?token=${data.token}&cb=${encodeURIComponent(location.href)}`;
+            window.location.href = authorizationUrl;
+        }
+        else {
+            console.error('Failed to obtain a request token.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+
+async function getSessionKey(token) {
+    try {
+        const response = await getData(`auth.getSession&token=${token}&format=json`);
+        const data = await response.json();
+
+        if (data.session?.key) {
+            const sessionKey = data.session.key;
+            console.log('Session key obtained:', sessionKey);
+            return sessionKey;
+        }
+        else {
+            console.error('Failed to obtain a session key.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+    return null;
+}
+
 /** @returns Array<`${artist}/_/${name}`> */
 async function getTagTracks(username, tag) {
     try {
@@ -19,7 +56,8 @@ async function getTagTracks(username, tag) {
 
         if (data.error) {
             console.error('Error:', data.message);
-        } else {
+        }
+        else {
             const tracks = data.taggings.tracks.track;
             const trackParts = tracks.map(track => track.artist.name + '/_/' + track.name);
             return trackParts;

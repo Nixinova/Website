@@ -10,13 +10,13 @@ const handler = async (event) => {
             statusCode: 200,
             body: JSON.stringify({ data }),
         };
-      return obj;
+        return obj;
     } catch (error) {
         const obj = {
           statusCode: 500,
           body: { error: error.toString() },
         };
-      return obj;
+        return obj;
     }
 };
 
