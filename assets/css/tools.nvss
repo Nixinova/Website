@@ -6,6 +6,7 @@ form p:not(.text) {text-align: left; line-height: 3;}
 h2.lower {text-transform: lowercase;}
 main @ ..900px {margin-left: 1em;}
 form, output, .content @ 815px {max-width: 835px; margin: 0 auto;}
+.scroll-output {display: block; max-height: 200px; margin-top: 1em; border: 2px solid; overflow-y: scroll;}
 
 // Buttons //
 button {
@@ -26,6 +27,7 @@ input {
         width: 160px;
         &, button {padding: 5px 10px; margin-top: 10px; display: inline-block; border: none; border-radius: 4px;}
     }
+    &.long {width: 250px;}
     &:out-of-range {border: 2px solid red; background: #fdd;}
     &[type="submit"] {
         width: 100%; background: #94c0c4; padding: 14px 20px; margin: 8px 0px; border: none; border-radius: 4px; cursor: pointer; color: #333; font: normal 2em 'Passion One'; text-align: center;
