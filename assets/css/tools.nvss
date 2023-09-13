@@ -6,7 +6,7 @@ form p:not(.text) {text-align: left; line-height: 3;}
 h2.lower {text-transform: lowercase;}
 main @ ..900px {margin-left: 1em;}
 form, output, .content @ 815px {max-width: 835px; margin: 0 auto;}
-.scroll-output {display: block; max-height: 200px; margin-top: 1em; border: 2px solid; overflow-y: scroll;}
+.scroll-output {display: block; margin-top: 1em; border: 2px solid; overflow-y: scroll;}
 
 // Buttons //
 button {
