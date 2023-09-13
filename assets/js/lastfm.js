@@ -44,11 +44,11 @@ async function getCommonTaggedTracks(username, ...tags) {
 }
 
 async function getFromForm() {
-    const username = $('#username').value;
-    const tags = $('#tags').value.split(/\s*,\s*/);
+    const username = $('#username').val();
+    const tags = $('#tags').val().split(/\s*,\s*/);
     const tracks = await getCommonTaggedTracks(username, ...tags);
     const formattedTracks = tracks.map(formatLastfmLink);
-    $('output').innerHTML = `<ul>${formattedTracks.join('')}</ul>`;
+    $('output').html(`<ul>${formattedTracks.join('')}</ul>`);
 }
 
 /* Copyright © Nixinova 2023 */
