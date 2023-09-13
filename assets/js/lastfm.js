@@ -83,7 +83,7 @@ async function getCommonTaggedTracks(username, ...tags) {
 
 async function getFromForm() {
     const username = $('#username').val();
-    const tags = $('#tags').val().split(/\s*,\s*/);
+    const tags = $('#tags').val().split(',').map(tag => tag.trim());
     const tracks = await getCommonTaggedTracks(username, ...tags);
     const formattedTracks = tracks.sort().map(formatLastfmLink);
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(' & ')}`;
