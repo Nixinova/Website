@@ -19,7 +19,7 @@ async function getRequestToken() {
 
         if (data.token) {
             const authUrl = await getData(`returnUrl=true`).then(url => url.split('?')[1]);
-            const authorizationUrl = 'https://www.last.fm/api/auth/' + authUrl + `&cb=${encodeURIComponent(location.href)}`;
+            const authorizationUrl = 'https://www.last.fm/api/auth/?' + authUrl + `&cb=${encodeURIComponent(location.href)}`;
             window.location.href = authorizationUrl;
         }
         else {
