@@ -1,3 +1,4 @@
+const MAX_TAGS = 5;
 let apiKey;
 let sessionToken;
 
@@ -35,7 +36,8 @@ async function getSessionKey(token) {
         const data = await response.json();
 
         return data.session?.key ?? null;
-    } catch (error) {
+    }
+    catch (error) {
         console.error('Error:', error);
         return null;
     }
@@ -61,7 +63,8 @@ async function getSessionKey(token) {
         else {
             console.error('Failed to obtain a session key.');
         }
-    } catch (error) {
+    }
+    catch (error) {
         console.error('Error:', error);
     }
     return null;
@@ -80,7 +83,8 @@ async function getTagTracks(username, tag) {
             const trackParts = tracks.map(track => track.artist.name + '/_/' + track.name);
             return trackParts;
         }
-    } catch (error) {
+    }
+    catch (error) {
         console.error('Error:', error);
     }
     return [];
@@ -132,14 +136,24 @@ async function tagTrack(artist, track, tags) {
 
         const data = await response.text();
         console.log(data);
-    } catch (error) {
+    }
+    catch (error) {
         console.error('Error tagging track:', error);
     }
 }
 
 async function getFromForm() {
     const username = $('#username').val();
-    const tags = $('#tags').val().split(',').map(tag => tag.trim());
+    const tagsStr = $('#tags').val();
+    const tags = tagsStr.split(',').map(tag => tag.trim());
+
+    if (!username)
+        return alert('No username inputted');
+    if (!tagsStr)
+        return alert('No tags inputted');
+    if (tags.length > MAX_TAGS)
+        return alert('Too many tags: max of ' + MAX_TAGS);
+
     const tracks = await getCommonTaggedTracks(username, ...tags);
     const formattedTracks = tracks.sort().map(formatLastfmLink);
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(' & ')}`;
