@@ -12,7 +12,7 @@ const handler = async (event) => {
         }
 
         const query = decodeURIComponent(event.queryStringParameters.query);
-        const url = `${WS}?api_key=${API_KEY}&${query}`;
+        const url = `${WS}?api_key=${API_KEY}&format=json&${query}`;
         const response = await fetch(url);
         const data = await response.json();
         return {
