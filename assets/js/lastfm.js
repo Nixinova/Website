@@ -15,7 +15,7 @@ async function getData(query) {
 }
 
 async function getRequestToken() {
-    fetch(`/.netlify/functions/lastfm/auth?callbackUrl=${encodeURI(location.html)}`);
+    fetch(`/.netlify/functions/lastfm/auth?callbackUrl=${encodeURI(location.href)}`);
 }
 
 async function getSessionKey(token) {
