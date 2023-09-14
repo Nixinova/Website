@@ -1,9 +1,10 @@
 
 function formatLastfmLink(trackStr) {
     const [artist, track] = trackStr.split('/_/');
+    const encodePart = part => part.replaceAll('/','%2F');
     return [
-        `<b><a href="https://last.fm/music/${encodeURIComponent(artist)}">${artist}</a></b>`,
-        `<a href="https://last.fm/music/${encodeURIComponent(artist)}/_/${encodeURIComponent(track)}">${track}</a>`,
+        `<b><a href="https://last.fm/music/${encodePart(artist)}">${artist}</a></b>`,
+        `<a href="https://last.fm/music/${encodePart(artist)}/_/${encodePart(track)}">${track}</a>`,
     ].join(' - ');
 }
 
