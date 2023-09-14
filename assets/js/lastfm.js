@@ -9,13 +9,13 @@ function formatLastfmLink(trackStr) {
 }
 
 async function getData(query) {
-    const response = await fetch(`/.netlify/functions/lastfm/request?query=${encodeURIComponent(query)}`);
+    const response = await fetch(`/.netlify/functions/lastfm-request?query=${encodeURIComponent(query)}`);
     const data = await response.json();
     return data;
 }
 
 async function getRequestToken() {
-    fetch(`/.netlify/functions/lastfm/auth?callbackUrl=${encodeURI(location.href)}`);
+    fetch(`/.netlify/functions/lastfm-auth?callbackUrl=${encodeURI(location.href)}`);
 }
 
 async function getSessionKey(token) {
