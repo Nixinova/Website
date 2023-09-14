@@ -7,19 +7,21 @@ function formatLastfmLink(trackStr) {
     ].join(' - ');
 }
 
-async function getApiToken() {
+async function getApiKey() {
     const response = await fetch(`/.netlify/functions/lastfm-token`);
     const data = await response.json();
     return API_KEY = data.token;
 }
 
 async function getRequestToken() {
-    const lastfmAuthURL = `https://www.last.fm/api/auth/?api_key=${getApiToken()}&cb=${location.href}`;
+    const apiKey = await getApiKey();
+    const lastfmAuthURL = `https://www.last.fm/api/auth/?api_key=${apiKey}&cb=${location.href}`;
     location.href = lastfmAuthURL;
 }
 
 async function getData(query) {
-    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${getApiToken()}&format=json&${query}`);
+    const apiKey = await getApiKey();
+    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`);
     const data = await response.json();
     return data;
 }
