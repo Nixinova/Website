@@ -1,3 +1,13 @@
+let apiKey;
+let sessionToken;
+
+document.addEventListener('DOMContentLoaded', function() {
+    apiKey = await getApiKey();
+    sessionToken = new URLSearchParams(location.search).get('token');
+    // remove token from url
+    history.pushState(null, null, location.search.replace(/[?&]token=\S+/, ''));
+});
+
 function formatLastfmLink(trackStr) {
     const [artist, track] = trackStr.split('/_/');
     const encodePart = part => part.replace(/ /g, '+').replace(/[/\\]/g, char => encodeURIComponent(char));
