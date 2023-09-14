@@ -1,7 +1,7 @@
 let apiKey;
 let sessionToken;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     apiKey = await getApiKey();
     sessionToken = new URLSearchParams(location.search).get('token');
     // remove token from url
