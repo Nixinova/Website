@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     apiKey = await getApiKey();
     sessionToken = new URLSearchParams(location.search).get('token');
     // remove token from url
-    history.pushState(null, null, location.search.replace(/[?&]token=\S+/, ''));
+    history.pushState(null, null, location.href.replace(/[?&]token=\S+/, ''));
 });
 
 function formatLastfmLink(trackStr) {
