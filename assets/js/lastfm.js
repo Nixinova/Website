@@ -19,8 +19,8 @@ async function getRequestToken() {
         const data = await getData('method=auth.gettoken');
 
         if (data.token) {
-            const apiKey = await getData(`onlyApiKey=true`);
-            const authorizationUrl = `https://www.last.fm/api/auth/?api_key=${apiKey}&cb=${encodeURIComponent(location.href)}`;
+            const apiKeyRes = await getData(`onlyApiKey=true`);
+            const authorizationUrl = `https://www.last.fm/api/auth/?api_key=${apiKeyRes.key}&cb=${encodeURIComponent(location.href)}`;
             window.location.href = authorizationUrl;
         }
         else {
