@@ -1,16 +1,8 @@
 const API_KEY = process.env.LASTFM_API_KEY;
 const WS = 'https://ws.audioscrobbler.com/2.0/';
 
-const handler = async (event) => {
+exports.handler = async (event) => {
     try {
-        const onlyApiKey = event.queryStringParameters.onlyApiKey;
-        if (onlyApiKey) {
-            return {
-                statusCode: 200,
-                body: JSON.stringify({ key: API_KEY }),
-            };
-        }
-
         const query = decodeURIComponent(event.queryStringParameters.query);
         const url = `${WS}?api_key=${API_KEY}&format=json&${query}`;
         const response = await fetch(url);
@@ -28,4 +20,3 @@ const handler = async (event) => {
     }
 };
 
-module.exports = { handler };

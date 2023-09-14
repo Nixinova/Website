@@ -9,26 +9,13 @@ function formatLastfmLink(trackStr) {
 }
 
 async function getData(query) {
-    const response = await fetch(`/.netlify/functions/lastfm-request?query=${encodeURIComponent(query)}`);
+    const response = await fetch(`/.netlify/functions/lastfm/request?query=${encodeURIComponent(query)}`);
     const data = await response.json();
     return data;
 }
 
 async function getRequestToken() {
-    try {
-        const data = await getData('method=auth.gettoken');
-
-        if (data.token) {
-            const apiKeyRes = await getData(`onlyApiKey=true`);
-            const authorizationUrl = `https://www.last.fm/api/auth/?api_key=${apiKeyRes.key}&cb=${encodeURIComponent(location.href)}`;
-            window.location.href = authorizationUrl;
-        }
-        else {
-            console.error('Failed to obtain a request token.');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-    }
+    fetch(`/.netlify/functions/lastfm/auth?callbackUrl=${encodeURI(location.html)}`);
 }
 
 async function getSessionKey(token) {
