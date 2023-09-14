@@ -29,6 +29,18 @@ async function getRequestToken() {
     location.href = lastfmAuthURL;
 }
 
+async function getSessionKey(token) {
+    try {
+        const response = await getData(`method=auth.getSession&token=${sessionToken}&format=json`);
+        const data = await response.json();
+
+        return data.session?.key ?? null;
+    } catch (error) {
+        console.error('Error:', error);
+        return null;
+    }
+}
+
 async function getData(query) {
     const apiKey = await getApiKey();
     const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`);
@@ -85,6 +97,44 @@ async function getCommonTaggedTracks(username, ...tags) {
     }
     const common = Object.keys(tracksCount).filter(track => tracksCount[track] === tags.length);
     return common;
+}
+
+async function tagTrack(artist, track, tags) {
+    try {
+        const method = 'track.addTags';
+
+        const params = {
+            method,
+            artist,
+            track,
+            tags,
+            api_key: apiKey,
+            sk: getSessionKey(sessionToken),
+            // api_sig: undefined,
+        };
+        const sortedParams = Object.keys(params).sort().reduce((acc, key) => {
+            acc[key] = params[key];
+            return acc;
+        }, {});
+
+        const paramString = Object.entries(sortedParams).map(([key, value]) => `${key}${value}`).join('');
+        const stringWithSecret = paramString + apiSecret;
+
+        const apiSig = md5(stringWithSecret);
+
+        params.api_sig = apiSig;
+
+        const response = await fetch('https://ws.audioscrobbler.com/2.0/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(params),
+        });
+
+        const data = await response.text();
+        console.log(data);
+    } catch (error) {
+        console.error('Error tagging track:', error);
+    }
 }
 
 async function getFromForm() {
