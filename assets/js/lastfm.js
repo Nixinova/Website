@@ -9,14 +9,14 @@ function formatLastfmLink(trackStr) {
 }
 
 async function getData(query) {
-    const response = await fetch(`/.netlify/functions/lastfm-request?query=${encodeURIComponent(query)}`);
+    const response = await fetch(`/.netlify/functions/lastfm-request?query=${encodeURIComponent(query)}&format=json`);
     const data = await response.json();
     return data;
 }
 
 async function getRequestToken() {
     try {
-        const data = await getData('method=auth.gettoken&format=json');
+        const data = await getData('method=auth.gettoken');
 
         if (data.token) {
             const apiKey = await getData(`onlyApiKey=true`);
@@ -33,7 +33,7 @@ async function getRequestToken() {
 
 async function getSessionKey(token) {
     try {
-        const response = await getData(`auth.getSession&token=${token}&format=json`);
+        const response = await getData(`auth.getSession&token=${token}`);
         const data = await response.json();
 
         if (data.session?.key) {
@@ -53,7 +53,7 @@ async function getSessionKey(token) {
 /** @returns Array<`${artist}/_/${name}`> */
 async function getTagTracks(username, tag) {
     try {
-        const data = await getData(`method=user.getpersonaltags&taggingtype=track&user=${username}&tag=${tag}&format=json&limit=2000`);
+        const data = await getData(`method=user.getpersonaltags&taggingtype=track&user=${username}&tag=${tag}&limit=2000`);
 
         if (data.error) {
             console.error('Error:', data.message);
