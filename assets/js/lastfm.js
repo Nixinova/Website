@@ -2,7 +2,7 @@ const MAX_TAGS = 5;
 let apiKey;
 let sessionToken;
 
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     apiKey = await getApiKey();
     sessionToken = new URLSearchParams(location.search).get('token');
     // remove token from url
@@ -31,6 +31,18 @@ async function getApiKey() {
     return API_KEY = data.token;
 }
 
+async function genApiSig(params) {
+    const allParams = { ...params, sk: await getSessionKey(sessionToken) };
+    const sortedParams = Object.keys(allParams).sort().reduce((acc, key) => {
+        acc[key] = allParams[key];
+        return acc;
+    }, {});
+
+    const paramString = Object.entries(sortedParams).map(([key, value]) => `${key}${value}`).join('');
+    const apiSig = await fetch('/.netlify/functions/lastfm-sign?string=' + paramString).then(res => res.json()).then(obj => obj.sig);
+    return apiSig;
+}
+
 /** @note Redirects the user */
 async function getRequestToken() {
     const apiKey = await getApiKey();
@@ -40,7 +52,9 @@ async function getRequestToken() {
 
 async function getSessionKey(token) {
     try {
-        const data = await getData(`method=auth.getSession&token=${sessionToken}`);
+        const method = 'auth.getSession';
+        const apiSig = genApiSig({ method, token: sessionToken });
+        const data = await getData(`method=${method}&token=${sessionToken}&api_sig=${apiSig}`);
         return data.session?.key ?? null;
     }
     catch (error) {
@@ -88,23 +102,7 @@ async function tagTrack(artist, track, tags) {
 
     try {
         const method = 'track.addTags';
-
-        const params = {
-            method,
-            artist,
-            track,
-            tags,
-            api_key: apiKey,
-            sk: await getSessionKey(sessionToken),
-            // api_sig
-        };
-        const sortedParams = Object.keys(params).sort().reduce((acc, key) => {
-            acc[key] = params[key];
-            return acc;
-        }, {});
-
-        const paramString = Object.entries(sortedParams).map(([key, value]) => `${key}${value}`).join('');
-        const apiSig = await fetch('/.netlify/functions/lastfm-sign?string=' + paramString).then(res => res.json()).then(obj => obj.sig);
+        const apiSig = await genApiSig({ method, artist, track, tags, api_key: apiKey });
         params.api_sig = apiSig;
 
         const response = await fetch('https://ws.audioscrobbler.com/2.0/', {
