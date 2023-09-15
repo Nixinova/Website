@@ -28,18 +28,18 @@ async function getData(query) {
 async function getApiKey() {
     const response = await fetch(`/.netlify/functions/lastfm-token`);
     const data = await response.json();
-    return API_KEY = data.token;
+    return API_KEY = data;
 }
 
-// TODO error code 6
+// TODO error code 13 - invalid signature
 async function genApiSig(params) {
-    const sortedParams = Object.keys(params).sort().reduce((acc, key) => {
-        acc[key] = params[key];
-        return acc;
-    }, {});
+    // add mandatory params
+    params.format = 'json';
+    params.api_key = await getApiKey();
 
-    const paramString = Object.entries(sortedParams).map(([key, value]) => `${key}${value}`).join('');
-    const apiSig = await fetch('/.netlify/functions/lastfm-sign?string=' + paramString).then(res => res.json()).then(obj => obj.sig);
+    const paramString = Object.keys(params).sort().map(key => `${key}${params[key]}`).join('');
+    const response = await fetch('/.netlify/functions/lastfm-sign?string=' + paramString);
+    const apiSig = await response.json();
     return apiSig;
 }
 

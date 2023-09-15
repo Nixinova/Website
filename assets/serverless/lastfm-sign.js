@@ -8,7 +8,7 @@ const handler = async (event) => {
     const hashed = crypto.createHash('md5').update(newString).digest('hex');
     return {
         statusCode: 200,
-        body: JSON.stringify({sig: hashed}),
+        body: JSON.stringify(hashed),
     }
 };
 
