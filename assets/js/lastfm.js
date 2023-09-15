@@ -31,6 +31,7 @@ async function getApiKey() {
     return API_KEY = data.token;
 }
 
+// TODO error code 6
 async function genApiSig(params) {
     const sortedParams = Object.keys(params).sort().reduce((acc, key) => {
         acc[key] = params[key];
@@ -52,7 +53,7 @@ async function getRequestToken() {
 async function getSessionKey(token) {
     try {
         const method = 'auth.getSession';
-        const apiSig = genApiSig({ method, token: sessionToken });
+        const apiSig = await genApiSig({ method, token: sessionToken });
         const data = await getData(`method=${method}&token=${sessionToken}&api_sig=${apiSig}`);
         return data.session?.key ?? null;
     }
