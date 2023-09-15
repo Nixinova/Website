@@ -31,6 +31,7 @@ async function getApiKey() {
     return API_KEY = data.token;
 }
 
+/** @note Redirects the user */
 async function getRequestToken() {
     const apiKey = await getApiKey();
     const lastfmAuthURL = `https://www.last.fm/api/auth/?api_key=${apiKey}&cb=${location.href}`;
@@ -39,35 +40,13 @@ async function getRequestToken() {
 
 async function getSessionKey(token) {
     try {
-        const response = await getData(`method=auth.getSession&token=${sessionToken}&format=json`);
-        const data = await response.json();
-
+        const data = await getData(`method=auth.getSession&token=${sessionToken}`);
         return data.session?.key ?? null;
     }
     catch (error) {
         console.error('Error:', error);
         return null;
     }
-}
-
-async function getSessionKey(token) {
-    try {
-        const response = await getData(`auth.getSession&token=${token}`);
-        const data = await response.json();
-
-        if (data.session?.key) {
-            const sessionKey = data.session.key;
-            console.log('Session key obtained:', sessionKey);
-            return sessionKey;
-        }
-        else {
-            console.error('Failed to obtain a session key.');
-        }
-    }
-    catch (error) {
-        console.error('Error:', error);
-    }
-    return null;
 }
 
 /** @returns Array<`${artist}/_/${name}`> */
@@ -157,7 +136,8 @@ async function getFromForm() {
     const tracks = await getCommonTaggedTracks(username, ...tags);
     const formattedTracks = tracks.sort().map(formatLastfmLink);
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(' & ')}`;
-    $('output').html(`<i>${desc}</i> <ul>${formattedTracks.map(track => `<li>${track}</li>`).join('')}</ul>`);
+    const output = `${desc} <ul>${formattedTracks.map(track => `<li>${track}</li>`).join('')}</ul>`;
+    $('output').html(output);
 }
 
 /* Copyright © Nixinova 2023 */
