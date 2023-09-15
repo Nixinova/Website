@@ -18,6 +18,13 @@ function formatLastfmLink(trackStr) {
     ].join(' - ');
 }
 
+async function getData(query) {
+    const apiKey = await getApiKey();
+    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`);
+    const data = await response.json();
+    return data;
+}
+
 async function getApiKey() {
     const response = await fetch(`/.netlify/functions/lastfm-token`);
     const data = await response.json();
@@ -41,13 +48,6 @@ async function getSessionKey(token) {
         console.error('Error:', error);
         return null;
     }
-}
-
-async function getData(query) {
-    const apiKey = await getApiKey();
-    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`);
-    const data = await response.json();
-    return data;
 }
 
 async function getSessionKey(token) {
@@ -104,6 +104,9 @@ async function getCommonTaggedTracks(username, ...tags) {
 }
 
 async function tagTrack(artist, track, tags) {
+    if (!sessionToken)
+        return alert('Not authenticated yet');
+
     try {
         const method = 'track.addTags';
 
@@ -113,8 +116,8 @@ async function tagTrack(artist, track, tags) {
             track,
             tags,
             api_key: apiKey,
-            sk: getSessionKey(sessionToken),
-            // api_sig: undefined,
+            sk: await getSessionKey(sessionToken),
+            // api_sig
         };
         const sortedParams = Object.keys(params).sort().reduce((acc, key) => {
             acc[key] = params[key];
@@ -122,6 +125,7 @@ async function tagTrack(artist, track, tags) {
         }, {});
 
         const paramString = Object.entries(sortedParams).map(([key, value]) => `${key}${value}`).join('');
+        // TODO use serverless
         const stringWithSecret = paramString + apiSecret;
 
         const apiSig = md5(stringWithSecret);
