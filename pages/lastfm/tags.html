@@ -12,7 +12,12 @@ js: lastfm.js
 <h1>Last.fm Tags Tools</h1>
 
 <form action="javascript:getRequestToken()">
-    <button type="submit">Authenticate with Last.fm</button>
+    <button type="submit" id="authenticate">
+        Authenticate with Last.fm
+    </button>
+    <b id="authenticated" class="hide">
+        Authentication Successful
+    </button>
 </form>
 
 <h2>Get Your Tagged Tracks</h2>

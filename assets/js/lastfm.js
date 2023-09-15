@@ -5,6 +5,8 @@ let sessionToken;
 document.addEventListener('DOMContentLoaded', async function () {
     apiKey = await getApiKey();
     sessionToken = new URLSearchParams(location.search).get('token');
+    if (sessionToken)
+        ['#authenticate', '#authenticated'].forEach(id => $(id).toggleClass('hide'));
     // remove token from url
     history.pushState(null, null, location.href.replace(/[?&]token=\S+/, ''));
 });
