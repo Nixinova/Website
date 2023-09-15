@@ -102,7 +102,8 @@ async function tagTrack(artist, track, tags) {
     try {
         const method = 'track.addTags';
         const sessionKey = await getSessionKey(sessionToken);
-        const apiSig = await genApiSig({ method, artist, track, tags, api_key: apiKey, sk: sessionKey });
+        const params = { method, artist, track, tags, api_key: apiKey, sk: sessionKey };
+        const apiSig = await genApiSig(params);
         params.api_sig = apiSig;
 
         const response = await fetch('https://ws.audioscrobbler.com/2.0/', {
