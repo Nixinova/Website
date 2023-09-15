@@ -125,11 +125,7 @@ async function tagTrack(artist, track, tags) {
         }, {});
 
         const paramString = Object.entries(sortedParams).map(([key, value]) => `${key}${value}`).join('');
-        // TODO use serverless
-        const stringWithSecret = paramString + apiSecret;
-
-        const apiSig = md5(stringWithSecret);
-
+        const apiSig = await fetch('/.netlify/functions/lastfm-sign?string=' + paramString).then(res => res.json()).then(obj => obj.sig);
         params.api_sig = apiSig;
 
         const response = await fetch('https://ws.audioscrobbler.com/2.0/', {
