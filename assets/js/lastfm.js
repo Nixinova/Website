@@ -32,9 +32,8 @@ async function getApiKey() {
 }
 
 async function genApiSig(params) {
-    const allParams = { ...params, sk: await getSessionKey(sessionToken) };
-    const sortedParams = Object.keys(allParams).sort().reduce((acc, key) => {
-        acc[key] = allParams[key];
+    const sortedParams = Object.keys(params).sort().reduce((acc, key) => {
+        acc[key] = params[key];
         return acc;
     }, {});
 
@@ -102,7 +101,8 @@ async function tagTrack(artist, track, tags) {
 
     try {
         const method = 'track.addTags';
-        const apiSig = await genApiSig({ method, artist, track, tags, api_key: apiKey });
+        const sessionKey = await getSessionKey(sessionToken);
+        const apiSig = await genApiSig({ method, artist, track, tags, api_key: apiKey, sk: sessionKey });
         params.api_sig = apiSig;
 
         const response = await fetch('https://ws.audioscrobbler.com/2.0/', {
