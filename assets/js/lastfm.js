@@ -181,7 +181,6 @@ async function formTagTracks() {
 
     let i = 0;
     for (const [artist, track] of tracksList) {
-        loading.text(`Tagging... (${++i} / ${tracksList.length} done)`);
         await tagTrack(artist, track, tags)
             .then(() => {
                 tagLog.append(`${artist} - ${track}: tagged with ${tags}\n`);
@@ -190,6 +189,7 @@ async function formTagTracks() {
                 console.error(err);
                 tagLog.append(`${artist} - ${track}: could not tag with ${tags}\n`);
             })
+        loading.text(`Tagging... (${++i} / ${tracksList.length} done)`);
     }
 
     loading.text('');
