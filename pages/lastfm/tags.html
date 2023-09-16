@@ -10,7 +10,7 @@ js: lastfm.js
 <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
 <style>
     section {margin: 1em;}
-    readonly {background: darkgray;}
+    [readonly] {background: darkgray;}
     output.scroll-output {margin-top: 1em; border: 2px solid; overflow-y: scroll;}
     textarea.wide {width: 100%; height: 80px; margin-top: 1em;}
 </style>
@@ -26,11 +26,18 @@ js: lastfm.js
         <h2>Get Your Tagged Tracks</h2>
 
         <form action="javascript:formGetTaggedTracks()">
+            <label>Tags Mode</label>
+            <select id="gettagged_mode">
+                <option value="and">Intersection</option>
+                <option value="or">Union</option>
+            </dropdown>
+            <br>
+
             <label>Username</label><br>
             <input type="text" id="gettagged_username"><br>
             <br>
 
-            <label class="long">Match These Tags</label><br>
+            <label class="long">Tags List</label><br>
             <input type="text" id="gettagged_tags" class="long" placeholder="comma, separated, tags, list"><br>
             <br>
 

@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     history.pushState(null, null, location.href.replace(/[?&]token=\S+/, ''));
 });
 
+function csvToArray(str) {
+    return str.split(',').map(tag => tag.trim());
+}
+
 function formatLastfmUrl(url) {
     const urlParts = url.split('/');
     const artist = urlParts[4];
@@ -81,6 +85,14 @@ async function getCommonTaggedTracks(username, ...tags) {
     return common;
 }
 
+async function getAllTaggedTracks(username, ...tags) {
+    const result = [];
+    for (const tag of tags) {
+        result.push(...await getTagTracks(username, tag));
+    }
+    return [...new Set(result)];
+}
+
 async function tagTrack(artist, track, tags) {
     if (!sessionToken)
         return alert('Not authenticated yet');
@@ -108,18 +120,19 @@ async function formGetTaggedTracks() {
     const loading = $('#loading');
     loading.removeClass('hide');
 
-    const username = $('#gettagged_username').val();
-    const tagsStr = $('#gettagged_tags').val();
-    const tags = tagsStr.split(',').map(tag => tag.trim());
+    const mode = $('#gettagged_username').val();
+    const username = $('#gettagged_mode').val();
+    const tags = csvToArray($('#gettagged_tags').val());
 
-    if (!username || !tagsStr)
+    if (!username || !tags.length)
         return alert('Please input all fields');
-    if (tags.length > MAX_TAGS)
+    if (tagsAll.length > MAX_TAGS || tagsAny > MAX_TAGS)
         return alert('Too many tags: max of ' + MAX_TAGS);
 
     let trackURLs;
     try {
-        trackURLs = await getCommonTaggedTracks(username, ...tags);
+        const func = mode === 'and' ? getCommonTaggedTracks : getAllTaggedTracks;
+        trackURLs = await func(username, ...tags);
     }
     catch (err) {
         return alert('Error: ' + err.message);
@@ -140,15 +153,14 @@ async function formGetTaggedTracks() {
 
 async function formTagTracks() {
     const MAX_TAGS = 10;
-    const getList = str => str.split(',').map(tag => tag.trim());
 
     const loading = $('#loading');
     loading.removeClass('hide');
 
     const tagLog = $('#tagtracks_log');
 
-    const tracksList = getList($('#addtags_tracks').val()).map(trackData => trackData.split(/\s*-\s*/));
-    const tags = getList($('#addtags_tags').val());
+    const tracksList = csvToArray($('#addtags_tracks').val()).map(trackData => trackData.split(/\s*-\s*/));
+    const tags = csvToArray($('#addtags_tags').val());
 
     if (!tracksList.length || !tags.length)
         return alert('Please input all fields');
