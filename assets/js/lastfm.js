@@ -108,7 +108,6 @@ async function tagTrack(artist, track, tags) {
         return alert('Not authenticated yet');
 
     const method = 'track.addTags';
-    const sessionKey = sessionKey;
     const params = { method, artist, track, tags, api_key: apiKey, sk: sessionKey };
     const apiSig = await genApiSig(params);
     params.api_sig = apiSig;
@@ -170,6 +169,7 @@ async function formTagTracks() {
     loading.removeClass('hide');
 
     const tagLog = $('#tagtracks_log');
+    tagLog.html('Log:\n');
 
     const tracksList = csvToArray($('#addtags_tracks').val()).map(trackData => trackData.split(/\s*-\s*/));
     const tags = csvToArray($('#addtags_tags').val());
@@ -185,6 +185,7 @@ async function formTagTracks() {
                 tagLog.append(`${artist} - ${track}: added ${tags}\n`);
             })
             .catch((err) => {
+                console.error(err);
                 tagLog.append(`${artist} - ${track}: could not add ${tags}\n`);
             })
     }
