@@ -51,7 +51,7 @@ async function getRequestToken() {
     location.href = lastfmAuthURL;
 }
 
-async function getSessionKey(token) {
+async function getSessionKey() {
     try {
         const method = 'auth.getSession';
         const apiSig = await genApiSig({ method, token: sessionToken });
@@ -103,10 +103,11 @@ async function tagTrack(artist, track, tags) {
 
     try {
         const method = 'track.addTags';
-        const sessionKey = await getSessionKey(sessionToken);
+        const sessionKey = await getSessionKey();
         const params = { method, artist, track, tags, api_key: apiKey, sk: sessionKey };
         const apiSig = await genApiSig(params);
         params.api_sig = apiSig;
+        params.format = 'json';
 
         const response = await fetch('https://ws.audioscrobbler.com/2.0/', {
             method: 'POST',
@@ -114,7 +115,7 @@ async function tagTrack(artist, track, tags) {
             body: new URLSearchParams(params),
         });
 
-        const data = await response.text();
+        const data = await response.json();
         console.log(data);
     }
     catch (error) {
