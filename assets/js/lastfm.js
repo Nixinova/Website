@@ -28,6 +28,9 @@ function formatLastfmUrl(url) {
 async function getData(query) {
     const apiKey = await getApiKey();
     const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`);
+    if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+    }
     const data = await response.json();
     return data;
 }
@@ -109,9 +112,10 @@ async function tagTrack(artist, track, tags) {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(params),
     });
-
+    if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+    }
     const data = await response.json();
-    // TODO error handle
 }
 
 async function formGetTaggedTracks() {
@@ -168,13 +172,13 @@ async function formTagTracks() {
         return alert('Too many tags: max of ' + MAX_TAGS);
 
     for (const [artist, track] of tracksList) {
-        try {
-            await tagTrack(artist, track, tags);
-            tagLog.append(`${artist} - ${track}: + ${tags}: success\n`);
-        }
-        catch (err) {
-            tagLog.append(`${artist} - ${track}: + ${tags}: failed\n`);
-        }
+        await tagTrack(artist, track, tags)
+            .then(() => {
+                tagLog.append(`${artist} - ${track}: added ${tags}\n`);
+            })
+            .catch((err) => {
+                tagLog.append(`${artist} - ${track}: could not add ${tags}\n`);
+            })
     }
 
     loading.addClass('hide');
