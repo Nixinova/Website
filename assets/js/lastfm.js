@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     history.pushState(null, null, location.href.replace(/[?&]token=\S+/, ''));
 });
 
+function sort(array) {
+    return array.sort(Intl.Collator().compare);
+}
+
 function csvToArray(str) {
     return str.split(',').map(tag => tag.trim());
 }
@@ -149,12 +153,12 @@ async function formGetTaggedTracks() {
         return alert('Error: ' + err.message);
     }
     const urlToPlain = url => decodeURI(url).replace(/^.+last.fm.music./, '').replace(/\+/g, ' ');
-    const tracks = trackURLs.map(urlToPlain).sort();
+    const tracks = sort(trackURLs.map(urlToPlain));
     const plainTracks = tracks.map(track => track.replace('/_/', ' - '));
 
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(mode === 'and' ? ' + ' : ', ')}`;
     const plainContent = plainTracks.map(text => text.replace(/,/g, char => encodeURIComponent(char))).join(', ');
-    const fmtdContent = `<ul>${trackURLs.map(formatLastfmUrl).sort().map(track => `<li>${track}</li>`).join('')}</ul>`;
+    const fmtdContent = `<ul>${sort(trackURLs.map(formatLastfmUrl)).map(track => `<li>${track}</li>`).join('')}</ul>`;
     $('#matchedtracks_subtitle').html(desc);
     $('#matchedtracks_plain').html(plainContent);
     $('#matchedtracks_formatted').html(fmtdContent);
