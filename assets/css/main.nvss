@@ -14,6 +14,7 @@ body {margin: 0; background: $(color1); line-height: 1.8; font: normal 16px 'Mon
 code {font-size: 1.1em;}
 kbd {border: 1px solid #fff; background-color: #fff4; padding: 2px 3px; font-family: monospace;}
 img {max-width: 100%; vertical-align: middle; border: 0;}
+output {display: block;}
 abbr {cursor: help;}
 summary {cursor: pointer;}
 

@@ -15,7 +15,7 @@ function formatLastfmUrl(url) {
     const urlParts = url.split('/');
     const artist = urlParts[4];
     const track = urlParts[6];
-    const decodePart = part => decodeURI(part).replace(/\+/g, ' ');
+    const decodePart = part => decodeURIComponent(part).replace(/\+/g, ' ');
     return [
         `<b><a href="https://last.fm/music/${artist}">${decodePart(artist)}</a></b>`,
         `<a href="https://last.fm/music/${artist}/_/${track}">${decodePart(track)}</a>`,
@@ -127,13 +127,11 @@ async function formGetTaggedTracks() {
     const plainTracks = tracks.map(track => track.replace('/_/', ' - '));
 
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(' & ')}`;
+    const plainContent = plainTracks.replace(/,/g, char => encodeURIComponent(char)).join(', ');
+    const fmtdContent = `<ul>${trackURLs.map(formatLastfmUrl).sort().map(track => `<li>${track}</li>`).join('')}</ul>`;
     $('#matching-tracks-subtitle').html(desc);
-    $('#matching-tracks-plain').html(
-        plainTracks.join(', ')
-    );
-    $('#matching-tracks-formatted').html(
-        `<ul>${trackURLs.map(formatLastfmUrl).sort().map(track => `<li>${track}</li>`).join('')}</ul>`
-    );
+    $('#matching-tracks-plain').html(plainContent);
+    $('#matching-tracks-formatted').html(fmtdContent);
 }
 
 /* Copyright © Nixinova 2023 */
