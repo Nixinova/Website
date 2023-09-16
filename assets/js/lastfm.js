@@ -11,12 +11,14 @@ document.addEventListener('DOMContentLoaded', async function () {
     history.pushState(null, null, location.href.replace(/[?&]token=\S+/, ''));
 });
 
-function formatLastfmLink(trackStr) {
-    const [artist, track] = trackStr.split('/_/');
-    const encodePart = part => part.replace(/ /g, '+').replace(/[/\\]/g, char => encodeURIComponent(char));
+function formatLastfmUrl(url) {
+    const urlParts = url.split('/');
+    const artist = urlParts[4];
+    const track = urlParts[6];
+    const decodePart = part => decodeURI(part).replace(/\+/g, ' ');
     return [
-        `<b><a href="https://last.fm/music/${encodePart(artist)}">${artist}</a></b>`,
-        `<a href="https://last.fm/music/${encodePart(artist)}/_/${encodePart(track)}">${track}</a>`,
+        `<b><a href="https://last.fm/music/${artist}">${decodePart(artist)}</a></b>`,
+        `<a href="https://last.fm/music/${artist}/_/${track}">${decodePart(track)}</a>`,
     ].join(' - ');
 }
 
@@ -66,22 +68,11 @@ async function getSessionKey() {
 
 /** @returns Array<`${artist}/_/${name}`> */
 async function getTagTracks(username, tag) {
-    try {
-        const data = await getData(`method=user.getpersonaltags&taggingtype=track&user=${username}&tag=${tag}&limit=2000`);
+    const data = await getData(`method=user.getpersonaltags&taggingtype=track&user=${username}&tag=${tag}&limit=2000`);
 
-        if (data.error) {
-            alert('Error:', data.message);
-        }
-        else {
-            const tracks = data.taggings.tracks.track;
-            const trackParts = tracks.map(track => track.artist.name + '/_/' + track.name);
-            return trackParts;
-        }
-    }
-    catch (error) {
-        alert('Error:', error);
-    }
-    return [];
+    const tracks = data.taggings.tracks.track;
+    const trackURLs = tracks.map(track => track.url);
+    return trackURLs;
 }
 
 async function getCommonTaggedTracks(username, ...tags) {
@@ -135,16 +126,16 @@ async function formGetTaggedTracks() {
     if (tags.length > MAX_TAGS)
         return alert('Too many tags: max of ' + MAX_TAGS);
 
-    let tracks;
+    let trackURLs;
     try {
-        tracks = await getCommonTaggedTracks(username, ...tags);
+        trackURLs = await getCommonTaggedTracks(username, ...tags);
     }
     catch (err) {
         return alert('Error: ' + err.message);
     }
-    tracks = tracks.sort();
+    const urlToPlain = url => decodeURI(url).replace(/^.+last.fm.music./, '').replace(/\+/g, ' ');
+    const tracks = trackURLs.map(urlToPlain).sort();
 
-    const formattedTracks = tracks.map(formatLastfmLink);
     const plainTracks = tracks.map(track => track.replace('/_/', ' - '));
 
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(' & ')}`;
@@ -152,7 +143,7 @@ async function formGetTaggedTracks() {
         plainTracks.join(', ')
     );
     $('#matching-tracks-formatted').html(
-        `${desc} <ul>${formattedTracks.map(track => `<li>${track}</li>`).join('')}</ul>`
+        `${desc} <ul>${trackURLs.map(formatLastfmUrl).map(track => `<li>${track}</li>`).join('')}</ul>`
     );
 }
 
