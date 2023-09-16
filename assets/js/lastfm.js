@@ -175,7 +175,11 @@ async function formTagTracks() {
     const tagLog = $('#tagtracks_log');
     tagLog.html('Log:\n');
 
-    const tracksList = csvToArray($('#addtags_tracks').val()).map(trackData => trackData.split(/\s*-\s*/));
+    const tracksList = csvToArray($('#addtags_tracks').val()).map(trackData => {
+        const artist = trackData.replace(/ - .+$/, '').trim();
+        const track = trackData.replace(/^.+? - /, '').trim();
+        return [artist, track];
+    });
     const tags = csvToArray($('#addtags_tags').val());
 
     if (!tracksList.length || !tags.length)
