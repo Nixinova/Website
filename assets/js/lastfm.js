@@ -1,11 +1,16 @@
 let apiKey;
-let sessionToken;
+let authToken;
+let sessionKey;
 
 document.addEventListener('DOMContentLoaded', async function () {
     apiKey = await getApiKey();
-    sessionToken = new URLSearchParams(location.search).get('token');
-    if (sessionToken)
+
+    // get session token
+    authToken = new URLSearchParams(location.search).get('token');
+    if (authToken) {
+        sessionKey = await getSessionKey();
         ['#authenticate', '#authenticated'].forEach(id => $(id).toggleClass('hide'));
+    }
     // remove token from url
     history.pushState(null, null, location.href.replace(/[?&]token=\S+/, ''));
 });
@@ -29,6 +34,7 @@ async function getData(query) {
     const apiKey = await getApiKey();
     const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`);
     if (!response.ok) {
+        console.err(response);
         throw new Error(`HTTP error ${response.status}`);
     }
     const data = await response.json();
@@ -60,10 +66,11 @@ async function getRequestToken() {
 }
 
 async function getSessionKey() {
+    // TODO FIX: authToken is one time use
     const method = 'auth.getSession';
-    const apiSig = await genApiSig({ method, token: sessionToken });
-    const data = await getData(`method=${method}&token=${sessionToken}&api_sig=${apiSig}`);
-    return data.session?.key ?? null;
+    const apiSig = await genApiSig({ method, token: authToken });
+    const data = await getData(`method=${method}&token=${authToken}&api_sig=${apiSig}`);
+    return sessionKey = data.session?.key ?? null;
 }
 
 /** @returns Array<`${artist}/_/${name}`> */
@@ -97,11 +104,11 @@ async function getAllTaggedTracks(username, ...tags) {
 }
 
 async function tagTrack(artist, track, tags) {
-    if (!sessionToken)
+    if (!authToken)
         return alert('Not authenticated yet');
 
     const method = 'track.addTags';
-    const sessionKey = await getSessionKey();
+    const sessionKey = sessionKey;
     const params = { method, artist, track, tags, api_key: apiKey, sk: sessionKey };
     const apiSig = await genApiSig(params);
     params.api_sig = apiSig;
@@ -113,6 +120,7 @@ async function tagTrack(artist, track, tags) {
         body: new URLSearchParams(params),
     });
     if (!response.ok) {
+        console.err(response);
         throw new Error(`HTTP error ${response.status}`);
     }
     const data = await response.json();
