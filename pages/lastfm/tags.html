@@ -22,7 +22,7 @@ js: lastfm.js
 
 <h2>Get Your Tagged Tracks</h2>
 
-<form action="javascript:getFromForm()">
+<form action="javascript:formGetTaggedTracks()">
     <label>Username</label><br>
     <input type="text" id="username"><br>
     <br>
@@ -35,4 +35,5 @@ js: lastfm.js
 </form>
 
 <h3>Matching Tracks</h3>
-<output class="scroll-output" style=" max-height: 400px;"></output>
+<output id="matching-tracks-formatted" class="scroll-output" style="max-height: 400px;"></output>
+<output id="matching-tracks-plain" style="border: 1px dotted black;"></output>

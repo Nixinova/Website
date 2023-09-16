@@ -70,7 +70,7 @@ async function getTagTracks(username, tag) {
         const data = await getData(`method=user.getpersonaltags&taggingtype=track&user=${username}&tag=${tag}&limit=2000`);
 
         if (data.error) {
-            console.error('Error:', data.message);
+            alert('Error:', data.message);
         }
         else {
             const tracks = data.taggings.tracks.track;
@@ -79,7 +79,7 @@ async function getTagTracks(username, tag) {
         }
     }
     catch (error) {
-        console.error('Error:', error);
+        alert('Error:', error);
     }
     return [];
 }
@@ -123,7 +123,7 @@ async function tagTrack(artist, track, tags) {
     }
 }
 
-async function getFromForm() {
+async function formGetTaggedTracks() {
     const username = $('#username').val();
     const tagsStr = $('#tags').val();
     const tags = tagsStr.split(',').map(tag => tag.trim());
@@ -135,11 +135,25 @@ async function getFromForm() {
     if (tags.length > MAX_TAGS)
         return alert('Too many tags: max of ' + MAX_TAGS);
 
-    const tracks = await getCommonTaggedTracks(username, ...tags);
-    const formattedTracks = tracks.sort().map(formatLastfmLink);
+    let tracks;
+    try {
+        tracks = await getCommonTaggedTracks(username, ...tags);
+    }
+    catch (err) {
+        return alert('Error: ' + err.message);
+    }
+    tracks = tracks.sort();
+
+    const formattedTracks = tracks.map(formatLastfmLink);
+    const plainTracks = tracks.map(track => track.replace('/_/', ' - '));
+
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(' & ')}`;
-    const output = `${desc} <ul>${formattedTracks.map(track => `<li>${track}</li>`).join('')}</ul>`;
-    $('output').html(output);
+    $('#matching-tracks-plain').html(
+        plainTracks.join(', ')
+    );
+    $('#matching-tracks-formatted').html(
+        `${desc} <ul>${formattedTracks.map(track => `<li>${track}</li>`).join('')}</ul>`
+    );
 }
 
 /* Copyright © Nixinova 2023 */
