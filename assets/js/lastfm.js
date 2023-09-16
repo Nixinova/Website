@@ -152,7 +152,7 @@ async function formGetTaggedTracks() {
     const tracks = trackURLs.map(urlToPlain).sort();
     const plainTracks = tracks.map(track => track.replace('/_/', ' - '));
 
-    const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(' & ')}`;
+    const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(mode === 'and' ? ' + ' : ', ')}`;
     const plainContent = plainTracks.map(text => text.replace(/,/g, char => encodeURIComponent(char))).join(', ');
     const fmtdContent = `<ul>${trackURLs.map(formatLastfmUrl).sort().map(track => `<li>${track}</li>`).join('')}</ul>`;
     $('#matchedtracks_subtitle').html(desc);
