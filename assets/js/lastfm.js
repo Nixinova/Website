@@ -30,7 +30,7 @@ function formatLastfmUrl(url) {
     const decodePart = part => decodeURIComponent(part).replace(/\+/g, ' ');
     return (
         `<b><a href="https://last.fm/music/${artist}">${decodePart(artist)}</a></b>`
-        + (track ? `- <a href="https://last.fm/music/${artist}/_/${track}">${decodePart(track)}</a>` : '')
+        + (track ? ` - <a href="https://last.fm/music/${artist}/_/${track}">${decodePart(track)}</a>` : '')
     );
 }
 
@@ -157,7 +157,7 @@ async function formGetTaggedTracks() {
     const plainTracks = tracks.map(track => track.replace('/_/', ' - '));
 
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(mode === 'and' ? ' + ' : ', ')}`;
-    const plainContent = plainTracks.map(text => text.replace(/,/g, char => encodeURIComponent(char))).join(', ');
+    const plainContent = plainTracks.map(text => decodeURIComponent(text).replace(/,/g, char => encodeURIComponent(char))).join(', ');
     const fmtdContent = `<ul>${sort(trackURLs.map(formatLastfmUrl)).map(track => `<li>${track}</li>`).join('')}</ul>`;
     $('#matchedtracks_subtitle').html(desc);
     $('#matchedtracks_plain').html(plainContent);
