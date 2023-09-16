@@ -11,22 +11,23 @@ js: lastfm.js
 <style>
     section {margin: 1em;}
     [readonly] {background: darkgray;}
+    .loading {font-size: 1.25em;}
     output.scroll-output {margin-top: 1em; border: 2px solid; overflow-y: scroll;}
     textarea.wide {width: 100%; height: 80px; margin-top: 1em;}
 </style>
 
 <h1>Last.fm Tags Tools</h1>
 
-<p id="loading" class="hide">
-    <strong>Loading...</strong>
-</p>
-
 <div style="display: grid; grid-template-columns: auto auto;">
     <section>
         <h2>Get Your Tagged Tracks</h2>
 
+        <p>
+            <b id="gettagged_loading" class="loading">Loading...</b>
+        </p>
+
         <form action="javascript:formGetTaggedTracks()">
-            <label>Tags Mode</label>
+            <label>Tags Mode</label><br>
             <select id="gettagged_mode">
                 <option value="and">Intersection</option>
                 <option value="or">Union</option>
@@ -52,6 +53,10 @@ js: lastfm.js
 
     <section>
         <h2>Mass Tag Tracks</h2>
+
+        <p>
+            <b id="addtags_loading" class="loading">Loading...</b>
+        </p>
 
         <form action="javascript:getRequestToken()">
             <button type="submit" id="authenticate">

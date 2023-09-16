@@ -128,8 +128,8 @@ async function tagTrack(artist, track, tags) {
 async function formGetTaggedTracks() {
     const MAX_TAGS = 5;
 
-    const loading = $('#loading');
-    loading.removeClass('hide');
+    const loading = $('#gettagged_loading');
+    loading.text('Loading...');
 
     const mode = $('#gettagged_mode').val();
     const username = $('#gettagged_username').val();
@@ -159,17 +159,17 @@ async function formGetTaggedTracks() {
     $('#matchedtracks_plain').html(plainContent);
     $('#matchedtracks_formatted').html(fmtdContent);
 
-    loading.addClass('hide');
+    loading.text('');
 }
 
 async function formTagTracks() {
     const MAX_TAGS = 10;
 
-    const loading = $('#loading');
-    loading.removeClass('hide');
+    const loading = $('#addtags_loading');
+    loading.text('Loading...');
 
     const tagLog = $('#tagtracks_log');
-    tagLog.html('Log:\n');
+    tagLog.text('Log:\n');
 
     const tracksList = csvToArray($('#addtags_tracks').val()).map(trackData => trackData.split(/\s*-\s*/));
     const tags = csvToArray($('#addtags_tags').val());
@@ -179,7 +179,9 @@ async function formTagTracks() {
     if (tags.length > MAX_TAGS)
         return alert('Too many tags: max of ' + MAX_TAGS);
 
+    let i = 0;
     for (const [artist, track] of tracksList) {
+        loading.text(`Loading... (${i} / ${tracksList.length} done)`);
         await tagTrack(artist, track, tags)
             .then(() => {
                 tagLog.append(`${artist} - ${track}: added ${tags}\n`);
@@ -190,7 +192,7 @@ async function formTagTracks() {
             })
     }
 
-    loading.addClass('hide');
+    loading.text('');
 }
 
 /* Copyright © Nixinova 2023 */
