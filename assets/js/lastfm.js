@@ -157,7 +157,7 @@ async function formTagTracks() {
 
     for (const [artist, track] of tracksList) {
         try {
-            tagTrack(artist, track, tags);
+            await tagTrack(artist, track, tags);
             tagLog.append(`${artist} - ${track}: + ${tags}: success\n`);
         }
         catch (err) {
