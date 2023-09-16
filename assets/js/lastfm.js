@@ -54,16 +54,10 @@ async function getRequestToken() {
 }
 
 async function getSessionKey() {
-    try {
-        const method = 'auth.getSession';
-        const apiSig = await genApiSig({ method, token: sessionToken });
-        const data = await getData(`method=${method}&token=${sessionToken}&api_sig=${apiSig}`);
-        return data.session?.key ?? null;
-    }
-    catch (error) {
-        console.error('Error:', error);
-        return null;
-    }
+    const method = 'auth.getSession';
+    const apiSig = await genApiSig({ method, token: sessionToken });
+    const data = await getData(`method=${method}&token=${sessionToken}&api_sig=${apiSig}`);
+    return data.session?.key ?? null;
 }
 
 /** @returns Array<`${artist}/_/${name}`> */
@@ -92,26 +86,21 @@ async function tagTrack(artist, track, tags) {
     if (!sessionToken)
         return alert('Not authenticated yet');
 
-    try {
-        const method = 'track.addTags';
-        const sessionKey = await getSessionKey();
-        const params = { method, artist, track, tags, api_key: apiKey, sk: sessionKey };
-        const apiSig = await genApiSig(params);
-        params.api_sig = apiSig;
-        params.format = 'json';
+    const method = 'track.addTags';
+    const sessionKey = await getSessionKey();
+    const params = { method, artist, track, tags, api_key: apiKey, sk: sessionKey };
+    const apiSig = await genApiSig(params);
+    params.api_sig = apiSig;
+    params.format = 'json';
 
-        const response = await fetch('https://ws.audioscrobbler.com/2.0/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(params),
-        });
+    const response = await fetch('https://ws.audioscrobbler.com/2.0/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(params),
+    });
 
-        const data = await response.json();
-        console.log(data);
-    }
-    catch (error) {
-        console.error('Error tagging track:', error);
-    }
+    const data = await response.json();
+    console.log(data);
 }
 
 async function formGetTaggedTracks() {
@@ -135,15 +124,15 @@ async function formGetTaggedTracks() {
     }
     const urlToPlain = url => decodeURI(url).replace(/^.+last.fm.music./, '').replace(/\+/g, ' ');
     const tracks = trackURLs.map(urlToPlain).sort();
-
     const plainTracks = tracks.map(track => track.replace('/_/', ' - '));
 
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(' & ')}`;
+    $('#matching-tracks-subtitle').html(desc);
     $('#matching-tracks-plain').html(
         plainTracks.join(', ')
     );
     $('#matching-tracks-formatted').html(
-        `${desc} <ul>${trackURLs.map(formatLastfmUrl).map(track => `<li>${track}</li>`).join('')}</ul>`
+        `<ul>${trackURLs.map(formatLastfmUrl).sort().map(track => `<li>${track}</li>`).join('')}</ul>`
     );
 }
 
