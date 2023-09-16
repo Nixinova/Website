@@ -33,10 +33,9 @@ async function getApiKey() {
     return API_KEY = data;
 }
 
-// TODO error code 13 - invalid signature
+// TODO error code 4 - This token has not been issued
 async function genApiSig(params) {
     // add mandatory params
-    params.format = 'json';
     params.api_key = await getApiKey();
 
     const paramString = Object.keys(params).sort().map(key => `${key}${params[key]}`).join('');
