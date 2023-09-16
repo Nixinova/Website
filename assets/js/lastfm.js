@@ -104,9 +104,8 @@ async function tagTrack(artist, track, tags) {
 }
 
 async function formGetTaggedTracks() {
-    const progressBar = $('#matching-tracks-progress');
-    progressBar.val(0);
-    progressBar.removeClass('hide');
+    const loading = $('#loading');
+    loading.removeClass('hide');
 
     const username = $('#username').val();
     const tagsStr = $('#tags').val();
@@ -121,9 +120,7 @@ async function formGetTaggedTracks() {
 
     let trackURLs;
     try {
-        progressBar.val(33);
         trackURLs = await getCommonTaggedTracks(username, ...tags);
-        progressBar.val(66);
     }
     catch (err) {
         return alert('Error: ' + err.message);
@@ -139,8 +136,7 @@ async function formGetTaggedTracks() {
     $('#matching-tracks-plain').html(plainContent);
     $('#matching-tracks-formatted').html(fmtdContent);
     
-    progressBar.val(100);
-    progressBar.addClass('hide');
+    loading.addClass('hide');
 }
 
 /* Copyright © Nixinova 2023 */
