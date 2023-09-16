@@ -24,10 +24,10 @@ function formatLastfmUrl(url) {
     const artist = urlParts[4];
     const track = urlParts[6];
     const decodePart = part => decodeURIComponent(part).replace(/\+/g, ' ');
-    return [
-        `<b><a href="https://last.fm/music/${artist}">${decodePart(artist)}</a></b>`,
-        `<a href="https://last.fm/music/${artist}/_/${track}">${decodePart(track)}</a>`,
-    ].join(' - ');
+    return (
+        `<b><a href="https://last.fm/music/${artist}">${decodePart(artist)}</a></b>`
+        + (track ? `- <a href="https://last.fm/music/${artist}/_/${track}">${decodePart(track)}</a>` : '')
+    );
 }
 
 async function getData(query) {
