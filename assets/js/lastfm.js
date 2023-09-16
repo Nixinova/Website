@@ -150,7 +150,7 @@ async function formTagTracks() {
     const tracksList = getList($('#addtags_tracks').val()).map(trackData => trackData.split(/\s*-\s*/));
     const tags = getList($('#addtags_tags').val());
 
-    if (!artist || !track || !tags.length)
+    if (!tracksList.length || !tags.length)
         return alert('Please input all fields');
     if (tags.length > MAX_TAGS)
         return alert('Too many tags: max of ' + MAX_TAGS);
