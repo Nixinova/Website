@@ -120,13 +120,13 @@ async function formGetTaggedTracks() {
     const loading = $('#loading');
     loading.removeClass('hide');
 
-    const mode = $('#gettagged_username').val();
-    const username = $('#gettagged_mode').val();
+    const mode = $('#gettagged_mode').val();
+    const username = $('#gettagged_username').val();
     const tags = csvToArray($('#gettagged_tags').val());
 
     if (!username || !tags.length)
         return alert('Please input all fields');
-    if (tagsAll.length > MAX_TAGS || tagsAny > MAX_TAGS)
+    if (tags.length > MAX_TAGS)
         return alert('Too many tags: max of ' + MAX_TAGS);
 
     let trackURLs;
