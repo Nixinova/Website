@@ -10,18 +10,19 @@ js: lastfm.js
 <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
 <style>
     section {margin: 1em;}
+    readonly {background: darkgray;}
     output.scroll-output {margin-top: 1em; border: 2px solid; overflow-y: scroll;}
     textarea.wide {width: 100%; height: 80px; margin-top: 1em;}
 </style>
 
 <h1>Last.fm Tags Tools</h1>
 
-<div style="columns: 2;">
-    <section>
-        <p id="loading" class="hide">
-            <strong>Loading...</strong>
-        </p>
+<p id="loading" class="hide">
+    <strong>Loading...</strong>
+</p>
 
+<div style="display: grid; grid-template-columns: auto auto;">
+    <section>
         <h2>Get Your Tagged Tracks</h2>
 
         <form action="javascript:formGetTaggedTracks()">
@@ -39,8 +40,9 @@ js: lastfm.js
         <h3>Matching Tracks</h3>
         <p id="matchedtracks_subtitle"></p>
         <output id="matchedtracks_formatted" class="output scroll-output" style="max-height: 400px;"></output>
-        <textarea id="matchedtracks_plain" class="output wide"></textarea>
+        <textarea readonly id="matchedtracks_plain" class="output wide"></textarea>
     </section>
+
     <section>
         <h2>Mass Tag Tracks</h2>
 
@@ -67,6 +69,6 @@ js: lastfm.js
         </form>
 
         <h3>Tagging Log</h3>
-        <textarea id="tagtracks_log" class="output wide"></textarea>
+        <textarea readonly id="tagtracks_log" class="output wide"></textarea>
     </section>
 </div>
