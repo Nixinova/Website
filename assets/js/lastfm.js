@@ -131,9 +131,9 @@ async function formGetTaggedTracks() {
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(' & ')}`;
     const plainContent = plainTracks.map(text => text.replace(/,/g, char => encodeURIComponent(char))).join(', ');
     const fmtdContent = `<ul>${trackURLs.map(formatLastfmUrl).sort().map(track => `<li>${track}</li>`).join('')}</ul>`;
-    $('#matching-tracks-subtitle').html(desc);
-    $('#matching-tracks-plain').html(plainContent);
-    $('#matching-tracks-formatted').html(fmtdContent);
+    $('#matchedtracks_subtitle').html(desc);
+    $('#matchedtracks_plain').html(plainContent);
+    $('#matchedtracks_formatted').html(fmtdContent);
 
     loading.addClass('hide');
 }
@@ -145,6 +145,8 @@ async function formTagTracks() {
     const loading = $('#loading');
     loading.removeClass('hide');
 
+    const tagLog = $('#tagtracks_log');
+
     const tracksList = getList($('#addtags_tracks').val()).map(trackData => trackData.split(/\s*-\s*/));
     const tags = getList($('#addtags_tags').val());
 
@@ -153,14 +155,14 @@ async function formTagTracks() {
     if (tags.length > MAX_TAGS)
         return alert('Too many tags: max of ' + MAX_TAGS);
 
-    try {
-        for (const [artist, track] of tracksList) {
+    for (const [artist, track] of tracksList) {
+        try {
             tagTrack(artist, track, tags);
-            console.log(`Tagged ${artist} - ${track} as ${tags}`);
+            tagLog.append(`${artist} - ${track}: + ${tags}: success\n`);
         }
-    }
-    catch (err) {
-        return alert('Error: ' + err.message);
+        catch (err) {
+            tagLog.append(`${artist} - ${track}: + ${tags}: failed\n`);
+        }
     }
 
     loading.addClass('hide');
