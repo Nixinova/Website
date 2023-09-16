@@ -22,10 +22,6 @@ js: lastfm.js
     <section>
         <h2>Get Your Tagged Tracks</h2>
 
-        <p>
-            <b id="gettagged_loading" class="loading">Loading...</b>
-        </p>
-
         <form action="javascript:formGetTaggedTracks()">
             <label>Tags Mode</label><br>
             <select id="gettagged_mode">
@@ -45,7 +41,12 @@ js: lastfm.js
             <button type="submit">Fetch</button>
         </form>
 
+        <p>
+            <b id="gettagged_loading" class="loading">Loading...</b>
+        </p>
+
         <h3>Matching Tracks</h3>
+
         <p id="matchedtracks_subtitle"></p>
         <output id="matchedtracks_formatted" class="output scroll-output" style="max-height: 400px;"></output>
         <textarea readonly id="matchedtracks_plain" class="output wide"></textarea>
@@ -53,10 +54,6 @@ js: lastfm.js
 
     <section>
         <h2>Mass Tag Tracks</h2>
-
-        <p>
-            <b id="addtags_loading" class="loading">Loading...</b>
-        </p>
 
         <form action="javascript:getRequestToken()">
             <button type="submit" id="authenticate">
@@ -80,7 +77,12 @@ js: lastfm.js
             <button type="submit">Go</button>
         </form>
 
+        <p>
+            <b id="addtags_loading" class="loading">Loading...</b>
+        </p>
+
         <h3>Tagging Log</h3>
+
         <textarea readonly id="tagtracks_log" class="output wide"></textarea>
     </section>
 </div>

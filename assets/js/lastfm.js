@@ -169,7 +169,7 @@ async function formTagTracks() {
     loading.text('Loading...');
 
     const tagLog = $('#tagtracks_log');
-    tagLog.text('Log:\n');
+    tagLog.html('Log:\n');
 
     const tracksList = csvToArray($('#addtags_tracks').val()).map(trackData => trackData.split(/\s*-\s*/));
     const tags = csvToArray($('#addtags_tags').val());
