@@ -1,4 +1,3 @@
-const MAX_TAGS = 5;
 let apiKey;
 let sessionToken;
 
@@ -100,21 +99,21 @@ async function tagTrack(artist, track, tags) {
     });
 
     const data = await response.json();
-    console.log(data);
+    // TODO error handle
 }
 
 async function formGetTaggedTracks() {
+    const MAX_TAGS = 5;
+
     const loading = $('#loading');
     loading.removeClass('hide');
 
-    const username = $('#username').val();
-    const tagsStr = $('#tags').val();
+    const username = $('#gettagged_username').val();
+    const tagsStr = $('#gettagged_tags').val();
     const tags = tagsStr.split(',').map(tag => tag.trim());
 
-    if (!username)
-        return alert('No username inputted');
-    if (!tagsStr)
-        return alert('No tags inputted');
+    if (!username || !tagsStr)
+        return alert('Please input all fields');
     if (tags.length > MAX_TAGS)
         return alert('Too many tags: max of ' + MAX_TAGS);
 
@@ -135,7 +134,35 @@ async function formGetTaggedTracks() {
     $('#matching-tracks-subtitle').html(desc);
     $('#matching-tracks-plain').html(plainContent);
     $('#matching-tracks-formatted').html(fmtdContent);
-    
+
+    loading.addClass('hide');
+}
+
+async function formTagTracks() {
+    const MAX_TAGS = 10;
+    const getList = str => str.split(',').map(tag => tag.trim());
+
+    const loading = $('#loading');
+    loading.removeClass('hide');
+
+    const tracksList = getList($('#addtags_tracks').val()).map(trackData => trackData.split(/\s*-\s*/));
+    const tags = getList($('#addtags_tags').val());
+
+    if (!artist || !track || !tags.length)
+        return alert('Please input all fields');
+    if (tags.length > MAX_TAGS)
+        return alert('Too many tags: max of ' + MAX_TAGS);
+
+    try {
+        for (const [artist, track] of tracksList) {
+            tagTrack(artist, track, tags);
+            console.log(`Tagged ${artist} - ${track} as ${tags}`);
+        }
+    }
+    catch (err) {
+        return alert('Error: ' + err.message);
+    }
+
     loading.addClass('hide');
 }
 

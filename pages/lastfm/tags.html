@@ -15,27 +15,21 @@ js: lastfm.js
 
 <h1>Last.fm Tags Tools</h1>
 
-<form action="javascript:getRequestToken()">
-    <button type="submit" id="authenticate">
-        Authenticate with Last.fm
-    </button>
-    <b id="authenticated" class="hide">
-        Authentication Successful
-    </b>
-</form>
 <p id="loading" class="hide">
     <strong>Loading...</strong>
 </p>
+
+<hr>
 
 <h2>Get Your Tagged Tracks</h2>
 
 <form action="javascript:formGetTaggedTracks()">
     <label>Username</label><br>
-    <input type="text" id="username"><br>
+    <input type="text" id="gettagged_username"><br>
     <br>
 
     <label class="long">Match These Tags</label><br>
-    <input type="text" id="tags" class="long" placeholder="comma, separated, tags, list"><br>
+    <input type="text" id="gettagged_tags" class="long" placeholder="comma, separated, tags, list"><br>
     <br>
 
     <button type="submit">Fetch</button>
@@ -45,3 +39,28 @@ js: lastfm.js
 <p id="matching-tracks-subtitle"></p>
 <output id="matching-tracks-formatted" class="output scroll-output" style="max-height: 400px;"></output>
 <textarea id="matching-tracks-plain" class="output textarea-output"></textarea>
+
+<hr>
+
+<h2>Mass Tag Tracks</h2>
+
+<form action="javascript:getRequestToken()">
+    <button type="submit" id="authenticate">
+        Authenticate with Last.fm
+    </button>
+    <b id="authenticated" class="hide">
+        Authentication Successful
+    </b>
+</form>
+
+<form action="javascript:formTagTracks()">
+    <label class="long">List of Tracks</label><br>
+    <small>(e.g. 'A - B, X - Y')</small><br>
+    <textarea id="addtag_tracks"><br>
+    <br>
+
+    <label class="long">Add Tags</label><br>
+    <input type="text" id="addtag_tags" class="long" placeholder="comma, separated, tags, list"><br>
+
+    <button type="submit">Fetch</button>
+</form>
