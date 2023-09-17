@@ -117,6 +117,9 @@ async function tagItem(type, tags, input) {
     if (!authToken)
         return alert('Not authenticated yet');
 
+    for (const key of Object.keys(input))
+        input[key] = input[key].replaceAll(encodeURIComponent(','), ',');
+
     const params = { method: type + '.addTags', ...input, tags, api_key: apiKey, sk: sessionKey };
     const apiSig = await genApiSig(params);
     params.api_sig = apiSig;
