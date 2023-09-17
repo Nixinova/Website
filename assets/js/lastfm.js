@@ -207,33 +207,33 @@ async function formTagTracks() {
             // Artist tagging
             await tagItem('artist', tags, { artist })
                 .then(() => {
-                    tagLog.append(`${artist}: tagged with ${tags}\n`);
+                    tagLog.append(`  ${artist}: tagged with ${tags}\n`);
                 })
                 .catch((err) => {
                     console.error(err);
-                    tagLog.append(`${artist}: could not tag with ${tags}\n`);
+                    tagLog.append(`! ${artist}: could not tag with ${tags}\n`);
                 })
         }
         else if (album && album !== '_') {
             // Album tagging
             await tagItem('album', tags, { artist, album })
                 .then(() => {
-                    tagLog.append(`${artist} / ${album}: tagged with ${tags}\n`);
+                    tagLog.append(`  ${artist} / ${album}: tagged with ${tags}\n`);
                 })
                 .catch((err) => {
                     console.error(err);
-                    tagLog.append(`${artist} / ${album}: could not tag with ${tags}\n`);
+                    tagLog.append(`! ${artist} / ${album}: could not tag with ${tags}\n`);
                 })
         }
         else {
             // Track tagging
             await tagItem('track', tags, { artist, track })
                 .then(() => {
-                    tagLog.append(`${artist} - ${track}: tagged with ${tags}\n`);
+                    tagLog.append(`  ${artist} - ${track}: tagged with ${tags}\n`);
                 })
                 .catch((err) => {
                     console.error(err);
-                    tagLog.append(`${artist} - ${track}: could not tag with ${tags}\n`);
+                    tagLog.append(`! ${artist} - ${track}: could not tag with ${tags}\n`);
                 })
         }
         loading.text(`Tagging... (${++i} / ${itemsList.length} done)`);
