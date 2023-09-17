@@ -164,10 +164,9 @@ async function formGetTaggedTracks() {
     }
     const urlToPlain = url => decodeURI(url).replace(/^.+last.fm.music./, '').replace(/\+/g, ' ');
     const tracks = sort(trackURLs.map(urlToPlain));
-    const plainTracks = tracks;
 
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(mode === 'and' ? ' + ' : ', ')}`;
-    const plainContent = plainTracks.map(text => decodeURIComponent(text).replace(/,/g, char => encodeURIComponent(char))).join(', ');
+    const plainContent = tracks.join(', ');
     const fmtdContent = `<ul>${sort(trackURLs.map(formatLastfmUrl)).map(track => `<li>${track}</li>`).join('')}</ul>`;
     $('#matchedtracks_subtitle').html(desc);
     $('#matchedtracks_plain').html(plainContent);
