@@ -79,9 +79,10 @@ async function getSessionKey() {
 
 /** @returns Array<`${url}`> */
 async function getTaggedItems(username, tag) {
+    // TODO FIX: get(artist) fetches all artists of tagged tracks instead of tagged artists
     const itemURLs = { all: [], artist: [], album: [], track: [] };
     for (const type of ['artist', 'album', 'track']) {
-        const data = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=2000`)
+        const data = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=2000`);
         const urls = data.taggings[type + 's'][type].map(item => item.url);
         itemURLs[type] = urls;
         itemURLs.all.push(...urls);
@@ -93,7 +94,7 @@ async function getTaggedItems(username, tag) {
 async function getCommonTaggedItems(username, ...tags) {
     const itemsCount = {};
     for (const tag of tags) {
-        const items = await getTaggedItems(username, tag).then(urls => urls.all);
+        const items = await getTaggedItems(username, tag).then(urls => urls.tracks);
         for (const item of items) {
             itemsCount[item] ??= 0;
             itemsCount[item]++;
@@ -106,7 +107,7 @@ async function getCommonTaggedItems(username, ...tags) {
 async function getAllTaggedItems(username, ...tags) {
     const result = [];
     for (const tag of tags) {
-        result.push(...await getTaggedItems(username, tag).then(urls => urls.all));
+        result.push(...await getTaggedItems(username, tag).then(urls => urls.tracks));
     }
     return [...new Set(result)];
 }
