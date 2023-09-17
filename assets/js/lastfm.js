@@ -93,10 +93,10 @@ async function getTaggedItems(username, tag) {
     return itemURLs;
 }
 
-async function getCommonTaggedItems(username, ...tags) {
+async function getCommonTaggedItems(type = 'all', username, ...tags) {
     const itemsCount = {};
     for (const tag of tags) {
-        const items = await getTaggedItems(username, tag).then(urls => urls.all);
+        const items = await getTaggedItems(username, tag).then(urls => urls[type]);
         for (const item of items) {
             itemsCount[item] ??= 0;
             itemsCount[item]++;
@@ -106,10 +106,10 @@ async function getCommonTaggedItems(username, ...tags) {
     return common;
 }
 
-async function getAllTaggedItems(username, ...tags) {
+async function getAllTaggedItems(type = 'all', username, ...tags) {
     const result = [];
     for (const tag of tags) {
-        result.push(...await getTaggedItems(username, tag).then(urls => urls.all));
+        result.push(...await getTaggedItems(username, tag).then(urls => urls[type]));
     }
     return [...new Set(result)];
 }
@@ -142,6 +142,7 @@ async function formGetTaggedTracks() {
     const loading = $('#gettagged_loading');
 
     const mode = $('#gettagged_mode').val();
+    const type = $('#gettagged_items').val();
     const username = $('#gettagged_username').val();
     const tags = csvToArray($('#gettagged_tags').val());
 
@@ -153,8 +154,8 @@ async function formGetTaggedTracks() {
     let trackURLs;
     try {
         loading.text('Loading...');
-        const func = mode === 'and' ? getCommonTaggedItems : getAllTaggedItems;
-        trackURLs = await func(username, ...tags);
+        const getItemsFunc = mode === 'and' ? getCommonTaggedItems : getAllTaggedItems;
+        trackURLs = await getItemsFunc(type, username, ...tags);
     }
     catch (err) {
         loading.text('');
