@@ -20,7 +20,7 @@ function sort(array) {
 }
 
 function csvToArray(str) {
-    return str.split(',').map(tag => tag.trim());
+    return str.split(',').map(tag => tag.trim()).filter(item => item);
 }
 
 function formatLastfmUrl(url) {
@@ -159,8 +159,10 @@ async function formGetTaggedTracks() {
         const getItemsFunc = mode === 'and' ? getCommonTaggedItems : getAllTaggedItems;
         trackURLs = await getItemsFunc(type, username, ...tags);
         loading.text('Loading... (1/2)');
-        const exclTrackURLs = await getItemsFunc(type, username, ...tagsExclude);
-        trackURLs = trackURLs.filter(url => !exclTrackURLs.includes(url));
+        if (tagsExclude.length) {
+            const exclTrackURLs = await getItemsFunc(type, username, ...tagsExclude);
+            trackURLs = trackURLs.filter(url => !exclTrackURLs.includes(url));
+        }
         loading.text('Loading... (2/2)');
     }
     catch (err) {
