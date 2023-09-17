@@ -232,4 +232,11 @@ async function formTagTracks() {
     loading.text('');
 }
 
+// TODO: actually kill the request
+function killTagAdding() {
+    const tagLogContent = $('#tagtracks_log').val();
+    alert(`Killing. \n Tags: \n ${tagLogContent} \n Press OK to reload`);
+    location.reload();
+}
+
 /* Copyright © Nixinova 2023 */
