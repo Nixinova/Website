@@ -80,7 +80,7 @@ async function getSessionKey() {
 /** @returns Array<`${url}`> */
 async function getTaggedItems(username, tag) {
     const itemURLs = { all: [], artist: [], album: [], track: [] };
-    for (const type of Object.keys(itemURLs)) {
+    for (const type of ['artist', 'album', 'track']) {
         itemURLs[type] = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=2000`)
             .then(data => data.taggings[type + 's'][type])
             .then(item => item.url);
@@ -137,7 +137,6 @@ async function formGetTaggedTracks() {
     const MAX_TAGS = 5;
 
     const loading = $('#gettagged_loading');
-    loading.text('Loading...');
 
     const mode = $('#gettagged_mode').val();
     const username = $('#gettagged_username').val();
@@ -150,10 +149,12 @@ async function formGetTaggedTracks() {
 
     let trackURLs;
     try {
+        loading.text('Loading...');
         const func = mode === 'and' ? getCommonTaggedItems : getAllTaggedItems;
         trackURLs = await func(username, ...tags);
     }
     catch (err) {
+        loading.text('');
         return alert('Error: ' + err.message);
     }
     const urlToPlain = url => decodeURI(url).replace(/^.+last.fm.music./, '').replace(/\+/g, ' ');
