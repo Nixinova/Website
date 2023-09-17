@@ -145,7 +145,8 @@ async function formGetTaggedTracks() {
     const mode = $('#gettagged_mode').val();
     const type = $('#gettagged_items').val();
     const username = $('#gettagged_username').val();
-    const tags = csvToArray($('#gettagged_tags').val());
+    const tags = csvToArray($('#gettagged_tags-include').val());
+    const tagsExclude = csvToArray($('#gettagged_tags-exclude').val());
 
     if (!username || !tags.length)
         return alert('Please input all fields');
@@ -157,6 +158,8 @@ async function formGetTaggedTracks() {
         loading.text('Loading...');
         const getItemsFunc = mode === 'and' ? getCommonTaggedItems : getAllTaggedItems;
         trackURLs = await getItemsFunc(type, username, ...tags);
+        const exclTrackURLs = await getItemsFunc(type, username, ...tagsExclude);
+        trackURLs = trackURLs.filter(url => !exclTrackURLs.includes(url));
     }
     catch (err) {
         loading.text('');
