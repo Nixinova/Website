@@ -210,7 +210,7 @@ async function formTagTracks() {
                 console.error(err);
                 tagLog.append(`${artist} - ${track}: could not tag with ${tags}\n`);
             })
-        loading.text(`Tagging... (${++i} / ${tracksList.length} done)`);
+        loading.text(`Tagging... (${++i} / ${itemsList.length} done)`);
     }
 
     loading.text('');
