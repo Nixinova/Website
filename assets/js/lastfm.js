@@ -113,12 +113,11 @@ async function getAllTaggedItems(type = 'all', username, ...tags) {
     return [...new Set(result)];
 }
 
-async function tagTrack(artist, track, tags) {
+async function tagItem(type, tags, input) {
     if (!authToken)
         return alert('Not authenticated yet');
 
-    const method = 'track.addTags';
-    const params = { method, artist, track, tags, api_key: apiKey, sk: sessionKey };
+    const params = { method: type + '.addTags', ...input, tags, api_key: apiKey, sk: sessionKey };
     const apiSig = await genApiSig(params);
     params.api_sig = apiSig;
     params.format = 'json';
@@ -195,21 +194,38 @@ async function formTagTracks() {
     for (const itemURL of itemsList) {
         const [artist, album, track] = itemURL.split('/');
         if (!track) {
-            tagLog.append(`${artist}: could not tag: artists cannot be tagged at this time\n`);
-            continue;
+            // Artist tagging
+            await tagItem('artist', tags, { artist })
+                .then(() => {
+                    tagLog.append(`${artist}: tagged with ${tags}\n`);
+                })
+                .catch((err) => {
+                    console.error(err);
+                    tagLog.append(`${artist}: could not tag with ${tags}\n`);
+                })
         }
         else if (album !== '_') {
-            tagLog.append(`${artist}/${album}: could not tag: albums cannot be tagged at this time\n`);
-            continue;
+            // Album tagging
+            await tagItem('album', tags, { artist, album })
+                .then(() => {
+                    tagLog.append(`${artist} / ${album}: tagged with ${tags}\n`);
+                })
+                .catch((err) => {
+                    console.error(err);
+                    tagLog.append(`${artist} / ${album}: could not tag with ${tags}\n`);
+                })
         }
-        await tagTrack(artist, track, tags)
-            .then(() => {
-                tagLog.append(`${artist} - ${track}: tagged with ${tags}\n`);
-            })
-            .catch((err) => {
-                console.error(err);
-                tagLog.append(`${artist} - ${track}: could not tag with ${tags}\n`);
-            })
+        else {
+            // Track tagging
+            await tagItem('track', tags, { artist, track })
+                .then(() => {
+                    tagLog.append(`${artist} - ${track}: tagged with ${tags}\n`);
+                })
+                .catch((err) => {
+                    console.error(err);
+                    tagLog.append(`${artist} - ${track}: could not tag with ${tags}\n`);
+                })
+        }
         loading.text(`Tagging... (${++i} / ${itemsList.length} done)`);
     }
 
