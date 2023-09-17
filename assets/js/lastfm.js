@@ -38,7 +38,7 @@ async function getData(query) {
     const apiKey = await getApiKey();
     const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`);
     if (!response.ok) {
-        console.err(response);
+        console.error(response);
         throw new Error(`HTTP error ${response.status}`);
     }
     const data = await response.json();
@@ -77,32 +77,36 @@ async function getSessionKey() {
     return sessionKey = data.session?.key ?? null;
 }
 
-/** @returns Array<`${artist}/_/${name}`> */
-async function getTagTracks(username, tag) {
-    const data = await getData(`method=user.getpersonaltags&taggingtype=track&user=${username}&tag=${tag}&limit=2000`);
+/** @returns Array<`${url}`> */
+async function getTaggedItems(username, tag) {
+    const itemURLs = { all: [], artist: [], album: [], track: [] };
+    for (const type of Object.keys(itemURLs)) {
+        itemURLs[type] = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=2000`)
+            .then(data => data.taggings[type + 's'][type])
+            .then(item => item.url);
+        itemURLs.all.push(...itemURLs[type]);
+    }
 
-    const tracks = data.taggings.tracks.track;
-    const trackURLs = tracks.map(track => track.url);
-    return trackURLs;
+    return itemURLs;
 }
 
-async function getCommonTaggedTracks(username, ...tags) {
-    const tracksCount = {};
+async function getCommonTaggedItems(username, ...tags) {
+    const itemsCount = {};
     for (const tag of tags) {
-        const tracks = await getTagTracks(username, tag);
-        for (const track of tracks) {
-            tracksCount[track] ??= 0;
-            tracksCount[track]++;
+        const items = await getTaggedItems(username, tag).then(urls => urls.all);
+        for (const item of items) {
+            itemsCount[item] ??= 0;
+            itemsCount[item]++;
         }
     }
-    const common = Object.keys(tracksCount).filter(track => tracksCount[track] === tags.length);
+    const common = Object.keys(itemsCount).filter(item => itemsCount[item] === tags.length);
     return common;
 }
 
-async function getAllTaggedTracks(username, ...tags) {
+async function getAllTaggedItems(username, ...tags) {
     const result = [];
     for (const tag of tags) {
-        result.push(...await getTagTracks(username, tag));
+        result.push(...await getTaggedItems(username, tag).then(urls => urls.all));
     }
     return [...new Set(result)];
 }
@@ -123,7 +127,7 @@ async function tagTrack(artist, track, tags) {
         body: new URLSearchParams(params),
     });
     if (!response.ok) {
-        console.err(response);
+        console.error(response);
         throw new Error(`HTTP error ${response.status}`);
     }
     const data = await response.json();
@@ -146,7 +150,7 @@ async function formGetTaggedTracks() {
 
     let trackURLs;
     try {
-        const func = mode === 'and' ? getCommonTaggedTracks : getAllTaggedTracks;
+        const func = mode === 'and' ? getCommonTaggedItems : getAllTaggedItems;
         trackURLs = await func(username, ...tags);
     }
     catch (err) {
@@ -154,7 +158,7 @@ async function formGetTaggedTracks() {
     }
     const urlToPlain = url => decodeURI(url).replace(/^.+last.fm.music./, '').replace(/\+/g, ' ');
     const tracks = sort(trackURLs.map(urlToPlain));
-    const plainTracks = tracks.map(track => track.replace('/_/', ' - '));
+    const plainTracks = tracks;
 
     const desc = `${username}'s tracks tagged ${tags.map(tag => `"${tag}"`).join(mode === 'and' ? ' + ' : ', ')}`;
     const plainContent = plainTracks.map(text => decodeURIComponent(text).replace(/,/g, char => encodeURIComponent(char))).join(', ');
@@ -175,11 +179,7 @@ async function formTagTracks() {
     const tagLog = $('#tagtracks_log');
     tagLog.html('Log:\n');
 
-    const tracksList = csvToArray($('#addtags_tracks').val()).map(trackData => {
-        const artist = trackData.replace(/ - .+$/, '').trim();
-        const track = trackData.replace(/^.+? - /, '').trim();
-        return [artist, track];
-    });
+    const itemsList = csvToArray($('#addtags_tracks').val());
     const tags = csvToArray($('#addtags_tags').val());
 
     if (!tracksList.length || !tags.length)
@@ -188,7 +188,16 @@ async function formTagTracks() {
         return alert('Too many tags: max of ' + MAX_TAGS);
 
     let i = 0;
-    for (const [artist, track] of tracksList) {
+    for (const itemURL of itemsList) {
+        const [artist, album, track] = itemURL.split('/');
+        if (!track) {
+            tagLog.append(`${artist}: could not tag: artists cannot be tagged at this time\n`);
+            continue;
+        }
+        else if (album !== '_') {
+            tagLog.append(`${artist}/${album}: could not tag: albums cannot be tagged at this time\n`);
+            continue;
+        }
         await tagTrack(artist, track, tags)
             .then(() => {
                 tagLog.append(`${artist} - ${track}: tagged with ${tags}\n`);
