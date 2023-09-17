@@ -193,7 +193,7 @@ async function formTagTracks() {
     let i = 0;
     for (const itemURL of itemsList) {
         const [artist, album, track] = itemURL.split('/');
-        if (!track) {
+        if (!track && !album) {
             // Artist tagging
             await tagItem('artist', tags, { artist })
                 .then(() => {
@@ -204,7 +204,7 @@ async function formTagTracks() {
                     tagLog.append(`${artist}: could not tag with ${tags}\n`);
                 })
         }
-        else if (album !== '_') {
+        else if (album && album !== '_') {
             // Album tagging
             await tagItem('album', tags, { artist, album })
                 .then(() => {
