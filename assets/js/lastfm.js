@@ -26,10 +26,12 @@ function csvToArray(str) {
 function formatLastfmUrl(url) {
     const urlParts = url.split('/');
     const artist = urlParts[4];
+    const album = urlParts[5];
     const track = urlParts[6];
     const decodePart = part => decodeURIComponent(part).replace(/\+/g, ' ');
     return (
         `<b><a href="https://last.fm/music/${artist}">${decodePart(artist)}</a></b>`
+        + (album && album !== '_' ? `/<a href="https://last.fm/music/${artist}/${album}">${decodePart(album)}</a>` : '')
         + (track ? ` - <a href="https://last.fm/music/${artist}/_/${track}">${decodePart(track)}</a>` : '')
     );
 }
@@ -81,7 +83,7 @@ async function getSessionKey() {
 async function getTaggedItems(username, tag) {
     // TODO FIX: get(artist) fetches all artists of tagged tracks instead of tagged artists
     const itemURLs = { all: [], artist: [], album: [], track: [] };
-    for (const type of ['artist', 'album', 'track']) {
+    for (const type of [/*'artist',*/ 'album', 'track']) {
         const data = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=2000`);
         const urls = data.taggings[type + 's'][type].map(item => item.url);
         itemURLs[type] = urls;
@@ -94,7 +96,7 @@ async function getTaggedItems(username, tag) {
 async function getCommonTaggedItems(username, ...tags) {
     const itemsCount = {};
     for (const tag of tags) {
-        const items = await getTaggedItems(username, tag).then(urls => urls.tracks);
+        const items = await getTaggedItems(username, tag).then(urls => urls.all);
         for (const item of items) {
             itemsCount[item] ??= 0;
             itemsCount[item]++;
@@ -107,7 +109,7 @@ async function getCommonTaggedItems(username, ...tags) {
 async function getAllTaggedItems(username, ...tags) {
     const result = [];
     for (const tag of tags) {
-        result.push(...await getTaggedItems(username, tag).then(urls => urls.tracks));
+        result.push(...await getTaggedItems(username, tag).then(urls => urls.all));
     }
     return [...new Set(result)];
 }
