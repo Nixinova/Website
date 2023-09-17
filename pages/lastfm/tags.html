@@ -59,6 +59,10 @@ js: lastfm.js
         <p id="matchedtracks_subtitle"></p>
         <output id="matchedtracks_formatted" class="output scroll-output" style="max-height: 400px;"></output>
         <textarea readonly id="matchedtracks_plain" class="output wide"></textarea>
+
+        <button type="button" onclick="$('#addtags_tracks').val($('#matchedtracks_plain').val());">
+            Copy Across
+        </button>
     </section>
 
     <section>

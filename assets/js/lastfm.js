@@ -31,7 +31,7 @@ function formatLastfmUrl(url) {
     const decodePart = part => decodeURIComponent(part).replace(/\+/g, ' ');
     return (
         `<b><a href="https://last.fm/music/${artist}">${decodePart(artist)}</a></b>`
-        + (album && album !== '_' ? `/<a href="https://last.fm/music/${artist}/${album}">${decodePart(album)}</a>` : '')
+        + (album && album !== '_' ? ` / <a href="https://last.fm/music/${artist}/${album}">${decodePart(album)}</a>` : '')
         + (track ? ` - <a href="https://last.fm/music/${artist}/_/${track}">${decodePart(track)}</a>` : '')
     );
 }
@@ -72,7 +72,6 @@ async function getRequestToken() {
 }
 
 async function getSessionKey() {
-    // TODO FIX: authToken is one time use
     const method = 'auth.getSession';
     const apiSig = await genApiSig({ method, token: authToken });
     const data = await getData(`method=${method}&token=${authToken}&api_sig=${apiSig}`);
