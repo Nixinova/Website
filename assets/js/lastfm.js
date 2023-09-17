@@ -81,10 +81,10 @@ async function getSessionKey() {
 async function getTaggedItems(username, tag) {
     const itemURLs = { all: [], artist: [], album: [], track: [] };
     for (const type of ['artist', 'album', 'track']) {
-        itemURLs[type] = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=2000`)
-            .then(data => data.taggings[type + 's'][type])
-            .then(item => item.url);
-        itemURLs.all.push(...itemURLs[type]);
+        const data = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=2000`)
+        const urls = data.taggings[type + 's'][type].map(item => item.url);
+        itemURLs[type] = urls;
+        itemURLs.all.push(...urls);
     }
 
     return itemURLs;
@@ -183,7 +183,7 @@ async function formTagTracks() {
     const itemsList = csvToArray($('#addtags_tracks').val());
     const tags = csvToArray($('#addtags_tags').val());
 
-    if (!tracksList.length || !tags.length)
+    if (!itemsList.length || !tags.length)
         return alert('Please input all fields');
     if (tags.length > MAX_TAGS)
         return alert('Too many tags: max of ' + MAX_TAGS);
