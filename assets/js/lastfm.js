@@ -120,6 +120,7 @@ async function getAllTaggedItems(type = 'all', username, ...tags) {
 async function getLikedTracks(username) {
     const data = await getData(`method=user.getLovedTracks&user=${username}&limit=1000`);
     const urls = data.lovedtracks.track.map(track => track.url);
+    return urls;
 }
 
 async function tagItem(type, tags, input) {
