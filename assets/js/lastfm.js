@@ -36,6 +36,10 @@ function formatLastfmUrl(url) {
     );
 }
 
+function urlToPlain(url) {
+    return decodeURI(url).replace(/^.+last.fm.music./, '').replace(/\+/g, ' ');
+}
+
 async function getData(query) {
     const apiKey = await getApiKey();
     const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`);
@@ -113,6 +117,11 @@ async function getAllTaggedItems(type = 'all', username, ...tags) {
     return [...new Set(result)];
 }
 
+async function getLikedTracks(username) {
+    const data = await getData(`method=user.getLovedTracks&user=${username}&limit=1000`);
+    const urls = data.lovedtracks.track.map(track => track.url);
+}
+
 async function tagItem(type, tags, input) {
     if (!authToken)
         return alert('Not authenticated yet');
@@ -140,7 +149,7 @@ async function tagItem(type, tags, input) {
 async function formGetTaggedTracks() {
     const MAX_TAGS = 5;
 
-    const loading = $('#gettagged_loading');
+    const loading = $('#getter_loading');
 
     const mode = $('#gettagged_mode').val();
     const type = $('#gettagged_items').val();
@@ -169,11 +178,38 @@ async function formGetTaggedTracks() {
         loading.text('');
         return alert('Error: ' + err.message);
     }
-    const urlToPlain = url => decodeURI(url).replace(/^.+last.fm.music./, '').replace(/\+/g, ' ');
     const tracks = sort(trackURLs.map(urlToPlain));
 
     const fmtTags = tags => tags.map(tag => `"${tag}"`).join(mode === 'and' ? ' + ' : ', ');
     const desc = `From ${username} tagged ${fmtTags(tags)} ${tagsExclude.length ? ` and not ${fmtTags(tagsExclude)}` : ''}`;
+    const plainContent = tracks.join(', ');
+    const fmtdContent = `<ul>${sort(trackURLs.map(formatLastfmUrl)).map(track => `<li>${track}</li>`).join('')}</ul>`;
+    $('#matchedtracks_subtitle').html(desc);
+    $('#matchedtracks_plain').html(plainContent);
+    $('#matchedtracks_formatted').html(fmtdContent);
+
+    loading.text('');
+}
+
+async function formGetLikedTracks() {
+    const loading = $('#getter_loading');
+
+    const username = $('#getliked_username');
+    if (!username)
+        return alert('Please enter a username');
+
+    let trackURLs;
+    try {
+        loading.text('Loading...');
+        trackURLs = await getLikedTracks(username);
+    }
+    catch (err) {
+        loading.text('');
+        return alert('Error: ' + err.message);
+    }
+    const tracks = sort(trackURLs.map(urlToPlain));
+
+    const desc = `${username}'s liked tracks`;
     const plainContent = tracks.join(', ');
     const fmtdContent = `<ul>${sort(trackURLs.map(formatLastfmUrl)).map(track => `<li>${track}</li>`).join('')}</ul>`;
     $('#matchedtracks_subtitle').html(desc);

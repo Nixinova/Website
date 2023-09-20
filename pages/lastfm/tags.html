@@ -26,11 +26,13 @@ js: lastfm.js
             <label>Method</label>
             <select id="fetching-method">
                 <option value="gettagged">Get Tracks By Tag</option>
-                <!--<option value="getliked">Get Liked Tracks</option>-->
-            </select><br>
+                <option value="getliked">Get Liked Tracks</option>
+            </select>
             <button type="submit">Load Form</button>
             <br>
         </form>
+        <br>
+        <br>
 
         <form action="javascript:formGetTaggedTracks()" id="gettagged_form" class="toggleable-form hide">
             <label>Tags Mode</label><br>
@@ -66,11 +68,15 @@ js: lastfm.js
         </form>
 
         <form action="javascript:getLikedTracks()" id="getliked" class="toggleable-form hide">
+            <label>Username</label><br>
+            <input type="text" id="getliked_username"><br>
+            <br>
+
             <button type="submit">Fetch</button>
         </form>
 
         <p>
-            <b id="gettagged_loading" class="loading"></b>
+            <b id="getter_loading" class="loading"></b>
         </p>
 
         <h3>Matching Tracks</h3>
