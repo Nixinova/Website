@@ -293,7 +293,7 @@ function killTagAdding() {
 
 function changeFetchForm() {
     const method = $('#fetching-method').val();
-    $('#toggleable_form').addClass('hide');
+    $('.toggleable-form').addClass('hide');
     $(`#${method}_form`).removeClass('hide');
 }
 
