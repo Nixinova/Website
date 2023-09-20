@@ -181,8 +181,9 @@ async function formGetTaggedTracks() {
     }
     const tracks = sort(trackURLs.map(urlToPlain));
 
+    const tagsLinks = tags.map(tag => `<a href="https://last.fm/user/${username}/tags/${tag}">${tag}</a>`);
     const fmtTags = tags => tags.map(tag => `"${tag}"`).join(mode === 'and' ? ' + ' : ', ');
-    const desc = `From ${username} tagged ${fmtTags(tags)} ${tagsExclude.length ? ` and not ${fmtTags(tagsExclude)}` : ''}`;
+    const desc = `From ${username} tagged ${fmtTags(tagsLinks)} ${tagsExclude.length ? ` and not ${fmtTags(tagsExclude)}` : ''}`;
     const plainContent = tracks.join(', ');
     const fmtdContent = `<ul>${sort(trackURLs.map(formatLastfmUrl)).map(track => `<li>${track}</li>`).join('')}</ul>`;
     $('#matchedtracks_subtitle').html(desc);
@@ -210,7 +211,7 @@ async function formGetLikedTracks() {
     }
     const tracks = sort(trackURLs.map(urlToPlain));
 
-    const desc = `${username}'s liked tracks`;
+    const desc = `${username}'s <a href="https://www.last.fm/user/${username}/loved">liked tracks</a>`;
     const plainContent = tracks.join(', ');
     const fmtdContent = `<ul>${sort(trackURLs.map(formatLastfmUrl)).map(track => `<li>${track}</li>`).join('')}</ul>`;
     $('#matchedtracks_subtitle').html(desc);
