@@ -20,7 +20,6 @@ js: lastfm.js
 
 <div style="display: grid; grid-template-columns: auto auto;">
     <section>
-        <h2>Get Your Tagged Tracks</h2>
 
         <form action="javascript:changeFetchForm()">
             <label>Method</label>
@@ -35,6 +34,8 @@ js: lastfm.js
         <br>
 
         <form action="javascript:formGetTaggedTracks()" id="gettagged_form" class="toggleable-form hide">
+            <h2>Get Your Tagged Tracks</h2>
+
             <label>Tags Mode</label><br>
             <select id="gettagged_mode">
                 <option value="and">Intersection</option>
@@ -67,7 +68,9 @@ js: lastfm.js
             <button type="submit">Fetch</button>
         </form>
 
-        <form action="javascript:getLikedTracks()" id="getliked" class="toggleable-form hide">
+        <form action="javascript:formGetLikedTracks()" id="getliked_form" class="toggleable-form hide">
+            <h2>Get Your Liked Tracks</h2>
+
             <label>Username</label><br>
             <input type="text" id="getliked_username"><br>
             <br>

@@ -194,7 +194,7 @@ async function formGetTaggedTracks() {
 async function formGetLikedTracks() {
     const loading = $('#getter_loading');
 
-    const username = $('#getliked_username');
+    const username = $('#getliked_username').val();
     if (!username)
         return alert('Please enter a username');
 
