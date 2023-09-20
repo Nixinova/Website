@@ -23,11 +23,13 @@ js: lastfm.js
         <h2>Get Your Tagged Tracks</h2>
 
         <form action="javascript:changeFetchForm()">
+            <label>Method</label>
             <select id="fetching-method">
                 <option value="gettagged">Get Tracks By Tag</option>
                 <!--<option value="getliked">Get Liked Tracks</option>-->
-            </select>
+            </select><br>
             <button type="submit">Load Form</button>
+            <br>
         </form>
 
         <form action="javascript:formGetTaggedTracks()" id="gettagged_form" class="toggleable-form hide">

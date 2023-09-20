@@ -256,8 +256,8 @@ function killTagAdding() {
 
 function changeFetchForm() {
     const method = $('#fetching-method').val();
-    $('#toggleable-form').addClass('hide');
-    $(`#${method}-form`).removeClass('hide');
+    $('#toggleable_form').addClass('hide');
+    $(`#${method}_form`).removeClass('hide');
 }
 
 /* Copyright © Nixinova 2023 */
