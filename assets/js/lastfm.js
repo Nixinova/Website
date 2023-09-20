@@ -254,4 +254,10 @@ function killTagAdding() {
     location.reload();
 }
 
+function changeFetchForm() {
+    const method = $('#fetching-method').val();
+    $('#toggleable-form').addClass('hide');
+    $(`#${method}-form`).removeClass('hide');
+}
+
 /* Copyright © Nixinova 2023 */
