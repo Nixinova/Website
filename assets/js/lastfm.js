@@ -124,9 +124,9 @@ async function getLikedTracks(username) {
 }
 
 async function tagItem(type, tags, input) {
-    if (!authToken)
-    {
-        return alert('Not authenticated yet');
+    if (!authToken) {
+        alert('Not authenticated yet');
+        throw new Error('Not authenticated yet');
     }
 
     for (const key of Object.keys(input))
