@@ -125,7 +125,9 @@ async function getLikedTracks(username) {
 
 async function tagItem(type, tags, input) {
     if (!authToken)
+    {
         return alert('Not authenticated yet');
+    }
 
     for (const key of Object.keys(input))
         input[key] = decodeURIComponent(input[key]);
@@ -181,9 +183,9 @@ async function formGetTaggedTracks() {
     }
     const tracks = sort(trackURLs.map(urlToPlain));
 
-    const tagsLinks = tags.map(tag => `<a href="https://last.fm/user/${username}/tags/${tag}">${tag}</a>`);
-    const fmtTags = tags => tags.map(tag => `"${tag}"`).join(mode === 'and' ? ' + ' : ', ');
-    const desc = `From ${username} tagged ${fmtTags(tagsLinks)} ${tagsExclude.length ? ` and not ${fmtTags(tagsExclude)}` : ''}`;
+    const linkTags = tags => tags.map(tag => `<a href="https://last.fm/user/${username}/tags/${tag}">${tag}</a>`);
+    const fmtTags = tags => linkTags(tags).map(tag => `"${tag}"`).join(mode === 'and' ? ' + ' : ' / ');
+    const desc = `From ${username} tagged ${fmtTags(tags)} ${tagsExclude.length ? ` and not ${fmtTags(tagsExclude)}` : ''}`;
     const plainContent = tracks.join(', ');
     const fmtdContent = `<ul>${sort(trackURLs.map(formatLastfmUrl)).map(track => `<li>${track}</li>`).join('')}</ul>`;
     $('#matchedtracks_subtitle').html(desc);
