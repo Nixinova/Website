@@ -123,7 +123,7 @@ async function getLikedTracks(username) {
     return urls;
 }
 
-async function tagItem(type, tags, input) {
+async function sendPostRequest(input) {
     if (!authToken) {
         alert('Not authenticated yet');
         throw new Error('Not authenticated yet');
@@ -132,7 +132,7 @@ async function tagItem(type, tags, input) {
     for (const key of Object.keys(input))
         input[key] = decodeURIComponent(input[key]);
 
-    const params = { method: type + '.addTags', ...input, tags, api_key: apiKey, sk: sessionKey };
+    const params = { ...input, api_key: apiKey, sk: sessionKey };
     const apiSig = await genApiSig(params);
     params.api_sig = apiSig;
     params.format = 'json';
@@ -235,51 +235,97 @@ async function formTagTracks() {
     failLog.html('');
 
     const itemsList = csvToArray($('#addtags_tracks').val());
-    const tags = csvToArray($('#addtags_tags').val());
+    const tagsAdd = csvToArray($('#addtags_tags').val());
+    const tagsRemove = csvToArray($('#addtags_deletions').val());
 
-    if (!itemsList.length || !tags.length)
+    if (!itemsList.length || !(tagsAdd.length || tagsRemove.length))
         return alert('Please input all fields');
-    if (tags.length > MAX_TAGS)
+    if (tagsAdd.length > MAX_TAGS || tagsRemove > MAX_TAGS)
         return alert('Too many tags: max of ' + MAX_TAGS);
 
     let i = 0;
     for (const itemURL of itemsList) {
         const [artist, album, track] = itemURL.split('/');
+        // Artist tagging
         if (!track && !album) {
-            // Artist tagging
-            await tagItem('artist', tags, { artist })
-                .then(() => {
-                    tagLog.append(`${artist}: tagged with ${tags}\n`);
-                })
-                .catch((err) => {
-                    console.error(err);
-                    tagLog.append(`${artist}: could not tag with ${tags}\n`);
-                    failLog.append(`${artist}\n`);
-                })
+            // Add artist tags
+            if (tagsAdd.length) {
+                await sendPostRequest({ method: 'artist.addTags', tags: tagsAdd, artist })
+                    .then(() => {
+                        tagLog.append(`${artist}: tagged with ${tagsAdd}\n`);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        tagLog.append(`${artist}: could not tag with ${tagsAdd}\n`);
+                        failLog.append(`${artist}: +${tagsAdd}\n`);
+                    })
+            }
+            // Remove artist tags
+            for (const tag of tagsRemove) {
+                await sendPostRequest({ method: 'artist.removeTag', tag, artist })
+                    .then(() => {
+                        tagLog.append(`${artist}: removed tag ${tag}\n`);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        tagLog.append(`${artist}: could not remove tag ${tag}\n`);
+                        failLog.append(`${artist}: -${tag}\n`);
+                    })
+            }
         }
+        // Album tagging
         else if (album && album !== '_') {
-            // Album tagging
-            await tagItem('album', tags, { artist, album })
-                .then(() => {
-                    tagLog.append(`${artist} / ${album}: tagged with ${tags}\n`);
-                })
-                .catch((err) => {
-                    console.error(err);
-                    tagLog.append(`${artist} / ${album}: could not tag with ${tags}\n`);
-                    failLog.append(`${artist}/${album}\n`);
-                })
+            // Add album tags
+            if (tagsAdd.length) {
+                await sendPostRequest({ method: 'album.addTags', tags: tagsAdd, artist, album })
+                    .then(() => {
+                        tagLog.append(`${artist} / ${album}: tagged with ${tagsAdd}\n`);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        tagLog.append(`${artist} / ${album}: could not tag with ${tagsAdd}\n`);
+                        failLog.append(`${artist}/${album}: +${tagsAdd}\n`);
+                    })
+            }
+            // Remove album tags
+            for (const tag of tagsRemove) {
+                await sendPostRequest({ method: 'album.removeTag', tag, artist, album })
+                    .then(() => {
+                        tagLog.append(`${artist} / ${album}: removed tag ${tag}\n`);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        tagLog.append(`${artist} / ${album}: could not remove tag ${tag}\n`);
+                        failLog.append(`${artist}/${album}: -${tag}\n`);
+                    })
+            }
         }
+        // Track tagging
         else {
-            // Track tagging
-            await tagItem('track', tags, { artist, track })
+            // Add track tags
+            if (tagsAdd.length) {
+                await sendPostRequest({ method: 'track.addTags', tags: tagsAdd, artist, track })
+                    .then(() => {
+                        tagLog.append(`${artist} - ${track}: tagged with ${tagsAdd}\n`);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        tagLog.append(`${artist} - ${track}: could not tag with ${tagsAdd}\n`);
+                        failLog.append(`${artist}/_/${track}: +${tagsAdd}\n`);
+                    })
+            }
+            // Remove track tags
+            for (const tag of tagsRemove) {
+                await sendPostRequest({ method: 'track.removeTag', tag, artist, track })
                 .then(() => {
-                    tagLog.append(`${artist} - ${track}: tagged with ${tags}\n`);
+                    tagLog.append(`${artist} - ${track}: removed tag ${tag}\n`);
                 })
                 .catch((err) => {
                     console.error(err);
-                    tagLog.append(`${artist} - ${track}: could not tag with ${tags}\n`);
-                    failLog.append(`${artist}/_/${track}\n`);
+                    tagLog.append(`${artist} - ${track}: could not remove tag ${tag}\n`);
+                    failLog.append(`${artist}/_/${track}: -${tag}\n`);
                 })
+            }
         }
         loading.text(`Tagging... (${++i} / ${itemsList.length} done)`);
     }
