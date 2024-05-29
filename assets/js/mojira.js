@@ -29,6 +29,7 @@ function initial() {
 }
 
 async function generateAllProjects() {
+    history.pushState(null, null, '?');
     $('title').html(title);
     $('#navigation').addClass('hide');
     $('#navigation-type').text('version');
@@ -92,7 +93,7 @@ async function generateProject(project) {
         const projectData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/' + project).then(data => data.json());
         $('table thead').prepend(`
             <tr><td colspan="5" style="text-align: center;">
-                <a href="javascript:generateAllProjects();history.pushState(null, null, '?');" id="back-button">&larr; Back</a>
+                <a href="javascript:generateAllProjects();" id="back-button">&larr; Back</a>
                 <img src="${projectData.avatarUrls["48x48"]}"> ${projectData.name}
             </td></tr>
         `);
@@ -108,8 +109,8 @@ async function generateProject(project) {
                     <td style="width: 100px;"><samp>${version.released && version.releaseDate || ''}</samp></td>
                     <td><small>${version.description || ''}</small></td>
                     <td style="width: 100px;">
-                        <a href="${bugsLink('affectedVersion', version.name, project)}">Bugs</a>,
-                        <a href="${bugsLink('fixVersion', version.name, project)}">Fixes</a>
+                        <a href="${bugsLink('affectedVersion', version.name, project)}" target="_blank">Bugs</a>,
+                        <a href="${bugsLink('fixVersion', version.name, project)}" target="_blank">Fixes</a>
                     </td>
                     <td style="width: 100px;">
                         <a href="javascript:generateIssues('${project}', '${searchQuery('affectedVersion', version.name, project)}')">Bugs</a>,
