@@ -94,10 +94,13 @@ async function generateProject(project) {
                 <img src="${projectData.avatarUrls["48x48"]}"> ${projectData.name}
             </td></tr>
         `);
+        progress(0.2);
+        let dropdownContents = '';
+        let tableContents = '';
         for (let i = projectData.versions.length - 1; i > 0; i--) {
             const version = projectData.versions[i];
-            $('#dropdown').append(`\n<option>${version.name}</option>`);
-            $('table tbody').append(`
+            dropdownContents += `\n<option>${version.name}</option>`;
+            tableContents += `
                 <tr id="${version.name.replace(/ /g, '_')}">
                     <td style="max-width: 300px;">${version.name}</td>
                     <td style="width: 100px;"><samp>${version.released && version.releaseDate || ''}</samp></td>
@@ -111,8 +114,10 @@ async function generateProject(project) {
                         <a href="javascript:generateIssues('${project}', '${searchQuery('fixVersion', version.name, project)}')">Fixes</a>
                     </td>
                 </tr>
-            `);
+            `;
         }
+        $('#dropdown').append(dropdownContents);
+        $('table tbody').append(tableContents);
         $('#navigation').removeClass('hide');
         complete();
     }
