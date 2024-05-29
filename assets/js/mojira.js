@@ -47,16 +47,18 @@ async function generateAllProjects() {
     try {
         const projectsData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/').then(data => data.json());
         progress(0.5);
+        let tableContent = '';
         for (const project of projectsData) {
-            $('table tbody').append(`
+            tableContent += `
                 <tr>
                     <td><img height="48px" src="${project.avatarUrls["48x48"]}"></td>
                     <td>${project.key}</td>
                     <td>${project.name}</td>
                     <td><a href="javascript:generateProject('${project.key}');">Generate</a>
                 </tr>
-            `);
+            `;
         }
+        $('table tbody').append(tableContent);
         complete();
     }
     catch (err) {
@@ -153,10 +155,13 @@ async function generateIssues(project, query) {
                 <a href="javascript:generateProject('${project}');history.pushState(null, null, '?project=${project}');" id="back-button">&larr; Back</a>
             </td></tr>
         `);
+        progress(0.2);
+        let dropdownContent = '';
+        let tableContent = '';
         for (const issue of issuesData.issues) {
             const date = (new Date(issue.fields.created)).toISOString().replace('T', ' ').replace(/\.\d+Z/, '');
-            $('#dropdown').append(`\n<option>${issue.key}</option>`);
-            $('table tbody').append(`
+            dropdownContent += `\n<option>${issue.key}</option>`;
+            tableContent += `
                 <tr id="${issue.key}">
                     <td style="max-width: 300px;"><a href="https://bugs.mojang.com/issue/${issue.key}">${issue.key}</a></td>
                     <td style="width: 100px;"><samp>${date}</samp></td>
@@ -170,8 +175,10 @@ async function generateIssues(project, query) {
                     </td>
                     <td style="width: 100px;"><small>${issue.fields.fixVersions.map(obj => obj.name).join(', ')}</small></td>
                 </tr>
-            `);
+            `;
         }
+        $('#dropdown').append(dropdownContent);
+        $('table tbody').append(tableContent);
         $('#navigation').removeClass('hide');
         complete();
     }
