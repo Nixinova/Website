@@ -126,7 +126,7 @@ async function generateIssues(project, query) {
     history.pushState(null, null, `?query=${query}`);
     $('title').text(`Query ${decodeURIComponent(query)} – ${title}`);
     $('#navigation-type').text('issue');
-    $('#desc').text(`Issues for query '${query}'`);
+    $('#desc').text(`Issues for query '${decodeURIComponent(query)}'`);
 
     start();
     $('table thead').html(`
@@ -141,7 +141,6 @@ async function generateIssues(project, query) {
     `);
 
     try {
-        alert('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/search?jql=' + query)
         const issuesData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/search?jql=' + query).then(data => data.json());
         $('table thead').prepend(`
             <tr><td colspan="6" style="text-align: center;">
