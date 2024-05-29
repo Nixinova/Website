@@ -45,7 +45,9 @@ async function generateAllProjects() {
     `);
 
     try {
-        const projectsData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/').then(data => data.json());
+        const projectsData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/')
+            .then(data => data.json())
+            .catch(err => { if (err) throw err; })
         progress(0.5);
         let tableContent = '';
         for (const project of projectsData) {
@@ -88,7 +90,9 @@ async function generateProject(project) {
     `);
 
     try {
-        const projectData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/' + project).then(data => data.json());
+        const projectData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/project/' + project)
+            .then(data => data.json())
+            .catch(err => { if (err) throw err; })
         $('table thead').prepend(`
             <tr><td colspan="5" style="text-align: center;">
                 <a href="javascript:generateAllProjects();history.pushState(null, null, '?');" id="back-button">&larr; Back</a>
@@ -147,7 +151,9 @@ async function generateIssues(project, query) {
     `);
 
     try {
-        const issuesData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/search?jql=' + query).then(data => data.json());
+        const issuesData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/search?jql=' + query)
+            .then(data => data.json())
+            .catch(err => { if (err) throw err; })
         $('table thead').prepend(`
             <tr><td colspan="6" style="text-align: center;">
                 <a href="javascript:generateProject('${project}');history.pushState(null, null, '?project=${project}');" id="back-button">&larr; Back</a>
@@ -190,10 +196,10 @@ function handleErr(err) {
     console.error(err);
     const errstr = JSON.stringify(err);
     if (errstr.includes('Too Many Requests')) {
-        $('table tbody').html('Too many requests to API. Please try again later.');
+        $('table').html('Too many requests to API. Please try again later.');
     }
     else {
-        $('table tbody').html('An error occurred. See browser console for details.');
+        $('table').html('An error occurred. See browser console for details.');
     }
 }
 
