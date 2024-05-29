@@ -56,7 +56,7 @@ async function generateAllProjects() {
                     <td><img height="48px" src="${project.avatarUrls["48x48"]}"></td>
                     <td>${project.key}</td>
                     <td>${project.name}</td>
-                    <td><a href="javascript:generateProject('${project.key}');">Generate</a>
+                    <td><a href="javascript:generateProject('${project.key}');history.pushState(null, null, `?project=${project}`);">Generate</a>
                 </tr>
             `;
         }
@@ -70,7 +70,6 @@ async function generateAllProjects() {
 }
 
 async function generateProject(project) {
-    history.pushState(null, null, `?project=${project}`);
     $('title').text(`Project ${project} – ${title}`);
     $('#navigation-type').text('version');
     $('#desc').text('');
