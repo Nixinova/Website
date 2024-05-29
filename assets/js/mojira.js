@@ -50,7 +50,7 @@ async function generateAllProjects() {
         for (const project of projectsData) {
             $('table tbody').append(`
                 <tr>
-                    <td><img src="${project.avatarUrls["48x48"]}"></td>
+                    <td><img height="48px" src="${project.avatarUrls["48x48"]}"></td>
                     <td>${project.key}</td>
                     <td>${project.name}</td>
                     <td><a href="javascript:generateProject('${project.key}');history.pushState(null, null, '?project=${project.key}');">Generate</a>
