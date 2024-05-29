@@ -24,7 +24,7 @@ function complete() {
 function initial() {
     const params = (new URL(location.href)).searchParams;
     if (params.get('project')) generateProject(params.get('project'));
-    else if (params.get('query')) generateProject(params.get('query'));
+    else if (params.get('query')) generateIssues(params.get('project'), params.get('query'));
     else generateAllProjects();
 }
 
@@ -123,7 +123,7 @@ async function generateProject(project) {
 }
 
 async function generateIssues(project, query) {
-    history.pushState(null, null, `?query=${query}`);
+    history.pushState(null, null, `?project=${project}&query=${query}`);
     $('title').text(`Query ${decodeURIComponent(query)} – ${title}`);
     $('#navigation-type').text('issue');
     $('#desc').text(`Issues for query '${decodeURIComponent(query)}'`);
