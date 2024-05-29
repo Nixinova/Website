@@ -163,7 +163,7 @@ async function generateIssues(project, query) {
                             ${issue.fields.versions.map(obj => obj.name).join(', ') || 'None'}
                         </details>
                     </td>
-                    <td style="width: 100px;"><small>${issue.fields.fixVersions.join(', ')}</small></td>
+                    <td style="width: 100px;"><small>${issue.fields.fixVersions.map(obj => obj.name).join(', ')}</small></td>
                 </tr>
             `);
         }
