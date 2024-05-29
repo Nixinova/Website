@@ -62,8 +62,7 @@ async function generateAllProjects() {
         complete();
     }
     catch (err) {
-        console.error(err);
-        $('table tbody').html('An error occurred');
+        handleErr(err);
         complete();
     }
 }
@@ -124,8 +123,7 @@ async function generateProject(project) {
         complete();
     }
     catch (err) {
-        console.error(err);
-        $('table tbody').html('An error occurred');
+        handleErr(err);
         complete();
     }
 }
@@ -183,10 +181,20 @@ async function generateIssues(project, query) {
         complete();
     }
     catch (err) {
-        console.error(err);
-        $('table tbody').html('An error occurred');
+        handleErr(err);
         complete();
     }
 }
 
-/* Copyright © Nixinova 2021 */
+function handleErr(err) {
+    console.error(err);
+    const errstr = JSON.stringify(err);
+    if (errstr.includes('Too Many Requests')) {
+        $('table tbody').html('Too many requests to API. Please try again later.');
+    }
+    else {
+        $('table tbody').html('An error occurred. See browser console for details.');
+    }
+}
+
+/* Copyright © Nixinova 2024 */
