@@ -106,8 +106,8 @@ async function generateProject(project) {
                         <a href="${bugsLink('fixVersion', version.name, project)}">Fixes</a>
                     </td>
                     <td style="width: 100px;">
-                        <a href="javascript:generateIssues('${project}', '${bugsLink('affectedVersion', version.name, project)}')">Bugs</a>,
-                        <a href="javascript:generateIssues('${project}', '${bugsLink('fixVersion', version.name, project)}')">Fixes</a>
+                        <a href="javascript:generateIssues('${project}', '${searchQuery('affectedVersion', version.name, project)}')">Bugs</a>,
+                        <a href="javascript:generateIssues('${project}', '${searchQuery('fixVersion', version.name, project)}')">Fixes</a>
                     </td>
                 </tr>
             `);
@@ -141,6 +141,7 @@ async function generateIssues(project, query) {
     `);
 
     try {
+        alert('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/search?jql=' + query)
         const issuesData = await fetch('https://cors-anywhere.herokuapp.com/https://bugs.mojang.com/rest/api/2/search?jql=' + query).then(data => data.json());
         $('table thead').prepend(`
             <tr><td colspan="6" style="text-align: center;">
