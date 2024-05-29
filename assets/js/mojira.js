@@ -166,7 +166,7 @@ async function generateIssues(project, query) {
             dropdownContent += `\n<option>${issue.key}</option>`;
             tableContent += `
                 <tr id="${issue.key}">
-                    <td style="max-width: 300px;"><a href="https://bugs.mojang.com/issue/${issue.key}">${issue.key}</a></td>
+                    <td style="max-width: 300px;"><a href="https://bugs.mojang.com/browse/${issue.key}">${issue.key}</a></td>
                     <td style="width: 100px;"><samp>${date}</samp></td>
                     <td style="width: 100px;">${issue.fields.votes.votes} ⇧ ${issue.fields.watches.watchCount} 👁</td>
                     <td style="width: 100px;">${issue.fields.status.name}</td>
