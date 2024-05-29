@@ -56,7 +56,7 @@ async function generateAllProjects() {
                     <td><img height="48px" src="${project.avatarUrls["48x48"]}"></td>
                     <td>${project.key}</td>
                     <td>${project.name}</td>
-                    <td><a href="javascript:generateProject('${project.key}');history.pushState(null, null, `?project=${project}`);">Generate</a>
+                    <td><a href="javascript:generateProject('${project.key}');history.pushState(null, null, '?project=${project}');">Generate</a>
                 </tr>
             `;
         }
