@@ -135,7 +135,7 @@ async function generateIssues(project, query) {
     history.pushState(null, null, `?project=${project}&query=${query}`);
     $('title').text(`Query ${decodeURIComponent(query)} – ${title}`);
     $('#navigation-type').text('issue');
-    $('#desc').text(`Issues for query '${decodeURIComponent(query)}'`);
+    $('#desc').text(`Issues for query '${decodeURIComponent(query)}'<br><small>Only 1 page of results shown.</small>`);
 
     start();
     $('table thead').html(`
