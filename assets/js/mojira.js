@@ -56,7 +56,7 @@ async function generateAllProjects() {
                     <td><img height="48px" src="${project.avatarUrls["48x48"]}"></td>
                     <td>${project.key}</td>
                     <td>${project.name}</td>
-                    <td><a href="javascript:generateProject('${project.key}');history.pushState(null, null, '?project=${project}');">Generate</a>
+                    <td><a href="javascript:generateProject('${project.key}');history.pushState(null, null, '?project=${project.key}');">Generate</a>
                 </tr>
             `;
         }
@@ -135,7 +135,7 @@ async function generateIssues(project, query) {
     history.pushState(null, null, `?project=${project}&query=${query}`);
     $('title').text(`Query ${decodeURIComponent(query)} – ${title}`);
     $('#navigation-type').text('issue');
-    $('#desc').text(`Issues for query '${decodeURIComponent(query)}'<br><small>Only 1 page of results shown.</small>`);
+    $('#desc').html(`Issues for query '${decodeURIComponent(query)}'<br><small>Only 1 page of results shown.</small>`);
 
     start();
     $('table thead').html(`
