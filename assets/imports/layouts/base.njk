@@ -20,8 +20,17 @@
         <script src="/assets/js/{{ js }}"></script>
     {% endif -%}
 </head>
-
 <body>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V92X0MSBGM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-V92X0MSBGM');
+    </script>
+
+    <!-- Page content -->
     <div id="content">
         <header style="grid-area: header;">
             {% include "header.njk" %}
@@ -35,10 +44,6 @@
             {% include "footer.html" %}
         </footer>
     </div>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V92X0MSBGM"></script>
-    <script>window.dataLayer = window.dataLayer || []; function T() { dataLayer.push(arguments) } T('js', new Date()); T('config', 'UA-83550713-1');</script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" data-ad-client="ca-pub-7730644887366759"></script>
 </body>
 
 </html>
