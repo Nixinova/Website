@@ -101,7 +101,7 @@ function summon() {
     let villager_type = cleanup(value('input_villager_type'));
     let villager_profession = cleanup(value('input_villager_profession'));
     let villager_level = value('input_villager_level', 'int');
-    let wolf_variant = value('wolf_variant');
+    let wolf_variant = value('input_wolf_variant');
     let wolf_collar = value('input_wolf_collar', 'int');
     let wolf_sitting = $('#input_wolf_sitting').hasClass('on');
     let zombies_canbreak_doors = $('#input_zombies_canbreak_doors').hasClass('on');
