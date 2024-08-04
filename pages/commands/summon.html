@@ -202,6 +202,14 @@ js: "summon.js"
             <input id="input_owner_uuid" type="text" size="36" onchange="submit()"><br/>
         </span>
 
+        <span class="allay only">
+            <label for="input_allay_duplicate" class="indent">Can duplicate?</label>
+            <button type="button" id="input_allay_duplicate" class="notext off" onclick="toggle(this)"></button><br/>
+
+            <label for="input_allay_duplicate_cooldown" class="indent" title="Duplication cooldown in ticks">Cooldown</label>
+            <input type="number" min="0" id="input_allay_duplicate_cooldown" onchange="submit()"><br/>
+        </span>
+
         <span class="axolotl only">
             <label for="input_axolotl_variant" class="indent">Colour:</label>
             <select id="input_axolotl_variant" onchange="submit()">

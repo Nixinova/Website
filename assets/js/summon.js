@@ -55,6 +55,8 @@ function summon() {
     let glowing = $('#input_glowing').hasClass('on');
     let lefthanded = $('#input_main_hand').hasClass('left');
 
+    let allay_duplicate = $('#input_allay_duplicate').hasClass('on');
+    let allay_duplicate_cooldown = value('#input_allay_duplicate_cooldown', 'int');
     let axolotl_variant = value('input_axolotl_variant', 'int');
     let baby = $('#input_is_baby').hasClass('on');
     let baby_time = value('input_baby_time');
@@ -206,6 +208,12 @@ function summon() {
         if (OWNED_MOBS.includes(entity)) {
             $('.owned_mobs.only').removeClass('hide');
             if (horse_tame) nbt.Tame = true;
+        }
+
+        // allay //
+        if (entity === 'allay') {
+            if (allay_duplicate) nbt.CanDuplicate = allay_duplicate ? 1 : 0;
+            if (allay_duplicate_cooldown !== null) nbt.DuplicationCooldown = allay_duplicate_cooldown;
         }
 
         // axolotl //
