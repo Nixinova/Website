@@ -32,7 +32,7 @@ function summon() {
     };
 
     // call from input form //
-    let entity = value('input_entity').toLowerCase().replace(/ /g, '_');
+    let entity = value('input_entity').toLowerCase().replace(/ /g, '_') || $('#input_entity').attr('placeholder');
     let X = value('input_x').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
     let Y = value('input_y').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
     let Z = value('input_z').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
