@@ -75,6 +75,9 @@ function summon() {
     let enderdragon_state = value('input_enderdragon_state', 'int');
     let ghast_explosion_power = value('input_ghast_explosion_power', 'int');
     let glow_squid_timer = value('input_glow_squid_timer', 'int');
+    let goat_left_horn = $('#input_goat_left_horn').hasClass('on');
+    let goat_right_horn = $('#input_goat_right_horn').hasClass('on');
+    let goat_screaming = $('#input_goat_screaming').hasClass('on');
     let llama_type = value('input_llama_type', 'int');
     let llama_carpet = value('input_llama_carpet').toLowerCase().replace(/ /g, '_');
     let llama_temper = value('input_llama_temper', 'int');
@@ -272,6 +275,16 @@ function summon() {
         // glow_squid //
         if (entity === 'glow_squid') {
             if (glow_squid_timer) nbt.DarkTicksRemaining = glow_squid_timer;
+        }
+
+        // goat //
+        if (entity === 'goat') {
+            // if one tag is specified, both have to be
+            if (goat_left_horn !== goat_right_horn) {
+                nbt.HasLeftHorn = goat_left_horn ? 1 : 0;
+                nbt.HasRightHorn = goat_right_horn ? 1 : 0;
+            }
+            if (goat_screaming) nbt.IsScreamingGoat = 1;
         }
 
         // llama //

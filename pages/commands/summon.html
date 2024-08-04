@@ -47,6 +47,7 @@ js: "summon.js"
             <option>Ghast</option>
             <option>Giant</option>
             <option>Glow Squid</option>
+            <option>Goat</option>
             <option>Guardian</option>
             <option>Hoglin</option>
             <option>Horse</option>
@@ -318,6 +319,17 @@ js: "summon.js"
         <span class="glow_squid only">
             <label for="input_glow_squid_timer" class="indent">Glow cooldown:</label>
             <input id="input_glow_squid_timer" type="number" min="0" onchange="submit()"><br/>
+        </span>
+
+        <span class="goat only">
+            <label for="input_goat_left_horn" class="indent">Left horn?</label>
+            <button type="button" id="input_goat_left_horn" class="notext on" onclick="toggle(this)"></button><br/>
+            
+            <label for="input_goat_right_horn" class="indent">Right horn?</label>
+            <button type="button" id="input_goat_right_horn" class="notext on" onclick="toggle(this)"></button><br/>
+
+            <label for="input_goat_screaming" class="indent">Screaming goat?</label>
+            <button type="button" id="input_goat_screaming" class="notext off" onclick="toggle(this)"></button><br/>
         </span>
     
         <span class="llama only">
