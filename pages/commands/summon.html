@@ -18,7 +18,7 @@ js: "summon.js"
 </script>
 
 <h2 class="lower">/summon</h2>
-<p>Generates <samp>/summon</samp> commands for Minecraft 1.13+.</p>
+<p>Generates <samp>/summon</samp> commands for Minecraft 1.13&ndash;1.21.</p>
 
 <form action="javascript:submit()" id="input_form" style="margin: auto;">
     <p>
@@ -551,6 +551,19 @@ js: "summon.js"
         </span>
     
         <span class="wolf only">
+            <label for="input_wolf_variant" class="indent">Wolf type:</label>
+            <select id="input_wolf_variant" onchange="submit()">
+                <option value="">Pale</option>
+                <option value="ashen">Ashen</option>
+                <option value="black">Black</option>
+                <option value="chestnut">Chestnut</option>
+                <option value="rusty">Rusty</option>
+                <option value="snowy">Snowy</option>
+                <option value="spotted">Spotted</option>
+                <option value="striped">Striped</option>
+                <option value="woods">Woods</option>
+            </select><br/>
+        
             <label for="input_wolf_collar" class="indent">Collar colour:</label>
             <select id="input_wolf_collar" onchange="submit()">
                 <option value="">Default</option>
@@ -573,7 +586,7 @@ js: "summon.js"
             </select><br/>
         
             <label for="input_wolf_sitting" class="indent">Sitting?</label>
-            <button type="button" id="input_wolf_sitting" class="notext on" onclick="toggle(this)"></button><br/>
+            <button type="button" id="input_wolf_sitting" class="notext off" onclick="toggle(this)"></button><br/>
         </span>
     
         <span class="zombies only">
