@@ -117,8 +117,8 @@ function summon() {
     let wolf_sitting = $('#input_wolf_sitting').hasClass('on');
     let zombies_canbreak_doors = $('#input_zombies_canbreak_doors').hasClass('on');
 
-    let textdisplay_linewidth = value('#input_textdisplay_linewidth', 'int');
-    let textdisplay_opacity = value('#input_textdisplay_opacity', 'int');
+    let textdisplay_linewidth = value('input_textdisplay_linewidth', 'int');
+    let textdisplay_opacity = value('input_textdisplay_opacity', 'int');
     let textdisplay_seethrough = $('#input_textdisplay_seethrough').hasClass('on');
     let textdisplay_shadow = $('#input_textdisplay_shadow').hasClass('on');
 
