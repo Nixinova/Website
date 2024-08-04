@@ -259,7 +259,7 @@ function summon() {
 
         // cat //
         if (entity === 'cat') {
-            if (cat_type !== null) nbt.CatType = cat_type;
+            if (cat_type !== null) nbt.variant = cat_type;
             if (cat_collar) nbt.CollarColor = cat_collar;
         }
 
