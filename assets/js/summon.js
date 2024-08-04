@@ -71,7 +71,7 @@ function summon() {
     let bee_angry = $('#input_bee_angry').hasClass('on');
     let bee_angry_time_unit = value('input_bee_angry_time_unit');
     let bee_angry_time_value = value('input_bee_angry_time_value');
-    let cat_type = value('input_cat_type', 'int');
+    let cat_type = value('input_cat_type');
     let cat_collar = value('input_cat_collar', 'int');
     let creeper_powered = $('#input_creeper_powered').hasClass('on');
     let creeper_radius = value('input_creeper_radius', 'int');
@@ -259,7 +259,7 @@ function summon() {
 
         // cat //
         if (entity === 'cat') {
-            if (cat_type !== null) nbt.variant = cat_type;
+            if (cat_type) nbt.variant = cat_type;
             if (cat_collar) nbt.CollarColor = cat_collar;
         }
 
