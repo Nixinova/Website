@@ -56,7 +56,7 @@ function summon() {
     let lefthanded = $('#input_main_hand').hasClass('left');
 
     let allay_duplicate = $('#input_allay_duplicate').hasClass('on');
-    let allay_duplicate_cooldown = value('#input_allay_duplicate_cooldown', 'int');
+    let allay_duplicate_cooldown = value('input_allay_duplicate_cooldown', 'int');
     let axolotl_variant = value('input_axolotl_variant', 'int');
     let baby = $('#input_is_baby').hasClass('on');
     let baby_time_unit = value('input_baby_time_unit');
