@@ -23,7 +23,9 @@ js: "summon.js"
 <form action="javascript:submit()" id="input_form" style="margin: auto;">
     <p>
         <label for="input_entity">Mob:</label>
-        <input id="input_entity" list="list_entities" onchange="submit()"><br/>
+        <input id="input_entity" list="list_entities" onchange="submit()">
+        &nbsp;
+        <button onclick="submit()">✓</button>
         <datalist id="list_entities">
             <option>Allay</option>
             <option>Armadillo</option>
@@ -107,7 +109,7 @@ js: "summon.js"
             <option>Zombie Horse</option>
             <option>Zombie Villager</option>
             <option>Zombified Piglin</option>
-        </datalist>
+        </datalist><br/>
     
         <label>Coordinates:</label>
         <input type="number" step="any" placeholder="~" id="input_x"> &nbsp;

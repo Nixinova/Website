@@ -17,7 +17,7 @@ button {
         &.on::before {content: 'True';}
         &.off::after {content: 'False';}
     }
-    &.reset {padding: 20px; margin: 0 50px; border: none; border-radius: 5em; cursor: pointer; font: 2em 'Passion One';}
+    &.small {border-radius: 50%; background: #aaa; color: black; font-size: 80%;}
 }
 
 // Inputs //
