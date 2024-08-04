@@ -419,8 +419,8 @@ function summon() {
     }
 
     // CONVERT TO NBT //
-    if (!isEmpty(nbt)) {//                Removes quotes from tags ;//         Show num types as ints
-        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:');//.replace(/"([0-9.]+[bdfLs])"/g, '$1');
+    if (!isEmpty(nbt)) {//                Removes quotes from tags          Show num types as not string
+        nbt = JSON.stringify(nbt).replace(/"([^(")\\]+)":/g, '$1:').replace(/"([0-9.-]+[bdfLs])"/g, '$1');
     } else nbt = '';
 
     /// OUTPUT ///
