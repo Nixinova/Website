@@ -122,9 +122,6 @@ js: "summon.js"
     </p>
 
     <p data-name="NBT" onclick="submit()">
-    
-        <span class="indent"><u>General tags:</u></span><br/>
-
         <label for="input_customname" class="indent">Custom name:</label>
         <input type="text" size="13" id="input_customname" onkeyup="submit()">  
         <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
@@ -159,36 +156,45 @@ js: "summon.js"
             <button type="button" id="input_customname_o" class="off" onclick="toggleOnOff(this)">Obfuscated</button><br/>
         </span>
 
-        <label for="input_customname_visible" class="indent" title="Always show name">Static nametag?</label>
-        <button type="button" id="input_customname_visible" class="notext off" onclick="toggle(this)"></button><br/>
+        <span class="displayentity only">
+            <span class="indent"><u>Non-mob tags:</u></span><br/>
 
-        <label for="input_health" class="indent" style="letter-spacing: -.44px;">Additional health:</label>
-        <input id="input_health" type="number" step="any" min="0" onchange="submit()"><br/>
-
-        <label for="input_no_ai" class="indent">Able to move?</label>
-        <button type="button" id="input_no_ai" class="notext on" onclick="toggle(this)"></button><br/>
-    
-        <label for="input_despawnable" class="indent">Despawnable?</label>
-        <button type="button" id="input_despawnable" class="notext on" onclick="toggle(this)"></button><br/>
-    
-        <label for="input_invulnerable" class="indent">Invulnerable?</label>
-        <button type="button" id="input_invulnerable" class="notext off" onclick="toggle(this)"></button><br/>
-    
-        <label for="input_silent" class="indent">Silent?</label>
-        <button type="button" id="input_silent" class="notext off" onclick="toggle(this)"></button><br/>
-    
-        <label for="input_pickup" class="indent">Picks up items?</label>
-        <button type="button" id="input_pickup" class="notext off" onclick="toggle(this)"></button><br/>
-    
-        <label for="input_gravity" class="indent">Obeys gravity?</label>
-        <button type="button" id="input_gravity" class="notext on" onclick="toggle(this)"></button><br/>
-    
-        <label for="input_glowing" class="indent">Glowing?</label>
-        <button type="button" id="input_glowing" class="notext off" onclick="toggle(this)"></button><br/>
+        </span>
         
-        <style>.right::before {content: 'Right'} .left::before {content: 'Left'}</style>
-        <label for="input_main_hand" class="indent">Main hand:</label>
-        <button type="button" id="input_main_hand" class="notext right" onclick="toggle(this,'right','left')"></button><br/>
+        <span class="mob only">
+            <span class="indent"><u>Generic mob tags:</u></span><br/>
+
+            <label for="input_customname_visible" class="indent" title="Always show name">Static nametag?</label>
+            <button type="button" id="input_customname_visible" class="notext off" onclick="toggle(this)"></button><br/>
+
+            <label for="input_health" class="indent" style="letter-spacing: -.44px;">Additional health:</label>
+            <input id="input_health" type="number" step="any" min="0" onchange="submit()"><br/>
+
+            <label for="input_no_ai" class="indent">Able to move?</label>
+            <button type="button" id="input_no_ai" class="notext on" onclick="toggle(this)"></button><br/>
+        
+            <label for="input_despawnable" class="indent">Despawnable?</label>
+            <button type="button" id="input_despawnable" class="notext on" onclick="toggle(this)"></button><br/>
+        
+            <label for="input_invulnerable" class="indent">Invulnerable?</label>
+            <button type="button" id="input_invulnerable" class="notext off" onclick="toggle(this)"></button><br/>
+        
+            <label for="input_silent" class="indent">Silent?</label>
+            <button type="button" id="input_silent" class="notext off" onclick="toggle(this)"></button><br/>
+        
+            <label for="input_pickup" class="indent">Picks up items?</label>
+            <button type="button" id="input_pickup" class="notext off" onclick="toggle(this)"></button><br/>
+        
+            <label for="input_gravity" class="indent">Obeys gravity?</label>
+            <button type="button" id="input_gravity" class="notext on" onclick="toggle(this)"></button><br/>
+        
+            <label for="input_glowing" class="indent">Glowing?</label>
+            <button type="button" id="input_glowing" class="notext off" onclick="toggle(this)"></button><br/>
+            
+            <style>.right::before {content: 'Right'} .left::before {content: 'Left'}</style>
+            <label for="input_main_hand" class="indent">Main hand:</label>
+            <button type="button" id="input_main_hand" class="notext right" onclick="toggle(this,'right','left')"></button><br/>
+        </span>
 
         <span class="indent"><u>Mob-specific tags:</u></span><br/>
     

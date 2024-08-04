@@ -3,6 +3,7 @@
 function summon() {
 
     /// VARIABLES ///
+    const NON_MOB_ENTITIES = ['text_display'];
     const ZOMBIES = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
     const BABY_MOBS = [...ZOMBIES, 'piglin', 'zoglin'];
     const NEG_AGE_MOBS = [
@@ -138,6 +139,8 @@ function summon() {
 
     let nbt = {};
 
+    const is_mob = !NON_MOB_ENTITIES.includes(entity);
+
     /// GENERATOR ///
     // OUTPUT //
     $('#generator-output').empty();
@@ -152,6 +155,8 @@ function summon() {
 
     // ENTITY NBT //
     {
+        $('.only' + (is_mob ? '.mob' : '.displayentity')).removeClass('hide');
+
         // all //
         let CustomName = {};
         let $preview = $('#preview-text');
@@ -185,7 +190,8 @@ function summon() {
                 $preview.html('#'.repeat(name.length));
             }
 
-            nbt.CustomName = JSON.stringify(CustomName).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
+            const nbtProperty = is_mob ? 'CustomName' : 'text'; // mob vs text display entity
+            nbt[nbtProperty] = JSON.stringify(CustomName).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
 
         } else {
             $('#customname_color').addClass('hide');
