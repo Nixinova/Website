@@ -216,6 +216,24 @@ js: "summon.js"
             </select><br/>
         </span>
 
+        <span class="armadillo only">
+            <label for="input_armadillo_state" class="indent">State:</label>
+            <select id="input_armadillo_state" onchange="submit()">
+                <option value="">Idle</option>
+                <option value="unrolling">Unrolling</option>
+                <option value="scared">Rolled up</option>
+            </select><br/>
+
+            <label for="input_armadillo_drop_time_value" class="indent inline">Time until scute drop:</label>
+            <input id="input_armadillo_drop_time_value" type="number" min="0" onchange="submit()">
+            <select id="input_armadillo_drop_time_unit" onchange="submit()">
+                <option value="t">Ticks</option>
+                <option value="s">Seconds</option>
+                <option value="m">Minutes</option>
+                <option value="h">Hours</option>
+            </select><br/>
+        </span>
+
         <span class="axolotl only">
             <label for="input_axolotl_variant" class="indent">Colour:</label>
             <select id="input_axolotl_variant" onchange="submit()">

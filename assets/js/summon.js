@@ -58,6 +58,9 @@ function summon() {
     let allay_duplicate = $('#input_allay_duplicate').hasClass('on');
     let allay_cooldown_value = value('input_allay_cooldown_value', 'num');
     let allay_cooldown_unit = value('input_allay_cooldown_unit');
+    let armadillo_state = value('input_armadillo_state');
+    let armadillo_drop_time_value = value('input_armadillo_drop_time_value', 'num');
+    let armadillo_drop_time_unit = value('input_armadillo_drop_time_unit');
     let axolotl_variant = value('input_axolotl_variant', 'int');
     let baby = $('#input_is_baby').hasClass('on');
     let baby_time_unit = value('input_baby_time_unit');
@@ -217,6 +220,12 @@ function summon() {
         if (entity === 'allay') {
             if (allay_duplicate) nbt.CanDuplicate = allay_duplicate ? 1 : 0;
             if (allay_cooldown_value !== null) nbt.DuplicationCooldown = convertGameUnit(allay_cooldown_value, allay_cooldown_unit);
+        }
+
+        // armadillo //
+        if (entity === 'armadillo') {
+            if (armadillo_state) nbt.state = armadillo_state;
+            if (armadillo_drop_time_value !== null) nbt.scute_time = convertGameUnit(armadillo_drop_time_value, armadillo_drop_time_unit);
         }
 
         // axolotl //
