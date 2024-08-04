@@ -117,6 +117,11 @@ function summon() {
     let wolf_sitting = $('#input_wolf_sitting').hasClass('on');
     let zombies_canbreak_doors = $('#input_zombies_canbreak_doors').hasClass('on');
 
+    let textdisplay_linewidth = value('#input_textdisplay_linewidth', 'int');
+    let textdisplay_opacity = value('#input_textdisplay_opacity', 'int');
+    let textdisplay_seethrough = $('#input_textdisplay_seethrough').hasClass('on');
+    let textdisplay_shadow = $('#input_textdisplay_shadow').hasClass('on');
+
     let head = cleanup(value('input_armour_head'));
     let chest = cleanup(value('input_armour_chest'));
     let legs = cleanup(value('input_armour_legs'));
@@ -174,7 +179,7 @@ function summon() {
             if (name_bold) CustomName.bold = true;
             $preview.css('font-weight', name_bold ? 'bold' : 'inherit');
 
-            if (!name_italic) CustomName.italic = false;
+            CustomName.italic = name_italic;
             $preview.css('font-style', name_italic ? 'italic' : 'inherit');
 
             if (name_underline) CustomName.underlined = true;
@@ -417,6 +422,17 @@ function summon() {
                 // unhide subsection
                 $('.baby_living_mobs').removeClass('hide');
             }
+        }
+
+        // display entities
+
+        /// text display
+        if (entity === 'text_display') {
+            $('#input_customname').innerText = 'Display text:'
+            if (textdisplay_linewidth !== null) nbt.line_width = textdisplay_linewidth;
+            if (textdisplay_opacity !== null) nbt.opacity = textdisplay_opacity;
+            if (textdisplay_seethrough) nbt.see_through = textdisplay_seethrough;
+            if (textdisplay_shadow) nbt.shadow = textdisplay_shadow;
         }
 
     }
