@@ -6,7 +6,7 @@ function summon() {
     const ZOMBIES = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
     const BABY_MOBS = [...ZOMBIES, 'piglin', 'zoglin'];
     const NEG_AGE_MOBS = [
-        'bee', 'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot',
+        'bee', 'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot', 'tadpole',
         'panda', 'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
     ];
@@ -95,6 +95,7 @@ function summon() {
     let rabbit_type = value('input_rabbit_type', 'int');
     let slime_size = value('input_slime_size', 'int');
     let strider_saddled = $('#input_strider_saddle').hasClass('on');
+    let tadpole_bucket = $('#input_tadpole_bucket').hasClass('on');
     let tropical_fish_size = value('input_tropical_fish_size', 'int');
     let tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
     let tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
@@ -332,6 +333,11 @@ function summon() {
         // strider //
         if (entity === 'strider') {
             if (strider_saddled !== null) nbt.Saddle = strider_saddled;
+        }
+
+        // tadpole //
+        if (entity === 'tadpole') {
+            if (tadpole_bucket) nbt.FromBucket = tadpole_bucket ? 1 : 0;
         }
 
         // tropical fish //
