@@ -98,8 +98,8 @@ function summon() {
     let slime_size = value('input_slime_size', 'int');
     let strider_saddled = $('#input_strider_saddle').hasClass('on');
     let tadpole_bucket = $('#input_tadpole_bucket').hasClass('on');
-    let tadpole_time_unit = value('input_tadpole_time_unit');
-    let tadpole_time_value = value('input_tadpole_time_value');
+    let tadpole_age_unit = value('input_tadpole_age_unit');
+    let tadpole_age_value = value('input_tadpole_age_value');
     let tropical_fish_size = value('input_tropical_fish_size', 'int');
     let tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
     let tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
@@ -349,14 +349,14 @@ function summon() {
         if (entity === 'tadpole') {
             if (tadpole_bucket) nbt.FromBucket = tadpole_bucket ? 1 : 0;
 
-            if (tadpole_time_value) {
+            if (tadpole_age_value) {
                 let interval = 1;
-                switch (tadpole_time_unit) { // fallthrough
+                switch (tadpole_age_unit) { // fallthrough
                     case 'h': interval *= 60;
                     case 'm': interval *= 60;
                     case 's': interval *= 20;
                 }
-                nbt.Age = tadpole_time_value * interval;
+                nbt.Age = tadpole_age_value * interval;
             }
         }
 
