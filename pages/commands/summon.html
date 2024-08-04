@@ -23,9 +23,9 @@ js: "summon.js"
 <form action="javascript:submit()" id="input_form" style="margin: auto;">
     <p>
         <label for="input_entity">Mob:</label>
-        <input id="input_entity" list="list_entities" onchange="submit()">
+        <input id="input_entity" list="list_entities" onchange="submit()" value="allay">
         &nbsp;
-        <button onclick="submit()">✓</button>
+        <button onclick="submit()" class="small">✓</button>
         <datalist id="list_entities">
             <option>Allay</option>
             <option>Armadillo</option>
