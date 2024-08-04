@@ -73,6 +73,7 @@ function summon() {
     let endermite_life = value('input_endermite_life', 'int');
     let endermite_attackable = $('#input_endermite_attackable').hasClass('off');
     let enderdragon_state = value('input_enderdragon_state', 'int');
+    let frog_variant = value('input_frog_variant');
     let ghast_explosion_power = value('input_ghast_explosion_power', 'int');
     let glow_squid_timer = value('input_glow_squid_timer', 'int');
     let goat_left_horn = $('#input_goat_left_horn').hasClass('on');
@@ -265,6 +266,11 @@ function summon() {
         if (entity === 'fox') {
             if ($fox_type.hasClass('red') && $fox_type.data('clicked')) nbt.Type = 'red';
             if ($fox_type.hasClass('snow')) nbt.Type = 'snow';
+        }
+
+        // frog //
+        if (entity === 'frog') {
+            if (frog_variant) nbt.variant = frog_variant;
         }
 
         // ghast //

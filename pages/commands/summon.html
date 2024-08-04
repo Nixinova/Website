@@ -324,6 +324,16 @@ js: "summon.js"
             </button><br/>
         </span>
     
+        <span class="frog only">
+            <label for="input_frog_variant" class="indent">Fireball power:</label>
+            <input id="input_frog_variant" onchange="submit()">
+                <option disabled value=""></option>
+                <option value="temperate">Temperate</option>
+                <option value="warm">Warm</option>
+                <option value="cold">Cold</option>
+            </select><br/>
+        </span>
+    
         <span class="ghast only">
             <label for="input_ghast_explosion_power" class="indent">Fireball power:</label>
             <input id="input_ghast_explosion_power" type="number" min="1" onchange="submit()"><br/>
