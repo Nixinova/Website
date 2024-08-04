@@ -112,6 +112,8 @@ js: "summon.js"
 
     <p data-name="NBT" onclick="submit()">
     
+        <span>General tags:</span><br/>
+
         <label for="input_customname" class="indent">Custom name:</label>
         <input type="text" size="13" id="input_customname" onkeyup="submit()">  
         <a href="javascript:void(0)" id="expand-cname" class="elipsis" onclick="show_more('expand-cname','cname-content')"></a>
@@ -176,6 +178,8 @@ js: "summon.js"
         <style>.right::before {content: 'Right'} .left::before {content: 'Left'}</style>
         <label for="input_main_hand" class="indent">Main hand:</label>
         <button type="button" id="input_main_hand" class="notext right" onclick="toggle(this,'right','left')"></button><br/>
+
+        <span>Mob-specific tags:</span><br/>
     
         <span class="tame_mobs only">
             <label for="input_horse_tame" class="indent">Tame?</label>
