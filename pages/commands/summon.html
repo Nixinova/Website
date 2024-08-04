@@ -206,8 +206,14 @@ js: "summon.js"
             <label for="input_allay_duplicate" class="indent">Can duplicate?</label>
             <button type="button" id="input_allay_duplicate" class="notext off" onclick="toggle(this)"></button><br/>
 
-            <label for="input_allay_duplicate_cooldown" class="indent" title="Duplication cooldown in ticks">Cooldown</label>
-            <input type="number" min="0" id="input_allay_duplicate_cooldown" onchange="submit()"><br/>
+            <label for="input_allay_cooldown_value" class="indent inline">Duplication cooldown</label>
+            <input id="input_allay_cooldown_value" type="number" min="0" onchange="submit()">
+            <select id="input_allay_cooldown_unit" onchange="submit()">
+                <option value="t">Ticks</option>
+                <option value="s">Seconds</option>
+                <option value="m">Minutes</option>
+                <option value="h">Hours</option>
+            </select><br/>
         </span>
 
         <span class="axolotl only">
@@ -497,10 +503,10 @@ js: "summon.js"
         </span>
 
         <span class="tadpole only">
-            <label for="input_tadpole_bucket" class="indent" title="Released from a bucket?">From bucket?</label>
+            <label for="input_tadpole_bucket" class="indent inline">Released from bucket?</label>
             <button type="button" id="input_tadpole_bucket" class="notext off" onclick="toggle(this)"></button><br/>
 
-            <label for="input_tadpole_time_value" class="indent">Time until adulthood:</label>
+            <label for="input_tadpole_time_value" class="indent inline">Time until adulthood:</label>
             <input id="input_tadpole_time_value" type="number" min="0" onchange="submit()">
             <select id="input_tadpole_time_unit" onchange="submit()">
                 <option value="t">Ticks</option>

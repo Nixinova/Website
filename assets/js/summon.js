@@ -56,7 +56,8 @@ function summon() {
     let lefthanded = $('#input_main_hand').hasClass('left');
 
     let allay_duplicate = $('#input_allay_duplicate').hasClass('on');
-    let allay_duplicate_cooldown = value('input_allay_duplicate_cooldown', 'int');
+    let allay_cooldown_value = value('input_allay_cooldown_value', 'num');
+    let allay_cooldown_unit = value('input_allay_cooldown_unit');
     let axolotl_variant = value('input_axolotl_variant', 'int');
     let baby = $('#input_is_baby').hasClass('on');
     let baby_time_unit = value('input_baby_time_unit');
@@ -99,7 +100,7 @@ function summon() {
     let strider_saddled = $('#input_strider_saddle').hasClass('on');
     let tadpole_bucket = $('#input_tadpole_bucket').hasClass('on');
     let tadpole_time_unit = value('input_tadpole_time_unit');
-    let tadpole_time_value = value('input_tadpole_time_value');
+    let tadpole_time_value = value('input_tadpole_time_value', 'int');
     let tropical_fish_size = value('input_tropical_fish_size', 'int');
     let tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
     let tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
@@ -215,7 +216,7 @@ function summon() {
         // allay //
         if (entity === 'allay') {
             if (allay_duplicate) nbt.CanDuplicate = allay_duplicate ? 1 : 0;
-            if (allay_duplicate_cooldown !== null) nbt.DuplicationCooldown = allay_duplicate_cooldown;
+            if (allay_cooldown_value !== null) nbt.DuplicationCooldown = convertGameUnit(allay_cooldown_value, allay_cooldown_unit);
         }
 
         // axolotl //
@@ -350,14 +351,8 @@ function summon() {
             if (tadpole_bucket) nbt.FromBucket = tadpole_bucket ? 1 : 0;
 
             if (tadpole_time_value) {
-                let interval = 1;
-                switch (tadpole_time_unit) { // fallthrough
-                    case 'h': interval *= 60;
-                    case 'm': interval *= 60;
-                    case 's': interval *= 20;
-                }
-                const adultAge = 24000; // 20 minutes
-                nbt.Age = adultAge - tadpole_time_value * interval;
+                const adultAge = convertGameUnit(20, 'm');
+                nbt.Age = adultAge - convertGameUnit(tadpole_time_value, tadpole_time_unit);
             }
         }
 
@@ -408,14 +403,8 @@ function summon() {
         if (NEG_AGE_MOBS.includes(entity)) {
             $('.baby_mobs').removeClass('hide');
             if (baby && baby_time_value) {
-                let interval = 1;
-                switch (baby_time_unit) { // fallthrough
-                    case 'h': interval *= 60;
-                    case 'm': interval *= 60;
-                    case 's': interval *= 20;
-                }
                 const adultAge = 0;
-                nbt.Age = adultAge - baby_time_value * interval;
+                nbt.Age = adultAge - convertGameUnit(baby_time_value, baby_time_unit);
                 // unhide subsection
                 $('.baby_living_mobs').removeClass('hide');
             }

@@ -76,6 +76,18 @@ function rvDupes(array) {
     return newArray;
 }
 
+/** Allowed units: 't', 's', 'm', 'h'. */
+function convertGameUnit(num, unit) {
+    let interval = 1;
+    switch (unit) { // fallthrough
+        case 'h': interval *= 60;
+        case 'm': interval *= 60;
+        case 's': interval *= 20;
+        case 't': // do nothing
+    }
+    return num * interval;
+}
+
 function randomString(length) {
     let chars = [], output = '';
     for (let i = 32; i <= 591; i++) {
