@@ -499,6 +499,15 @@ js: "summon.js"
         <span class="tadpole only">
             <label for="input_tadpole_bucket" class="indent" title="Released from a bucket?">From bucket?</label>
             <button type="button" id="input_tadpole_bucket" class="notext off" onclick="toggle(this)"></button><br/>
+
+            <label for="input_tadpole_age_value" class="indent inline">Age:</label>
+            <input id="input_tadpole_age_value" type="number" min="0" onchange="submit()">
+            <select id="input_tadpole_age_unit" onchange="submit()">
+                <option value="t">Ticks</option>
+                <option value="s">Seconds</option>
+                <option value="m">Minutes</option>
+                <option value="h">Hours</option>
+            </select><br/>
         </span>
 
         <span class="tropical_fish only">
@@ -649,9 +658,9 @@ js: "summon.js"
             <button type="button" id="input_is_baby" class="notext off" onclick="toggle(this)"></button>
         
             <span class="baby_living_mobs only"> &ensp;
-                <label for="input_baby_time_value" class="indent inline">Time value:</label>
+                <label for="input_baby_time_value" class="indent inline">Time until adulthood:</label>
                 <input id="input_baby_time_value" type="number" value="1000" min="0" onchange="submit()">
-                <select id="input_baby_time" onchange="submit()">
+                <select id="input_baby_time_unit" onchange="submit()">
                     <option value="t">Ticks</option>
                     <option value="s">Seconds</option>
                     <option value="m">Minutes</option>

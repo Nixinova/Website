@@ -5,7 +5,6 @@ function summon() {
     /// VARIABLES ///
     const ZOMBIES = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
     const BABY_MOBS = [...ZOMBIES, 'piglin', 'zoglin'];
-    const POS_AGE_MOBS = ['tadpole'];
     const NEG_AGE_MOBS = [
         'bee', 'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot',
         'panda', 'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
@@ -60,7 +59,7 @@ function summon() {
     let allay_duplicate_cooldown = value('#input_allay_duplicate_cooldown', 'int');
     let axolotl_variant = value('input_axolotl_variant', 'int');
     let baby = $('#input_is_baby').hasClass('on');
-    let baby_time = value('input_baby_time');
+    let baby_time_unit = value('input_baby_time_unit');
     let baby_time_value = value('input_baby_time_value');
     let bee_stung = $('#input_bee_stung').hasClass('on');
     let bee_nectar = $('#input_bee_nectar').hasClass('on');
@@ -99,6 +98,8 @@ function summon() {
     let slime_size = value('input_slime_size', 'int');
     let strider_saddled = $('#input_strider_saddle').hasClass('on');
     let tadpole_bucket = $('#input_tadpole_bucket').hasClass('on');
+    let tadpole_time_unit = value('input_tadpole_time_unit');
+    let tadpole_time_value = value('input_tadpole_time_value');
     let tropical_fish_size = value('input_tropical_fish_size', 'int');
     let tropical_fish_pattern = value('input_tropical_fish_pattern', 'int');
     let tropical_fish_base_color = value('input_tropical_fish_base_color', 'int');
@@ -347,6 +348,16 @@ function summon() {
         // tadpole //
         if (entity === 'tadpole') {
             if (tadpole_bucket) nbt.FromBucket = tadpole_bucket ? 1 : 0;
+
+            if (tadpole_time_value) {
+                let interval = 1;
+                switch (tadpole_time_unit) { // fallthrough
+                    case 'h': interval *= 60;
+                    case 'm': interval *= 60;
+                    case 's': interval *= 20;
+                }
+                nbt.Age = tadpole_time_value * interval;
+            }
         }
 
         // tropical fish //
@@ -393,25 +404,18 @@ function summon() {
             $('.baby_mobs').removeClass('hide');
             if (baby) nbt.IsBaby = true;
         }
-        const isPosAgeMob = POS_AGE_MOBS.includes(entity);
-        const isNegAgeMob = NEG_AGE_MOBS.includes(entity);
-        if (isPosAgeMob || isNegAgeMob) {
+        if (NEG_AGE_MOBS.includes(entity)) {
             $('.baby_mobs').removeClass('hide');
             if (baby && baby_time_value) {
                 let interval = 1;
-                switch (baby_time) { // fallthrough
+                switch (baby_time_unit) { // fallthrough
                     case 'h': interval *= 60;
                     case 'm': interval *= 60;
                     case 's': interval *= 20;
                 }
-                let age = baby_time_value * interval;
-                if (isNegAgeMob) {
-                    age = 0 - age;
-                }
-                nbt.Age = age;
+                nbt.Age = 0 - baby_time_value * interval;
                 // unhide subsection
                 $('.baby_living_mobs').removeClass('hide');
-                $('#input_baby_time_value').innerText = isPosAgeMob ? 'Mob age:' : 'Time until adulthood:';
             }
         }
 
