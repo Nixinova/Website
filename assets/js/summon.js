@@ -65,7 +65,7 @@ function summon() {
     let bee_stung = $('#input_bee_stung').hasClass('on');
     let bee_nectar = $('#input_bee_nectar').hasClass('on');
     let bee_angry = $('#input_bee_angry').hasClass('on');
-    let bee_angry_time = value('input_bee_angry_time');
+    let bee_angry_time_unit = value('input_bee_angry_time_unit');
     let bee_angry_time_value = value('input_bee_angry_time_value');
     let cat_type = value('input_cat_type', 'int');
     let cat_collar = value('input_cat_collar', 'int');
@@ -231,14 +231,8 @@ function summon() {
 
             if (bee_angry) {
                 $('.angry-bee').removeClass('hide');
-                if (bee_angry_time && bee_angry_time_value) {
-                    let interval = 1;
-                    switch (bee_angry_time) { // fallthrough
-                        case 'h': interval *= 60;
-                        case 'm': interval *= 60;
-                        case 's': interval *= 20;
-                    }
-                    nbt.Anger = 0 - bee_angry_time_value * interval;
+                if (bee_angry_time_unit && bee_angry_time_value) {
+                    nbt.Anger = 0 - convertGameUnit(bee_angry_time_value, bee_angry_time_unit);
                 }
             }
         }
