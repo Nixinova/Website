@@ -280,7 +280,7 @@ function summon() {
         // goat //
         if (entity === 'goat') {
             // if one tag is specified, both have to be
-            if (goat_left_horn !== goat_right_horn) {
+            if (goat_left_horn !== true || goat_right_horn !== true) {
                 nbt.HasLeftHorn = goat_left_horn ? 1 : 0;
                 nbt.HasRightHorn = goat_right_horn ? 1 : 0;
             }
