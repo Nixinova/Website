@@ -5,8 +5,9 @@ function summon() {
     /// VARIABLES ///
     const ZOMBIES = ['drowned', 'husk', 'zombie', 'zombie_pigman', 'zombie_villager'];
     const BABY_MOBS = [...ZOMBIES, 'piglin', 'zoglin'];
+    const POS_AGE_MOBS = ['tadpole'];
     const NEG_AGE_MOBS = [
-        'bee', 'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot', 'tadpole',
+        'bee', 'cat', 'chicken', 'cow', 'fox', 'llama', 'mooshroom', 'rabbit', 'ocelot',
         'panda', 'pig', 'polar_bear', 'sheep', 'villager', 'wolf',
         'horse', 'donkey', 'mule', 'skeleton_horse', 'zombie_horse'
     ];
@@ -392,7 +393,9 @@ function summon() {
             $('.baby_mobs').removeClass('hide');
             if (baby) nbt.IsBaby = true;
         }
-        if (NEG_AGE_MOBS.includes(entity)) {
+        const isPosAgeMob = POS_AGE_MOBS.includes(entity);
+        const isNegAgeMob = NEG_AGE_MOBS.includes(entity);
+        if (isPosAgeMob || isNegAgeMob) {
             $('.baby_mobs').removeClass('hide');
             if (baby && baby_time_value) {
                 let interval = 1;
@@ -401,8 +404,14 @@ function summon() {
                     case 'm': interval *= 60;
                     case 's': interval *= 20;
                 }
-                nbt.Age = 0 - baby_time_value * interval;
+                let age = baby_time_value * interval;
+                if (isNegAgeMob) {
+                    age = 0 - age;
+                }
+                nbt.Age = age;
+                // unhide subsection
                 $('.baby_living_mobs').removeClass('hide');
+                $('#input_baby_time_value').innerText = isPosAgeMob ? 'Mob age:' : 'Time until adulthood:';
             }
         }
 
