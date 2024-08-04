@@ -16,7 +16,10 @@ class jQueryClass {
         return this;
     }
     removeClass(name) {
-        this.elements.forEach(elem => elem.classList.remove(name));
+        if (!name)
+            this.elements.forEach(elem => elem.classList = []);
+        else
+            this.elements.forEach(elem => elem.classList.remove(name));
         return this;
     }
     toggleClass(name, force) {
