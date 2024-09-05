@@ -3,6 +3,7 @@
 
 # Redirecters
 /redirect/novasheets/*              https://novasheets.js.org/:splat
+/assets/images/*                    https://images.nixinova.com/:splat
 
 # Page moves
 /maps/*                             /downloads/minecraft/maps/:splat
@@ -17,7 +18,6 @@
 /mineo/versions                     /projects/mineo/versions
 
 # Shortcuts
-/logo/*                             /assets/images/logos/:splat
 /musical-blocks                     /downloads/minecraft/maps/musical-blocks
 /kitpvp                             /downloads/minecraft/maps/kitpvp
 /skywars                            /downloads/minecraft/maps/skywars
