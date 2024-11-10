@@ -3,6 +3,7 @@
 
 # Redirecters
 /redirect/novasheets/*              https://novasheets.js.org/:splat
+/redirect/reforj/*                  https://reforj.nixinova.com/:splat
 /assets/images/*                    https://images.nixinova.com/:splat
 
 # Page moves
