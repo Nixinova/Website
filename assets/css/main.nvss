@@ -54,7 +54,7 @@ header {
 
 nav {
     background: $(color1); padding: 1em 1em 5em; width: 100%; line-height: 2; border-bottom: 2px solid white;
-    @ 700px {display: grid; grid-auto-flow: column;}
+    @ 700px.. {display: grid; grid-auto-flow: column;}
     div {transition: 0.1s;}
     ul {margin: 0 1em; padding: 0; list-style-type: none;}
     a[href] {
@@ -102,17 +102,19 @@ p {
 }
 
 // Links //
-a {text-decoration: none; cursor: pointer;}
-a:hover {opacity: 0.5;}
-a[href] {
-    color: #acf; transition: 0.2s;
-    &-underline {
-        display: block;
-        &::after {content: ""; display: block; width: 0; height: 2px; background: #fff; color: #fff; transition: 0.4s;}
-        :hover > & {width: 5em;}
+a {
+    text-decoration: none; cursor: pointer;
+    &:hover {opacity: 0.5;}
+    &[href] {
+        color: #acf; transition: 0.2s;
+        &-underline {
+            display: block;
+            &::after {content: ""; display: block; width: 0; height: 2px; background: #fff; color: #fff; transition: 0.4s;}
+            :hover > & {width: 5em;}
+        }
     }
+    &.external::after {content: ' 🡕';}
 }
-a.external::after {content: ' 🡕';}
 
 // Tables //
 table.styled :is(th, td) {border: 1px solid #555; padding: 0.2em 0.4em;}
@@ -179,4 +181,4 @@ button {
 // Ads //
 p ~ .adsbygoogle {margin: 3em auto;}
 
-/* Copyright © Nixinova 2024 */
+/* Copyright © Nixinova 2025 */
