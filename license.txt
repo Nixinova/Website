@@ -1,6 +1,7 @@
-Copyright ©️ Nixinova 2018–2024
+Copyright © Nixinova 2018–2025
 
-All rights reserved
+All rights reserved.
 
-Users agree to relinquish their copyright over any
-changes they make in a fork or pull request.
+This software is not intended to be used for public consumption and is made public for informative use only.
+
+Users agree to relinquish their copyright over any changes they make in a fork or pull request.
