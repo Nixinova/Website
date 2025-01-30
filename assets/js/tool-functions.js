@@ -76,6 +76,15 @@ function rvDupes(array) {
     return newArray;
 }
 
+/** stringify with single quotes instead of JSON.stringify's double quotes */
+function convertToSbnt(obj) {
+    const parts = [];
+    for (const key in obj) {
+        parts.push(`'${key}':'${obj[key]}'`);
+    }
+    return parts.join(',');
+}
+
 /** Allowed units: 't', 's', 'm', 'h'. */
 function convertGameUnit(num, unit) {
     let interval = 1;

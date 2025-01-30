@@ -37,7 +37,7 @@ function summon() {
     let X = value('input_x').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
     let Y = value('input_y').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
     let Z = value('input_z').match(/^[~^]?-?[0-9]*\.?[0-9]+$/);
-    let name = value('input_customname').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+    let name = value('input_customname');
     let name_color = value('input_customname_color').toLowerCase().replace(/ /g, '_');
     let name_bold = $('#input_customname_b').hasClass('on');
     let name_italic = $('#input_customname_i').hasClass('on');
@@ -167,10 +167,9 @@ function summon() {
         let $preview = $('#preview-text');
         if (name) {
             $('#customname_color').removeClass('hide');
-            JSON.stringify(name_color ? { "text": name, "color": name_color } : name);
 
             $('#preview, #expand-cname, #preview-text').removeClass('hide');
-            $preview.removeClass().html(name.replace(/\\\\/g, '\\').replace(/\\"/g, '"'));
+            $preview.removeClass().html(name);
             CustomName.text = name;
 
             if (name_color) CustomName.color = name_color;
@@ -196,7 +195,7 @@ function summon() {
             }
 
             const nbtProperty = is_mob ? 'CustomName' : 'text'; // mob vs text display entity
-            nbt[nbtProperty] = JSON.stringify(CustomName).replace(/\\{8}/g, '\\\\').replace(/\\{7}"/g, '\\"');
+            nbt[nbtProperty] = convertToSbnt(CustomName);
 
         } else {
             $('#customname_color').addClass('hide');
