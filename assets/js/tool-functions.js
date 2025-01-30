@@ -79,10 +79,11 @@ function rvDupes(array) {
 /** stringify with single quotes instead of JSON.stringify's double quotes */
 function convertToSbnt(obj) {
     const parts = [];
+    const stringify = data => JSON.stringify(data).replace(/^"|"$/g, `'`);
     for (const key in obj) {
-        parts.push(`'${key}':'${obj[key]}'`);
+        parts.push(stringify(key) + ':' + stringify(obj[key]));
     }
-    return parts.join(',');
+    return '{' + parts.join(',') + '}';
 }
 
 /** Allowed units: 't', 's', 'm', 'h'. */
