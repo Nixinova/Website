@@ -195,7 +195,7 @@ function summon() {
             }
 
             const nbtProperty = is_mob ? 'CustomName' : 'text'; // mob vs text display entity
-            nbt[nbtProperty] = convertToSbnt(CustomName);
+            nbt[nbtProperty] = JSON.stringify(CustomName);
 
         } else {
             $('#customname_color').addClass('hide');
