@@ -37,10 +37,13 @@ css: home
     <script>
         document.addEventListener('DOMContentLoaded', async function () {
             const data = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=UCkBbTlppb8XHxI2rFryB1dQ').then(data => data.json());
-            for (const item of data.items.slice(0, 6)) {
-                document.querySelector('#youtube-videos_list').innerHTML += `
-                    <iframe src="https://youtube.com/embed/${item.guid.split(':')[2]}" width="360" style="aspect-ratio: 16/9;">
-                `;
+            for (let i = 0; i < 6; i++) {
+                const item = data.items[0];
+                setTimeout(() => {
+                    document.querySelector('#youtube-videos_list').innerHTML += `
+                        <iframe src="https://youtube.com/embed/${item.guid.split(':')[2]}" width="360" style="aspect-ratio: 16/9;">
+                    `;
+                }, i * 500);
             }
         });
     </script>
