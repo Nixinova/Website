@@ -24,8 +24,12 @@ header {
     @ $(desktop) {position: sticky;}
 }
 #header {
-    display: grid; grid-template-columns: 200px auto 200px; background: $(color2); border-bottom: 2px solid white;
+    display: flex; background: $(color2); border-bottom: 2px solid white;
+    @ 600px.. {
+        display: grid; grid-template-columns: 200px auto 200px; 
+    }
     [data-icon] img {cursor: pointer; height: 32px;}
+    #menu-logo img {max-width: 250px; aspect-ratio: 16 / 5;}
     &-search, #menu-icon {
         align-self: center; text-align: center; color: white; cursor: pointer; z-index: 10;
         :is(&) a {color: white;}
