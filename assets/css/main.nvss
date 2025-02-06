@@ -30,15 +30,15 @@ header {
     }
     [data-icon] img {cursor: pointer; height: 32px;}
     #menu-logo img {max-width: 250px; aspect-ratio: 16 / 5;}
-    &-search, #menu-icon {
+    #header-search, .menu-icon {
         align-self: center; text-align: center; color: white; cursor: pointer; z-index: 10;
         :is(&) a {color: white;}
     }
-    #menu-icon {width: 80px; font-size: 3em;}
-    &-search {
+    .menu-icon {width: 80px; font-size: 3em;}
+    #header-search {
         @ ..600px {
             width: 80px;
-            &_bar {display: none;}
+            &_bar, .menu-icon {display: none;}
         }
         @ 600px.. {
             margin-right: 2em; background: #fffa; border: 1px solid #333d; border-radius: 1em;
