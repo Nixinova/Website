@@ -38,7 +38,7 @@ header {
     #header-search {
         @ ..600px {
             width: 80px;
-            &_bar, .menu-icon {display: none;}
+            &_bar {display: none;}
         }
         @ 600px.. {
             margin-right: 2em; background: #fffa; border: 1px solid #333d; border-radius: 1em;
@@ -49,6 +49,7 @@ header {
                     &:focus {outline: none;}
                 }
             }
+            .menu-icon {display: none;}
         }
     }
     #menu-logo {
