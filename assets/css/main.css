@@ -212,18 +212,16 @@ p {
 a {
     text-decoration: none; cursor: pointer;
 
+    &[href] {
+        color: #acf; transition: 0.2s;
+    }
     &:hover {
         opacity: 0.5;
     }
-    &[href] {
-        color: #acf; transition: 0.2s;
+    &.hover-underline {
+        &::after {
+            content: ""; display: block; width: 0; height: 2px; background: #fff; color: #fff; transition: 0.4s;
 
-        &.hover-underline {
-            display: block;
-
-            &::after {
-                content: ""; display: block; width: 0; height: 2px; background: #fff; color: #fff; transition: 0.4s;
-            }
             :hover>& {
                 width: 5em;
             }
