@@ -35,14 +35,16 @@ css: home
 <div id="youtube-videos" class="showcase-container image-background" style="background-image: radial-gradient(white, black);">
     <h2>Recent videos</h2>
     <script>
-        document.addEventListener('DOMContentLoaded', async function () {
+        async function fetchLatestVideo() {
+            const NUM_VIDEOS = 2;
             const data = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=UCkBbTlppb8XHxI2rFryB1dQ').then(data => data.json());
-            for (const item of data.items.slice(0, 6)) {
-                document.querySelector('#youtube-videos_list').innerHTML += `
-                    <iframe src="https://youtube.com/embed/${item.guid.split(':')[2]}" width="360" style="aspect-ratio: 16/9;">
-                `;
+            for (let i = 0; i < NUM_VIDEOS; i++) {
+                const item = data.items[i];
+                document.querySelector('#youtube-videos_list').innerHTML +=
+                    `<iframe src="https://youtube.com/embed/${item.link.split('?')[1]}" width="360" style="aspect-ratio: 16/9;">`;
             }
-        });
+        }
+        document.addEventListener('DOMContentLoaded', () => setTimeout(fetchLatestVideo, 1000));
     </script>
     <div id="youtube-videos_list" class="centered tile"></div>
 </div>
