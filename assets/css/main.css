@@ -14,9 +14,11 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     margin: 0; background: var(--color1); line-height: 1.8; font: normal 16px 'Montserrat', sans-serif; color: #eee;
+}
+p {
+    line-height: 1.5;
 }
 code {
     font-size: 1.1em;
@@ -163,11 +165,16 @@ footer {
 /* Headings */
 h1, h2, h3, h4 {
     text-transform: uppercase;
-
-    &, h5, h6 {
-        margin: 0.5em 0; color: #eee; text-align: center; font-weight: bold;
-    }
 }
+h1, h2, h3, h4, h5, h6 {
+    margin: 0.5em 0; color: #eee; text-align: center; font-weight: bold;
+}
+h1 {font-size: 2.6em;}
+h2 {font-size: 2.2em;}
+h3 {font-size: 1.8em;}
+h4 {font-size: 1.4em;}
+h5 {font-size: 1.0em;}
+h6 {font-size: 0.6em;}
 h2.section-header {
     margin-top: 0.8em; margin-bottom: 0.5em;
 
@@ -177,24 +184,6 @@ h2.section-header {
     &:hover::after {
         width: 20vw; margin-left: calc(50% - 10vw);
     }
-}
-h1 {
-    font-size: calc(2.6em - (((1) - 1) / 1.8));
-}
-h2 {
-    font-size: calc(2.6em - (((2) - 1) / 1.8));
-}
-h3 {
-    font-size: calc(2.6em - (((3) - 1) / 1.8));
-}
-h4 {
-    font-size: calc(2.6em - (((4) - 1) / 1.8));
-}
-h5 {
-    font-size: calc(2.6em - (((5) - 1) / 1.8));
-}
-h6 {
-    font-size: calc(2.6em - (((6) - 1) / 1.8));
 }
 
 /* Paragraphs */
@@ -273,6 +262,7 @@ hr.half {
     width: 50%;
 }
 hr.divider {
+    margin: 1em;
     width: 90%;
 }
 
@@ -286,7 +276,7 @@ iframe.youtube {
     width: 100%; margin-bottom: 1em;
 
     .screenshot {
-        display: flex; height: 75/16*10vh; border-bottom: 2px solid #fff; background: #333 center/cover; background-blend-mode: overlay;
+        display: flex; height: calc(75 / 16 * 10vh); border-bottom: 2px solid #fff; background: #333 center/cover; background-blend-mode: overlay;
 
         > * {
             margin: auto;
