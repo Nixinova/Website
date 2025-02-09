@@ -218,7 +218,7 @@ a {
     &[href] {
         color: #acf; transition: 0.2s;
 
-        &-underline {
+        &.hover-underline {
             display: block;
 
             &::after {

@@ -16,7 +16,7 @@ footer {
 }
 
 /* Pseudo-elements */
-ul li::after, h2::before, h2::after {
+h2::before, h2::after, .showcase-container ul li::after {
     content: ""; display: block; width: 0; height: 2px; background: #fff; transition: 0.7s;
 }
 h2::before, h2::after {
