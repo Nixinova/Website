@@ -41,7 +41,7 @@ css: home
             for (let i = 0; i < NUM_VIDEOS; i++) {
                 const item = data.items[i];
                 document.querySelector('#youtube-videos_list').innerHTML +=
-                    `<iframe src="https://youtube.com/embed/${item.link.split('?')[1]}" width="360" style="aspect-ratio: 16/9;">`;
+                    `<iframe src="https://youtube.com/embed/${item.link.split('?v=')[1]}" width="360" style="aspect-ratio: 9/16;">`;
             }
         }
         document.addEventListener('DOMContentLoaded', () => setTimeout(fetchLatestVideo, 1000));
