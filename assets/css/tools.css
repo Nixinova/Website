@@ -1,0 +1,171 @@
+/* Font */
+@font-face {font-family: 'Minecraft'; src: local('Minecraft'), url('/assets/fonts/minecraft.ttf') format('truetype');}
+
+/* Base styles */
+form p:not(.text) {
+    text-align: left; line-height: 3;
+}
+h2.lower {
+    text-transform: lowercase;
+}
+@media (max-width: 900px) {
+    main {
+        margin-left: 1em;
+    }
+}
+@media (min-width: 815px) {
+    form, output, .output, .content {
+        display: block; max-width: 835px; margin: 0 auto;
+    }
+}
+
+/* Buttons */
+button {
+    padding: 7px 10px; font-size: inherit; color: inherit; border-radius: 5px;
+
+    &.on  {
+        background: #5c5;
+    }
+    &.off {
+        background: #f55;
+    }
+    &.notext {
+        width: 70px; text-align: center;
+
+        &.on::before {
+            content: 'True';
+        }
+        &.off::after {
+            content: 'False';
+        }
+    }
+    &.small {
+        border-radius: 50%; background: #aaa; color: black; font-size: 80%;
+    }
+}
+
+/* Inputs */
+input, select, button {
+    padding: 5px 10px; margin-top: 10px; display: inline-block; border: none; border-radius: 4px;
+}
+input, select {
+    width: 160px;
+}
+input {
+    &.long {
+        width: 250px;
+    }
+    &:out-of-range {
+        border: 2px solid red; background: #fdd;
+    }
+    &[type="submit"] {
+        width: 100%; background: #94c0c4; padding: 14px 20px; margin: 8px 0px; border: none; border-radius: 4px; cursor: pointer; color: #333; font: normal 2em 'Passion One'; text-align: center;
+
+        &:hover {
+            box-shadow: 0px 10px 14px -5px #3338;
+        }
+    }
+    &[type="number"] {
+        width: 70px;
+
+        &.long {
+            width: 110px;
+        }
+    }
+    &[type="color"] {
+        padding: 1px;
+    }
+}
+textarea {
+    transition: none; padding: 2px 6px; margin: 10px 0; border-radius: 4px;
+}
+
+/* Dropdown icons */
+.elipsis, .clear, .plus, .minus {
+    margin-left: 10px; font-size: 95%; background: #eee; border-radius: 20px; animation: none;
+
+    a:is(&) {
+        color: #222; transition: 0s;
+    }
+}
+.elipsis, .clear {
+    padding: 5px 8px;
+}
+.plus, .minus {
+    padding: 5px 10px;
+}
+.plus::before {content: '+';}
+.minus::before {content: '−';}
+.elipsis::before {content: '⋯';}
+.clear::before {content: '🞩';}
+
+/* Output */
+#preview-text {
+    padding: 5px 10px; font-family: 'Minecraft'; background-color: #100110f9; border: 3px solid #205e; border-radius: 5px;
+}
+.command {
+    display: block; margin: 0 auto 2em; padding: 5px 1em; width: 100%; border: solid #aaa 1px; border-radius: 5px; color: #aaa; font-family: monospace; line-height: 1.8; word-break: break-all;
+}
+
+/* Indentation */
+.indent {
+    margin: 0 2em;
+
+    &:is(p, div) {
+        margin: -1em 0 -1em 2em;
+    }
+}
+p.negative {
+    margin-top: -15px;
+}
+
+@media (max-width: 815px) {
+    .mobile-spacer {
+        margin-left: 2em;
+    }
+}
+@media (min-width: 815px) {
+    span.set-width {
+        display: inline-block; width: var(--width);
+    }
+    label {
+        display: inline-block;
+
+        &:not(.inline) {
+            width: 135px;
+        }
+        &.short {
+            margin-left: 15px; width: 100px;
+        }
+        &.long {
+            width: 250px;
+        }
+    }
+}
+
+/* Minecraft color codes */
+.§0 {color: #000; text-shadow: 1px 1px #000000;}
+.§1 {color: #00a; text-shadow: 1px 1px #00002a;}
+.§2 {color: #0a0; text-shadow: 1px 1px #002a00;}
+.§3 {color: #0aa; text-shadow: 1px 1px #002a2a;}
+.§4 {color: #a00; text-shadow: 1px 1px #2a0000;}
+.§5 {color: #a0a; text-shadow: 1px 1px #2a002a;}
+.§6 {color: #fa0; text-shadow: 1px 1px #2a2a00;}
+.§7 {color: #aaa; text-shadow: 1px 1px #2a2a2a;}
+.§8 {color: #555; text-shadow: 1px 1px #151515;}
+.§9 {color: #55f; text-shadow: 1px 1px #15153f;}
+.§a {color: #5f5; text-shadow: 1px 1px #153f15;}
+.§b {color: #5ff; text-shadow: 1px 1px #153f3f;}
+.§c {color: #f55; text-shadow: 1px 1px #3f1515;}
+.§d {color: #f5f; text-shadow: 1px 1px #3f153f;}
+.§e {color: #ff5; text-shadow: 1px 1px #3f3f15;}
+.§f {color: #fff; text-shadow: 1px 1px #3f3f3f;}
+.§k {}
+.§l {font-weight: bold;}
+.§m {text-decoration: line-through;}
+.§n {text-decoration: underline;}
+.§o {font-style: italic;}
+.§r {color: #fff; text-shadow: 1px 1px #3f3f3f; font-weight: normal; text-decoration: none; font-style: normal;}
+.§m.§n {text-decoration: underline line-through;}
+
+/* Copyright © Nixinova 2025 */

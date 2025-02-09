@@ -4,8 +4,7 @@
   "description": "Personal website of Nixinova, hosted via Netlify at Nixinova.com",
   "scripts": {
     "build": "eleventy",
-    "serve": "eleventy --serve",
-    "novasheets": "novasheets -c _site/**/*.nvss"
+    "serve": "eleventy --serve"
   },
   "repository": {
     "type": "git",
@@ -17,7 +16,6 @@
   },
   "homepage": "https://nixinova.com",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0",
-    "novasheets": "^1.0.6"
+    "@11ty/eleventy": "^2.0.1"
   }
 }
