@@ -18,16 +18,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (query) for (const page of matches) {
         const id = page.ref;
-        let result = `
+        const boldenMatch = text => {
+            for (let word of query.split(' ')) {
+                text = text.replace(RegExp(word, 'ig'), match => '<strong>' + match + '</strong>');
+            }
+            return text;
+        };
+        const result = `
             <div class="result">
                 <div class="result_url">${id.replace('.html', '').replace(/^\//, '').replace(/\//g, ' › ')}</div>
-                <div class="result_title"><a href="${id}">${metadata[id].title}</a></div>
-                <div class="result_description">${metadata[id].description}</div>
+                <div class="result_title"><a href="${id}">${boldenMatch(metadata[id].title)}</a></div>
+                <div class="result_description">${boldenMatch(metadata[id].description)}</div>
             </div>
         `;
-        for (let word of query.split(' ')) {
-            result = result.replace(RegExp(word, 'ig'), match => '<strong>' + match + '</strong>');
-        }
         $('#results').append(result);
     }
 });
