@@ -20,7 +20,7 @@ css: home
             <div class="contents">
                 <ul>
                     <% contents.map( ([link, name, classes]) => { %>
-                        <li><a class="hover-underline <%= classes %>" href="/<%= link %>"><%= name %></a></li>
+                        <li><a class="<%= classes %>" href="/<%= link %>"><%= name %></a></li>
                     <% } ) %>
                 </ul>
             </div>

@@ -120,6 +120,7 @@ nav {
 
         &:hover {
             opacity: 1;
+            border-bottom: 1px solid;
         }
     }
     .menu-section {
@@ -206,15 +207,6 @@ a {
     }
     &:hover {
         opacity: 0.5;
-    }
-    &.hover-underline {
-        &::after {
-            content: ""; display: block; width: 0; height: 2px; background: #fff; color: #fff; transition: 0.4s;
-
-            :hover>& {
-                width: 5em;
-            }
-        }
     }
     &.external::after {
         content: ' 🡕';
