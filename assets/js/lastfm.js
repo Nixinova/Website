@@ -87,7 +87,7 @@ async function getTaggedItems(username, tag) {
     // TODO FIX: get(artist) fetches all artists of tagged tracks instead of tagged artists
     const itemURLs = { all: [], artist: [], album: [], track: [] };
     for (const type of [/*'artist',*/ 'album', 'track']) {
-        const data = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=2000`);
+        const data = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=4000`);
         const urls = data.taggings[type + 's'][type].map(item => item.url);
         itemURLs[type] = urls;
         itemURLs.all.push(...urls);
@@ -118,7 +118,7 @@ async function getAllTaggedItems(type = 'all', username, ...tags) {
 }
 
 async function getLikedTracks(username) {
-    const data = await getData(`method=user.getLovedTracks&user=${username}&limit=1000`);
+    const data = await getData(`method=user.getLovedTracks&user=${username}&limit=4000`);
     const urls = data.lovedtracks.track.map(track => track.url);
     return urls;
 }
