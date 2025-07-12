@@ -1,14 +1,3 @@
-function progress(val) {
-    $('#progress').attr('value', val);
-}
-
-function complete() {
-    progress(1);
-    setTimeout(function () {
-        $('#loading').addClass('hide');
-    }, 250);
-}
-
 function phase(phase, version) {
     switch (phase) {
         case "release": return "Release";
@@ -37,13 +26,11 @@ async function getInfo(id) {
     const isLoadingAll = id === 'all';
 
     $('#loading').removeClass('hide');
-    progress(0);
     for (let id of sections) {
         $('#' + id).empty();
     }
 
     const versionsData = await getVersionsData();
-    progress(0.4);
 
     let url, type, date;
     let allVersionsHtml = '';
@@ -94,9 +81,6 @@ async function getInfo(id) {
             </tr>
         `);
     }
-
-    progress(1);
-    complete();
 }
 
 async function getVersionsData() {
