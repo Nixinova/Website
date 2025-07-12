@@ -22,7 +22,7 @@ js: lastfm.js
     <section>
 
         <form action="javascript:changeFetchForm()">
-            <label>Method</label>
+            <label for="fetching-method">Method</label>
             <select id="fetching-method">
                 <option value="gettagged">Get Tracks By Tag</option>
                 <option value="getliked">Get Liked Tracks</option>
@@ -36,14 +36,14 @@ js: lastfm.js
         <form action="javascript:formGetTaggedTracks()" id="gettagged_form" class="toggleable-form hide">
             <h2>Get Your Tagged Tracks</h2>
 
-            <label>Tags Mode</label><br>
+            <label for="gettagged_mode">Tags Mode</label><br>
             <select id="gettagged_mode">
                 <option value="and">Intersection</option>
                 <option value="or">Union</option>
             </select>
             <br>
 
-            <label>Items of Type</label><br>
+            <label for="gettagged_items">Items of Type</label><br>
             <select id="gettagged_items">
                 <option value="all">All</option>
                 <option value="artist" disabled>Artists</option>
@@ -53,15 +53,15 @@ js: lastfm.js
             <em><small>Artists cannot be fetched at this stage.</small></em>
             <br>
 
-            <label>Username</label><br>
+            <label for="gettagged_username">Username</label><br>
             <input type="text" id="gettagged_username"><br>
             <br>
 
-            <label class="long">Include Tags</label><br>
+            <label for="gettagged_tags-include" class="long">Include Tags</label><br>
             <input type="text" id="gettagged_tags-include" class="long" placeholder="comma, separated, tags, list"><br>
             <br>
 
-            <label class="long">Exclude Tags (optional)</label><br>
+            <label for="gettagged_tags-exclude" class="long">Exclude Tags (optional)</label><br>
             <input type="text" id="gettagged_tags-exclude" class="long" placeholder="comma, separated, tags, list"><br>
             <br>
 
@@ -71,7 +71,7 @@ js: lastfm.js
         <form action="javascript:formGetLikedTracks()" id="getliked_form" class="toggleable-form hide">
             <h2>Get Your Liked Tracks</h2>
 
-            <label>Username</label><br>
+            <label for="getliked_username">Username</label><br>
             <input type="text" id="getliked_username"><br>
             <br>
 
@@ -107,16 +107,16 @@ js: lastfm.js
         </form>
 
         <form action="javascript:formTagTracks()">
-            <label class="long">List of Tracks</label><br>
+            <label for="addtags_tracks" class="long">List of Tracks</label><br>
             <textarea id="addtags_tracks" class="wide"
                 placeholder="List of URL parts. e.g.: Artist/_/Track1, Artist/_/Track2, Artist/Album, ..."
             ></textarea>
             <br>
 
-            <label class="long">Add These Tags</label><br>
+            <label for="addtags_tags" class="long">Add These Tags</label><br>
             <input type="text" id="addtags_tags" class="long" placeholder="comma, separated, tags, list"><br>
 
-            <label class="long">Remove These Tags</label><br>
+            <label for="addtags_deletions" class="long">Remove These Tags</label><br>
             <input type="text" id="addtags_deletions" class="long" placeholder="comma, separated, tags, list"><br>
 
             <button type="submit">Go</button>
