@@ -26,12 +26,16 @@ function phase(phase, version) {
 
 async function initial() {
     const data = await fetch('https://launchermeta.mojang.com/mc/game/version_manifest.json').then(data => data.json());
+    let optionsHtml = '';
     for (const version of data.versions) {
-        $('#input-version').append(`\n<option>${version.id}</option>`);
+        optionsHtml += `<option>${version.id}</option>`;
     }
+    $('#input-version').append(optionsHtml);
 };
 
 async function getInfo(id) {
+    const isLoadingAll = id === 'all';
+
     $('#loading').removeClass('hide');
     progress(0);
     for (let id of sections) {
@@ -40,27 +44,33 @@ async function getInfo(id) {
 
     const versionsData = await fetch('https://launchermeta.mojang.com/mc/game/version_manifest.json').then(data => data.json());
     progress(0.5);
+
     let url, type, date;
+    let allVersionsHtml = '';
     for (const version of versionsData.versions) {
         let versionDate = moment(version.releaseTime).utcOffset(0).format('YYYY-MM-DD HH:mm:ss');
         let versionType = phase(version.type, version.id);
-        if (id === 'all') {
-            $('#version').addClass('hide');
-            $('#list').removeClass('hide');
-            $('#list tbody').append(`<tr>
+        if (isLoadingAll) {
+            allVersionsHtml += `<tr>
                 <td>${version.id}</td>
                 <td>${versionType}</td>
                 <td><samp><time datetime="${version.releaseTime}Z">${versionDate}</time></samp></td>
                 <td><a href="javascript:getInfo('${version.id}')">Generate</a></td>
-            </tr>`);
+            </tr>`
         }
         else if (version.id === id) {
             url = version.url;
             type = versionType;
             date = versionDate;
+            break;
         }
     }
-    if (id !== 'all' && url) {
+    if (isLoadingAll) {
+        $('#version').addClass('hide');
+        $('#list').removeClass('hide');
+        $('#list tbody').append(allVersionsHtml);
+    }
+    else if (url) {
         $('#list').addClass('hide');
         $('#version').removeClass('hide');
         $('#title').html(id);
@@ -81,13 +91,9 @@ async function getInfo(id) {
                 <td>${server_mappings ? `<a href="${server_mappings.url}" target="servermap">Server</a>` : 'N/A'}</td>
             </tr>
         `);
-        progress(1);
-        complete();
     }
-    else {
-        progress(1);
-        complete();
-    }
+    progress(1);
+    complete();
 }
 
 /* Copyright © Nixinova 2021 */
