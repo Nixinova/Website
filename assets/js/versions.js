@@ -25,7 +25,7 @@ function phase(phase, version) {
 }
 
 async function initial() {
-    const data = await fetch('https://launchermeta.mojang.com/mc/game/version_manifest.json').then(data => data.json());
+    const data = await getVersionsData();
     let optionsHtml = '';
     for (const version of data.versions) {
         optionsHtml += `<option>${version.id}</option>`;
@@ -42,8 +42,8 @@ async function getInfo(id) {
         $('#' + id).empty();
     }
 
-    const versionsData = await fetch('https://launchermeta.mojang.com/mc/game/version_manifest.json').then(data => data.json());
-    progress(0.5);
+    const versionsData = await getVersionsData();
+    progress(0.4);
 
     let url, type, date;
     let allVersionsHtml = '';
@@ -76,6 +76,8 @@ async function getInfo(id) {
         $('#title').html(id);
 
         const versionData = await fetch(url).then(data => data.json());
+        progress(0.7);
+
         let download = versionData.downloads;
         let server = download.server;
         let client_mappings = download.client_mappings;
@@ -92,8 +94,15 @@ async function getInfo(id) {
             </tr>
         `);
     }
+
     progress(1);
     complete();
 }
 
-/* Copyright © Nixinova 2021 */
+async function getVersionsData() {
+    var data = await fetch('https://launchermeta.mojang.com/mc/game/version_manifest.json')
+    var json = await data.json();
+    return json;
+}
+
+/* Copyright © Nixinova 2025 */
