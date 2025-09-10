@@ -63,7 +63,6 @@ async function getInfo(id) {
         $('#title').html(id);
 
         const versionData = await fetch(url).then(data => data.json());
-        progress(0.7);
 
         let download = versionData.downloads;
         let server = download.server;
