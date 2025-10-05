@@ -2,8 +2,8 @@
 layout: base.njk
 permalink: /downloads/minecraft/resource-packs/mash-up.html
 title: Nixinova Mash-Up Pack
-description: "Download versions of Nixinova's Mash-Up resource pack for Minecraft versions 1.9 through 1.20."
-keywords: "nixinova,nixinova mash-up,nixinova mash-up pack,nixinova resource pack"
+description: "Download versions of Nixinova's Mash-Up/Mash-On resource pack for Minecraft versions 1.9 through 1.21.10."
+keywords: "nixinova,nixinova mash-up,nixinova mash-up pack,nixinova mash-on,nixinova mash-on pack,nixinova resource pack,nixinova resource pack"
 css: resource-packs
 og_image: "minecraft/resource-packs/nixinova-mash-up.jpg"
 ---
@@ -40,7 +40,7 @@ og_image: "minecraft/resource-packs/nixinova-mash-up.jpg"
 
 <div id="gallery">
     <div class="screenshot" style="background-image: url('/assets/images/minecraft/resource-packs/nixinova-mash-up.jpg')">
-        <h1>Nixinova Mash-Up Pack</h1>
+        <h1>Nixinova Mash-Up & Mash-On Packs</h1>
     </div>
 </div>
 
@@ -55,11 +55,30 @@ og_image: "minecraft/resource-packs/nixinova-mash-up.jpg"
 
 <hr class="divider">
 
+<!-- nixinova v4 -->
+<div>
+    <h2>Version 4</h2>
+    <p>
+        <b>Nixinova Mash-On Pack</b><br/>
+        My current resource pack, which is now an add-on to Faithful.<br/>
+        This pack must be overlaid the most recent version of the Faithful pack to work.<br/>
+        Features textures from Defscape, Depixel, and more.<br/>
+        Available for Minecraft version 1.21.10.
+    </p>
+
+    <%- createTable('v4', [
+        {mcver: '1.21.10', snap: 'rc1   ', packver: 'v4.0-pre', dl: 'mgfcwn8umshb5wq', date: '2025-10-05'},
+    ]); %>
+</div>
+
+<% include(includes + 'ad.html') %>
+
 <!-- nixinova v3 -->
 <div>
     <h2>Version 3</h2>
     <p>
-        My current mash-up resource pack, updated for the 1.14 Texture Update, in use since 2019.<br/>
+        <b>Nixinova Mash-Up Pack</b><br/>
+        The third iteration of my mash-up resource pack, updated for the 1.14 Texture Update, in use from 2019 to 2025.<br/>
         Based on Faithful with textures from Defscape, Depixel, and more.<br/>
         Available for Minecraft versions 1.14 through 1.21.
     </p>
