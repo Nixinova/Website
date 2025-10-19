@@ -24,10 +24,8 @@ function csvToArray(str) {
 }
 
 function formatLastfmUrl(url) {
-    const urlParts = url.split('/');
-    const artist = urlParts[4];
-    const album = urlParts[5];
-    const track = urlParts[6];
+    const urlParts = urlToPlain(url).split('/');
+    const [artist, album, track] = urlParts;
     const decodePart = part => decodeURIComponent(part).replace(/\+/g, ' ');
     return (
         `<b><a href="https://last.fm/music/${artist}">${decodePart(artist)}</a></b>`
@@ -39,7 +37,7 @@ function formatLastfmUrl(url) {
 function urlToPlain(url) {
     return decodeURI(url)
         .replace(/^.+last.fm.music./, '')
-        .replace('/+noredirect', '')
+        .replace(/\/.noredirect/, '')
         .replace(/,/g, encodeURIComponent(','))
         .replace(/\+/g, ' ');
 }
