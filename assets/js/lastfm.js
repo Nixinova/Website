@@ -131,9 +131,19 @@ async function getAllTaggedItems(type = 'all', username, ...tags) {
 }
 
 async function getLikedTracks(username) {
-    const data = await getData(`method=user.getLovedTracks&user=${username}&limit=1000`);
-    const urls = data.lovedtracks.track.map(track => track.url);
-    return urls;
+    const collatedUrls = [];
+    for (let i = 1; ; i++) {
+        const data = await getData(`method=user.getLovedTracks&user=${username}&limit=1000&page=${i}`);
+        const urls = data.lovedtracks.track.map(track => track.url);
+        collatedUrls.push(urls);
+
+        const attrs = data.taggings['@attr'];
+        if (attrs.page >= attrs.totalPages) {
+            // This is the last page: exit
+            break;
+        }
+    }
+    return collatedUrls;
 }
 
 async function sendPostRequest(input) {
