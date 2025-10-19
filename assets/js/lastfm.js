@@ -88,7 +88,7 @@ async function getTaggedItems(username, tag) {
     for (const type of ['album', 'track']) {
         const collatedUrls = [];
         // Loop through each page
-        for (let i = 0; ; i++) {
+        for (let i = 1; ; i++) {
             const data = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=1000&page=${i}`);
             const urls = data.taggings[type + 's'][type].map(item => item.url);
             collatedUrls.push(...urls);
