@@ -135,7 +135,7 @@ async function getLikedTracks(username) {
     for (let i = 1; ; i++) {
         const data = await getData(`method=user.getLovedTracks&user=${username}&limit=1000&page=${i}`);
         const urls = data.lovedtracks.track.map(track => track.url);
-        collatedUrls.push(urls);
+        collatedUrls.push(...urls);
 
         const attrs = data.lovedtracks['@attr'];
         if (attrs.page >= attrs.totalPages) {
