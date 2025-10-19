@@ -24,7 +24,7 @@ function csvToArray(str) {
 }
 
 function formatLastfmUrl(url) {
-    const urlParts = url.replace(/^.+\/music\/(\+noredirect\/)?/, '');
+    const urlParts = url.replace(/^.+\/music\/(\+noredirect\/)?/, '').split('/');
     const [artist, album, track] = urlParts;
     const decodePart = part => decodeURIComponent(part).replace(/\+/g, ' ');
     return (
