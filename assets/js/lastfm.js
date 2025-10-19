@@ -87,8 +87,19 @@ async function getTaggedItems(username, tag) {
     // TODO FIX: get(artist) fetches all artists of tagged tracks instead of tagged artists
     const itemURLs = { all: [], artist: [], album: [], track: [] };
     for (const type of [/*'artist',*/ 'album', 'track']) {
-        const data = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=4000`);
-        const urls = data.taggings[type + 's'][type].map(item => item.url);
+        const collatedUrls = [];
+        // Loop through each page
+        for (let i = 0; ; i++) {
+            const data = await getData(`method=user.getpersonaltags&taggingtype=${type}&user=${username}&tag=${tag}&limit=1000&page=${i}`);
+            const urls = data.taggings[type + 's'][type].map(item => item.url);
+            collatedUrls.push(...urls);
+
+            const attrs = data.taggings['@attr'];
+            if (attrs.page === attrs.totalPages) {
+                // This is the last page: exit
+                break;
+            }
+        }
         itemURLs[type] = urls;
         itemURLs.all.push(...urls);
     }
@@ -317,14 +328,14 @@ async function formTagTracks() {
             // Remove track tags
             for (const tag of tagsRemove) {
                 await sendPostRequest({ method: 'track.removeTag', tag, artist, track })
-                .then(() => {
-                    tagLog.append(`${artist} - ${track}: removed tag ${tag}\n`);
-                })
-                .catch((err) => {
-                    console.error(err);
-                    tagLog.append(`${artist} - ${track}: could not remove tag ${tag}\n`);
-                    failLog.append(`${artist}/_/${track}: -${tag}\n`);
-                })
+                    .then(() => {
+                        tagLog.append(`${artist} - ${track}: removed tag ${tag}\n`);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        tagLog.append(`${artist} - ${track}: could not remove tag ${tag}\n`);
+                        failLog.append(`${artist}/_/${track}: -${tag}\n`);
+                    })
             }
         }
         loading.text(`Tagging... (${++i} / ${itemsList.length} done)`);
