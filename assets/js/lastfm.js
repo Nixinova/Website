@@ -99,8 +99,8 @@ async function getTaggedItems(username, tag) {
                 break;
             }
         }
-        itemURLs[type] = urls;
-        itemURLs.all.push(...urls);
+        itemURLs[type] = collatedUrls;
+        itemURLs.all.push(...collatedUrls);
     }
 
     return itemURLs;
