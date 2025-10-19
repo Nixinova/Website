@@ -137,7 +137,7 @@ async function getLikedTracks(username) {
         const urls = data.lovedtracks.track.map(track => track.url);
         collatedUrls.push(urls);
 
-        const attrs = data.taggings['@attr'];
+        const attrs = data.lovedtracks['@attr'];
         if (attrs.page >= attrs.totalPages) {
             // This is the last page: exit
             break;
