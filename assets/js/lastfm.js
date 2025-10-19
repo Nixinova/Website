@@ -82,7 +82,6 @@ async function getSessionKey() {
     return sessionKey = data.session?.key ?? null;
 }
 
-/** @returns Array<`${url}`> */
 async function getTaggedItems(username, tag) {
     const itemURLs = { all: [], artist: [], album: [], track: [] };
     for (const type of ['album', 'track']) {
@@ -94,7 +93,7 @@ async function getTaggedItems(username, tag) {
             collatedUrls.push(...urls);
 
             const attrs = data.taggings['@attr'];
-            if (attrs.page === attrs.totalPages) {
+            if (attrs.page > attrs.totalPages) {
                 // This is the last page: exit
                 break;
             }
