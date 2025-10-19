@@ -37,7 +37,7 @@ function formatLastfmUrl(url) {
 function urlToPlain(url) {
     return decodeURI(url)
         .replace(/^.+last.fm.music./, '')
-        .replace(/\/.noredirect/, '')
+        .replace(/.noredirect./, '')
         .replace(/,/g, encodeURIComponent(','))
         .replace(/\+/g, ' ');
 }
