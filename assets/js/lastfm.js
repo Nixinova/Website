@@ -37,7 +37,11 @@ function formatLastfmUrl(url) {
 }
 
 function urlToPlain(url) {
-    return decodeURI(url).replace(/^.+last.fm.music./, '').replace(/,/g, encodeURIComponent(',')).replace(/\+/g, ' ');
+    return decodeURI(url)
+        .replace(/^.+last.fm.music./, '')
+        .replace('/+noredirect', '')
+        .replace(/,/g, encodeURIComponent(','))
+        .replace(/\+/g, ' ');
 }
 
 async function getData(query) {
