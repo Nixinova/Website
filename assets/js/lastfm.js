@@ -84,9 +84,8 @@ async function getSessionKey() {
 
 /** @returns Array<`${url}`> */
 async function getTaggedItems(username, tag) {
-    // TODO FIX: get(artist) fetches all artists of tagged tracks instead of tagged artists
     const itemURLs = { all: [], artist: [], album: [], track: [] };
-    for (const type of [/*'artist',*/ 'album', 'track']) {
+    for (const type of ['album', 'track']) {
         const collatedUrls = [];
         // Loop through each page
         for (let i = 0; ; i++) {
