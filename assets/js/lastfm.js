@@ -93,7 +93,7 @@ async function getTaggedItems(username, tag) {
             collatedUrls.push(...urls);
 
             const attrs = data.taggings['@attr'];
-            if (attrs.page > attrs.totalPages) {
+            if (attrs.page >= attrs.totalPages) {
                 // This is the last page: exit
                 break;
             }
