@@ -36,8 +36,9 @@ css: home
     <h2>Recent videos</h2>
     <script>
         async function fetchLatestVideo() {
+            const NUM_VIDEOS = 2;
             const data = await fetch('/.netlify/functions/latest-videos').then(data => data.json());
-            for (const videoId of data) {
+            for (const videoId of data.slice(0, NUM_VIDEOS)) {
                 document.querySelector('#youtube-videos_list').innerHTML +=
                     `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}" width="360" style="aspect-ratio: 9/16;">`;
             }
