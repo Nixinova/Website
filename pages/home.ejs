@@ -36,15 +36,13 @@ css: home
     <h2>Recent videos</h2>
     <script>
         async function fetchLatestVideo() {
-            const NUM_VIDEOS = 2;
-            const data = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=UCkBbTlppb8XHxI2rFryB1dQ').then(data => data.json());
-            for (let i = 0; i < NUM_VIDEOS; i++) {
-                const item = data.items[i];
+            const data = await fetch('/netlify/functions/latest-videos').then(data => data.json());
+            for (const videoId of data) {
                 document.querySelector('#youtube-videos_list').innerHTML +=
-                    `<iframe src="https://www.youtube-nocookie.com/embed/${item.link.split('?v=')[1]}" width="360" style="aspect-ratio: 9/16;">`;
+                    `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}" width="360" style="aspect-ratio: 9/16;">`;
             }
         }
-        document.addEventListener('DOMContentLoaded', () => setTimeout(fetchLatestVideo, 1000));
+        document.addEventListener('DOMContentLoaded', () => setTimeout(fetchLatestVideo, 250));
     </script>
     <div id="youtube-videos_list" class="centered tile"></div>
 </div>
