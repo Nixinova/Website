@@ -367,4 +367,7 @@ function changeFetchForm() {
     $(`#${method}_form`).removeClass('hide');
 }
 
-/* Copyright © Nixinova 2023 */
+function stealScrobbles(){
+}
+
+/* Copyright © Nixinova 2026 */
