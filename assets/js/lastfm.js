@@ -26,7 +26,7 @@ function csvToArray(str) {
 function fmtDate(date) {
     return date.toLocaleString(
         'en-GB',
-        { day: 'numeric', month: 'medium', year: 'numeric', hour: 'numeric', minute: 'numeric' }
+        { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: 'numeric' }
     );
 }
 
