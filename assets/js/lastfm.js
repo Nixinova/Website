@@ -23,6 +23,13 @@ function csvToArray(str) {
     return str.split(',').map(tag => tag.trim()).filter(item => item);
 }
 
+function fmtDate(date) {
+    return date.toLocaleString(
+        'en-GB',
+        { day: 'numeric', month: 'medium', year: 'numeric', hour: 'numeric', minute: 'numeric' }
+    );
+}
+
 function formatLastfmUrl(url) {
     const urlParts = url.replace(/^.+\/music\/(\+noredirect\/)?/, '').split('/');
     const [artist, album, track] = urlParts;
@@ -391,8 +398,8 @@ async function loadUserScrobbles() {
         <ul>${list.map(item => `
             <li>
                 <label>
-                    <input type="checkbox" id="${item.artist}/${item.album}/${item.name}" />
-                    ${formatLastfmUrl(item.url)}
+                    <input type="checkbox" id="${item.artist}/${item.album}/${item.name}@${item.date?.getTime() ?? ''}" />
+                    ${formatLastfmUrl(item.url)} (${item.date ? fmtDate(item.date) : '(now)'})
                 </label>
             </li>
         `).join('')}</ul>
@@ -401,11 +408,13 @@ async function loadUserScrobbles() {
 
 async function scrobbleSelected(withAlbum = true) {
     const selected = Array.from(document.querySelectorAll('#scrobbles-list input[type="checkbox"]:checked')).map(input => {
-        const [artist, album, track] = input.id.split('/').map(decodeURIComponent);
+        const [parts, date] = input.id.split('@');
+        const [artist, album, track] = parts.split('/').map(decodeURIComponent);
         return {
             artist,
             album: withAlbum && album || undefined,
-            track
+            track,
+            date: date ? new Date(parseInt(date)) : new Date()
         };
     });
     console.log('Selected tracks:', selected);
