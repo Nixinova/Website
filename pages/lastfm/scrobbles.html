@@ -20,9 +20,15 @@ js: lastfm.js
     <br>
 </form>
 
-<form action="#" onsubmit="event.preventDefault(); loadUserScrobbles();" style="margin-inline: 1em;" t>
+<form action="#" onsubmit="loadUserScrobbles()" style="margin-inline: 1em;" t>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
     <button type="submit" style="padding: 5px 10px; font-size: 90%;">Load Scrobbles</button>
 </form>
+
+<h3 id="scrobbles-title"></h3>
 <output id="scrobbles-list"></output>
+<form action="#" style="margin-inline: 1em;">
+    <button id="commit-scrobbles-exact" onclick="scrobbleSelected(true)">Scrobble (exact)</button>
+    <button id="commit-scrobbles-albumless" onclick="scrobbleSelected(false)">Scrobble (without album)</button>
+</form>

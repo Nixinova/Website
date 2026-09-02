@@ -368,7 +368,11 @@ function changeFetchForm() {
 }
 
 async function loadUserScrobbles() {
+    const outputTitle = document.getElementById('scrobbles-title');
     const output = document.getElementById('scrobbles-list');
+    outputTitle.innerText = '';
+    output.innerText = ''
+
     const username = document.getElementById('username').value;
 
     const data = await getData(`method=user.getRecentTracks&user=${username}&limit=50&page=1`);
@@ -382,17 +386,29 @@ async function loadUserScrobbles() {
             date: track.date?.uts ? new Date(track.date.uts * 1000) : null,
         }
     });
+    outputTitle.innerText = `Recent Scrobbles for ${username} (${list.length})`;
     output.innerHTML = `
-        <h3>Recent Scrobbles for ${username}</h3>
         <ul>${list.map(item => `
             <li>
-                <input type="checkbox" id="track-${item.url}">
-                <label for="track-${item.url}">
+                <label>
+                    <input type="checkbox" id="${item.artist}/${item.album || '_'}/${item.name}" />
                     ${formatLastfmUrl(item.url)}
                 </label>
             </li>
         `).join('')}</ul>
     `;
+}
+
+async function scrobbleSelected(withAlbum = true) {
+    const selected = Array.from(document.querySelectorAll('#scrobbles-list input[type="checkbox"]:checked')).map(input => {
+        const [artist, album, track] = input.id.split('/').map(decodeURIComponent);
+        return {
+            artist,
+            album: withAlbum ? album : undefined,
+            track
+        };
+    });
+    console.log('Selected tracks:', selected);
 }
 
 /* Copyright © Nixinova 2026 */
