@@ -373,7 +373,7 @@ async function loadUserScrobbles() {
 
     const data = await getData(`method=user.getRecentTracks&user=${username}&limit=50&page=1`);
     const list = data.recenttracks.track.map(track => {
-        const url = track.url.replace(/(?<=\/)_(?=\/)/, encodeURIComponent(track.album['#text'])); // include album info
+        const url = track.url.replace(/(?<=\/)_(?=\/)/, encodeURIComponent(track.album['#text']) || '_'); // include album
         return {
             url,
             artist: track.artist['#text'],
@@ -384,7 +384,14 @@ async function loadUserScrobbles() {
     });
     output.innerHTML = `
         <h3>Recent Scrobbles for ${username}</h3>
-        <ul>${list.map(item => `<li>${formatLastfmUrl(item.url)}</li>`).join('')}</ul>
+        <ul>${list.map(item => `
+            <li>
+                <input type="checkbox" id="track-${item.url}">
+                <label for="track-${item.url}">
+                    ${formatLastfmUrl(item.url)}
+                </label>
+            </li>
+        `).join('')}</ul>
     `;
 }
 
