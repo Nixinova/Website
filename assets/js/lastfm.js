@@ -24,6 +24,9 @@ function csvToArray(str) {
 }
 
 function fmtDate(date) {
+    if (new Date().toLocaleDateString() === date.toLocaleDateString()) {
+        return date.toLocaleTimeString('en', { hour: 'numeric', minute: 'numeric' });
+    }
     return date.toLocaleString(
         'en-GB',
         { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: 'numeric' }
@@ -380,7 +383,7 @@ async function loadUserScrobbles() {
     const outputTitle = document.getElementById('scrobbles-title');
     const output = document.getElementById('scrobbles-list');
     outputTitle.innerText = '';
-    output.innerText = ''
+    output.innerText = 'Loading...';
 
     const username = document.getElementById('username').value;
 
