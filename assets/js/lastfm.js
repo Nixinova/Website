@@ -391,7 +391,7 @@ async function loadUserScrobbles() {
         <ul>${list.map(item => `
             <li>
                 <label>
-                    <input type="checkbox" id="${item.artist}/${item.album || '_'}/${item.name}" />
+                    <input type="checkbox" id="${item.artist}/${item.album}/${item.name}" />
                     ${formatLastfmUrl(item.url)}
                 </label>
             </li>
@@ -404,7 +404,7 @@ async function scrobbleSelected(withAlbum = true) {
         const [artist, album, track] = input.id.split('/').map(decodeURIComponent);
         return {
             artist,
-            album: withAlbum ? album : undefined,
+            album: withAlbum && album || undefined,
             track
         };
     });
