@@ -6,11 +6,17 @@ description: "Tools for manipulating your scrobbles on Last.fm"
 keywords: "nixinova,lastfm,lastfm scrobbles,scrobbling"
 js: lastfm.js
 ---
+<style>
+    button {
+        padding: 5px 10px;
+        font-size: 90%;
+    }
+</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
 <h1>Scrobbling</h1>
 <p>Steal scrobbles from another user on Last.fm</p>
 
-<form action="javascript:getRequestToken()">
+<form action="javascript:void(0)" onsubmit="getRequestToken()" style="margin: 1em;">
     <button type="submit" id="authenticate">
         Authenticate with Last.fm
     </button>
@@ -20,15 +26,15 @@ js: lastfm.js
     <br>
 </form>
 
-<form action="#" onsubmit="loadUserScrobbles()" style="margin-inline: 1em;" t>
+<form action="javascript:void(0)" onsubmit="loadUserScrobbles()" style="margin-inline: 1em;" t>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
-    <button type="submit" style="padding: 5px 10px; font-size: 90%;">Load Scrobbles</button>
+    <button type="submit">Load Scrobbles</button>
 </form>
 
 <h3 id="scrobbles-title"></h3>
 <output id="scrobbles-list"></output>
-<form action="#" style="margin-inline: 1em;">
+<form action="javascript:void(0)" style="margin-inline: 1em;">
     <button id="commit-scrobbles-exact" onclick="scrobbleSelected(true)">Scrobble (exact)</button>
     <button id="commit-scrobbles-albumless" onclick="scrobbleSelected(false)">Scrobble (without album)</button>
 </form>
