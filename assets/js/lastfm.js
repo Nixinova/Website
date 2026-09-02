@@ -49,9 +49,9 @@ function urlToPlain(url) {
         .replace(/\+/g, ' ');
 }
 
-async function getData(query) {
+async function runQuery(query, method) {
     const apiKey = await getApiKey();
-    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`);
+    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`, { method });
     if (!response.ok) {
         console.error(response);
         throw new Error(`HTTP error ${response.status}`);
@@ -59,6 +59,8 @@ async function getData(query) {
     const data = await response.json();
     return data;
 }
+const getData = query => runQuery(query, 'GET');
+const postData = query => runQuery(query, 'POST');
 
 async function getApiKey() {
     const response = await fetch(`/.netlify/functions/lastfm-token`);
@@ -417,6 +419,17 @@ async function scrobbleSelected(withAlbum = true) {
             date: date ? new Date(parseInt(date)) : new Date()
         };
     });
+    const confirmation = confirm(
+        'Tracks to scrobble:\n'
+        + selected.map((item, i) =>
+            ` ${(i + 1).toString().padStart(2, ' ')}. ${item.artist} ${item.album ? `/ ${item.album}` : ''} - ${item.track} (${fmtDate(item.date)})`
+        ).join('\n')
+        + '\nPress OK to save these scrobbles.'
+    );
+    if (!confirmation) {
+        alert('Scrobble cancelled');
+        return;
+    }
     console.log('Selected tracks:', selected);
 }
 
