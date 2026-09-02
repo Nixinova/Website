@@ -367,7 +367,25 @@ function changeFetchForm() {
     $(`#${method}_form`).removeClass('hide');
 }
 
-function stealScrobbles(){
+async function loadUserScrobbles() {
+    const output = document.getElementById('scrobbles-list');
+    const username = document.getElementById('username').value;
+
+    const data = await getData(`method=user.getRecentTracks&user=${username}&limit=50&page=1`);
+    const list = data.recenttracks.track.map(track => {
+        const url = track.url.replace(/(?<=\/)_(?=\/)/, encodeURIComponent(track.album['#text'])); // include album info
+        return {
+            url,
+            artist: track.artist['#text'],
+            album: track.album['#text'],
+            name: track.name,
+            date: track.date?.uts ? new Date(track.date.uts * 1000) : null,
+        }
+    });
+    output.innerHTML = `
+        <h3>Recent Scrobbles for ${username}</h3>
+        <ul>${list.map(item => `<li>${formatLastfmUrl(item.url)}</li>`).join('')}</ul>
+    `;
 }
 
 /* Copyright © Nixinova 2026 */

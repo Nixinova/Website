@@ -21,9 +21,9 @@ js: lastfm.js
     <br>
 </form>
 
-<form action="#" onsubmit="event.preventDefault(); stealScrobbles();">
+<form action="#" onsubmit="event.preventDefault(); loadUserScrobbles();">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
-    <button type="submit">Steal Scrobbles</button>
+    <button type="submit">Load Scrobbles</button>
 </form>
-<output id="output"></output>
+<output id="scrobbles-list"></output>
