@@ -25,7 +25,7 @@ function csvToArray(str) {
 
 function fmtDate(date) {
     if (new Date().toLocaleDateString() === date.toLocaleDateString()) {
-        return date.toLocaleTimeString('en', { hour: 'numeric', minute: 'numeric' });
+        return date.toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric' });
     }
     return date.toLocaleString(
         'en-GB',
@@ -52,9 +52,9 @@ function urlToPlain(url) {
         .replace(/\+/g, ' ');
 }
 
-async function runQuery(query, method) {
+async function getData(query) {
     const apiKey = await getApiKey();
-    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`, { method });
+    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&format=json&${query}`, { method: 'GET' });
     if (!response.ok) {
         console.error(response);
         throw new Error(`HTTP error ${response.status}`);
@@ -62,8 +62,28 @@ async function runQuery(query, method) {
     const data = await response.json();
     return data;
 }
-const getData = query => runQuery(query, 'GET');
-const postData = query => runQuery(query, 'POST');
+async function postData(body) {
+    const apiKey = await getApiKey();
+    const apiSig = await genApiSig(body);
+    const response = await fetch(`https://ws.audioscrobbler.com/2.0/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            format: 'json',
+            api_key: apiKey,
+            api_sig: apiSig,
+            ...body
+        })
+    });
+    if (!response.ok) {
+        console.error(response);
+        throw new Error(`HTTP error ${response.status}`);
+    }
+    const data = await response.text();
+    return data;
+}
 
 async function getApiKey() {
     const response = await fetch(`/.netlify/functions/lastfm-token`);
@@ -396,7 +416,7 @@ async function loadUserScrobbles() {
             album: track.album['#text'],
             name: track.name,
             date: track.date?.uts ? new Date(track.date.uts * 1000) : null,
-        }
+        };
     });
     outputTitle.innerText = `Recent Scrobbles for ${username} (${list.length})`;
     output.innerHTML = `
@@ -433,7 +453,17 @@ async function scrobbleSelected(withAlbum = true) {
         alert('Scrobble cancelled');
         return;
     }
-    console.log('Selected tracks:', selected);
+    const response = await postData({
+        method: 'track.scrobble',
+        sk: sessionKey,
+        ...Object.fromEntries(selected.flatMap((item, i) => Object.entries({
+            [`artist[${i}]`]: item.artist,
+            ...(item.album ? { [`album[${i}]`]: item.album } : {}),
+            [`track[${i}]`]: item.track,
+            [`timestamp[${i}]`]: Math.floor(item.date.getTime() / 1000),
+        }))),
+    });
+    alert(response);
 }
 
 /* Copyright © Nixinova 2026 */
