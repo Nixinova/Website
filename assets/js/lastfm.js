@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (authToken) {
         sessionKey = await getSessionKey();
         ['#authenticate', '#authenticated'].forEach(id => $(id).toggleClass('hide'));
+        $('.enableOnAuthenticated').prop('disabled', false);
     }
     // remove token from url
     history.pushState(null, null, location.href.replace(/[?&]token=\S+/, ''));
@@ -411,7 +412,11 @@ async function loadUserScrobbles() {
 }
 
 async function scrobbleSelected(withAlbum = true) {
-    const selected = Array.from(document.querySelectorAll('#scrobbles-list input[type="checkbox"]:checked')).map(input => {
+    const selectedInputs = [...document.querySelectorAll('#scrobbles-list input[type="checkbox"]:checked')];
+    for (const input of selectedInputs) {
+        input.disabled = true;
+    }
+    const selected = selectedInputs.map(input => {
         const [parts, date] = input.id.split('@');
         const [artist, album, track] = parts.split('/').map(decodeURIComponent);
         return {
@@ -434,7 +439,6 @@ async function scrobbleSelected(withAlbum = true) {
     }
     const response = await sendPostRequest({
         method: 'track.scrobble',
-        sk: sessionKey,
         ...Object.fromEntries(selected.flatMap((item, i) => Object.entries({
             [`artist[${i}]`]: item.artist,
             ...(item.album ? { [`album[${i}]`]: item.album } : {}),
@@ -442,7 +446,22 @@ async function scrobbleSelected(withAlbum = true) {
             [`timestamp[${i}]`]: Math.floor(item.date.getTime() / 1000),
         }))),
     });
-    alert(response);
+    const { accepted, ignored } = response.scrobbles['@attr'];
+    const nonOkScrobbles = response.scrobbles.scrobble.filter(scrobble => scrobble.ignoredMessage.code != '0');
+    alert(
+        `Scrobbled ${accepted} tracks (${ignored > 0 ? `${ignored} ignored` : 'all successful'}).\n`
+        + (nonOkScrobbles.length
+            ? 'Problems:\n'
+            + nonOkScrobbles.map(scrobble => {
+                const { artist, album, track, ignoredMessage } = scrobble;
+                return ` - ${artist['#text']}${album ? ` / ${album['#text']}` : ''} - ${track['#text']}: ${ignoredMessage['#text']}`;
+            }).join('\n')
+            : '')
+    );
+    for (const input of selectedInputs) {
+        input.disabled = false;
+        input.parentElement.appendChild(document.createTextNode(' ✅'));
+    }
 }
 
 /* Copyright © Nixinova 2026 */
