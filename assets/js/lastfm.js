@@ -62,28 +62,6 @@ async function getData(query) {
     const data = await response.json();
     return data;
 }
-async function postData(body) {
-    const apiKey = await getApiKey();
-    const apiSig = await genApiSig(body);
-    const response = await fetch(`https://ws.audioscrobbler.com/2.0/`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({
-            format: 'json',
-            api_key: apiKey,
-            api_sig: apiSig,
-            ...body
-        })
-    });
-    if (!response.ok) {
-        console.error(response);
-        throw new Error(`HTTP error ${response.status}`);
-    }
-    const data = await response.text();
-    return data;
-}
 
 async function getApiKey() {
     const response = await fetch(`/.netlify/functions/lastfm-token`);
@@ -200,6 +178,7 @@ async function sendPostRequest(input) {
         throw new Error(`HTTP error ${response.status}`);
     }
     const data = await response.json();
+    return data;
 }
 
 async function formGetTaggedTracks() {
@@ -453,7 +432,7 @@ async function scrobbleSelected(withAlbum = true) {
         alert('Scrobble cancelled');
         return;
     }
-    const response = await postData({
+    const response = await sendPostRequest({
         method: 'track.scrobble',
         sk: sessionKey,
         ...Object.fromEntries(selected.flatMap((item, i) => Object.entries({
