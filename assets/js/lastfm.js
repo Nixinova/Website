@@ -89,10 +89,21 @@ async function getRequestToken() {
 }
 
 async function getSessionKey() {
+    const savedSessionKey = await window.cookieStore?.get('lastfm_sessionkey')?.then(x => x.value);
+
+    if (savedSessionKey) {
+        sessionKey = savedSessionKey;
+        return;
+    }
+
     const method = 'auth.getSession';
     const apiSig = await genApiSig({ method, token: authToken });
     const data = await getData(`method=${method}&token=${authToken}&api_sig=${apiSig}`);
-    return sessionKey = data.session?.key ?? null;
+    sessionKey = data.session?.key ?? null;
+    await window.cookieStore?.set('lastfm_sessionkey', sessionKey, {
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 10) // 10 days
+    })
+    return sessionKey;
 }
 
 async function getTaggedItems(username, tag) {
