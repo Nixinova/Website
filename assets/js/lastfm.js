@@ -1,14 +1,14 @@
 let apiKey;
-let authToken;
 let sessionKey;
 
 document.addEventListener('DOMContentLoaded', async function () {
     apiKey = await getApiKey();
 
     // get session token
-    authToken = new URLSearchParams(location.search).get('token');
-    if (authToken) {
-        sessionKey = await getSessionKey();
+    sessionKey = await getStoredSessionKey();
+    const authToken = new URLSearchParams(location.search).get('token');
+    if (!sessionKey && authToken) {
+        sessionKey = await fetchSessionKey(authToken);
         $('#authenticate').toggleClass('hide');
         $('.enableOnAuthenticated').prop('disabled', false);
     }
@@ -88,14 +88,15 @@ async function getRequestToken() {
     location.href = lastfmAuthURL;
 }
 
-async function getSessionKey() {
+async function getStoredSessionKey() {
     const savedSessionKey = await window.cookieStore?.get('lastfm_sessionkey').then(x => x?.value);
-
     if (savedSessionKey) {
         sessionKey = savedSessionKey;
         return sessionKey;
     }
+}
 
+async function fetchSessionKey(authToken) {
     const method = 'auth.getSession';
     const apiSig = await genApiSig({ method, token: authToken });
     const data = await getData(`method=${method}&token=${authToken}&api_sig=${apiSig}`);
@@ -167,7 +168,7 @@ async function getLikedTracks(username) {
 }
 
 async function sendPostRequest(input) {
-    if (!authToken) {
+    if (!sessionKey) {
         alert('Not authenticated yet');
         throw new Error('Not authenticated yet');
     }
