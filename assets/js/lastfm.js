@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     authToken = new URLSearchParams(location.search).get('token');
     if (authToken) {
         sessionKey = await getSessionKey();
-        ['#authenticate', '#authenticated'].forEach(id => $(id).toggleClass('hide'));
+        $('#authenticate').toggleClass('hide');
         $('.enableOnAuthenticated').prop('disabled', false);
     }
     // remove token from url
@@ -89,11 +89,11 @@ async function getRequestToken() {
 }
 
 async function getSessionKey() {
-    const savedSessionKey = await window.cookieStore?.get('lastfm_sessionkey')?.then(x => x.value);
+    const savedSessionKey = await window.cookieStore?.get('lastfm_sessionkey').then(x => x?.value);
 
     if (savedSessionKey) {
         sessionKey = savedSessionKey;
-        return;
+        return sessionKey;
     }
 
     const method = 'auth.getSession';
