@@ -24,25 +24,31 @@ js: lastfm.js
 <h1>Scrobbling</h1>
 <p>Steal scrobbles from another user on Last.fm</p>
 
-<form action="javascript:void(0)" onsubmit="getRequestToken()" style="margin: 1em;">
-    <button type="submit" id="authenticate">
-        Authenticate with Last.fm
-    </button>
-    <p id="authenticated" class="hide">
-        <b>Authentication Successful</b>
-    </p>
-    <br>
-</form>
+<div style="display:flex;">
+    <form action="javascript:void(0)" onsubmit="getRequestToken()" style="margin: auto;">
+        <button type="submit" id="authenticate">
+            Authenticate with Last.fm
+        </button>
+        <p id="authenticated" class="hide" style="font-weight: bold; font-style: italic;">
+            Authentication Successful
+        </p>
+    </form>
+</div>
 
-<form action="javascript:void(0)" onsubmit="loadUserScrobbles()" style="margin-inline: 1em;" t>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
-    <button type="submit">Load Scrobbles</button>
-</form>
+<div style="display:flex;">
+    <form action="javascript:void(0)" onsubmit="loadUserScrobbles()" style="margin: auto;">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Load Scrobbles</button>
+    </form>
+</div>
 
 <h3 id="scrobbles-title"></h3>
 <output id="scrobbles-list"></output>
-<form action="javascript:void(0)" style="margin-inline: 1em;">
-    <button id="commit-scrobbles-exact" onclick="scrobbleSelected(true)" class="enableOnAuthenticated" disabled>Scrobble (exact)</button>
-    <button id="commit-scrobbles-albumless" onclick="scrobbleSelected(false)" class="enableOnAuthenticated" disabled>Scrobble (without album)</button>
-</form>
+
+<div style="display:flex;">
+    <form action="javascript:void(0)" style="margin: auto;">
+        <button id="commit-scrobbles-exact" onclick="scrobbleSelected(true)" class="enableOnAuthenticated" disabled>Scrobble (exact)</button>
+        <button id="commit-scrobbles-albumless" onclick="scrobbleSelected(false)" class="enableOnAuthenticated" disabled>Scrobble (without album)</button>
+    </form>
+</div>
