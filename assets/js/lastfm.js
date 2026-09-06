@@ -3,17 +3,18 @@ let sessionKey;
 
 document.addEventListener('DOMContentLoaded', async function () {
     apiKey = await getApiKey();
-
-    // get session token
+    // get session token, either from cookie or fetch it anew using the callback-provided token in URL
     sessionKey = await getStoredSessionKey();
     const authToken = new URLSearchParams(location.search).get('token');
-    if (!sessionKey && authToken) {
+    if (authToken) {
         sessionKey = await fetchSessionKey(authToken);
+        // remove token from url
+        history.pushState(null, null, location.href.replace(/[?&]token=\S+/, ''));
+    }
+    if (sessionKey) {
         $('#authenticate').toggleClass('hide');
         $('.enableOnAuthenticated').prop('disabled', false);
     }
-    // remove token from url
-    history.pushState(null, null, location.href.replace(/[?&]token=\S+/, ''));
 });
 
 function sort(array) {
