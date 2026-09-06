@@ -412,10 +412,10 @@ async function loadUserScrobbles() {
 }
 
 async function scrobbleSelected(withAlbum = true) {
-    const selectedInputs = [...document.querySelectorAll('#scrobbles-list input[type="checkbox"]:checked')];
-    for (const input of selectedInputs) {
+    for (const input of document.querySelectorAll('#scrobbles-list input[type="checkbox"]')) {
         input.disabled = true;
     }
+    const selectedInputs = [...document.querySelectorAll('#scrobbles-list input[type="checkbox"]:checked')];
     const selected = selectedInputs.map(input => {
         const [parts, date] = input.id.split('@');
         const [artist, album, track] = parts.split('/').map(decodeURIComponent);
@@ -460,6 +460,7 @@ async function scrobbleSelected(withAlbum = true) {
     );
     for (const input of selectedInputs) {
         input.disabled = false;
+        input.checked = false;
         input.parentElement.appendChild(document.createTextNode(' ✅'));
     }
 }
