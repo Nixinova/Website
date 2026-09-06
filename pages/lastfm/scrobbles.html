@@ -12,6 +12,13 @@ js: lastfm.js
         font-size: 90%;
     }
 
+    #authenticated {
+        position: fixed;
+        top: 100px;
+        right: 1em;
+        background: #444;
+    }
+
     #scrobbles-list {
         width: 80%;
         height: 400px;
@@ -29,6 +36,7 @@ js: lastfm.js
         <button type="submit" id="authenticate">
             Authenticate with Last.fm
         </button>
+        <button disabled id="authenticated" class="hide">Authenticated &check;</button>
     </form>
 </div>
 

@@ -14,6 +14,7 @@ js: lastfm.js
     .loading {font-size: 1.25em;}
     output.scroll-output {margin-top: 1em; border: 2px solid; overflow-y: scroll;}
     textarea.wide {width: 100%; height: 80px; margin-top: 1em;}
+    #authenticated {position:fixed; top: 100px; right:1em; background: #444;}
 </style>
 
 <h1>Last.fm Tags Tools</h1>
@@ -100,13 +101,12 @@ js: lastfm.js
             <button type="submit" id="authenticate">
                 Authenticate with Last.fm
             </button>
+            <button disabled id="authenticated" class="hide">Authenticated &check;</button>
         </form>
 
         <form action="javascript:formTagTracks()">
             <label for="addtags_tracks" class="long">List of Tracks</label><br>
-            <textarea id="addtags_tracks" class="wide"
-                placeholder="List of URL parts. e.g.: Artist/_/Track1, Artist/_/Track2, Artist/Album, ..."
-            ></textarea>
+            <textarea id="addtags_tracks" class="wide" placeholder="List of URL parts. e.g.: Artist/_/Track1, Artist/_/Track2, Artist/Album, ..."></textarea>
             <br>
 
             <label for="addtags_tags" class="long">Add These Tags</label><br>

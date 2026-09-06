@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         history.pushState(null, null, location.href.replace(/[?&]token=\S+/, ''));
     }
     if (sessionKey) {
-        $('#authenticate').toggleClass('hide');
+        $('#authenticate').addClass('hide');
+        $('#authenticated').removeClass('hide');
         $('.enableOnAuthenticated').prop('disabled', false);
     }
 });
