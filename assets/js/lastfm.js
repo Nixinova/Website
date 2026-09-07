@@ -396,8 +396,8 @@ function changeFetchForm() {
 async function loadUserScrobbles() {
     const outputTitle = document.getElementById('scrobbles-title');
     const output = document.getElementById('scrobbles-list');
-    outputTitle.innerText = '';
-    output.innerText = 'Loading...';
+    outputTitle.innerText = `Recent Scrobbles for ${username} (Loading...)`;
+    output.innerText = '';
 
     const username = document.getElementById('username').value;
 
