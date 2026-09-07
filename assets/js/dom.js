@@ -27,7 +27,7 @@ class jQueryClass {
         return this;
     }
     hasClass(name) {
-        return [...this.elements[0]?.classList || []].includes(name);
+        return this.elements.some(elem => elem.classList?.includes(name));
     }
     attr(name, val) {
         if (val == null) return this.elements[0]?.getAttribute(name);
@@ -41,7 +41,7 @@ class jQueryClass {
     }
     prop(name, val) {
         if (val == null) return this.elements[0]?.[name];
-        this.elements[0][name] = val;
+        this.elements.forEach(elem => elem[name] = val);
         return this;
     }
     val(val) {
