@@ -449,6 +449,9 @@ async function scrobbleSelected(withAlbum = true) {
     );
     if (!confirmation) {
         alert('Scrobble cancelled');
+        for (const input of document.querySelectorAll('#scrobbles-list input[type="checkbox"]')) {
+            input.disabled = false;
+        }
         return;
     }
     const response = await sendPostRequest({
