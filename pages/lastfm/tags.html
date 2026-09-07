@@ -37,13 +37,6 @@ js: lastfm.js
         <form action="javascript:formGetTaggedTracks()" id="gettagged_form" class="toggleable-form hide">
             <h2>Get Your Tagged Tracks</h2>
 
-            <label for="gettagged_mode">Tags Mode</label><br>
-            <select id="gettagged_mode">
-                <option value="and">Intersection</option>
-                <option value="or">Union</option>
-            </select>
-            <br>
-
             <label for="gettagged_items">Items of Type</label><br>
             <select id="gettagged_items">
                 <option value="all">All</option>
@@ -56,6 +49,13 @@ js: lastfm.js
 
             <label for="gettagged_username">Username</label><br>
             <input type="text" id="gettagged_username"><br>
+            <br>
+
+            <label for="gettagged_mode">Tags Mode</label><br>
+            <select id="gettagged_mode">
+                <option value="or">Union</option>
+                <option value="and">Intersection</option>
+            </select>
             <br>
 
             <label for="gettagged_tags-include" class="long">Include Tags</label><br>
