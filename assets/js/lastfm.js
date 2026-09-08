@@ -394,12 +394,11 @@ function changeFetchForm() {
 }
 
 async function loadUserScrobbles() {
+    const username = document.getElementById('username').value;
     const outputTitle = document.getElementById('scrobbles-title');
     const output = document.getElementById('scrobbles-list');
     outputTitle.innerText = `Recent Scrobbles for ${username} (Loading...)`;
     output.innerText = '';
-
-    const username = document.getElementById('username').value;
 
     const data = await getData(`method=user.getRecentTracks&user=${username}&limit=50&page=1`);
     const list = data.recenttracks.track.map(track => {
