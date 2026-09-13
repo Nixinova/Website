@@ -463,7 +463,8 @@ async function scrobbleSelected(withAlbum = true) {
         }))),
     });
     const { accepted, ignored } = response.scrobbles['@attr'];
-    const nonOkScrobbles = response.scrobbles.scrobble.filter(scrobble => scrobble.ignoredMessage.code != '0');
+    const scrobbleResults = Array.isArray(response.scrobbles.scrobble) ? response.scrobbles.scrobble : [response.scrobbles.scrobble]
+    const nonOkScrobbles = scrobbleResults.filter(scrobble => scrobble.ignoredMessage.code != '0');
     alert(
         `Scrobbled ${accepted} tracks (${ignored > 0 ? `${ignored} ignored` : 'all successful'}).\n`
         + (nonOkScrobbles.length
