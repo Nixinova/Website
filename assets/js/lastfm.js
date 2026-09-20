@@ -78,7 +78,7 @@ async function genApiSig(params) {
     params.api_key = await getApiKey();
 
     const paramString = Object.keys(params).sort().map(key => `${key}${params[key]}`).join('');
-    const response = await fetch('/.netlify/functions/lastfm-sign?string=' + paramString);
+    const response = await fetch('/.netlify/functions/lastfm-sign?string=' + encodeURIComponent(paramString));
     const apiSig = await response.json();
     return apiSig;
 }
