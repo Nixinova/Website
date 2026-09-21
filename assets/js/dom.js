@@ -27,7 +27,7 @@ class jQueryClass {
         return this;
     }
     hasClass(name) {
-        return [...this.elements].some(elem => elem.classList?.includes(name));
+        return [...this.elements].some(elem => elem.classList?.contains(name));
     }
     attr(name, val) {
         if (val == null) return this.elements[0]?.getAttribute(name);
