@@ -416,7 +416,7 @@ async function loadUserScrobbles() {
         <ul>${list.map(item => `
             <li>
                 <label>
-                    <input type="checkbox" id="${item.artist}/${item.album}/${item.name}@${item.date?.getTime() ?? ''}" />
+                    <input type="checkbox" id="${encodeURIComponent(item.artist)}/${encodeURIComponent(item.album)}/${encodeURIComponent(item.name)}@${item.date?.getTime() ?? ''}" />
                     ${formatLastfmUrl(item.url)} (${item.date ? fmtDate(item.date) : 'now'})
                 </label>
             </li>
