@@ -424,7 +424,7 @@ async function loadUserScrobbles() {
                     <input type="checkbox" id="${id}" />
                     ${formatLastfmUrl(item.url)}
                     (<span class="scrobble-time">${dateText}</span>)
-                    ${savedScrobbles[id + dateText] ? ' ✅' : ''}
+                    ${savedScrobbles[id] ? ' ✅' : ''}
                 </label>
             </li>
         `);
@@ -490,10 +490,8 @@ async function scrobbleSelected(withAlbum = true) {
         input.disabled = false;
     }
     for (const input of selectedInputs) {
-        const parentElem = input.parentElement;
-        const timeText = parentElem.querySelector('.scrobble-time').innerText;
         input.checked = false;
-        savedScrobbles[input.id + timeText] = true;
+        savedScrobbles[input.id] = true;
         input.parentElement.appendChild(document.createTextNode(' ✅'));
     }
 }
