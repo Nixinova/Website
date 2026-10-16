@@ -31,9 +31,10 @@ function fmtDate(date) {
     if (new Date().toLocaleDateString() === date.toLocaleDateString()) {
         return date.toLocaleTimeString('en-GB', { hour: 'numeric', minute: 'numeric' });
     }
+    const sameYear = new Date().getFullYear() == date.getFullYear();
     return date.toLocaleString(
         'en-GB',
-        { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: 'numeric' }
+        { day: 'numeric', month: 'short', year: sameYear ? undefined : 'numeric', hour: 'numeric', minute: 'numeric' }
     );
 }
 
