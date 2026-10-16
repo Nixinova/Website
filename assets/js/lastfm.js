@@ -1,5 +1,6 @@
 let apiKey;
 let sessionKey;
+let savedScrobbles = {};
 
 document.addEventListener('DOMContentLoaded', async function () {
     apiKey = await getApiKey();
@@ -398,7 +399,8 @@ async function loadUserScrobbles() {
     const outputTitle = document.getElementById('scrobbles-title');
     const output = document.getElementById('scrobbles-list');
     outputTitle.innerText = `Recent Scrobbles for ${username} (Loading...)`;
-    output.innerText = '';
+    output.style.opacity = '50%';
+    output.querySelectorAll('input').forEach(x => x.disabled = true);
 
     const data = await getData(`method=user.getRecentTracks&user=${username}&limit=50&page=1`);
     const list = data.recenttracks.track.map(track => {
@@ -412,16 +414,24 @@ async function loadUserScrobbles() {
         };
     });
     outputTitle.innerText = `Recent Scrobbles for ${username} (${list.length})`;
-    output.innerHTML = `
-        <ul>${list.map(item => `
+    const listItems = [];
+    for (const item of list) {
+        const id = `${encodeURIComponent(item.artist)}/${encodeURIComponent(item.album)}/${encodeURIComponent(item.name)}@${item.date?.getTime() ?? ''}`;
+        const dateText = item.date ? fmtDate(item.date) : 'now';
+        listItems.push(`
             <li>
                 <label>
-                    <input type="checkbox" id="${encodeURIComponent(item.artist)}/${encodeURIComponent(item.album)}/${encodeURIComponent(item.name)}@${item.date?.getTime() ?? ''}" />
-                    ${formatLastfmUrl(item.url)} (${item.date ? fmtDate(item.date) : 'now'})
+                    <input type="checkbox" id="${id}" />
+                    ${formatLastfmUrl(item.url)}
+                    (<span class="scrobble-time">${dateText}</span>)
+                    ${savedScrobbles[id + dateText] ? ' ✅' : ''}
                 </label>
             </li>
-        `).join('')}</ul>
-    `;
+        `);
+    }
+    output.innerHTML = `<ul>${listItems.join('')}</ul>`;
+    output.style.opacity = null;
+    output.querySelectorAll('input').forEach(x => x.disabled = false);
 }
 
 async function scrobbleSelected(withAlbum = true) {
@@ -480,7 +490,10 @@ async function scrobbleSelected(withAlbum = true) {
         input.disabled = false;
     }
     for (const input of selectedInputs) {
+        const parentElem = input.parentElement;
+        const timeText = parentElem.querySelector('.scrobble-time').innerText;
         input.checked = false;
+        savedScrobbles[input.id + timeText] = true;
         input.parentElement.appendChild(document.createTextNode(' ✅'));
     }
 }
