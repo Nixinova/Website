@@ -38,14 +38,15 @@ function fmtDate(date) {
     );
 }
 
-function formatLastfmUrl(url) {
+function formatLastfmUrl(url, user) {
     const urlParts = url.replace(/^.+\/music\/(\+noredirect\/)?/, '').split('/');
     const [artist, album, track] = urlParts;
     const decodePart = part => decodeURIComponent(part).replace(/\+/g, ' ');
+    const base = user ? `/user/${user}/library/music` : '/music'
     return (
-        `<b><a href="https://last.fm/music/${artist}">${decodePart(artist)}</a></b>`
-        + (album && album !== '_' ? ` / <a href="https://last.fm/music/${artist}/${album}">${decodePart(album)}</a>` : '')
-        + (track ? ` - <a href="https://last.fm/music/${artist}/_/${track}">${decodePart(track)}</a>` : '')
+        `<b><a href="https://last.fm/${base}/${artist}">${decodePart(artist)}</a></b>`
+        + (album && album !== '_' ? ` / <a href="https://last.fm/${base}/${artist}/${album}">${decodePart(album)}</a>` : '')
+        + (track ? ` - <a href="https://last.fm/${base}/${artist}/_/${track}">${decodePart(track)}</a>` : '')
     );
 }
 
